@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deca1H7Z000001h4YGUAY</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Reservierungsschein senden</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>{!URLFOR(IF($Site.prefix == &apos;/s&apos;,&apos;/apex/dfsle__sending&apos;, $Site.Prefix +&apos;/apex/dfsle__sending&apos;), null, [sId = Verkaufsraum__c.Id, quickSend = false, isEmbedded = false, templateId = &apos;a1H7Z000001h4YGUAY&apos;, recordId = Verkaufsraum__c.Id, title = &apos;Reservierungsschein senden&apos;])}</url>
+</WebLink>

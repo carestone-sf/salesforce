@@ -1,0 +1,81 @@
+<template>
+	<lightning-card title="Filter:">
+		<div class="slds-card__body_inner">
+			<lightning-input type="search"
+									onchange={handleSearchTermChange}
+									variant="label-hidden"
+									class="slds-var-m-bottom_small"
+									label="Suche"
+									placeholder="Suche nach Immobilien"
+									value={searchTerm}>
+								</lightning-input>
+			<lightning-layout>
+				<lightning-layout-item size="12">
+					<lightning-checkbox-group name="objectType" class="slds-var-m-top_small"
+											label="Objektart"
+											options={objectTypeOptions}
+											value={objectTypeValue}
+											onchange={handleObjectTypeChange}>
+					</lightning-checkbox-group>
+					<lightning-checkbox-group name="constructionType" class="slds-var-m-top_small"
+											label="Bauart"
+											options={constructionTypeOptions}
+											value={constructionTypeValue}
+											onchange={handleConstructionTypeChange}>
+					</lightning-checkbox-group>
+					<lightning-radio-group name="kfwEnabled" class="slds-var-m-top_small"
+                          label="KfW"
+                          options={kfwOptions}
+                          value={kfwValue}
+						  onchange={handleKfwEnabledChange}
+                          type="button"></lightning-radio-group>
+					<template if:true={kfwEnabled}>
+						<lightning-checkbox-group name="mabv" class="slds-var-m-top_small"
+												label="Förderung"
+												options={mabvOptions}
+												value={mabvValue}
+												onchange={handleMabvChange}>
+						</lightning-checkbox-group>
+					</template>
+					<!-- Kaufpreis -->
+					<lightning-input class="slds-var-m-top_small" 
+						type="number" 
+						name="purchasePriceMin" 
+						label="Kaufpreis von" 
+						value={minPurchasePrice} 
+						formatter="currency" 
+						step="1" 
+						onchange={handleMinPurchasePriceChange}></lightning-input>
+					<lightning-input type="number" name="purchasePriceMax" label="Kaufpreis bis" value={maxPurchasePrice} formatter="currency" step="1" onchange={handleMaxPurchasePriceChange}></lightning-input>
+					<!-- Rendite -->
+					<div class="slds-var-m-top_small">
+						<lightning-slider
+							label="Rendite" 
+							min={minRendite} 
+							max={maxRendite} 
+							value={renditeValue} 
+							onchange={handleRenditeChange} 
+							step="0.01"></lightning-slider>
+					</div>
+					<!-- 1. Mietzahlung ab -->
+					<lightning-input class="slds-var-m-top_small"
+						type="date" 
+						name="rentStartDate" 
+						label="1. Mietzahlung ab" 
+						value={rentStartDate}
+						onchange={handleRentStartDateChange}></lightning-input>
+					<!-- Bundesland -->
+					<lightning-dual-listbox class="slds-var-m-top_small"
+						name="states"
+						label="Bundesländer"
+						source-label="Verfügbar"
+						selected-label="Ausgewählt"
+						options={statesOptions}
+						disable-reordering
+						value={statesValue}
+						onchange={handleStateChange}></lightning-dual-listbox>
+				</lightning-layout-item>
+			</lightning-layout>
+		</div>
+	</lightning-card>
+</template>

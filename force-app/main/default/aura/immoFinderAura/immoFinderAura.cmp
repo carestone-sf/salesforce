@@ -1,0 +1,28 @@
+<aura:component  implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes" access="global">
+    <c:immoFinder></c:immoFinder>
+    <aura:attribute name="flowStatus" type="string"/>
+
+    <lightning:messageChannel type="immoFinderNewCalculationButtonClicked__c"
+         onMessage="{!c.handleChanged}" aura:id="myMessageChannel"/>
+     
+    <div class="slds-m-around_xx-large">
+        <!--Use aura:if tag to display/hide popup based on isModalOpen value-->  
+             
+            <!-- Modal/Popup Box starts here-->
+            <section role="dialog" aura:id="modalFade" class="slds-modal">
+                
+                <div class="slds-modal__container">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModal }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                    <!--Modal/Popup Box Body Starts here-->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                        <lightning:flow aura:id="myFlow" onstatuschange="{!c.statusChange}"/>
+                    </div>
+                </div>
+            </section>
+            <div aura:id="modalBackdrop" class="slds-backdrop"></div>
+    </div>
+</aura:component>

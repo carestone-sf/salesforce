@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>In_Vorschau__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Wenn die Immobilie im Maklerportal nicht komplett angezeigt werden soll, sondern nur einige Elemente gezeigt werden, ist dieser Wert auf &quot;Wahr&quot;.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Wenn die Immobilie im Maklerportal nicht komplett angezeigt werden soll, sondern nur einige Elemente gezeigt werden, ist dieser Wert auf &quot;Wahr&quot;.</inlineHelpText>
+    <label>In Vorschau</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

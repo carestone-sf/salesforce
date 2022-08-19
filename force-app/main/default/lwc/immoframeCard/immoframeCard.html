@@ -1,0 +1,86 @@
+<template>
+    <lightning-card  title="Hier können Sie Ihren ImmoFrame verwalten">
+        <fieldset class="myFieldset">
+            <legend class="myLegend">Ihre URL</legend>
+            <div class="slds-p-left_small">
+                <input type="text" class="slds-input" placeholder="www.carestone.com" name="Url__c" id="Url__c" value={URL}/> 
+            </div>         
+        </fieldset>      
+ 
+        <fieldset class="myFieldset">
+            <legend class="myLegend">Immobilienkategorien</legend>
+
+            <lightning-layout horizontal-align="stretch">
+                <template for:each={Immobilienkategorien} for:item="kategorie">
+                    <lightning-layout-item flexibility="auto" padding="around-small" key={kategorie.id}>
+                        <lightning-input type="checkbox" name={kategorie.name} id={kategorie.id} value={kategorie.value}
+                            label={kategorie.label} onchange={handleImmobilienKategorienChange} checked={kategorie.initiallyChecked}>
+                        </lightning-input>
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+        </fieldset>
+    
+        <fieldset class="myFieldset">
+            <legend class="myLegend">Wählen Sie einen Look für Ihren ImmoFrame</legend>
+
+            <div class="slds-grid slds-gutters">
+                <template for:each={Themes} for:item="theme">
+                    <div class="slds-col checkbox" key={theme.label}>
+                        <lightning-layout-item>
+                            <img src={theme.imgSrc} class="themeImage"/>
+                            <lightning-input type="checkbox" checked={theme.initiallyChecked}
+                                    label={theme.label} value={theme.value} onchange={handleThemeChange} style="text-align: center;">
+                            </lightning-input>
+                        </lightning-layout-item>
+                    </div>
+                </template>
+            </div>
+        </fieldset>
+
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_4-of-12">
+            <fieldset class="myFieldset">
+                <legend class="myLegend">Farbe</legend>
+                    <lightning-layout style="display: inline-flex">
+                        <lightning-layout-item padding="around-small" flexibility="auto">    
+                            <lightning-input type="color" name="17" label="17" value={CustomColor}
+                                id="custom_color" onchange={handleColorChange} variant="label-hidden">
+                            </lightning-input>   
+                        </lightning-layout-item> 
+                    </lightning-layout>
+            </fieldset>
+        </div>
+
+        <div class="slds-col slds-size_8-of-12">
+            <fieldset class="myFieldset">
+                <legend class="myLegend">Optionen</legend>
+                <p class="slds-p-left_small">Entscheiden Sie selbst, welche Downloads Sie anbieten möchten</p>
+                <lightning-layout horizontal-align="stretch">
+                    <template for:each={Optionen} for:item="option">
+                        <lightning-layout-item flexibility="auto" padding="around-small" key={option.id}>
+                            <lightning-input type="checkbox" name={option.name} id={option.id} value={option.value}
+                                label={option.label} onchange={handleOptionnenChange} checked={option.initiallyChecked}>
+                            </lightning-input>
+                        </lightning-layout-item>
+                    </template>
+                </lightning-layout>
+            </fieldset>
+        </div>
+    </div>
+
+
+        <fieldset class="myFieldset">
+            <legend class="myLegend">JS-Code</legend>
+            <lightning-textarea name="jsCode" 
+                label="Kopieren Sie Ihren individuellen Code und fügen Sie ihn ganz einfach auf Ihrer Webseite ein" 
+                placeholder="Genetieren Sie den Code, damit er hier angezeigt wird"
+                value={JSCode}
+                class="slds-p-left_small">
+            </lightning-textarea>
+        </fieldset> 
+
+        <lightning-button variant="brand" label="Speichern" title="Primary action" onclick={handleSaveClick} class="slds-m-left_x-small"></lightning-button>
+
+    </lightning-card>
+</template>

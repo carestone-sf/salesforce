@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Veroeffentlichung_MaBV_Objekt</fullName>
+    <active>true</active>
+    <errorConditionFormula>Is_Public__c &amp;&amp;
+MaBVRechnungenUeberSalesforce__c  &amp;&amp;
+(
+IsBlank( Unternehmen__c ) ||
+IsBlank( Objektnummer__c ) ||
+IsBlank( Bank__c ) ||
+IsBlank( IBAN__c ) ||
+IsBlank( BIC__c ) ||
+IsBlank( ParagraphKaufpreisfaelligkeit__c ) ||
+IsBlank( ZahlungszielinTagen__c )
+)</errorConditionFormula>
+    <errorMessage>Bitte fülle alle Punkte unter &quot;MaBV Abrechnung&quot; aus</errorMessage>
+</ValidationRule>

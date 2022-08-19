@@ -1,0 +1,7 @@
+.accordion {
+    --sds-c-accordion-summary-color-background: lightgrey;
+}
+
+.accordion .slds-accordion__summary {
+    border-radius: 5px;
+}

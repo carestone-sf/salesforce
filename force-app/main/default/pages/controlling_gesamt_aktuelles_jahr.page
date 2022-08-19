@@ -1,0 +1,77 @@
+<apex:page showHeader="false" applyHtmlTag="false" renderAs="PDF">
+    <head>
+        <style>
+
+            body, html {
+                margin: 0;
+                padding: 0;
+            }
+            div {
+                width: 100%;
+            }
+            
+            
+            div img {
+                width: 33% !important;
+                height: auto;
+                margin-right: 0.3%;
+                display: inline-block;
+            }
+            
+            .big img {
+                width: 49.7% !important;  
+                margin-right: 0.3%;
+            }
+
+            div img:last-child {
+                margin-right: 0 !important;
+            }
+            
+            .big img:last-child {
+                margin-right: 0 !important;
+            }
+            
+        </style>
+    </head>
+    <h1>Dashboard | Controlling gesamtes Jahr</h1>
+    <!-- Start Row 1 -->
+    <div>
+        <img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000002DHKV&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=8&fs=12&tfg=12&tfs=-16777216&explode=0&c=bar&cs=0&title=Entwicklung+2020%2F2021&eh=no&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Notartermin&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O67000006jIsi%3Fdbw%3D1&sd=1&scv=yes&sct=no&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Datensatzzahl&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&rco=DASHBOARD_VIEW&rid=00O67000006jIsi&refreshts=1631830155000"/><img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000003NpA5&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=column&cs=0&title=aktuelles+Jahr+Status+heute&eh=no&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Status&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O67000006DwrI%3Fdbw%3D1&sd=1&scv=yes&sct=no&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Datensatzzahl&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&rco=DASHBOARD_VIEW&rid=00O67000006DwrI&refreshts=1631830148000"/><img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000003NpAo&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=column&cs=0&title=NT+stattgefunden+akt.+Jahr&eh=no&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Status&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O67000006DwrX%3Fdbw%3D1&sd=1&scv=yes&sct=no&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Datensatzzahl&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&rco=DASHBOARD_VIEW&rid=00O67000006DwrX&refreshts=1631830155000"/>
+    </div>
+    <!-- End Row 1 -->
+    <!-- Start Row 2 -->
+    <div>
+        <img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000002DHKS&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=8&fs=12&tfg=12&tfs=-16777216&explode=0&c=bar&cs=0&title=verkauft+%2F+Notar&eh=no&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Immobilie&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O0X000006KcMM%3Fdbw%3D1&sd=1&scv=yes&sct=no&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Datensatzzahl&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&rco=DASHBOARD_VIEW&rid=00O0X000006KcMM&refreshts=1631830155000"/><img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000002DHKi&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=column&cs=0&title=Status+verkauft+pro+Monat&eh=no&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Notartermin&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00Ob0000004ew8y%3Fdbw%3D1&sd=1&scv=yes&sct=no&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Datensatzzahl&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&rco=DASHBOARD_VIEW&rid=00Ob0000004ew8y&refreshts=1631830155000"/><img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000002DHKd&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=column&cs=0&title=Notartermine+IST+und+Forecast&eh=no&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Notartermin&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00Ob0000004eSdm%3Fdbw%3D1&sd=1&scv=yes&sct=no&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Datensatzzahl&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&rco=DASHBOARD_VIEW&rid=00Ob0000004eSdm&refreshts=1631830155000"/>
+    </div>
+    <!-- End Row 2 -->
+    <!-- Start Row 3 -->
+    <div>
+       <img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000002DHKe&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=8&fs=12&tfg=12&tfs=-16777216&explode=0&c=bar&cs=0&title=Objekte+verf%C3%BCgbar&eh=no&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Immobilie%3A+Immobilien+Name&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00Ob0000004etDR%3Fdbw%3D1&sd=1&scv=yes&sct=no&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Datensatzzahl&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&rco=DASHBOARD_VIEW&rid=00Ob0000004etDR&refreshts=1631830141000"/><img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000002DHKh&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=column&cs=0&title=vorhandene+AZB+ohne+NT&eh=no&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Phase&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00Ob0000004ew7v%3Fdbw%3D1&sd=1&scv=yes&sct=no&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Datensatzzahl&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&rco=DASHBOARD_VIEW&rid=00Ob0000004ew7v&refreshts=1631830148000"/><img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000002DHKT&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=column&cs=0&title=IST+%2B+gesicherter+Forecast&eh=no&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Notartermin&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O67000006jIsY%3Fdbw%3D1&sd=1&scv=yes&sct=no&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Datensatzzahl&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&rco=DASHBOARD_VIEW&rid=00O67000006jIsY&refreshts=1631830155000"/>
+    </div>
+    <!-- End Row 3 -->
+    <!-- Start Row 4 -->
+    <div>
+        <img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000002DHKR&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=8&fs=12&tfg=12&tfs=-16777216&explode=0&c=bar&cs=0&title=Volumen+verf%C3%BCgbar&eh=no&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Immobilie%3A+Immobilien+Name&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O0X000004GSLx%3Fdbw%3D1&sd=1&scv=yes&sct=no&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=4&vt2=2&vl0=Summe+von+Kaufpreis&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&rco=DASHBOARD_VIEW&rid=00O0X000004GSLx&refreshts=1631830141000"/><img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000002DHKf&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=8&fs=12&tfg=12&tfs=-16777216&explode=0&c=bar&cs=0&title=reserviert+und+angefragt&eh=no&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Immobilie&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00Ob0000004etDq%3Fdbw%3D1&sd=1&scv=yes&sct=no&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Datensatzzahl&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&rco=DASHBOARD_VIEW&rid=00Ob0000004etDq&refreshts=1631830148000"/><img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000002DHKQ&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=8&fs=12&tfg=12&tfs=-16777216&explode=0&c=bar&cs=0&title=Volumen+reserviert+und+angefragt&eh=no&compo=yes&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Immobilie%3A+Immobilien+Name&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O0X00000494Ix%3Fdbw%3D1&sd=1&scv=yes&sct=no&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=2&vl0=Summe+von+Kaufpreis&spoc=no&topn=no&gc0=-1&gc1=-1&gc2=-1&sona=0&rco=DASHBOARD_VIEW&rid=00O0X00000494Ix&refreshts=1631830144000"/>
+    </div>
+    <!-- End Row 4 -->
+    <!-- Start Row 5 -->
+    <div class="big">
+        <img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000002DHKY&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=gauge&cs=0&title=Verk%C3%A4ufe+letzter+Monat&eh=no&compo=no&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Notartermin&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00Ob0000003hc3M%3Fdbw%3D1&sd=1&scv=no&sct=yes&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Datensatzzahl&spoc=no&topn=no&gm=0.0&gc0=-4041644&gm0=100.0&gc1=-4013484&gm1=125.0&gc2=-11222444&gm2=150.0&sona=0&rco=DASHBOARD_VIEW&rid=00Ob0000003hc3M&refreshts=1631830155000"/><img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000002DHKW&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=gauge&cs=0&title=Verk%C3%A4ufe+aktueller+Monat&eh=no&compo=no&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Notartermin&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00Ob0000003hbuj%3Fdbw%3D1&sd=1&scv=no&sct=yes&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Datensatzzahl&spoc=no&topn=no&gm=0.0&gc0=-4041644&gm0=100.0&gc1=-4013484&gm1=125.0&gc2=-11222444&gm2=150.0&sona=0&rco=DASHBOARD_VIEW&rid=00Ob0000003hbuj&refreshts=1631830155000"/>
+    </div>
+    <!-- End Row 5 -->
+    <!-- Start Row 6 -->
+    <div class="big">
+        <img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000002DHKZ&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=gauge&cs=0&title=Volumen+letzter+Monat&eh=no&compo=no&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Notartermin&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00Ob0000003hc3M%3Fdbw%3D1&sd=1&scv=no&sct=yes&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Kaufpreis+Summe&spoc=no&topn=no&gm=0.0&gc0=-4041644&gm0=1.0E7&gc1=-4013484&gm1=1.5E7&gc2=-11222444&gm2=2.5E7&sona=0&rco=DASHBOARD_VIEW&rid=00Ob0000003hc3M&refreshts=1631830155000"/><img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000002DHKX&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=gauge&cs=0&title=Volumen+aktueller+Monat&eh=no&compo=no&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Notartermin&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00Ob0000003hbuj%3Fdbw%3D1&sd=1&scv=no&sct=yes&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Summe+Kaufpreis&spoc=no&topn=no&gm=0.0&gc0=-4041644&gm0=1.0E7&gc1=-4013484&gm1=1.5E7&gc2=-11222444&gm2=2.5E7&sona=0&rco=DASHBOARD_VIEW&rid=00Ob0000003hbuj&refreshts=1631830155000"/>
+    </div>
+    <!-- End Row 6 -->
+    <!-- Start Row 7 -->
+    <div class="big">
+        <img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000003NpIi&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=gauge&cs=0&title=Verk%C3%A4ufe+letztes+Jahr&eh=no&compo=no&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Notartermin&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O67000006Dwuq%3Fdbw%3D1&sd=1&scv=no&sct=yes&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=1&vt2=0&vl0=Datensatzzahl&spoc=no&topn=no&gm=0.0&gc0=-4041644&gm0=1000.0&gc1=-4013484&gm1=1500.0&gc2=-11222444&gm2=2000.0&sona=0&rco=DASHBOARD_VIEW&rid=00O67000006Dwuq&refreshts=1631830155000"/><img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000002DHKb&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=gauge&cs=0&title=Verk%C3%A4ufe+aktuelles+Jahr&eh=no&compo=no&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Notartermin&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00Ob0000004A2r1%3Fdbw%3D1&sd=1&scv=no&sct=yes&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=1&vt2=0&vl0=Datensatzzahl&spoc=no&topn=no&gm=0.0&gc0=-4041644&gm0=1000.0&gc1=-4013484&gm1=1500.0&gc2=-11222444&gm2=2000.0&sona=0&rco=DASHBOARD_VIEW&rid=00Ob0000004A2r1&refreshts=1631830155000"/>
+    </div>
+    <!-- End Row 7 -->
+    <!-- Start Row 8 -->
+    <div class="big">
+        <img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000003NpIj&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=gauge&cs=0&title=Volumen+letztes+Jahr&eh=no&compo=no&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Notartermin&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00O67000006Dwuq%3Fdbw%3D1&sd=1&scv=no&sct=yes&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=0&vt2=0&vl0=Summe+Kaufpreis&spoc=no&topn=no&gm=0.0&gc0=-4041644&gm0=1.5E8&gc1=-4013484&gm1=2.0E8&gc2=-11222444&gm2=2.5E8&sona=0&rco=DASHBOARD_VIEW&rid=00O67000006Dwuq&refreshts=1631830155000"/><img src="https://wirtschaftshaus.my.salesforce.com/servlet/servlet.ChartServer?rsid=0FL67000002DHKc&ruid=005b0000001Rz1K&did=01Z67000000p0Yt&s=7&fs=10&tfg=12&tfs=-16777216&explode=0&c=gauge&cs=0&title=Volumen+aktuelles+Jahr&eh=no&compo=no&fg=-16777216&bg1=-1&bg2=-1&bgdir=2&dl1=Notartermin&dl2=&l=2&sax=yes&Yman=no&nc=0&actUrl=%2F00Ob0000004A2r1%3Fdbw%3D1&sd=1&scv=no&sct=yes&spt=no&bd=yes&cu=EUR&ab=X&u=0&vt=0&ab2=Y&u2=4&vt2=0&vl0=Summe+Kaufpreis&spoc=no&topn=no&gm=0.0&gc0=-4041644&gm0=1.5E8&gc1=-4013484&gm1=2.0E8&gc2=-11222444&gm2=2.5E8&sona=0&rco=DASHBOARD_VIEW&rid=00Ob0000004A2r1&refreshts=1631830155000"/>
+    </div>
+    <!-- End Row 8 -->
+</apex:page>

@@ -1,0 +1,9 @@
+<template>
+    <template if:true={hasAnkuendigung}>
+        <lightning-card title={ankuendigung.data.Name}>
+            <div class="slds-p-horizontal_small">
+                <lightning-formatted-rich-text value={ankuendigung.data.Inhalt__c}></lightning-formatted-rich-text>
+            </div>
+        </lightning-card>
+    </template>
+</template>

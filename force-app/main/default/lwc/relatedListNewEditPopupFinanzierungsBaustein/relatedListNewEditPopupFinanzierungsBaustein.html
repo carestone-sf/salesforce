@@ -1,0 +1,62 @@
+<template>
+    <template if:true={showModal}>
+        <c-modal onclosedialog={handleDialogClose}>
+            <span slot="header">Finanzierungsbaustein erstellen</span>
+            <slot>
+                <p class="slds-text-heading_small slds-var-m-bottom_medium ">Max. Fremdmittel: <lightning-formatted-number value={openAmount} format-style="currency" currency-code="EUR"></lightning-formatted-number> </p>
+                <lightning-record-edit-form class="finanzierungsbaustein" onsuccess={handleSuccess} object-api-name="Finanzierungsbaustein__c" record-id={recordId} style="width: 100%;">
+                    <lightning-messages>
+                    </lightning-messages>
+                    <lightning-input-field style="display:none" field-name="Berechnung__c" value={parentId}></lightning-input-field>
+                    <lightning-input-field field-name="Name" required="true" onchange={handleValueChange}>
+                    </lightning-input-field>
+                    <lightning-input-field field-name="Art__c" required="true" data-name="Art__c" onchange={handleTypeChange}>
+                    </lightning-input-field>
+                    <lightning-input-field field-name="Kreditsumme__c" required="true" data-name="Kreditsumme__c" onchange={handleKreditsummeChange}>
+                    </lightning-input-field>
+                    <template if:false={isEigenkapital}>
+                        <lightning-input-field field-name="ZinsInPercent__c" required="true" data-name="ZinsInPercent__c" onchange={handleZinsInPercentChannge}>
+                        </lightning-input-field>
+                        <lightning-input-field field-name="ZinsbindungBis__c" data-name="ZinsbindungBis__c" onchange={handleValueChange}>
+                        </lightning-input-field>
+                        <lightning-input-field field-name="TilgungInPercent__c" required="true" data-name="TilgungInPercent__c" onchange={handleValueChange}>
+                        </lightning-input-field>
+                        <lightning-input-field field-name="Tilgungsbeginn__c" data-name="Tilgungsbeginn__c" onchange={handleValueChange}>
+                        </lightning-input-field>
+                        <lightning-input-field field-name="FesteLaufzeit__c" data-name="FesteLaufzeit__c" onchange={handleFesteLaufzeitChange}>
+                        </lightning-input-field>
+                        <lightning-input-field field-name="LaufzeitInJahren__c" data-name="LaufzeitInJahren__c" disabled="disabled" onchange={handleLaufzeitInJahrenChange}>
+                        </lightning-input-field>
+                    </template>
+                </lightning-record-edit-form>
+
+                <template if:false={isEigenkapital}>
+                    <lightning-checkbox-group 
+                        options={showSondertilgungOptions}
+                        value={showSondertilgungValue}
+                        onchange={handleSondertilgungChange}></lightning-checkbox-group>
+                </template>
+
+                <template if:true={showSondertilgung}>
+                    <lightning-record-edit-form class="sondertilgung slds-m-top_medium" onsuccess={handleSonderTilgungSuccess} object-api-name="Sondertilgung__c" record-id={sondertilgungId} style="width: 100%;">
+                        <lightning-messages>
+                        </lightning-messages>
+                        <lightning-input-field style="display:none" field-name="Finanzierungsbaustein__c" data-name="Finanzierungsbaustein__c" value={recordId}></lightning-input-field>
+                        <lightning-input-field field-name="Name" required="true" onchange={handleValueChange}>
+                        </lightning-input-field>
+                        <lightning-input-field field-name="Betrag__c" required="true" data-name="Betrag__c" onchange={handleSondertilgungValueChange}>
+                        </lightning-input-field>
+                        <lightning-input-field field-name="Prozent__c" required="true" data-name="Prozent__c" onchange={handleSondertilungPercentChange}>
+                        </lightning-input-field>
+                        <lightning-input-field field-name="JahrDerAuszahlung__c" required="true" data-name="JahrDerAuszahlung__c" onchange={handleKreditsummeChange}>
+                        </lightning-input-field>
+                    </lightning-record-edit-form>
+                </template>
+            </slot>
+            <span slot="footer">
+                <lightning-button variant="neutral" label="Abbrechen" title="Abbrechen" onclick={handleClose} ></lightning-button>
+                <lightning-button variant="brand" label="Speichern" title="Speichern" onclick={handleSave} class="slds-m-left_x-small"></lightning-button>
+            </span>
+        </c-modal>
+    </template>
+</template>

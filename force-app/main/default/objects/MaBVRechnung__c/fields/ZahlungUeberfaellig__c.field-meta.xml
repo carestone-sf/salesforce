@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ZahlungUeberfaellig__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Today() &gt;= (Rechnungsdatum__c + ZahlungszielInTagen__c + 5) &amp;&amp;  OffenerBetragNeu__c &gt;= 100 &amp;&amp; !IsBlank(OffenerBetragNeu__c) &amp;&amp; RechnungWurdeGeneriert__c, true, false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Zahlung überfällig</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<template>
+    <c-related-list 
+        sobject-api-name="Finanzierungsbaustein__c" 
+        related-field-api-name="Berechnung__c" 
+        record-id={recordId} 
+        parent-id={recordId}
+        sorted-by="CreatedDate"
+        sort-direction="DESC"
+        fields="Name, CreatedDate, Art__c, Kreditsumme__c"
+        columns={berechnungsApartmentColumns}
+        ></c-related-list>
+</template>

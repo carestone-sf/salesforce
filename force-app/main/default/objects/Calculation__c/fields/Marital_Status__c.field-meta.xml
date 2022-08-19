@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marital_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Marital Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Single</fullName>
+                <default>true</default>
+                <label>Single</label>
+            </value>
+            <value>
+                <fullName>Marreid</fullName>
+                <default>false</default>
+                <label>Marreid</label>
+            </value>
+            <value>
+                <fullName>Alleinstehend</fullName>
+                <default>false</default>
+                <label>Alleinstehend</label>
+            </value>
+            <value>
+                <fullName>Verheiratet</fullName>
+                <default>false</default>
+                <label>Verheiratet</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

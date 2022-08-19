@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SicherheitPlusInPercentage__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>In der Regel wird dieses Feld nur in der letzten MaBV Rate ausgefüllt und deckt sich mit dem Sicherheitseinbehalt der 1. Rate</inlineHelpText>
+    <label>Sicherheit (plus) in %</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

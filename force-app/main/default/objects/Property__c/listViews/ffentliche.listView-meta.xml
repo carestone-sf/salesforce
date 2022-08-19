@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ffentliche</fullName>
+    <columns>NAME</columns>
+    <columns>Rendite_in__c</columns>
+    <columns>Real_Estate_Transfer_Tax__c</columns>
+    <columns>MaBV__c</columns>
+    <columns>Notar__c</columns>
+    <columns>Anzahl_Einheiten__c</columns>
+    <columns>Verkaufte_Appartements__c</columns>
+    <columns>Reservierte_Appartements__c</columns>
+    <columns>Freie_Appartments__c</columns>
+    <columns>Is_Public__c</columns>
+    <columns>Foerderung__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Is_Public__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Öffentliche</label>
+</ListView>

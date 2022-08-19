@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Provisionscontrolling</fullName>
+    <columns>NAME</columns>
+    <columns>Provision_WH__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Is_Public__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Provisionscontrolling</label>
+    <language>de</language>
+    <sharedTo>
+        <role>Buchhaltung_Controlling</role>
+    </sharedTo>
+</ListView>

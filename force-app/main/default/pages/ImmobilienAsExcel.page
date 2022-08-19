@@ -1,0 +1,186 @@
+<apex:page controller="ImmobilienAsExcelController" showHeader="false" applyHtmlTag="false" renderAs="pdf">
+  <!-- Begin Default Content REMOVE THIS -->
+  <head>
+  <style>
+  @page {
+/* Landscape orientation */
+
+
+/* Put page numbers in the top right corner of each
+page in the pdf document. */
+@bottom-right {
+content: "Seite " counter(page) " von " counter(pages);
+}
+}
+  
+  body {
+  font-family: 'sans-serif';
+  color: #1f1f1f;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+      display:block;
+  }
+ 
+ h2, h3 {
+ color:#004B41;
+ }
+  
+  h1 {
+      font-size: 32px;
+      /*color: #ae2515;*/
+      color: #1f1f1f;
+      margin-top: 0;
+      margin-bottom:10px;
+      font-weight: lighter;
+  }
+  h4 {
+      font-size: 14px;
+      margin-top: 0;
+      margin-bottom: 30px;
+  }
+  h3 {
+  font-weight: lighter;
+  }
+  
+  h2 {
+      font-size: 24px;
+  }
+  
+      table {
+width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85em;
+}
+
+
+table, th, td {
+    border: 1px solid black;
+}
+
+td {
+    padding: 5px 5px;
+}
+
+th {
+    padding: 5px;
+}
+
+h2 {
+    margin-top: 45px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.object-info, .object-highlights {
+width: 49%;
+display: inline-block;
+vertical-align: top;
+}
+
+.object-highlights .content {
+background-color: #004B41;
+color: white;
+}
+
+.object-highlights .content .inner {
+padding: 20px 0;
+}
+
+.object-info table {
+border:none;
+border-collapse:collapse;
+font-size: 12px;
+}
+
+.object-info table td, .object-info table tr {
+border: none
+}
+
+.object-info {
+margin-right: 1%;
+}
+
+.apartments {
+margin-top: 30px;
+}
+  </style>
+  </head>
+  <div style="width: 100%; text-align: center; margin-bottom: 20px">
+      <apex:image url="{!$Resource.Carestone_Logo}" width="200px" height="auto"></apex:image>
+  </div>
+  <h1>Die Carestone Objekte in der Übersicht</h1>
+  <h4>Stand: {!timeNow}</h4>
+  
+
+
+  
+  <apex:repeat var="property" value="{!properties}">
+ 
+  <h2>{!property.name}</h2>
+  
+  <div class="object-info">
+  <h3>Objekt</h3>
+  
+  <table cellspacing="0" cellpadding="0">
+      <tr style="background-color: #d7d7d7;"><td style="font-weight:bold;">Lage: </td><td align="right">{!property.Street__c} &#183; {!property.Zip_Code__c} {!property.Place__c}</td></tr>
+      <tr style="background-color: #e7e7e7;"><td style="font-weight:bold;">Anzahl der Wohneinheiten: </td><td align="right">{!property.Anzahl_Einheiten__c} Wohnungen</td></tr>
+      <tr style="background-color: #d7d7d7;"><td style="font-weight:bold;">Wohnungsgrößen: </td><td align="right"><apex:outputText value="{0, number,###,###,##0.00}"><apex:param value="{!property.Fl_che_ab__c}" /></apex:outputText> m&sup2; -&nbsp;<apex:outputText value="{0, number,###,###,##0.00}"><apex:param value="{!property.Fl_che_bis__c}" /></apex:outputText> m&sup2; <br/>(inkl. Gemeinschaftsfläche)</td></tr>
+      <tr style="background-color: #e7e7e7;"><td style="font-weight:bold;">Kaufpreis: </td><td align="right"><apex:outputText value="{0, number,###,###,##0 €}"><apex:param value="{!property.Preis_ab__c}" /></apex:outputText> -&nbsp;<apex:outputText value="{0, number,###,###,##0 €}"><apex:param value="{!property.Preis_bis__c}" /></apex:outputText><br/> pro Wohneinheit</td></tr>
+      <tr style="background-color: #d7d7d7;"><td style="font-weight:bold;">Mietrendite: </td><td align="right">Anfängliche Mietrendite von ca. <br/>{!property.Rendite_in__c} % p.a. bezogen a. d. KP</td></tr>
+      <tr style="background-color: #e7e7e7;"><td style="font-weight:bold;">Erwerbsnebenkosten: </td><td align="right">{!property.Real_Estate_Transfer_Tax__c} % Grunderwerbssteuern<br/>ca 2.50 % Notar- und Gerichtskosten</td></tr>
+      <tr style="background-color: #d7d7d7;"><td style="font-weight:bold;">Betreiber: </td><td align="right">{!property.Betreiber__r.Name} <br/>{!property.Betreiber__r.Stra_e__c} &#183; {!property.Betreiber__r.PLZ__c} {!property.Betreiber__r.Stadt__c}</td></tr>
+  </table>
+  
+  </div>
+  <div class="object-highlights">
+  <h3>Verkaufshighlights</h3>
+  <div class="content">
+      <div class="inner">
+         <ul>
+             <li>{!property.Teaser_Highlight_1__c}</li>
+             <li>{!property.Teaser_Highlight_2__c}</li>
+             <li>{!property.Teaser_Highlight_3__c}</li>
+             <li>{!property.Teaser_Highlight_4__c}</li>
+             <li>{!property.Teaser_Highlight_5__c}</li>
+             <li>{!property.Teaser_Highlight_6__c}</li>
+             <li>{!property.Teaser_Highlight_7__c}</li>
+             <li>{!property.Teaser_Highlight_8__c}</li>
+             <li>{!property.Teaser_Highlight_9__c}</li>
+         </ul>
+     </div>    
+    
+  </div>
+  </div>
+  <div class="apartments">
+  <table>
+  <tr>
+      <th>Immobilie</th>
+      <th>Objektart</th>
+      <th>Apartment</th>
+      <th>Größe m²</th>
+      <!--<th>Zimmerart</th>-->
+      <th>Miete / m²</th>
+      <th>Miete / Monat</th>
+      <th>Kaufpreis</th>
+      <th>Verfügung</th>
+  </tr>
+      <apex:repeat var="app" value="{!property.Appartments__r}">
+          <tr>
+              <td>{!property.Name}</td>
+              <td>{!property.Property__c}</td>
+              <td>{!app.Name}</td>
+              <td><apex:outputText value="{0, number,###,###,##0.00}"><apex:param value="{!app.Area_sq_m__c}" /></apex:outputText></td>
+              <!--<td>{!app.Zimmerart__c}</td>-->
+              <td><apex:outputText value="{0, number,###,###,##0.00 €}"><apex:param value="{!app.Monthly_rent_sq_m__c}" /></apex:outputText></td>
+              <td><apex:outputText value="{0, number,###,###,##0.00 €}"><apex:param value="{!app.Monthly_Rent__c}" /></apex:outputText></td>
+              <td><apex:outputText value="{0, number,###,###,##0 €}"><apex:param value="{!app.Purchase_Price__c}" /></apex:outputText></td>
+              <td>{!IF(app.Status__c = 'Available', 'Verfügbar', 'Reserviert')}</td>
+          </tr>
+      </apex:repeat>
+  </table>
+  </div>
+  </apex:repeat>
+  
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

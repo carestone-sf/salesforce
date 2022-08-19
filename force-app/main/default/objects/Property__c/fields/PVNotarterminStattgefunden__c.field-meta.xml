@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PVNotarterminStattgefunden__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Ist dieses Feld angehakt, werden die externen Provisionen für die Verkaufschance erst dann generiert, wenn der Notartermin stattgefunden hat</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Ist dieses Feld angehakt, werden die externen Provisionen für die Verkaufschance erst dann generiert, wenn der Notartermin stattgefunden hat</inlineHelpText>
+    <label>PV - Notartermin stattgefunden</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

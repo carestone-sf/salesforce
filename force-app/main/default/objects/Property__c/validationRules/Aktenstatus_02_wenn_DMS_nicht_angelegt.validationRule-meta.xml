@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Aktenstatus_02_wenn_DMS_nicht_angelegt</fullName>
+    <active>false</active>
+    <errorConditionFormula>!DmsOrdnerErstellt__c &amp;&amp;
+TEXT(AktenstatusDms__c) != &apos;Entwicklung (Akquise)&apos;</errorConditionFormula>
+    <errorDisplayField>AktenstatusDms__c</errorDisplayField>
+    <errorMessage>Der Aktenstatus muss in &quot;Entwicklung (Akquise)&quot; bleiben, bis der DMS Ordner erstellt ist.</errorMessage>
+</ValidationRule>

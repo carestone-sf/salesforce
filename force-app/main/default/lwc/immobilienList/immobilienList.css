@@ -1,0 +1,10 @@
+.immo-list{
+    border: #ffffff 1px solid;
+    background-color: rgb(255, 255, 255);
+    border-radius: .25em;
+    display: block;
+}
+
+.spinner-padding {
+    padding-top: 15%;
+  }

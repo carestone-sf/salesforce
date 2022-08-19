@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PV</fullName>
+    <columns>NAME</columns>
+    <columns>Bezahlung_nach_MaBV__c</columns>
+    <columns>PVBeratungsprotokoll__c</columns>
+    <columns>PVFbEkUrkundeMitFinanzierung__c</columns>
+    <columns>Provision_nach_Kaufpreiszahlung__c</columns>
+    <columns>PVNotarterminStattgefunden__c</columns>
+    <columns>PVOriginalKV__c</columns>
+    <columns>PVRisikobelehrung__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Is_Public__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Status_Reason__c</field>
+        <operation>equals</operation>
+        <value>Aktiv</value>
+    </filters>
+    <label>PV</label>
+</ListView>

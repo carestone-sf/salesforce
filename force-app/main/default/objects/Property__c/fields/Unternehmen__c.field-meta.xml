@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unternehmen__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Unternehmen</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Account.Gesch_ftsbeziehung__c</field>
+            <operation>equals</operation>
+            <value>Bauträger</value>
+        </filterItems>
+        <infoMessage>Für das Unternehmen sind nur Accounts mit der Geschäftsbeziehung &quot;Bauträger&quot; auswählbar</infoMessage>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Immobilien (Unternehmen)</relationshipLabel>
+    <relationshipName>Immobilien</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

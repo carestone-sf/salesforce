@@ -1,0 +1,186 @@
+<template>
+	<lightning-card style="display: none" data-id="2" class="immobilien-list-card slds-p-left_xx-small">
+		<div class="slds-grid slds-grid_vertical">
+			<div class="slds-grid slds-wrap slds-gutters_xx-small">
+				<div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 slds-box slds-box_x-small"
+					style="border:none; padding-left:10px;">
+					<c-picture-carousel onclick={openPictureModal} immobilie={immobilie}></c-picture-carousel>
+				</div>
+				<div class="slds-col slds-size_11-of-12 slds-medium-size_8-of-12">		
+					<p style="font-size:24px"><b>{privateImmobilie.immobilie.Name}</b></p>
+					<p><b>{privateImmobilie.immobilie.Place__c}({privateImmobilie.immobilie.Zip_Code__c}),&nbsp;{privateImmobilie.immobilie.State__c},&nbsp;{privateImmobilie.immobilie.Street__c}</b>
+					</p>
+					<div class="slds-grid slds-wrap slds-gutters_x-small"
+						style="padding-top: 35px; padding-bottom: 49px;">
+						<div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12">
+							<p><b><i>{privateImmobilie.immobilie.Anzahl_Einheiten__c}</i></b><br></p>
+							<p style="font-size: 11px;">Apartments</p>
+						</div>
+							<template if:true={compareVar}>
+								<div class=" slds-col slds-size_1-of-1 slds-medium-size_2-of-12">
+									<p><b><i>{completedDate}</i></b><br></p>
+									<p style="font-size: 11px;">Fertigstellung</p>
+								</div>
+							</template>
+						<div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+							<p><b><i><lightning-formatted-number value={privateImmobilie.immobilie.Fl_che_ab__c} maximum-fraction-digits="2"></lightning-formatted-number>m² - <lightning-formatted-number value={privateImmobilie.immobilie.Fl_che_bis__c} maximum-fraction-digits="2"></lightning-formatted-number>m²</i></b><br></p>
+							<p style="font-size: 11px;">Gesamtfläche pro Apartment</p>
+						</div>
+						<div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12">
+							<p><b><i>
+								<lightning-formatted-number value={privateImmobilie.immobilie.Preis_ab__c} format-style="currency" currency-code="EUR"></lightning-formatted-number> - <lightning-formatted-number value={privateImmobilie.immobilie.Preis_bis__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+							</i></b><br></p>
+							<p style="font-size: 11px;">Kaufpreis pro Apartment</p>
+						</div>
+					</div>
+					<c-progress-bar immobilie={privateImmobilie.immobilie}></c-progress-bar>
+				</div>
+				<div style="position:absolute; top:10px; right:15px;">
+					<lightning-button variant="base" label="-" onclick={collapseCard}>
+					</lightning-button>
+				</div>
+			</div>
+			<div class="slds-col slds-size_2-of-2">
+				<lightning-tabset>
+					<lightning-tab label="Apartments">
+						<lightning-datatable 
+						key-field="id" 
+						data={transferedApartments} 
+						columns={columns} 
+						hide-checkbox-column
+						onsort={updateColumnSorting}
+						sorted-by={sortBy}
+						sorted-direction={sortDirection}>
+						</lightning-datatable>
+					</lightning-tab>
+					<lightning-tab label="Projektbetreuer">
+						<div class="slds-text-align_left slds-var-m-top_medium">
+							<lightning-layout horizontal-align="center">
+								<lightning-layout-item size="12" small-device-size="8">
+									<p><b>Bei Fragen zum Objekt wenden Sie sich gerne an unsere Projektbetreuerin:</b></p>
+									<div class="slds-var-m-top_medium">
+										<lightning-layout vertical-align="center">
+											<lightning-layout-item size="12" small-device-size="7">
+												<p><b>{privateImmobilie.immobilie.ProjektbeauftragteName}</b><br>
+												Vertriebskoordination Backoffice<br><br>
+												E: {privateImmobilie.immobilie.ProjektbeauftragteEmail__c}<br>
+												T: {privateImmobilie.immobilie.ProjektbeauftragteTelefonnummer__c}</p>
+											</lightning-layout-item>
+											<lightning-layout-item size="12" small-device-size="5">
+												<div class="slds-text-align_left">
+													<img width="200px" style="border-radius: 50%;" src={privateImmobilie.immobilie.ProjektbeauftragteFoto_URL__c}/>
+												</div>
+											</lightning-layout-item>
+										</lightning-layout>
+									</div>
+								</lightning-layout-item>
+							</lightning-layout>
+						</div>
+					</lightning-tab>
+					<lightning-tab label="Beschreibung">
+						<div class="slds-text-align_left slds-var-m-top_medium">
+							<lightning-layout horizontal-align="center">
+								<lightning-layout-item size="12" small-device-size="8">
+									<img src={immobilie.logo} referrerpolicy="no-referrer"/>
+									<div class="slds-var-m-top_medium">
+										<lightning-formatted-rich-text value={privateImmobilie.immobilie.Description__c}></lightning-formatted-rich-text>
+									</div>
+								</lightning-layout-item>
+							</lightning-layout>
+						</div>
+					</lightning-tab>
+					<lightning-tab label="Lage">
+						<div class="slds-text-align_left slds-var-m-top_medium">
+							<lightning-layout horizontal-align="center">
+								<lightning-layout-item size="12" small-device-size="8">
+									<lightning-map
+										map-markers={mapMarkers}
+										zoom-level={zoomLevel}>
+									</lightning-map>
+									<div class="slds-var-m-top_small slds-var-m-bottom_small">
+										<p><b>{privateImmobilie.immobilie.Place__c}</b><br>
+											<b>{privateImmobilie.immobilie.Street__c}</b><br>
+											<b>{privateImmobilie.immobilie.Zip_Code__c} &nbsp; {privateImmobilie.immobilie.Place__c}</b></p>
+									</div>
+									<lightning-formatted-rich-text value={privateImmobilie.immobilie.Lagebeschreibung__c}></lightning-formatted-rich-text>
+								</lightning-layout-item>
+							</lightning-layout>
+						</div>
+					</lightning-tab>
+					<lightning-tab label="Betreiber">
+						<div class="slds-text-align_left slds-var-m-top_medium">
+							<lightning-layout horizontal-align="center">
+								<lightning-layout-item size="12" small-device-size="8">
+									<img src={privateImmobilie.immobilie.BetreiberBetreiber_Logo__c} />
+									<div class="slds-var-m-top_medium">
+										<lightning-formatted-rich-text value={privateImmobilie.immobilie.BetreiberBetreiberinformationen__c}>
+										</lightning-formatted-rich-text>
+									</div>
+								</lightning-layout-item>
+							</lightning-layout>
+						</div>
+					</lightning-tab>
+					<lightning-tab label="Unterlagen">
+						<div class="slds-text-align_left slds-var-m-top_medium">
+							<!-- <c-document-list record-id={privateImmobilie.immobilie.Id} folder-suffix="_dokumente" hide-upload-button="true"></c-document-list> -->
+							<template if:true={privateImmobilie.dokumente}>
+								<c-google-drive-document-list documents={privateImmobilie.dokumente}></c-google-drive-document-list>
+							</template>
+						</div>
+					</lightning-tab>
+				</lightning-tabset>
+			</div>
+		</div>
+	</lightning-card>
+	<lightning-card onclick={collapseCard} data-id="1" class="immobilien-list-card slds-p-left_small">
+		<div style="position:absolute; top:10px; right:15px;">
+			<lightning-button variant="base" label="+">
+			</lightning-button>
+		</div>
+		<div slot="title"><p style="font-size: 17px; line-height : 17px;"><b><i>{privateImmobilie.immobilie.Name}</i></b></p></div>
+		<div class="slds-grid slds-wrap slds-gutters_x-small">
+			<div class="slds-col slds-size_11-of-12 slds-medium-size_2-of-12">
+				<p><img src={privateImmobilie.logo} width="250px" height="192px" referrerpolicy="no-referrer">
+				</p>
+			</div>
+			<div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12">
+				<p style="font-size: 13px; line-height : 13px;">Adresse<br></p>
+				<p style="font-size: 0.8125rem; line-height : 1.21875rem;">
+					{privateImmobilie.immobilie.Street__c} <br>
+				</p>
+				<p style="font-size: 0.8125rem; line-height : 1.21875rem;">
+					{privateImmobilie.immobilie.Zip_Code__c} {privateImmobilie.immobilie.Place__c} <br>
+				</p>
+				<p style="font-size: 0.8125rem; line-height : 1.21875rem; padding-top:15px">
+					<b>{privateImmobilie.immobilie.State__c}</b>
+				</p>
+			</div>
+			<div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12">
+				<template if:true={privateImmobilie.immobilie.BetreiberName}>
+					<p style="font-size: 13px; line-height : 13px;">
+						Betreiber <br>
+					</p>
+					<p style="font-size: 0.8125rem; line-height : 1.21875rem;padding-bottom:15px">
+						{privateImmobilie.immobilie.BetreiberName}
+					</p>
+				</template>
+			</div>
+			<div class="slds-col slds-size_11-of-12 slds-medium-size_5-of-12">
+				<p style="font-size: 0.8125rem;line-height : 1.21875rem; padding-bottom: 5px;">
+					<lightning-formatted-number value={privateImmobilie.immobilie.Rendite_in__c}></lightning-formatted-number>% Rendite
+					<template if:true={privateImmobilie.immobilie.MaBV__c}>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{privateImmobilie.immobilie.MaBV__c}
+					</template>
+					<template if:true={compareVar}>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fertigstellung: {completedDate}
+					</template>
+				</p>
+				<c-progress-bar immobilie={privateImmobilie.immobilie}></c-progress-bar>
+				<p style="font-size: 0.8125rem; padding-top: 5px;">
+					Kaufpreis pro Apartment:&nbsp; 
+					<lightning-formatted-number value={privateImmobilie.immobilie.Preis_ab__c} format-style="currency" currency-code="EUR"></lightning-formatted-number> - <lightning-formatted-number value={privateImmobilie.immobilie.Preis_bis__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+				</p>
+			</div>
+		</div>
+	</lightning-card>
+</template>

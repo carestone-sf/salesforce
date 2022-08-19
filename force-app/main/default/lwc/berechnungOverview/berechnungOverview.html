@@ -1,0 +1,25 @@
+<template>
+    <template if:true={calculation.data.Id}>
+        <lightning-record-view-form
+                record-id={calculation.data.Id}
+                object-api-name="Berechnung__c">
+                <lightning-output-field field-name="Name"></lightning-output-field>
+                <lightning-output-field field-name="Finanzierungsart__c"></lightning-output-field>
+                <lightning-output-field field-name="Eigenkapital__c"></lightning-output-field>
+                <lightning-output-field field-name="ListenpreisGesamt__c"></lightning-output-field>
+                <lightning-output-field field-name="NotarUndGerichtskostenGesamt__c"></lightning-output-field>
+                <lightning-output-field field-name="GrunderwerbsteuerGesamt__c"></lightning-output-field>
+                <lightning-output-field field-name="Gesamtkosten__c"></lightning-output-field>
+                <lightning-output-field field-name="MieteProMonatGesamt__c"></lightning-output-field>
+                <lightning-output-field field-name="VerwaltungProMonatGesamt__c"></lightning-output-field>
+                <lightning-output-field field-name="InstandhaltungProMonatGesamt__c"></lightning-output-field>
+                <lightning-output-field field-name="ZinsProMonatGesamt__c"></lightning-output-field>
+                <lightning-output-field field-name="TilgungProMonatGesamt__c"></lightning-output-field>
+                <lightning-output-field field-name="MonatlichesErgebnisInEuro__c"></lightning-output-field>
+                <b><lightning-output-field field-name="Eigenkapitalrendite__c"></lightning-output-field></b>
+        </lightning-record-view-form>
+    </template>
+    <template if:false={calculation.data.Id}>
+        <p>Speichern Sie die Berechnung, um die Übersicht anzuzeigen.</p>
+    </template>
+</template>

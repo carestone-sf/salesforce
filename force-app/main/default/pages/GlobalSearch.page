@@ -1,0 +1,59 @@
+<apex:page controller="GlobalSearchController">
+    <apex:pageBlock id="dups">
+        <apex:form >
+            Suche: <apex:inputText value="{!searchValue}" />
+            <apex:commandButton action="{!search}" value="Suchen"/>
+        </apex:form>
+        <br />
+        <h2>Verwandte Kontakte</h2>
+        <br />
+        <br />
+        <pbe:PageBlockTableEnhancerADV targetPbTableIds="PossibleDups" paginate="true" defaultPageSize="10" enableExport="false" pageSizeOptions="5,10,20,30,40,50,100" />
+        <apex:pageBlockTable value="{!PossibleDups}" id="PossibleDups" var="c">
+            <apex:column headerValue="Name">
+                <apex:form >
+                    <apex:commandLink target="_blank" action="{!URLFOR($Action.Contact.View, c.id)}" value="{!c.FirstName} {!c.LastName}" />
+                </apex:form>
+            </apex:column>
+            <apex:column value="{!c.Email}" />
+            <apex:column value="{!c.Account.Name}" />
+            <apex:column value="{!c.MailingPostalCode}" headerValue="PLZ" />
+            <apex:column headerValue="Maklerbetreuer Carestone" value="{!c.Account.Maklerbetreuer_Wirtschaftshaus_2__r.FirstName} {!c.Account.Maklerbetreuer_Wirtschaftshaus_2__r.LastName}" />
+            <apex:column value="{!c.Kunden_Maklerschutz__c}" />
+            <apex:column value="{!c.Maklerschutz_besteht__c}"/>
+            <apex:column value="{!c.Dauerhaft_gesch_tzt__c}" />
+        </apex:pageBlockTable>
+        <br /> <br />
+        <br />
+        <h2>Verwandte Accounts</h2>
+        <br />
+        <br />
+        <pbe:PageBlockTableEnhancerADV targetPbTableIds="PossibleDupAccounts" paginate="true" defaultPageSize="10" enableExport="false" pageSizeOptions="5,10,20,30,40,50,100" />
+        <apex:pageBlockTable value="{!PossibleDupAccounts}" id="PossibleDupAccounts" var="acc">
+            <apex:column headerValue="Name">
+                <apex:form >
+                    <apex:commandLink target="_blank" action="{!URLFOR($Action.Account.View, acc.id)}" value="{!acc.Name}" />
+                </apex:form>
+            </apex:column>
+            <apex:column value="{!acc.Email__c}" />
+            <apex:column headerValue="Maklerbetreuer Carestone" value="{!acc.Maklerbetreuer_Wirtschaftshaus_2__r.FirstName} {!acc.Maklerbetreuer_Wirtschaftshaus_2__r.LastName}" />
+            <apex:column value="{!acc.Maklerschutz_besteht__c}"/>
+            <apex:column value="{!acc.Dauerhaft_gesch_tzt__c}"/>
+        </apex:pageBlockTable>
+        <br /> <br />
+        <h2>Verwandte Leads</h2>
+        <br />
+        <br />
+        <pbe:PageBlockTableEnhancerADV targetPbTableIds="PossibleDupLeads" paginate="true" defaultPageSize="10" enableExport="false" pageSizeOptions="5,10,20,30,40,50,100" />
+        <apex:pageBlockTable value="{!PossibleDupLeads}" id="PossibleDupLeads" var="l">
+            <apex:column headerValue="Name">
+                <apex:form >
+                    <apex:commandLink target="_blank" action="{!URLFOR($Action.Lead.View, l.id)}" value="{!l.FirstName} {!l.LastName}" />
+                </apex:form>
+            </apex:column>
+            <apex:column value="{!l.Email}" />
+            <apex:column value="{!l.PostalCode}" headerValue="PLZ" />
+            <apex:column value="{!l.CreatedDate}" />
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DateiTyp__c</fullName>
+    <externalId>false</externalId>
+    <label>Datei Typ</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bilder</fullName>
+                <default>false</default>
+                <label>Bilder</label>
+            </value>
+            <value>
+                <fullName>Dokumente</fullName>
+                <default>false</default>
+                <label>Dokumente</label>
+            </value>
+            <value>
+                <fullName>Highlights</fullName>
+                <default>false</default>
+                <label>Highlights</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

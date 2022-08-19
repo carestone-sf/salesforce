@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Default_Foto__c</fullName>
+    <description>wird angezeigt wenn der User kein Foto hochgeladen hat</description>
+    <externalId>false</externalId>
+    <label>Default_Foto</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+</CustomField>

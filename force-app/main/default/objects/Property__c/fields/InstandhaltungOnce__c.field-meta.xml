@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InstandhaltungOnce__c</fullName>
+    <description>Einmalige Instandhaltungsrücklage, die den Gesamtaufwand der Immobilie erhöht, ohne dabei den Kaufpreis (und somit die GrESt/Notarkosten) zu erhöhen.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Einmalige Instandhaltungsrücklage, die den Gesamtaufwand der Immobilie erhöht, ohne dabei den Kaufpreis (und somit die GrESt/Notarkosten) zu erhöhen.</inlineHelpText>
+    <label>Instandhaltungsrücklage</label>
+    <precision>12</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

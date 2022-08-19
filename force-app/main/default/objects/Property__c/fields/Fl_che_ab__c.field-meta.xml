@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fl_che_ab__c</fullName>
+    <externalId>false</externalId>
+    <label>Fläche ab</label>
+    <summarizedField>Appartment__c.Area_sq_m__c</summarizedField>
+    <summaryForeignKey>Appartment__c.Property__c</summaryForeignKey>
+    <summaryOperation>min</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

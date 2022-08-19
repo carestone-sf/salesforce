@@ -1,0 +1,289 @@
+<apex:page standardController="Gutschrift__c" showHeader="false" applyHtmlTag="false" renderAs="pdf">
+    <!-- Begin Default Content REMOVE THIS -->
+    <head>
+        <style>
+            @page {
+
+                size: 21.0cm 29.7cm;
+                margin-bottom: 2cm;
+
+                @bottom-center {
+                    content: element(bottom-center-div);
+                }
+            }
+
+            body {
+                font-family: 'sans-serif';
+                color: #1f1f1f;
+                font-size: 12px;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                display: block;
+            }
+
+            .bottom-center-div {
+                position: running(bottom-center-div);
+                text-align: center;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                border: none;
+            }
+        </style>
+    </head>
+    <div style="width: 100%; text-align: center; margin-bottom: 20px">
+        <apex:image url="{!$Resource.Carestone_Logo}" width="200px" height="auto"></apex:image>
+    </div>
+
+    <p style="font-size: 8px; color: #004B41">
+        Carestone Service GmbH &#183; An der Börse 3 &#183; 30159 Hannover
+    </p>
+
+    <p>
+        {!Gutschrift__c.Empfaenger__r.Account.Unternehmensname__c}<br/>
+        {!Gutschrift__c.Empfaenger__r.Account.BillingStreet}<br/>
+        {!Gutschrift__c.Empfaenger__r.Account.BillingPostalCode} {!Gutschrift__c.Empfaenger__r.Account.BillingCity}
+        <span style="{!IF(Gutschrift__c.Empfaenger__r.Account.AnsaessigAusserhalbVonDeutschland__c, 'display:inline', 'display:none')} ">
+            <br/>{!Gutschrift__c.Empfaenger__r.Account.BillingCountry}
+        </span>
+    </p>
+
+    <br/><br/>
+
+    <table style="border: none;">
+        <thead>
+        <tr>
+            <td>
+                <h3>
+                    Gutschrift: {!Gutschrift__c.LaufnummerNew__c}
+                </h3>
+            </td>
+            <td>
+                <h3 style="text-align: right;">
+                    Datum: {!DAY(Gutschrift__c.DatumGutschriftBestaetigt__c)}.{!MONTH(Gutschrift__c.DatumGutschriftBestaetigt__c)}.{!YEAR(Gutschrift__c.DatumGutschriftBestaetigt__c)}
+                </h3>
+            </td>
+        </tr>
+        </thead>
+    </table>
+
+    <p>
+        {!Gutschrift__c.Empfaenger__r.Anrede_Formel__c} {!Gutschrift__c.Empfaenger__r.LastName}
+    </p>
+    <p>
+        Sie haben erfolgreich einen Verkauf für die Carestone Service GmbH durchgeführt.
+        Für die Ihnen zustehende Provision senden wir Ihnen diese Gutschrift:
+    </p>
+
+    <table>
+        <tr>
+            <td width="50%">
+                Verkauftes Objekt:
+            </td>
+            <td width="50%">
+                {!Gutschrift__c.Objekt__r.Name}
+            </td>
+        </tr>
+        <tr>
+            <td width="50%">
+                Apartment:
+            </td>
+            <td width="50%">
+                {!Gutschrift__c.Teilobjekt__r.Name}
+            </td>
+        </tr>
+        <tr>
+            <td width="50%">
+                Kunde:
+            </td>
+            <td width="50%">
+                {!Gutschrift__c.Kunde__r.Salutation} {!Gutschrift__c.Kunde__r.FirstName} {!Gutschrift__c.Kunde__r.LastName}
+            </td>
+        </tr>
+        <tr>
+            <td width="50%">
+                Beurkundeter Kaufpreis:
+            </td>
+            <td width="50%">
+                <apex:outputField value="{!Gutschrift__c.Kaufpreis__c}"/>
+            </td>
+        </tr>
+        <tr>
+            <td width="50%">
+                Kaufdatum/Leistungsdatum:
+            </td>
+            <td width="50%">
+                {!DAY(Gutschrift__c.Opportunity__r.Kaufdatum__c)}.{!MONTH(Gutschrift__c.Opportunity__r.Kaufdatum__c)}.{!YEAR(Gutschrift__c.Opportunity__r.Kaufdatum__c)}
+            </td>
+        </tr>
+    </table>
+
+    <br/>
+
+    <table>
+        <tr>
+            <td>
+                {!Gutschrift__c.NameProvision__c}:
+            </td>
+        </tr>
+        <tr style="{!IF(AND(Gutschrift__c.Wert_Maklerprovision__c != 0, Gutschrift__c.Wert_Maklerprovision__c != null), 'display:table-row', 'display:none')}">
+            <td>
+                Vereinbarte Grundprovision:
+            </td>
+            <td>
+                <apex:outputField value="{!Gutschrift__c.MaklerprovisionInProzent__c}"/>
+            </td>
+            <td style="text-align: right;">
+                <apex:outputField value="{!Gutschrift__c.Wert_Maklerprovision__c}"/>
+            </td>
+        </tr>
+        <tr style="{!IF(AND(Gutschrift__c.Wert_Verkaufsprovision__c != 0, Gutschrift__c.Wert_Verkaufsprovision__c != null), 'display:table-row', 'display:none')}">
+            <td>
+                Verkaufsprovision:
+            </td>
+            <td>
+                <apex:outputField value="{!Gutschrift__c.VerkaufsprovisionInProzent__c}"/>
+            </td>
+            <td style="text-align: right;">
+                <apex:outputField value="{!Gutschrift__c.Wert_Verkaufsprovision__c}"/>
+            </td>
+        </tr>
+        <tr style="{!IF(AND(Gutschrift__c.Wert_Overhead__c != 0, Gutschrift__c.Wert_Overhead__c != null), 'display:table-row', 'display:none')}">
+            <td>
+                Overhead Provision:
+            </td>
+            <td>
+                <apex:outputField value="{!Gutschrift__c.OverheadProvisionInProzent__c}"/>
+            </td>
+            <td style="text-align: right;">
+                <apex:outputField value="{!Gutschrift__c.Wert_Overhead__c}"/>
+            </td>
+        </tr>
+        <tr style="{!IF(AND(Gutschrift__c.Wert_Tippprovision__c != 0, Gutschrift__c.Wert_Tippprovision__c != null), 'display:table-row', 'display:none')}">
+            <td>
+                Tippgeberprovision:
+            </td>
+            <td>
+                <apex:outputField value="{!Gutschrift__c.TippgeberprovisionInProzent__c}"/>
+            </td>
+            <td style="text-align: right;">
+                <apex:outputField value="{!Gutschrift__c.Wert_Tippprovision__c}"/>
+            </td>
+        </tr>
+        <tr style="{!IF(AND(Gutschrift__c.WertMarketingzuschuss__c != 0, Gutschrift__c.WertMarketingzuschuss__c != null, !Gutschrift__c.MarketingzuschussNichtAusweisen__c), 'display:table-row', 'display:none')}">
+            <td>
+                Marketingzuschuss:
+            </td>
+            <td>
+                <apex:outputField value="{!Gutschrift__c.MarketingzuschussInProzent__c}"/>
+            </td>
+            <td style="text-align: right;">
+                <apex:outputField value="{!Gutschrift__c.WertMarketingzuschuss__c}"/>
+            </td>
+        </tr>
+    </table>
+    <hr/>
+    <table>
+        <tr>
+            <td>
+                Gesamtsumme:
+            </td>
+            <td style="text-align: right;">
+                <span style="{!IF(!Gutschrift__c.MarketingzuschussNichtAusweisen__c, 'display:inline', 'display:none')}">
+                    <apex:outputField value="{!Gutschrift__c.Provisionssumme__c}"/>
+                </span>
+                <span style="{!IF(Gutschrift__c.MarketingzuschussNichtAusweisen__c, 'display:inline', 'display:none')}">
+                    <apex:outputField value="{!Gutschrift__c.ProvisionssummeOhneMarketingzuschuss__c}"/>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Gesetzl. USt.&nbsp;<apex:outputField value="{!Gutschrift__c.Gesetzliche_MwSt_auf_Provisionszahlung__c}"/>:
+            </td>
+            <td style="text-align: right;">
+                <apex:outputField value="{!Gutschrift__c.UStProvisionssumme__c}"/>
+            </td>
+        </tr>
+        <tr style="font-weight: bold;">
+            <td>
+                Auszuzahlender Gesamtbetrag inkl. gesetzl. USt.:
+            </td>
+            <td style="text-align: right;">
+                <span style="{!IF(!Gutschrift__c.MarketingzuschussNichtAusweisen__c, 'display:inline', 'display:none')}">
+                    <apex:outputField value="{!Gutschrift__c.ProvisionssummeInklUSt__c}"/>
+                </span>
+                <span style="{!IF(Gutschrift__c.MarketingzuschussNichtAusweisen__c, 'display:inline', 'display:none')}">
+                    <apex:outputField value="{!Gutschrift__c.ProvisionssummeOhneMZInklUSt__c}"/>
+                </span>
+            </td>
+        </tr>
+        <tr style="{!IF(AND(Gutschrift__c.Gesetzliche_MwSt_auf_Provisionszahlung__c == 0, !Gutschrift__c.Empfaenger__r.Account.AnsaessigAusserhalbVonDeutschland__c), 'display:block', 'display:none')} ">
+            <td>
+                Als Kleinunternehmer im Sinne von § 19 Abs. 1 Umsatzsteuergesetz (UStG) wird Umsatzsteuer nicht berechnet.
+            </td>
+        </tr>
+    </table>
+
+    <br/> <br/>
+    <table>
+        <tr>
+            <td width="50%">
+                Ansprechpartner:
+            </td>
+            <td>
+                {!Gutschrift__c.Maklerbetreuer_Text__c}
+            </td>
+        </tr>
+    </table>
+    <br/> <br/>
+
+    <table>
+        <tr>
+            <td width="50%">
+                Empfänger der Gutschrift:
+            </td>
+            <td>
+                {!Gutschrift__c.Empfaenger__r.Account.Unternehmensname__c}
+            </td>
+        </tr>
+        <tr>
+            <td width="50%"></td>
+            <td>
+                {!Gutschrift__c.Empfaenger__r.Account.BillingStreet}<br/>
+                {!Gutschrift__c.Empfaenger__r.Account.BillingPostalCode} {!Gutschrift__c.Empfaenger__r.Account.BillingCity}
+                <span style="{!IF(Gutschrift__c.Empfaenger__r.Account.AnsaessigAusserhalbVonDeutschland__c, 'display:inline', 'display:none')} ">
+                    <br/>{!Gutschrift__c.Empfaenger__r.Account.BillingCountry}
+                </span>
+                <br/><br/>
+
+                IBAN: {!Gutschrift__c.IBAN_formatiert__c}<br/>
+                BIC: {!Gutschrift__c.Empfaenger__r.Account.BIC__c}<br/><br/>
+
+                <span style="{!IF(Gutschrift__c.Empfaenger__r.Account.UStd_Id__c != null, 'display:inline', 'display:none')}">USt-ID.: {!Gutschrift__c.Empfaenger__r.Account.UStd_Id__c}<br/></span>
+                <span style="{!IF(Gutschrift__c.Empfaenger__r.Account.Steuernummer__c != null, 'display:inline', 'display:none')}">Steuernummer: {!Gutschrift__c.Empfaenger__r.Account.Steuernummer__c}<br/></span>
+            </td>
+        </tr>
+    </table>
+
+    <br/>
+
+    <p style="{!IF(Gutschrift__c.Gesetzliche_MwSt_auf_Provisionszahlung__c == 0 || Gutschrift__c.Empfaenger__r.Account.AnsaessigAusserhalbVonDeutschland__c, 'display:none', 'display:block')} ">
+        Wir weisen Sie darauf hin, dass Sie verpflichtet sind, die gesetzl. Umsatzsteuer laut UStG abzuführen.
+    </p>
+    <p style="{!IF(Gutschrift__c.Empfaenger__r.Account.AnsaessigAusserhalbVonDeutschland__c, 'display:block', 'display:none')} ">
+        Reverse Charge (Steuerschuldnerschaft des Leistungsempfängers)
+    </p>
+
+    <div class="bottom-center-div" style="font-size: 8px; line-height: 12px;">
+        Carestone Service GmbH &#183; An der Börse 3 &#183; 30159 Hannover &#183; Tel. 0511 26152-0 &#183; Fax: 0511 26152-299 &#183; www.carestone.com &#183; info@carestone.com<br/>
+        Geschäftsführer: Thomas Arnold, Sandro Pawils<br/>
+        Amtsgericht Hannover HRB 218680 | St.Nr. 27/202/30833 | USt-IdNr. DE321083102<br/>
+        Sparkasse Hildesheim Goslar Peine BLZ: 259 501 30 &#183; Kto.-Nr.: 563 808 97 &#183; IBAN DE58 2595 0130 0056
+        3808 97 &#183; BIC NOLADE21HIK
+    </div>
+
+</apex:page>

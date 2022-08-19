@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IBAN_formatiert__c</fullName>
+    <externalId>false</externalId>
+    <formula>UPPER(LEFT(SUBSTITUTE(Empfaenger__r.Account.IBAN__c, &apos; &apos;, &apos;&apos;)  ,  4))  + &apos; &apos; + 
+LEFT(RIGHT(SUBSTITUTE(Empfaenger__r.Account.IBAN__c, &apos; &apos;, &apos;&apos;)  , 18), 4) + &apos; &apos; +
+LEFT(RIGHT(SUBSTITUTE(Empfaenger__r.Account.IBAN__c, &apos; &apos;, &apos;&apos;)  , 14), 4) + &apos; &apos; +
+LEFT(RIGHT(SUBSTITUTE(Empfaenger__r.Account.IBAN__c, &apos; &apos;, &apos;&apos;)    , 10), 4) + &apos; &apos; +
+LEFT(RIGHT(SUBSTITUTE(Empfaenger__r.Account.IBAN__c, &apos; &apos;, &apos;&apos;)    , 6), 4) + &apos; &apos; + 
+LEFT(RIGHT(SUBSTITUTE(Empfaenger__r.Account.IBAN__c, &apos; &apos;, &apos;&apos;)    , 2), 2)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>IBAN formatiert</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Wert_Sonstige_2_o_LNK__c</fullName>
+    <externalId>false</externalId>
+    <formula>Wert_Sonstige_2__c / IF( INCLUDES(Makler__r.Gesch_ftsbeziehung__c, &apos;Mitarbeiter WH&apos;), 1.12, 1)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Wert Sonstige 2 o. LNK.</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

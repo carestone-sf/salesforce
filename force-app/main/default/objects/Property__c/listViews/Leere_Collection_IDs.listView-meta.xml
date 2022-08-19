@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Leere_Collection_IDs</fullName>
+    <columns>NAME</columns>
+    <columns>Collection_Id__c</columns>
+    <columns>Collection_Id_Hyposerv__c</columns>
+    <columns>Is_Public__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Collection_Id__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Leere Collection IDs</label>
+</ListView>

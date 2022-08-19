@@ -1,0 +1,8 @@
+<apex:page contentType="application/json" showHeader="false" sidebar="false">
+{
+"imgUrl": "{!$User.ImgUrl__c}",
+"logoUrl": "{!$User.LogoUrl__c}",
+"textColor": "{!$User.TextColor__c}",
+"backgroundColor": "{!$User.BackgroundColor__c}"
+}
+</apex:page>

@@ -1,0 +1,16 @@
+<template>
+    <template for:each={documentsByParentFolder} for:item="folder">
+        <div key={folder.folderName} class="slds-var-m-top_x-large">
+            <p class="slds-text-heading_small"><b>{folder.folderName}</b></p>
+            <div class="slds-var-m-top_small">
+                <lightning-datatable
+                    key-field="name"
+                    data={folder.documents}
+                    hide-checkbox-column
+                    columns={columns}
+                    onrowaction={handleRowAction}>
+                </lightning-datatable>
+            </div>
+        </div>
+    </template>
+</template>

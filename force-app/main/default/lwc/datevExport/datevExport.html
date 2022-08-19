@@ -1,0 +1,43 @@
+<template>
+    <lightning-card title="Exportiere Kunden-Stammdaten als CSV">
+        <div class="slds-p-horizontal_small">
+            <p>
+                Die Daten werden dir auf Knopfdruck an deine E-Mail gesendet.
+                Bitte beachte, dass die Stammdaten pro Mandant importiert werden müssen.
+            </p>
+            <p>
+                Exportiert werden:
+            </p>
+            <ul class="slds-list_dotted">
+                <li>
+                    Alle Kontakte welche an oder nach dem "Start Datum" geändert wurden
+                </li>
+                <li>
+                    Alle Kontakte welche an oder vor dem "End Datum" geändert wurden
+                </li>
+                <li>
+                    Alle Kontakte welche an oder nach dem "Start Datum" eine geschlossene Verkaufschance haben
+                </li>
+                <li>
+                    Alle Kontakte welche an oder vor dem "End Datum" eine geschlossene Verkaufschance haben
+                </li>
+            </ul>
+            <div class="slds-m-top_small">
+                <lightning-radio-group name="exportType"
+                          label="Typ"
+                          options={exportTypeOptions}
+                          value={exportTypeValue}
+                          onchange={handleExportTypeValueChange}
+                          type="radio"></lightning-radio-group>
+                <lightning-input type="date" required label="Start Datum" name="startDate" onchange={handleStartDateChange} value={startDate}></lightning-input>
+                <lightning-input type="date" required label="End Datum" name="endDate" onchange={handleEndDateChange} value={endDate}></lightning-input>
+            </div>
+        </div>
+        <div slot="footer">
+            <lightning-button variant="brand" label="CSV via E-Mail anfordern" onclick={handleRequestCSVButtonClick} slot="actions"></lightning-button>
+        </div>
+        <div if:true={downloadUrl}>
+            <a href={downloadUrl} target="_blank">CSV herunterladen</a>
+        </div>
+    </lightning-card>
+</template>

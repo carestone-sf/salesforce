@@ -1,0 +1,6 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:actionOverride,lightning:isUrlAddressable" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:attribute name="recordId" type="Id"/>
+    <aura:attribute name="parentId" type="Id"/>
+    <lightning:flow aura:id="flow" onstatuschange="{!c.statusChange}"/>
+</aura:component>

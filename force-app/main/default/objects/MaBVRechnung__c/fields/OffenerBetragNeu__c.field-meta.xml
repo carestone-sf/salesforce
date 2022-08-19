@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OffenerBetragNeu__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF((RateGesamtInEuro__c - Bezahlt__c) &lt; 0, 0, RateGesamtInEuro__c - Bezahlt__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Offener Betrag (neu)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

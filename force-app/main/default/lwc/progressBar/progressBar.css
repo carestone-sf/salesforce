@@ -1,0 +1,31 @@
+.reservedBar {
+  height: 100%;
+  position: absolute;
+  top: 0rem;
+}
+
+.soldBar {
+  height: 100%;
+  position: absolute;
+  top: 0rem;
+}
+
+.freeBar {
+  height: 100%;
+  position: absolute;
+  top: 0rem;
+} 
+
+
+.progressBar {
+  height: 1rem;
+  position: relative;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  /* line-height must equal height in order to center text vertically */
+  line-height: 1rem;
+  border-radius: 3px;
+  overflow: hidden;
+}

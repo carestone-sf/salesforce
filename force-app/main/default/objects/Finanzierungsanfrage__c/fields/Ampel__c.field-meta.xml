@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ampel__c</fullName>
+    <externalId>false</externalId>
+    <label>Bewertung extern</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Finanzierung darstellbar</fullName>
+                <default>false</default>
+                <label>Finanzierung darstellbar</label>
+            </value>
+            <value>
+                <fullName>VSA fehlerhaft</fullName>
+                <default>false</default>
+                <label>VSA fehlerhaft</label>
+            </value>
+            <value>
+                <fullName>Finanzierung eventuell darstellbar</fullName>
+                <default>false</default>
+                <label>Finanzierung eventuell darstellbar</label>
+            </value>
+            <value>
+                <fullName>Finanzierung nicht darstellbar</fullName>
+                <default>false</default>
+                <label>Finanzierung nicht darstellbar</label>
+            </value>
+            <value>
+                <fullName>Gelb</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Gelb</label>
+            </value>
+            <value>
+                <fullName>Grün</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Grün</label>
+            </value>
+            <value>
+                <fullName>Rot</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Rot</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

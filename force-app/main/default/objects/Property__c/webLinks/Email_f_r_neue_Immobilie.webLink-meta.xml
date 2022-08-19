@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_f_r_neue_Immobilie</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Email für neue Immobilie</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/apex.js&quot;)}
+var url = parent.location.href;
+var myvar = sforce.apex.execute(&quot;EmailAusObjekt&quot;,&quot;neueImmobilie&quot;, {immo:&quot;{!Property__c.Id}&quot;});
+
+
+
+parent.location.href = url; //refresh the page</url>
+</WebLink>

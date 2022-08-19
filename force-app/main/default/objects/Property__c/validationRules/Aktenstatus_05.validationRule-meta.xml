@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Aktenstatus_05</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+DmsOrdnerErstellt__c,
+IsChanged(AktenstatusDms__c),
+TEXT(PRIORVALUE(AktenstatusDms__c)) = &apos;Durchführung (Aktiv)&apos;,
+TEXT(AktenstatusDms__c) != &apos;Abwicklung (Aktiv)&apos;,
+TEXT(AktenstatusDms__c) != &apos;Archiviert&apos;
+)</errorConditionFormula>
+    <errorDisplayField>AktenstatusDms__c</errorDisplayField>
+    <errorMessage>Von dem Status &quot;Durchführung (Aktiv)&quot; können Sie nur in &quot;Abwicklung (Aktiv)&quot; und &quot;Archiviert&quot; wechseln</errorMessage>
+</ValidationRule>

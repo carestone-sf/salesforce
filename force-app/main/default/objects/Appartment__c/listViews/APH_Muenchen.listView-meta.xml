@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>APH_Muenchen</fullName>
+    <columns>Monthly_Rent__c</columns>
+    <columns>Monthly_rent_sq_m__c</columns>
+    <columns>NAME</columns>
+    <columns>Area_sq_m__c</columns>
+    <columns>Purchase_Price_sq_m__c</columns>
+    <columns>Maintenance_sqm__c</columns>
+    <columns>Net_asset_value__c</columns>
+    <columns>Value_of_OIutdoor__c</columns>
+    <columns>Land_Value__c</columns>
+    <columns>Wert_Einrichtung_in_Euro__c</columns>
+    <columns>Property__c</columns>
+    <columns>Wert_K_che__c</columns>
+    <columns>Value_Unit__c</columns>
+    <columns>Repayment_Beginning__c</columns>
+    <columns>Rental_Start__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Property__c</field>
+        <operation>contains</operation>
+        <value>Grävenwiesbach</value>
+    </filters>
+    <label>APH München</label>
+    <language>de</language>
+</ListView>

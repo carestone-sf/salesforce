@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AktenstatusDms__c</fullName>
+    <externalId>false</externalId>
+    <label>Aktenstatus DMS</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Initial</fullName>
+                <default>false</default>
+                <label>Initial</label>
+            </value>
+            <value>
+                <fullName>Immobilie angelegt</fullName>
+                <default>false</default>
+                <label>Immobilie angelegt</label>
+            </value>
+            <value>
+                <fullName>Entwicklung (Akquise)</fullName>
+                <default>true</default>
+                <label>Entwicklung (Akquise)</label>
+            </value>
+            <value>
+                <fullName>Entwicklung (Aktiv)</fullName>
+                <default>false</default>
+                <label>Entwicklung (Aktiv)</label>
+            </value>
+            <value>
+                <fullName>Entwicklung (Abgelehnt)</fullName>
+                <default>false</default>
+                <label>Entwicklung (Abgelehnt)</label>
+            </value>
+            <value>
+                <fullName>Durchführung (Aktiv)</fullName>
+                <default>false</default>
+                <label>Durchführung (Aktiv)</label>
+            </value>
+            <value>
+                <fullName>Abwicklung (Aktiv)</fullName>
+                <default>false</default>
+                <label>Abwicklung (Aktiv)</label>
+            </value>
+            <value>
+                <fullName>Durchführung (Abgeschlossen)</fullName>
+                <default>false</default>
+                <label>Durchführung (Abgeschlossen)</label>
+            </value>
+            <value>
+                <fullName>Asset Management (Aktiv)</fullName>
+                <default>false</default>
+                <label>Asset Management (Aktiv)</label>
+            </value>
+            <value>
+                <fullName>Archiviert</fullName>
+                <default>false</default>
+                <label>Archiviert</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

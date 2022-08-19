@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FlaecheQmText__c</fullName>
+    <externalId>false</externalId>
+    <formula>SUBSTITUTE(TEXT(  ROUND(Area_sq_m__c,2) ), &apos;.&apos;, &apos;,&apos;)   + &quot; m²&quot;</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Fläche qm Text</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

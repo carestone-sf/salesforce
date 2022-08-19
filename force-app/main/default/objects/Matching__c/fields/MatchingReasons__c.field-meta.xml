@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MatchingReasons__c</fullName>
+    <externalId>false</externalId>
+    <label>Matching Gründe</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Geografisch</fullName>
+                <default>false</default>
+                <label>Geografisch</label>
+            </value>
+            <value>
+                <fullName>Baufortschritt</fullName>
+                <default>false</default>
+                <label>Baufortschritt</label>
+            </value>
+            <value>
+                <fullName>Zweiter Bauabschnitt</fullName>
+                <default>false</default>
+                <label>Zweiter Bauabschnitt</label>
+            </value>
+            <value>
+                <fullName>Betreiber</fullName>
+                <default>false</default>
+                <label>Betreiber</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

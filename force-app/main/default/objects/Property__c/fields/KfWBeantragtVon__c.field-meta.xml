@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KfWBeantragtVon__c</fullName>
+    <externalId>false</externalId>
+    <label>KfW beantragt von</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Entwickler</fullName>
+                <default>false</default>
+                <label>Entwickler</label>
+            </value>
+            <value>
+                <fullName>Carestone</fullName>
+                <default>false</default>
+                <label>Carestone</label>
+            </value>
+            <value>
+                <fullName>Endkunde</fullName>
+                <default>false</default>
+                <label>Endkunde</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

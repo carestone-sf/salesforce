@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Info_Default_Finanzierung__c</fullName>
+    <description>Default Finanzierung Info die angezeigt wird, wenn bei einer Immobilie keine Finanzierungsinfo angegeben wurde</description>
+    <externalId>false</externalId>
+    <label>Info_Default_Finanzierung</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+</CustomField>

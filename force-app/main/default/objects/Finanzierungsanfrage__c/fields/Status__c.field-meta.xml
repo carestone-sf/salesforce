@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Voranfrage</fullName>
+                <default>false</default>
+                <label>Voranfrage</label>
+            </value>
+            <value>
+                <fullName>Neue Anfrage</fullName>
+                <default>false</default>
+                <label>Neue Anfrage</label>
+            </value>
+            <value>
+                <fullName>Nicht erreicht</fullName>
+                <default>false</default>
+                <label>Nicht erreicht</label>
+            </value>
+            <value>
+                <fullName>Erstkontakt erfolgt</fullName>
+                <default>false</default>
+                <label>Erstkontakt erfolgt</label>
+            </value>
+            <value>
+                <fullName>Keine Finanzierung</fullName>
+                <default>false</default>
+                <label>Keine Finanzierung</label>
+            </value>
+            <value>
+                <fullName>Angebot angenommen</fullName>
+                <default>false</default>
+                <label>Angebot angenommen</label>
+            </value>
+            <value>
+                <fullName>Beantragung Bank</fullName>
+                <default>false</default>
+                <label>Beantragung Bank</label>
+            </value>
+            <value>
+                <fullName>Bonitätsunterlagen fehlen</fullName>
+                <default>false</default>
+                <label>Bonitätsunterlagen fehlen</label>
+            </value>
+            <value>
+                <fullName>Objektunterlagen fehlen</fullName>
+                <default>false</default>
+                <label>Objektunterlagen fehlen</label>
+            </value>
+            <value>
+                <fullName>Bankzusage erhalten</fullName>
+                <default>false</default>
+                <label>Bankzusage erhalten</label>
+            </value>
+            <value>
+                <fullName>Kreditverträge unterzeichnet</fullName>
+                <default>false</default>
+                <label>Kreditverträge unterzeichnet</label>
+            </value>
+            <value>
+                <fullName>Fremdfinanzierung</fullName>
+                <default>false</default>
+                <label>Fremdfinanzierung</label>
+            </value>
+            <value>
+                <fullName>1</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>1</label>
+            </value>
+            <value>
+                <fullName>2</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2</label>
+            </value>
+            <value>
+                <fullName>3</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>3</label>
+            </value>
+            <value>
+                <fullName>4</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>4</label>
+            </value>
+            <value>
+                <fullName>Angebot versendet</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Angebot versendet</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

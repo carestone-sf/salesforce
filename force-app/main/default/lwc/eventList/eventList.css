@@ -1,0 +1,9 @@
+.event {
+    border-bottom: 2px solid var(--lwc-colorTextBrand,rgb(243, 192, 92));
+}
+
+.event:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}

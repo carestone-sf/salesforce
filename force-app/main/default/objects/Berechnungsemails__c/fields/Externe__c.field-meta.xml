@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Externe__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Es handelt sich um einen externen Makler, welcher nicht in direkter Beziehung zum Kunden steht</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Es handelt sich um einen externen Makler, welcher nicht in direkter Beziehung zum Kunden steht</inlineHelpText>
+    <label>Externe</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

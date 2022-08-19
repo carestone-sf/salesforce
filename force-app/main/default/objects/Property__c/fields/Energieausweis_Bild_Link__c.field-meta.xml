@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Energieausweis_Bild_Link__c</fullName>
+    <description>link zu dem energieausweis als bild</description>
+    <externalId>false</externalId>
+    <label>Energieausweis_Bild_Link</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+</CustomField>

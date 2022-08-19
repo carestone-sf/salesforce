@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Berechnungsvorlage_erstellen</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Rechnungsvorlage erstellen</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
+var url = parent.location.href; //string for the URL of the current page
+var records = {!GETRECORDIDS($ObjectType.Provision__c)}; //grabs the Contact records that the user is requesting to update
+var updateRecords = []; //array for holding records that this code will ultimately update
+
+if (records[0] == null) { //if the button was clicked but there was no record selected
+alert(&quot;Bitte mindestens eine Provision auswählen.&quot;); //alert the user that they didn&apos;t make a selection
+} else { //otherwise, there was a record selection
+for (var a=0; a&lt;records.length; a++) { //for all records
+var update_Provision= new sforce.SObject(&quot;Provision__c&quot;); //create a new sObject for storing updated record details
+update_Provision.Id = records[a]; //set the Id of the selected Provision record
+update_Provision.Rechnungsvorlage_versendet__c=true; //set the value for Status to &apos;Unqualified&apos;
+updateRecords.push(update_Provision); //add the updated record to our array
+}
+result = sforce.connection.update(updateRecords); //push the updated records back to Salesforce
+parent.location.href = url; //refresh the page
+}</url>
+</WebLink>

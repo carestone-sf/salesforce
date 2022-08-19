@@ -1,0 +1,40 @@
+<template>
+    <div class="download-wrapper slds-var-p-around_medium">
+        <div class="icon-wrapper  slds-var-p-bottom_small slds-text-align_center">
+            <template if:true={hasThumbnailUrl}>
+                <a class= "slds-button slds-align_absolute-center" target="_blank" href={previewUrl}>
+                    <img src={completeThumbnailUrl}/>
+                </a>
+            </template>
+            <template if:false={hasThumbnailUrl}>
+                <lightning-icon class="slds-align_absolute-center" icon-name={fileIcon} size="large"></lightning-icon>
+            </template>
+            
+            <h3 class="slds-var-p-top_xx-small">{fileName}</h3>
+        </div>
+        <template if:true={hasDownloadUrl}>
+            <lightning-layout>
+                <lightning-layout-item size="6" padding="around-small">
+                    <a class= "slds-button slds-align_absolute-center" target="_blank" href={previewUrl}>
+                        <lightning-icon class="slds-align_absolute-center" icon-name="utility:preview" size="small"></lightning-icon>
+                    </a>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" padding="around-small">
+                    <a class= "slds-button slds-align_absolute-center" target="_blank" href={downloadUrl}>
+                        <lightning-icon class="slds-align_absolute-center" icon-name="utility:download" size="small"></lightning-icon>
+                    </a>
+                </lightning-layout-item>
+            </lightning-layout>
+        </template>
+        <template if:false={hasDownloadUrl}>
+            <lightning-layout>
+                <lightning-layout-item size="12" padding="around-small">
+                    <a class= "slds-button slds-align_absolute-center" target="_blank" href={previewUrl}>
+                        <lightning-icon class="slds-align_absolute-center" icon-name="utility:preview" size="small"></lightning-icon>
+                    </a>
+                </lightning-layout-item>
+            </lightning-layout>
+        </template>
+
+    </div>
+</template>

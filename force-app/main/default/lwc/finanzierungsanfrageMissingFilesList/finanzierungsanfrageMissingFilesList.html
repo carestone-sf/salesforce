@@ -1,0 +1,15 @@
+<template>
+    
+    <lightning-card title="Vorhandene und benötigte Unterlagen">
+        <div class="slds-p-horizontal_small slds-is-relative">
+            <template if:true={loading}>
+                <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+            </template>
+            <lightning-checkbox-group name="Checkbox Group"
+                              options={options}
+                              value={value}
+                              disabled="true"
+                              onchange={handleChange}></lightning-checkbox-group>
+        </div>
+    </lightning-card>
+</template>

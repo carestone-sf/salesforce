@@ -1,0 +1,86 @@
+<template>
+            <!-- Start of Grid -->
+            <div class="slds-grid slds-wrap slds-gutters">
+
+                <!-- Start of Profile Image  -->
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-layout-item>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <img src={ImgUrl} class="themeImage" align="center"/> 
+                                <lightning-file-upload
+                                    label="Profilfoto für Angebote"
+                                    name="fileUploader"
+                                    accept={acceptedFormats}
+                                    record-id={USER_ID}
+                                    onuploadfinished={handleProfilePhotoUploadFinished}>
+                                </lightning-file-upload> 
+                            </div>
+                        </div>  
+                    </lightning-layout-item>
+                </div> 
+                <!-- End of Profile Image -->
+
+                <!-- Start of Logo Image -->
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-layout-item>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <img src={LogoUrl} class="themeImage" align="center"/> 
+                                <lightning-file-upload
+                                    label="Logo"
+                                    name="fileUploader"
+                                    accept={acceptedFormats}
+                                    record-id={USER_ID}
+                                    onuploadfinished={handleLogoUploadFinished}>
+                                </lightning-file-upload> 
+                            </div>
+                        </div>  
+                    </lightning-layout-item>
+                </div> 
+                <!-- End of Logo Image -->
+
+                <!-- Start of Background Color -->
+                <div class="slds-col slds-size_1-of-2 ">
+                    <lightning-layout style="display: inline-flex">
+                        <lightning-layout-item padding="around-small" flexibility="auto">    
+                            <p>Primäre Farbe</p>
+                            <lightning-input type="color" name="BackgroundColor" label="BackgroundColor" value={backgroundColorRgb}
+                                id="BackgroundColor" onchange={handleBackgroundColorChange} variant="label-hidden">
+                            </lightning-input>   
+                        </lightning-layout-item> 
+                    </lightning-layout>
+                </div>
+                <!-- End of Background Color -->
+
+                <!-- Start of Text Color -->
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-layout style="display: inline-flex">
+                        <lightning-layout-item padding="around-small" flexibility="auto">    
+                            <p>Sekundäre Farbe</p>
+                            <lightning-input type="color" name="TextColor" label="TextColor" value={textColorRgb}
+                                id="TextColor" onchange={handleTextColorChange} variant="label-hidden">
+                            </lightning-input>   
+                        </lightning-layout-item> 
+                    </lightning-layout>
+                </div>
+                <!-- End of Text Color -->
+            </div>
+            <!-- End of Grid -->
+
+            <template if:false={includedInOtherComponent}>
+                <lightning-button variant="brand" label="Speichern" title="Speichern" onclick={save}></lightning-button>   
+                <br/> <br/>
+            </template>
+
+            <!-- Start of Colors Preview Container -->
+            <div class="c-container backgroundColorPreview slds-p-around_x-small">
+                Primäre Farbe, bspw. für das Menü und für Überschriften
+            </div>
+            <p style="width: 100%;" class="textColorPreview slds-var-m-top_small">
+                <span style="text-align: left;">
+                    Sekundäre Farbe, bspw. für Links und Buttons
+                </span>
+            </p>
+            <!-- End of Colors Preview Container -->
+</template>

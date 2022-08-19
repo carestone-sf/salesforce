@@ -1,0 +1,76 @@
+<template>
+	<template if:true={loading}>
+		<lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+	</template>
+
+	<!-- Start Document Upload -->
+	<template if:true={folderExistsAndShowUploadButton}>
+    	<lightning-button label="Datei hochladen" onclick={showUploadDocumentModal}></lightning-button>
+	</template>
+	<!-- End Document Upload -->
+
+
+	<!-- Start Document List -->
+    <template if:true={folderExistsAndHasDocuments}>
+		<div class="slds-var-m-top_large">
+			<lightning-datatable
+				key-field="id"
+				data={docs}
+				hide-checkbox-column
+				columns={columns}
+				onrowaction={handleRowAction}>
+			</lightning-datatable>
+		</div>
+    </template>
+	<!-- End Document List -->
+
+	<template if:true={folderDoesntExistsAndShowUploadButton}>
+		<div>
+			<p>Kein Ordner im DMS vorhanden</p>
+			<lightning-button label="Ordner im DMS anlegen" onclick={createFolder}></lightning-button>
+		</div>
+	</template>
+
+	<!-- Start Document Upload Modal -->
+    <template if:true={uploadDocumentModalShown}>
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+		   <div class="slds-modal__container">
+			  <header class="slds-modal__header">
+				 <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeUploadDocumentModal}>
+					<lightning-icon icon-name="utility:close"
+					   alternative-text="close"
+					   variant="inverse"
+					   size="small" ></lightning-icon>
+					<span class="slds-assistive-text">Schließen</span>
+				 </button>
+				 <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Datei hochladen</h2>
+			  </header>
+			<div class="slds-modal__content slds-p-around_medium">
+				<template if:true={documentTypesLoaded}>
+					<lightning-combobox
+						name="progress"
+						label="Datei-Typ"
+						placeholder="Datei-Typ auswählen"
+						options={documentTypeOptions}
+						onchange={handleDocumentTypeChange}></lightning-combobox>
+					<div class="slds-var-m-top_medium">
+						<lightning-file-upload
+							label="Datei"
+							name="fileUploader"
+							accept={acceptedFormats}
+							record-id={recordId}
+							onuploadfinished={handleDocumentChange}>
+						</lightning-file-upload> 
+					</div>
+					<div class="big-margin"></div>
+				</template>
+			</div>
+			<footer class="slds-modal__footer slds-grid slds-grid_align-spread">
+					<lightning-button label="Hochladen" onclick={handleDocumentUpload}></lightning-button>
+				</footer>
+		   </div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	 </template>
+	 <!-- End Document Upload Modal -->
+</template>

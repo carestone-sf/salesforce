@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bad_Staffelstein_Teilobjekte</fullName>
+    <columns>NAME</columns>
+    <columns>Rental_Start__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Property__c</field>
+        <operation>equals</operation>
+        <value>APH Bad Staffelstein</value>
+    </filters>
+    <label>Bad Staffelstein Teilobjekte</label>
+    <language>de</language>
+</ListView>

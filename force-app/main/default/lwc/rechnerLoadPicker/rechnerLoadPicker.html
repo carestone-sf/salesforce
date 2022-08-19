@@ -1,0 +1,11 @@
+<template>
+    <div style="height: 300px;">
+        <lightning-datatable
+                key-field="id"
+                data={saveListData}
+                columns={columns}
+                onrowselection={getSelectedID}
+                max-row-selection = 1> <!-- Remove to allow multiple selected rows -->
+        </lightning-datatable>
+    </div>    
+</template>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KeineGutschriften__c</fullName>
+    <externalId>false</externalId>
+    <formula>Objekt__r.KeineGutschriften__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Keine Gutschriften</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

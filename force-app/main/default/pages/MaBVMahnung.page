@@ -1,0 +1,203 @@
+<apex:page standardController="MaBVRechnung__c" showHeader="false" applyHtmlTag="false" renderAs="pdf">
+    <!-- Begin Default Content REMOVE THIS -->
+    <head>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            @page {
+
+                size: 21.0cm 29.7cm;
+                margin-bottom: 1.69cm;
+                margin-left: 2.5cm;
+                margin-right: 2cm;
+                margin-top: 0;
+                padding: 0;
+
+                @bottom-center {
+                    content: element(bottom-center-div);
+                }
+            }
+
+            body {
+                font-family: 'sans-serif';
+                color: #1f1f1f;
+                font-size: 12px;
+                line-height: 16px;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                display: block;
+            }
+
+            .bottom-center-div {
+                position: running(bottom-center-div);
+                text-align: center;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                border: none;
+            }
+
+            td {
+                vertical-align: baseline;
+            }
+        </style>
+    </head>
+    <div style="width: 100%; text-align: center; margin-bottom: 1.25cm; margin-top: 1.25cm;">
+        <apex:image style="{!IF(!IsBlank(MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Unternehmen__r.LogoUrl__c), 'display:inline-block;', 'display:none;')} height: 1.5cm" url="{!MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Unternehmen__r.LogoUrl__c}" width="auto"/>
+        <apex:image style="{!IF(IsBlank(MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Unternehmen__r.LogoUrl__c), 'display:inline-block', 'display:none')}; height: 1.5cm" url="{!$Resource.Carestone_Logo}" width="auto"/>
+    </div>
+
+    <div style="width: 100%;">
+        <div style="width: 58%; float: left;">
+            <div style="height: 1.77cm; width: 100%; position: relative;">
+                <p style="font-size: 8px; {!IF(!IsBlank(MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Unternehmen__r.LogoUrl__c), 'color: #1f1f1f;', 'color: #004B41;')} position: absolute; bottom: 0; left: 0; right: 0;">
+                    {!MaBVRechnung__c.Unternehmensname__c} &#183; {!MaBVRechnung__c.StrasseUnternehmen__c} &#183; {!MaBVRechnung__c.PLZUnternehmen__c} {!MaBVRechnung__c.StadtUnternehmen__c}
+                </p>
+            </div>
+            <p style="margin-top: 0.2cm;">
+                {!MaBVRechnung__c.AnredeErsterKaeufer__c}<br/>
+                <span style="{!IF(MaBVRechnung__c.AnredeZweiterKaeufer__c != null, 'display:inline', 'display:none')}">
+                    {!MaBVRechnung__c.AnredeZweiterKaeufer__c}<br/>
+                </span>
+                <span style="{!IF(MaBVRechnung__c.MaBVRechnungMaster__r.Opportunity__r.Potenzieller_Kunde__r.Adresszusatz__c != null, 'display:inline', 'display:none')}">
+                    {!MaBVRechnung__c.MaBVRechnungMaster__r.Opportunity__r.Potenzieller_Kunde__r.Adresszusatz__c}<br/>
+                </span>
+                {!MaBVRechnung__c.StrasseErsterKaeufer__c}<br/>
+                {!MaBVRechnung__c.PLZErsterKaeufer__c} {!MaBVRechnung__c.StadtErsterKaeufer__c}
+                <span style="{!IF(MaBVRechnung__c.MaBVRechnungMaster__r.Opportunity__r.Potenzieller_Kunde__r.MailingCountry != null, 'display:inline', 'display:none')} ">
+                    <br/>{!MaBVRechnung__c.MaBVRechnungMaster__r.Opportunity__r.Potenzieller_Kunde__r.MailingCountry}
+                </span>
+            </p>
+        </div>
+        <div style="width: 42%; float: right; margin-top: 0.55cm">
+            <p>
+                Rechnungsnummer: {!MaBVRechnung__c.Name}<br/>
+                Kundennummer: {!MaBVRechnung__c.MaBVRechnungMaster__r.Opportunity__r.Potenzieller_Kunde__r.DatevDebitorenKundennummerKaeufer__c}<br/>
+                Datum:&nbsp;{!LPAD(TEXT(DAY(TODAY())), 2, '0') + '.' + LPAD(TEXT(MONTH(TODAY())), 2, '0') + '.' + TEXT(YEAR(TODAY()))}<br/>
+                Leistungszeitraum: {!MONTH(MaBVRechnung__c.LeistungszeitraumVon__c)}/{!YEAR(MaBVRechnung__c.LeistungszeitraumVon__c)}  - {!MONTH(MaBVRechnung__c.LeistungszeitraumBis__c)}/{!YEAR(MaBVRechnung__c.LeistungszeitraumBis__c)} <br/>
+                Immobilie: {!MaBVRechnung__c.Immobilie__c}<br/>
+                Wohnungseinheit: {!MaBVRechnung__c.Apartment__c}<br/>
+                Kaufpreis:&nbsp;<apex:outputField value="{!MaBVRechnung__c.Kaufpreis__c}"/>
+            </p>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+
+    <div style="margin-top: 3cm;">
+    <h3>
+        Zahlungserinnerung
+    </h3>
+    <br/>
+    <p>
+        Sehr geehrte/r {!MaBVRechnung__c.AnredeErsterKaeufer__c}, <span style="{!IF(MaBVRechnung__c.AnredeZweiterKaeufer__c != null, 'display:inline', 'display:none')}">
+                <br/>sehr geehrte/r {!MaBVRechnung__c.AnredeZweiterKaeufer__c},
+                </span> <br/><br/>
+        nach Durchsicht unserer Unterlagen haben wir festgestellt, dass folgende Rechnungen noch zur Zahlung offen stehen. Wir bitten Sie, die Außenstände zu begleichen und bedanken uns hierfür schon im Voraus.
+    </p>
+
+    <br/>
+
+    <table>
+        <colgroup>
+            <col span="1" style="width: 25%;"/>
+            <col span="1" style="width: 25%;"/>
+            <col span="1" style="width: 25%;"/>
+            <col span="1" style="width: 25%;"/>
+        </colgroup>
+
+        <tr>
+            <td>ReNr.</td>
+            <td>Datum</td>
+            <td>Belegart</td>
+            <td style="text-align: right;">Betrag</td>
+        </tr>
+        <tr><td><br/></td></tr>
+        <tr>
+            <td>{!MaBVRechnung__c.Name}</td>
+            <td><apex:outputField value="{!MaBVRechnung__c.Rechnungsdatum__c}"/></td>
+            <td>Rechnung</td>
+            <td style="text-align: right;"><b><apex:outputField value="{!MaBVRechnung__c.RateGesamtInEuro__c}"/></b></td>
+        </tr>
+        <apex:repeat value="{!MaBVRechnung__c.ZahlungenMaBVRechnungen__r}" var="zahlung">
+            <tr>
+                <td>{!MaBVRechnung__c.Name}</td>
+                <td><apex:outputField value="{!zahlung.Zahldatum__c}"/></td>
+                <td>Zahlung</td>
+                <td style="text-align: right;"><b>- <apex:outputField value="{!zahlung.Betrag__c}"/></b></td>
+            </tr>
+        </apex:repeat>
+        <tr><td colspan="4"><br /><hr /><br/></td></tr>
+         <tr>
+            <td></td>
+            <td></td>
+            <td><b>Zu zahlen</b></td>
+            <td style="text-align: right;"><b><apex:outputField value="{!MaBVRechnung__c.OffenerBetragNeu__c}"/></b></td>
+        </tr>
+    </table>
+   
+    <br/><br/>
+    
+    <p>
+        Zahlungen nach dem {!LPAD(TEXT(DAY(TODAY()-1)), 2, '0') + '.' + LPAD(TEXT(MONTH(TODAY())), 2, '0') + '.' + TEXT(YEAR(TODAY()))} sind nicht berücksichtigt. Sollte sich Ihre Zahlung mit diesem Schreiben überschnitten haben, betrachten Sie bitte diese Erinnerung als gegenstandslos.
+    </p>
+
+    <br/>
+
+    <table>
+        <colgroup>
+            <col span="1" style="width: 25%;"/>
+            <col span="1" style="width: 75%;"/>
+        </colgroup>
+        <tr>
+            <td>
+                zu Gunsten:
+            </td>
+            <td>
+                {!MaBVRechnung__c.Unternehmensname__c}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                IBAN:
+            </td>
+            <td>
+                {!MaBVRechnung__c.IBAN__c}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                BIC:
+            </td>
+            <td>
+                {!MaBVRechnung__c.BIC__c}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Verwendungszweck:
+            </td>
+            <td>
+                {!MaBVRechnung__c.Name} {!MaBVRechnung__c.MaBVRechnungMaster__r.Opportunity__r.Potenzieller_Kunde__r.DatevDebitorenKundennummerKaeufer__c}
+            </td>
+        </tr>
+    </table>
+    
+    <br/>
+    
+    </div>
+
+    <div class="bottom-center-div" style="font-size: 8px; line-height: 12px;">
+        {!MaBVRechnung__c.Unternehmensname__c} &#183; {!MaBVRechnung__c.StrasseUnternehmen__c} &#183; {!MaBVRechnung__c.PLZUnternehmen__c} {!MaBVRechnung__c.StadtUnternehmen__c} &#183; Tel. {!MaBVRechnung__c.TelefonUnternehmen__c} &#183; Fax: {!MaBVRechnung__c.TelefaxUnternehmen__c}
+         &#183; {!MaBVRechnung__c.WebsiteUnternehmen__c} &#183; {!MaBVRechnung__c.EmailUnternehmen__c}<br/>
+        Geschäftsführer: {!MaBVRechnung__c.AnredeGeschaeftsfuehrerUnternehmen__c}<br/>
+        Amtsgericht {!MaBVRechnung__c.AmtsgerichtUnternehmen__c} {!MaBVRechnung__c.HRBUnternehmen__c} | <span style="{!IF(!IsBlank(MaBVRechnung__c.Komplementaer__c), 'display:inline', 'display:none')}"> Komplementär: {!MaBVRechnung__c.Komplementaer__c} |</span> St.Nr. {!MaBVRechnung__c.SteuernummerUnternehmen__c} | USt-IdNr. {!MaBVRechnung__c.UStIdNr__c}<br/>
+        {!MaBVRechnung__c.Bank__c} &#183; IBAN {!MaBVRechnung__c.IBAN__c} &#183; BIC {!MaBVRechnung__c.BIC__c}
+    </div>
+
+</apex:page>

@@ -1,0 +1,491 @@
+<template>
+    <template if:true={opp}>
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                <div class="slds-text-body_small">Notarieller Kaufpreis:</div>
+                <div class="slds-text-heading_small">
+                    <lightning-formatted-number value={opp.beurkundeter_Kaufpreis__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                <div class="slds-text-body_small">Vollständig abgerechnet:</div>
+                <div class="slds-text-heading_small">
+                    {vollstaendigAbgerechnet}
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                <div class="slds-text-body_small">Vollständig bezahlt:</div>
+                <div class="slds-text-heading_small">
+                    {vollstaendigBezahlt}    
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                <div class="slds-text-body_small">Restforderung:</div>
+                <div class="slds-text-heading_small">
+                    <lightning-formatted-number value={restforderung} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                <div class="slds-text-body_small">Aktuelle Rate:</div>
+                <div class="slds-text-heading_small">
+                    {currentRate}
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                <div class="slds-text-body_small">Abgerechneter Betrag:</div>
+                <div class="slds-text-heading_small">
+                    <lightning-formatted-number value={abgerechneterBetrag} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                <div class="slds-text-body_small">Gezahlter Betrag:</div>
+                <div class="slds-text-heading_small">
+                    <lightning-formatted-number value={bezahlterBetrag} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                <div class="slds-text-body_small">Offener Betrag:</div>
+                <div class="slds-text-heading_small">
+                    <lightning-formatted-number value={offenerBetrag} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </template>
+    <lightning-accordion class="slds-var-m-top_medium accordion"
+                         active-section-name="A">
+        <lightning-accordion-section name="A" label="Rate 1" if:true={rateOne}>
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">MaBV-Rate:</div>
+                    <div class="slds-text-heading_small">
+                        {rateOne.MaBVRechnungMaster__r.MaBVRate__r.Name}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rate in Euro:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-number value={rateOne.RateGesamtInEuro__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rechnungsdatum:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-date-time year="numeric"
+                            day="2-digit"
+                            month="long" 
+                            value={rateOne.Rechnungsdatum__c}></lightning-formatted-date-time>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rechnungsnummer:</div>
+                    <div class="slds-text-heading_small">
+                        {rateOne.Name}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Zahlungsziel:</div>
+                    <div class="slds-text-heading_small">
+                        {rateOne.ZahlungszielInTagen__c} Tage
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Differenz Zahlbetrag:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-number value={rateOne.OffenerBetragNeu__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <div class="slds-text-body_small">Leistung:</div>
+                    <div class="slds-text-heading_small">
+                        {rateOne.Leistung__c}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <div class="slds-text-body_small">Zahlungen:</div>
+                    <template for:each={rateOne.ZahlungenMaBVRechnungen__r} for:item="z">
+                        <div key={z.Id} data-key={z.Id} class="slds-m-top_small slds-text-heading_small">
+                            <lightning-formatted-number value={z.Betrag__c} format-style="currency" currency-code="EUR"></lightning-formatted-number> am&nbsp;
+                            <lightning-formatted-date-time year="numeric"
+                                day="2-digit"
+                                month="long" 
+                                value={z.Zahldatum__c}></lightning-formatted-date-time><br/>
+                        </div>
+                    </template>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="B" label="Rate 2" if:true={rateTwo}>
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">MaBV-Rate:</div>
+                    <div class="slds-text-heading_small">
+                        {rateTwo.MaBVRechnungMaster__r.MaBVRate__r.Name}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rate in Euro:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-number value={rateTwo.RateGesamtInEuro__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rechnungsdatum:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-date-time year="numeric"
+                            day="2-digit"
+                            month="long" 
+                            value={rateTwo.Rechnungsdatum__c}></lightning-formatted-date-time>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rechnungsnummer:</div>
+                    <div class="slds-text-heading_small">
+                        {rateTwo.Name}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Zahlungsziel:</div>
+                    <div class="slds-text-heading_small">
+                        {rateTwo.ZahlungszielInTagen__c} Tage
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Differenz Zahlbetrag:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-number value={rateTwo.OffenerBetragNeu__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <div class="slds-text-body_small">Leistung:</div>
+                    <div class="slds-text-heading_small">
+                        {rateTwo.Leistung__c}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <div class="slds-text-body_small">Zahlungen:</div>
+                    <template for:each={rateTwo.ZahlungenMaBVRechnungen__r} for:item="z">
+                        <div key={z.Id} data-key={z.Id} class="slds-m-top_small slds-text-heading_small">
+                            <lightning-formatted-number value={z.Betrag__c} format-style="currency" currency-code="EUR"></lightning-formatted-number> am&nbsp;
+                            <lightning-formatted-date-time year="numeric"
+                                day="2-digit"
+                                month="long" 
+                                value={z.Zahldatum__c}></lightning-formatted-date-time><br/>
+                        </div>
+                    </template>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="C" label="Rate 3" if:true={rateThree}>
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">MaBV-Rate:</div>
+                    <div class="slds-text-heading_small">
+                        {rateThree.MaBVRechnungMaster__r.MaBVRate__r.Name}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rate in Euro:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-number value={rateThree.RateGesamtInEuro__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rechnungsdatum:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-date-time year="numeric"
+                            day="2-digit"
+                            month="long" 
+                            value={rateThree.Rechnungsdatum__c}></lightning-formatted-date-time>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rechnungsnummer:</div>
+                    <div class="slds-text-heading_small">
+                        {rateThree.Name}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Zahlungsziel:</div>
+                    <div class="slds-text-heading_small">
+                        {rateThree.ZahlungszielInTagen__c} Tage
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Differenz Zahlbetrag:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-number value={rateThree.OffenerBetragNeu__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <div class="slds-text-body_small">Leistung:</div>
+                    <div class="slds-text-heading_small">
+                        {rateThree.Leistung__c}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <div class="slds-text-body_small">Zahlungen:</div>
+                    <template for:each={rateThree.ZahlungenMaBVRechnungen__r} for:item="z">
+                        <div key={z.Id} data-key={z.Id} class="slds-m-top_small slds-text-heading_small">
+                            <lightning-formatted-number value={z.Betrag__c} format-style="currency" currency-code="EUR"></lightning-formatted-number> am&nbsp;
+                            <lightning-formatted-date-time year="numeric"
+                                day="2-digit"
+                                month="long" 
+                                value={z.Zahldatum__c}></lightning-formatted-date-time><br/>
+                        </div>
+                    </template>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="D" label="Rate 4" if:true={rateFour}>
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">MaBV-Rate:</div>
+                    <div class="slds-text-heading_small">
+                        {rateFour.MaBVRechnungMaster__r.MaBVRate__r.Name}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rate in Euro:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-number value={rateFour.RateGesamtInEuro__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rechnungsdatum:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-date-time year="numeric"
+                            day="2-digit"
+                            month="long" 
+                            value={rateFour.Rechnungsdatum__c}></lightning-formatted-date-time>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rechnungsnummer:</div>
+                    <div class="slds-text-heading_small">
+                        {rateFour.Name}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Zahlungsziel:</div>
+                    <div class="slds-text-heading_small">
+                        {rateFour.ZahlungszielInTagen__c} Tage
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Differenz Zahlbetrag:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-number value={rateFour.OffenerBetragNeu__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <div class="slds-text-body_small">Leistung:</div>
+                    <div class="slds-text-heading_small">
+                        {rateFour.Leistung__c}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <div class="slds-text-body_small">Zahlungen:</div>
+                    <template for:each={rateFour.ZahlungenMaBVRechnungen__r} for:item="z">
+                        <div key={z.Id} data-key={z.Id} class="slds-m-top_small slds-text-heading_small">
+                            <lightning-formatted-number value={z.Betrag__c} format-style="currency" currency-code="EUR"></lightning-formatted-number> am&nbsp;
+                            <lightning-formatted-date-time year="numeric"
+                                day="2-digit"
+                                month="long" 
+                                value={z.Zahldatum__c}></lightning-formatted-date-time><br/>
+                        </div>
+                    </template>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="E" label="Rate 5" if:true={rateFive}>
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">MaBV-Rate:</div>
+                    <div class="slds-text-heading_small">
+                        {rateFive.MaBVRechnungMaster__r.MaBVRate__r.Name}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rate in Euro:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-number value={rateFive.RateGesamtInEuro__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rechnungsdatum:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-date-time year="numeric"
+                            day="2-digit"
+                            month="long" 
+                            value={rateFive.Rechnungsdatum__c}></lightning-formatted-date-time>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rechnungsnummer:</div>
+                    <div class="slds-text-heading_small">
+                        {rateFive.Name}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Zahlungsziel:</div>
+                    <div class="slds-text-heading_small">
+                        {rateFive.ZahlungszielInTagen__c} Tage
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Differenz Zahlbetrag:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-number value={rateFive.OffenerBetragNeu__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <div class="slds-text-body_small">Leistung:</div>
+                    <div class="slds-text-heading_small">
+                        {rateFive.Leistung__c}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <div class="slds-text-body_small">Zahlungen:</div>
+                    <template for:each={rateFive.ZahlungenMaBVRechnungen__r} for:item="z">
+                        <div key={z.Id} data-key={z.Id} class="slds-m-top_small slds-text-heading_small">
+                            <lightning-formatted-number value={z.Betrag__c} format-style="currency" currency-code="EUR"></lightning-formatted-number> am&nbsp;
+                            <lightning-formatted-date-time year="numeric"
+                                day="2-digit"
+                                month="long" 
+                                value={z.Zahldatum__c}></lightning-formatted-date-time><br/>
+                        </div>
+                    </template>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="F" label="Rate 6" if:true={rateSix}>
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">MaBV-Rate:</div>
+                    <div class="slds-text-heading_small">
+                        {rateSix.MaBVRechnungMaster__r.MaBVRate__r.Name}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rate in Euro:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-number value={rateSix.RateGesamtInEuro__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rechnungsdatum:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-date-time year="numeric"
+                            day="2-digit"
+                            month="long" 
+                            value={rateSix.Rechnungsdatum__c}></lightning-formatted-date-time>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rechnungsnummer:</div>
+                    <div class="slds-text-heading_small">
+                        {rateSix.Name}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Zahlungsziel:</div>
+                    <div class="slds-text-heading_small">
+                        {rateSix.ZahlungszielInTagen__c} Tage
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Differenz Zahlbetrag:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-number value={rateSix.OffenerBetragNeu__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <div class="slds-text-body_small">Leistung:</div>
+                    <div class="slds-text-heading_small">
+                        {rateSix.Leistung__c}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <div class="slds-text-body_small">Zahlungen:</div>
+                    <template for:each={rateSix.ZahlungenMaBVRechnungen__r} for:item="z">
+                        <div key={z.Id} data-key={z.Id} class="slds-m-top_small slds-text-heading_small">
+                            <lightning-formatted-number value={z.Betrag__c} format-style="currency" currency-code="EUR"></lightning-formatted-number> am&nbsp;
+                            <lightning-formatted-date-time year="numeric"
+                                day="2-digit"
+                                month="long" 
+                                value={z.Zahldatum__c}></lightning-formatted-date-time><br/>
+                        </div>
+                    </template>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="G" label="Rate 7" if:true={rateSeven}>
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">MaBV-Rate:</div>
+                    <div class="slds-text-heading_small">
+                        {rateSeven.MaBVRechnungMaster__r.MaBVRate__r.Name}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rate in Euro:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-number value={rateSeven.RateGesamtInEuro__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rechnungsdatum:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-date-time year="numeric"
+                            day="2-digit"
+                            month="long" 
+                            value={rateSeven.Rechnungsdatum__c}></lightning-formatted-date-time>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Rechnungsnummer:</div>
+                    <div class="slds-text-heading_small">
+                        {rateSeven.Name}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Zahlungsziel:</div>
+                    <div class="slds-text-heading_small">
+                        {rateSeven.ZahlungszielInTagen__c} Tage
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+                    <div class="slds-text-body_small">Differenz Zahlbetrag:</div>
+                    <div class="slds-text-heading_small">
+                        <lightning-formatted-number value={rateSeven.OffenerBetragNeu__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <div class="slds-text-body_small">Leistung:</div>
+                    <div class="slds-text-heading_small">
+                        {rateSeven.Leistung__c}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <div class="slds-text-body_small">Zahlungen:</div>
+                    <template for:each={rateSeven.ZahlungenMaBVRechnungen__r} for:item="z">
+                        <div key={z.Id} data-key={z.Id} class="slds-m-top_small slds-text-heading_small">
+                            <lightning-formatted-number value={z.Betrag__c} format-style="currency" currency-code="EUR"></lightning-formatted-number> am&nbsp;
+                            <lightning-formatted-date-time year="numeric"
+                                day="2-digit"
+                                month="long" 
+                                value={z.Zahldatum__c}></lightning-formatted-date-time><br/>
+                        </div>
+                    </template>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-accordion-section>
+    </lightning-accordion>
+        
+</template>

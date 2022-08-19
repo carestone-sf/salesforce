@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Wert_Moblierung__c</fullName>
+    <description>Möblierungskonzept, Wert der Möblierung
+Brutto</description>
+    <externalId>false</externalId>
+    <label>Wert Moblierung</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AnzahlNurReservierungen__c</fullName>
+    <externalId>false</externalId>
+    <label>Anzahl nur Reservierungen</label>
+    <summaryFilterItems>
+        <field>Appartment__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Reservierungsvorbereitung, Reservierung angefragt, Reserviert</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Appartment__c.Property__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

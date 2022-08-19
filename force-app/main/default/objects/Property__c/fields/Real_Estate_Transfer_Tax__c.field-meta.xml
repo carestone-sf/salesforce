@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Real_Estate_Transfer_Tax__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(  State__c  , 
+&quot;Niedersachsen&quot;, 0.05, 
+&quot;Brandenburg&quot;,0.065, 
+&quot;Berlin&quot;,0.06, 
+&quot;Baden-Württemberg&quot;,0.050, 
+&quot;Bremen&quot;,0.05, 
+&quot;Hamburg&quot;,0.045, 
+&quot;Mecklenburg-Vorpommern&quot;,0.050, 
+&quot;Nordrhein-Westfalen&quot;,0.065, 
+&quot;Rheinland-Pfalz&quot;,0.050, 
+&quot;Saarland&quot;,0.065, 
+&quot;Sachsen-Anhalt&quot;,0.050, 
+&quot;Schleswig-Holstein&quot;,0.065, 
+&quot;Thüringen&quot;,0.065, 
+&quot;Bayern&quot;,0.035, 
+&quot;Hessen&quot;,0.06, 
+&quot;Sachsen&quot;,0.035, 
+0.055)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Real Estate Transfer Tax (%)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

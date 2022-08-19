@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Aktenstatus_00_01</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+DmsOrdnerErstellt__c,
+IsChanged(AktenstatusDms__c),
+OR(
+TEXT(PRIORVALUE(AktenstatusDms__c)) = &apos;Initial&apos;,
+TEXT(PRIORVALUE(AktenstatusDms__c)) = &apos;Immobilie angelegt&apos;
+),
+TEXT(AktenstatusDms__c) != &apos;Entwicklung (Akquise)&apos;,
+TEXT(AktenstatusDms__c) != &apos;Archiviert&apos;
+)</errorConditionFormula>
+    <errorDisplayField>AktenstatusDms__c</errorDisplayField>
+    <errorMessage>Von den Status &quot;Initial&quot; und &quot;Immobilie angelegt&quot; können Sie nur in &quot;Entwicklung (Akquise)&quot; und &quot;Archiviert&quot; wechseln</errorMessage>
+</ValidationRule>

@@ -1,0 +1,114 @@
+.myFieldset {
+    display: block;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-top: 6px;
+    padding-bottom: 26px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border: 1px #DCDCDC;
+    border-style: solid;
+    border-radius: 6px;   
+}
+ 
+.myLegend {
+    display: block;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-bottom: 16px;
+    border: none;
+    border-style: none;
+    border-radius: 6px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.themeImage {
+    width: 100%;
+    height: auto;
+    background: #ffffff;
+    border: 1px solid #e6e8e8;
+    border-radius: 5px;
+    margin: 20px 0 20px 0;
+    padding: 25px;
+    position: relative;
+}
+
+.slds-box {
+    margin: 6px;
+    padding: 8px;
+}
+
+.color-box {
+    border-radius: 6px;
+    height: 30px; 
+    width: 30px; 
+    margin: 0px;
+    margin-bottom: 4px;
+}
+
+[id*=immoframeColor1] {
+    background: #1774B6;
+}
+
+[id*=immoframeColor2] {
+    background: #1F5CC1;
+}
+
+[id*=immoframeColor3] {
+    background: #33C4E9;
+}
+
+[id*=immoframeColor4] {
+    background: #5A34E8;
+}
+
+[id*=immoframeColor5] {
+    background: #EB36C7;
+}
+
+[id*=immoframeColor6] {
+    background: #EC8B36;
+}
+
+[id*=immoframeColor7] {
+    background: #52785C;
+}
+
+[id*=immoframeColor8] {
+    background: #E9C916;
+}
+
+[id*=immoframeColor9] {
+    background: #999999;
+}
+
+[id*=immoframeColor10] {
+    background: #34D229;
+}
+
+[id*=immoframeColor11] {
+    background: #B6B6B6;
+}
+
+[id*=immoframeColor12] {
+    background: #A30041;
+}
+
+[id*=immoframeColor13] {
+    background: #A3927D;
+}
+
+[id*=immoframeColor14] {
+    background: #111212;
+}
+
+[id*=immoframeColor15]{
+    background: #263082;
+}
+
+[id*=immoframeColor16] {
+    background: #387C5F;
+}

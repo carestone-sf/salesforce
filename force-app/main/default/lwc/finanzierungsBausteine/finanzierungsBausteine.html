@@ -1,0 +1,232 @@
+<template>
+    <template if:true={loading}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </template>
+
+    <lightning-radio-group name="finanzierungsArt" label="Finanzierungsart" value={finanzierungsArt}
+        placeholder="Finanzierungsart auswählen" options={finanzierungsArtOptions}
+        onchange={handleFinanzierungsArtChange} type="button"></lightning-radio-group>
+
+    <template if:true={calculation.data}>
+        <table class="slds-var-m-top_medium slds-var-m-bottom_medium">
+            <thead>
+                <tr>
+                    <th>{calculation.data.Hauptimmobilie__r.Name}</th>
+                    <th class="slds-text-align_right">Kaufpreis</th>
+                    <th class="slds-text-align_right">Nebenkosten</th>
+                    <th class="slds-text-align_right">Gesamt</th>
+                </tr>
+            </thead>
+            <tbody class="slds-var-m-top_small">
+                <template for:each={calculation.data.Berechnungs_Apartments__r} for:item="apartment">
+                    <tr key={apartment.Id}>
+                        <td>{apartment.Apartment__r.Name}</td>
+                        <td class="slds-text-align_right">
+                            <lightning-formatted-number value={apartment.Listenpreis__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                        </td>
+                        <td class="slds-text-align_right">
+                            <lightning-formatted-number value={apartment.NebenkostenInEuro__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                        </td>
+                        <td class="slds-text-align_right">
+                            <lightning-formatted-number value={apartment.Gesamtkosten__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td>Gesamt</td>
+                    <td class="slds-text-align_right">
+                        <lightning-formatted-number value={calculation.data.ListenpreisGesamt__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                    </td>
+                    <td class="slds-text-align_right">
+                        <lightning-formatted-number value={calculation.data.NebenkostenGesamt__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                    </td>
+                    <td class="slds-text-align_right">
+                        <lightning-formatted-number value={calculation.data.Gesamtkosten__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </template>
+
+    <template if:false={isBarFinanzierung}>
+        <hr>
+        <lightning-record-edit-form onsuccess={handleSuccess} object-api-name="Berechnung__c"
+        record-id={recordId}>
+            <lightning-messages>
+            </lightning-messages>
+            <lightning-input-field field-name="Eigenkapital__c" value={eigenkapital} required="true" onchange={handleValueChange}>
+            </lightning-input-field>
+        </lightning-record-edit-form>
+        <hr>
+    </template>
+
+    <div class="slds-var-m-top_small"></div>
+    <template if:false={isBarFinanzierung}>
+        <template for:each={finanzierungsBausteine} for:item="f">
+            <template if:false={f.IstEigenkapitalBaustein__c}>
+                <div key={f.Id} data-key={f.Id} class="slds-m-top_small">
+                    <lightning-layout vertical-align="center">
+                        <lightning-layout-item flexibility="auto">
+                            <lightning-accordion allow-multiple-sections-open>
+                                <lightning-accordion-section name="A" label={f.Name}
+                                    style="margin-left: -0.75rem; margin-right: -0.75rem;">
+                                    <lightning-record-view-form record-id={f.Id}
+                                        object-api-name="Finanzierungsbaustein__c">
+                                        <div class="slds-box">
+                                            <lightning-layout>
+                                                <lightning-layout-item size="6">
+                                                    <lightning-output-field field-name="Art__c">
+                                                    </lightning-output-field>
+                                                </lightning-layout-item>
+                                                <lightning-layout-item size="6">
+                                                    <lightning-output-field field-name="Kreditsumme__c">
+                                                    </lightning-output-field>
+                                                </lightning-layout-item>
+                                            </lightning-layout>
+                                            <lightning-layout>
+                                                <lightning-layout-item size="6">
+                                                    <lightning-output-field field-name="TilgungInPercent__c">
+                                                    </lightning-output-field>
+                                                </lightning-layout-item>
+                                                <lightning-layout-item size="6">
+                                                    <lightning-output-field field-name="TilgungProMonatInEuro__c">
+                                                    </lightning-output-field>
+                                                </lightning-layout-item>
+                                            </lightning-layout>
+                                            <lightning-layout>
+                                                <lightning-layout-item size="6">
+                                                    <lightning-output-field field-name="ZinsInPercent__c">
+                                                    </lightning-output-field>
+                                                </lightning-layout-item>
+                                                <lightning-layout-item size="6">
+                                                    <lightning-output-field field-name="ZinsProMonatInEuro__c">
+                                                    </lightning-output-field>
+                                                </lightning-layout-item>
+                                            </lightning-layout>
+                                        </div>
+                                    </lightning-record-view-form>
+                                </lightning-accordion-section>
+                            </lightning-accordion>
+                        </lightning-layout-item>
+                        <lightning-layout-item>
+                            <lightning-button class="slds-m-left_x-small"
+                                onclick={handleRemoveFinanzierungsBausteinWithIdClick}
+                                label="Finanzierungsbaustein löschen" title="Finanzierungsbaustein löschen"
+                                icon-name="utility:delete"></lightning-button>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+            </template>
+        </template>
+        <hr if:true={hasFinanzierungsBausteine} />
+    </template>
+
+    <template if:true={showNewFinanzierungsBausteinForm}>
+        <div class="slds-m-top_small">
+            <lightning-record-edit-form class="finanzierungsbaustein" onsuccess={handleSuccess}
+                object-api-name="Finanzierungsbaustein__c" style="width: 100%;">
+                <lightning-messages>
+                </lightning-messages>
+                <lightning-input-field style="display:none" field-name="Berechnung__c" value={recordId}>
+                </lightning-input-field>
+                <lightning-input-field field-name="Name" required="true" onchange={handleValueChange}>
+                </lightning-input-field>
+                <lightning-input-field field-name="Art__c" required="true" data-name="Art__c"
+                    onchange={handleTypeChange}>
+                </lightning-input-field>
+                <lightning-input-field field-name="Kreditsumme__c" required="true" data-name="Kreditsumme__c"
+                    onchange={handleKreditsummeChange} autocomplete="off">
+                </lightning-input-field>
+                <lightning-input-field field-name="ZinsInPercent__c" required="true" data-name="ZinsInPercent__c"
+                    onchange={handleZinsInPercentChange} autocomplete="off">
+                </lightning-input-field>
+                <lightning-input-field field-name="ZinsbindungBis__c" data-name="ZinsbindungBis__c"
+                    onchange={handleValueChange}>
+                </lightning-input-field>
+                <lightning-input-field field-name="TilgungInPercent__c" required="true" data-name="TilgungInPercent__c"
+                    onchange={handleValueChange} autocomplete="off">
+                </lightning-input-field>
+                <lightning-input-field field-name="Tilgungsbeginn__c" data-name="Tilgungsbeginn__c"
+                    onchange={handleValueChange}>
+                </lightning-input-field>
+                <lightning-input-field field-name="FesteLaufzeit__c" data-name="FesteLaufzeit__c"
+                    onchange={handleFesteLaufzeitChange}>
+                </lightning-input-field>
+                <lightning-input-field field-name="LaufzeitInJahren__c" data-name="LaufzeitInJahren__c"
+                    disabled="disabled" onchange={handleLaufzeitInJahrenChange}>
+                </lightning-input-field>
+            </lightning-record-edit-form>
+
+            <template if:false={isEigenkapital}>
+                <lightning-checkbox-group options={showSondertilgungOptions} value={showSondertilgungValue}
+                    onchange={handleSondertilgungChange}></lightning-checkbox-group>
+            </template>
+
+            <template if:true={showSondertilgung}>
+                <lightning-record-edit-form class="sondertilgung slds-m-top_medium"
+                    onsuccess={handleSonderTilgungSuccess} object-api-name="Sondertilgung__c"
+                    record-id={sondertilgungId} style="width: 100%;">
+                    <lightning-messages>
+                    </lightning-messages>
+                    <lightning-input-field style="display:none" field-name="Finanzierungsbaustein__c"
+                        data-name="Finanzierungsbaustein__c"></lightning-input-field>
+                    <lightning-input-field field-name="Name" required="true" onchange={handleValueChange}>
+                    </lightning-input-field>
+                    <lightning-input-field field-name="Betrag__c" required="true" data-name="Betrag__c"
+                        onchange={handleSondertilgungValueChange}>
+                    </lightning-input-field>
+                    <lightning-input-field field-name="Prozent__c" required="true" data-name="Prozent__c"
+                        onchange={handleSondertilungPercentChange}>
+                    </lightning-input-field>
+                    <lightning-input-field field-name="JahrDerAuszahlung__c" required="true"
+                        data-name="JahrDerAuszahlung__c">
+                    </lightning-input-field>
+                </lightning-record-edit-form>
+            </template>
+        </div>
+        <div class="slds-text-align_right slds-var-m-top_medium">
+            <lightning-button variant="brand" label="Speichern" title="Speichern" onclick={handleSave}></lightning-button>
+            <!-- <lightning-button variant="neutral" label="Abbrechen" title="Abbrechen" onclick={handleClose}>
+            </lightning-button> -->
+        </div>
+    </template>
+
+    <div class="slds-m-top_small slds-align_absolute-center" if:true={showAddFinanzierungsBausteinButton}>
+        <lightning-button onclick={handleAddFinanzierungsBausteinClick} label="Finanzierungsbaustein hinzufügen"
+            disabled={disableAddFinanzierungsBaustein} title="Finanzierungsbaustein hinzufügen" icon-name="utility:add">
+        </lightning-button>
+    </div>
+
+    <template if:true={isBarFinanzierung}>
+        <div class="slds-var-m-top_medium">
+            <lightning-layout>
+                <lightning-layout-item size="6">
+                    <span style="font-weight: bold;">Eigenkapital: </span>
+                </lightning-layout-item>
+                <lightning-layout-item size="6">
+                    <div class="slds-text-align_right" style="font-weight: bold;">
+                        <lightning-formatted-number value={eigenkapital} format-style="currency"
+                        currency-code="EUR"></lightning-formatted-number>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </template>
+
+    <div class="slds-var-m-top_medium">
+        <lightning-layout>
+            <lightning-layout-item size="6">
+                <span style="font-weight: bold;">Offene Summe: </span>
+            </lightning-layout-item>
+            <lightning-layout-item size="6">
+                <div class="slds-text-align_right" style="font-weight: bold;">
+                    <lightning-formatted-number value={openAmount} format-style="currency"
+                    currency-code="EUR"></lightning-formatted-number>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>

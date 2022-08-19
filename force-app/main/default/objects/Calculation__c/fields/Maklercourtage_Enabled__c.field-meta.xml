@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maklercourtage_Enabled__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Maklercourtage ausrechnen</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Maklercourtage ausrechnen</inlineHelpText>
+    <label>Maklercourtage Enabled</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

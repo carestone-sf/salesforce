@@ -1,0 +1,84 @@
+<template>
+    <template if:true={loading}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </template>
+
+    <template for:each={records.data} for:item="r">
+        <div key={r.Id} data-key={r.Id} class="slds-m-top_small">
+            <lightning-layout vertical-align="center">
+                <lightning-layout-item flexibility="auto">
+                    <lightning-accordion allow-multiple-sections-open>
+                        <lightning-accordion-section name="A" label={r.Name}
+                            style="margin-left: -0.75rem; margin-right: -0.75rem;">
+                            <lightning-record-view-form record-id={r.Id}
+                                object-api-name={objectApiName}>
+                                <div class="slds-box">
+                                    <lightning-layout multiple-rows>
+                                        <template for:each={fieldsArray} for:item="fA">
+                                            <lightning-layout-item key={fA} size="6">
+                                                <lightning-output-field field-name={fA}>
+                                                </lightning-output-field>
+                                            </lightning-layout-item>
+                                        </template>
+                                    </lightning-layout>
+                                    <!-- <lightning-layout>
+                                        <lightning-layout-item size="6">
+                                            <lightning-output-field field-name="TilgungInPercent__c">
+                                            </lightning-output-field>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="6">
+                                            <lightning-output-field field-name="TilgungProMonatInEuro__c">
+                                            </lightning-output-field>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                    <lightning-layout>
+                                        <lightning-layout-item size="6">
+                                            <lightning-output-field field-name="ZinsInPercent__c">
+                                            </lightning-output-field>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="6">
+                                            <lightning-output-field field-name="ZinsProMonatInEuro__c">
+                                            </lightning-output-field>
+                                        </lightning-layout-item>
+                                    </lightning-layout> -->
+                                </div>
+                            </lightning-record-view-form>
+                        </lightning-accordion-section>
+                    </lightning-accordion>
+                </lightning-layout-item>
+                <lightning-layout-item>
+                    <lightning-button class="slds-m-left_x-small"
+                        onclick={handleRemoveRecordWithIdClick}
+                        label={deleteRecordButtonLabel} title={deleteRecordButtonLabel}
+                        icon-name="utility:delete"></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </template>
+    <hr if:true={hasRecords}/>
+
+    <template if:true={showNewRecordForm}>
+        <h2>{objectLabel} hinzufügen</h2>
+        <div class="slds-m-top_small">
+            <lightning-record-edit-form class="record" onsuccess={handleSuccess}
+                object-api-name={objectApiName} style="width: 100%;">
+                <lightning-messages>
+                </lightning-messages>
+                <lightning-input-field style="display:none" field-name="DigitaleVsa__c" value={recordId}>
+                </lightning-input-field>
+                <template for:each={fieldsArray} for:item="fA">
+                    <lightning-input-field key={fA} field-name={fA}>
+                    </lightning-input-field>
+                </template>
+            </lightning-record-edit-form>
+        </div>
+        <div class="slds-text-align_right slds-var-m-top_medium">
+            <lightning-button variant="brand" label="Speichern" title="Speichern" onclick={handleSave}></lightning-button>
+        </div>
+    </template>
+
+    <div class="slds-m-top_small slds-align_absolute-center" if:true={showAddRecordButton}>
+        <lightning-button onclick={handleAddRecordClick} label={addRecordButtonLabel} title={addRecordButtonLabel} icon-name="utility:add">
+        </lightning-button>
+    </div>
+</template>

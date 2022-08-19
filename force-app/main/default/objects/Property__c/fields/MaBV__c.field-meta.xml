@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MaBV__c</fullName>
+    <externalId>false</externalId>
+    <label>Energiestandard</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>KfW-Mittel</fullName>
+                <default>false</default>
+                <label>KfW-Mittel</label>
+            </value>
+            <value>
+                <fullName>KfW 40</fullName>
+                <default>false</default>
+                <label>KfW 40</label>
+            </value>
+            <value>
+                <fullName>KfW 40 (EE)</fullName>
+                <default>false</default>
+                <label>KfW 40 (EE)</label>
+            </value>
+            <value>
+                <fullName>KfW 55</fullName>
+                <default>false</default>
+                <label>KfW 55</label>
+            </value>
+            <value>
+                <fullName>KfW 55 (EE)</fullName>
+                <default>false</default>
+                <label>KfW 55 (EE)</label>
+            </value>
+            <value>
+                <fullName>KfW 70</fullName>
+                <default>false</default>
+                <label>KfW 70</label>
+            </value>
+            <value>
+                <fullName>Ohne MaBV</fullName>
+                <default>false</default>
+                <label>Ohne MaBV</label>
+            </value>
+            <value>
+                <fullName>KfW-40 (EE)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>KfW-40 (EE)</label>
+            </value>
+            <value>
+                <fullName>KfW-55 (EE)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>KfW-55 (EE)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

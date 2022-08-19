@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Aktuelle_Immobilien2</fullName>
+    <booleanFilter>1 OR 2</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Notar__c</columns>
+    <columns>Teaser_Highlight_1__c</columns>
+    <columns>Teaser_Highlight_2__c</columns>
+    <columns>Teaser_Highlight_3__c</columns>
+    <columns>GutschriftenSachkonto__c</columns>
+    <columns>Objektnummer__c</columns>
+    <columns>MaBV__c</columns>
+    <columns>Bauart__c</columns>
+    <columns>Betreiber__c</columns>
+    <columns>Projektbeauftragte__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Is_Public__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>AktenstatusDms__c</field>
+        <operation>equals</operation>
+        <value>Durchführung (Aktiv)</value>
+    </filters>
+    <label>Aktuelle Immobilien</label>
+</ListView>

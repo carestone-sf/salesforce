@@ -1,0 +1,36 @@
+<template>
+    <lightning-card title="Zu genehmigen">
+        <div class="slds-p-horizontal_small">
+            <template if:true={provApprovals.data}>
+                <template for:each={provApprovals.data} for:item="provApproval">
+                    <div key={provApproval.workItemId} data-key={provApproval.workItemId} class="slds-p-bottom_medium slds-m-top_medium approval">
+                        <lightning-layout>
+                            <lightning-layout-item size="8">
+                            <p>{provApproval.name}</p>
+                            <p>Maklerprovision: <lightning-formatted-number value={provApproval.maklerProv} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                            </p>
+                            <p>Beratungsprovision: <lightning-formatted-number value={provApproval.beratungProv} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                            </p>
+                            <p>Immobilie: {provApproval.immobilieName}</p>
+                            <p>Apartment: {provApproval.apartmentName}</p>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4">
+                            <div>
+                                <lightning-button variant="brand" label="Genehmigen" title="Genehmigen" onclick={approveProvision}></lightning-button>
+                            </div>
+                            <div class="slds-m-top_small">
+                                <lightning-button label="Ablehnen" title="Ablehnen" onclick={disapproveProvision}></lightning-button>
+                            </div>
+                        </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                </template>
+            </template>
+            <template if:false={hasApprovals}>
+                <div class="slds-p-bottom_medium slds-m-top_medium event">
+                    Keine zu genehmigenden Elemente
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

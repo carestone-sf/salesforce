@@ -1,0 +1,16 @@
+footer {
+    height: 80px;
+    background-color: var(--lwc-brandNavigationBackgroundColor, rgb(0, 75, 65));
+    color: white;
+    padding: 0.75rem;
+}
+
+@media screen and (min-width: 768px) {
+    footer {
+        position: fixed;
+        bottom: 20px;
+        right: 1.75rem;
+        left: 1.75rem;
+        z-index: 2;
+    }
+}

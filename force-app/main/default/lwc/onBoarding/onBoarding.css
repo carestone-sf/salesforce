@@ -1,0 +1,13 @@
+.hidden {
+    display: none;
+}
+
+.center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+footer .slds-button.slds-progress__marker {
+    cursor: default;
+}

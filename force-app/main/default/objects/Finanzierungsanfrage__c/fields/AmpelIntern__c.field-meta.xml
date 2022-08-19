@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AmpelIntern__c</fullName>
+    <externalId>false</externalId>
+    <label>Bewertung intern</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Grün</fullName>
+                <default>false</default>
+                <label>Grün</label>
+            </value>
+            <value>
+                <fullName>Gelb</fullName>
+                <default>false</default>
+                <label>Gelb</label>
+            </value>
+            <value>
+                <fullName>Rot</fullName>
+                <default>false</default>
+                <label>Rot</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Finanzierungsanfrage__c</fullName>
+    <externalId>false</externalId>
+    <label>Finanzierungsanfrage</label>
+    <referenceTo>Finanzierungsanfrage__c</referenceTo>
+    <relationshipLabel>Finanzierungsanfrage Notizen</relationshipLabel>
+    <relationshipName>FinanzierungsanfrageNotizen</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

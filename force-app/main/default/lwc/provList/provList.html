@@ -1,0 +1,13 @@
+<template>
+    <template if:true={isManager}>
+        <lightning-card title="Ihre Provisionsübersicht">
+            <div class="slds-p-horizontal_small">
+                <div class="slds-p-bottom_medium slds-m-top_medium approval">
+                    <p>Verdiente Gesamtprovision: <b><lightning-formatted-number value={provTotal} format-style="currency" currency-code="EUR"></lightning-formatted-number></b></p>
+                    <p>Verdiente Provision im GJ: <b><lightning-formatted-number value={provTotalCurrentYear} format-style="currency" currency-code="EUR"></lightning-formatted-number></b></p>
+                    <p>Geschätzter Provisionsvorlauf: <b><lightning-formatted-number value={provOpen} format-style="currency" currency-code="EUR"></lightning-formatted-number></b></p>
+                </div>
+            </div>
+        </lightning-card>
+    </template>
+</template>

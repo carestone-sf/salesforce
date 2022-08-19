@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MaBV_ber_Salesforce</fullName>
+    <columns>NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>MaBVRechnungenUeberSalesforce__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>MaBV über Salesforce</label>
+</ListView>

@@ -1,0 +1,24 @@
+<template>
+    <template for:each={immobilien.data} for:item="immobilienData">
+        <div key={immobilienData.immobilie.Id} class="higlight-immobilie slds-m-top_large">
+            <a href={immobilienData.immobilie.link}>
+                <lightning-card title={immobilienData.immobilie.Name}>
+                    <div class="slds-p-horizontal_small">
+                        <img src={immobilienData.logo} referrerpolicy="no-referrer"/>
+                        <div class="slds-var-m-top_small">
+                            <c-progress-bar immobilie={immobilienData.immobilie}></c-progress-bar>
+                        </div>
+                        <div class="slds-var-m-top_small" style="color: rgb(51,51,51);">
+                            Kaufpreise: <lightning-formatted-number value={immobilienData.immobilie.Preis_ab__c} format-style="currency" currency-code="EUR"></lightning-formatted-number> - <lightning-formatted-number value={immobilienData.immobilie.Preis_bis__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                        </div>
+                    </div>
+                </lightning-card>
+            </a>
+        </div> 
+    </template>
+    <div class="slds-m-top_large" style="text-align: center">
+        <a href="/s/immobilien">
+            <lightning-button variant="brand" label="Alle anzeigen"></lightning-button>
+        </a>
+    </div>
+</template>

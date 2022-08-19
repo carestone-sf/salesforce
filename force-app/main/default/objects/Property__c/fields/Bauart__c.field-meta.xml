@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bauart__c</fullName>
+    <externalId>false</externalId>
+    <label>Bauart</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Neubau</fullName>
+                <default>false</default>
+                <label>Neubau</label>
+            </value>
+            <value>
+                <fullName>Bestand</fullName>
+                <default>false</default>
+                <label>Bestand</label>
+            </value>
+            <value>
+                <fullName>Sonstige</fullName>
+                <default>false</default>
+                <label>Sonstige</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

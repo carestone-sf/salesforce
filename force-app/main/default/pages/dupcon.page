@@ -1,0 +1,74 @@
+<apex:page standardController="Contact" extensions="DupConController">
+    <apex:pageBlock >
+        <br />
+        <apex:form >
+            <apex:commandButton style="margin-right: 10px" action="{!approve}" value="Genehmigen"></apex:commandButton>
+            <apex:commandButton action="{!reject}" value="Ablehnen"></apex:commandButton>
+        </apex:form>
+        <br />
+        <h2>Der zu genehmigende Kontakt</h2>
+        <br /><br />
+        <apex:pageBlockTable value="{!First}" var="c">
+            <apex:column headerValue="Name">
+                <apex:form >
+                    <apex:commandLink target="_blank" action="{!URLFOR($Action.Contact.View, c.id)}" 
+                   value="{!c.FirstName} {!c.LastName}" />
+               </apex:form>
+            </apex:column>
+            <apex:column value="{!c.Account.Name}" />
+            <apex:column value="{!c.Gesch_ftsbeziehung__c}" />
+            <apex:column value="{!c.MailingStreet}" />
+            <apex:column value="{!c.MailingPostalCode} {!c.MailingCity}" headerValue="Stadt"/>
+            <apex:column value="{!c.Phone}" />
+            <apex:column value="{!c.Email}" />
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    <apex:pageBlock id="dups">
+        <h2>Verwandte Kontakte</h2>
+        <br /><br />
+        <pbe:PageBlockTableEnhancerADV targetPbTableIds="PossibleDups" paginate="true" defaultPageSize="20" enableExport="false" pageSizeOptions="5,10,20,30,40,50,100"/> 
+        <apex:pageBlockTable value="{!PossibleDups}" id="PossibleDups" var="c">
+            <apex:column headerValue="Name">
+               <apex:form >
+                    <apex:commandLink target="_blank" action="{!URLFOR($Action.Contact.View, c.id)}" 
+                   value="{!c.FirstName} {!c.LastName}" />
+               </apex:form>
+            </apex:column>
+            <apex:column value="{!c.Account.Name}" />
+            <apex:column value="{!c.Gesch_ftsbeziehung__c}" />
+            <apex:column value="{!c.MailingStreet}" />
+            <apex:column value="{!c.MailingPostalCode} {!c.MailingCity}" headerValue="Stadt"/>
+            <apex:column value="{!c.Phone}" />
+            <apex:column value="{!c.Email}" />
+            <apex:column value="{!c.Kundenschutz__c}" />
+            <apex:column value="{!c.Dauerhaft_gesch_tzt__c}" />
+            <apex:column value="{!c.Maklerschutz_besteht__c}" />
+            <apex:column >
+                <apex:form >
+                    <apex:commandButton value="Verschmelzen" action="{!mergeCont}" rerender="all">
+                       <apex:param name="contIdParam" value="{!c.id}" assignTo="{!contIdChosen}"/>
+                    </apex:commandButton>
+                </apex:form>
+            </apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    <apex:pageBlock id="dups2">
+        <h2>Verwandte Leads</h2>
+        <br /><br />
+        <pbe:PageBlockTableEnhancerADV targetPbTableIds="PossibleDupLeads" paginate="true" defaultPageSize="20" enableExport="false" pageSizeOptions="5,10,20,30,40,50,100"/> 
+        <apex:pageBlockTable value="{!PossibleDupLeads}" id="PossibleDupLeads" var="l">
+            <apex:column headerValue="Name">
+               <apex:form >
+                    <apex:commandLink target="_blank" action="{!URLFOR($Action.Lead.View, l.id)}" 
+                   value="{!l.FirstName} {!l.LastName}" />
+               </apex:form>
+            </apex:column>
+            <apex:column value="{!l.bergeordneter_Account__c}" />
+            <apex:column value="{!l.Street}" />
+            <apex:column value="{!l.PostalCode} {!l.City}" headerValue="Stadt"/>
+            <apex:column value="{!l.Phone}" />
+            <apex:column value="{!l.Email}" />
+            <apex:column value="{!l.CreatedDate}" />
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

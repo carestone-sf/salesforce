@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Pachtvertrag__c</fullName>
+    <externalId>false</externalId>
+    <label>Status Pachtvertrag</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Liegt vor</fullName>
+                <default>false</default>
+                <label>Liegt vor</label>
+            </value>
+            <value>
+                <fullName>Liegt noch nicht vor</fullName>
+                <default>false</default>
+                <label>Liegt noch nicht vor</label>
+            </value>
+            <value>
+                <fullName>Bei dieser Immobilie nicht vorhanden</fullName>
+                <default>false</default>
+                <label>Bei dieser Immobilie nicht vorhanden</label>
+            </value>
+            <value>
+                <fullName>Verstecken</fullName>
+                <default>false</default>
+                <label>Verstecken</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

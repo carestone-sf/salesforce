@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FehlendeGutschriftsdaten__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(IsBlank(Makler__r.Account.Unternehmensname__c) || IsBlank(Makler__r.Account.BillingStreet) || IsBlank(Makler__r.Account.BillingPostalCode) || IsBlank(Makler__r.Account.BillingCity) ||  IsBlank(Makler__r.Account.IBAN__c) || IsBlank(Makler__r.Account.BIC__c) || (IsBlank(Makler__r.Account.UStd_Id__c) &amp;&amp; IsBlank(Makler__r.Account.Steuernummer__c)) || IsBlank(TEXT(Makler__r.Salutation)) || IsBlank(Makler__r.FirstName) || IsBlank(Makler__r.LastName) || IsBlank(Makler__r.Email) || IsBlank( Verkaufschance__r.Kaufdatum__c ),
+
+&apos;Fehlende Daten im Account des Empfängers: &apos; +
+
+IF(IsBlank(Makler__r.Account.Unternehmensname__c), &apos;Unternehmenssname, &apos;, &apos;&apos;) +
+IF(IsBlank(Makler__r.Account.BillingStreet), &apos;Strasse, &apos;, &apos;&apos;) +
+IF(IsBlank(Makler__r.Account.BillingPostalCode), &apos;PLZ, &apos;, &apos;&apos;) +
+IF(IsBlank(Makler__r.Account.BillingCity), &apos;Ort, &apos;, &apos;&apos;) +
+IF(IsBlank(Makler__r.Account.IBAN__c), &apos;IBAN, &apos;, &apos;&apos;) +
+IF(IsBlank(Makler__r.Account.BIC__c), &apos;BIC, &apos;, &apos;&apos;) +
+IF(IsBlank(Makler__r.Account.UStd_Id__c) &amp;&amp; IsBlank(Makler__r.Account.Steuernummer__c), &apos;USt-Id. ODER Steuernummer. &apos;, &apos;&apos;) +
+
+&apos;Fehlende Daten im Kontakt des Empfängers: &apos; +
+IF(IsBlank(TEXT(Makler__r.Salutation)), &apos;Anrede, &apos;, &apos;&apos;) +
+IF(IsBlank(Makler__r.FirstName), &apos;Vorname, &apos;, &apos;&apos;) +
+IF(IsBlank(Makler__r.LastName), &apos;Nachname, &apos;, &apos;&apos;) +
+IF(IsBlank(Makler__r.Email), &apos;E-Mail, &apos;, &apos;&apos;) +
+
+&apos;Fehlende Daten in der Verkaufschance: &apos; +
+IF(IsBlank( Verkaufschance__r.Kaufdatum__c ), &apos;Kaufdatum&apos;, &apos;&apos;)
+
+, &apos;&apos;)</formula>
+    <label>Fehlende Gutschriftsdaten</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

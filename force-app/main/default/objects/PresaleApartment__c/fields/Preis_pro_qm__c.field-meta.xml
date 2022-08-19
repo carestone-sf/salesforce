@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Preis_pro_qm__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Format: 3.470,58
+Das Euro-Zeichen wird im Maklerportal automatisch hinzugefügt.</inlineHelpText>
+    <label>Preis pro qm</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,8 @@
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard img {
+    width: 24%;
+}

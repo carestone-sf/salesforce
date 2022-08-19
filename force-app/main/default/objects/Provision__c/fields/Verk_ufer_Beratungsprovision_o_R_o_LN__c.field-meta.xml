@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Verk_ufer_Beratungsprovision_o_R_o_LN__c</fullName>
+    <externalId>false</externalId>
+    <formula>Wert_Verk_ufer_Beratungsprovision_o_R__c / IF( INCLUDES(Makler__r.Gesch_ftsbeziehung__c, &apos;Mitarbeiter WH&apos;), 1.12, 1)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Beratungsprovision (alt)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

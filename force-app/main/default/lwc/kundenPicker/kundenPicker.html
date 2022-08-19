@@ -1,0 +1,17 @@
+<template>
+    <template if:true={calculation.data}>
+    <lightning-record-edit-form object-api-name="Berechnung__c" record-id={calculation.data.Id}>
+        <lightning-messages></lightning-messages>
+        <div class="slds-form__row">
+            <div class="slds-form__item" role="listitem">
+                <lightning-input-field field-name="ErsterKaeufer__c" onchange={handleInputChange} variant="label-stacked">
+                    </lightning-input-field>
+            </div>
+            <div class="slds-form__item" role="listitem">
+                <lightning-input-field field-name="ZweiterKaeufer__c" onchange={handleInputChange} variant="label-stacked">
+                    </lightning-input-field>
+            </div>
+        </div>
+    </lightning-record-edit-form>
+</template>
+</template>

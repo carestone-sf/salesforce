@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Immorechner_Deaktivieren__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Falls angehakt, deaktiviert es den Immorechner im Immofinder im Maklerportal 2.0 für alle Apartments dieses Objekts.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Falls angehakt, deaktiviert es den Immorechner im Immofinder im Maklerportal 2.0 für alle Apartments dieses Objekts.</inlineHelpText>
+    <label>Immorechner Deaktivieren</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

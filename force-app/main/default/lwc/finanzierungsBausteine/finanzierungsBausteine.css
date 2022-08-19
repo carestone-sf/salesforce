@@ -1,0 +1,8 @@
+tfoot td, thead td {
+    font-weight: bold;
+}
+
+tfoot {
+    /* border-top: 1px solid rgb(204, 204, 204); */
+    border-top: 1px solid #666; 
+}

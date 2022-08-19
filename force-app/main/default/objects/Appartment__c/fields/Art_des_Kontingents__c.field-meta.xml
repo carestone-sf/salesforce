@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Art_des_Kontingents__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Kumulierte_Provision__c &lt;= 7 &amp;&amp; Kumulierte_Provision__c &gt;= 1 &amp;&amp; TEXT(Status__c) != &apos;Reservierungsvorbereitung&apos; &amp;&amp; TEXT(Status__c) != &apos;Reservierung angefragt&apos;, &apos;Direktverkauf&apos;, 
+if( Kumulierte_Provision__c &gt; 7 &amp;&amp; Kumulierte_Provision__c &lt;= 8 &amp;&amp; TEXT(Status__c) != &apos;Reservierungsvorbereitung&apos; &amp;&amp; TEXT(Status__c) != &apos;Reservierung angefragt&apos;, &apos;Über 7-8%&apos;, 
+if( Kumulierte_Provision__c &gt; 8 &amp;&amp; Kumulierte_Provision__c &lt;= 9 &amp;&amp; TEXT(Status__c) != &apos;Reservierungsvorbereitung&apos; &amp;&amp; TEXT(Status__c) != &apos;Reservierung angefragt&apos;, &apos;Über 8-9%&apos;,
+if( Kumulierte_Provision__c &gt; 9 &amp;&amp; Kumulierte_Provision__c &lt;= 10 &amp;&amp; TEXT(Status__c) != &apos;Reservierungsvorbereitung&apos; &amp;&amp; TEXT(Status__c) != &apos;Reservierung angefragt&apos;, &apos;Über 9-10%&apos;,
+if( Kumulierte_Provision__c &gt; 10 &amp;&amp; TEXT(Status__c) != &apos;Reservierungsvorbereitung&apos; &amp;&amp; TEXT(Status__c) != &apos;Reservierung angefragt&apos;, &apos;Über 10%&apos;,
+ &apos;Keine VKC&apos;)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Art des Kontingents</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

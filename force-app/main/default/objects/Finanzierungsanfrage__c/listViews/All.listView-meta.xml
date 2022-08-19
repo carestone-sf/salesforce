@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>ErsterKaeufer__c</columns>
+    <columns>Opportunity__c</columns>
+    <columns>Phase__c</columns>
+    <columns>Status__c</columns>
+    <columns>VSAVorhanden__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>WurdeImImmoGroupPortalAngesehen__c</columns>
+    <columns>WurdeImImmoGroupPortalAngesehenVon__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

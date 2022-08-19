@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Art__c</fullName>
+    <externalId>false</externalId>
+    <label>Art</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Annuitäten Darlehen</fullName>
+                <default>true</default>
+                <label>Annuitäten Darlehen</label>
+            </value>
+            <value>
+                <fullName>Endfälliges Darlehen</fullName>
+                <default>false</default>
+                <label>Endfälliges Darlehen</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

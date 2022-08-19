@@ -1,0 +1,41 @@
+<template>
+    <template if:true={state.showRelatedList}>
+        <template if:true={isBerechnungsApartment}></template>
+        <c-related-list-new-edit-popup-berechnungs-apartment parent-id={parentId} onrefreshdata={handleRefreshData}>
+        </c-related-list-new-edit-popup-berechnungs-apartment>
+    </template>
+    <template if:true={isFinanzierungsBaustein}>
+        <c-related-list-new-edit-popup-finanzierungs-baustein parent-id={parentId} onrefreshdata={handleRefreshData}>
+        </c-related-list-new-edit-popup-finanzierungs-baustein>
+    </template>
+    <c-related-list-delete-popup onrefreshdata={handleRefreshData} parent-id={parentId}>
+
+    </c-related-list-delete-popup>
+
+    <lightning-layout>
+        <article class="slds-card lightning-card" style="margin-bottom: -1.25rem;">
+            <div class="slds-card__header slds-grid slds-page-header">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate ">
+                    <div class="slds-media__figure">
+                        <lightning-icon icon-name="custom:custom29" size="small"></lightning-icon>
+                    </div>
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            <a class="slds-card__header-link" onclick={handleGotoRelatedList}>{state.title}</a>
+                        </h2>
+                    </div>
+                </header>
+            </div>
+            <template if:true={hasRecords}>
+                <div>
+                    <lightning-datatable class="related-list" onrowaction={handleRowAction} columns={state.columns}
+                        data={state.records} key-field="Id" hide-checkbox-column="true" resize-column-disabled="true">
+                    </lightning-datatable>
+                </div>
+                <footer class="slds-card__footer">
+                    <a onclick={handleGotoRelatedList}>Alle anzeigen</a>
+                </footer>
+            </template>
+        </article>
+    </lightning-layout>
+</template>

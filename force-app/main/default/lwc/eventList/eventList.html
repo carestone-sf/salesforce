@@ -1,0 +1,53 @@
+<template>
+    <lightning-card title="Anstehende Termine">
+        <div class="slds-p-horizontal_small">
+            <template if:true={loading}>
+                <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+            </template>
+            <template for:each={events.data} for:item="event">
+                <div key={event.recordId} data-key={event.recordId} class="slds-p-bottom_medium slds-m-top_medium event">
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item size="12">
+                        <p>{event.name}</p>
+                        <p if:true={event.url}>
+                            <a href={event.url} target="_blank">Link</a>
+                        </p>
+                        <p if:true={event.startDateTime}>
+                            <lightning-formatted-date-time 
+                                value={event.startDateTime} 
+                                year="numeric"
+                                day="2-digit"
+                                month="long"
+                                hour="2-digit"
+                                minute="2-digit"></lightning-formatted-date-time>
+                        </p>
+                        <p if:true={event.description}>
+                            Beschreibung: {event.description}
+                        </p>
+                        <p if:true={event.location}>
+                            Ort: {event.location}
+                        </p>
+                        <p if:true={event.ownerName}>
+                            Von: {event.ownerName}
+                        </p>
+                        <p if:true={event.whoName}>
+                            Mit: {event.whoName}
+                        </p>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12">
+                        <div class="slds-var-m-top_small" data-cm-id={event.cmId}>
+                            <lightning-button class="slds-var-m-right_medium" disabled={event.registered} variant="brand" label="Anmelden" title="Anmelden" onclick={register}></lightning-button>
+                            <lightning-button disabled={event.unregistered} variant="brand" label="Abmelden" title="Abmelden" onclick={unregister}></lightning-button>
+                        </div>
+                    </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+            </template>
+            <template if:false={hasEvents}>
+                <div class="slds-p-bottom_medium slds-m-top_medium event">
+                    Keine anstehenden Termine
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

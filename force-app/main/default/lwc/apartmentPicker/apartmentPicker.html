@@ -1,0 +1,104 @@
+<template>
+    <!-- Neutral variant (default) -->
+    <template if:true={apartments}>
+        <template for:each={apartments} for:item="b">
+            
+            <div key={b.Id} data-key={b.Id} class="slds-m-top_small">
+                <lightning-layout vertical-align="center">
+                    <lightning-layout-item flexibility="auto">
+                        <lightning-accordion allow-multiple-sections-open>
+                            <lightning-accordion-section name="A" label={b.Name} style="margin-left: -0.75rem; margin-right: -0.75rem;">
+                                <lightning-record-view-form
+                                    record-id={b.Id}
+                                    object-api-name="BerechnungsApartment__c">
+                                    <div class="slds-box">
+                                        <lightning-layout>
+                                            <lightning-layout-item size="4">
+                                                <lightning-output-field field-name="Immobilie__c">
+                                                </lightning-output-field>
+                                            </lightning-layout-item >
+                                            <lightning-layout-item size="4">
+                                                <lightning-output-field field-name="Apartment__c">
+                                                </lightning-output-field>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="4">
+                                                <lightning-output-field field-name="FlaecheInQm__c">
+                                                </lightning-output-field>
+                                            </lightning-layout-item>
+                                        </lightning-layout>
+                                        <lightning-layout>
+                                            <lightning-layout-item size="4">
+                                                <lightning-output-field field-name="Listenpreis__c">
+                                                </lightning-output-field>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="4">
+                                                <lightning-output-field field-name="NotarUndGerichtskostenInEuro__c">
+                                                </lightning-output-field>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="4">
+                                                <lightning-output-field field-name="GrunderwerbsteuerInEuro__c">
+                                                </lightning-output-field>
+                                            </lightning-layout-item>
+                                        </lightning-layout>
+                                        <lightning-layout>
+                                            <lightning-layout-item size="4">
+                                                <lightning-output-field field-name="MieteProMonatInEuro__c">
+                                                </lightning-output-field>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="4">
+                                                <lightning-output-field field-name="VerwaltungProMonatInEuro__c">
+                                                </lightning-output-field>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="4">
+                                                <lightning-output-field field-name="InstandhaltungProMonatInEuro__c">
+                                                </lightning-output-field>
+                                            </lightning-layout-item>
+                                        </lightning-layout>
+                                    </div>
+                                </lightning-record-view-form>
+                            </lightning-accordion-section>
+                        </lightning-accordion>
+                    </lightning-layout-item>
+                    <lightning-layout-item>
+                        <lightning-button  class="slds-m-left_x-small" onclick={handleRemoveApartmentWithIdClick} label="Apartment löschen" title="Apartment löschen" icon-name="utility:delete"></lightning-button>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        </template>
+        <hr/>
+    </template>
+
+    <div class="slds-p-around_medium lgc-bg" if:true={hasBerechnungsApartments}>
+        <p>Speichern Sie die Berechnung, um die Berechnungs Apartments hinzuzufügen.</p>
+    </div>
+
+    <template if:true={showApartmentPicker}>
+        <div class="slds-form__row">
+            <div class="slds-form__item" role="listitem">
+                <lightning-combobox
+                    name="immobilie"
+                    label="Immobilie"
+                    placeholder="Immobilie auswählen"
+                    options={immobilienPicklist}
+                    onchange={handleImmobilienInputChange}
+                    style="width: 100%;"></lightning-combobox>
+            </div>
+            <div class="slds-form__item" role="listitem">
+                <lightning-combobox
+                    name="apartment"
+                    label="Apartment"
+                    placeholder="Apartment auswählen"
+                    options={immobilienApartmentsPicklist}
+                    disabled={apartmentDropdownDisabled}
+                    onchange={handleApartmentInputChange}
+                    style="width: 100%;"></lightning-combobox>
+            </div>
+            <lightning-button style="align-self: flex-end; padding-right: 0.75rem;" class="slds-align_absolute-bottom" onclick={handleRemoveApartmentClick} label="Apartment entfernen" title="Apartment entfernen" icon-name="utility:delete"></lightning-button>
+        </div>
+    </template>
+    <div class="slds-m-top_small">
+        <lightning-button if:true={showApartmentPicker} onclick={handleSaveApartmentClick} label="Speichern" title="Speichern" icon-name="utility:save" class="slds-m-right_small"></lightning-button>
+        <lightning-button if:true={showApartmentPicker} onclick={handleCancelApartmentClick} label="Abbrechen" title="Abbrechen"></lightning-button>
+        <lightning-button if:false={showApartmentPicker} onclick={handleAddApartmentClick} label="Apartment hinzufügen" title="Apartment hinzufügen" icon-name="utility:add"></lightning-button>
+    </div>
+</template>

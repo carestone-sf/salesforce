@@ -1,0 +1,10 @@
+.slds-button {
+    border-radius: 0.25rem !important;
+}
+
+.slds-page-header {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    background: rgb(250, 250, 249);
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MaBVRechnung__c</fullName>
+    <externalId>false</externalId>
+    <label>MaBV Rechnung</label>
+    <referenceTo>MaBVRechnung__c</referenceTo>
+    <relationshipLabel>Zahlungen</relationshipLabel>
+    <relationshipName>ZahlungenMaBVRechnungen</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

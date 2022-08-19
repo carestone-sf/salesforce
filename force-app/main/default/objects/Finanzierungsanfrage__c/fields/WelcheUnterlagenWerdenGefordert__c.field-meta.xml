@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WelcheUnterlagenWerdenGefordert__c</fullName>
+    <externalId>false</externalId>
+    <label>Welche Unterlagen werden gefordert</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>1</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>1</label>
+            </value>
+            <value>
+                <fullName>2</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2</label>
+            </value>
+            <value>
+                <fullName>3</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>3</label>
+            </value>
+            <value>
+                <fullName>3 Monate durchgehende Kontoauszüge aller privaten Girokonten</fullName>
+                <default>false</default>
+                <label>3 Monate durchgehende Kontoauszüge aller privaten Girokonten</label>
+            </value>
+            <value>
+                <fullName>6 Wochen durchgehende Kontoauszüge aller privaten Girokonten</fullName>
+                <default>false</default>
+                <label>6 Wochen durchgehende Kontoauszüge aller privaten Girokonten</label>
+            </value>
+            <value>
+                <fullName>aktuelle BWA inkl. Summen- und Saldenliste</fullName>
+                <default>false</default>
+                <label>aktuelle BWA inkl. Summen- und Saldenliste</label>
+            </value>
+            <value>
+                <fullName>aktueller Rentenbescheid (bei Rentner)</fullName>
+                <default>false</default>
+                <label>aktueller Rentenbescheid (bei Rentner)</label>
+            </value>
+            <value>
+                <fullName>Aufstellung der geplanten Modernisierungskosten (bei geplanter Modernisierung / Sanierung)</fullName>
+                <default>false</default>
+                <label>Aufstellung der geplanten Modernisierungskosten (bei geplanter Modernisierung / Sanierung)</label>
+            </value>
+            <value>
+                <fullName>Bausparvertrag: letzter Jahreskontoauszug</fullName>
+                <default>false</default>
+                <label>Bausparvertrag: letzter Jahreskontoauszug</label>
+            </value>
+            <value>
+                <fullName>bei abzulösenden Darlehen die Kopie vom Jahreskontoauszug vom letzten Jahr (alternativ: Nachweis aktueller Darlehensstand)</fullName>
+                <default>false</default>
+                <label>bei abzulösenden Darlehen die Kopie vom Jahreskontoauszug vom letzten Jahr (alternativ: Nachweis aktueller Darlehensstand)</label>
+            </value>
+            <value>
+                <fullName>Berechnung zum KfW-Antrag im Original gem. Online-Bestätigung (bei KfW-Anträgen)</fullName>
+                <default>false</default>
+                <label>Berechnung zum KfW-Antrag im Original gem. Online-Bestätigung (bei KfW-Anträgen)</label>
+            </value>
+            <value>
+                <fullName>BWA inkl. Summen- und Saldenliste per letzten Jahresende (wenn kein JA bzw. EÜR vorliegt)</fullName>
+                <default>false</default>
+                <label>BWA inkl. Summen- und Saldenliste per letzten Jahresende (wenn kein JA bzw. EÜR vorliegt)</label>
+            </value>
+            <value>
+                <fullName>Darlehensvertrag: Kopien sämtlicher Darlehensverträge (Ersten vier Seiten)</fullName>
+                <default>false</default>
+                <label>Darlehensvertrag: Kopien sämtlicher Darlehensverträge (Ersten vier Seiten)</label>
+            </value>
+            <value>
+                <fullName>des Darlehensnehmers (bei Kreditlaufzeit bis in die Rentenphase)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>des Darlehensnehmers (bei Kreditlaufzeit bis in die Rentenphase)</label>
+            </value>
+            <value>
+                <fullName>EK Nachweise mit persönlichen Angaben (Name, Konto-/Depot Nr., Datum, Betrag)</fullName>
+                <default>false</default>
+                <label>EK Nachweise mit persönlichen Angaben (Name, Konto-/Depot Nr., Datum, Betrag)</label>
+            </value>
+            <value>
+                <fullName>EÜ-Rechnung/vollständiger Jahresabschluss der letzten 2 Jahre</fullName>
+                <default>false</default>
+                <label>EÜ-Rechnung/vollständiger Jahresabschluss der letzten 2 Jahre</label>
+            </value>
+            <value>
+                <fullName>für Nicht-EU-Bürger ist eine unbefristete Aufenthaltsgenehmigung erforderlich</fullName>
+                <default>false</default>
+                <label>für Nicht-EU-Bürger ist eine unbefristete Aufenthaltsgenehmigung erforderlich</label>
+            </value>
+            <value>
+                <fullName>für weitere Immobilien (bei Vermietungsobjekt)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>für weitere Immobilien (bei Vermietungsobjekt)</label>
+            </value>
+            <value>
+                <fullName>Immobilienaufstellung mit Mieterliste bzw. Mietverträge</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Immobilienaufstellung mit Mieterliste bzw. Mietverträge</label>
+            </value>
+            <value>
+                <fullName>Immobilienaufstellung mit Mieterliste bzw. Mietverträge und Kontoauszug des Mieteingangs</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Immobilienaufstellung mit Mieterliste bzw. Mietverträge und Kontoauszug des Mieteingangs</label>
+            </value>
+            <value>
+                <fullName>Immobilienaufstellung mit Mieterliste bzw. Mietverträge und Kontoauszug des Mieteingangs für weitere Immobilien (bei Vermietungsobjekt)</fullName>
+                <default>false</default>
+                <label>Immobilienaufstellung mit Mieterliste bzw. Mietverträge und Kontoauszug des Mieteingangs für weitere Immobilien (bei Vermietungsobjekt)</label>
+            </value>
+            <value>
+                <fullName>Individuelle Unterlagen 1</fullName>
+                <default>false</default>
+                <label>Individuelle Unterlagen 1</label>
+            </value>
+            <value>
+                <fullName>Individuelle Unterlagen 2</fullName>
+                <default>false</default>
+                <label>Individuelle Unterlagen 2</label>
+            </value>
+            <value>
+                <fullName>Individuelle Unterlagen 3</fullName>
+                <default>false</default>
+                <label>Individuelle Unterlagen 3</label>
+            </value>
+            <value>
+                <fullName>Jahreslohnsteuerbescheinigung des vergangenen Jahres</fullName>
+                <default>false</default>
+                <label>Jahreslohnsteuerbescheinigung des vergangenen Jahres</label>
+            </value>
+            <value>
+                <fullName>KfW-Antrag oder KfW-Einwilligungserklärung/Vollmacht vollständig ausgefüllt und unterschrieben (bei KfW-Anträgen Kopie Darlehensvertrag des abzulösenden Darlehens)</fullName>
+                <default>false</default>
+                <label>KfW-Antrag oder KfW-Einwilligungserklärung/Vollmacht vollständig ausgefüllt und unterschrieben (bei KfW-Anträgen Kopie Darlehensvertrag des abzulösenden Darlehens)</label>
+            </value>
+            <value>
+                <fullName>Kontoauszüge des Gehaltskontos (letzte 3 Monate)</fullName>
+                <default>false</default>
+                <label>Kontoauszüge des Gehaltskontos (letzte 3 Monate)</label>
+            </value>
+            <value>
+                <fullName>Lebens-&amp; Rentenversicherung: letzter Nachtrag</fullName>
+                <default>false</default>
+                <label>Lebens-&amp; Rentenversicherung: letzter Nachtrag</label>
+            </value>
+            <value>
+                <fullName>letzte Bezügemitteilung zzg. ggf. Kontoauszug als Nachweis der Aktualität (nur bei Beamten)</fullName>
+                <default>false</default>
+                <label>letzte Bezügemitteilung zzg. ggf. Kontoauszug als Nachweis der Aktualität (nur bei Beamten)</label>
+            </value>
+            <value>
+                <fullName>letzte Einkommensteuererklärung (bei Bedarf)</fullName>
+                <default>false</default>
+                <label>letzte Einkommensteuererklärung (bei Bedarf)</label>
+            </value>
+            <value>
+                <fullName>letzte Einkommensteuererklärung (nur bei Bedarf)</fullName>
+                <default>false</default>
+                <label>letzte Einkommensteuererklärung (nur bei Bedarf)</label>
+            </value>
+            <value>
+                <fullName>letzter Einkommensteuerbescheid (bei Bedarf)</fullName>
+                <default>false</default>
+                <label>letzter Einkommensteuerbescheid (bei Bedarf)</label>
+            </value>
+            <value>
+                <fullName>letzter Einkommensteuerbescheid (nur bei Bedarf)</fullName>
+                <default>false</default>
+                <label>letzter Einkommensteuerbescheid (nur bei Bedarf)</label>
+            </value>
+            <value>
+                <fullName>Letzter Nachtrag der privaten Krankenversicherung/Pflegeversicherung als Beitragsnachweis</fullName>
+                <default>false</default>
+                <label>Letzter Nachtrag der privaten Krankenversicherung/Pflegeversicherung als Beitragsnachweis</label>
+            </value>
+            <value>
+                <fullName>Lohn- und Gehaltsnachweis der letzten drei Monate</fullName>
+                <default>false</default>
+                <label>Lohn- und Gehaltsnachweis der letzten drei Monate</label>
+            </value>
+            <value>
+                <fullName>Lohn- und Gehaltsnachweis der letzten drei Monate (bei Geschäftsführ. Gesellschafter)</fullName>
+                <default>false</default>
+                <label>Lohn- und Gehaltsnachweis der letzten drei Monate (bei Geschäftsführ. Gesellschafter)</label>
+            </value>
+            <value>
+                <fullName>Mietnachweise der letzten drei Monate bei vermietetem Wohneigentum</fullName>
+                <default>false</default>
+                <label>Mietnachweise der letzten drei Monate bei vermietetem Wohneigentum</label>
+            </value>
+            <value>
+                <fullName>Nachweis/Aufstellung der Eigenleistungen</fullName>
+                <default>false</default>
+                <label>Nachweis/Aufstellung der Eigenleistungen</label>
+            </value>
+            <value>
+                <fullName>Nachweis Beitrag private Krankenversicherung</fullName>
+                <default>false</default>
+                <label>Nachweis Beitrag private Krankenversicherung</label>
+            </value>
+            <value>
+                <fullName>Nachweis der letzten drei Unterhaltszahlungen oder Beschluss/Vertrag/Urteil über die Unterhaltsverpflichtungen</fullName>
+                <default>false</default>
+                <label>Nachweis der letzten drei Unterhaltszahlungen oder Beschluss/Vertrag/Urteil über die Unterhaltsverpflichtungen</label>
+            </value>
+            <value>
+                <fullName>Nachweis über weitere Fremdmittel</fullName>
+                <default>false</default>
+                <label>Nachweis über weitere Fremdmittel</label>
+            </value>
+            <value>
+                <fullName>Personalausweis</fullName>
+                <default>false</default>
+                <label>Personalausweis</label>
+            </value>
+            <value>
+                <fullName>Renteninformation/Rentenbescheid bzw. Vertragskopie oder Police bei privater Rentenvorsorge</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Renteninformation/Rentenbescheid bzw. Vertragskopie oder Police bei privater Rentenvorsorge</label>
+            </value>
+            <value>
+                <fullName>Renteninformation/Rentenbescheid bzw. Vertragskopie oder Police bei privater Rentenvorsorge des Darlehensnehmers (bei Kreditlaufzeit bis in die Rentenphase)</fullName>
+                <default>false</default>
+                <label>Renteninformation/Rentenbescheid bzw. Vertragskopie oder Police bei privater Rentenvorsorge des Darlehensnehmers (bei Kreditlaufzeit bis in die Rentenphase)</label>
+            </value>
+            <value>
+                <fullName>Scheidungsurteil</fullName>
+                <default>false</default>
+                <label>Scheidungsurteil</label>
+            </value>
+            <value>
+                <fullName>Vermögens-/Verbindlichkeiten-/Eigenkapitalnachweise (Darlehensstand,-rate. Kopie Guthaben)</fullName>
+                <default>false</default>
+                <label>Vermögens-/Verbindlichkeiten-/Eigenkapitalnachweise (Darlehensstand,-rate. Kopie Guthaben)</label>
+            </value>
+            <value>
+                <fullName>vollständige und unterzeichnete Selbstauskunft inkl. SCHUFA-Einverständniserklärung</fullName>
+                <default>false</default>
+                <label>vollständige und unterzeichnete Selbstauskunft inkl. SCHUFA-Einverständniserklärung</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

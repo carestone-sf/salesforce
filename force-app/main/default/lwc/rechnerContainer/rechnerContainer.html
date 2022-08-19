@@ -1,0 +1,87 @@
+<template>
+    <template if:true={calculation.data}>
+    <lightning-card  title="Immobilienrechner">
+        <div class="slds-p-horizontal_small">
+            <lightning-tabset>
+                <lightning-tab label="Kunde">
+                    <c-kunden-picker style="min-height:400px;" calculation={calculation}></c-kunden-picker>
+                </lightning-tab>
+                <lightning-tab label="Apartments">
+                    <c-apartment-picker style="min-height:400px;" calculation={calculation}></c-apartment-picker>
+                </lightning-tab>
+                <lightning-tab label="Finanzierung">
+                    <c-finanzierungs-bausteine style="min-height:400px;" calculation={calculation}></c-finanzierungs-bausteine>
+                </lightning-tab>
+                <lightning-tab label="Übersicht" disabled={recordIdDoesntExist}>
+                    <c-berechnung-overview style="min-height:400px;" calculation={calculation}></c-berechnung-overview>
+                </lightning-tab>
+            </lightning-tabset>
+        </div>
+        <div slot="footer">
+            <lightning-button label="Berechnung laden" slot="actions" icon-name="utility:search" class="slds-m-right_small" onclick={openLoadModal}></lightning-button>
+            <lightning-button slot="actions" label="Speichern unter" class="slds-m-right_small" icon-name="utility:save" onclick={saveNewCalculation}></lightning-button >
+            <lightning-button variant="brand" label="Berechnung speichern" slot="actions" icon-name="utility:save" onclick={saveCalculation}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
+
+<template if:true={showDataInputModal}>
+    <!-- Modal/Popup Box LWC starts here -->
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- Modal/Popup Box LWC header here -->
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                    <lightning-icon icon-name="utility:close"
+                        alternative-text="close"
+                        variant="inverse"
+                        size="small" ></lightning-icon>
+                    <span class="slds-assistive-text">Schließen</span>
+                </button>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Berechnung speichern</h2>
+            </header>
+            <!-- Modal/Popup Box LWC body starts here -->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <lightning-input value={updateObject.Name} onchange={handleNameChange}></lightning-input>
+            </div>
+            <!-- Modal/Popup Box LWC footer starts here -->
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Abbrechen</button>
+                <button class="slds-button slds-button_brand" onclick={saveCalculation} title="OK">Speichern</button>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>
+
+<template if:true={bShowModal}>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+       <div class="slds-modal__container">
+          <!-- modal header start -->
+          <header class="slds-modal__header">
+             <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeLoadModal}>
+                <lightning-icon icon-name="utility:close"
+                   alternative-text="close"
+                   variant="inverse"
+                   size="small" ></lightning-icon>
+                <span class="slds-assistive-text">Close</span>
+             </button>
+          </header>
+          <!-- modal body start -->
+          <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+            <lightning-tabset>
+                <lightning-tab label="Berechnungen">
+                    <c-rechner-load-picker ></c-rechner-load-picker >
+                </lightning-tab>
+            </lightning-tabset>
+        </div>
+          <!-- modal footer start-->
+          <footer class="slds-modal__footer">
+            <button class="slds-button slds-button_neutral" onclick={handleLoadClick}>Laden</button>
+            <button class="slds-button slds-button_neutral" onclick={closeLoadModal}>Abbrechen</button>
+          </footer>
+       </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+ </template>
+</template>

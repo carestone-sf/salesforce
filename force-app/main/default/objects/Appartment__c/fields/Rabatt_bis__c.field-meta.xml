@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rabatt_bis__c</fullName>
+    <description>Das Datum, bis wann es eine Rabatt-Aktion für das Apartment geben wird.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Das Datum, bis wann es eine Rabatt-Aktion für das Apartment geben wird.</inlineHelpText>
+    <label>Rabatt bis</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

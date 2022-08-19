@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>asasd</fullName>
+    <columns>Notartermin__c</columns>
+    <columns>NAME</columns>
+    <columns>Maklerbetreuer__c</columns>
+    <columns>GutschriftLaufnummerNew__c</columns>
+    <columns>Gutschrift_Laufnummer_Zahl__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>DatumGutschriftBestaetigt__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>6/28/2020</value>
+    </filters>
+    <label>Liste Provisionen</label>
+</ListView>

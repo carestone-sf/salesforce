@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Standorte" icon-name="custom:custom106">
+        <template if:true={mapMarkers}>
+            <lightning-map
+                map-markers={mapMarkers}
+                zoom-level="6"
+                markers-title="Immobilien"
+            ></lightning-map>
+        </template>
+    </lightning-card>
+</template>
