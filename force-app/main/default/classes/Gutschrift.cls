@@ -75,9 +75,11 @@ public without sharing class Gutschrift {
             });
         }
 
-        Messaging.sendEmail(new Messaging.SingleEmailMessage[]{
+        if(Utility.checkIfDeliverabilityIsEnabled()) {
+            Messaging.sendEmail(new Messaging.SingleEmailMessage[]{
                 emailToFibu
-        });
+            });
+        }
         User u = [SELECT IsActive,IsPortalEnabled,LastName FROM User WHERE Id = :UserInfo.getUserId()];
         ContentVersion file = new ContentVersion();
         file.VersionData = body;

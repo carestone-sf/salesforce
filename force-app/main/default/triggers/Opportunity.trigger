@@ -23,7 +23,9 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 'a.eisold@carestone.com',
                 'a.schneider@carestone.com',
                 'e.breitenstein@carestone.com',
-                'l.machotta@carestone.com'
+                'l.machotta@carestone.com',
+                'mathis.carestone@lightblaze.de',
+                'mathis.carestone@lightblaze.de.dev'
         };
 
         List<Provisionsverhandlung__c> provisionsverhandlungen = new List<Provisionsverhandlung__c>();

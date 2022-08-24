@@ -14,5 +14,10 @@ public with sharing class TestContentVersion {
 
         cv = [SELECT Title FROM ContentVersion];
         System.assertEquals('Personalausweis', cv.Title);
+
+
+        // get code coverage for update methods
+        cv.Description = 'Test';
+        update cv;
     }
 }
