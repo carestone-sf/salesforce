@@ -37,7 +37,12 @@ global without sharing class ScheduledOposSync implements Schedulable {
         for(Document oposDocument:oposDocuments) {
             String csvString = oposDocument.Body.toString();
             Boolean skipRow = true;
-            for(String row:csvString.split('\n')) {
+
+            Utility_RowIterator rowIterator = new Utility_RowIterator(csvString, '\n');
+            Iterator<String> iterator = rowIterator.iterator();
+            while (iterator.hasNext()) {
+                String row = iterator.next();
+
                 if(skipRow) {
                     skipRow = false;
                     continue;
