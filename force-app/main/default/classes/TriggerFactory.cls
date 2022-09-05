@@ -109,12 +109,14 @@ public with sharing class TriggerFactory
 	 */
 	private static ITrigger getHandler(Schema.sObjectType soType)
 	{
-		if (soType == ContentVersion.getSObjectType())
-		{
+		if(soType == ContentVersion.getSObjectType()) {
             return new ContentVersionTriggerHandler();
 		} 
-        if (soType == ContentDocumentLink.getSObjectType()) {
+        if(soType == ContentDocumentLink.getSObjectType()) {
             return new ContentDocumentLinkTriggerHandler();
+        }
+        if(soType == Opportunity.getSObjectType()) {
+            return new OpportunityTriggerHandler();
         }
         
         return null;

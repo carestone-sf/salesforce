@@ -112,7 +112,9 @@ TestOpportunity {
         opp.Immobilie__c = immobilie.Id;
         opp.Appartement__c = app2.Id;
         opp.Finanzierung__c = 'Barzahler';
+        Test.startTest();
         insert opp;
+        Test.stopTest();
 
         Provisionsverhandlung__c provisionsverhandlung = [SELECT Grundprovision__c, Verkaufsprovision__c FROM Provisionsverhandlung__c];
         provisionsverhandlung.Grundprovision__c = 4.5;
@@ -143,7 +145,6 @@ TestOpportunity {
 
         Property__c immobilie = [SELECT ID From Property__c];
         Appartment__c app = [SELECT ID From Appartment__c];
-        Test.startTest();
         Appartment__c app3 = new Appartment__c();
         app3.Name = 'TestApp3';
         app3.Property__c = immobilie.Id;
@@ -151,6 +152,7 @@ TestOpportunity {
         app3.Area_sq_m__c = 63;
         insert app3;
 
+        Test.startTest();
         Opportunity opp2 = new Opportunity();
         opp2.Name = 'Test VKC2';
         opp2.AccountId = acc3.Id;

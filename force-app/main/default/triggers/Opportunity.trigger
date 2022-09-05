@@ -1,4 +1,7 @@
 trigger Opportunity on Opportunity(before insert, before update, after insert, after update) {
+
+    TriggerFactory.createHandler(Opportunity.getSObjectType());
+
     if (Trigger.isBefore) {
         //Map für Appartment
         Set < String > userName = new Set < String >{
@@ -28,60 +31,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 'mathis.carestone@lightblaze.de.dev'
         };
 
-        List<Provisionsverhandlung__c> provisionsverhandlungen = new List<Provisionsverhandlung__c>();
 
-        if(Trigger.isInsert || Trigger.isUpdate) {
-            List<Id> maklerAccountIds = new List<Id>();
-            Boolean getProvisionsverhandlungen = false;
-            for (Opportunity opp : Trigger.new) {
-                if(opp.Abrechnung_ber__c != null) {
-                    maklerAccountIds.add(opp.AccountIdAbrechnungUeber__c);
-                } else {
-                    maklerAccountIds.add(opp.AccountId);
-                    maklerAccountIds.add(opp.AccountIdImmobilienberater__c);
-                }
-                if(opp.Abrechnung_ber__c != null && opp.Makler__c != opp.Immobilienberater__c) {
-                    maklerAccountIds.add(opp.AccountIdImmobilienberater__c);
-                }
-
-            }
-
-            for (Opportunity opp : Trigger.new) {
-                Opportunity oldOpp;
-                if (Trigger.isUpdate) {
-                    oldOpp = Trigger.oldMap.get(opp.Id);
-                }
-                if (Trigger.isInsert || (opp.StageName == 'Geschlossene und gewonnene' && oldOpp != null && oldOpp.StageName != 'Geschlossene und gewonnene')) {
-                    getProvisionsverhandlungen = true;
-                }
-            }
-
-            if (getProvisionsverhandlungen == true) {
-                provisionsverhandlungen = [SELECT Grundprovision__c, Verkaufsprovision__c, Account__c, Immobilie__c FROM Provisionsverhandlung__c WHERE Account__c IN :maklerAccountIds];
-            }
-        }
-        if (Trigger.isInsert) {
-            for (Opportunity opp : Trigger.new) {
-                for(Provisionsverhandlung__c provisionsverhandlung:provisionsverhandlungen) {
-                    if(opp.Abrechnung_ber__c != null && opp.AccountIdAbrechnungUeber__c == provisionsverhandlung.Account__c && opp.Immobilie__c == provisionsverhandlung.Immobilie__c) {
-                        opp.Grundprovision_Provisionsverhandlung__c = provisionsverhandlung.Grundprovision__c;
-                    } else if(opp.AccountId == provisionsverhandlung.Account__c && !opp.MaklerIstIntern__c && opp.Immobilie__c == provisionsverhandlung.Immobilie__c) {
-                        opp.Grundprovision_Provisionsverhandlung__c = provisionsverhandlung.Grundprovision__c;
-                    }
-                    if(opp.Abrechnung_ber__c != null && opp.Makler__c == opp.Immobilienberater__c && opp.AccountIdAbrechnungUeber__c == provisionsverhandlung.Account__c && opp.Immobilie__c == provisionsverhandlung.Immobilie__c) {
-                        opp.Verkaufsprovision_Provisionsverhandlung__c = provisionsverhandlung.Verkaufsprovision__c;
-                    } else if(opp.AccountIdImmobilienberater__c == provisionsverhandlung.Account__c && !opp.ImmobilienberaterIstIntern__c && opp.Immobilie__c == provisionsverhandlung.Immobilie__c) {
-                        opp.Verkaufsprovision_Provisionsverhandlung__c = provisionsverhandlung.Verkaufsprovision__c;
-                    }
-                }
-
-                if (opp.Appartement__c == null) {
-                    opp.StageName = 'Nachrücker';
-                } else if (!userName.contains(System.Userinfo.getUserName())) {
-                    opp.StageName = 'Reservierungsvorbereitung';
-                }
-            }
-        }
         if (trigger.isInsert || trigger.isUpdate) {
             //Liste für das Updaten der Appartments
 
@@ -440,6 +390,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 }
             }
 
+            /*
             if (Trigger.isInsert) {
                 //Übertrag von Daten in das Appartment
                 apps.Customer__c = opp.Potenzieller_Kunde__c;
@@ -558,13 +509,16 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 apps.KaufpreisFaellig__c = false;
                 apps.Bezahlt__c = 0;
             }
+            */
 
             //Übertragen in die Liste zum Updaten, wenn das Feld no update nicht gesetzt ist
             if (Trigger.IsUpdate) {
+                /*
                 Opportunity oldOpp = Trigger.OldMap.get(opp.Id);
                 if (apps != null && opp.Appartement__c != null && (opp.StageName != Trigger.OldMap.get(opp.Id).StageName || opp.reserviert_bis__c != oldOpp.reserviert_bis__c || opp.Potenzieller_Kunde__c != oldOpp.Potenzieller_Kunde__c || opp.Makler__c != oldOpp.Makler__c || opp.Datum_Kaufpreis_bezahlt__c != oldOpp.Datum_Kaufpreis_bezahlt__c || opp.Notartermin__c != oldOpp.Notartermin__c || opp.Finanzierung__c != oldOpp.Finanzierung__c || opp.Maklerbetreuer_WirtschaftsHaus__c != oldOpp.Maklerbetreuer_WirtschaftsHaus__c || opp.StageName != oldOpp.StageName || opp.beurkundeter_Kaufpreis__c != oldOpp.beurkundeter_Kaufpreis__c || opp.Provisionsbasis__c != oldOpp.Provisionsbasis__c || opp.KumulierteProvisionExtern__c != oldOpp.KumulierteProvisionExtern__c || opp.Appartement__c != oldOpp.Appartement__c || opp.Kaufdatum__c != oldOpp.Kaufdatum__c)) {
                     appToUpdate.add(apps);
-                } 
+                }
+                */
                 if (opp.StageName != Trigger.OldMap.get(opp.Id).StageName && Trigger.OldMap.get(opp.Id).StageName == 'Reservierung angefragt' && opp.StageName == 'VKC ausgelaufen') {
                     Approval.ProcessWorkitemRequest req2 = new Approval.ProcessWorkitemRequest();
                     req2.setComments('Automatisch ausgelaufen, da die Zeit abgelaufen ist.');

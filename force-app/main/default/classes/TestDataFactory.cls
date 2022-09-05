@@ -5,6 +5,10 @@ public with sharing class TestDataFactory {
         insert new DATEV1__Settings__c(
             DATEV1__AccountLength__c = 6
         );
+
+        insert new DatevKreditorennummer__c(
+            DatevKreditorennummer__c = 12345
+        ); 
     }
 
     public static User createTestuser(Boolean doInsert) {
@@ -67,16 +71,21 @@ public with sharing class TestDataFactory {
         return bautraeger;
     }
 
+
     public static Opportunity createOpportunity(Boolean doInsert, Id interessentId, Id maklerId, Id propertyId, Id appartmentId) {
+        return createOpportunity(doInsert, interessentId, maklerId, propertyId, appartmentId, 'Reserviert');
+    }
+
+    public static Opportunity createOpportunity(Boolean doInsert, Id interessentId, Id maklerId, Id propertyId, Id appartmentId, String stageName) {
         Contact makler = [SELECT Id, AccountId FROM Contact WHERE Id = :maklerId];
 
         Opportunity opp = new Opportunity();
-        opp.Name = 'Offene VKC ';
+        opp.Name = 'Offene VKC';
         opp.AccountId = makler.AccountId;
         opp.Makler__c = makler.Id;
         opp.Potenzieller_Kunde__c = interessentId;
         opp.CloseDate = System.today().addDays(31);
-        opp.StageName = 'Reserviert';
+        opp.StageName = stageName;
         opp.Immobilie__c = propertyId;
         opp.Appartement__c = appartmentId;
         opp.Finanzierung__c = 'Barzahler';
@@ -246,5 +255,137 @@ public with sharing class TestDataFactory {
         }
 
         return gutschrift;
+    }
+
+    public static Campaign createCampaign(Boolean doInsert) {
+        Campaign campaign = new Campaign(
+            Name = 'Testcampaign'
+        );
+        
+        if(doInsert) {
+            insert campaign;
+        }
+
+        return campaign;
+    }
+
+    public static Realty_User__c createImmoUser(Boolean doInsert, Id contactId) {
+		Realty_User__c immoUser = new Realty_User__c(
+            Password__c = 'test123', Name = 'test tester', Email__c = 'test@mail.com', Login_Email__c = 'test@mail.com', Contact__c = contactId
+        );
+
+        if(doInsert) {
+            insert immoUser;
+        }
+
+        return immoUser;
+    }
+
+    public static Provision__c createProvision(Boolean doInsert, Id opportunityId, Id maklerBetreuerUserId, Id empfaengerId) {
+        Provision__c provi = new Provision__c(
+            Verkaufschance__c = opportunityId,
+            Maklerbetreuer__c = maklerBetreuerUserId,
+            Makler__c = empfaengerId
+        );
+
+        if(doInsert) {
+            insert provi;
+        }
+
+        return provi;
+    }
+
+    public static Provisionsverhandlung__c createProvisionsverhandlung(Boolean doInsert, Id accountId, Id immoId) {
+        Provisionsverhandlung__c provisionsverhandlung =new Provisionsverhandlung__c(
+            Account__c = accountId,
+            Immobilie__c = immoId,
+            Grundprovision__c = 5.0,
+            Verkaufsprovision__c = 10
+        );
+
+        if(doInsert) {
+            insert provisionsverhandlung;
+        }
+
+        return provisionsverhandlung;
+    }
+
+    public static User createCommunityUser() {
+        Database.DMLOptions dml = new Database.DMLOptions();
+        dml.DuplicateRuleHeader.AllowSave = true;
+        // Maklerbetreuer + Account erstellen
+        Contact mb = new Contact();
+        mb.FirstNAme = 'Frank';
+        mb.LastName = 'Köpsell';
+        mb.Email = 'f.witte@wirtschaftshaus.de';
+        mb.MaklerBetreuer_E_Mail__c = 'f.witte@wirtschaftshaus.de';
+        mb.Ist_Maklerbetreuer_WH__c = true;
+        mb.Gesch_ftsbeziehung__c = 'Mitarbeiter WH';
+        Database.insert(mb, dml);
+        Account acc = new Account();
+        acc.Name = 'Makler GmbH%';
+        acc.Email__c = 'f.witte@wirtschaftshaus.de';
+        acc.Maklerbetreuer_Wirtschaftshaus__c = 'Frank Köpsell';
+        acc.Maklerbetreuer_Wirtschaftshaus_2__c = mb.Id;
+        Database.insert(acc, dml);
+        mb.AccountId = acc.Id;
+        Database.update(mb, dml);
+
+        Id maklerRecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName()
+        .get('Makler').getRecordTypeId();
+        Contact con = new Contact();
+        con.AccountId = acc.Id;
+        con.Gesch_ftsbeziehung__c = 'Versicherungsmakler';
+        con.FirstName = 'Max';
+        con.MailingStreet = 'Teststr. 24';
+        con.MailingCity = 'Hannover';
+        con.MailingPostalCode = '30159';
+        con.LastName = 'Maklermann 6';
+        con.RecordTypeId = maklerRecordTypeId;
+        insert con;
+
+        Database.insert(con, dml);
+
+        Profile portalProfileUser = [SELECT Id FROM Profile WHERE Name LIKE '%Partner Community%User' Limit 1];
+        Profile portalProfileManager = [SELECT Id FROM Profile WHERE Name LIKE '%Partner Community%Manager' Limit 1];
+        String accNameSelector = '%' + acc.Name + '%';
+        List<PermissionSetAssignment> pmas = new List<PermissionSetAssignment>();
+        List<PermissionSet> pms = [SELECT Id, Name FROM PermissionSet WHERE Name Like '%Community%'];
+        PermissionSet accPm;
+        PermissionSet conPm;
+        PermissionSet provPm;
+        PermissionSet immPm;
+        for(PermissionSet pm:pms) {
+            if(pm.Name.contains('Accounts')) { 
+                accPm = pm;
+            } else if(pm.Name.contains('Kontakte')) { 
+                conPm = pm;
+            } else if(pm.Name.contains('Provision')) { 
+                provPm = pm;
+            } else if(pm.Name.contains('Immobilie')) {
+                immPm = pm;
+            }
+        }
+        List<User> communityUsers = new List<User>();
+        String sbName = UserInfo.getUserName().substringAfterLast('.');
+        User usr = new User(
+            ProfileId = portalProfileManager.Id,
+            EmailEncodingKey='UTF-8',
+            Firstname=con.firstName,
+            Lastname=con.LastName,
+            LanguageLocaleKey='de',
+            LocaleSidKey='de_DE',
+            TimeZoneSidKey='GMT',
+            ContactId=con.Id);
+    
+            usr.Username = 'salesaccount5@test.de';
+            usr.profileId = portalProfileUser.Id;
+            con.LastName = 'Sales-Account';
+        
+        usr.Alias = usr.Username.substring(0,6);
+        usr.Email= 'test@test.de';
+        insert usr;
+
+        return usr;
     }
 }

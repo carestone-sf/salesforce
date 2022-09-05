@@ -14,9 +14,11 @@ private class SchedulableDashboardControllingATest {
 
         // Schedule the test job
 
+        String year = String.valueOf((Date.today().year() + 1));
+
         String jobId = System.schedule('testBasicScheduledApex',
-          '0 0 0 3 9 ? 2022',
-            new SchedulableDashboardControllingActivum   ());
+          '0 0 0 3 9 ? ' + year,
+            new SchedulableDashboardControllingActivum());
 
       // Get the information from the CronTrigger API object
       CronTrigger ct = [SELECT Id, CronExpression, TimesTriggered,
@@ -24,16 +26,15 @@ private class SchedulableDashboardControllingATest {
          FROM CronTrigger WHERE id = :jobId];
 
       // Verify the expressions are the same
-      System.assertEquals('0 0 0 3 9 ? 2022',
+      System.assertEquals('0 0 0 3 9 ? ' + year,
          ct.CronExpression);
 
       // Verify the job has not run
       System.assertEquals(0, ct.TimesTriggered);
 
       // Verify the next time the job will run
-      System.assertEquals('2022-09-03 00:00:00',
+      System.assertEquals(year + '-09-03 00:00:00',
          String.valueOf(ct.NextFireTime));
-
        Test.stopTest();
   }
 
