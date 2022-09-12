@@ -61,7 +61,9 @@
              &#183; {!Opportunity.Immobilie__r.Unternehmen__r.Website} &#183; {!Opportunity.Immobilie__r.Unternehmen__r.Email__c}<br/>
             Geschäftsführer: {!Opportunity.Immobilie__r.Unternehmen__r.GeschaeftsfuehrerNeu__c}<br/>
             Amtsgericht {!Opportunity.Immobilie__r.Unternehmen__r.Amtsgericht_bei_Kapitalgesellschaften__c} {!Opportunity.Immobilie__r.Unternehmen__r.HRB_bei_Kapitalgesellschaften__c} | <span style="{!IF(!IsBlank(Opportunity.Immobilie__r.Unternehmen__r.Komplementaer__c), 'display:inline', 'display:none')}"> Komplementär: {!Opportunity.Immobilie__r.Unternehmen__r.Komplementaer__c} |</span> St.Nr. {!Opportunity.Immobilie__r.Unternehmen__r.Steuernummer__c} | USt-IdNr. {!Opportunity.Immobilie__r.Unternehmen__r.UStd_Id__c}<br/>
-            {!Opportunity.Immobilie__r.Unternehmen__r.Bank__c} &#183; IBAN {!Opportunity.Immobilie__r.Unternehmen__r.IBAN__c} &#183; BIC {!Opportunity.Immobilie__r.Unternehmen__r.BIC__c}
+            <apex:outputPanel rendered="{!Opportunity.Immobilie__r.Unternehmen__r.Bank__c != null}">
+                {!Opportunity.Immobilie__r.Unternehmen__r.Bank__c} &#183; IBAN {!Opportunity.Immobilie__r.Unternehmen__r.IBAN__c} &#183; BIC {!Opportunity.Immobilie__r.Unternehmen__r.BIC__c}
+            </apex:outputPanel>
         </div>
     
         <!--
@@ -144,12 +146,10 @@
         Sehr geehrte Damen und Herren,
         <br/><br/>
         hiermit bestätigen wir den Erhalt der vollständigen Kaufpreiszahlung am&nbsp;<apex:outputField value="{!Opportunity.Datum_Kaufpreis_bezahlt__c}"></apex:outputField> in 
-        Höhe von&nbsp;<apex:outputField value="{!Opportunity.Appartement__r.Bezahlt__c}"/> für die Wohneinheit {!Opportunity.Appartement__r.Name},
+        Höhe von&nbsp;<apex:outputField value="{!Opportunity.beurkundeter_Kaufpreis__c}"/> für die Wohneinheit / {!Opportunity.Appartement__r.Name},
         <br/>
         Erwerber {!Opportunity.Potenzieller_Kunde__r.Name}
-        <apex:outputPanel rendered="{!NOT(ISBLANK(Opportunity.Kunde2__c))}">
-            , {!Opportunity.Kunde2__r.Name}
-        </apex:outputPanel>.
+        <apex:outputPanel rendered="{!NOT(ISBLANK(Opportunity.Kunde2__c))}">, {!Opportunity.Kunde2__r.Name}</apex:outputPanel>.
         <br/><br/>
         Wir bitten Sie die Eigentumsumschreibung nunmehr zu veranlassen.
         <br/><br/>

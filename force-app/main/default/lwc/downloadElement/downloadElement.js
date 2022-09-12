@@ -1,5 +1,6 @@
 import { api, LightningElement } from 'lwc';
 import VERTRIEBSPORTAL_SRC from '@salesforce/resourceUrl/VertriebsportalSrc';
+import RUNDGAENGE from '@salesforce/resourceUrl/Rundgaenge';
 
 export default class DownloadElement extends LightningElement {
 
@@ -18,11 +19,17 @@ export default class DownloadElement extends LightningElement {
     @api
     thumbnailUrl;
 
+    @api isRundgang = false;
+
     get completeThumbnailUrl() {
         if(this.thumbnailUrl.indexOf('https://') > -1) {
             return this.thumbnailUrl;
         } else {
-            return VERTRIEBSPORTAL_SRC + this.thumbnailUrl;
+            if(this.isRundgang) {
+                return RUNDGAENGE + this.thumbnailUrl;
+            } else {
+                return VERTRIEBSPORTAL_SRC + this.thumbnailUrl;
+            }
         }
     }
 

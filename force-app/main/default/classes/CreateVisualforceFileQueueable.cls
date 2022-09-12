@@ -89,7 +89,7 @@ public with sharing class CreateVisualforceFileQueueable implements Queueable, D
 
                 Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
                 mail.setTemplateId(template.Id);
-                mail.setToAddresses(new List<String> { UserInfo.getUserEmail() });
+                mail.setToAddresses(request.toAddresses);
                 mail.setTargetObjectId(UserInfo.getUserId());
                 mail.setWhatId(request.recordId);
                 mail.setSaveAsActivity(false);
@@ -115,11 +115,13 @@ public with sharing class CreateVisualforceFileQueueable implements Queueable, D
         private String emailTemplateDeveloperName;
         private Id recordId;
         private Id orgWideEmailAddressId;
+        List<String> toAddresses;
         
-        public SendEmailRequest(String emailTemplateDeveloperName, Id recordId, Id orgWideEmailAddressId) {
+        public SendEmailRequest(String emailTemplateDeveloperName, Id recordId, Id orgWideEmailAddressId, List<String> toAddresses) {
             this.emailTemplateDeveloperName = emailTemplateDeveloperName;
             this.recordId = recordId;
             this.orgWideEmailAddressId = orgWideEmailAddressId;
+            this.toAddresses = toAddresses;
         }
     } 
 }

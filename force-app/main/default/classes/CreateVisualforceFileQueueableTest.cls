@@ -36,7 +36,8 @@ private class CreateVisualforceFileQueueableTest {
         List<CreateVisualforceFileQueueable.SendEmailRequest> emailRequests = new List<CreateVisualforceFileQueueable.SendEmailRequest>{new CreateVisualforceFileQueueable.SendEmailRequest(
             'ZahlungseingangPDFAngelegt',
             opp.Id,
-            orgWideEmailAddressId
+            orgWideEmailAddressId,
+            new List<String> {'test@test.dev'}
         )};
         CreateVisualforceFileQueueable.SendEmailFinalizer finalizer = new CreateVisualforceFileQueueable.SendEmailFinalizer(emailRequests);
 
