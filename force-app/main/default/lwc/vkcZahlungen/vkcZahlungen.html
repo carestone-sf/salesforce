@@ -1,0 +1,46 @@
+<template>
+    <lightning-layout multiple-rows>
+        <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+            <div class="slds-text-body_small">Notarieller Kaufpreis:</div>
+            <div class="slds-text-heading_small">
+                <lightning-formatted-number value={kaufpreis} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+            <div class="slds-text-body_small">Vollständig abgerechnet:</div>
+            <div class="slds-text-heading_small">
+                {vollstaendigAbgerechnet}
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+            <div class="slds-text-body_small">Vollständig bezahlt:</div>
+            <div class="slds-text-heading_small">
+                {vollstaendigBezahlt}    
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+            <div class="slds-text-body_small">Restforderung:</div>
+            <div class="slds-text-heading_small">
+                <lightning-formatted-number value={restforderung} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+            <div class="slds-text-body_small">Abgerechneter Betrag:</div>
+            <div class="slds-text-heading_small">
+                <lightning-formatted-number value={abgerechneterBetrag} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+            <div class="slds-text-body_small">Gezahlter Betrag:</div>
+            <div class="slds-text-heading_small">
+                <lightning-formatted-number value={bezahlterBetrag} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" large-device-size="3"  padding="around-small">
+            <div class="slds-text-body_small">Offener Betrag:</div>
+            <div class="slds-text-heading_small">
+                <lightning-formatted-number value={offenerBetrag} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

@@ -118,6 +118,12 @@ public with sharing class TriggerFactory
         if(soType == Opportunity.getSObjectType()) {
             return new OpportunityTriggerHandler();
         }
+		if(soType == MaBVRechnung__c.getSObjectType()) {
+			return new MaBVRechnungTriggerHandler();
+		}
+		if(soType == Zahlung__c.getSObjectType()) {
+			return new ZahlungTriggerHandler();
+		}
         
         return null;
 	}

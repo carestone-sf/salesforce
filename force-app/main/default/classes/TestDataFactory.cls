@@ -77,6 +77,10 @@ public with sharing class TestDataFactory {
     }
 
     public static Opportunity createOpportunity(Boolean doInsert, Id interessentId, Id maklerId, Id propertyId, Id appartmentId, String stageName) {
+        return createOpportunity(doInsert, interessentId, maklerId, propertyId, appartmentId, stageName, 100000);
+    }
+
+    public static Opportunity createOpportunity(Boolean doInsert, Id interessentId, Id maklerId, Id propertyId, Id appartmentId, String stageName, Decimal beurkundeterKaufpreis) {
         Contact makler = [SELECT Id, AccountId FROM Contact WHERE Id = :maklerId];
 
         Opportunity opp = new Opportunity();
@@ -88,6 +92,7 @@ public with sharing class TestDataFactory {
         opp.StageName = stageName;
         opp.Immobilie__c = propertyId;
         opp.Appartement__c = appartmentId;
+        opp.Beurkundeter_Kaufpreis__c = beurkundeterKaufpreis;
         opp.Finanzierung__c = 'Barzahler';
 
         if(doInsert) {
@@ -186,13 +191,17 @@ public with sharing class TestDataFactory {
     }
 
     public static MaBVRate__c createMaBVRate(Boolean doInsert, Id immobilienId) {
+        return createMaBVRate(doInsert, immobilienId, 1.0);
+    }
+
+    public static MaBVRate__c createMaBVRate(Boolean doInsert, Id immobilienId, Decimal ratePercentage) {
         MaBVRate__c rate = new MaBVRate__c(
             Immobilie__c = immobilienId,
             Faelligkeitsdatum__c = Date.today().addDays(30),
             Leistung__c = 'X',
             LeistungszeitraumVon__c = Date.today().addDays(60),
             LeistungszeitraumBis__c = Date.Today().addDays(90),
-            RateInPercentage__c = 0.1,
+            RateInPercentage__c = ratePercentage,
             RateNummer__c = '1'
         );
 
@@ -217,9 +226,13 @@ public with sharing class TestDataFactory {
     }
 
     public static MaBVRechnung__c createMaBVRechnung(Boolean doInsert, Id masterId) {
+        return createMaBVRechnung(doInsert, '930-008-1-1', masterId);
+    }
+
+    public static MaBVRechnung__c createMaBVRechnung(Boolean doInsert, String name, Id masterId) {
         MaBVRechnung__c maBVRechnung = new MaBVRechnung__c(
             MaBVRechnungMaster__c = masterId,
-            Name = '930-008-1-1'
+            Name = name
         );
 
         if(doInsert) {
@@ -227,6 +240,19 @@ public with sharing class TestDataFactory {
         }
 
         return maBVRechnung;
+    }
+
+    public static Zahlung__c createZahlung(Boolean doInsert, Double betrag, Id rechnungId) {
+        Zahlung__c zahlung = new Zahlung__c(
+            MaBVRechnung__c = rechnungId,
+            Betrag__c = betrag
+        );
+
+        if(doInsert) {
+            insert zahlung;
+        }
+        
+        return zahlung;
     }
     
     public static Finanzierungsanfrage__c createFinanzierungsanfrage(Boolean doInsert, Id contactId, String geforderteUnterlagen) {

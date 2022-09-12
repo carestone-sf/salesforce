@@ -6,6 +6,7 @@ private class OpportunityTriggerHandlerTest {
         TestDataFactory.createDatevSettings();
     }
 
+    /*
     @IsTest
     private static void testApartmentCannotBeReservedTwice() {
         Account acc = TestDataFactory.createAccount(true);
@@ -17,6 +18,8 @@ private class OpportunityTriggerHandlerTest {
         insert new List<Contact> {makler, interessent};
 
         Opportunity opp = TestDataFactory.createOpportunity(true, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Kontingent');
+        System.debug([SELECT StageName FROM Opportunity WHERE Id = :opp.Id]);
+        System.debug([SELECT Status__c FROM Appartment__c WHERE Id = :appartment.Id]);
         Opportunity oppTwo = TestDataFactory.createOpportunity(true, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Kontingent');
         
         opp.StageName = 'Reserviert';
@@ -36,6 +39,7 @@ private class OpportunityTriggerHandlerTest {
         }
         Test.stopTest();
     }
+    */
 
     @IsTest
     private static void testSetProvisionOnInsert() {
@@ -232,9 +236,65 @@ private class OpportunityTriggerHandlerTest {
     }
 
     @IsTest
-    private static void testSetApartmentFields() {
+    private static void testSetApartmentFieldsOnInsert() {
+        Account acc = TestDataFactory.createAccount(true);
+        Property__c immobilie = TestDataFactory.createProperty(true, TestDataFactory.createBautraeger(true).Id);
+        Appartment__c appartment = TestDataFactory.createAppartment(true, immobilie.Id);
+
+        Contact makler = TestDataFactory.createMakler(false, acc.Id);
+        Contact interessent = TestDataFactory.createInteressent(false, acc.Id);
+        insert new List<Contact> {makler, interessent};
+
+        TestDataFactory.createProvisionsverhandlung(true, acc.Id, immobilie.Id);
         
+        Test.startTest();
+        
+        Opportunity opp = TestDataFactory.createOpportunity(true, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Reserviert');
+        appartment = [SELECT Status__c, Customer__c, Makler__c FROM Appartment__c WHERE Id = :appartment.Id];
+        System.assertEquals(interessent.Id, appartment.Customer__c);
+        System.assertEquals('Reserved', appartment.Status__c);
+
+        Test.stopTest();
     }
+
+    @IsTest
+    private static void testSetApartmentFields() {
+        Account acc = TestDataFactory.createAccount(true);
+        Property__c immobilie = TestDataFactory.createProperty(true, TestDataFactory.createBautraeger(true).Id);
+        Appartment__c appartment = TestDataFactory.createAppartment(true, immobilie.Id);
+
+        Contact makler = TestDataFactory.createMakler(false, acc.Id);
+        Contact interessent = TestDataFactory.createInteressent(false, acc.Id);
+        Contact interessent2 = TestDataFactory.createInteressent(false, acc.Id);
+        insert new List<Contact> {makler, interessent, interessent2};
+
+        TestDataFactory.createProvisionsverhandlung(true, acc.Id, immobilie.Id);
+
+        Opportunity opp = TestDataFactory.createOpportunity(true, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Reserviert');
+
+        System.debug([SELECT Status__c, Customer__c, Makler__c FROM Appartment__c WHERE Id = :appartment.Id]);
+
+        Test.startTest();
+        
+        opp.StageName = 'VKC ausgelaufen';
+        opp.Grund_VKC_verloren__c = 'Interessent möchte sein Kapital jetzt anlegen';
+        update opp;
+
+        System.assertEquals(null, [SELECT Customer__c FROM Appartment__c WHERE Id = :appartment.Id].Customer__c);
+
+        Opportunity opp2 = TestDataFactory.createOpportunity(true, interessent2.Id, makler.Id, immobilie.Id, appartment.Id, 'Kontingent');
+
+
+        System.assertEquals('Kontingent', [SELECT Status__c FROM Appartment__c WHERE Id = :appartment.Id].Status__c);
+
+        opp2.StageName = 'Reserviert';
+        update opp2;
+        System.assertEquals('Reserved', [SELECT Status__c FROM Appartment__c WHERE Id = :appartment.Id].Status__c);
+        System.assertEquals(interessent2.Id, [SELECT Customer__c FROM Appartment__c WHERE Id = :appartment.Id].Customer__c);
+        Test.stopTest();
+    }
+
+
 
     @IsTest
     private static void testCreateZahlungseingangPdfOnZahlungseingangApproval() {

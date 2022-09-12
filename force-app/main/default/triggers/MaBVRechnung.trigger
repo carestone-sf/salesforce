@@ -4,6 +4,9 @@
 
 trigger MaBVRechnung on MaBVRechnung__c (before insert, before update, after insert, after update) {
 
+    
+    TriggerFactory.createHandler(MaBVRechnung__c.getSObjectType());
+
     if(Trigger.isBefore) {
         for(MaBVRechnung__c maBVRechnung: Trigger.new) {
             MaBVRechnung__c oldMaBVRechnung = new MaBVRechnung__c();

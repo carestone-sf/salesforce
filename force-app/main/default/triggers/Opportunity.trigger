@@ -468,6 +468,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                     }
                 }
             }
+            */
 
 
             if (opp.StageName == 'Reservierungsvorbereitung' && stageOrAppHasChanged) {
@@ -509,16 +510,14 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 apps.KaufpreisFaellig__c = false;
                 apps.Bezahlt__c = 0;
             }
-            */
 
             //Übertragen in die Liste zum Updaten, wenn das Feld no update nicht gesetzt ist
             if (Trigger.IsUpdate) {
-                /*
                 Opportunity oldOpp = Trigger.OldMap.get(opp.Id);
                 if (apps != null && opp.Appartement__c != null && (opp.StageName != Trigger.OldMap.get(opp.Id).StageName || opp.reserviert_bis__c != oldOpp.reserviert_bis__c || opp.Potenzieller_Kunde__c != oldOpp.Potenzieller_Kunde__c || opp.Makler__c != oldOpp.Makler__c || opp.Datum_Kaufpreis_bezahlt__c != oldOpp.Datum_Kaufpreis_bezahlt__c || opp.Notartermin__c != oldOpp.Notartermin__c || opp.Finanzierung__c != oldOpp.Finanzierung__c || opp.Maklerbetreuer_WirtschaftsHaus__c != oldOpp.Maklerbetreuer_WirtschaftsHaus__c || opp.StageName != oldOpp.StageName || opp.beurkundeter_Kaufpreis__c != oldOpp.beurkundeter_Kaufpreis__c || opp.Provisionsbasis__c != oldOpp.Provisionsbasis__c || opp.KumulierteProvisionExtern__c != oldOpp.KumulierteProvisionExtern__c || opp.Appartement__c != oldOpp.Appartement__c || opp.Kaufdatum__c != oldOpp.Kaufdatum__c)) {
+                    
                     appToUpdate.add(apps);
-                }
-                */
+                } 
                 if (opp.StageName != Trigger.OldMap.get(opp.Id).StageName && Trigger.OldMap.get(opp.Id).StageName == 'Reservierung angefragt' && opp.StageName == 'VKC ausgelaufen') {
                     Approval.ProcessWorkitemRequest req2 = new Approval.ProcessWorkitemRequest();
                     req2.setComments('Automatisch ausgelaufen, da die Zeit abgelaufen ist.');
@@ -538,6 +537,9 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
         }
 
         if (!appToUpdate.isEmpty()) {
+            for(Appartment__c app : appToUpdate) {
+                System.debug('In Trigger: ' + app.Status__c);
+            }
             update appToUpdate;
         }
 
