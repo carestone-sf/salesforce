@@ -1,0 +1,164 @@
+<apex:page standardController="Opportunity" showHeader="false" applyHtmlTag="false" renderAs="pdf">
+    <!-- Begin Default Content REMOVE THIS -->
+    <head>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            @page {
+
+                size: 21.0cm 29.7cm;
+                margin-bottom: 1.69cm;
+                margin-left: 2.5cm;
+                margin-right: 2cm;
+                margin-top: 0;
+                padding: 0;
+
+                @bottom-center {
+                    content: element(bottom-center-div);
+                }
+            }
+
+            body {
+                font-family: 'sans-serif';
+                color: #1f1f1f;
+                font-size: 12px;
+                line-height: 16px;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                display: block;
+            }
+
+            .bottom-center-div {
+                position: running(bottom-center-div);
+                text-align: center;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                border: none;
+            }
+
+            td {
+                vertical-align: baseline;
+            }
+        </style>
+    </head>
+    
+    <div style="width: 100%; text-align: center; margin-bottom: 1.25cm; margin-top: 1.25cm;">
+        <apex:image style="{!IF(!IsBlank(Opportunity.Immobilie__r.Unternehmen__r.LogoUrl__c), 'display:inline-block;', 'display:none;')} height: 1.5cm" url="{!Opportunity.Immobilie__r.Unternehmen__r.LogoUrl__c}" width="auto"/>
+        <apex:image style="{!IF(IsBlank(Opportunity.Immobilie__r.Unternehmen__r.LogoUrl__c), 'display:inline-block', 'display:none')}; height: 1.5cm" url="{!$Resource.Carestone_Logo}" width="auto"/>
+    </div>
+
+    <div style="width: 100%;">
+        <div style="width: 58%; float: left;">
+            <div style="height: 1.77cm; width: 100%; position: relative;">
+                <p style="font-size: 8px; {!IF(!IsBlank(Opportunity.Immobilie__r.Unternehmen__r.LogoUrl__c), 'color: #1f1f1f;', 'color: #004B41;')} position: absolute; bottom: 0; left: 0; right: 0;">
+                    {!Opportunity.Immobilie__r.Unternehmen__r.Unternehmensname__c} &#183; {!Opportunity.Immobilie__r.Unternehmen__r.BillingStreet} &#183; {!Opportunity.Immobilie__r.Unternehmen__r.BillingPostalCode} {!Opportunity.Immobilie__r.Unternehmen__r.BillingCity}
+                </p>
+            </div>
+            <p style="margin-top: 0.2cm;">
+                {!Opportunity.Potenzieller_Kunde__r.Salutation} {!Opportunity.Potenzieller_Kunde__r.FirstName} {!Opportunity.Potenzieller_Kunde__r.LastName}<br/>
+                <span style="{!IF(Opportunity.Kunde2__c != null, 'display:inline', 'display:none')}">
+                    {!Opportunity.Kunde2__r.Salutation} {!Opportunity.Kunde2__r.FirstName} {!Opportunity.Kunde2__r.LastName}<br/>
+                </span>
+                <span style="{!IF(Opportunity.Potenzieller_Kunde__r.Adresszusatz__c != null, 'display:inline', 'display:none')}">
+                    {!Opportunity.Potenzieller_Kunde__r.Adresszusatz__c}<br/>
+                </span>
+                {!Opportunity.Potenzieller_Kunde__r.MailingStreet}<br/>
+                {!Opportunity.Potenzieller_Kunde__r.MailingPostalCode} {!Opportunity.Potenzieller_Kunde__r.MailingCity}
+                <span style="{!IF(Opportunity.Potenzieller_Kunde__r.MailingCountry != null, 'display:inline', 'display:none')} ">
+                    <br/>{!Opportunity.Potenzieller_Kunde__r.MailingCountry}
+                </span>
+            </p>
+        </div>
+        <div style="width: 42%; float: right; margin-top: 0.55cm">
+            <p>
+                Urkundennummer: {!Opportunity.UrkundennummerKaufvertragsannahme__c}<br/>
+                Kundennummer: {!Opportunity.Potenzieller_Kunde__r.DatevDebitorenKundennummerKaeufer__c}<br/>
+                Datum:&nbsp;{!LPAD(TEXT(DAY(TODAY())), 2, '0') + '.' + LPAD(TEXT(MONTH(TODAY())), 2, '0') + '.' + TEXT(YEAR(TODAY()))}<br/>
+                Immobilie: {!Opportunity.Immobilie__r.Name}<br/>
+                Wohnungseinheit: {!Opportunity.Appartement__r.Name}<br/>
+                Kaufpreis:&nbsp;<apex:outputField value="{!Opportunity.beurkundeter_Kaufpreis__c}"/><br/>
+                Kaufdatum:&nbsp;<apex:outputField value="{!Opportunity.Kaufdatum__c}"/>
+            </p>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+
+    <div style="margin-top: 3cm;">
+    <h3>
+        Zahlungserinnerung
+    </h3>
+    <br/>
+    <p>
+        Sehr geehrte/r {!Opportunity.Potenzieller_Kunde__r.Salutation} {!Opportunity.Potenzieller_Kunde__r.FirstName} {!Opportunity.Potenzieller_Kunde__r.LastName}, <span style="{!IF(Opportunity.Kunde2__c != null, 'display:inline', 'display:none')}">
+                <br/>sehr geehrte/r {!Opportunity.Kunde2__r.Salutation} {!Opportunity.Kunde2__r.FirstName} {!Opportunity.Kunde2__r.LastName},
+                </span> <br/><br/>
+        nach Durchsicht unserer Unterlagen haben wir festgestellt, dass der Kaufvertrag mit der Urkundennummer der Angebotsannahme {!Opportunity.UrkundennummerKaufvertragsannahme__c} noch nicht vollständig bezahlt wurde. 
+        Wir bitten Sie, die Außenstände in Höhe von&nbsp;<apex:outputField value="{!Opportunity.OffenerBetrag__c}"></apex:outputField> zu begleichen und bedanken uns hierfür schon im Voraus.
+    </p>
+
+    <br/>
+    
+    <p>
+        Zahlungen nach dem {!LPAD(TEXT(DAY(TODAY()-1)), 2, '0') + '.' + LPAD(TEXT(MONTH(TODAY())), 2, '0') + '.' + TEXT(YEAR(TODAY()))} sind nicht berücksichtigt. Sollte sich Ihre Zahlung mit diesem Schreiben überschnitten haben, betrachten Sie bitte diese Erinnerung als gegenstandslos.
+    </p>
+
+    <br/>
+
+    <table>
+        <colgroup>
+            <col span="1" style="width: 25%;"/>
+            <col span="1" style="width: 75%;"/>
+        </colgroup>
+        <tr>
+            <td>
+                zu Gunsten:
+            </td>
+            <td>
+                {!Opportunity.Immobilie__r.Unternehmen__r.Unternehmensname__c}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                IBAN:
+            </td>
+            <td>
+                {!Opportunity.Immobilie__r.Unternehmen__r.IBAN__c}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                BIC:
+            </td>
+            <td>
+                {!Opportunity.Immobilie__r.Unternehmen__r.BIC__c}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Verwendungszweck:
+            </td>
+            <td>
+                {!Opportunity.UrkundennummerKaufvertragsannahme__c} {!Opportunity.Potenzieller_Kunde__r.DatevDebitorenKundennummerKaeufer__c}
+            </td>
+        </tr>
+    </table>
+    
+    <br/>
+    
+    </div>
+
+    <div class="bottom-center-div" style="font-size: 8px; line-height: 12px;">
+        {!Opportunity.Immobilie__r.Unternehmen__r.Unternehmensname__c} &#183; {!Opportunity.Immobilie__r.Unternehmen__r.BillingStreet} &#183; {!Opportunity.Immobilie__r.Unternehmen__r.BillingPostalCode} {!Opportunity.Immobilie__r.Unternehmen__r.BillingCity} &#183; Tel. {!Opportunity.Immobilie__r.Unternehmen__r.Phone} &#183; Fax: {!Opportunity.Immobilie__r.Unternehmen__r.Fax}
+         &#183; {!Opportunity.Immobilie__r.Unternehmen__r.Website} &#183; {!Opportunity.Immobilie__r.Unternehmen__r.Email__c}<br/>
+        Geschäftsführer: {!Opportunity.Immobilie__r.Unternehmen__r.GeschaeftsfuehrerNeu__c}<br/>
+        Amtsgericht {!Opportunity.Immobilie__r.Unternehmen__r.Amtsgericht_bei_Kapitalgesellschaften__c} {!Opportunity.Immobilie__r.Unternehmen__r.HRB_bei_Kapitalgesellschaften__c} | <span style="{!IF(!IsBlank(Opportunity.Immobilie__r.Unternehmen__r.Komplementaer__c), 'display:inline', 'display:none')}"> Komplementär: {!Opportunity.Immobilie__r.Unternehmen__r.Komplementaer__c} |</span> St.Nr. {!Opportunity.Immobilie__r.Unternehmen__r.Steuernummer__c} | USt-IdNr. {!Opportunity.Immobilie__r.Unternehmen__r.UStd_Id__c}<br/>
+        {!Opportunity.Immobilie__r.Unternehmen__r.Bank__c} &#183; IBAN {!Opportunity.Immobilie__r.Unternehmen__r.IBAN__c} &#183; BIC {!Opportunity.Immobilie__r.Unternehmen__r.BIC__c}
+    </div>
+</apex:page>

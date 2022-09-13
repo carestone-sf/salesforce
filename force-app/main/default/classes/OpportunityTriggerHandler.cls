@@ -1,7 +1,10 @@
 public without sharing class OpportunityTriggerHandler implements ITrigger {
 
+    private static final String ZAHLUNGSERINNERUNG_APPROVAL_PROCESS_NAME = 'Zahlungserinnerung';
     private static final String ZAHLUNGSEINGANG_APPROVAL_PROCESS_NAME = 'Zahlungseingang';
-    private static final String ZAHLUNGSEINGANG_PDF_CREATED_MAILBOX = 'MaBV-Rechnungen@carestone.com';
+    private static final String FIBU_MAILBOX = 'MaBV-Rechnungen@carestone.com';
+
+    Id orgWideEmailAddressId = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'service@carestone.com' LIMIT 1].Id;
     
     @TestVisible
     private static final Integer DEFAULT_RESERVATION_DURATION = 14;
@@ -9,7 +12,9 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     Set<String> lostOpportunityStages = new Set<String>();
     Map<Id,SObject> updateMap = new Map<Id,SObject>();
     List<Approval.ProcessSubmitRequest> approvalRequests = new List<Approval.ProcessSubmitRequest>();
-    List<CreateVisualforceFileQueueable.FileCreationRequest> fileCreationRequests = new List<CreateVisualforceFileQueueable.FileCreationRequest>();    
+    List<CreateVisualforceFileQueueable.FileCreationRequest> fileCreationRequests = new List<CreateVisualforceFileQueueable.FileCreationRequest>();
+    List<FileCreationRequest> batchFileCreationRequests = new List<FileCreationRequest>();
+    
 
     Map<Id,Appartment__c> mapApartmentsById = new Map<Id,Appartment__c>();
     Map<Id,Contact> mapRelatedContactsByIds = new Map<Id,Contact>();
@@ -81,9 +86,24 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
             createApprovalRequestIfKaufpreisBezahlt(opp);
         }
 
+        if(opp.MahnungZurGenehmigungSenden__c && !oldOpp.MahnungZurGenehmigungSenden__c) {
+            createApprovalRequestForPaymentReminder(opp);
+        }
+
+        if(opp.MahnungGenerieren__c && !oldOpp.MahnungGenerieren__c) {
+            FileCreationRequest fcr = new FileCreationRequest(opp.Id, Page.BarzahlungMahnung, 'Zahlungserinnerung: ' + mapImmobilienByIds.get(opp.Immobilie__c).Name + ' / ' + mapApartmentsById.get(opp.Appartement__c).Name, 'Zahlungserinnerung', contentVersionRecordTypeId);
+            fcr.setSendEmailRequests(new List<FileCreationRequest.SendEmailRequest> {new FileCreationRequest.SendEmailRequest(
+                opp.Potenzieller_Kunde__c, false, 'VKC_Zahlungserinnerung', orgWideEmailAddressId, new List<String> {FIBU_MAILBOX}
+            )});
+            batchFileCreationRequests.add(fcr);
+        }
+
         if(opp.ZahlungseingangApproved__c && !oldOpp.ZahlungseingangApproved__c) {
-            fileCreationRequests.add(new CreateVisualforceFileQueueable.FileCreationRequest(opp.Id, Page.KaufpreiseingangBestaetigung, 'Notar: Bestätigung des Kaufpreiseingangs für ' + opp.Name, 
-                'Notar-Anschreiben', contentVersionRecordTypeId));
+            FileCreationRequest fcr = new FileCreationRequest(opp.Id, Page.KaufpreiseingangBestaetigung, 'Notar: Bestätigung des Kaufpreiseingangs für ' + opp.Name, 'Notar-Anschreiben', contentVersionRecordTypeId);
+            fcr.setSendEmailRequests(new List<FileCreationRequest.SendEmailRequest> {new FileCreationRequest.SendEmailRequest(
+                opp.Potenzieller_Kunde__c, false, 'ZahlungseingangPDFAngelegt', orgWideEmailAddressId, new List<String> {FIBU_MAILBOX}
+            )});
+            batchFileCreationRequests.add(fcr);
         }
 
         setFieldsOnRelatedObjects(opp, oldOpp);
@@ -99,20 +119,8 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
             updateList.sort();
             update updateList;
         }
-
-        if(!fileCreationRequests.isEmpty()) {
-            Id orgWideEmailAddressId = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'service@carestone.com' LIMIT 1].Id;
-            List<CreateVisualforceFileQueueable.SendEmailRequest> emailRequests = new List<CreateVisualforceFileQueueable.SendEmailRequest>();
-            for(CreateVisualforceFileQueueable.FileCreationRequest fcr : fileCreationRequests) {
-                emailRequests.add(new CreateVisualforceFileQueueable.SendEmailRequest(
-                    'ZahlungseingangPDFAngelegt',
-                    fcr.getRecordId(),
-                    orgWideEmailAddressId,
-                    new List<String> {ZAHLUNGSEINGANG_PDF_CREATED_MAILBOX}
-                ));
-            }
-
-            System.enqueueJob(new CreateVisualforceFileQueueable(fileCreationRequests).setFinalizer(new CreateVisualforceFileQueueable.SendEmailFinalizer(emailRequests)));
+        if(!batchFileCreationRequests.isEmpty()) {
+            Database.executeBatch(new BatchVisualforceFileCreation(batchFileCreationRequests), 20);
         }
         if(!approvalRequests.isEmpty()) {
             Approval.process(approvalRequests);
@@ -199,6 +207,20 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         approvalRequests.add(req);
     }
 
+    /**
+     * Starts an approval process for the payment reminder
+     * 
+     * @param opp Opportunity Record
+    */
+    private void createApprovalRequestForPaymentReminder(Opportunity opp) {
+        Approval.ProcessSubmitRequest req = new Approval.ProcessSubmitRequest();
+        req.setComments('Zur Genehmigung eingereicht');
+        req.setObjectId(opp.id);
+        req.setSubmitterId(System.Userinfo.getUserId());
+        req.setProcessDefinitionNameOrId(ZAHLUNGSERINNERUNG_APPROVAL_PROCESS_NAME);
+        approvalRequests.add(req);
+    }
+
     /*
     @TestVisible
     private static String APARTMENT_RESERVED_ERROR = 'Dieses Teilobjekt ist bereits für die VKC {0} reserviert.';
@@ -269,6 +291,12 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         }
         if(immobilieChanged(opp, oldOpp)) {
             setProjektbeauftragte(opp);
+        }
+        if(mahnungApprovalStarted(opp, oldOpp)) {
+            trackMahnungStarted(opp);
+        }
+        if(mahnungCreated(opp, oldOpp)) {
+            trackMahnungSent(opp);
         }
 
         if(Trigger.isInsert) {
@@ -405,6 +433,25 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
 
     public void setTippgeberProvisionempfaenger(Opportunity opp) {
         opp.TippgeberProvisionEmpfaenger__c = getAbrechnungsaccount(opp).Tippgeber__c;
+    }
+
+
+    public Boolean mahnungCreated(Opportunity opp, Opportunity oldOpp) {
+        return opp.MahnungGenerieren__c && (Trigger.isInsert || (oldOpp != null && !oldOpp.MahnungGenerieren__c));
+    }
+
+    public void trackMahnungSent(Opportunity opp) {
+        opp.LetzteMahnungAm__c = System.today();
+        opp.Mahnstufe__c = opp.Mahnstufe__c != null ? (opp.Mahnstufe__c + 1) : 1;
+        opp.MahnungZurGenehmigungSenden__c = false;
+    }
+
+    public Boolean mahnungApprovalStarted(Opportunity opp, Opportunity oldOpp) {
+        return opp.MahnungZurGenehmigungSenden__c && (Trigger.isInsert || (oldOpp != null && !oldOpp.MahnungZurGenehmigungSenden__c));
+    }
+
+    public void trackMahnungStarted(Opportunity opp) {
+        opp.MahnungGenerieren__c = false;
     }
 
     /**
@@ -687,7 +734,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     }
 
     public void getApartments() {
-        mapApartmentsById = new Map<Id,Appartment__c>([SELECT Id, Status__c, ReserviertFuer__c, ReserviertFuer__r.Name FROM Appartment__c WHERE Id IN :apartmentIds]);
+        mapApartmentsById = new Map<Id,Appartment__c>([SELECT Id, Status__c, ReserviertFuer__c, ReserviertFuer__r.Name, Name FROM Appartment__c WHERE Id IN :apartmentIds]);
     }
 
     public void getRelatedContacts() {
@@ -720,7 +767,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     }
 
     public void getImmobilien() {
-        mapImmobilienByIds = new Map<Id,Property__c>([SELECT Id, DatumErsteReservierung__c, Projektbeauftragte__r.Contact__c, Objektnummer__c FROM Property__c WHERE Id IN :immoIds]);
+        mapImmobilienByIds = new Map<Id,Property__c>([SELECT Id, DatumErsteReservierung__c, Projektbeauftragte__r.Contact__c, Objektnummer__c, Name FROM Property__c WHERE Id IN :immoIds]);
     }
 
     Set<Id> accountIds = new Set<Id>();
