@@ -294,8 +294,6 @@ private class OpportunityTriggerHandlerTest {
         Test.stopTest();
     }
 
-
-
     @IsTest
     private static void testCreateZahlungseingangPdfOnZahlungseingangApproval() {
         User user = TestDataFactory.createCommunityUser();

@@ -124,6 +124,9 @@ public with sharing class TriggerFactory
 		if(soType == Zahlung__c.getSObjectType()) {
 			return new ZahlungTriggerHandler();
 		}
+		if(soType == VkcZahlung__c.getSObjectType()) {
+			return new VkcZahlungTriggerHandler();
+		}
         
         return null;
 	}
