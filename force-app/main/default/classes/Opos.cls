@@ -3,10 +3,12 @@ public without sharing class Opos {
     public Decimal haben;
     public Date zahldatum;
     public String bsnr;
-
+    public Decimal betrag;
+    
     public Opos(String soll, String haben, String zahldatum, String bsnr) {
         this.soll = Decimal.valueOf(soll.replace('.', '').replace(',', '.'));
         this.haben = Decimal.valueOf(haben.replace('.', '').replace(',', '.'));
+        this.betrag = this.soll > 0 ? this.soll : (this.haben * -1);
         if(zahldatum != null && zahldatum.startsWith('"') && zahldatum.endsWith('"')) {
             zahldatum = zahldatum.substring(1, zahldatum.length()-1);
         }

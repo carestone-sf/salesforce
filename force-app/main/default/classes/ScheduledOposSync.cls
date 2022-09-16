@@ -81,7 +81,7 @@ global without sharing class ScheduledOposSync implements Schedulable {
                     Zahlung__c zahlung = new Zahlung__c();
                     zahlung.MabvRechnung__c = mabvRechnung.Id;
                     zahlung.Zahldatum__c = opos.zahldatum;
-                    zahlung.Betrag__c = opos.soll;
+                    zahlung.Betrag__c = opos.betrag;
 
                     if(zahlung.Zahldatum__c != null) {
                         zahlung.UniqueId__c = zahlung.Zahldatum__c.year() + '-' + zahlung.Zahldatum__c.month() + '-' + zahlung.Zahldatum__c.day() + '-' + mabvRechnung.Id;
@@ -118,7 +118,7 @@ global without sharing class ScheduledOposSync implements Schedulable {
                     VkcZahlung__c zahlung = new VkcZahlung__c();
                     zahlung.Verkaufschance__c = opp.Id;
                     zahlung.Zahldatum__c = opos.zahldatum;
-                    zahlung.Betrag__c = opos.soll;
+                    zahlung.Betrag__c = opos.betrag;
 
                     if(zahlung.Zahldatum__c != null) {
                         zahlung.UniqueId__c = zahlung.Zahldatum__c.year() + '-' + zahlung.Zahldatum__c.month() + '-' + zahlung.Zahldatum__c.day() + '-' + opp.Id;
