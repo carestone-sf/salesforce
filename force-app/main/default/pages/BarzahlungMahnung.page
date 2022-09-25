@@ -129,7 +129,7 @@
                 IBAN:
             </td>
             <td>
-                {!Opportunity.Immobilie__r.Unternehmen__r.IBAN__c}
+                {!Opportunity.Immobilie__r.IBAN__c}
             </td>
         </tr>
         <tr>
@@ -137,7 +137,7 @@
                 BIC:
             </td>
             <td>
-                {!Opportunity.Immobilie__r.Unternehmen__r.BIC__c}
+                {!Opportunity.Immobilie__r.BIC__c}
             </td>
         </tr>
         <tr>
