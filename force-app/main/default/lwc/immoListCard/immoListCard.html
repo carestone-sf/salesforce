@@ -213,6 +213,17 @@
 					Miete:&nbsp; 
 					<lightning-formatted-number value={privateImmobilie.immobilie.MieteVon__c} format-style="currency" currency-code="EUR"></lightning-formatted-number> - <lightning-formatted-number value={privateImmobilie.immobilie.MieteBis__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
 				</p>
+				<div class="teaserHighlightContainer">
+					<div if:true={privateImmobilie.immobilie.Teaser_Highlight_1__c} class="slds-box slds-box_xx-small slds-var-m-top_small">
+						<p>{privateImmobilie.immobilie.Teaser_Highlight_1__c}</p>  			
+					</div>
+					<div if:true={privateImmobilie.immobilie.Teaser_Highlight_2__c} class="slds-box slds-box_xx-small slds-var-m-top_small">
+						<p>{privateImmobilie.immobilie.Teaser_Highlight_2__c}</p>  			
+					</div>
+					<div if:true={privateImmobilie.immobilie.Teaser_Highlight_3__c} class="slds-box slds-box_xx-small slds-var-m-top_small">
+						<p>{privateImmobilie.immobilie.Teaser_Highlight_3__c}</p>  			
+					</div>
+				</div>
 			</div>
 		</div>
 	</lightning-card>

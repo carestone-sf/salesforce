@@ -21,3 +21,19 @@
   left: 50%;
   margin: -25px 0 25% -25px;
 }
+
+.teaserHighlightContainer{
+  display: flex; 
+  flex-direction: row; 
+  align-items: stretch;
+  gap: 10px;
+}
+.teaserHighlightContainer > div {
+  background-color: var(--lwc-brandNavigationBarBackgroundColor);
+  text-align: center;
+  color: #fff;
+  flex: 1;
+}
+/* .teaserHighlightContainer > div:not(:last-child) {
+  margin-right: 10px;
+} */
