@@ -3,33 +3,33 @@ private class RestAccountHierarchyTest {
 
 	@isTest static void TestAccountHiearchyWithZeroLevels() {
 		// TestClass with no of hierarchy
-		Account acc = new Account(Name='TestAccount');
-		insert acc;
+		Account acc = TestDataFactory.createAccount(true);
 
 		RestAccountHierarchy.show(acc.Id);
 	}
 
 	@isTest static void TestAccountHiearchyWithOneLevel() {
 		// TestClass with one level of hierarchy
-		Account acc = new Account(Name='TestAccount');
-		insert acc;
+		Account acc = TestDataFactory.createAccount(true);
 
-		Account childAccount = new Account(Name='TestAccount2', ParentId=acc.Id);
-		insert childAccount;
+		Account childAccount = TestDataFactory.createAccount(true, 'TestAccount2');
+		childAccount.ParentId = acc.Id;
+		update childAccount;
 
 		RestAccountHierarchy.show(acc.Id);
 	}
 
 	@isTest static void TestAccountHiearchyWithTwoLevels() {
 		// TestClass with multiple levels of hierarchy
-		Account acc = new Account(Name='TestAccount');
-		insert acc;
+		Account acc = TestDataFactory.createAccount(true);
 
-		Account childAccount = new Account(Name='TestAccount2', ParentId=acc.Id);
-		insert childAccount;
+		Account childAccount = TestDataFactory.createAccount(true, 'TestAccount2');
+		childAccount.ParentId = acc.Id;
+		update childAccount;
 
-		Account childChildAccount = new Account(Name='TestAccount3', ParentId=childAccount.Id);
-		insert childChildAccount;
+		Account childChildAccount = TestDataFactory.createAccount(true, 'TestAccount3');
+		childChildAccount.ParentId = childAccount.Id;
+		update childChildAccount;
 
 		RestAccountHierarchy.show(acc.Id);
 	}
