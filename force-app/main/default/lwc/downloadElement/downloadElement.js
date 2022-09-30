@@ -1,6 +1,7 @@
 import { api, LightningElement } from 'lwc';
 import VERTRIEBSPORTAL_SRC from '@salesforce/resourceUrl/VertriebsportalSrc';
 import RUNDGAENGE from '@salesforce/resourceUrl/Rundgaenge';
+import VIDEO_THUMBNAIL_ALLGEMEIN from '@salesforce/resourceUrl/Video_Thumbnail_Allgemein';
 
 export default class DownloadElement extends LightningElement {
 
@@ -21,12 +22,17 @@ export default class DownloadElement extends LightningElement {
 
     @api isRundgang = false;
 
+    @api isVideoAllgemein = false;
+
+
     get completeThumbnailUrl() {
         if(this.thumbnailUrl.indexOf('https://') > -1) {
             return this.thumbnailUrl;
         } else {
             if(this.isRundgang) {
                 return RUNDGAENGE + this.thumbnailUrl;
+            } else if(this.isVideoAllgemein) {
+                return VIDEO_THUMBNAIL_ALLGEMEIN + this.thumbnailUrl;
             } else {
                 return VERTRIEBSPORTAL_SRC + this.thumbnailUrl;
             }
