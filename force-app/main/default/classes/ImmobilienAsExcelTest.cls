@@ -24,7 +24,7 @@ private class ImmobilienAsExcelTest {
         // Schedule the test job
 
         String jobId = System.schedule('testBasicScheduledApex',
-          '0 0 0 3 9 ? 2022',
+          '0 0 0 3 9 ? ' + getYearAhead(),
             new ImmobilienAsExcel());
 
       // Get the information from the CronTrigger API object
@@ -33,17 +33,20 @@ private class ImmobilienAsExcelTest {
          FROM CronTrigger WHERE id = :jobId];
 
       // Verify the expressions are the same
-      System.assertEquals('0 0 0 3 9 ? 2022',
+      System.assertEquals('0 0 0 3 9 ? ' + getYearAhead(),
          ct.CronExpression);
 
       // Verify the job has not run
       System.assertEquals(0, ct.TimesTriggered);
 
       // Verify the next time the job will run
-      System.assertEquals('2022-09-03 00:00:00',
+      System.assertEquals(getYearAhead() + '-09-03 00:00:00',
          String.valueOf(ct.NextFireTime));
 
        Test.stopTest();
 	}
 
+    private static String getYearAhead(){
+        return String.valueOf(System.Today().addYears(1).year());
+    }
 }
