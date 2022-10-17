@@ -65,6 +65,7 @@ export default class Branding extends LightningElement {
         if(this.backgroundColor) {
             r.style.setProperty('--lwc-brandNavigationBarBackgroundColor', backgroundColorRgb);
             r.style.setProperty('--lwc-brandNavigationBackgroundColor', backgroundColorRgb);
+            r.style.setProperty('--lwc-brandBackgroundPrimary', backgroundColorRgb);
             r.style.setProperty('--lwc-colorTextDefault', backgroundColorRgb);
             r.style.setProperty('--lwc-colorTextLabel', backgroundColorRgb);
             r.style.setProperty('--lwc-inputStaticColor', backgroundColorRgb);
