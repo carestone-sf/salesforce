@@ -175,13 +175,18 @@ export default class ImmoListCard extends LightningElement {
 
       get betreiberLogoUrl() {
         let url = this.privateImmobilie.immobilie.BetreiberBetreiber_Logo__c;
-        if(url && url.includes('drive.google.')) {
-            var id = url.slice(
+        let imageId;
+        if(url && url.includes("drive.google.") && url.endsWith("/view")) {
+            imageId = url.slice(
                 url.indexOf("/d/") + 3, 
                 url.lastIndexOf("/view")
             );
-            console.log(id);
-            return `https://drive.google.com/uc?export=view&id=${id}`;
+        } else if(url.includes("?id=")) {
+            imageId = url.split("?id=")[1];
+        } 
+        
+        if(imageId) {
+            return `https://drive.google.com/uc?export=view&id=${imageId}`;
         } else {
             return url;
         }
