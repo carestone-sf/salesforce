@@ -34,7 +34,11 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
 
         if (trigger.isInsert || trigger.isUpdate) {
             //Liste für das Updaten der Appartments
-
+            Map<Id,SObject> recordsWithFormulaValues = new Map<Id,SObject>(); 
+            for(FormulaRecalcResult result : Formula.recalculateFormulas(Trigger.new.deepClone(true))) {
+                recordsWithFormulaValues.put(result.getSObject().Id, result.getSObject());
+            } 
+            
             for (Opportunity opp : trigger.new) {
                 if (opp.Risikobelehrung__c == true && opp.Beratungsprotokoll__c == True && opp.KV_eingegangen__c == True && (opp.Nachweis_Barzahler__c == True || opp.Status_Finanzierung__c == 'Zusage liegt vor')) {
                     opp.Alle_Unterlagen_vorhanden__c = true;
@@ -244,11 +248,13 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                     Decimal kaufpreis = opp.Kaufpreis__c;
                     // Externe Provision berechnen
                     Decimal provExtern = 0;
-                    if(opp.Maklerprovision_nach_Nachtrag__c != null) {
-                        provExtern += opp.Maklerprovision_nach_Nachtrag__c;
+
+                    Opportunity oppWithFormulaFields = (Opportunity) recordsWithFormulaValues.get(opp.Id);
+                    if(oppWithFormulaFields.Maklerprovision_nach_Nachtrag__c != null) {
+                        provExtern += oppWithFormulaFields.Maklerprovision_nach_Nachtrag__c;
                     }
-                    if(opp.Verkaufsprovision_nach_Nachtrag__c != null && opp.Verkaufsprovision_Makler__c != null) {
-                        provExtern += opp.Verkaufsprovision_nach_Nachtrag__c;
+                    if(oppWithFormulaFields.Verkaufsprovision_nach_Nachtrag__c != null && oppWithFormulaFields.Verkaufsprovision_Makler__c != null) {
+                        provExtern += oppWithFormulaFields.Verkaufsprovision_nach_Nachtrag__c;
                     }
                     if(opp.Marketingzuschuss__c != null) {
                         provExtern += opp.Marketingzuschuss__c;
@@ -282,8 +288,8 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                     if(opp.ErfolgsabhaengigeProvision__c != null) {
                         provIntern += opp.ErfolgsabhaengigeProvision__c;
                     }
-                    if(opp.Verkaufsprovision_nach_Nachtrag__c != null && opp.Verkaufsprovision_intern__c != null) {
-                        provIntern += opp.Verkaufsprovision_nach_Nachtrag__c/100;
+                    if(oppWithFormulaFields.Verkaufsprovision_nach_Nachtrag__c != null && oppWithFormulaFields.Verkaufsprovision_intern__c != null) {
+                        provIntern += oppWithFormulaFields.Verkaufsprovision_nach_Nachtrag__c/100;
                     }
 
                     // WH Provision

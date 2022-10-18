@@ -458,7 +458,7 @@ trigger Teilobjekte on Appartment__c(before insert, before update)
                             Double erbbauZinsAufschlag = app.Erbbauzins__c * erbbauHebeSatz.get(restlaufzeit) * properties.get(app.Property__c).Real_Estate_Transfer_Tax__c / 100;
                             app.Real_Estate_Transfer_Tax__c = (properties.get(app.Property__c).Real_Estate_Transfer_Tax__c / 100 * (app.Purchase_Price__c + app.Value_Parking_Space__c)) + erbbauZinsAufschlag;
                         }
-                        else if(properties.get(app.Property__c) != null && properties.get(app.Property__c).Real_Estate_Transfer_Tax__c != null)
+                        else if(properties.get(app.Property__c) != null && properties.get(app.Property__c).Real_Estate_Transfer_Tax__c != null && app.Purchase_Price__c != null && app.Value_Parking_Space__c != null)
                         {
                             app.Real_Estate_Transfer_Tax__c = properties.get(app.Property__c).Real_Estate_Transfer_Tax__c / 100 * (app.Purchase_Price__c + app.Value_Parking_Space__c);
                         }
