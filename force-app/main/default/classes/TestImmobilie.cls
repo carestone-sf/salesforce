@@ -27,15 +27,14 @@ private class TestImmobilie {
         Contact contact1 = new Contact( LastName='test');
         insert contact1;
 
-        Account account1 = new Account(Name='test account', Maklerbetreuer_Wirtschaftshaus__c = 'Lars Wagner', Email__c='test@test.test',E_Mail_bergeordneter_Makler__c = 'tesaat@mahil.com', BIC__c ='1', Geschueftsfuehrer__c=contact1.id, Gesetzliche_MwSt_auf_Provisionszahlung__c=0.4, IBAN__c='2', Rechtsform__c='GbR', Unternehmensname__c='CareStone');
-        insert account1;
+        Account acc1 = TestDataFactory.createAccount(true, 'Test1', 'Type1');
 
         Property__c immobilie = new Property__c();
         immobilie.Name = 'Immobilie';
         immobilie.Place__c = 'test';
         immobilie.Street__c = 'test2';
         immobilie.Zip_Code__c = '12312';
-        immobilie.Account__c = account1.id;
+        immobilie.Account__c = acc1.id;
         immobilie.Unternehmensname__c = 'asd';
         immobilie.Gesch_ftsf_hrer__c = contact1.id;
         immobilie.BIC__c = '123';

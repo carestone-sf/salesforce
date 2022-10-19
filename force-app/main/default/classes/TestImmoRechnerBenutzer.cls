@@ -28,8 +28,8 @@ TestImmoRechnerBenutzer {
         Contact contact1 = new Contact( LastName='test');
         insert contact1;
 
-		Account account1 = new Account(Name='test account', Maklerbetreuer_Wirtschaftshaus__c = 'Lars Wagner', Email__c='test@test.test',E_Mail_bergeordneter_Makler__c = 'tesaat@mahil.com', BIC__c ='1', Geschueftsfuehrer__c = contact1.id, Gesetzliche_MwSt_auf_Provisionszahlung__c=0.4, IBAN__c='2', Rechtsform__c='GbR', Unternehmensname__c='CareStone');
-        insert account1;
+        Account account1 = TestDataFactory.createAccount(true);
+
 
         contact1.AccountId = account1.id;
         update contact1;
@@ -54,14 +54,9 @@ TestImmoRechnerBenutzer {
 
 	static testMethod void testImmonutzer2()
 	{
-        Contact contact1 = new Contact( LastName='test');
-        insert contact1;
+        Account account1 = TestDataFactory.createAccount(true);
 
-        Account account1 = new Account(Name='test account', Maklerbetreuer_Wirtschaftshaus__c = 'Lars Wagner', Email__c='test@test.test',E_Mail_bergeordneter_Makler__c = 'tesaat@mahil.com', BIC__c ='1', Geschueftsfuehrer__c=contact1.id, Gesetzliche_MwSt_auf_Provisionszahlung__c=0.4, IBAN__c='2', Rechtsform__c='GbR', Unternehmensname__c='CareStone');
-        insert account1;
-
-        contact1.AccountId = account1.id;
-        update contact1;
+        Contact contact1 = TestDataFactory.createInteressent(true, account1.Id);
 
 
         Realty_User__c rUser = new Realty_User__c(Active__c = false,
@@ -81,14 +76,10 @@ TestImmoRechnerBenutzer {
 
     static testMethod void testImmonutzerMatchingContactMail()
     {
-        Contact contact1 = new Contact( LastName='test', Email = 'test@test.test');
-        insert contact1;
 
-        Account account1 = new Account(Name='test account', Maklerbetreuer_Wirtschaftshaus__c = 'Lars Wagner', Email__c='test@test.test',E_Mail_bergeordneter_Makler__c = 'tesaat@mahil.com', BIC__c ='1', Geschueftsfuehrer__c=contact1.id, Gesetzliche_MwSt_auf_Provisionszahlung__c=0.4, IBAN__c='2', Rechtsform__c='GbR', Unternehmensname__c='CareStone');
-        insert account1;
+        Account account1 = TestDataFactory.createAccount(true);
 
-        contact1.AccountId = account1.id;
-        update contact1;
+        Contact contact1 = TestDataFactory.createInteressent(true, account1.Id);
 
 
         Realty_User__c rUser = new Realty_User__c(Active__c = false,

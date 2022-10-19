@@ -23,8 +23,7 @@
 private class TestTeilobjekte {
 
 @testSetup static void methodName() {
-    Account account1 = new Account(Name='test account', OwnerID = '005b0000001V30P', Email__c = 'test@mail.com', E_Mail_bergeordneter_Makler__c = 'tester@test.de');
-        insert account1;
+    Account account1 = TestDataFactory.createAccount(true, 'Test1', 'Type1');
 
         Property__c prop = new Property__c(Name = 'TestImmobilie',  Account__c = account1.id);
         insert prop;
