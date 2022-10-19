@@ -20,11 +20,15 @@ public with sharing class TestDataFactory {
 
         return user;
     }
+
+    public static Account createAccount(Boolean doInsert){
+        return createAccount(doInsert, 'Makler GmbH', null);
+    }
     
-    public static Account createAccount(Boolean doInsert) {
+    public static Account createAccount(Boolean doInsert, String accountName, String accType) {
         Account acc = new Account();
 
-        acc.Name = 'Makler GmbH ';
+        acc.Name = accountName;
         acc.Email__c = 'f.witte@wirtschaftshaus.de';
         acc.BIC__c  = 'SPKHDE2HXXX';
         acc.GeschaeftsfuehrerNeu__c = 'Sandro Pawils';
@@ -35,6 +39,10 @@ public with sharing class TestDataFactory {
         acc.Unternehmensname__c = 'CareStone';
         acc.Carestone_Vertriebsvereinbarung__c = true;
         acc.Dauerhaft_gesch_tzt__c = true;
+
+        if(accType != null){
+            acc.Type = accType;
+        }
 
         if(doInsert) {
             insert acc;
