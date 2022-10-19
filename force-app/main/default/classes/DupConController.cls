@@ -56,8 +56,12 @@ public with sharing class DupConController {
     }
 
     public PageReference reject() {
-        processApproval('dismiss', displayCon.Id);
-        delete displayCon;
+        try {
+            processApproval('dismiss', displayCon.Id);
+            delete displayCon;
+        } catch(Exception ex) {
+            System.debug(ex.getMessage());
+        }
         return redurl();
     }
 
