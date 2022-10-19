@@ -1,0 +1,9 @@
+.wrap-spinner {
+    min-height: 5vh !important;
+    overflow:hidden !important;
+    min-width: 4rem;
+    max-width: 4rem;
+}
+.wrap-spinner lightning-spinner {
+    background: transparent;
+}
