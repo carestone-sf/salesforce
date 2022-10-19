@@ -30,6 +30,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         if(Trigger.isInsert || Trigger.isUpdate) {
             collectIdsOfRelatedRecords();
             
+            getLostOpportunityStages();
             getProvisionsverhandlungen();
             getApartments();
             getRelatedContacts();
@@ -43,10 +44,6 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     }
     
     public void bulkAfter() {
-        if(Trigger.isInsert || Trigger.isUpdate) {
-            getLostOpportunityStages();
-        }
-
         if(Trigger.isUpdate) {
             getProvisionen();
         }
@@ -270,7 +267,6 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     /**
      * Methods for before trigger
     */
-
     public void setOpportunityFields(Opportunity opp, Opportunity oldOpp) {
         if(stageSetToReserved(opp, oldOpp)) {
             setReservationDate(opp);
@@ -301,6 +297,9 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         }
         if(mahnungCreated(opp, oldOpp)) {
             trackMahnungSent(opp);
+        }
+        if(opportunityWasLost(opp, oldOpp)) {
+            clearNotartermin(opp);
         }
 
         if(Trigger.isInsert) {
@@ -456,6 +455,14 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
 
     public void trackMahnungStarted(Opportunity opp) {
         opp.MahnungGenerieren__c = false;
+    }
+
+    public Boolean opportunityWasLost(Opportunity opp, Opportunity oldOpp) {
+        return lostOpportunityStages.contains(opp.StageName) && (Trigger.isInsert || (oldOpp != null && oldOpp.StageName != opp.StageName));
+    }
+
+    public void clearNotartermin(Opportunity opp) {
+        opp.Notartermin__c = null;
     }
 
     /**
