@@ -273,7 +273,67 @@
     <div class="footer-page-count">
         Seite <span class="pagenumber"/> von <span class="pagecount"/>
     </div>
-
+    <apex:outputPanel rendered="{!IF(Berechnung__c.Pers_nliches_Anschreiben_isBlank__c, false, true)}">
+        <div class="page page-1">
+            <div class="main-content">
+                <h1>Unverbindliches Angebot</h1>
+                <h2>Für den Kauf von einem Apartment in {!Berechnung__c.Hauptimmobilie__r.Name}</h2>
+                <br/><br/>
+                <p><b>Für:</b></p>
+                <p class="highlight-text">
+                    <span>{!Berechnung__c.ErsterKaeufer__r.Name}</span>
+                    <span style="{!IF(Berechnung__c.ZweiterKaeufer__c != null, 'display:inline', 'display:none')}"><br/>{!Berechnung__c.ZweiterKaeufer__r.Name}</span>
+                </p>
+                <br/><br/>
+                <p><b>Erstellungsdatum:</b></p>
+                <p>
+                    <apex:outputText value="{0, date, d'.'MM'.'yyyy}">
+                        <apex:param value="{!TODAY()}" /> 
+                    </apex:outputText>
+                </p>
+                <br/>
+                <br/>
+                <p><b>Persönliches Anschreiben:</b></p>
+                <br/>
+                <span>
+                    {!Berechnung__c.Pers_nliches_Anschreiben__c}
+                </span>
+                <br/>
+                <br/>
+                <div class="c-clearfix">
+                    <!-- Start Table Käufer 1 -->
+                    <div style="width: 49%; display: block; float: left;">
+                        
+                        <p><b>Erstellt durch:</b></p>
+                        <p>
+                            {!Berechnung__c.Makler__r.Name}<br/>
+                            {!Berechnung__c.Makler__r.Gesch_ftsbeziehung__c}
+                        </p>
+                        <br/>
+                        <p>{!Berechnung__c.Makler__r.Account.Name}</p>
+                        <p>{!Berechnung__c.Makler__r.Account.BillingStreet}, {!Berechnung__c.Makler__r.Account.BillingPostalCode} {!Berechnung__c.Makler__r.Account.BillingCity}</p>
+                        <br/>        
+                        <p>
+                            <span>Tel: {!Berechnung__c.Makler__r.Account.Phone}</span>
+                            <span style="{!IF(Berechnung__c.Makler__r.Account.Fax != null, 'display:inline', 'display:none')}"><br/>Fax: {!Berechnung__c.Makler__r.Account.Fax}</span>
+                            <span style="{!IF(Berechnung__c.Makler__r.MobilePhone != null, 'display:inline', 'display:none')}"><br/>Mobil: {!Berechnung__c.Makler__r.MobilePhone}</span>
+                        </p>
+                        <br/>
+                        <p>
+                            <span>E-Mail: {!Berechnung__c.Makler__r.Email}</span>
+                            <span style="{!IF(Berechnung__c.Makler__r.Account.Website != null, 'display:inline', 'display:none')}"><br/>{!Berechnung__c.Makler__r.Account.Website}</span>
+                        </p>
+                    </div>
+                    <div class="c-clearfix" style="width: 49%; display: block; float:right;text-align: center;">
+                        <img style="height: 6cm; max-width: 100%; {!IF($User.ImgUrl__c != null, 'display:inline-block', 'display:none')}" src="{!$User.ImgUrl__c}"/>
+                    </div>
+                </div>
+                <!-- End of main content -->
+            </div>
+            <!-- End of page 1 -->
+        </div>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!IF(Berechnung__c.Pers_nliches_Anschreiben_isBlank__c, true, false)}">
     <div class="page page-1">
         <div class="main-content">
             <h1>Unverbindliches Angebot</h1>
@@ -323,7 +383,7 @@
         </div>
         <!-- End of page 1 -->
     </div>
-
+    </apex:outputPanel>
     <div class="page page-2" style="page-break-before: always;">
         <div class="main-content">
             <h1>Kaufangebot</h1>
