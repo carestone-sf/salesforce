@@ -274,17 +274,8 @@
         Seite <span class="pagenumber"/> von <span class="pagecount"/>
     </div>
     <apex:outputPanel rendered="{!IF(Berechnung__c.Pers_nliches_Anschreiben_isBlank__c, false, true)}">
-        <div class="page page-1">
+        <div class="page page-1" style="page-break-after:always;">
             <div class="main-content">
-                <h1>Unverbindliches Angebot</h1>
-                <h2>Für den Kauf von einem Apartment in {!Berechnung__c.Hauptimmobilie__r.Name}</h2>
-                <br/><br/>
-                <p><b>Für:</b></p>
-                <p class="highlight-text">
-                    <span>{!Berechnung__c.ErsterKaeufer__r.Name}</span>
-                    <span style="{!IF(Berechnung__c.ZweiterKaeufer__c != null, 'display:inline', 'display:none')}"><br/>{!Berechnung__c.ZweiterKaeufer__r.Name}</span>
-                </p>
-                <br/><br/>
                 <p><b>Erstellungsdatum:</b></p>
                 <p>
                     <apex:outputText value="{0, date, d'.'MM'.'yyyy}">
@@ -300,9 +291,12 @@
                 </span>
                 <br/>
                 <br/>
-                <div class="c-clearfix">
+
+                <!-- End of main content -->
+                <footer>
+                    <div class="c-clearfix" style="position:absolute; top:16.5cm; margin-left: 2.5cm;">
                     <!-- Start Table Käufer 1 -->
-                    <div style="width: 49%; display: block; float: left;">
+                        <div style="width: 49%;display: block; float: left;">
                         
                         <p><b>Erstellt durch:</b></p>
                         <p>
@@ -328,12 +322,12 @@
                         <img style="height: 6cm; max-width: 100%; {!IF($User.ImgUrl__c != null, 'display:inline-block', 'display:none')}" src="{!$User.ImgUrl__c}"/>
                     </div>
                 </div>
-                <!-- End of main content -->
+                </footer>
             </div>
             <!-- End of page 1 -->
         </div>
     </apex:outputPanel>
-    <apex:outputPanel rendered="{!IF(Berechnung__c.Pers_nliches_Anschreiben_isBlank__c, true, false)}">
+
     <div class="page page-1">
         <div class="main-content">
             <h1>Unverbindliches Angebot</h1>
@@ -383,7 +377,7 @@
         </div>
         <!-- End of page 1 -->
     </div>
-    </apex:outputPanel>
+
     <div class="page page-2" style="page-break-before: always;">
         <div class="main-content">
             <h1>Kaufangebot</h1>

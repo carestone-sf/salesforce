@@ -1792,9 +1792,13 @@
         </fields>
         <fields>
             <name>InputTextArea</name>
-            <fieldText>TextArea</fieldText>
+            <fieldText>Persönliches Anschreiben</fieldText>
             <fieldType>LargeTextArea</fieldType>
             <isRequired>false</isRequired>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Die maximale Zeichenanzahl wurde überschritten (max. 2000)&lt;/p&gt;</errorMessage>
+                <formulaExpression>LEN({!InputTextArea}) &gt; 2000</formulaExpression>
+            </validationRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
