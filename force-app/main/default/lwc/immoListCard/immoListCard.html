@@ -153,6 +153,15 @@
 							<c-google-drive-document-list documents={privateImmobilie.dokumente}></c-google-drive-document-list>
 						</div>
 					</lightning-tab>
+					<lightning-tab label="Häufig gestellte Fragen">
+						<div class="slds-text-align_left slds-var-m-top_medium">
+							<lightning-layout horizontal-align="center">
+								<lightning-layout-item size="12" small-device-size="8">
+									<lightning-formatted-rich-text value={privateImmobilie.immobilie.FAQ__c} ></lightning-formatted-rich-text>
+								</lightning-layout-item>
+							</lightning-layout>
+						</div>
+					</lightning-tab>
 				</lightning-tabset>
 			</div>
 		</div>
