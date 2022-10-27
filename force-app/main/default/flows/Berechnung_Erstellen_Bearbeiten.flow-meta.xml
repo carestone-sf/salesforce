@@ -1797,7 +1797,7 @@
             <isRequired>false</isRequired>
             <validationRule>
                 <errorMessage>&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Die maximale Zeichenanzahl wurde überschritten (max. 2000)&lt;/p&gt;</errorMessage>
-                <formulaExpression>LEN({!InputTextArea}) &gt; 2000</formulaExpression>
+                <formulaExpression>LEN({!InputTextArea}) &lt; 2000</formulaExpression>
             </validationRule>
         </fields>
         <showFooter>true</showFooter>
