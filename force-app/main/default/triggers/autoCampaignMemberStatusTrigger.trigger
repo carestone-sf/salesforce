@@ -147,6 +147,9 @@ Trigger autoCampaignMemberStatusTrigger on Campaign (before insert, after insert
                 CampaignMemberStatus cms3 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=true,
                                                                      Label = 'Reagiert', SortOrder = 5);
                 cms2Insert.add(cms3);
+                CampaignMemberStatus cmsA = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=false,
+                                                                    Label = 'Angemeldet', SortOrder = 6);
+                cms2Insert.add(cmsA);
             }
             else
             {
@@ -162,7 +165,7 @@ Trigger autoCampaignMemberStatusTrigger on Campaign (before insert, after insert
                                                                      Label = 'Interessiert', SortOrder = 5);
                 cms2Insert.add(cms3);
 
-                CampaignMemberStatus cms4 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=true,
+                CampaignMemberStatus cms4 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=false,
                                                                      Label = 'Angemeldet', SortOrder = 6);
                 cms2Insert.add(cms4);
 

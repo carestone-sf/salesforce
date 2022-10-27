@@ -38,11 +38,13 @@ export default class EventList extends LightningElement {
         const campaignId = event.target.closest('[data-key]').dataset.key;
         const campaignMember = {
             CampaignId: campaignId,
-            ContactId: this.contactId
+            ContactId: this.contactId,
+            Status: 'Angemeldet'
+
         };
         createCampaignMemberApex({cm: campaignMember}).then(
             (data) => {
-                this.showCalculationSaveSuccessToast('Sie wurden erfolgreich zum Webinar angemeldet.');
+                this.showCalculationSaveSuccessToast('Vielen Dank für Ihre Anmeldung');
                 refreshApex(this.events);
                 this.loading = false;
             }
