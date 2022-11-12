@@ -3,6 +3,8 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     private static final String ZAHLUNGSERINNERUNG_APPROVAL_PROCESS_NAME = 'Zahlungserinnerung';
     private static final String ZAHLUNGSEINGANG_APPROVAL_PROCESS_NAME = 'Zahlungseingang';
     private static final String FIBU_MAILBOX = 'MaBV-Rechnungen@carestone.com';
+    private static final String OPPORTUNITY_STAGE_RESERVIERUNG_ANGEFRAGT = 'Reservierung angefragt';
+    private static final String OPPORTUNITY_STAGE_RESERVIERT = 'Reserviert';
 
     Id orgWideEmailAddressId = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'service@carestone.com' LIMIT 1].Id;
     
@@ -828,6 +830,60 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                     apartmentIds.add(oldOpp.Appartement__c);
                 }
             }
+        }
+    }
+    public static void sendEmailWhenReservationAccepted(Map<Id, opportunity> oppNewMap, Map<Id, opportunity> oppOldMap) {
+        List<Messaging.SingleEmailMessage> allMsgs = new List<messaging.SingleEmailMessage>();
+
+        Map<Id, Opportunity> opps = new Map<Id, opportunity>();
+        //first opp id then sobject id
+        Map<id, id> apartmentsIds = new map<id, id>();
+        Map<id, id> customersIds = new Map<Id, id>();
+        Map<id, id> propertiesIds = new Map<Id, id>();
+
+        for (opportunity opp : oppNewMap.values()) {
+            //checking if opportunity stage was updated from 'reservierung angefragt' to 'Reserviert'
+            if (oppOldMap.get(opp.id).StageName == OPPORTUNITY_STAGE_RESERVIERUNG_ANGEFRAGT &&
+                    oppNewMap.get(opp.id).StageName == OPPORTUNITY_STAGE_RESERVIERT) {
+                opps.put(opp.id, opp);
+                //adding ids of records that must be retrived from  database
+                apartmentsIds.put(opp.id, opp.Appartement__c);
+                customersIds.put(opp.id, opp.Potenzieller_Kunde__c);
+                propertiesIds.put(opp.id, opp.Immobilie__c);
+            }
+        }
+        //retrieving records from database
+        Map<id, Appartment__c> appartaments = new Map<id, Appartment__c>([select id, name from Appartment__c where id = :apartmentsIds.values()]);
+        Map<id, Contact> customers = new Map<id, Contact>([select name, id from Contact where id = :customersIds.values()]);
+        Map<id, property__c> properties = new Map<id, property__c>([select name, id from Property__c where id = :propertiesIds.values()]);
+
+        for (opportunity opp : opps.values()) {
+            //getting names of customers, properties and appartments
+            Id appartmentId = apartmentsIds.get(opp.id);
+            string appartmentName = appartaments.get(appartmentId).name;
+
+            Id customerId = customersIds.get(opp.id);
+            string customerName = customers.get(customerId).name;
+
+            Id propertyId = propertiesIds.get(opp.id);
+            string propertyName = properties.get(propertyId).name;
+
+            id maklerId = opp.Makler__c;
+            id maklerbetreuerCarestoneId = opp.Maklerbetreuer_WirtschaftsHaus__c;
+
+            Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+            string emailBody = customerName + ', ' + propertyName + ', ' + appartmentName + ' Für uns binden bis zum ' + opp.reserviert_bis__c;
+            mail.setToAddresses(new id[]{
+                    maklerId, maklerbetreuerCarestoneId
+            });
+            mail.setSubject('Ihre Reservierung ist jetzt aktiv');
+            mail.setPlainTextBody(emailBody);
+            allMsgs.add(mail);
+        }
+        try {
+            Messaging.sendEmail(allMsgs, true);
+        } catch (Exception e) {
+            System.debug(e.getMessage() + ' Failed to send emails');
         }
     }
 }
