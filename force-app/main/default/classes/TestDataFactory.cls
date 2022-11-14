@@ -422,4 +422,22 @@ public with sharing class TestDataFactory {
 
         return usr;
     }
+
+    //create DigitaleVsa__c
+    public static DigitaleVsa__c createDigitaleVsa(Boolean doInsert) {
+        Finanzierungsanfrage__c finanzierungsanfrage = new Finanzierungsanfrage__c(
+            Name = 'Testfinanzierungsanfrage'
+        );
+        insert finanzierungsanfrage;
+
+        DigitaleVsa__c digitaleVsa = new DigitaleVsa__c(
+                Finanzierungsanfrage__c = finanzierungsanfrage.Id
+        );
+
+        if(doInsert) {
+            insert digitaleVsa;
+        }
+
+        return digitaleVsa;
+    }
 }
