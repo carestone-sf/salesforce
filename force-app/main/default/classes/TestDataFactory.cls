@@ -431,11 +431,12 @@ public with sharing class TestDataFactory {
         insert finanzierungsanfrage;
 
         DigitaleVsa__c digitaleVsa = new DigitaleVsa__c(
-                Finanzierungsanfrage__c = finanzierungsanfrage.Id
         );
 
         if(doInsert) {
             insert digitaleVsa;
+            digitaleVsa.Finanzierungsanfrage__c = finanzierungsanfrage.Id;
+            update digitaleVsa;
         }
 
         return digitaleVsa;
