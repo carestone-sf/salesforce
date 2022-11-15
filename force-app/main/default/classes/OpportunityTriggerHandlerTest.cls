@@ -1,4 +1,4 @@
-@IsTest
+ @IsTest
 private class OpportunityTriggerHandlerTest {
     
     @TestSetup
@@ -325,13 +325,12 @@ private class OpportunityTriggerHandlerTest {
         Contact maklerCarestone = TestDataFactory.createMakler(false, acc.iD);
         maklerCarestone.email = 'example.example@gmail.com';
         Contact interessent = TestDataFactory.createInteressent(false, acc.Id);
-        insert new List<Contact>{
-                makler, interessent, maklerCarestone
-        };
+        insert new List<Contact> {makler, interessent,maklerCarestone};
 
-        Opportunity oldOpp = TestDataFactory.createOpportunity(true, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Kaufvertragsunterlagen verschickt');
+        Opportunity oldOpp = TestDataFactory.createOpportunity(true, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Reservierung angefragt');
         oldopp.Maklerbetreuer_WirtschaftsHaus__c = maklerCarestone.Id;
         Opportunity newOpp = oldOpp.clone(true, true);
+        newOpp.StageName='Reserviert';
 
         Map<Id, opportunity> oppNewMap = new Map<Id, opportunity>();
         Map<Id, opportunity> oppOldMap = new Map<Id, opportunity>();
