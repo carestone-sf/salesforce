@@ -71,7 +71,7 @@ public without sharing class ImmobilienController {
         propsSet.addAll(exklusivProperties);
         List<Property__c> mergedProperties = new List<Property__c>();
         for(Property__c prop:propsSet) {
-            if(prop.Appartments__r.size() > 0) {
+            if(prop.Anzahl_Einheiten__c > 0) {
                 mergedProperties.add(prop);
             }
         }

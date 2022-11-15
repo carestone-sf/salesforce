@@ -20,6 +20,34 @@ public with sharing class TestDataFactory {
 
         return user;
     }
+    public static User createCommunityUser(Id accountId) {
+        Contact contact = new Contact(
+            AccountId = accountId, 
+            FirstName = 'Tim', 
+            LastName = 'Test',
+            Email = 'mathis@test.dev.xyz'
+        );
+        insert contact;
+
+        Profile commProfile = [SELECT Id FROM Profile WHERE Name = 'Partner Community Manager'];
+        User user = new User(
+            ProfileId = commProfile.Id, 
+            FirstName = 'Tim', 
+            LastName = 'Test', 
+            Email = 'mathis@test.dev',
+            IsActive = true,
+            ContactId = contact.Id,
+            Username = 'mathis@test.dev',
+            Alias = 'ttest',
+            TimeZoneSidKey = 'America/Los_Angeles',
+            LocaleSidKey = 'en_US',
+            EmailEncodingKey = 'UTF-8',
+            LanguageLocaleKey = 'en_US'
+        );
+        insert user;
+
+        return user;
+    }
 
     public static Account createAccount(Boolean doInsert){
         return createAccount(doInsert, 'Makler GmbH', null);
