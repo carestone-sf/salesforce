@@ -345,7 +345,7 @@
                             </tr>
                             <tr>
                                 <td>Titel</td>
-                                <td>{!Berechnung__c.ErsterKaeufer__r.Title}</td>
+                                <td>{!Berechnung__c.ErsterKaeufer__r.Titel__c}</td>
                             </tr>
                             <tr>
                                 <td>Vorname</td>
@@ -408,7 +408,7 @@
                             </tr>
                             <tr>
                                 <td>Titel</td>
-                                <td>{!Berechnung__c.ZweiterKaeufer__r.Title}</td>
+                                <td>{!Berechnung__c.ZweiterKaeufer__r.Titel__c}</td>
                             </tr>
                             <tr>
                                 <td>Vorname</td>
@@ -972,7 +972,7 @@
                     <th>Darlehensart</th>
                     <th align="right">Darlehenssumme</th>
                     <th align="right">Zinssatz</th>
-                    <th align="right">Zinssatz</th>
+                    <th align="right">Tilgungssatz</th>
                 </thead>
                 <tbody>
                     <apex:repeat value="{!financeModules}" var="financeModule">
