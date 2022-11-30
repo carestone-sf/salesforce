@@ -3,6 +3,8 @@ import VERTRIEBSPORTAL_SRC from '@salesforce/resourceUrl/VertriebsportalSrc';
 import RUNDGAENGE from '@salesforce/resourceUrl/Rundgaenge';
 import VIDEO_THUMBNAIL_ALLGEMEIN from '@salesforce/resourceUrl/Video_Thumbnail_Allgemein';
 
+//import apexClastTest from '@salesforce/apex/DownloadElementHelper.getContentVersionsByFolderName'
+
 export default class DownloadElement extends LightningElement {
 
     @api
@@ -27,6 +29,7 @@ export default class DownloadElement extends LightningElement {
 
     get completeThumbnailUrl() {
         if(this.thumbnailUrl.indexOf('https://') > -1) {
+            console.log('returning full url not changed')
             return this.thumbnailUrl;
         } else {
             if(this.isRundgang) {
@@ -71,5 +74,16 @@ export default class DownloadElement extends LightningElement {
 
     connectedCallback() {
     }
+
+//    renderedCallback(){
+//        apexClastTest({folderName: 'test123'}).then().then(result => {
+//
+//        console.log(JSON.stringify((result)))
+//
+//                                                    })
+//                                                    .catch(error => {
+//                                                       console.log(error)
+//                                                    });
+//    }
 
 }
