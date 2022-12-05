@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>WH_Service</letterhead>
+    <name>New contact create</name>
+    <style>freeForm</style>
+    <subject>Neuer Kontakt: {!Contact.Name}</subject>
+    <textOnly>Ein neuer Kontakt wurde in Salesforce angelegt. {!Contact.Link}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
