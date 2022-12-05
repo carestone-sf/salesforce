@@ -3,47 +3,13 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
     TriggerFactory.createHandler(Opportunity.getSObjectType());
 
     if (Trigger.isBefore) {
-        //Map für Appartment
-        Set < String > userName = new Set < String >{
-                'sp@wirtschaftshaus.de',
-                'hs@wirtschaftshaus.de',
-                'rg@wirtschaftshaus.de',
-                'whsystems@wirtschaftshaus.de.testbox',
-                'witte@amstammtisch.de.testbox',
-                'witte@amstammtisch.de',
-                'witte@amstammtisch.de.vp29',
-                'witte@amstammtisch.de.fullbox',
-                'witte@amstammtisch.de.partbox',
-                'witte@amstammtisch.de.dev',
-                'r.lubitz@wirtschaftshaus.de',
-                'l.korte@wh-marketing.de',
-                'k.hemker@wirtschaftshaus.de',
-                'k.schreiber@wirtschaftshaus.de',
-                'a.eisold@carestone.com',
-                'i.wittwer@wi-immogroup.wh.de',
-                'r.held@wi-immogroup.de',
-                'j.zander@wi-immogroup.de',
-                'a.eisold@carestone.com',
-                'a.schneider@carestone.com',
-                'e.breitenstein@carestone.com',
-                'l.machotta@carestone.com',
-                'mathis.carestone@lightblaze.de',
-                'mathis.carestone@lightblaze.de.dev',
-                'tobias.graeve@carestone.com',
-                'tobias.graeve@carestone.com.int',
-                'tobias.graeve@carestone.com.qa',
-                'tobias.graeve@carestone.com.tg1',
-                'tobias.graeve@carestone.com.tg2'
-        };
-
-
         if (trigger.isInsert || trigger.isUpdate) {
             //Liste für das Updaten der Appartments
-            Map<Id,SObject> recordsWithFormulaValues = new Map<Id,SObject>(); 
-            for(FormulaRecalcResult result : Formula.recalculateFormulas(Trigger.new.deepClone(true))) {
-                recordsWithFormulaValues.put(result.getSObject().Id, result.getSObject());
-            } 
-            
+
+            //todo MOVE TO THE OPP TRIGGER HANDLER
+            if(trigger.isUpdate) {
+                OpportunityTriggerHandler.sendEmailWhenReservationAccepted(trigger.newMap,trigger.oldMap);
+            }
             for (Opportunity opp : trigger.new) {
                 if (opp.Risikobelehrung__c == true && opp.Beratungsprotokoll__c == True && opp.KV_eingegangen__c == True && (opp.Nachweis_Barzahler__c == True || opp.Status_Finanzierung__c == 'Zusage liegt vor')) {
                     opp.Alle_Unterlagen_vorhanden__c = true;
@@ -198,7 +164,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                         opp.CloseDate = date.today();
                     }
 
-                    if (!userName.contains(System.Userinfo.getUserName())) {
+                    if (!PermissionSetsHandler.hasPermissionSet()) {
                         opp.StageName.addError('Änderung nicht zulässig. Bitte wenden Sie sich an Ihren Systemadministrator');
                     }
                 } else if (opp.StageName == 'Geschlossen und verloren') {
