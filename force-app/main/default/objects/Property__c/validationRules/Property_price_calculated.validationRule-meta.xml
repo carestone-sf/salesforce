@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Property_price_calculated</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED(Property_Price__c)
+&amp;&amp;
+All_Teilobjekts_Price_Summary__c &gt; 0
+&amp;&amp;
+Property_Price__c != All_Teilobjekts_Price_Summary__c</errorConditionFormula>
+    <errorDisplayField>Property_Price__c</errorDisplayField>
+    <errorMessage>Der Objektpreis berechnet sich automatisch aus den Teilobjekten und kann nicht manuell gesetzt werden.</errorMessage>
+</ValidationRule>
