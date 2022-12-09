@@ -149,6 +149,9 @@ public with sharing class TestDataFactory {
         con.DatevDebitorenKundennummerKaeufer__c = '3000001';
         con.Maklerbetreuer_E_Mail__c = 'mathis@testx.dev';
         con.LastName = 'Maklermann ';
+        con.Phone = '12345';
+        con.Email = 'makler@carestone.devx';
+        con.BirthDate = Date.today().addDays(-365*30);
         con.RecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('Makler').getRecordTypeId();
         
         if(doInsert) {
@@ -170,6 +173,9 @@ public with sharing class TestDataFactory {
         con.DatevDebitorenKundennummerKaeufer__c = '3000001';
         con.LastName = 'Interessentenmann ';
         con.RecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('Interessent').getRecordTypeId();
+        con.Phone = '1234';
+        con.Email = 'interessent@carestone.devx';
+        con.BirthDate = Date.today().addDays(-365*30);
         
         if(doInsert) {
             insert con;
