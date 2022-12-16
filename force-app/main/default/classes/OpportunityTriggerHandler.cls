@@ -9,6 +9,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     @TestVisible
     private static final Integer DEFAULT_RESERVATION_DURATION = 14;
 
+    Set<Id> propertyIdsToRecalculateAggregatedProvision = new Set<Id>();
     Set<String> lostOpportunityStages = new Set<String>();
     Map<Id,SObject> updateMap = new Map<Id,SObject>();
     List<Approval.ProcessSubmitRequest> approvalRequests = new List<Approval.ProcessSubmitRequest>();
@@ -107,6 +108,10 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
             batchFileCreationRequests.add(fcr);
         }
 
+        if(opp.WertKumulierteProvisionExtern__c != oldOpp.WertKumulierteProvisionExtern__c) {
+            propertyIdsToRecalculateAggregatedProvision.add(opp.Immobilie__c);
+        }
+
         setFieldsOnRelatedObjects(opp, oldOpp);
     }
 
@@ -115,6 +120,14 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     }
 
     public void andFinally() {
+        if(!propertyIdsToRecalculateAggregatedProvision.isEmpty()) {
+            List<Property__c> properties = new List<Property__c>();
+            for (AggregateResult agRes : [SELECT SUM(WertKumulierteProvisionExtern__c) provExtern, Immobilie__c FROM Opportunity WHERE Immobilie__c IN :propertyIdsToRecalculateAggregatedProvision GROUP BY Immobilie__c]) {
+                properties.add(new Property__c(Id = (Id) agRes.get('Immobilie__c'), SummeWertKumulierteProvisionExtern__c = (Double) agRes.get('provExtern')));
+            }
+            update properties;
+        }
+        
         if(!updateMap.isEmpty()) {
             List<SObject> updateList = updateMap.values();
             updateList.sort();
@@ -126,6 +139,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         if(!approvalRequests.isEmpty()) {
             Approval.process(approvalRequests);
         }
+
     }
 
     /**

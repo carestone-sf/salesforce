@@ -340,4 +340,28 @@ private class OpportunityTriggerHandlerTest {
 
         System.assertEquals(null, [SELECT Notartermin__c FROM Opportunity WHERE Id = :opp.Id].Notartermin__c);
     }
+
+    @IsTest
+    private static void testCumulatedProvisionAggregation() {
+        Account acc = TestDataFactory.createAccount(true);
+        Property__c immobilie = TestDataFactory.createProperty(true, TestDataFactory.createBautraeger(true).Id);
+        Appartment__c appartment = TestDataFactory.createAppartment(true, immobilie.Id);
+
+        Contact makler = TestDataFactory.createMakler(false, acc.Id);
+        Contact interessent = TestDataFactory.createInteressent(false, acc.Id);
+        Contact interessent2 = TestDataFactory.createInteressent(false, acc.Id);
+        insert new List<Contact> {makler, interessent, interessent2};
+
+        TestDataFactory.createProvisionsverhandlung(true, acc.Id, immobilie.Id);
+
+        Opportunity opp = TestDataFactory.createOpportunity(true, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Reserviert');
+
+        opp.Provisionsbasis__c = 500;
+        opp.KumulierteProvisionExtern__c = 3;
+        Test.startTest();
+        update opp;
+        Test.stopTest();
+
+        Assert.isNotNull([SELECT SummeWertKumulierteProvisionExtern__c FROM Property__c WHERE Id = :opp.Immobilie__c].SummeWertKumulierteProvisionExtern__c);
+    }
 }
