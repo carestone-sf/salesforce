@@ -13,40 +13,71 @@ public with sharing class TestDataFactory {
 
     public static User createTestuser(Boolean doInsert) {
         User user = new User();
-
+        
         if(doInsert) {
             insert user;
         }
 
         return user;
     }
+
     public static User createCommunityUser(Id accountId) {
         Contact contact = new Contact(
-            AccountId = accountId, 
-            FirstName = 'Tim', 
-            LastName = 'Test',
-            Email = 'mathis@test.dev.xyz'
+                AccountId = accountId,
+                FirstName = 'Tim',
+                LastName = 'Test',
+                Email = 'mathis@test.dev.xyz'
         );
         insert contact;
 
         Profile commProfile = [SELECT Id FROM Profile WHERE Name = 'Partner Community Manager'];
         User user = new User(
-            ProfileId = commProfile.Id, 
-            FirstName = 'Tim', 
-            LastName = 'Test', 
-            Email = 'mathis@test.dev',
-            IsActive = true,
-            ContactId = contact.Id,
-            Username = 'mathis@test.dev',
-            Alias = 'ttest',
-            TimeZoneSidKey = 'America/Los_Angeles',
-            LocaleSidKey = 'en_US',
-            EmailEncodingKey = 'UTF-8',
-            LanguageLocaleKey = 'en_US'
+                ProfileId = commProfile.Id,
+                FirstName = 'Tim',
+                LastName = 'Test',
+                Email = 'mathis@test.dev',
+                IsActive = true,
+                ContactId = contact.Id,
+                Username = 'mathis@test.dev',
+                Alias = 'ttest',
+                TimeZoneSidKey = 'America/Los_Angeles',
+                LocaleSidKey = 'en_US',
+                EmailEncodingKey = 'UTF-8',
+                LanguageLocaleKey = 'en_US'
         );
         insert user;
 
         return user;
+    }
+
+    public static User createTestuser(Boolean doInsert,string name,integer i) {
+        Id systemAdminProfileId = [SELECT Id FROM Profile WHERE Name = 'System Administrator' LIMIT 1].Id;
+
+        User userExample = new User();
+        userExample.Username = 'emailtest@test.com'+String.valueOf(i);
+        userExample.FirstName = name;
+        userExample.LastName = 'Last';
+        userExample.Alias = 'Alias';
+        userExample.Email = 'emailtest@test.com';
+        userExample.TimeZoneSidKey = 'America/New_York';
+        userExample.LocaleSidKey = 'en_US';
+        userExample.EmailEncodingKey = 'ISO-8859-1';
+        userExample.ProfileId = systemAdminProfileId;
+        userExample.LanguageLocaleKey = 'en_US';
+        userExample.isActive=true;
+
+        if(doInsert) {
+            insert userExample;
+        }
+
+        return userExample;
+    }
+    public static userRole createUserRole(boolean doInsert){
+        UserRole r = new UserRole(DeveloperName = 'MyCustomRole', Name = 'My Role');
+        if(doInsert){
+            insert r;
+        }
+        return r;
     }
 
     public static Account createAccount(Boolean doInsert){
@@ -149,9 +180,6 @@ public with sharing class TestDataFactory {
         con.DatevDebitorenKundennummerKaeufer__c = '3000001';
         con.Maklerbetreuer_E_Mail__c = 'mathis@testx.dev';
         con.LastName = 'Maklermann ';
-        con.Phone = '12345';
-        con.Email = 'makler@carestone.devx';
-        con.BirthDate = Date.today().addDays(-365*30);
         con.RecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('Makler').getRecordTypeId();
         
         if(doInsert) {
@@ -176,7 +204,7 @@ public with sharing class TestDataFactory {
         con.Phone = '1234';
         con.Email = 'interessent@carestone.devx';
         con.BirthDate = Date.today().addDays(-365*30);
-        
+
         if(doInsert) {
             insert con;
         }
@@ -455,5 +483,39 @@ public with sharing class TestDataFactory {
         insert usr;
 
         return usr;
+    }
+
+    //create DigitaleVsa__c
+    public static DigitaleVsa__c createDigitaleVsa(Boolean doInsert) {
+        Finanzierungsanfrage__c finanzierungsanfrage = new Finanzierungsanfrage__c(
+            Name = 'Testfinanzierungsanfrage'
+        );
+        insert finanzierungsanfrage;
+
+        DigitaleVsa__c digitaleVsa = new DigitaleVsa__c(
+        );
+
+        if(doInsert) {
+            insert digitaleVsa;
+            digitaleVsa.Finanzierungsanfrage__c = finanzierungsanfrage.Id;
+            update digitaleVsa;
+        }
+
+        return digitaleVsa;
+    }
+    public static Activity_Summary__c createActivitySummary(Boolean doInsert, string userId) {
+        Activity_Summary__c summary= new Activity_Summary__c();
+        summary.year__c=String.valueOf(Date.Today().Year());
+        summary.month__c=String.valueOf(date.today().Month());
+        summary.userId__c=userId;
+        summary.number_of_logins__c=0;
+        contact con= new contact();
+        con.lastName='test';
+        insert con;
+        summary.contact__c=con.id;
+        if(doInsert) {
+            insert summary;
+        }
+        return summary;
     }
 }
