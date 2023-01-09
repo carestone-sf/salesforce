@@ -4,7 +4,7 @@
     </template>
 
     <lightning-radio-group name="finanzierungsArt" label="Finanzierungsart" value={finanzierungsArt}
-        placeholder="Finanzierungsart auswählen" options={finanzierungsArtOptions}
+         options={finanzierungsArtOptions}
         onchange={handleFinanzierungsArtChange} type="button"></lightning-radio-group>
 
     <template if:true={calculation.data}>
@@ -138,16 +138,16 @@
                     onchange={handleTypeChange}>
                 </lightning-input-field>
                 <lightning-input-field field-name="Kreditsumme__c" required="true" data-name="Kreditsumme__c"
-                    onchange={handleKreditsummeChange} autocomplete="off">
+                    onchange={handleKreditsummeChange} >
                 </lightning-input-field>
                 <lightning-input-field field-name="ZinsInPercent__c" required="true" data-name="ZinsInPercent__c"
-                    onchange={handleZinsInPercentChange} autocomplete="off">
+                    onchange={handleZinsInPercentChange} >
                 </lightning-input-field>
                 <lightning-input-field field-name="ZinsbindungBis__c" data-name="ZinsbindungBis__c"
                     onchange={handleValueChange}>
                 </lightning-input-field>
                 <lightning-input-field field-name="TilgungInPercent__c" required="true" data-name="TilgungInPercent__c"
-                    onchange={handleValueChange} autocomplete="off">
+                    onchange={handleValueChange} >
                 </lightning-input-field>
                 <lightning-input-field field-name="Tilgungsbeginn__c" data-name="Tilgungsbeginn__c"
                     onchange={handleValueChange}>
@@ -181,8 +181,8 @@
                     <lightning-input-field field-name="Prozent__c" required="true" data-name="Prozent__c"
                         onchange={handleSondertilungPercentChange}>
                     </lightning-input-field>
-                    <lightning-input-field field-name="JahrDerAuszahlung__c" required="true"
-                        data-name="JahrDerAuszahlung__c">
+                    <lightning-input-field field-name="JahrDerAuszahlungText__c" required="true"
+                        data-name="JahrDerAuszahlungText__c">
                     </lightning-input-field>
                 </lightning-record-edit-form>
             </template>
