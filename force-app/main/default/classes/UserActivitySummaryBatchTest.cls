@@ -23,6 +23,9 @@ public class UserActivitySummaryBatchTest {
 
    @isTest()
     private static void testUsersWithActiveSummaryCreated(){
+        Account acc = TestDataFactory.createAccount(true);
+        User testUser = TestDataFactory.createCommunityUser(acc.Id);
+
         Map<id,integer> usersIDsWithNumberOfLogins=getusersIDsWithNumberOfLogins();
         
         List<Activity_Summary__c> summariesToInsert=new List<Activity_Summary__c>();
@@ -51,6 +54,9 @@ public class UserActivitySummaryBatchTest {
     }
    @isTest()
     private static void testUsersWithoutActiveSummaryCreated(){
+        Account acc = TestDataFactory.createAccount(true);
+        User testUser = TestDataFactory.createCommunityUser(acc.Id);
+        
         System.Debug('summaries: '+[select count(id)from Activity_Summary__c]);
         System.debug('loginhistory: '+[select count(id) from LoginHistory]);
         

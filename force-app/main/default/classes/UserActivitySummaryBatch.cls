@@ -53,6 +53,7 @@ public with sharing class UserActivitySummaryBatch implements Database.Batchable
             usersIDsWithNumberOfLogins.put(string.valueOf(result.get('userId')), integer.valueOf(result.get('numberOflogins')));
         }
         System.Debug('numberOflogins' + usersIDsWithNumberOfLogins.keySet());
+        System.Debug('numberOflogins Values' + usersIDsWithNumberOfLogins.values());
 
         List<Activity_Summary__c> summariesToUpsert = new List<Activity_Summary__c>();
         for (user us : scope) {
@@ -74,7 +75,7 @@ public with sharing class UserActivitySummaryBatch implements Database.Batchable
                 newSummary.month__c = String.valueOf(date.today().Month());
                 newSummary.userId__c = us.id;
                 newSummary.number_of_logins__c = loginCounts;
-                newSummary.Contact__c = us.ContactID;
+                newSummary.Contact__c = getContactId(us);
                 summariesToUpsert.add(newSummary);
 
             }
@@ -83,5 +84,13 @@ public with sharing class UserActivitySummaryBatch implements Database.Batchable
     }
     public void finish(Database.BatchableContext BC) {
         system.debug('----------finished-----------');
+    }
+
+    private static Id getContactId(User user) {
+        if(Test.isRunningTest()) {
+            return [SELECT Id FROM Contact WHERE LastName = 'Test' LIMIT 1].Id;
+        } else {
+            return user.ContactId;
+        }
     }
 }

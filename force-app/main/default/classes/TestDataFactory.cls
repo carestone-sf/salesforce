@@ -518,19 +518,25 @@ public with sharing class TestDataFactory {
         }
         return summary;
     }
-    public static Activity_Summary__c createActivitySummary(Boolean doInsert, string userId, integer nmonth) {
+
+
+    public static Activity_Summary__c createActivitySummary(Boolean doInsert, Id userId, Id contactId, Integer nmonth) {
         Activity_Summary__c summary= new Activity_Summary__c();
         summary.year__c=String.valueOf(Date.today().addmonths(nmonth*-1).year());
         summary.month__c=String.valueOf(Date.today().addmonths(nmonth*-1).month());
         summary.userId__c=userId;
         summary.number_of_logins__c=0;
-        contact con= new contact();
-        con.lastName='test';
-        insert con;
-        summary.contact__c=con.id;
+        summary.contact__c = contactId;
         if(doInsert) {
             insert summary;
         }
         return summary;
+    }
+
+    public static Activity_Summary__c createActivitySummary(Boolean doInsert, string userId, integer nmonth) {
+        contact con= new contact();
+        con.lastName='test';
+        insert con;
+        return createActivitySummary(doInsert, userId, con.Id, nmonth);
     }
 }

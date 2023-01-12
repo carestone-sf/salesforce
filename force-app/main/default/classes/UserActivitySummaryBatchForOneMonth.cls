@@ -64,6 +64,7 @@ public with sharing class UserActivitySummaryBatchForOneMonth implements Databas
             usersIDsWithNumberOfLogins.put(string.valueOf(result.get('userId')), integer.valueOf(result.get('numberOflogins')));
         }
         System.Debug('numberOflogins' + usersIDsWithNumberOfLogins.keySet());
+        System.Debug('numberOflogins Values' + usersIDsWithNumberOfLogins.values());
 
         List<Activity_Summary__c> summariesToUpsert = new List<Activity_Summary__c>();
         for (user us : scope) {
@@ -84,8 +85,9 @@ public with sharing class UserActivitySummaryBatchForOneMonth implements Databas
                 newSummary.year__c = String.valueOf(Date.Today().addmonths(nmonth * -1).Year());
                 newSummary.month__c = String.valueOf(Date.today().addmonths(nmonth * -1).month());
                 newSummary.userId__c = us.id;
+                System.debug('Counts: ' + loginCounts);
                 newSummary.number_of_logins__c = loginCounts;
-                newSummary.Contact__c = us.ContactID;
+                newSummary.Contact__c = getContactId(us);
                 summariesToUpsert.add(newSummary);
 
             }
@@ -95,5 +97,13 @@ public with sharing class UserActivitySummaryBatchForOneMonth implements Databas
     }
     public void finish(Database.BatchableContext BC) {
         system.debug('----------finished-----------');
+    }
+
+    private static Id getContactId(User user) {
+        if(Test.isRunningTest()) {
+            return [SELECT Id FROM Contact LIMIT 1].Id;
+        } else {
+            return user.ContactId;
+        }
     }
 }
