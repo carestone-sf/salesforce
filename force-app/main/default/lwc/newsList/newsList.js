@@ -12,6 +12,7 @@ export default class NewsList extends LightningElement {
 
     itemsHaveRendered;
 
+    /*
     connectedCallback() {
         const typo3NewsUrl = 'https://maklerportal2.wirtschaftshaus.de/typo3/index.php?id=1&tx_whmp_whmp%5Baction%5D=list&tx_whmp_whmp%5Bcontroller%5D=News';
         fetch(typo3NewsUrl)
@@ -25,7 +26,23 @@ export default class NewsList extends LightningElement {
             });
             this.isLoading = false;
         });
+    }*/
+
+    connectedCallback() {
+        const typo3NewsUrl = 'https://api.carestone.com/carestone/news.json';
+        fetch(typo3NewsUrl)
+        .then(function(response) {
+            return response.json();
+        })
+        .then((jsonResponse) => {
+            this.news = jsonResponse;
+            this.news.forEach(function(singleNews) {
+                singleNews.image = 'https://api.carestone.com/' + singleNews.image;
+            });
+            this.isLoading = false;
+        });
     }
+
 
     renderedCallback() {
         // window.tns();    
