@@ -327,7 +327,7 @@
             <assignToReference>berechnung.Pers_nliches_Anschreiben__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>InputTextArea</elementReference>
+                <elementReference>LongToRichTextFormatter</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -927,6 +927,11 @@
         <dataType>Currency</dataType>
         <expression>value({!eigenkapital})</expression>
         <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>LongToRichTextFormatter</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE( SUBSTITUTE( JSENCODE( {!InputTextArea} ), &apos;\r\n&apos;, &apos;&lt;br&gt;&apos;), &apos;\n&apos;, &apos;&lt;br&gt;&apos;)</expression>
     </formulas>
     <formulas>
         <name>mietsteigerungFormula</name>

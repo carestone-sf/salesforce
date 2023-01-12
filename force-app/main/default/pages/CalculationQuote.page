@@ -284,10 +284,8 @@
                 </p>
                 <br/>
                 <br/>
-                <p><b>Persönliches Anschreiben:</b></p>
-                <br/>
-                <span>
-                    {!Berechnung__c.Pers_nliches_Anschreiben__c}
+                <span style='white-space:pre;' escape="false">
+                    <apex:outputField value="{!Berechnung__c.Pers_nliches_Anschreiben__c}"/>
                 </span>
                 <br/>
                 <br/>
