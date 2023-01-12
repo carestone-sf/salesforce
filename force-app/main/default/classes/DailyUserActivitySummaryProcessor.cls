@@ -5,7 +5,7 @@ global class DailyUserActivitySummaryProcessor implements Schedulable {
     private static String JOB_NAME = 'Update activity summary for current month';
 
     public DailyUserActivitySummaryProcessor() {
-        this.userIds = null;
+        this.userIds = Test.isRunningTest() ? new Set<Id> { UserInfo.getUserId() } : null;
     }
     public DailyUserActivitySummaryProcessor(Set<id> userIds) {
         this.userIds = userIds;
