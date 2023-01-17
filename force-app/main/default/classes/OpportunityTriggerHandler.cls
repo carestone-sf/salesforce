@@ -108,7 +108,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
             batchFileCreationRequests.add(fcr);
         }
 
-        if(opp.WertKumulierteProvisionExtern__c != oldOpp.WertKumulierteProvisionExtern__c) {
+        if(opp.WertKumulierteProvisionExtern__c != null && (!oldOpp.IsWon && opp.IsWon)) {
             propertyIdsToRecalculateAggregatedProvision.add(opp.Immobilie__c);
         }
 
@@ -122,7 +122,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     public void andFinally() {
         if(!propertyIdsToRecalculateAggregatedProvision.isEmpty()) {
             List<Property__c> properties = new List<Property__c>();
-            for (AggregateResult agRes : [SELECT SUM(WertKumulierteProvisionExtern__c) provExtern, Immobilie__c FROM Opportunity WHERE Immobilie__c IN :propertyIdsToRecalculateAggregatedProvision GROUP BY Immobilie__c]) {
+            for (AggregateResult agRes : [SELECT SUM(WertKumulierteProvisionExtern__c) provExtern, Immobilie__c FROM Opportunity WHERE Immobilie__c IN :propertyIdsToRecalculateAggregatedProvision AND IsWon = true GROUP BY Immobilie__c]) {
                 properties.add(new Property__c(Id = (Id) agRes.get('Immobilie__c'), SummeWertKumulierteProvisionExtern__c = (Double) agRes.get('provExtern')));
             }
             update properties;

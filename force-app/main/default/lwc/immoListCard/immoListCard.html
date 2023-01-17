@@ -42,8 +42,7 @@
 					<c-progress-bar immobilie={privateImmobilie.immobilie}></c-progress-bar>
 				</div>
 				<div style="position:absolute; top:10px; right:15px;">
-					<lightning-button variant="base" label="-" onclick={collapseCard}>
-					</lightning-button>
+					<lightning-button-icon variant="bare" icon-name="utility:minimize_window" size="medium" onclick={collapseCard}></lightning-button-icon>
 				</div>
 			</div>
 			<div class="slds-col slds-size_2-of-2">
@@ -170,8 +169,7 @@
 	</lightning-card>
 	<lightning-card onclick={collapseCard} data-card-id="1" class="immobilien-list-card slds-p-left_small">
 		<div style="position:absolute; top:10px; right:15px;">
-			<lightning-button variant="base" label="+">
-			</lightning-button>
+            <lightning-button-icon variant="bare" icon-name="utility:add" size="medium"></lightning-button-icon>
 		</div>
 		<div slot="title"><p style="font-size: 17px; line-height : 17px;"><b><i>{privateImmobilie.immobilie.Name}</i></b></p></div>
 		<div class="slds-grid slds-wrap slds-gutters_x-small" data-id={privateImmobilie.immobilie.Id}>

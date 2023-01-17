@@ -5,6 +5,10 @@ public with sharing class ImmobilienControllerTest {
         ImmobilienController.getPublicImmobilien();
     }
 
+    private static testMethod void getHighlightImmobilienTest() {
+        ImmobilienController.getHighlightImmobilien();
+    }
+
     private static testMethod void getMaklerImmobilienTest() {
         Database.DMLOptions dml = new Database.DMLOptions();
         dml.DuplicateRuleHeader.AllowSave = true;

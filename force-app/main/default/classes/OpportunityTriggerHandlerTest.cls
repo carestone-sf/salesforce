@@ -354,10 +354,14 @@ private class OpportunityTriggerHandlerTest {
 
         TestDataFactory.createProvisionsverhandlung(true, acc.Id, immobilie.Id);
 
-        Opportunity opp = TestDataFactory.createOpportunity(true, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Reserviert');
-
+        Opportunity opp = TestDataFactory.createOpportunity(false, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Reserviert');
+        opp.Immobilienberater__c = makler.Id;
+        opp.Kunde2__c = interessent2.Id;
         opp.Provisionsbasis__c = 500;
         opp.KumulierteProvisionExtern__c = 3;
+        insert opp; 
+
+        opp.StageName = 'Geschlossene und gewonnene';
         Test.startTest();
         update opp;
         Test.stopTest();

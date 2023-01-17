@@ -37,6 +37,7 @@ for(Opportunity opp : [
     apartment.Beurkundung__c = opp.Beurkundung__c;
     apartment.Kumulierte_Provision_extern__c = opp.KumulierteProvisionExtern__c;
     apartment.KaufpreisFaellig__c = opp.Kaufpreis_f_llig__c;
+    apartment.ReserviertFuer__c = opp.Id;
     if(opp.Bezahlt__c != 0) {
         apartment.Bezahlt__c = opp.Bezahlt__c;
     }
