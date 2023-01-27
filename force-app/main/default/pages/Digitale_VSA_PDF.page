@@ -1,20 +1,9 @@
-<apex:page standardController="DigitaleVsa__c" extensions="DigitaleVSAController" renderAs="pdf">
-
-    <!-- <apex:repeat value="{!verbindlichkeiten}" var="ver">
-        <tr >
-            <td align="left">{!ver.id}</td>
-            <td align="left">{!ver.name}</td>
-        </tr>
-    </apex:repeat> -->
-    <apex:outputText value="{!DigitaleVsa__c.OwnerId}"/>
-
-
-    <div>
+<apex:page standardController="DigitaleVsa__c" extensions="DigitaleVSAController" renderAs="pdf" >
+    <div style="background-cololor: #ffffff;">
         <div>
-            <apex:image style="display: block; margin-left: 230px; margin-top: 50px; margin-bottom: 50px;" id="Logo" value="https://wirtschaftshaus--artur.sandbox.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Jpg&versionId=0683G000000EGMT&operationContext=DELIVERY&contentId=05T3G0000022tfm&page=0&d=/a/3G000000Ccgr/VUxcVYW9y1wuZU67jqtCPEhDTyfL.PeI8_P3yB34CPE&oid=00D3G0000004hfp&dpt=null&viewId=" width="200" height="100%" alt="TwentyOne Knots Logo" />
+            <apex:image style="display: block; margin-left: 230px; margin-top:10px; margin-bottom: 50px;" id="Logo" value="https://wirtschaftshaus--artur.sandbox.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Jpg&versionId=0683G000000EGMT&operationContext=DELIVERY&contentId=05T3G0000022tfm&page=0&d=/a/3G000000Ccgr/VUxcVYW9y1wuZU67jqtCPEhDTyfL.PeI8_P3yB34CPE&oid=00D3G0000004hfp&dpt=null&viewId=" width="200" height="100%" alt="TwentyOne Knots Logo" />
         </div>
-
-        <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
+        <div style="font-family: sans-serif; text-align: left; font-size: 12px;">
             <h2 style="color: gray; font-size: 14px; font-weight: 900; letter-spacing: -1px;">DETAILS</h2>
             <table style=" width: 100%; margin-left: -2px; margin-bottom: 25px;">
                 <tr style="width: 100%; margin-left: 0;">
@@ -33,6 +22,7 @@
                 </tr>
             </table> 
         </div> 
+
 
         <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
             <h2 style="color: gray; font-size: 14px; font-weight: 900; letter-spacing: -1px;">KONTAKTINFORMATIONEN</h2>
@@ -397,127 +387,123 @@
             </table> 
         </div> 
 
-            <!-- repeated elements -->
-    <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
-        <h2 style="color: #414141; font-size: 14px; font-weight: 900; letter-spacing: -1px;"> VSA VERBINDLICHKEITEN</h2>
-        <apex:repeat value="{!verbindlichkeiten}" var="ver">
+            <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
 
-                <h3 style="color: gray; font-size: 14px; font-weight: 900; letter-spacing: -1px;">{!ver.name}</h3>
-                <table style=" width: 100%; margin-left: -2px; margin-bottom: 25px;">
-                    <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Art</th>
-                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.Art__c}</td>
-                    </tr>
-                    <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Kreditgeber</th>
-                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.Kreditgeber__c}</td>
-                    </tr>
-                    <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Ursprünglicher Darlehensbetrag</th>
-                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.UrspruenglicherDarlehensbetrag__c}</td>
-                    </tr>
-                    <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Zinsbindung bis</th>
-                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.ZinsbindungBis__c}</td>
-                    </tr>
-                    <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Tilgung bis</th>
-                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.TilgungBis__c}</td>
-                    </tr>
-                    <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Monatliche Rate</th>
-                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.MonatlicheRate__c}</td>
-                    </tr>
-                    <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Aktuelle Restschuld</th>
-                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.AktuelleRestschuld__c}</td>
-                    </tr>
-                </table>
+            <apex:repeat value="{!verbindlichkeiten}" var="ver" >
+                <h2 style="color: #414141; font-size: 14px; font-weight: 900; letter-spacing: -1px;"> VSA VERBINDLICHKEITEN</h2>
 
-        </apex:repeat>
-    </div>
+                    <h3 style="color: gray; font-size: 14px; font-weight: 900; letter-spacing: -1px;">{!ver.name}</h3>
+                    <table style=" width: 100%; margin-left: -2px; margin-bottom: 25px;">
+                        <tr style="width: 100%; margin-left: 0;">
+                            <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Art</th> 
+                            <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.Art__c}</td>
+                        </tr>
+                        <tr style="width: 100%; margin-left: 0;">
+                            <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Kreditgeber</th> 
+                            <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.Kreditgeber__c}</td>
+                        </tr>
+                        <tr style="width: 100%; margin-left: 0;">
+                            <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Ursprünglicher Darlehensbetrag</th> 
+                            <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.UrspruenglicherDarlehensbetrag__c}</td>
+                        </tr>
+                        <tr style="width: 100%; margin-left: 0;">
+                            <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Zinsbindung bis</th> 
+                            <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.ZinsbindungBis__c}</td>
+                        </tr>
+                        <tr style="width: 100%; margin-left: 0;">
+                            <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Tilgung bis</th> 
+                            <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.TilgungBis__c}</td>
+                        </tr>
+                        <tr style="width: 100%; margin-left: 0;">
+                            <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Monatliche Rate</th> 
+                            <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.MonatlicheRate__c}</td>
+                        </tr>
+                        <tr style="width: 100%; margin-left: 0;">
+                            <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Aktuelle Restschuld</th> 
+                            <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.AktuelleRestschuld__c}</td>
+                        </tr>
+                    </table>
 
-    <div>
-        <apex:image style="display: block; margin-left: 300px; margin-top:200px; margin-bottom: 50px;" id="Logo_small_4" value="https://wirtschaftshaus--artur.sandbox.lightning.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Jpg&versionId=0683G000000EJKW&operationContext=DELIVERY&contentId=05T3G00000233NQ&page=0&d=/a/3G000000Cco7/SJz55Wy9cSe4dsvkHzconFl.1q2By4MFxLMZgpqKmFI&oid=00D3G0000004hfp&dpt=null&viewId=" width="70" height="70" alt="TwentyOne Knots Logo" />
-    </div>
+            </apex:repeat>
+            </div>
+    
 
-    <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
-        <h2 style="color: #414141; font-size: 14px; font-weight: 900; letter-spacing: -1px;">VSA VERMöGENSWERT</h2>
+
+        <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
+
         <apex:repeat value="{!vermoegenswert}" var="verm">
+            <h2 style="color: #414141; font-size: 14px; font-weight: 900; letter-spacing: -1px;">VSA VERMöGENSWERT</h2>
 
                 <h3 style="color: gray; font-size: 14px; font-weight: 900; letter-spacing: -1px;">{!verm.name}</h3>
                 <table style=" width: 100%; margin-left: -2px; margin-bottom: 25px;">
                     <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Art</th>
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Art</th> 
                         <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!verm.Art__c}</td>
                     </tr>
                     <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Gesellschaft</th>
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Gesellschaft</th> 
                         <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!verm.Gesellschaft__c}</td>
                     </tr>
                     <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Vertragssumme</th>
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Vertragssumme</th> 
                         <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!verm.Vertragssumme__c}</td>
                     </tr>
                     <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Sparbeginn</th>
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Sparbeginn</th> 
                         <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!verm.Sparbeginn__c}</td>
                     </tr>
                     <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Monatliche Zahlung</th>
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Monatliche Zahlung</th> 
                         <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!verm.MonatlicheZahlung__c}</td>
                     </tr>
                     <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Aktuelles Guthaben</th>
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Aktuelles Guthaben</th> 
                         <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!verm.AktuellesGuthaben__c}</td>
                     </tr>
                 </table>
 
         </apex:repeat>
-    </div>
+        </div>
 
-    <div>
-        <apex:image style="display: block; margin-left: 300px; margin-top:50px; margin-bottom: 50px;" id="Logo_small_5" value="https://wirtschaftshaus--artur.sandbox.lightning.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Jpg&versionId=0683G000000EJKW&operationContext=DELIVERY&contentId=05T3G00000233NQ&page=0&d=/a/3G000000Cco7/SJz55Wy9cSe4dsvkHzconFl.1q2By4MFxLMZgpqKmFI&oid=00D3G0000004hfp&dpt=null&viewId=" width="70" height="70" alt="TwentyOne Knots Logo" />
-    </div>
 
-    <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
-        <h2 style="color: #414141; font-size: 14px; font-weight: 900; letter-spacing: -1px;">VSA IMMOBILIE</h2>
+        <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
+
         <apex:repeat value="{!immobilie}" var="imm">
+            <h2 style="color: #414141; font-size: 14px; font-weight: 900; letter-spacing: -1px;">VSA IMMOBILIE</h2>
 
                 <h3 style="color: gray; font-size: 14px; font-weight: 900; letter-spacing: -1px;">{!imm.name}</h3>
                 <table style=" width: 100%; margin-left: -2px; margin-bottom: 25px;">
                     <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Art</th>
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Art</th> 
                         <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!imm.Art__c}</td>
                     </tr>
                     <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Verkehrswert</th>
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Verkehrswert</th> 
                         <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!imm.Verkehrswert__c}</td>
                     </tr>
                     <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Restschuld</th>
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Restschuld</th> 
                         <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!imm.Restschuld__c}</td>
                     </tr>
                     <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Kreditgeber</th>
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Kreditgeber</th> 
                         <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!imm.Kreditgeber__c}</td>
                     </tr>
                     <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Monatliche Rate</th>
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Monatliche Rate</th> 
                         <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!imm.MonatlicheRate__c}</td>
                     </tr>
                     <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Monatliche Nettokaltmiete</th>
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Monatliche Nettokaltmiete</th> 
                         <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!imm.MonatlicheNettokaltmiete__c}</td>
                     </tr>
                     <tr style="width: 100%; margin-left: 0;">
-                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Postleitzahl / Ort der Immobilie</th>
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Postleitzahl / Ort der Immobilie</th> 
                         <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!imm.PostleitzahlOrtDerImmobilie__c	}</td>
                     </tr>
                 </table>
 
         </apex:repeat>
-    </div>
-
+        </div>
     </div>
 </apex:page>

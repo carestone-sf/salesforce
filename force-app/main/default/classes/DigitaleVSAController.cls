@@ -1,13 +1,26 @@
 public with sharing class DigitaleVSAController {
+
     public DigitaleVSAController(ApexPages.StandardController controller) {
+         
+    }
+
+    public String digitaleVSAName {
+        get {
+            digitaleVSAName = String.valueOf(digitaleVsaId + '.pdf');
+            return digitaleVSAName;
+        }
+        set;
 
     }
 
-    private Id digitaleVsaId = ApexPages.currentPage().getParameters().get('id');
+    public Id digitaleVsaId {
+        get {
+            digitaleVsaId = ApexPages.currentPage().getParameters().get('id');
+            return digitaleVsaId;
+        }
+        set;
+    }
 
-    //all Verbindlichkeiten connected to DigitaleVsa
-
-    //TODO list of fields
     public List < VsaVerbindlichkeit__c > verbindlichkeiten {
         get {
             if (verbindlichkeiten == null) {
@@ -17,7 +30,8 @@ public with sharing class DigitaleVSAController {
         }
         set;
     }
-    //all Vermögenswerte connected to DigitaleVsa
+
+
     public List < VsaVermoegenswert__c > vermoegenswert {
         get {
             if (vermoegenswert == null) {
@@ -28,7 +42,6 @@ public with sharing class DigitaleVSAController {
         set;
     }
 
-    //all Immobilien connected to DigitaleVsa
     public List < VSAImmobilie__c > immobilie {
         get {
             if (immobilie == null) {
@@ -38,4 +51,19 @@ public with sharing class DigitaleVSAController {
         }
         set;
     }
+
+
+    public List < ContentDocument > files {
+        get {
+            if(files==null){
+                files = [SELECT Id, Title FROM ContentDocument WHERE Title= :digitaleVSAName];
+            }
+
+            return files;
+        }
+
+        set;
+    }
+
+
 }
