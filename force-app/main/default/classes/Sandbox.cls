@@ -29,6 +29,7 @@ public class Sandbox {
         // Makler erstellen
         createContacts(5, 'Versicherungsmakler');
 
+        
         // Community User erstellen
         createCommunityUsers();
 
@@ -67,6 +68,9 @@ public class Sandbox {
         //Opportunities erstellen
         createOpenOpportunities(2);
         createClosedOpportunities(1);
+        
+        //add to contacts email suffix '.invalid' 
+        Database.executeBatch(new BatchAddSuffixToAllContactsEmails());
     }
 
     public static void createAccounts(Integer numAccounts, Id parentId, Integer levels) {
