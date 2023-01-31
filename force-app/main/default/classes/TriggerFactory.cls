@@ -127,6 +127,9 @@ public with sharing class TriggerFactory
 		if(soType == VkcZahlung__c.getSObjectType()) {
 			return new VkcZahlungTriggerHandler();
 		}
+		if(soType == EmailMessage.getSObjectType()) {
+			return new EmailMessageTriggerHandler();
+		}
         
         return null;
 	}

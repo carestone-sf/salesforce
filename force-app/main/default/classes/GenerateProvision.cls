@@ -196,7 +196,7 @@ public without sharing class GenerateProvision {
                     for(Provision__c currProv: oppToMaklerToProvMap.get(opp.Id).get(con.Id)) {
                         prov = updateProvision(opp, oldOpp, currProv, con);
                     }
-                } else if(!(oldOpp.Abrechnung_ber__c == null && opp.Abrechnung_ber__c != null)) {
+                } else if(type == 'intern' || !(oldOpp.Abrechnung_ber__c == null && opp.Abrechnung_ber__c != null)) {
                     prov = insertProvision(opp, con);
                 }
                 if(prov.Makler__c != null) {

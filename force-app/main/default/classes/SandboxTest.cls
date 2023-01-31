@@ -2,8 +2,6 @@
 public class SandboxTest {
     @TestSetup
     static void makeData(){
-        Sandbox sb = new Sandbox();
-        
         Gutschrift_Laufnummer__c gutschriftLaufnummer = Gutschrift_Laufnummer__c.getOrgDefaults();
         gutschriftLaufnummer.Gutschrift_Laufnummer__c = 0;
         insert gutschriftLaufnummer;

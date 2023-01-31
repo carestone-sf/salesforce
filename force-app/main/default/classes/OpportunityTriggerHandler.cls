@@ -11,6 +11,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     @TestVisible
     private static final Integer DEFAULT_RESERVATION_DURATION = 14;
 
+    Set<Id> propertyIdsToRecalculateAggregatedProvision = new Set<Id>();
     Set<String> lostOpportunityStages = new Set<String>();
     Map<Id,SObject> updateMap = new Map<Id,SObject>();
     List<Approval.ProcessSubmitRequest> approvalRequests = new List<Approval.ProcessSubmitRequest>();
@@ -32,6 +33,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         if(Trigger.isInsert || Trigger.isUpdate) {
             collectIdsOfRelatedRecords();
             
+            getLostOpportunityStages();
             getProvisionsverhandlungen();
             getApartments();
             getRelatedContacts();
@@ -45,10 +47,6 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     }
     
     public void bulkAfter() {
-        if(Trigger.isInsert || Trigger.isUpdate) {
-            getLostOpportunityStages();
-        }
-
         if(Trigger.isUpdate) {
             getProvisionen();
         }
@@ -112,6 +110,10 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
             batchFileCreationRequests.add(fcr);
         }
 
+        if(opp.WertKumulierteProvisionExtern__c != null && (!oldOpp.IsWon && opp.IsWon)) {
+            propertyIdsToRecalculateAggregatedProvision.add(opp.Immobilie__c);
+        }
+
         setFieldsOnRelatedObjects(opp, oldOpp);
     }
 
@@ -120,6 +122,14 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     }
 
     public void andFinally() {
+        if(!propertyIdsToRecalculateAggregatedProvision.isEmpty()) {
+            List<Property__c> properties = new List<Property__c>();
+            for (AggregateResult agRes : [SELECT SUM(WertKumulierteProvisionExtern__c) provExtern, Immobilie__c FROM Opportunity WHERE Immobilie__c IN :propertyIdsToRecalculateAggregatedProvision AND IsWon = true GROUP BY Immobilie__c]) {
+                properties.add(new Property__c(Id = (Id) agRes.get('Immobilie__c'), SummeWertKumulierteProvisionExtern__c = (Double) agRes.get('provExtern')));
+            }
+            update properties;
+        }
+        
         if(!updateMap.isEmpty()) {
             List<SObject> updateList = updateMap.values();
             updateList.sort();
@@ -131,6 +141,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         if(!approvalRequests.isEmpty()) {
             Approval.process(approvalRequests);
         }
+
     }
 
     /**
@@ -272,7 +283,6 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     /**
      * Methods for before trigger
     */
-
     public void setOpportunityFields(Opportunity opp, Opportunity oldOpp) {
         if(stageSetToReserved(opp, oldOpp)) {
             setReservationDate(opp);
@@ -303,6 +313,9 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         }
         if(mahnungCreated(opp, oldOpp)) {
             trackMahnungSent(opp);
+        }
+        if(opportunityWasLost(opp, oldOpp)) {
+            clearNotartermin(opp);
         }
 
         if(Trigger.isInsert) {
@@ -458,6 +471,14 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
 
     public void trackMahnungStarted(Opportunity opp) {
         opp.MahnungGenerieren__c = false;
+    }
+
+    public Boolean opportunityWasLost(Opportunity opp, Opportunity oldOpp) {
+        return lostOpportunityStages.contains(opp.StageName) && (Trigger.isInsert || (oldOpp != null && oldOpp.StageName != opp.StageName));
+    }
+
+    public void clearNotartermin(Opportunity opp) {
+        opp.Notartermin__c = null;
     }
 
     /**
@@ -811,6 +832,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
             }
         }
     }
+
     public static void sendEmailWhenReservationAccepted(Map<Id, opportunity> oppNewMap, Map<Id, opportunity> oppOldMap) {
         List<Messaging.SingleEmailMessage> allMsgs = new List<messaging.SingleEmailMessage>();
         Map<Id, Opportunity> opps = new Map<Id, opportunity>();
@@ -849,11 +871,11 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                 allMsgs.add(mailToMaklBeretreuer);
 
             }
-        try {
+            try {
             Messaging.sendEmail(allMsgs, true);
-        } catch (Exception e) {
+            } catch (Exception e) {
             System.debug(e.getMessage() + ' Failed to send emails');
+            }
         }
-    }
     }
 }

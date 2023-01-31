@@ -102,7 +102,7 @@ export default class ImmobilienFilter extends LightningElement {
             }
 
             // Apartment Min Max Values
-            const currentApartments = currentImmobilie.Appartments__r;
+            const currentApartments = this.immobilien.data[i].teilobjekte;
             for(let z = 0; z < currentApartments.length; z++) {
                 const currentApartment = currentApartments[z];
                 if(currentApartment.Purchase_Price__c > this.maxPurchasePrice) {
@@ -273,7 +273,7 @@ iterateDataCurrent(currentData) {
             this.immobilien.data = this.deepCopyFunction(this.originalImmobilien.data);
             this.immobilien.data = this.immobilien.data.filter((immobilieWrapper) => {
                 const immobilie = immobilieWrapper.immobilie;
-                const apartments = immobilie.Appartments__r;
+                const apartments = immobilieWrapper.teilobjekte;
                 var isIncluded = true;
                 if(immobilie.Name.search(regEx) == -1) {
                     isIncluded = false;

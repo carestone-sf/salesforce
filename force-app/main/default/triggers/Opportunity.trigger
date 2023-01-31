@@ -342,14 +342,16 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
 
         }
 
-        if(changedOppsIntern.size() > 0) {
-            GenerateProvision gPro = new GenerateProvision();
-            gPro.updateProvisionen(changedOppsIntern, changedOppsInternOldMap, 'intern');
-        }
-
-        if(changedOppsAll.size() > 0) {
-            GenerateProvision gPro = new GenerateProvision();
-            gPro.updateProvisionen(changedOppsAll, changedOppsAllOldMap, 'all');
+        if(!AdminSettings__c.getInstance(UserInfo.getUserId()).DisableProvisionGenerationAutomatism__c) {
+            if(changedOppsIntern.size() > 0) {
+                GenerateProvision gPro = new GenerateProvision();
+                gPro.updateProvisionen(changedOppsIntern, changedOppsInternOldMap, 'intern');
+            }
+    
+            if(changedOppsAll.size() > 0) {
+                GenerateProvision gPro = new GenerateProvision();
+                gPro.updateProvisionen(changedOppsAll, changedOppsAllOldMap, 'all');
+            }
         }
     }
 
