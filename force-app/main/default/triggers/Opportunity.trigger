@@ -45,6 +45,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 }
 
                 if (Trigger.isUpdate) {
+                    OpportunityTriggerHandler.sendEmailWhenReservationAccepted(trigger.newMap,trigger.oldMap);
                     // Calculate Rabatt
                     Opportunity oldOpp = Trigger.oldMap.get(opp.Id);
                     if (opp.Rabatt_in__c != oldOpp.Rabatt_in__c && opp.Maklerrabatt_in__c == oldOpp.Maklerrabatt_in__c && opp.Rabatt_in__c != null && opp.Rabatt_in__c != 0) {

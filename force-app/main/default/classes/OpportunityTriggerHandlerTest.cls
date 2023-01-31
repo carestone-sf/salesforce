@@ -1,4 +1,4 @@
-@IsTest
+ @IsTest
 private class OpportunityTriggerHandlerTest {
     
     @TestSetup
@@ -367,5 +367,32 @@ private class OpportunityTriggerHandlerTest {
         Test.stopTest();
 
         Assert.isNotNull([SELECT SummeWertKumulierteProvisionExtern__c FROM Property__c WHERE Id = :opp.Immobilie__c].SummeWertKumulierteProvisionExtern__c);
+    }
+        
+    @IsTest
+    static void testThatEmailWasSent() {
+        makler.email = 'example@example.com';
+        Contact maklerCarestone = TestDataFactory.createMakler(false, acc.iD);
+        maklerCarestone.email = 'example.example@gmail.com';
+        Contact interessent = TestDataFactory.createInteressent(false, acc.Id);
+        insert new List<Contact> {makler, interessent,maklerCarestone};
+
+        Opportunity oldOpp = TestDataFactory.createOpportunity(true, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Reservierung angefragt');
+        oldopp.Maklerbetreuer_WirtschaftsHaus__c = maklerCarestone.Id;
+        Opportunity newOpp = oldOpp.clone(true, true);
+        newOpp.StageName='Reserviert';
+
+        Map<Id, opportunity> oppNewMap = new Map<Id, opportunity>();
+        Map<Id, opportunity> oppOldMap = new Map<Id, opportunity>();
+        oppOldMap.put(oldopp.id, oldopp);
+        oppNewMap.put(newopp.id, newopp);
+
+        Test.startTest();
+        System.assertEquals(0, Limits.getEmailInvocations(), 'No emails should be sent');
+
+        OpportunityTriggerHandler.sendEmailWhenReservationAccepted(oppNewMap, oppOldMap);
+
+        System.assertEquals(1, Limits.getEmailInvocations(), 'Emails should be sent');
+        Test.stopTest();
     }
 }

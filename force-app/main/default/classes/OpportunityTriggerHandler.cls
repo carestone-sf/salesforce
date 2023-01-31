@@ -3,6 +3,8 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     private static final String ZAHLUNGSERINNERUNG_APPROVAL_PROCESS_NAME = 'Zahlungserinnerung';
     private static final String ZAHLUNGSEINGANG_APPROVAL_PROCESS_NAME = 'Zahlungseingang';
     private static final String FIBU_MAILBOX = 'MaBV-Rechnungen@carestone.com';
+    private static final String OPPORTUNITY_STAGE_RESERVIERUNG_ANGEFRAGT = 'Reservierung angefragt';
+    private static final String OPPORTUNITY_STAGE_RESERVIERT = 'Reserviert';
 
     Id orgWideEmailAddressId = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'service@carestone.com' LIMIT 1].Id;
     
@@ -827,6 +829,52 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                 if(opp.Appartement__c != oldOpp.Appartement__c) {
                     apartmentIds.add(oldOpp.Appartement__c);
                 }
+            }
+        }
+    }
+
+    public static void sendEmailWhenReservationAccepted(Map<Id, opportunity> oppNewMap, Map<Id, opportunity> oppOldMap) {
+        List<Messaging.SingleEmailMessage> allMsgs = new List<messaging.SingleEmailMessage>();
+        Map<Id, Opportunity> opps = new Map<Id, opportunity>();
+
+        for (opportunity opp : oppNewMap.values()) {
+            //checking if opportunity stage was updated from 'reservierung angefragt' to 'Reserviert'
+            if (oppOldMap.get(opp.id).StageName == OPPORTUNITY_STAGE_RESERVIERUNG_ANGEFRAGT &&
+                    oppNewMap.get(opp.id).StageName == OPPORTUNITY_STAGE_RESERVIERT) {
+                opps.put(opp.id, opp);
+
+            }
+        }
+        if (opps.size() > 0) {
+            EmailTemplate mailTemplate = [
+                    Select Id, Subject, Description,
+                            HtmlValue, DeveloperName, Body
+                    from EmailTemplate
+                    where DeveloperName =
+                            'ReservationIsActive'
+            ];
+            for (opportunity opp : opps.values()) {
+
+                id maklerId = opp.Makler__c;
+                id maklerbetreuerCarestoneId = opp.Maklerbetreuer_WirtschaftsHaus__c;
+
+                Messaging.SingleEmailMessage mailToMakler = new Messaging.SingleEmailMessage();
+                mailToMakler.setTemplateID(mailTemplate.Id);
+                mailToMakler.setWhatId(opp.Id);
+                mailToMakler.setTargetObjectId(maklerId);
+                allMsgs.add(mailToMakler);
+
+                Messaging.SingleEmailMessage mailToMaklBeretreuer = new Messaging.SingleEmailMessage();
+                mailToMaklBeretreuer.setTemplateID(mailTemplate.Id);
+                mailToMaklBeretreuer.setWhatId(opp.Id);
+                mailToMaklBeretreuer.setTargetObjectId(maklerbetreuerCarestoneId);
+                allMsgs.add(mailToMaklBeretreuer);
+
+            }
+            try {
+            Messaging.sendEmail(allMsgs, true);
+            } catch (Exception e) {
+            System.debug(e.getMessage() + ' Failed to send emails');
             }
         }
     }
