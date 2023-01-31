@@ -3,6 +3,26 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     private static final String ZAHLUNGSERINNERUNG_APPROVAL_PROCESS_NAME = 'Zahlungserinnerung';
     private static final String ZAHLUNGSEINGANG_APPROVAL_PROCESS_NAME = 'Zahlungseingang';
     private static final String FIBU_MAILBOX = 'MaBV-Rechnungen@carestone.com';
+    private static final String OPPORTUNITY_STAGE_RESERVIERUNG_ANGEFRAGT = 'Reservierung angefragt';
+    private static final String OPPORTUNITY_STAGE_RESERVIERT = 'Reserviert';
+    private static final String CAN_CHANGE_STAGE_STATUS_PERMISSION_NAME='Can_change_stage_status';
+    private static string getUserId{
+        get{
+            return System.UserInfo.getUserId();
+        }
+        set;
+    }
+    private static List<PermissionSetAssignment> getPermissionSetAssignments{
+        get{
+            if(getPermissionSetAssignments==null){
+                getpermissionSetAssignments=[SELECT Id, PermissionSetId, PermissionSet.Name, AssigneeId
+                FROM PermissionSetAssignment
+                WHERE AssigneeId = :getUserId And PermissionSet.Name=:CAN_CHANGE_STAGE_STATUS_PERMISSION_NAME];
+            }
+            return getPermissionSetAssignments;
+        }
+        set;
+    }
 
     Id orgWideEmailAddressId = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'service@carestone.com' LIMIT 1].Id;
     
@@ -173,37 +193,9 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
      * @param opp Inserted Opportunity
      */
     private void setStageOnInsert(Opportunity opp) {
-        // TODO: Refactor to custom permission & permission set
-        Set<String> userName = new Set <String>{
-            'sp@wirtschaftshaus.de',
-            'hs@wirtschaftshaus.de',
-            'rg@wirtschaftshaus.de',
-            'whsystems@wirtschaftshaus.de.testbox',
-            'witte@amstammtisch.de.testbox',
-            'witte@amstammtisch.de',
-            'witte@amstammtisch.de.vp29',
-            'witte@amstammtisch.de.fullbox',
-            'witte@amstammtisch.de.partbox',
-            'witte@amstammtisch.de.dev',
-            'r.lubitz@wirtschaftshaus.de',
-            'l.korte@wh-marketing.de',
-            'k.hemker@wirtschaftshaus.de',
-            'k.schreiber@wirtschaftshaus.de',
-            'a.eisold@carestone.com',
-            'i.wittwer@wi-immogroup.wh.de',
-            'r.held@wi-immogroup.de',
-            'j.zander@wi-immogroup.de',
-            'a.eisold@carestone.com',
-            'a.schneider@carestone.com',
-            'e.breitenstein@carestone.com',
-            'l.machotta@carestone.com',
-            'mathis.carestone@lightblaze.de',
-            'mathis.carestone@lightblaze.de.dev'
-        };
-    
         if(opp.Appartement__c == null) {
             opp.StageName = 'Nachrücker';
-        } else if(!userName.contains(System.Userinfo.getUserName())) {
+        } else if(!PermissionSetsHandler.hasPermissionSet()) {
             opp.StageName = 'Reservierungsvorbereitung';
         }
     }
