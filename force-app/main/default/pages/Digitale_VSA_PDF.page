@@ -1,0 +1,509 @@
+<apex:page standardController="DigitaleVsa__c" extensions="DigitaleVSAController" renderAs="pdf" >
+    <div style="background-cololor: #ffffff;">
+        <div>
+            <apex:image style="display: block; margin-left: 230px; margin-top:10px; margin-bottom: 50px;" id="Logo" value="https://wirtschaftshaus--artur.sandbox.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Jpg&versionId=0683G000000EGMT&operationContext=DELIVERY&contentId=05T3G0000022tfm&page=0&d=/a/3G000000Ccgr/VUxcVYW9y1wuZU67jqtCPEhDTyfL.PeI8_P3yB34CPE&oid=00D3G0000004hfp&dpt=null&viewId=" width="200" height="100%" alt="TwentyOne Knots Logo" />
+        </div>
+        <div style="font-family: sans-serif; text-align: left; font-size: 12px;">
+            <h2 style="color: gray; font-size: 14px; font-weight: 900; letter-spacing: -1px;">DETAILS</h2>
+            <table style=" width: 100%; margin-left: -2px; margin-bottom: 25px;">
+                <tr style="width: 100%; margin-left: 0;">
+                    <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Name</th>
+                    <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >
+                        <apex:outputText value="{!DigitaleVsa__c.Name}"/>
+                    </td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Owner</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.Owner.Name}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Finanzierungsanfrage</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.Finanzierungsanfrage__r.Name}"/></td>
+                </tr>
+            </table> 
+        </div> 
+
+
+        <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
+            <h2 style="color: gray; font-size: 14px; font-weight: 900; letter-spacing: -1px;">KONTAKTINFORMATIONEN</h2>
+            <table style=" width: 100%; margin-left: -2px; margin-bottom: 25px;">
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;"></th>
+                    <td style="color: #414141;  width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px; font-weight: 600;">Person 1</td>
+                    <td style="color: #414141; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px; font-weight:600;">Person 2</td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Geburtsort</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.GeburtsortP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.GeburtsortP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Geburtsdatum</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.GueterstandP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.GueterstandP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Familienstand</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.FamilienstandP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.FamilienstandP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Güterstand</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.GueterstandP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.GueterstandP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Geburtsname</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.GeburtsnameP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.GeburtsnameP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Kind 1 (Name und Geburtsdatum) </th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.Kind1NameUndGeburtsdatumP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.Kind1NameUndGeburtsdatumP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Kind 2 (Name und Geburtsdatum) </th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.Kind2NameUndGeburtsdatumP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.Kind2NameUndGeburtsdatumP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Kind 3 (Name und Geburtsdatum) </th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.Kind3NameUndGeburtsdatumP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.Kind3NameUndGeburtsdatumP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Kind 4 (Name und Geburtsdatum) </th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.Kind4NameUndGeburtsdatumP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.Kind4NameUndGeburtsdatumP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Kind 5 (Name und Geburtsdatum) </th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.Kind5NameUndGeburtsdatumP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.Kind5NameUndGeburtsdatumP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Nationalität</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.NationalitaetP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.NationalitaetP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Straße</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.StrasseP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.StrasseP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">PLZ</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.PLZP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.PLZP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Ort</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.OrtP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.OrtP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Wohnhaft seit</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.WohnhaftSeitP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.WohnhaftSeitP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Telefon privat </th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.TelefonPrivatP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.TelefonPrivatP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Mobil</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.MobilP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.MobilP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">E-Mail</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.EMailP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.EMailP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">SteuerID</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.SteuerIDP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.SteuerIDP2__c}"/></td>
+                </tr>
+            </table> 
+        </div> 
+
+        <div>
+            <apex:image style="display: block; margin-left: 300px; margin-top: 50px; margin-bottom: 50px;" id="Logo_small" value="https://wirtschaftshaus--artur.sandbox.lightning.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Jpg&versionId=0683G000000EJKW&operationContext=DELIVERY&contentId=05T3G00000233NQ&page=0&d=/a/3G000000Cco7/SJz55Wy9cSe4dsvkHzconFl.1q2By4MFxLMZgpqKmFI&oid=00D3G0000004hfp&dpt=null&viewId=" width="70" height="70" alt="TwentyOne Knots Logo" />
+        </div>
+
+        <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
+
+            <h2 style="color: gray; font-size: 14px; font-weight: 900; letter-spacing: -1px;">ARBEITGEBER</h2>
+            <table style=" width: 100%; margin-left: -2px; margin-bottom: 25px;">
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;"></th>
+                    <td style="color: #414141;  width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px; font-weight: 600;">Person 1</td>
+                    <td style="color: #414141; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px; font-weight:600;">Person 2</td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Beruf</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.BerufP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.BerufP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Beruf ist befristet</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.BerufIstBefristetP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.BerufIstBefristetP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Beruf ist befristet bis</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.BerufIstBefristetBisP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.BerufIstBefristetBisP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Probezeit bis</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.ProbezeitBisP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.ProbezeitBisP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Arbeitgeber/in Ort</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.ArbeitgeberInOrtP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.ArbeitgeberInOrtP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Arbeitgeber seit</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.ArbeitgeberSeitP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.ArbeitgeberSeitP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Nebenjob</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.NebenjobP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.NebenjobP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Nebenjob ist befristet</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.NebenjobIstBefristetP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.NebenjobIstBefristetP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Nebenjob Arbeitgeber/in Ort</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.NebenjobArbeitgeberInOrtP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.NebenjobArbeitgeberInOrtP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Nebenjob seit</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.NebenjobSeitP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.NebenjobSeitP2__c}"/></td>
+                </tr>
+            </table> 
+        </div> 
+
+        <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
+            <h2 style="color: gray; font-size: 14px; font-weight: 900; letter-spacing: -1px;">VERMöGENSWERTE</h2>
+            <table style=" width: 100%; margin-left: -2px; margin-bottom: 25px;">
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;"></th>
+                    <td style="color: #414141;  width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px; font-weight: 600;">Person 1</td>
+                    <td style="color: #414141; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px; font-weight:600;">Person 2</td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Bank- und Sparguthaben</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.BankUndSparguthabenP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.BankUndSparguthabenP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Wertpapiere / Depots</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.WertpapiereDepotsP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.WertpapiereDepotsP2__c}"/></td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
+            <h2 style="color: gray; font-size: 14px; font-weight: 900; letter-spacing: -1px;">STEUTERBERATER</h2>
+            <table style=" width: 100%; margin-left: -2px; margin-bottom: 25px;">
+                <tr style="width: 100%; margin-left: 0;">
+                    <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Steuerberater Name</th>
+                    <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >
+                        <apex:outputText value="{!DigitaleVsa__c.SteuerberaterName__c}"/>
+                    </td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Steuerberater Anschrift</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.SteuerberaterAnschrift__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Steuerberater Telefon</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.SteuerberaterTelefon__c}"/></td>
+                </tr>
+            </table> 
+        </div> 
+
+        <div>
+            <apex:image style="display: block; margin-left: 300px; margin-top: 130px; margin-bottom: 50px;" id="Logo_small_2" value="https://wirtschaftshaus--artur.sandbox.lightning.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Jpg&versionId=0683G000000EJKW&operationContext=DELIVERY&contentId=05T3G00000233NQ&page=0&d=/a/3G000000Cco7/SJz55Wy9cSe4dsvkHzconFl.1q2By4MFxLMZgpqKmFI&oid=00D3G0000004hfp&dpt=null&viewId=" width="70" height="70" alt="TwentyOne Knots Logo" />
+        </div>
+       
+        <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
+            <h2 style="color: gray; font-size: 14px; font-weight: 900; letter-spacing: -1px;">MONATLICHE NETTO-EINNAHMEN</h2>
+            <table style=" width: 100%; margin-left: -2px; margin-bottom: 25px;">
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;"></th>
+                    <td style="color: #414141;  width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px; font-weight: 600;">Person 1</td>
+                    <td style="color: #414141; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px; font-weight:600;">Person 2</td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Nett Lohn / Gehalt </th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.NettLohnGehaltP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.NettLohnGehaltP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Urlaubsgeld</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.UrlaubsgeldP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.UrlaubsgeldP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Weihnachtsgeld</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.WeihnachtsgeldP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.WeihnachtsgeldP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Sonderzahlungen</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.SonderzahlungenP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.SonderzahlungenP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Kindergeld</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.KindergeldP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.KindergeldP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Unterhaltseinkünfte</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.UnterhaltseinkuenfteP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.UnterhaltseinkuenfteP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Rente / Pension</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.RentePensionP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.RentePensionP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Nebeneinkommen</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.NebeneinkommenP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.NebeneinkommenP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Spesenüberschuß</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.SpesenueberschussP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.SpesenueberschussP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Wohngeld</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.WohngeldP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.WohngeldP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Mieteinnahmen</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.MieteinnahmenP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.MieteinnahmenP2__c}"/></td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
+            <h2 style="color: gray; font-size: 14px; font-weight: 900; letter-spacing: -1px;">MONATLICHE AUSGABEN</h2>
+            <table style=" width: 100%; margin-left: -2px; margin-bottom: 25px;">
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;"></th>
+                    <td style="color: #414141;  width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px; font-weight: 600;">Person 1</td>
+                    <td style="color: #414141; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px; font-weight:600;">Person 2</td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Lebenshaltungskosten</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.LebenshaltungskostenP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.LebenshaltungskostenP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Kaltmiete Wohnung</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.KaltmieteWohnungP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.KaltmieteWohnungP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Wohnnebenkosten</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.WohnnebenkostenP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.WohnnebenkostenP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Kfz Leasingrate </th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.KfzLeasingrateP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.KfzLeasingrateP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Kleinkreditraten</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.KleinkreditratenP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.KleinkreditratenP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Rate für Baufinanzierung</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.RateFuerBaufinanzierungP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.RateFuerBaufinanzierungP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Prämie Lebensversicherungen</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.PraemieLebensversicherungenP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.PraemieLebensversicherungenP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">NPrämie private Krankenversicherung</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.PraemiePrivateKrankenversicherungP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.PraemiePrivateKrankenversicherungP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Sparbeiträge Bausparverträge</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.SparbeitraegeBausparvertraegeP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.SparbeitraegeBausparvertraegeP2__c}"/></td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Unterhaltsverpflichtungen</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.UnterhaltsverpflichtungenP1__c}"/></td>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 35%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.UnterhaltsverpflichtungenP2__c}"/></td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <apex:image style="display: block; margin-left: 300px; margin-top: 30px; margin-bottom: 50px;" id="Logo_small_3" value="https://wirtschaftshaus--artur.sandbox.lightning.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Jpg&versionId=0683G000000EJKW&operationContext=DELIVERY&contentId=05T3G00000233NQ&page=0&d=/a/3G000000Cco7/SJz55Wy9cSe4dsvkHzconFl.1q2By4MFxLMZgpqKmFI&oid=00D3G0000004hfp&dpt=null&viewId=" width="70" height="70" alt="TwentyOne Knots Logo" />
+        </div>
+
+        <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
+            <table style=" width: 100%; margin-left: -2px; margin-bottom: 25px;">
+                <tr style="width: 100%; margin-left: 0;">
+                    <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Created By</th>
+                    <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >
+                        <apex:outputText value="{!DigitaleVsa__c.CreatedBy.Name}"/>
+                    </td>
+                </tr>
+                <tr style="width: 100%">
+                    <th style=" color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;">Last Modified By</th>
+                    <td style="color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;"><apex:outputText value="{!DigitaleVsa__c.LastModifiedBy.Name}"/></td>
+                </tr>
+            </table> 
+        </div> 
+
+            <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
+
+            <apex:repeat value="{!verbindlichkeiten}" var="ver" >
+                <h2 style="color: #414141; font-size: 14px; font-weight: 900; letter-spacing: -1px;"> VSA VERBINDLICHKEITEN</h2>
+
+                    <h3 style="color: gray; font-size: 14px; font-weight: 900; letter-spacing: -1px;">{!ver.name}</h3>
+                    <table style=" width: 100%; margin-left: -2px; margin-bottom: 25px;">
+                        <tr style="width: 100%; margin-left: 0;">
+                            <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Art</th> 
+                            <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.Art__c}</td>
+                        </tr>
+                        <tr style="width: 100%; margin-left: 0;">
+                            <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Kreditgeber</th> 
+                            <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.Kreditgeber__c}</td>
+                        </tr>
+                        <tr style="width: 100%; margin-left: 0;">
+                            <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Ursprünglicher Darlehensbetrag</th> 
+                            <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.UrspruenglicherDarlehensbetrag__c}</td>
+                        </tr>
+                        <tr style="width: 100%; margin-left: 0;">
+                            <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Zinsbindung bis</th> 
+                            <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.ZinsbindungBis__c}</td>
+                        </tr>
+                        <tr style="width: 100%; margin-left: 0;">
+                            <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Tilgung bis</th> 
+                            <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.TilgungBis__c}</td>
+                        </tr>
+                        <tr style="width: 100%; margin-left: 0;">
+                            <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Monatliche Rate</th> 
+                            <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.MonatlicheRate__c}</td>
+                        </tr>
+                        <tr style="width: 100%; margin-left: 0;">
+                            <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Aktuelle Restschuld</th> 
+                            <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!ver.AktuelleRestschuld__c}</td>
+                        </tr>
+                    </table>
+
+            </apex:repeat>
+            </div>
+    
+
+
+        <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
+
+        <apex:repeat value="{!vermoegenswert}" var="verm">
+            <h2 style="color: #414141; font-size: 14px; font-weight: 900; letter-spacing: -1px;">VSA VERMöGENSWERT</h2>
+
+                <h3 style="color: gray; font-size: 14px; font-weight: 900; letter-spacing: -1px;">{!verm.name}</h3>
+                <table style=" width: 100%; margin-left: -2px; margin-bottom: 25px;">
+                    <tr style="width: 100%; margin-left: 0;">
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Art</th> 
+                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!verm.Art__c}</td>
+                    </tr>
+                    <tr style="width: 100%; margin-left: 0;">
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Gesellschaft</th> 
+                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!verm.Gesellschaft__c}</td>
+                    </tr>
+                    <tr style="width: 100%; margin-left: 0;">
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Vertragssumme</th> 
+                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!verm.Vertragssumme__c}</td>
+                    </tr>
+                    <tr style="width: 100%; margin-left: 0;">
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Sparbeginn</th> 
+                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!verm.Sparbeginn__c}</td>
+                    </tr>
+                    <tr style="width: 100%; margin-left: 0;">
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Monatliche Zahlung</th> 
+                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!verm.MonatlicheZahlung__c}</td>
+                    </tr>
+                    <tr style="width: 100%; margin-left: 0;">
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Aktuelles Guthaben</th> 
+                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!verm.AktuellesGuthaben__c}</td>
+                    </tr>
+                </table>
+
+        </apex:repeat>
+        </div>
+
+
+        <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
+
+        <apex:repeat value="{!immobilie}" var="imm">
+            <h2 style="color: #414141; font-size: 14px; font-weight: 900; letter-spacing: -1px;">VSA IMMOBILIE</h2>
+
+                <h3 style="color: gray; font-size: 14px; font-weight: 900; letter-spacing: -1px;">{!imm.name}</h3>
+                <table style=" width: 100%; margin-left: -2px; margin-bottom: 25px;">
+                    <tr style="width: 100%; margin-left: 0;">
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Art</th> 
+                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!imm.Art__c}</td>
+                    </tr>
+                    <tr style="width: 100%; margin-left: 0;">
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Verkehrswert</th> 
+                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!imm.Verkehrswert__c}</td>
+                    </tr>
+                    <tr style="width: 100%; margin-left: 0;">
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Restschuld</th> 
+                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!imm.Restschuld__c}</td>
+                    </tr>
+                    <tr style="width: 100%; margin-left: 0;">
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Kreditgeber</th> 
+                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!imm.Kreditgeber__c}</td>
+                    </tr>
+                    <tr style="width: 100%; margin-left: 0;">
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Monatliche Rate</th> 
+                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!imm.MonatlicheRate__c}</td>
+                    </tr>
+                    <tr style="width: 100%; margin-left: 0;">
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Monatliche Nettokaltmiete</th> 
+                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!imm.MonatlicheNettokaltmiete__c}</td>
+                    </tr>
+                    <tr style="width: 100%; margin-left: 0;">
+                        <th style="margin-left: 0; color: #414141; width: 25%; height: 30px; margin-right: 5%; font-family:sans-serif;text-align:left; font-size: 12px; font-weight: 400; letter-spacing: -0.5px;" >Postleitzahl / Ort der Immobilie</th> 
+                        <td style="margin-left: 0; color: #414141; background-color: #e9f5f9; width: 70%; height: 30px; sans-serif;text-align:left; font-size: 12px; font-weight: 400; padding-left: 5px;" >{!imm.PostleitzahlOrtDerImmobilie__c	}</td>
+                    </tr>
+                </table>
+
+        </apex:repeat>
+        </div>
+    </div>
+</apex:page>
