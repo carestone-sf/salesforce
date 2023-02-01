@@ -1,4 +1,5 @@
 import { LightningElement, api, track } from 'lwc';
+import generateFileDownloadLog from '@salesforce/apex/FileDownloadLogController.createFileDownloadLog';
 
 export default class GoogleDriveDocumentList extends LightningElement {
 
@@ -56,6 +57,10 @@ export default class GoogleDriveDocumentList extends LightningElement {
     connectedCallback() {
         this.setup();
     }
+    async createDownloadFileLog( immobilenDMSDateiId){
+        await generateFileDownloadLog({immobilenDMSDateiId: immobilenDMSDateiId});
+        // await generateFileDownloadLog({contactId: contactId, immobilenDMSDateiId:immobilenDMSDateiId});
+    }
 
     setup() {
         const documentsByParentFolderJson = {};
@@ -65,6 +70,7 @@ export default class GoogleDriveDocumentList extends LightningElement {
         */
         for(let i = 0; i < this.documents.length; i++) {
             const doc = this.documents[i];
+            console.log('this.doc:', this.documents[i]);
             if(doc.parentFolder == null) {
                 continue;
             }
@@ -79,11 +85,16 @@ export default class GoogleDriveDocumentList extends LightningElement {
         for(const key in documentsByParentFolderJson) {
             this.documentsByParentFolder.push(documentsByParentFolderJson[key]);
         }
+        console.log('documentsByParentFolder string: ',JSON.stringify(this.documentsByParentFolder))
     }
 
     handleRowAction(event){
+        this.createDownloadFileLog(event.detail.row.id);
         const actionName = event.detail.action.name;
         const row = event.detail.row;
+        // console.log('event', event);
+        console.log('event dteail', event.detail.row.id);
+        // console.log('row', row);
         switch (actionName) {
             case 'download':
                 this.downloadFile(row);

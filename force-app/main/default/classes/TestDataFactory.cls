@@ -20,37 +20,7 @@ public with sharing class TestDataFactory {
 
         return user;
     }
-
-    public static User createCommunityUser(Id accountId) {
-        Contact contact = new Contact(
-                AccountId = accountId,
-                FirstName = 'Tim',
-                LastName = 'Test',
-                Email = 'mathis@test.dev.xyz'
-        );
-        insert contact;
-
-        Profile commProfile = [SELECT Id FROM Profile WHERE Name = 'Partner Community Manager'];
-        User user = new User(
-                ProfileId = commProfile.Id,
-                FirstName = 'Tim',
-                LastName = 'Test',
-                Email = 'mathis@test.dev',
-                IsActive = true,
-                ContactId = contact.Id,
-                Username = 'mathis@test.dev',
-                Alias = 'ttest',
-                TimeZoneSidKey = 'America/Los_Angeles',
-                LocaleSidKey = 'en_US',
-                EmailEncodingKey = 'UTF-8',
-                LanguageLocaleKey = 'en_US'
-        );
-        insert user;
-
-        return user;
-    }
-
-    public static User createTestuser(Boolean doInsert,string name,integer i) {
+    public static User createTestUser(Boolean doInsert,string name,integer i) {
         Id systemAdminProfileId = [SELECT Id FROM Profile WHERE Name = 'System Administrator' LIMIT 1].Id;
 
         User userExample = new User();
@@ -168,7 +138,6 @@ public with sharing class TestDataFactory {
         
         return opp;
     }
-	
     public static Contact createContact(Boolean doInsert){
         Contact con = new Contact();
         con.FirstName='Test First Name';
@@ -178,7 +147,6 @@ public with sharing class TestDataFactory {
         }
         return con;
     }
-	
     public static Contact createContact(Boolean doInsert,string firstName,string lastName,  string email){
         Contact con = new Contact();
         con.FirstName=firstName;
@@ -189,7 +157,6 @@ public with sharing class TestDataFactory {
         }
         return con;
     }
-
     public static Contact createMakler(Boolean doInsert, Id accountId) {
         Contact con = new Contact();
         con.AccountId = accountId;
@@ -222,10 +189,7 @@ public with sharing class TestDataFactory {
         con.DatevDebitorenKundennummerKaeufer__c = '3000001';
         con.LastName = 'Interessentenmann ';
         con.RecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('Interessent').getRecordTypeId();
-        con.Phone = '1234';
-        con.Email = 'interessent@carestone.devx';
-        con.BirthDate = Date.today().addDays(-365*30);
-
+        
         if(doInsert) {
             insert con;
         }
@@ -539,25 +503,38 @@ public with sharing class TestDataFactory {
         }
         return summary;
     }
-
-
-    public static Activity_Summary__c createActivitySummary(Boolean doInsert, Id userId, Id contactId, Integer nmonth) {
+    public static Activity_Summary__c createActivitySummary(Boolean doInsert, string userId, integer nmonth) {
         Activity_Summary__c summary= new Activity_Summary__c();
         summary.year__c=String.valueOf(Date.today().addmonths(nmonth*-1).year());
         summary.month__c=String.valueOf(Date.today().addmonths(nmonth*-1).month());
         summary.userId__c=userId;
         summary.number_of_logins__c=0;
-        summary.contact__c = contactId;
+        contact con= new contact();
+        con.lastName='test';
+        insert con;
+        summary.contact__c=con.id;
         if(doInsert) {
             insert summary;
         }
         return summary;
     }
+    public static ImmobilienDMSDatei__c createImmobilienDMSDatei(Boolean doInsert){
+        ImmobilienDMSDatei__c dmsDatei =new ImmobilienDMSDatei__c();
 
-    public static Activity_Summary__c createActivitySummary(Boolean doInsert, string userId, integer nmonth) {
-        contact con= new contact();
-        con.lastName='test';
-        insert con;
-        return createActivitySummary(doInsert, userId, con.Id, nmonth);
+        if(doInsert){
+            insert dmsDatei;
+        }
+
+        return dmsDatei;
+    }
+    public static FileDownloadLog__c createFileDownloadLog(Boolean doInsert,id contatcId, id immobilenDMSDateiId){
+        FileDownloadLog__c fdl =new FileDownloadLog__c();
+        fdl.Contact__c =contatcId;
+        fdl.ImmobilienDMSDatei__c =immobilenDMSDateiId;
+        if(doInsert){
+            insert fdl;
+        }
+
+        return fdl;
     }
 }

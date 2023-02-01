@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ImmobilienDMSDatei__c</fullName>
+    <externalId>false</externalId>
+    <label>Immobilien DMS Datei</label>
+    <referenceTo>ImmobilienDmsDatei__c</referenceTo>
+    <relationshipLabel>File Download Logs</relationshipLabel>
+    <relationshipName>File_Download_Logs</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>
