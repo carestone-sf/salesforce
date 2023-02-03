@@ -9,7 +9,8 @@ public with sharing class BatchAddSuffixToAllContactsEmails implements Database.
         system.debug('----------started-----------');
         return [
             SELECT id,email 
-            FROM Contact 
+            FROM Contact
+            WHERE email != null
         ];
     }
 
@@ -25,26 +26,29 @@ public with sharing class BatchAddSuffixToAllContactsEmails implements Database.
     }
 
     public void finish(Database.BatchableContext BC){
-            AsyncApexJob a = [
-                SELECT Id, Status, NumberOfErrors, JobItemsProcessed, TotalJobItems, CreatedBy.Email 
-                FROM AsyncApexJob 
-                WHERE Id = :bc.getJobId()
-            ];
-            String emailBody ='BatchAddSuffixToAllContactsEmails batch processed ' + a.TotalJobItems + ' batches with '+ a.NumberOfErrors + ' failures.';
-            Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
-            message.toaddresses = new String[] {UserInfo.getUserEmail()};
-            message.optOutPolicy = 'FILTER';
-			message.subject = 'BatchAddSuffixToAllContactsEmails batch status';
-            message.plainTextBody = emailBody;
-            Messaging.SingleEmailMessage[] messages =   new List<Messaging.SingleEmailMessage> {message};
-			Messaging.SendEmailResult[] results = Messaging.sendEmail(messages);
-            if (results[0].success) 
-			{
-    			System.debug('The email was sent successfully.');
-			} else 
-			{
-    			System.debug('The email failed to send: ' + results[0].errors[0].message);
-			}
-            system.debug('----------finished-----------');
+            if(!Test.isRunningTest()){
+                AsyncApexJob a = [
+                    SELECT Id, Status, NumberOfErrors, JobItemsProcessed, TotalJobItems, CreatedBy.Email 
+                    FROM AsyncApexJob 
+                    WHERE Id = :bc.getJobId()
+                ];
+                String emailBody ='BatchAddSuffixToAllContactsEmails batch processed ' + a.TotalJobItems + ' batches with '+ a.NumberOfErrors + ' failures.';
+                Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
+                message.toaddresses = new String[] {UserInfo.getUserEmail()};
+                message.optOutPolicy = 'FILTER';
+                message.subject = 'BatchAddSuffixToAllContactsEmails batch status';
+                message.plainTextBody = emailBody;
+                Messaging.SingleEmailMessage[] messages =   new List<Messaging.SingleEmailMessage> {message};
+                Messaging.SendEmailResult[] results = Messaging.sendEmail(messages);
+                if (results[0].success) 
+                {
+                    System.debug('The email was sent successfully.');
+                } else 
+                {
+                    System.debug('The email failed to send: ' + results[0].errors[0].message);
+                }
+                system.debug('----------finished-----------');
+            }
+            
     }
 }

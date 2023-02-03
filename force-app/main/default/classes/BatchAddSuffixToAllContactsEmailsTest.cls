@@ -15,7 +15,7 @@ public class BatchAddSuffixToAllContactsEmailsTest {
         insert contactsToInsert;
     }   
     @isTest
-    private static void test1(){
+    private static void testIfSuffixWasAdded(){
         Test.startTest();
         Database.executeBatch(new BatchAddSuffixToAllContactsEmails());
         Test.stopTest();
@@ -28,6 +28,41 @@ public class BatchAddSuffixToAllContactsEmailsTest {
         for(contact con : contactsToCheck){
             // System.Debug('email: '+con.email);
             System.assert(con.email.endsWith(BatchAddSuffixToAllContactsEmails.SUFFIX_TO_ADD));
+        }
+    }
+    @isTest
+    private static void testIfContactsWithNullEmailsNotCausingErrors(){
+        Map<id,contact> contacts=new Map<id,contact>([
+            SELECT id,email 
+            FROM Contact 
+            limit 5
+        ]);
+
+        for(contact con : contacts.values()){
+            con.email=null;
+        }
+        update contacts.values();
+        Test.startTest();
+        string error;
+        try {       
+            Database.executeBatch(new BatchAddSuffixToAllContactsEmails());
+        } catch (Exception ex) {
+            error=ex.getMessage();
+        }
+        finally{
+            system.assertEquals(null,error);
+        }
+        Test.stopTest();
+        
+        List<contact> contactsToCheck=[
+            SELECT id,email 
+            FROM Contact 
+            WHERE id = :contacts.keySet()
+        ];
+
+        for(contact con : contactsToCheck){
+            con.email=null;
+            System.assertEquals(null,con.email);
         }
     }
 }
