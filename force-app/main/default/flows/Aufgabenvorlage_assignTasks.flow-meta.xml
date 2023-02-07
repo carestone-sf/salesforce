@@ -27,6 +27,13 @@
                 <elementReference>var_form_dueDate</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_sObj_Task.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>LOOP_TaskTemplate.Account__r.OwnerId</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>STORE_TaskCollection</targetReference>
         </connector>
@@ -117,7 +124,7 @@ DAY(TODAY() + 4)
 )</expression>
     </formulas>
     <interviewLabel>geplante Aufgaben - {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Aufgabenvorlage - Scheudled</label>
+    <label>Aufgabenvorlage - Scheduled</label>
     <loops>
         <name>LOOP_TaskTemplate</name>
         <label>Loop - TaskTemplate</label>
