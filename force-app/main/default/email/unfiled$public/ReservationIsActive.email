@@ -1,3 +1,5 @@
+Die folgende Reservierung ist jetzt aktiv:
+
 Immobilie: {!Opportunity.Immobilie__c}
 Appartment: {!Opportunity.Appartement__c}
 Käufer: {!Opportunity.Potenzieller_Kunde__c}
