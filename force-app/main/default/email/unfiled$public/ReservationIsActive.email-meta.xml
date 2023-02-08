@@ -5,7 +5,7 @@
     <encodingKey>UTF-8</encodingKey>
     <name>Reservation Is Active</name>
     <style>none</style>
-    <subject>Ihre Reservierung ist jetzt aktiv</subject>
+    <subject>Reservierung {!Opportunity.Name} ist jetzt aktiv!</subject>
     <type>text</type>
     <uiType>Aloha</uiType>
 </EmailTemplate>
