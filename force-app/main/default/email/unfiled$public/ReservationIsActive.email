@@ -1,0 +1,1 @@
+{!Opportunity.Customer_Name__c}, {!Opportunity.Property_Name__c}, {!Opportunity.Appartament_Name__c}. Für uns bindend bis zum {!Opportunity.reserviert_bis__c}.
