@@ -28,7 +28,10 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 'e.breitenstein@carestone.com',
                 'l.machotta@carestone.com',
                 'mathis.carestone@lightblaze.de',
-                'mathis.carestone@lightblaze.de.dev'
+                'mathis.carestone@lightblaze.de.dev',
+                'tobias.graeve@carestone.com',
+                'tobias.graeve@carestone.com.int',
+                'tobias.graeve@carestone.com.qa'
         };
 
 
