@@ -315,6 +315,59 @@ private class OpportunityTriggerHandlerTest {
         System.assertEquals(1, [SELECT COUNT() FROM ContentVersion WHERE FirstPublishLocationId = :opp.Id AND Typ__c = 'Notar-Anschreiben']);
     }
     @IsTest
+    private static void testClearNotarterminOnLostOpportunity() {
+        Account acc = TestDataFactory.createAccount(true);
+        Property__c immobilie = TestDataFactory.createProperty(true, TestDataFactory.createBautraeger(true).Id);
+        Appartment__c appartment = TestDataFactory.createAppartment(true, immobilie.Id);
+
+        Contact makler = TestDataFactory.createMakler(false, acc.Id);
+        Contact interessent = TestDataFactory.createInteressent(false, acc.Id);
+        Contact interessent2 = TestDataFactory.createInteressent(false, acc.Id);
+        insert new List<Contact> {makler, interessent, interessent2};
+
+        TestDataFactory.createProvisionsverhandlung(true, acc.Id, immobilie.Id);
+
+        Opportunity opp = TestDataFactory.createOpportunity(false, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Reserviert');
+        opp.Notartermin__c = Date.today().addDays(-5);
+        insert opp;
+
+        Test.startTest();        
+        opp.StageName = 'VKC ausgelaufen';
+        opp.Grund_VKC_verloren__c = 'Interessent möchte sein Kapital jetzt anlegen';
+        update opp;
+        Test.stopTest();
+
+        System.assertEquals(null, [SELECT Notartermin__c FROM Opportunity WHERE Id = :opp.Id].Notartermin__c);
+    }
+
+    @IsTest
+    private static void testCumulatedProvisionAggregation() {
+        Account acc = TestDataFactory.createAccount(true);
+        Property__c immobilie = TestDataFactory.createProperty(true, TestDataFactory.createBautraeger(true).Id);
+        Appartment__c appartment = TestDataFactory.createAppartment(true, immobilie.Id);
+
+        Contact makler = TestDataFactory.createMakler(false, acc.Id);
+        Contact interessent = TestDataFactory.createInteressent(false, acc.Id);
+        Contact interessent2 = TestDataFactory.createInteressent(false, acc.Id);
+        insert new List<Contact> {makler, interessent, interessent2};
+
+        TestDataFactory.createProvisionsverhandlung(true, acc.Id, immobilie.Id);
+
+        Opportunity opp = TestDataFactory.createOpportunity(false, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Reserviert');
+        opp.Immobilienberater__c = makler.Id;
+        opp.Kunde2__c = interessent2.Id;
+        opp.Provisionsbasis__c = 500;
+        opp.KumulierteProvisionExtern__c = 3;
+        insert opp; 
+
+        opp.StageName = 'Geschlossene und gewonnene';
+        Test.startTest();
+        update opp;
+        Test.stopTest();
+
+        Assert.isNotNull([SELECT SummeWertKumulierteProvisionExtern__c FROM Property__c WHERE Id = :opp.Immobilie__c].SummeWertKumulierteProvisionExtern__c);
+    }
+    @IsTest
     static void testThatEmailWasSent() {
         Account acc = TestDataFactory.createAccount(true);
         Property__c immobilie = TestDataFactory.createProperty(true, TestDataFactory.createBautraeger(true).Id);
