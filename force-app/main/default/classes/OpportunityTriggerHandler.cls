@@ -202,7 +202,12 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
             'e.breitenstein@carestone.com',
             'l.machotta@carestone.com',
             'mathis.carestone@lightblaze.de',
-            'mathis.carestone@lightblaze.de.dev'
+            'mathis.carestone@lightblaze.de.dev',
+            'tobias.graeve@carestone.com',
+            'tobias.graeve@carestone.com.int',
+            'tobias.graeve@carestone.com.qa',
+            'tobias.graeve@carestone.com.tg1',
+            'tobias.graeve@carestone.com.tg2'
         };
     
         if(opp.Appartement__c == null) {
