@@ -11,7 +11,7 @@ public with sharing class TestDataFactory {
         ); 
     }
 
-    public static User createTestuser(Boolean doInsert) {
+    public static User createTestUser(Boolean doInsert) {
         User user = new User();
         
         if(doInsert) {
@@ -167,6 +167,26 @@ public with sharing class TestDataFactory {
         }
         
         return opp;
+    }
+	
+    public static Contact createContact(Boolean doInsert){
+        Contact con = new Contact();
+        con.FirstName='Test First Name';
+        con.LastName='Test Last Name';
+        if(doInsert){
+            insert con;
+        }
+        return con;
+    }
+    public static Contact createContact(Boolean doInsert,string firstName,string lastName,  string email){
+        Contact con = new Contact();
+        con.FirstName=firstName;
+        con.LastName=lastName;
+        con.email=email;
+        if(doInsert){
+            insert con;
+        }
+        return con;
     }
 
     public static Contact createMakler(Boolean doInsert, Id accountId) {
