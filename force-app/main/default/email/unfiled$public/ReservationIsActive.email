@@ -1,1 +1,7 @@
-{!Opportunity.Customer_Name__c}, {!Opportunity.Property_Name__c}, {!Opportunity.Appartament_Name__c}. Für uns bindend bis zum {!Opportunity.reserviert_bis__c}.
+Die folgende Reservierung ist jetzt aktiv:
+
+Immobilie: {!Opportunity.Immobilie__c}
+Appartment: {!Opportunity.Appartement__c}
+Käufer: {!Opportunity.Potenzieller_Kunde__c}
+
+Diese Reservierung ist für uns bindend bis zum {!Opportunity.reserviert_bis__c}.
