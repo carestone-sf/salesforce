@@ -14,7 +14,6 @@ public without sharing class FinanceCalculator {
     public Integer pages = 0;
     public Decimal sumSBetragplusFKreditsumme {get;set;}
 
-
     public FinanceCalculator() {
 
     }
@@ -82,7 +81,6 @@ public without sharing class FinanceCalculator {
         }
 
         List<Finanzierungsbaustein__c> fbs = [SELECT Id, Name, Art__c, Finanzierungsbeginn__c, Kreditsumme__c, LaufzeitInJahren__c, TilgungInPercent__c, Tilgungsbeginn__c, ZinsInPercent__c, ZinsbindungBis__c, (SELECT Name, JahrDerAuszahlung__c, Betrag__c FROM Sondertilgungen__r) FROM Finanzierungsbaustein__c WHERE Berechnung__c = :calculationId];
-
         //Related to a Calculation (Berechnung__c) are “Finanzierungsbausteine” records
         for(Finanzierungsbaustein__c f:fbs){
             if(f.Kreditsumme__c != null){
