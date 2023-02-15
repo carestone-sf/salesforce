@@ -11,7 +11,7 @@ public with sharing class TestDataFactory {
         ); 
     }
 
-    public static User createTestuser(Boolean doInsert) {
+    public static User createTestUser(Boolean doInsert) {
         User user = new User();
         
         if(doInsert) {
@@ -168,6 +168,26 @@ public with sharing class TestDataFactory {
         
         return opp;
     }
+	
+    public static Contact createContact(Boolean doInsert){
+        Contact con = new Contact();
+        con.FirstName='Test First Name';
+        con.LastName='Test Last Name';
+        if(doInsert){
+            insert con;
+        }
+        return con;
+    }
+    public static Contact createContact(Boolean doInsert,string firstName,string lastName,  string email){
+        Contact con = new Contact();
+        con.FirstName=firstName;
+        con.LastName=lastName;
+        con.email=email;
+        if(doInsert){
+            insert con;
+        }
+        return con;
+    }
 
     public static Contact createMakler(Boolean doInsert, Id accountId) {
         Contact con = new Contact();
@@ -181,6 +201,9 @@ public with sharing class TestDataFactory {
         con.Maklerbetreuer_E_Mail__c = 'mathis@testx.dev';
         con.LastName = 'Maklermann ';
         con.RecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('Makler').getRecordTypeId();
+        con.Birthdate = System.today().addYears(-30);
+        con.Email = 'test@test.dev';
+        con.Phone = '0123456789';
         
         if(doInsert) {
             insert con;

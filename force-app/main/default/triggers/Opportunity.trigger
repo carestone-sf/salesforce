@@ -28,7 +28,12 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 'e.breitenstein@carestone.com',
                 'l.machotta@carestone.com',
                 'mathis.carestone@lightblaze.de',
-                'mathis.carestone@lightblaze.de.dev'
+                'mathis.carestone@lightblaze.de.dev',
+                'tobias.graeve@carestone.com',
+                'tobias.graeve@carestone.com.int',
+                'tobias.graeve@carestone.com.qa',
+                'tobias.graeve@carestone.com.tg1',
+                'tobias.graeve@carestone.com.tg2'
         };
 
 
@@ -45,6 +50,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 }
 
                 if (Trigger.isUpdate) {
+                    OpportunityTriggerHandler.sendEmailWhenReservationAccepted(trigger.newMap,trigger.oldMap);
                     // Calculate Rabatt
                     Opportunity oldOpp = Trigger.oldMap.get(opp.Id);
                     if (opp.Rabatt_in__c != oldOpp.Rabatt_in__c && opp.Maklerrabatt_in__c == oldOpp.Maklerrabatt_in__c && opp.Rabatt_in__c != null && opp.Rabatt_in__c != 0) {
@@ -340,17 +346,27 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
             }
 
         }
-
+        
         if(!AdminSettings__c.getInstance(UserInfo.getUserId()).DisableProvisionGenerationAutomatism__c) {
             if(changedOppsIntern.size() > 0) {
                 GenerateProvision gPro = new GenerateProvision();
                 gPro.updateProvisionen(changedOppsIntern, changedOppsInternOldMap, 'intern');
             }
-    
+
             if(changedOppsAll.size() > 0) {
                 GenerateProvision gPro = new GenerateProvision();
                 gPro.updateProvisionen(changedOppsAll, changedOppsAllOldMap, 'all');
             }
+        }
+
+        if(changedOppsIntern.size() > 0) {
+            GenerateProvision gPro = new GenerateProvision();
+            gPro.updateProvisionen(changedOppsIntern, changedOppsInternOldMap, 'intern');
+        }
+
+        if(changedOppsAll.size() > 0) {
+            GenerateProvision gPro = new GenerateProvision();
+            gPro.updateProvisionen(changedOppsAll, changedOppsAllOldMap, 'all');
         }
     }
 
@@ -398,7 +414,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 }
             }
 
-            /*
+            /* MOVED TO OpportunityTriggerHandler
             if (Trigger.isInsert) {
                 //Übertrag von Daten in das Appartment
                 apps.Customer__c = opp.Potenzieller_Kunde__c;
