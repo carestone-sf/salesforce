@@ -27,6 +27,11 @@
                 <label>KfW 40 (EE)</label>
             </value>
             <value>
+                <fullName>KfW 40 (NH)</fullName>
+                <default>false</default>
+                <label>KfW 40 (NH)</label>
+            </value>
+            <value>
                 <fullName>KfW 55</fullName>
                 <default>false</default>
                 <label>KfW 55</label>
@@ -45,6 +50,11 @@
                 <fullName>Ohne MaBV</fullName>
                 <default>false</default>
                 <label>Ohne MaBV</label>
+            </value>
+            <value>
+                <fullName>KfW 95</fullName>
+                <default>false</default>
+                <label>KfW 95</label>
             </value>
             <value>
                 <fullName>KfW-40 (EE)</fullName>
