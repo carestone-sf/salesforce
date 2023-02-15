@@ -31,7 +31,9 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 'mathis.carestone@lightblaze.de.dev',
                 'tobias.graeve@carestone.com',
                 'tobias.graeve@carestone.com.int',
-                'tobias.graeve@carestone.com.qa'
+                'tobias.graeve@carestone.com.qa',
+                'tobias.graeve@carestone.com.tg1',
+                'tobias.graeve@carestone.com.tg2'
         };
 
 
@@ -412,7 +414,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 }
             }
 
-            /*
+            /* MOVED TO OpportunityTriggerHandler
             if (Trigger.isInsert) {
                 //Übertrag von Daten in das Appartment
                 apps.Customer__c = opp.Potenzieller_Kunde__c;
