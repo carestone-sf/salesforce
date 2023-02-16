@@ -52,9 +52,9 @@
                 <label>Ohne MaBV</label>
             </value>
             <value>
-                <fullName>KfW 95</fullName>
+                <fullName>KfW 85</fullName>
                 <default>false</default>
-                <label>KfW 95</label>
+                <label>KfW 85</label>
             </value>
             <value>
                 <fullName>KfW-40 (EE)</fullName>
