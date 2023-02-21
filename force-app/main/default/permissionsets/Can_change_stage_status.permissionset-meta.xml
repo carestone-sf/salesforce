@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customPermissions>
-        <enabled>true</enabled>
-        <name>Can_change_stage_status</name>
-    </customPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>Can change stage status</label>
 </PermissionSet>
