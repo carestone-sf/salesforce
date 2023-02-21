@@ -6,10 +6,6 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
         if (trigger.isInsert || trigger.isUpdate) {
             //Liste für das Updaten der Appartments
 
-            //todo MOVE TO THE OPP TRIGGER HANDLER
-            if(trigger.isUpdate) {
-                OpportunityTriggerHandler.sendEmailWhenReservationAccepted(trigger.newMap,trigger.oldMap);
-            }
             for (Opportunity opp : trigger.new) {
                 if (opp.Risikobelehrung__c == true && opp.Beratungsprotokoll__c == True && opp.KV_eingegangen__c == True && (opp.Nachweis_Barzahler__c == True || opp.Status_Finanzierung__c == 'Zusage liegt vor')) {
                     opp.Alle_Unterlagen_vorhanden__c = true;
