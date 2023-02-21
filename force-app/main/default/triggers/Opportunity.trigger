@@ -6,6 +6,10 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
 
         if (trigger.isInsert || trigger.isUpdate) {
             //Liste für das Updaten der Appartments
+            Map<Id,SObject> recordsWithFormulaValues = new Map<Id,SObject>(); 
+            for(FormulaRecalcResult result : Formula.recalculateFormulas(Trigger.new.deepClone(true))) {
+                recordsWithFormulaValues.put(result.getSObject().Id, result.getSObject());
+            } 
 
             for (Opportunity opp : trigger.new) {
                 if (opp.Risikobelehrung__c == true && opp.Beratungsprotokoll__c == True && opp.KV_eingegangen__c == True && (opp.Nachweis_Barzahler__c == True || opp.Status_Finanzierung__c == 'Zusage liegt vor')) {
