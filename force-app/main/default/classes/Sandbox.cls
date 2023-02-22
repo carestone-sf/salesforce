@@ -128,6 +128,9 @@ public class Sandbox {
                 con.MailingCity = 'Hannover';
                 con.MailingPostalCode = '30159';
                 con.DatevDebitorenKundennummerKaeufer__c = '3000001';
+                con.Birthdate = Date.newInstance(2000,01,01);
+                con.Email = 'sandbox@carestone.com.invalid';
+                con.Phone = '0123456789';
 
                 Integer z = i+1;
                 if(con.Gesch_ftsbeziehung__c == 'Interessent') {
