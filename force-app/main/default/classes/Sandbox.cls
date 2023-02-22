@@ -67,6 +67,9 @@ public class Sandbox {
         //Opportunities erstellen
         createOpenOpportunities(2);
         createClosedOpportunities(1);
+
+        //add to contacts email suffix '.invalid'
+        Database.executeBatch(new BatchAddSuffixToAllContactsEmails());
     }
 
     public static void createAccounts(Integer numAccounts, Id parentId, Integer levels) {
@@ -125,6 +128,9 @@ public class Sandbox {
                 con.MailingCity = 'Hannover';
                 con.MailingPostalCode = '30159';
                 con.DatevDebitorenKundennummerKaeufer__c = '3000001';
+                con.Birthdate = Date.newInstance(2000,01,01);
+                con.Email = 'sandbox@carestone.com.invalid';
+                con.Phone = '0123456789';
 
                 Integer z = i+1;
                 if(con.Gesch_ftsbeziehung__c == 'Interessent') {
