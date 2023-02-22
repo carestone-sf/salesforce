@@ -3,6 +3,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
     TriggerFactory.createHandler(Opportunity.getSObjectType());
 
     if (Trigger.isBefore) {
+
         if (trigger.isInsert || trigger.isUpdate) {
             //Liste für das Updaten der Appartments
             Map<Id,SObject> recordsWithFormulaValues = new Map<Id,SObject>(); 
