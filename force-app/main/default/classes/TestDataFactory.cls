@@ -178,7 +178,7 @@ public with sharing class TestDataFactory {
         }
         return con;
     }
-	
+
     public static Contact createContact(Boolean doInsert,string firstName,string lastName,  string email){
         Contact con = new Contact();
         con.FirstName=firstName;
@@ -202,6 +202,9 @@ public with sharing class TestDataFactory {
         con.Maklerbetreuer_E_Mail__c = 'mathis@testx.dev';
         con.LastName = 'Maklermann ';
         con.RecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('Makler').getRecordTypeId();
+        con.Birthdate = System.today().addYears(-30);
+        con.Email = 'test@test.dev';
+        con.Phone = '0123456789';
         
         if(doInsert) {
             insert con;

@@ -3,6 +3,26 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     private static final String ZAHLUNGSERINNERUNG_APPROVAL_PROCESS_NAME = 'Zahlungserinnerung';
     private static final String ZAHLUNGSEINGANG_APPROVAL_PROCESS_NAME = 'Zahlungseingang';
     private static final String FIBU_MAILBOX = 'MaBV-Rechnungen@carestone.com';
+    private static final String OPPORTUNITY_STAGE_RESERVIERUNG_ANGEFRAGT = 'Reservierung angefragt';
+    private static final String OPPORTUNITY_STAGE_RESERVIERT = 'Reserviert';
+    private static final String CAN_CHANGE_STAGE_STATUS_PERMISSION_NAME='Can_change_stage_status';
+    private static string getUserId{
+        get{
+            return System.UserInfo.getUserId();
+        }
+        set;
+    }
+    private static List<PermissionSetAssignment> getPermissionSetAssignments{
+        get{
+            if(getPermissionSetAssignments==null){
+                getpermissionSetAssignments=[SELECT Id, PermissionSetId, PermissionSet.Name, AssigneeId
+                FROM PermissionSetAssignment
+                WHERE AssigneeId = :getUserId And PermissionSet.Name=:CAN_CHANGE_STAGE_STATUS_PERMISSION_NAME];
+            }
+            return getPermissionSetAssignments;
+        }
+        set;
+    }
 
     Id orgWideEmailAddressId = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'service@carestone.com' LIMIT 1].Id;
     
@@ -45,6 +65,10 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     }
     
     public void bulkAfter() {
+        if(Trigger.isInsert || Trigger.isUpdate) {
+            getLostOpportunityStages();
+        }
+
         if(Trigger.isUpdate) {
             getProvisionen();
         }
@@ -107,7 +131,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
             )});
             batchFileCreationRequests.add(fcr);
         }
-
+        
         if(opp.WertKumulierteProvisionExtern__c != null && (!oldOpp.IsWon && opp.IsWon)) {
             propertyIdsToRecalculateAggregatedProvision.add(opp.Immobilie__c);
         }
@@ -120,14 +144,13 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     }
 
     public void andFinally() {
-        if(!propertyIdsToRecalculateAggregatedProvision.isEmpty()) {
+          if(!propertyIdsToRecalculateAggregatedProvision.isEmpty()) {
             List<Property__c> properties = new List<Property__c>();
             for (AggregateResult agRes : [SELECT SUM(WertKumulierteProvisionExtern__c) provExtern, Immobilie__c FROM Opportunity WHERE Immobilie__c IN :propertyIdsToRecalculateAggregatedProvision AND IsWon = true GROUP BY Immobilie__c]) {
                 properties.add(new Property__c(Id = (Id) agRes.get('Immobilie__c'), SummeWertKumulierteProvisionExtern__c = (Double) agRes.get('provExtern')));
             }
             update properties;
         }
-        
         if(!updateMap.isEmpty()) {
             List<SObject> updateList = updateMap.values();
             updateList.sort();
@@ -139,7 +162,6 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         if(!approvalRequests.isEmpty()) {
             Approval.process(approvalRequests);
         }
-
     }
 
     /**
@@ -173,37 +195,9 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
      * @param opp Inserted Opportunity
      */
     private void setStageOnInsert(Opportunity opp) {
-        // TODO: Refactor to custom permission & permission set
-        Set<String> userName = new Set <String>{
-            'sp@wirtschaftshaus.de',
-            'hs@wirtschaftshaus.de',
-            'rg@wirtschaftshaus.de',
-            'whsystems@wirtschaftshaus.de.testbox',
-            'witte@amstammtisch.de.testbox',
-            'witte@amstammtisch.de',
-            'witte@amstammtisch.de.vp29',
-            'witte@amstammtisch.de.fullbox',
-            'witte@amstammtisch.de.partbox',
-            'witte@amstammtisch.de.dev',
-            'r.lubitz@wirtschaftshaus.de',
-            'l.korte@wh-marketing.de',
-            'k.hemker@wirtschaftshaus.de',
-            'k.schreiber@wirtschaftshaus.de',
-            'a.eisold@carestone.com',
-            'i.wittwer@wi-immogroup.wh.de',
-            'r.held@wi-immogroup.de',
-            'j.zander@wi-immogroup.de',
-            'a.eisold@carestone.com',
-            'a.schneider@carestone.com',
-            'e.breitenstein@carestone.com',
-            'l.machotta@carestone.com',
-            'mathis.carestone@lightblaze.de',
-            'mathis.carestone@lightblaze.de.dev'
-        };
-    
         if(opp.Appartement__c == null) {
             opp.StageName = 'Nachrücker';
-        } else if(!userName.contains(System.Userinfo.getUserName())) {
+        } else if(!PermissionSetsHandler.hasPermissionSet()) {
             opp.StageName = 'Reservierungsvorbereitung';
         }
     }
@@ -281,6 +275,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     /**
      * Methods for before trigger
     */
+
     public void setOpportunityFields(Opportunity opp, Opportunity oldOpp) {
         if(stageSetToReserved(opp, oldOpp)) {
             setReservationDate(opp);
@@ -470,7 +465,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     public void trackMahnungStarted(Opportunity opp) {
         opp.MahnungGenerieren__c = false;
     }
-
+    
     public Boolean opportunityWasLost(Opportunity opp, Opportunity oldOpp) {
         return lostOpportunityStages.contains(opp.StageName) && (Trigger.isInsert || (oldOpp != null && oldOpp.StageName != opp.StageName));
     }
@@ -829,5 +824,50 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                 }
             }
         }
+    }
+    public static void sendEmailWhenReservationAccepted(Map<Id, opportunity> oppNewMap, Map<Id, opportunity> oppOldMap) {
+        List<Messaging.SingleEmailMessage> allMsgs = new List<messaging.SingleEmailMessage>();
+        Map<Id, Opportunity> opps = new Map<Id, opportunity>();
+
+        for (opportunity opp : oppNewMap.values()) {
+            //checking if opportunity stage was updated from 'reservierung angefragt' to 'Reserviert'
+            if (oppOldMap.get(opp.id).StageName == OPPORTUNITY_STAGE_RESERVIERUNG_ANGEFRAGT &&
+                    oppNewMap.get(opp.id).StageName == OPPORTUNITY_STAGE_RESERVIERT) {
+                opps.put(opp.id, opp);
+
+            }
+        }
+        if (opps.size() > 0) {
+            EmailTemplate mailTemplate = [
+                    Select Id, Subject, Description,
+                            HtmlValue, DeveloperName, Body
+                    from EmailTemplate
+                    where DeveloperName =
+                            'ReservationIsActive'
+            ];
+            for (opportunity opp : opps.values()) {
+
+                id maklerId = opp.Makler__c;
+                id maklerbetreuerCarestoneId = opp.Maklerbetreuer_WirtschaftsHaus__c;
+
+                Messaging.SingleEmailMessage mailToMakler = new Messaging.SingleEmailMessage();
+                mailToMakler.setTemplateID(mailTemplate.Id);
+                mailToMakler.setWhatId(opp.Id);
+                mailToMakler.setTargetObjectId(maklerId);
+                allMsgs.add(mailToMakler);
+
+                Messaging.SingleEmailMessage mailToMaklBeretreuer = new Messaging.SingleEmailMessage();
+                mailToMaklBeretreuer.setTemplateID(mailTemplate.Id);
+                mailToMaklBeretreuer.setWhatId(opp.Id);
+                mailToMaklBeretreuer.setTargetObjectId(maklerbetreuerCarestoneId);
+                allMsgs.add(mailToMaklBeretreuer);
+
+            }
+        try {
+            Messaging.sendEmail(allMsgs, true);
+        } catch (Exception e) {
+            System.debug(e.getMessage() + ' Failed to send emails');
+        }
+    }
     }
 }
