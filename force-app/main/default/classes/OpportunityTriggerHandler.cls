@@ -195,6 +195,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
      * @param opp Inserted Opportunity
      */
     private void setStageOnInsert(Opportunity opp) {
+
         if(opp.Appartement__c == null) {
             opp.StageName = 'Nachrücker';
         } else if(!PermissionSetsHandler.hasPermissionSet()) {
