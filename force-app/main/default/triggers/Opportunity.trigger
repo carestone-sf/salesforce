@@ -3,34 +3,6 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
     TriggerFactory.createHandler(Opportunity.getSObjectType());
 
     if (Trigger.isBefore) {
-        //Map für Appartment
-        Set < String > userName = new Set < String >{
-                'sp@wirtschaftshaus.de',
-                'hs@wirtschaftshaus.de',
-                'rg@wirtschaftshaus.de',
-                'whsystems@wirtschaftshaus.de.testbox',
-                'witte@amstammtisch.de.testbox',
-                'witte@amstammtisch.de',
-                'witte@amstammtisch.de.vp29',
-                'witte@amstammtisch.de.fullbox',
-                'witte@amstammtisch.de.partbox',
-                'witte@amstammtisch.de.dev',
-                'r.lubitz@wirtschaftshaus.de',
-                'l.korte@wh-marketing.de',
-                'k.hemker@wirtschaftshaus.de',
-                'k.schreiber@wirtschaftshaus.de',
-                'a.eisold@carestone.com',
-                'i.wittwer@wi-immogroup.wh.de',
-                'r.held@wi-immogroup.de',
-                'j.zander@wi-immogroup.de',
-                'a.eisold@carestone.com',
-                'a.schneider@carestone.com',
-                'e.breitenstein@carestone.com',
-                'l.machotta@carestone.com',
-                'mathis.carestone@lightblaze.de',
-                'mathis.carestone@lightblaze.de.dev'
-        };
-
 
         if (trigger.isInsert || trigger.isUpdate) {
             //Liste für das Updaten der Appartments
@@ -38,13 +10,14 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
             for(FormulaRecalcResult result : Formula.recalculateFormulas(Trigger.new.deepClone(true))) {
                 recordsWithFormulaValues.put(result.getSObject().Id, result.getSObject());
             } 
-            
+
             for (Opportunity opp : trigger.new) {
                 if (opp.Risikobelehrung__c == true && opp.Beratungsprotokoll__c == True && opp.KV_eingegangen__c == True && (opp.Nachweis_Barzahler__c == True || opp.Status_Finanzierung__c == 'Zusage liegt vor')) {
                     opp.Alle_Unterlagen_vorhanden__c = true;
                 }
 
                 if (Trigger.isUpdate) {
+                    OpportunityTriggerHandler.sendEmailWhenReservationAccepted(trigger.newMap,trigger.oldMap);
                     // Calculate Rabatt
                     Opportunity oldOpp = Trigger.oldMap.get(opp.Id);
                     if (opp.Rabatt_in__c != oldOpp.Rabatt_in__c && opp.Maklerrabatt_in__c == oldOpp.Maklerrabatt_in__c && opp.Rabatt_in__c != null && opp.Rabatt_in__c != 0) {
@@ -192,7 +165,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                         opp.CloseDate = date.today();
                     }
 
-                    if (!userName.contains(System.Userinfo.getUserName())) {
+                    if (!PermissionSetsHandler.hasPermissionSet()) {
                         opp.StageName.addError('Änderung nicht zulässig. Bitte wenden Sie sich an Ihren Systemadministrator');
                     }
                 } else if (opp.StageName == 'Geschlossen und verloren') {
@@ -340,17 +313,27 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
             }
 
         }
-
+        
         if(!AdminSettings__c.getInstance(UserInfo.getUserId()).DisableProvisionGenerationAutomatism__c) {
             if(changedOppsIntern.size() > 0) {
                 GenerateProvision gPro = new GenerateProvision();
                 gPro.updateProvisionen(changedOppsIntern, changedOppsInternOldMap, 'intern');
             }
-    
+
             if(changedOppsAll.size() > 0) {
                 GenerateProvision gPro = new GenerateProvision();
                 gPro.updateProvisionen(changedOppsAll, changedOppsAllOldMap, 'all');
             }
+        }
+
+        if(changedOppsIntern.size() > 0) {
+            GenerateProvision gPro = new GenerateProvision();
+            gPro.updateProvisionen(changedOppsIntern, changedOppsInternOldMap, 'intern');
+        }
+
+        if(changedOppsAll.size() > 0) {
+            GenerateProvision gPro = new GenerateProvision();
+            gPro.updateProvisionen(changedOppsAll, changedOppsAllOldMap, 'all');
         }
     }
 
@@ -398,7 +381,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 }
             }
 
-            /*
+            /* MOVED TO OpportunityTriggerHandler
             if (Trigger.isInsert) {
                 //Übertrag von Daten in das Appartment
                 apps.Customer__c = opp.Potenzieller_Kunde__c;

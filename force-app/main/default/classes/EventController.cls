@@ -9,7 +9,10 @@ public without sharing class EventController {
         Id conId = usr.ContactId;
         Id accId = usr.AccountId;
         List<Campaign> cmsRegistered = [SELECT Id, Name, Url__c, StartDate, EndDate, DateTime__c FROM Campaign WHERE Id IN (SELECT CampaignId FROM CampaignMember WHERE ContactId = :conId) AND StartDate >= TODAY];
-        List<Campaign> cmsNotRegistered = [SELECT Id, Name, Url__c, StartDate, EndDate, DateTime__c FROM Campaign WHERE Type = 'Webinar' AND StartDate >= TODAY AND ID NOT IN  (SELECT CampaignId FROM CampaignMember WHERE ContactId = :conId)];
+        List<Campaign> cmsNotRegistered = [SELECT Id, Name, Url__c, StartDate, EndDate, DateTime__c, Type FROM Campaign WHERE Type = 'Webinar' AND StartDate >= TODAY AND ID NOT IN  (SELECT CampaignId FROM CampaignMember WHERE ContactId = :conId)];
+        //Type of shown items on in the LWC is set in EventController.cls in line 12. At the moment restricted to “Webinar”. Please add Type “Objektveranstaltung” in addition.
+        List<Campaign> cmsNotRegisteredObjektveranstaltung = [SELECT Id, Name, Url__c, StartDate, EndDate, DateTime__c, Type FROM Campaign WHERE Type = 'Objektveranstaltung' AND StartDate >= TODAY AND ID NOT IN  (SELECT CampaignId FROM CampaignMember WHERE ContactId = :conId)];
+
         List<Event> events = [SELECT Id, Subject, StartDateTime, EndDateTime, Description, Location, Who.Name, Owner.FirstName, Owner.LastName FROM Event WHERE StartDateTime >= TODAY AND (WhoId = :conId OR OwnerId = :userId)];
         List<CustomEvent> customEvents = new List<CustomEvent>();
 
@@ -25,6 +28,11 @@ public without sharing class EventController {
         }
 
         for(Campaign cm:cmsNotRegistered) {
+            CustomEvent ce = new CustomEvent('campaign', cm.Name, cm.Url__c, cm.DateTime__c, null, cm.StartDate, cm.EndDate, cm.Id, false, true, null, null, null, null);
+            customEvents.add(ce);
+        }
+
+        for(Campaign cm:cmsNotRegisteredObjektveranstaltung) {
             CustomEvent ce = new CustomEvent('campaign', cm.Name, cm.Url__c, cm.DateTime__c, null, cm.StartDate, cm.EndDate, cm.Id, false, true, null, null, null, null);
             customEvents.add(ce);
         }

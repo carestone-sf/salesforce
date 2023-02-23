@@ -2,9 +2,10 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>AfaProJahrInEuro__c</fullName>
     <externalId>false</externalId>
-    <formula>0.02 *  Purchase_Price__c * Property__r.Building_Share_Value__c</formula>
+    <formula>Purchase_Price__c * Property__r.Building_Share_Value__c * Property__r.Afa_Building_Shares__c +
+Purchase_Price__c * Property__r.Value_Plot__c * Property__r.Afa_Plot__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-    <label>AfA pro Jahr in Euro</label>
+    <label>AfA Gesamt (volles Wirtschaftsjahr)</label>
     <precision>18</precision>
     <required>false</required>
     <scale>2</scale>
