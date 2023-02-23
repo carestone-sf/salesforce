@@ -37,21 +37,25 @@ public without sharing class ImmobilienController {
 
     @AuraEnabled(Cacheable=true)
     public static Immobilie[] getPublicImmobilien() {
+        /*
         Contact contact = [SELECT Id, AccountId FROM Contact WHERE Id = :UserInfo.getUserId()];
         Property_Selector selector = new Property_Selector(contact.AccountId);
         selector.setFields(new List<Schema.SObjectField> {Property__c.Location__Latitude__s, Property__c.PreSale__c, Property__c.Property__c, Property__c.Bauart__c});
         selector.addSubquery('Appartments__r', new List<Schema.SObjectField> {Appartment__c.Id, Appartment__c.Name, Appartment__c.Purchase_price__c, Appartment__c.Purchase_price__c, Appartment__c.Notartermin__c, Appartment__c.Property__r.Name}, null);
         selector.setConditionWithSharing('Is_Public__c = TRUE AND PreSale__c = FALSE');
         return getImmobilienList(selector.getRecords());
-        /*
         selector.setConditionWithSharing('Is_Public__c = TRUE AND PreSale__c = FALSE');
-        List<Property__c> properties = [
-            SELECT Id, Name, Location__Latitude__s, PreSale__c, Property__c, Bauart__c, (SELECT Id, Name, Purchase_price__c, Notartermin__c, Property__r.Name FROM Appartments__r Order By Name ASC)
-            FROM Property__c
-            WHERE 
-        ];
-        return getImmobilienList(properties);
         */
+        
+        String query = 'SELECT Id, Name, Location__Latitude__s, PreSale__c, Property__c, Bauart__c, (SELECT Id, Name, Purchase_price__c, Notartermin__c, Property__r.Name FROM Appartments__r Order By Name ASC) FROM Property__c WHERE Is_Public__c = TRUE AND PreSale__c = FALSE';
+
+        if(0 != [SELECT COUNT() FROM Contact WHERE Id IN (SELECT ContactId FROM User WHERE Id = :UserInfo.getUserId())]) {
+            Contact contact = [SELECT Id, AccountId FROM Contact WHERE Id IN (SELECT ContactId FROM User WHERE Id = :UserInfo.getUserId())];
+            query += ' AND Id NOT IN (SELECT Property__c FROM HiddenProperty__c WHERE Account__c = \'' + contact.AccountId + '\')';
+        }
+
+        List<Property__c> properties = (List<Property__c>) Database.query(query);
+        return getImmobilienList(properties);
     }
 
     @AuraEnabled(Cacheable=true)
