@@ -37,21 +37,25 @@ public without sharing class ImmobilienController {
 
     @AuraEnabled(Cacheable=true)
     public static Immobilie[] getPublicImmobilien() {
+        /*
         Contact contact = [SELECT Id, AccountId FROM Contact WHERE Id = :UserInfo.getUserId()];
         Property_Selector selector = new Property_Selector(contact.AccountId);
         selector.setFields(new List<Schema.SObjectField> {Property__c.Location__Latitude__s, Property__c.PreSale__c, Property__c.Property__c, Property__c.Bauart__c});
         selector.addSubquery('Appartments__r', new List<Schema.SObjectField> {Appartment__c.Id, Appartment__c.Name, Appartment__c.Purchase_price__c, Appartment__c.Purchase_price__c, Appartment__c.Notartermin__c, Appartment__c.Property__r.Name}, null);
         selector.setConditionWithSharing('Is_Public__c = TRUE AND PreSale__c = FALSE');
         return getImmobilienList(selector.getRecords());
-        /*
         selector.setConditionWithSharing('Is_Public__c = TRUE AND PreSale__c = FALSE');
-        List<Property__c> properties = [
-            SELECT Id, Name, Location__Latitude__s, PreSale__c, Property__c, Bauart__c, (SELECT Id, Name, Purchase_price__c, Notartermin__c, Property__r.Name FROM Appartments__r Order By Name ASC)
-            FROM Property__c
-            WHERE 
-        ];
-        return getImmobilienList(properties);
         */
+        
+        String query = 'SELECT Id, Name, Location__Latitude__s, PreSale__c, Property__c, Bauart__c, (SELECT Id, Name, Purchase_price__c, Notartermin__c, Property__r.Name FROM Appartments__r Order By Name ASC) FROM Property__c WHERE Is_Public__c = TRUE AND PreSale__c = FALSE';
+
+        if(0 != [SELECT COUNT() FROM Contact WHERE Id IN (SELECT ContactId FROM User WHERE Id = :UserInfo.getUserId())]) {
+            Contact contact = [SELECT Id, AccountId FROM Contact WHERE Id IN (SELECT ContactId FROM User WHERE Id = :UserInfo.getUserId())];
+            query += ' AND Id NOT IN (SELECT Property__c FROM HiddenProperty__c WHERE Account__c = \'' + contact.AccountId + '\')';
+        }
+
+        List<Property__c> properties = (List<Property__c>) Database.query(query);
+        return getImmobilienList(properties);
     }
 
     @AuraEnabled(Cacheable=true)
@@ -92,20 +96,32 @@ public without sharing class ImmobilienController {
 
     @AuraEnabled(Cacheable=true)
     public static Immobilie[] getHighlightImmobilien() {
-        Contact contact = [SELECT Id, AccountId FROM Contact WHERE Id = :UserInfo.getUserId()];
-        List<Property__c> properties = [
-            SELECT Id, Name, Website_Header_Bild__c, PreSale__c, Verkaufte_Appartements__c, MieteVon__c, MieteBis__c, Reservierte_Appartements__c, Freie_Appartments__c, Preis_ab__c, Preis_bis__c, 
-            (SELECT Id, Name,Area_sq_m__c,Purchase_Price_sq_m__c,Monthly_Rent__c, Purchase_price__c, Notartermin__c, Status__c, Property__r.Name FROM Appartments__r Order By Name ASC) 
-            FROM Property__c 
-            WHERE Is_Public__c = true 
-            AND Immobilie_promoten__c = true
-            AND Id NOT IN (SELECT Property__c FROM HiddenProperty__c WHERE Account__c = :contact.AccountId)
-        ];
-        return getImmobilienList(properties);
+        if(0 != [SELECT COUNT() FROM Contact WHERE Id IN (SELECT ContactId FROM User WHERE Id = :UserInfo.getUserId())]) {
+            Contact contact = [SELECT Id, AccountId FROM Contact WHERE Id IN (SELECT ContactId FROM User WHERE Id = :UserInfo.getUserId())];
+            List<Property__c> properties = [
+                SELECT Id, Name, Website_Header_Bild__c, PreSale__c, Verkaufte_Appartements__c, MieteVon__c, MieteBis__c, Reservierte_Appartements__c, Freie_Appartments__c, Preis_ab__c, Preis_bis__c, 
+                (SELECT Id, Name,Area_sq_m__c,Purchase_Price_sq_m__c,Monthly_Rent__c, Purchase_price__c, Notartermin__c, Status__c, Property__r.Name FROM Appartments__r Order By Name ASC) 
+                FROM Property__c 
+                WHERE Is_Public__c = true 
+                AND Immobilie_promoten__c = true
+                AND Id NOT IN (SELECT Property__c FROM HiddenProperty__c WHERE Account__c = :contact.AccountId)
+            ];
+            return getImmobilienList(properties);
+        } else {
+            List<Property__c> properties = [
+                SELECT Id, Name, Website_Header_Bild__c, PreSale__c, Verkaufte_Appartements__c, MieteVon__c, MieteBis__c, Reservierte_Appartements__c, Freie_Appartments__c, Preis_ab__c, Preis_bis__c, 
+                (SELECT Id, Name,Area_sq_m__c,Purchase_Price_sq_m__c,Monthly_Rent__c, Purchase_price__c, Notartermin__c, Status__c, Property__r.Name FROM Appartments__r Order By Name ASC) 
+                FROM Property__c 
+                WHERE Is_Public__c = true 
+                AND Immobilie_promoten__c = true
+            ];
+            return getImmobilienList(properties);
+        }
     }
 
     public static List<Immobilie> getImmobilienList(List<Property__c> properties) {
-        List<Immobilie> immobilien = new List<Immobilie>();
+
+        Map<Id,Immobilie> immosByIds = new Map<Id,Immobilie>();
 
         for(Property__c property:properties) {
             Immobilie i = new Immobilie();
@@ -128,10 +144,14 @@ public without sharing class ImmobilienController {
                     i.dokumente.add(metadata);
                 }
             }
-            immobilien.add(i);
+            immosByIds.put(property.Id, i);
         }
 
-        return immobilien;
+        for(Appartment__c teilobjekt : [SELECT Id, OeffentlicherStatus__c, Name,Area_sq_m__c,Purchase_Price_sq_m__c,Monthly_Rent__c, Purchase_price__c, Notartermin__c, Status__c, Property__r.Name, FlaecheQmText__c, Jahresmiete__c FROM Appartment__c WHERE Property__c in :immosByIds.keySet() ORDER BY Name ASC]) {
+            immosByIds.get(teilobjekt.Property__c).teilobjekte.add(teilobjekt);
+        }
+
+        return immosByIds.values();
     }
 
     public class Immobilie {
@@ -147,9 +167,13 @@ public without sharing class ImmobilienController {
         @AuraEnabled
         public String logo{get;set;}
 
+        @AuraEnabled
+        public List<Appartment__c> teilobjekte {get;set;}
+
         public Immobilie() {
             this.bilder = new List<String>();
             this.dokumente = new List<Map<String,String>>();
+            this.teilobjekte = new List<Appartment__c>();
         }
     }
 }
