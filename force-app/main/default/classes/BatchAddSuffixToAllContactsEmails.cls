@@ -10,6 +10,7 @@ public with sharing class BatchAddSuffixToAllContactsEmails implements Database.
         return [
             SELECT id,email 
             FROM Contact 
+            WHERE email != NULL
         ];
     }
 
@@ -37,14 +38,15 @@ public with sharing class BatchAddSuffixToAllContactsEmails implements Database.
 			message.subject = 'BatchAddSuffixToAllContactsEmails batch status';
             message.plainTextBody = emailBody;
             Messaging.SingleEmailMessage[] messages =   new List<Messaging.SingleEmailMessage> {message};
+        if(!Test.isRunningTest()){
 			Messaging.SendEmailResult[] results = Messaging.sendEmail(messages);
-            if (results[0].success) 
-			{
+            if (results[0].success){
     			System.debug('The email was sent successfully.');
-			} else 
-			{
+            } else{
     			System.debug('The email failed to send: ' + results[0].errors[0].message);
 			}
             system.debug('----------finished-----------');
+        }
+
     }
 }
