@@ -25,10 +25,10 @@ public without sharing class ImmobilienController {
             ];
         }else if (pf.Name.contains('Maklerbetreuer')) {
             properties = [
-                SELECT Id, Name, Website_Header_Bild__c, PreSale__c, Preis_ab__c, MaBV__c, Foerderung__c, Projektbeauftragte__r.Name, Projektbeauftragte__r.Email__c,Projektbeauftragte__r.Telefonnummer__c,Projektbeauftragte__r.Foto_URL__c, Preis_bis__c, Anzahl_Einheiten__c, Location__Latitude__s, Property__c, State__c, Rendite_in__c, Arrival__c, Bauart__c, Location__Longitude__s, Street__c, Zip_Code__c, Place__c, Unternehmen__c,Verkaufte_Appartements__c, MieteVon__c, MieteBis__c,Reservierte_Appartements__c, Fl_che_ab__c, Fl_che_bis__c, Operating_Company__c,Freie_Appartments__c, Description__c, Lagebeschreibung__c, Betreiber__r.Name, Betreiber__r.Betreiberinformationen__c, Betreiber__r.Betreiber_Logo__c, Finanzierung_Details__c, Operating_Company__r.Name,Notar__r.Account.Name,Notar__r.Account.BillingStreet,Notar__r.Account.BillingCity,Notar__r.Account.BillingPostalCode, Completion__c, FAQ__c, Max_Rendite__c, (
+                SELECT Id, Name, Website_Header_Bild__c, PreSale__c, Preis_ab__c, MaBV__c, Foerderung__c, Projektbeauftragte__r.Name, Projektbeauftragte__r.Email__c,Projektbeauftragte__r.Telefonnummer__c,Projektbeauftragte__r.Foto_URL__c, Preis_bis__c, Anzahl_Einheiten__c, Location__Latitude__s, Property__c, State__c, Rendite_in__c, Arrival__c, Bauart__c, Location__Longitude__s, Street__c, Zip_Code__c, Place__c, Unternehmen__c,Verkaufte_Appartements__c, MieteVon__c, MieteBis__c,Reservierte_Appartements__c, Fl_che_ab__c, Fl_che_bis__c, Operating_Company__c,Freie_Appartments__c, Description__c, Lagebeschreibung__c, Betreiber__r.Name, Betreiber__r.Betreiberinformationen__c, Betreiber__r.Betreiber_Logo__c, Finanzierung_Details__c, Operating_Company__r.Name,Notar__r.Account.Name,Notar__r.Account.BillingStreet,Notar__r.Account.BillingCity,Notar__r.Account.BillingPostalCode, Completion__c, FAQ__c,  (
                     SELECT Id, Name,Area_sq_m__c,Purchase_Price_sq_m__c,Monthly_Rent__c, Purchase_price__c, Notartermin__c, Status__c, Property__r.Name, FlaecheQmText__c, Jahresmiete__c
                     FROM Appartments__r
-                    WHERE (Makler__r.AccountId =: accId OR Makler__r.Account.Maklerbetreuer_Wirtschaftshaus_2__c =: conId)
+                    WHERE (Makler__c =: conId OR Makler__r.OwnerId=:userId)
                     AND Status__c = 'Sold'
                     ORDER BY Name ASC
                 )
@@ -36,7 +36,7 @@ public without sharing class ImmobilienController {
                 WHERE Id IN (
                     SELECT Property__c
                     FROM Appartment__c
-                    WHERE (Makler__r.AccountId =: accId OR Makler__r.Account.Maklerbetreuer_Wirtschaftshaus_2__c =: conId)
+                    WHERE (Makler__c =: conId OR Makler__r.OwnerId=:userId)
                     AND Status__c = 'Sold'
                 )
             ];
