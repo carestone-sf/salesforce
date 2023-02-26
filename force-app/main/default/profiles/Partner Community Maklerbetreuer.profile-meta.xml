@@ -704,11 +704,6 @@
         <field>Property__c.MaBV__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Property__c.Real_Estate_Transfer_Tax__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
