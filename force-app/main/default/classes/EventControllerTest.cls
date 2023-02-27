@@ -13,7 +13,7 @@ public with sharing class EventControllerTest {
         mb.Gesch_ftsbeziehung__c = 'Mitarbeiter WH';
         Database.insert(mb, dml);
         Account acc = new Account();
-        acc.Name = 'Makler GmbH%';
+        acc.Name = 'CS Maklerbetreuer GmbH';
         acc.Email__c = 'f.witte@wirtschaftshaus.de';
         acc.Maklerbetreuer_Wirtschaftshaus__c = 'Frank Köpsell';
         acc.Maklerbetreuer_Wirtschaftshaus_2__c = mb.Id;
@@ -82,6 +82,23 @@ public with sharing class EventControllerTest {
         e.StartDateTime = DateTime.now();
         e.EndDateTime = DateTime.now() + 1;
         insert e;
+
+        //Create Campaigns
+        List<Campaign> campInsert = new List<Campaign>();
+        Campaign campReg = new Campaign(Name='Registered',Type='Webinar',Organizer__c=acc.Id,DateTime__c=DateTime.now()+2);
+        campInsert.add(campReg);
+        Campaign campUnreg = new Campaign(Name='Unregistered',Type='Webinar',Organizer__c=acc.Id,DateTime__c=DateTime.now()+2);
+        campInsert.add(campUnreg);
+        Database.insert(campInsert,dml);
+
+        //Create Campaign Member
+        CampaignMember cm1 = new CampaignMember(ContactId=con.Id,CampaignId=campReg.Id);
+        CampaignMember cm2 = new CampaignMember(ContactId=con.Id,CampaignId=campUnreg.Id);
+        Database.insert(cm2);
+
+        
+        EventController.createCampaignMember(cm1);
+        EventController.deleteCampaignMember(cm2);
 
         User user = [SELECT Id FROM User WHERE LastName = 'Maklermann 6'];
         System.runAs(user) {
