@@ -709,6 +709,13 @@
         <field>Property__c.Real_Estate_Transfer_Tax__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <loginFlows>
+        <flow>VP_Login_Flow</flow>
+        <flowType>UI</flowType>
+        <friendlyName>VP Login Flow</friendlyName>
+        <uiLoginFlowType>VisualWorkflow</uiLoginFlowType>
+        <useLightningRuntime>false</useLightningRuntime>
+    </loginFlows>
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
