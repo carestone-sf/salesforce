@@ -77,7 +77,7 @@ public with sharing class ImmobilienControllerTest {
             TimeZoneSidKey='GMT',
             ContactId=con.Id);
     
-            usr.Username = 'salesaccount5@test.de';
+            usr.Username = 'cs_salesaccount5@test.de.'+ sbName;
             usr.profileId = portalProfileUser.Id;
             con.LastName = 'Sales-Account';
         
