@@ -24,7 +24,7 @@ export default class ImmoListCard extends LightningElement {
     }
     get showBaufortschrittTab (){
         if(this.privateImmobilie.immobilie.BuildingProgressWebcam__c){
-            if( Date.parse(this.privateImmobilie.immobilie.VollstaendigeFertigstellung__c)<=Date.now()){
+            if( Date.parse(this.privateImmobilie.immobilie.VollstaendigeFertigstellung__c)>=Date.now()){
                 return true;
             }
         }
