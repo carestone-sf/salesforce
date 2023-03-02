@@ -411,6 +411,10 @@
         <label></label>
         <name>Google_Drive_synchronisieren</name>
     </quickActions>
+    <quickActions>
+        <label></label>
+        <name>LWC_Create_Pdf_Immobilie_PE</name>
+    </quickActions>
     <validationRules>
         <errorMessage></errorMessage>
         <name>Aktenstatus_00_01</name>
@@ -458,5 +462,13 @@
     <webLinks>
         <label></label>
         <name>Email_f_r_neue_Immobilie</name>
+    </webLinks>
+    <webLinks>
+        <label>Erzeuge PE PDF</label>
+        <name>Generate_PE_PDF</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>test</name>
     </webLinks>
 </CustomObjectTranslation>
