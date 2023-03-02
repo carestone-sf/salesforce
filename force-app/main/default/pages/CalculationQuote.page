@@ -274,58 +274,6 @@
     <div class="footer-page-count">
         Seite <span class="pagenumber"/> von <span class="pagecount"/>
     </div>
-    <apex:outputPanel rendered="{!IF(Berechnung__c.Pers_nliches_Anschreiben_isBlank__c, false, true)}">
-        <div class="page page-1" style="page-break-after:always;">
-            <div class="main-content">
-                <p><b>Erstellungsdatum:</b></p>
-                <p>
-                    <apex:outputText value="{0, date, d'.'MM'.'yyyy}">
-                        <apex:param value="{!TODAY()}" /> 
-                    </apex:outputText>
-                </p>
-                <br/>
-                <br/>
-                <span style='white-space:pre;' escape="false">
-                    <apex:outputField value="{!Berechnung__c.Pers_nliches_Anschreiben__c}"/>
-                </span>
-                <br/>
-                <br/>
-
-                <!-- End of main content -->
-                <footer>
-                    <div class="c-clearfix" style="position:absolute; top:16.5cm; margin-left: 2.5cm;">
-                    <!-- Start Table Käufer 1 -->
-                        <div style="width: 49%;display: block; float: left;">
-                        
-                        <p><b>Erstellt durch:</b></p>
-                        <p>
-                            {!Berechnung__c.Makler__r.Name}<br/>
-                            {!Berechnung__c.Makler__r.Gesch_ftsbeziehung__c}
-                        </p>
-                        <br/>
-                        <p>{!Berechnung__c.Makler__r.Account.Name}</p>
-                        <p>{!Berechnung__c.Makler__r.Account.BillingStreet}, {!Berechnung__c.Makler__r.Account.BillingPostalCode} {!Berechnung__c.Makler__r.Account.BillingCity}</p>
-                        <br/>        
-                        <p>
-                            <span>Tel: {!Berechnung__c.Makler__r.Account.Phone}</span>
-                            <span style="{!IF(Berechnung__c.Makler__r.Account.Fax != null, 'display:inline', 'display:none')}"><br/>Fax: {!Berechnung__c.Makler__r.Account.Fax}</span>
-                            <span style="{!IF(Berechnung__c.Makler__r.MobilePhone != null, 'display:inline', 'display:none')}"><br/>Mobil: {!Berechnung__c.Makler__r.MobilePhone}</span>
-                        </p>
-                        <br/>
-                        <p>
-                            <span>E-Mail: {!Berechnung__c.Makler__r.Email}</span>
-                            <span style="{!IF(Berechnung__c.Makler__r.Account.Website != null, 'display:inline', 'display:none')}"><br/>{!Berechnung__c.Makler__r.Account.Website}</span>
-                        </p>
-                    </div>
-                    <div class="c-clearfix" style="width: 49%; display: block; float:right;text-align: center;">
-                        <img style="height: 6cm; max-width: 100%; {!IF($User.ImgUrl__c != null, 'display:inline-block', 'display:none')}" src="{!$User.ImgUrl__c}"/>
-                    </div>
-                </div>
-                </footer>
-            </div>
-            <!-- End of page 1 -->
-        </div>
-    </apex:outputPanel>
 
     <div class="page page-1">
         <div class="main-content">

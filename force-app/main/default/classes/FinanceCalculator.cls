@@ -33,6 +33,7 @@ public without sharing class FinanceCalculator {
         }
 
         List<Finanzierungsbaustein__c> fbs = [SELECT Id, Name, Art__c, Finanzierungsbeginn__c, Kreditsumme__c, LaufzeitInJahren__c, TilgungInPercent__c, Tilgungsbeginn__c, ZinsInPercent__c, ZinsbindungBis__c, (SELECT Name, JahrDerAuszahlung__c, Betrag__c FROM Sondertilgungen__r) FROM Finanzierungsbaustein__c WHERE Berechnung__c = :calculationId];
+
         this.financeModules = new List<FinanceModule>();
         this.cumulatedYearlyValues = new Map<Integer, Map<String, Object>>();
         this.firstYearAfterPaymentValues = new Map<Integer, Map<String, Object>>();
