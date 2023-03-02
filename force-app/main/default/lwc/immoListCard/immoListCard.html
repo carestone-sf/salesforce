@@ -152,6 +152,12 @@
 							<c-google-drive-document-list documents={privateImmobilie.dokumente}></c-google-drive-document-list>
 						</div>
 					</lightning-tab>
+					<lightning-tab label="Baufortschritt" if:true={showBaufortschrittTab}>
+						<div class="slds-text-align_left slds-var-m-top_medium">
+							<image src={privateImmobilie.immobilie.BuildingProgressWebcam__c}
+								   alt=" Property actual image"></image>
+						</div>
+					</lightning-tab>
 					<template if:true={privateImmobilie.immobilie.FAQ__c}>
 						<lightning-tab label="Häufig gestellte Fragen">
 							<div class="slds-text-align_left slds-var-m-top_medium">
