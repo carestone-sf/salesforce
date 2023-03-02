@@ -11,7 +11,6 @@ public without sharing class FinanceCalculator {
     public Integer firstYearAfterPayment = 0;
     public Integer firstFullYear = 0;
     public Integer pages = 0;
-    public Decimal sumSBetragplusFKreditsumme {get;set;}
 
     public FinanceCalculator() {
 
