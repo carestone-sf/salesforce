@@ -914,7 +914,7 @@
                 <br/> <br/>
                 <div class="pagination">
                     <apex:variable value="{!0}" var="financeModulePage"/>
-                    <apex:repeat value="{!financeModule.paginatedYearlyValues}" var="yearlyValues">
+                    <apex:repeat value="{!financeModule.paginatedYearlyValues}" var="yearlyValues" rendered="{!NOT(ISNULL(calcSonder))}">
                         <table class="plain overview" style="{!IF(financeModulePage != financeModule.pages, 'page-break-after:always;','')}">
                             <thead>
                                 <th>Jahr</th>
@@ -923,9 +923,42 @@
                                 <th align="right">Zinsen</th>
                                 <th align="right">Tilgung</th>
                                 <th align="right">Darlehensstand</th>
+                                <th align="right">Sondertilgung</th>
+
                             </thead>
                             <tbody>
                                 <apex:repeat value="{!yearlyValues}" var="yearlyValuesKey">
+                                    <tr>
+                                        <td>{!yearlyValuesKey}</td>
+                                        <td align="right">{!yearlyValues[yearlyValuesKey]['creditSumStartInEuro']} &euro;</td>
+                                        <td align="right">{!yearlyValues[yearlyValuesKey]['rateInEuro']} &euro;</td>
+                                        <td align="right">{!yearlyValues[yearlyValuesKey]['interestInEuro']} &euro;</td>
+                                        <td align="right">{!yearlyValues[yearlyValuesKey]['repaymentInEuro']} &euro;</td>
+                                        <td align="right">{!yearlyValues[yearlyValuesKey]['creditSumEndInEuro']} &euro;</td>
+
+                                        <td align="right">
+                                            <apex:outputText value="{!calcSonder[yearlyValuesKey]}" />
+                                            &euro;</td>
+
+                                    </tr>
+                                </apex:repeat>
+                            </tbody>
+                        </table>
+                        <apex:variable value="{!financeModulePage+1}" var="financeModulePage" />
+                    </apex:repeat>
+                    <apex:repeat value="{!financeModule.paginatedYearlyValues}" var="yearlyValues" rendered="{!ISNULL(calcSonder)}">
+                        <table class="plain overview" style="{!IF(financeModulePage != financeModule.pages, 'page-break-after:always;','')}">
+                            <thead>
+                                <th>Jahr</th>
+                                <th align="right">Darlehensstand</th>
+                                <th align="right">Raten</th>
+                                <th align="right">Zinsen</th>
+                                <th align="right">Tilgung</th>
+                                <th align="right">Darlehensstand</th>
+
+                            </thead>
+                            <tbody>
+                                <apex:repeat value="{!yearlyValues}" var="yearlyValuesKey" >
                                     <tr>
                                         <td>{!yearlyValuesKey}</td>
                                         <td align="right">{!yearlyValues[yearlyValuesKey]['creditSumStartInEuro']} &euro;</td>
