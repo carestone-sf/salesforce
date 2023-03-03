@@ -108,6 +108,7 @@ public class CalculationQuoteControllerTest {
         cq.getFirstYearAfterPayment();
         cq.getPages();
         cq.getPaginatedYearlyValues();
+        cq.getSumSBetragplusFKreditsumme();
         RestQuote.attachQuoteFromId(b.Id);
         Test.stopTest();
     }
