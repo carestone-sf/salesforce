@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Objektart</label>
+    <name>Property__c</name>
+    <picklistValues>
+        <masterLabel>Betreutes Wohnen</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Denkmalgeschützte Immobilie</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ferienimmobilie</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kapitalanlage Immobilie</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pflegeimmobilie</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>
