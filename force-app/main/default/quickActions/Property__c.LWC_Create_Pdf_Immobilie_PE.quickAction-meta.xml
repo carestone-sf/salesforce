@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionSubtype>Action</actionSubtype>
+    <description>create pdf from PE in Immobilien quick action</description>
+    <label>LWC Create Pdf Immobilie PE</label>
+    <lightningWebComponent>createPdfImmobilieQuickActionHeaderless</lightningWebComponent>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>LightningWebComponent</type>
+</QuickAction>
