@@ -2179,9 +2179,6 @@
             <name>actionNames</name>
             <valueList>
                 <valueListItems>
-                    <value>Property__c.LWC_Create_Pdf_Immobilie_PE</value>
-                </valueListItems>
-                <valueListItems>
                     <value>CustomButton.Property__c.Generate_PE_PDF</value>
                 </valueListItems>
             </valueList>
