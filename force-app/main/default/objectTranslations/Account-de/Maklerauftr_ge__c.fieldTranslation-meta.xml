@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help></help>
+    <label></label>
+    <name>Maklerauftr_ge__c</name>
+    <picklistValues>
+        <masterLabel>OV Heiligenhafen Fischerhaus</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OV Heiligenhafen Gutshaus</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OV Heiligenhafen Torhaus</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OV Wohnpark Bergen</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>WH Sach Rahmenvereinbarung</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>WHS Maklerauftrag</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>
