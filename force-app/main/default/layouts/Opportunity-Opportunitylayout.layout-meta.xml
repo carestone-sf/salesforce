@@ -205,6 +205,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>PlannedCertification__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Beurkundung__c</field>
             </layoutItems>
             <layoutItems>
@@ -222,9 +226,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Kaufdatum__c</field>
-            </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
@@ -873,14 +874,14 @@
             <sortOrder>19</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>Deca1W67000005HF6JEAW</actionName>
-            <actionType>CustomButton</actionType>
-            <sortOrder>21</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
             <actionName>Punktestand</actionName>
             <actionType>CustomButton</actionType>
             <sortOrder>20</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>Deca1W67000005HF6JEAW</actionName>
+            <actionType>CustomButton</actionType>
+            <sortOrder>21</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <quickActionList>
@@ -980,7 +981,7 @@
         <fields>NAME</fields>
         <fields>Betrag__c</fields>
         <fields>Zahldatum__c</fields>
-        <relatedList>VKCZahlung__c.Verkaufschance__c</relatedList>
+        <relatedList>VkcZahlung__c.Verkaufschance__c</relatedList>
         <sortField>Zahldatum__c</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
