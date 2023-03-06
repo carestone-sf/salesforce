@@ -1084,21 +1084,6 @@
             <field>PlannedCertification__c</field>
             <table>Opportunity</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>AdditionalCosts__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CurrentStatusVkc__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>AdditionalBrokerCommission__c</field>
-            <table>Opportunity</table>
-        </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
     <sections>

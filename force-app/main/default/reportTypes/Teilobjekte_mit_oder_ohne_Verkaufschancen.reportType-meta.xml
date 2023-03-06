@@ -625,16 +625,6 @@
             <field>VKC_Phase__c</field>
             <table>Appartment__c</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>AdditionalBrokerCommission__c</field>
-            <table>Appartment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ContingentRequester__c</field>
-            <table>Appartment__c</table>
-        </columns>
         <masterLabel>Teilobjekte</masterLabel>
     </sections>
     <sections>
@@ -1646,21 +1636,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>PlannedCertification__c</field>
-            <table>Appartment__c.Opportunities__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>AdditionalCosts__c</field>
-            <table>Appartment__c.Opportunities__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CurrentStatusVkc__c</field>
-            <table>Appartment__c.Opportunities__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>AdditionalBrokerCommission__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <masterLabel>Opportunities</masterLabel>
