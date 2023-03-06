@@ -7,15 +7,7 @@
         <translation>dieser Monat</translation>
     </picklistValues>
     <picklistValues>
-        <masterLabel>Lost</masterLabel>
-        <translation>verloren</translation>
-    </picklistValues>
-    <picklistValues>
         <masterLabel>Next Month</masterLabel>
         <translation>nächster Monat</translation>
-    </picklistValues>
-    <picklistValues>
-        <masterLabel>Uncertain</masterLabel>
-        <translation>unsicher</translation>
     </picklistValues>
 </CustomFieldTranslation>

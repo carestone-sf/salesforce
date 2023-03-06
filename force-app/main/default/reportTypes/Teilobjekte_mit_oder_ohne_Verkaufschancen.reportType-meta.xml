@@ -1638,16 +1638,6 @@
             <field>PlannedCertification__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>AdditionalCosts__c</field>
-            <table>Appartment__c.Opportunities__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CurrentStatusVkc__c</field>
-            <table>Appartment__c.Opportunities__r</table>
-        </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
     <sections>
