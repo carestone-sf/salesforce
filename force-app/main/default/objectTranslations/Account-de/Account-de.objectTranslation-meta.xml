@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Accountlayout</layout>
+        <sections>
+            <label></label>
+            <section>Abrechnung</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Hilfsfelder</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Kommunikationsmanagement - Kunde</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Kommunikationsmanagement - Makler</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Kontaktinformationen</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Makleraufträge und Objektvereinbarungen</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Provisionsübersicht</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Umsatz und Absatz Informationen zum Account</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Verträge und Schutz</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BackOffice Account</layout>
+        <sections>
+            <label></label>
+            <section>Abrechnung</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Hilfsfelder</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Kommunikationsmanagement - Kunde</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Kommunikationsmanagement - Makler</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Kontaktinformationen</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Makleraufträge und Objektvereinbarungen</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Provisionsübersicht</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Umsatz und Absatz Informationen zum Account</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Verträge und Schutz</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Community Layout</layout>
+        <sections>
+            <label></label>
+            <section>Adressinformationen</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Kontaktinformationen</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Empfang Account</layout>
+        <sections>
+            <label></label>
+            <section>Abrechnung</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Hilfsfelder</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Kontaktinformationen</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Umsatz und Absatz Informationen zum Account</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Verträge und Schutz</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FrontOffice Account</layout>
+        <sections>
+            <label></label>
+            <section>Abrechnung</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Hilfsfelder</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Kommunikationsmanagement - Kunde</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Kommunikationsmanagement - Makler</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Kontaktinformationen</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Makleraufträge und Objektvereinbarungen</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Provisionsübersicht</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Umsatz und Absatz Informationen zum Account</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Verträge und Schutz</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Marketing Account</layout>
+        <sections>
+            <label></label>
+            <section>Abrechnung</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Hilfsfelder</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Kontaktinformationen</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Vertrieb Account</layout>
+        <sections>
+            <label></label>
+            <section>Abrechnung</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Hilfsfelder</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Kommunikationsmanagement - Kunde</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Kommunikationsmanagement - Makler</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Kontaktinformationen</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Makleraufträge und Objektvereinbarungen</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Provisionsübersicht</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Umsatz und Absatz Informationen zum Account</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Verträge und Schutz</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>tdc_tsw__Send_SMS</name>
+    </quickActions>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Ansaessigkeit_ausserhalb_Deutschland</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Bautraeger_Pflichtangaben</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Bautraeger_wurde_geaendert</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Hinweis_zur_MwSt_ist_leer</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>IbanUngueltig</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Uebergeordneter_Account_geaendert</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Ustd_Id_oder_Steuernummer_leer</name>
+    </validationRules>
+    <webLinks>
+        <label></label>
+        <name>AltavistaNews</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>HooversProfile</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Partnerbenutzer</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Standardbenutzer</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Verkaufsvolumen_mit_Hierarchie</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>YahooMaps</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>tdc_tsw__Send_SMS</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>tdc_tsw__Send_SMS_List</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>tdc_tsw__Send_SMS_SF1</name>
+    </webLinks>
+</CustomObjectTranslation>
