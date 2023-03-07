@@ -22,6 +22,11 @@
                 <default>false</default>
                 <label>Next Month</label>
             </value>
+            <value>
+                <fullName>Uncertain</fullName>
+                <default>false</default>
+                <label>Uncertain</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>
