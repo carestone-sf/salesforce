@@ -10,4 +10,8 @@
         <masterLabel>Next Month</masterLabel>
         <translation>nächster Monat</translation>
     </picklistValues>
+    <picklistValues>
+        <masterLabel>Uncertain</masterLabel>
+        <translation>unsicher</translation>
+    </picklistValues>
 </CustomFieldTranslation>
