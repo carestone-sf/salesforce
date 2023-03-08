@@ -109,7 +109,7 @@
                 <apex:image url="{!$Resource.Carestone_Logo}" width="250px" height="50px" style="float:right; margin-right:30px; margin-top: 10px;"/>
                 <div class="">
                     <h1>
-                        Projektdatenblatatt
+                        Projektdatenblatt
                         <br></br>
                         {!immobiliePdfName}
                     </h1>
