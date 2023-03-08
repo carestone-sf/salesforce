@@ -53,7 +53,7 @@
                 color: rgb({!$User.BackgroundColor__c});
                 }
                 .header{
-                    margin:10% auto ;
+                    margin:5% auto ;
                     width: 90%;
 
                 }
@@ -70,13 +70,13 @@
                 .section__header{
                     /* padding: 0px 1%; */
                     padding-bottom:5px;
-                    margin-bottom: 10px;
+                    margin-bottom: 5px;
                     font-family: serif;
                     color: rgb({!$User.BackgroundColor__c});
-                    font-size: 14pt;
+                    font-size: 12pt;
                     font-weight: normal;
-                    line-height: 15.3pt;
-                    border-bottom: 2px solid rgb({!$User.BackgroundColor__c});
+                    line-height: 13.3pt;
+                    border-bottom: 1px solid rgb({!$User.BackgroundColor__c});
                 }
                 .section__body{
                     /* page-break-inside: avoid; */
@@ -84,9 +84,9 @@
                     float: left;
                 }
                 .section-field{
-                    border-bottom: 1px solid rgb(207, 189, 189);
+                    border-bottom: 0.5px solid rgb(207, 189, 189);
                     padding-bottom: 1%; 
-                    margin-bottom: 2%; 
+                    /*margin-bottom: 2%; */
                     margin-right: 4%; 
                     white-space: nowrap;
                     text-align: left;
@@ -626,10 +626,6 @@
             </div>
         </body>
     </html>
-    
-
-
-
     
 
 
