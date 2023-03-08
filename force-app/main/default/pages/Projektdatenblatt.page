@@ -301,7 +301,7 @@
                 </div>              
                 <div class='section'>
                     <div class="section__body"  >
-                        <h3 class="section__header"> Projektenwicklung </h3>
+                        <h3 class="section__header"> Projektentwicklung </h3>
                         <div class="section__left" style="width:40%; float: left;">
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.Pflegeart__c.Label}</p>    
@@ -503,7 +503,7 @@
                 </div>
                 <div class='section' >
                     <div class="section__body"  >
-                        <h3 class="section__header">Betreiber / Mietvertag</h3>
+                        <h3 class="section__header">Betreiber/Mietvertag</h3>
                         <div class="section__left" style="width:45%; float: left;">
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.Betreiber__c.Label}</p>                               
