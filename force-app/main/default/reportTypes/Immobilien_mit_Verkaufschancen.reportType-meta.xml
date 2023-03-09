@@ -1580,6 +1580,11 @@
             <field>TekturBewilligtAm__c</field>
             <table>Property__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProbabilityGreater50__c</field>
+            <table>Property__c</table>
+        </columns>
         <masterLabel>Immobilien</masterLabel>
     </sections>
     <sections>
@@ -2681,6 +2686,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>PlannedCertification__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AdditionalCosts__c</field>
             <table>Property__c.Opportunities__r</table>
         </columns>
         <masterLabel>Opportunities</masterLabel>
