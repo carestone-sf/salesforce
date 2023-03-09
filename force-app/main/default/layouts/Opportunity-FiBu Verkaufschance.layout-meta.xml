@@ -175,6 +175,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>CurrentStatusVkc__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Probability</field>
             </layoutItems>
             <layoutItems>
