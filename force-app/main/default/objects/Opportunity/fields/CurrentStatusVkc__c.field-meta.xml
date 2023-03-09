@@ -47,6 +47,16 @@
                 <default>false</default>
                 <label>Customer has not yet received contract documents</label>
             </value>
+            <value>
+                <fullName>Notary mistake</fullName>
+                <default>false</default>
+                <label>Notary mistake</label>
+            </value>
+            <value>
+                <fullName>Notary appointment requested</fullName>
+                <default>false</default>
+                <label>Notary appointment requested</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
     <visibleLines>4</visibleLines>
