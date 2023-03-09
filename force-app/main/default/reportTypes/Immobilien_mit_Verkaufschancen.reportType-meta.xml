@@ -1585,6 +1585,11 @@
             <field>ProbabilityGreater50__c</field>
             <table>Property__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>HideSoldAppartmentsVp__c</field>
+            <table>Property__c</table>
+        </columns>
         <masterLabel>Immobilien</masterLabel>
     </sections>
     <sections>
