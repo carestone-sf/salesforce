@@ -30,12 +30,4 @@
         <masterLabel>Missing financing customer bank</masterLabel>
         <translation>Fehlende Finanzierung Kundenbank</translation>
     </picklistValues>
-    <picklistValues>
-        <masterLabel>Notary appointment requested</masterLabel>
-        <translation>Notartermin angefragt</translation>
-    </picklistValues>
-    <picklistValues>
-        <masterLabel>Notary mistake</masterLabel>
-        <translation>Fehler Notar</translation>
-    </picklistValues>
 </CustomFieldTranslation>
