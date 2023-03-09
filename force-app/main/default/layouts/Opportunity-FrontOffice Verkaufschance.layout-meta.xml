@@ -318,6 +318,10 @@
                 <field>Kaufpreis__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>AdditionalCosts__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>beurkundeter_Kaufpreis__c</field>
             </layoutItems>
