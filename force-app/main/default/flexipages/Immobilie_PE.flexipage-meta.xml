@@ -2674,6 +2674,44 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.ProbabilityGreater50__c</fieldItem>
+                <identifier>RecordProbabilityGreater50_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-3ct0w3zbiaf</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-qvu7pwc8w5</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+                <identifier>flexipage_column15</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-3ct0w3zbiaf</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+                <identifier>flexipage_column16</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-m1o1fyh6vr9</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Mietsicherheit__c</fieldItem>
                 <identifier>RecordMietsicherheit_cField2</identifier>
             </fieldInstance>
@@ -4273,18 +4311,6 @@
     <sobjectType>Property__c</sobjectType>
     <template>
         <name>flexipage:recordHomeTemplateDesktop</name>
-        <properties>
-            <name>actionNames</name>
-            <valueList>
-                <valueListItems>
-                    <value>CustomButton.Property__c.Generate_PE_PDF</value>
-                </valueListItems>
-            </valueList>
-        </properties>
-        <properties>
-            <name>enablePageActionConfig</name>
-            <value>true</value>
-        </properties>
     </template>
     <type>RecordPage</type>
 </FlexiPage>
