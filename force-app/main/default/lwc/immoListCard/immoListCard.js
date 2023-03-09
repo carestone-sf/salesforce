@@ -128,7 +128,7 @@ export default class ImmoListCard extends LightningElement {
       }
 
     handleImmobilienChange() {
-        this.transferedApartments = this.privateImmobilie.immobilie.Appartments__r
+        this.transferedApartments = this.privateImmobilie.teilobjekte;
 
         // Sets the data for the google map call
         this.mapMarkers[0].location.Street = this.privateImmobilie.immobilie.Street__c;
@@ -176,12 +176,12 @@ export default class ImmoListCard extends LightningElement {
       get betreiberLogoUrl() {
         let url = this.privateImmobilie.immobilie.BetreiberBetreiber_Logo__c;
         let imageId;
-        if(url && url.includes("drive.google.") && url.endsWith("/view")) {
+        if(url != null && url.includes("drive.google.") && url.endsWith("/view")) {
             imageId = url.slice(
                 url.indexOf("/d/") + 3, 
                 url.lastIndexOf("/view")
             );
-        } else if(url.includes("?id=")) {
+        } else if(url != null && url.includes("?id=")) {
             imageId = url.split("?id=")[1];
         } 
         

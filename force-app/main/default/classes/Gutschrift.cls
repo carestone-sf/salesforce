@@ -6,7 +6,7 @@ public without sharing class Gutschrift {
 
     @Future(callout=true)
     public static void sendGutschriftAsPdf(Id id) {
-        List<Gutschrift__c> gutschriften = [SELECT Id, LaufnummerNew__c, Empfaenger__c FROM Gutschrift__c WHERE Id = :id];
+        List<Gutschrift__c> gutschriften = [SELECT Id, LaufnummerNew__c, Empfaenger__c, Empfaenger__r.Email, Empfaenger__r.EmailForCreditNotes__c FROM Gutschrift__c WHERE Id = :id];
         Gutschrift__c gutschriftRecord = gutschriften.get(0);
         PageReference pdf = Page.Gutschrift;
         pdf.getParameters().put('id', gutschriftRecord.Id);
@@ -34,6 +34,10 @@ public without sharing class Gutschrift {
         Messaging.SingleEmailMessage emailToBroker = new Messaging.SingleEmailMessage();
         emailToBroker.setTemplateId(templateId);
         emailToBroker.setTargetObjectId(gutschriftRecord.Empfaenger__c);
+        if(gutschriftRecord.Empfaenger__r.EmailForCreditNotes__c != null) {
+            emailToBroker.setTreatTargetObjectAsRecipient(false);
+            emailToBroker.setToAddresses(new String[]{gutschriftRecord.Empfaenger__r.EmailForCreditNotes__c});
+        } 
         emailToBroker.setWhatId(gutschriftRecord.Id);
         if (oweas.size() > 0) {
             emailToBroker.setOrgWideEmailAddressId(oweas.get(0).Id);

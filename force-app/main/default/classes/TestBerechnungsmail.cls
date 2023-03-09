@@ -38,7 +38,7 @@ private class TestBerechnungsmail {
 		acc.Geschueftsfuehrer__c = mb.id;
 		acc.Gesetzliche_MwSt_auf_Provisionszahlung__c = 0.4;
 		acc.Hinweis_zur_MwSt__c = 'Vertrag';
-		acc.IBAN__c = '2';
+		acc.IBAN__c = 'DE02120300000000202051';
 		acc.Rechtsform__c = 'GbR';
 		acc.Unternehmensname__c = 'CareStone';
 		insert acc;

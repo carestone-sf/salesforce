@@ -235,6 +235,9 @@ export default class FinanzierungsBausteine extends LightningElement {
                 if(inputField.dataset.name != 'Finanzierungsbaustein__c') {
                     valid = inputField.reportValidity();
                 } 
+                if(valid && inputField.dataset.name == 'JahrDerAuszahlungText__c') {
+                    valid = /^\d+$/.test(inputField.value);
+                }
                 return validSoFar && valid;
             }, true);
             

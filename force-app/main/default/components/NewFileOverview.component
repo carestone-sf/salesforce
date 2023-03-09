@@ -1,0 +1,15 @@
+<apex:component controller="NewFileOverviewController" access="global">
+    <table style="margin-top: 10px; border-spacing: 10px; font-family: Arial">
+        <tr>
+          <th style="text-align: left;">Immobilie</th>
+          <th style="text-align: left;">Datei</th>
+        </tr>
+
+        <apex:repeat value="{!files}" var="file" id="repeat">
+            <tr>
+                <td>{!file.immoName}</td>
+                <td><a href="{!file.url}">{!file.title}</a></td>
+            </tr>
+        </apex:repeat>
+    </table>
+</apex:component>

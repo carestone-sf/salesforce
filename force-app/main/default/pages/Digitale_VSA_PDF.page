@@ -4,6 +4,7 @@
             <apex:image style="display: block; margin-left: 230px; margin-top:10px; margin-bottom: 50px;" id="Logo" value="https://wirtschaftshaus--artur.sandbox.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Jpg&versionId=0683G000000EGMT&operationContext=DELIVERY&contentId=05T3G0000022tfm&page=0&d=/a/3G000000Ccgr/VUxcVYW9y1wuZU67jqtCPEhDTyfL.PeI8_P3yB34CPE&oid=00D3G0000004hfp&dpt=null&viewId=" width="200" height="100%" alt="TwentyOne Knots Logo" />
         </div>
         <div style="font-family: sans-serif; text-align: left; font-size: 12px;">
+
             <h2 style="color: gray; font-size: 14px; font-weight: 900; letter-spacing: -1px;">DETAILS</h2>
             <table style=" width: 100%; margin-left: -2px; margin-bottom: 25px;">
                 <tr style="width: 100%; margin-left: 0;">
