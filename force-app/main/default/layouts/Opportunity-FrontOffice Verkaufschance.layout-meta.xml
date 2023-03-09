@@ -190,6 +190,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>CurrentStatusVkc__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Grund_VKC_verloren__c</field>
             </layoutItems>
             <layoutItems>
