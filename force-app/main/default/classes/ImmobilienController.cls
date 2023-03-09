@@ -164,7 +164,12 @@ public without sharing class ImmobilienController {
             immosByIds.put(property.Id, i);
         }
 
-        for(Appartment__c teilobjekt : [SELECT Id, OeffentlicherStatus__c, Name,Area_sq_m__c,Purchase_Price_sq_m__c,Monthly_Rent__c, Purchase_price__c, Notartermin__c, Status__c, Property__r.Name, FlaecheQmText__c, Jahresmiete__c FROM Appartment__c WHERE Property__c in :immosByIds.keySet() ORDER BY Name ASC]) {
+        for(Appartment__c teilobjekt : 
+                                        [SELECT Id, OeffentlicherStatus__c, Name,Area_sq_m__c,Purchase_Price_sq_m__c,Monthly_Rent__c, Purchase_price__c, Notartermin__c, Status__c, Property__r.Name, FlaecheQmText__c, Jahresmiete__c
+                                        FROM Appartment__c
+                                        WHERE Property__c in :immosByIds.keySet()
+                                            AND (NOT(Property__r.HideSoldAppartmentsVp__c = true AND Status__c = 'Sold')) //CS-80: Visibility in VP toggled by checkbox
+                                        ORDER BY Name ASC]) {
             immosByIds.get(teilobjekt.Property__c).teilobjekte.add(teilobjekt);
         }
 
