@@ -388,7 +388,6 @@
             </table> 
         </div> 
 
-
             <div style="font-family:sans-serif;text-align:left;font-size:12pt;">
 
             <apex:repeat value="{!verbindlichkeiten}" var="ver" >
