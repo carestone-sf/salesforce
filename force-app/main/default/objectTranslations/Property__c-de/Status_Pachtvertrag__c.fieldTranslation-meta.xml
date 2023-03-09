@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>Status_Pachtvertrag__c</name>
+    <picklistValues>
+        <masterLabel>Bei dieser Immobilie nicht vorhanden</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Liegt noch nicht vor</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Liegt vor</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Verstecken</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>
