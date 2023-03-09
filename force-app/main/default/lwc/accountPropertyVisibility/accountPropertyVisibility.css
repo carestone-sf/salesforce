@@ -1,0 +1,6 @@
+lightning-card {
+    display: block;
+}
+.slds-checkbox-button_is-checked:hover {
+    opacity: 60%;
+}

@@ -1,0 +1,56 @@
+<template>
+    <lightning-card class="slds-card_boundary" title="Verfügbare Immobilien">
+        <div class="slds-scrollable_none">
+            <table aria-multiselectable="true" class="slds-table slds-no-row-hover slds-table_bordered slds-table_fixed-layout slds-table_resizable-cols" role="grid" aria-label="Example product list">
+              <thead>
+                <tr class="slds-line-height_reset">
+                  <th class="" scope="col" style="width:3.75rem"></th>
+                  <th aria-label="Name" aria-sort="none" class="slds-is-resizable slds-is-sortable" scope="col">
+                    <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="-1">
+                      <span class="slds-assistive-text">Sort by: </span>
+                      <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                        <span class="slds-truncate" title="Immobilie">Immobilie</span>
+                      </div>
+                    </a>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <template for:each={properties} for:item="property">
+                    <tr aria-selected="false" class="slds-hint-parent" key={property.propertyId}>
+                        <td class="slds-text-align_right" role="gridcell" tabindex="0">
+                          <template if:true={property.isVisible}>
+                            <label class="slds-checkbox-button slds-checkbox-button_is-checked" for={property.Id}>
+                                <input type="checkbox" class="slds-assistive-text" id={property.Id} value="example-unique-id-182" tabindex="-1" checked="" onclick={hideProperty} data-propertyid={property.propertyId} />
+                                <span class="slds-icon_container slds-icon-utility-check slds-current-color" title="Deselect">
+                                  <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                    <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#check"></use>
+                                  </svg>
+                                  <span class="slds-assistive-text">Deselect</span>
+                                </span>
+                              </label>
+                          </template>
+                          <template if:false={property.isVisible}>
+                            <label class="slds-checkbox-button" for={property.Id}>
+                                <input type="checkbox" class="slds-assistive-text" id={property.Id} value="example-unique-id-207" tabindex="-1" onclick={unhideProperty} data-propertyid={property.propertyId} />
+                                <span class="slds-icon_container slds-icon-utility-add slds-current-color" title="Select">
+                                  <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                    <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#add"></use>
+                                  </svg>
+                                  <span class="slds-assistive-text">Select</span>
+                                </span>
+                              </label>
+                          </template>
+                        </td>
+                        <th scope="row">
+                          <div class="slds-truncate" title={property.propertyName}>
+                            <a onclick={openProperty} data-propertyid={property.propertyId}>{property.propertyName}</a>
+                          </div>
+                        </th>
+                      </tr>
+                </template>
+              </tbody>
+            </table>
+        </div>
+    </lightning-card>
+</template>

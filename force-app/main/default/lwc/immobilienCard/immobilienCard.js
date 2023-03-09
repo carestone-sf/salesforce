@@ -96,8 +96,8 @@ export default class ImmobilienCard extends LightningElement {
     }
 
     handleImmobilienChange() {
-        if(this.privateImmobilie && this.privateImmobilie.immobilie && this.privateImmobilie.immobilie.Appartments__r) {
-            this.transferedApartments = this.deepCopyFunction(this.privateImmobilie.immobilie.Appartments__r);
+        if(this.privateImmobilie && this.privateImmobilie.immobilie && this.privateImmobilie.teilobjekte) {
+            this.transferedApartments = this.deepCopyFunction(this.privateImmobilie.teilobjekte);
             for(let i = 0;i < this.transferedApartments.length;i++){
                 // sets rent for yearly rent by multiplying monthly rent with 12
                 this.transferedApartments[i].Monthly_Rent__c = this.transferedApartments[i].Monthly_Rent__c*12;
