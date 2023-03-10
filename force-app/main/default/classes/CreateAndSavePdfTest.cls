@@ -25,8 +25,6 @@ public with sharing class CreateAndSavePdfTest {
             System.debug(isSuccess);
         }
 
-    
-
         @isTest
         private static void testPdfCreate() {          
 
