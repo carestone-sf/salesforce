@@ -56,8 +56,7 @@ export default class CreatePdfQuickActionHeaderless extends LightningElement {
             this.variant= 'error'
         }
         
-        
-        
+      
         this.dispatchEvent(
             new ShowToastEvent( {
                 title: this.title,
