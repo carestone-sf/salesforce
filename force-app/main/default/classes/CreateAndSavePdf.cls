@@ -1,7 +1,5 @@
 public with sharing class CreateAndSavePdf {
 
-
-
     @AuraEnabled
     public static Boolean getPDFprint(Id recordId){
 
