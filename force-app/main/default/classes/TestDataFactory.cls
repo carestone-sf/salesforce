@@ -543,7 +543,6 @@ public with sharing class TestDataFactory {
         return summary;
     }
 
-
     public static Activity_Summary__c createActivitySummary(Boolean doInsert, Id userId, Id contactId, Integer nmonth) {
         Activity_Summary__c summary= new Activity_Summary__c();
         summary.year__c=String.valueOf(Date.today().addmonths(nmonth*-1).year());
