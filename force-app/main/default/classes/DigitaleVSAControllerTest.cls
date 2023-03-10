@@ -30,8 +30,6 @@ public with sharing class DigitaleVSAControllerTest {
     @isTest
     private static void testGetVSA() {
 
-
-
         DigitaleVsa__c dv = [SELECT Id FROM DigitaleVsa__c LIMIT 1];
         PageReference pageRef = Page.Digitale_VSA_PDF;
         pageRef.getParameters().put('id', dv.Id);
