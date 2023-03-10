@@ -65,5 +65,4 @@ public with sharing class DigitaleVSAController {
         set;
     }
 
-
 }
