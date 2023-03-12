@@ -94,6 +94,10 @@
                 <behavior>Edit</behavior>
                 <field>Additional_Costs__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AdditionalBrokerCommission__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
