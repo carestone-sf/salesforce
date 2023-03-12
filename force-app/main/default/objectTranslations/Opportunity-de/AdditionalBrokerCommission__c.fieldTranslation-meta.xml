@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <label>Nebenkostenübernahme</label>
-    <name>Additional_Costs__c</name>
+    <label>zusätzl. Maklerprovision</label>
+    <name>AdditionalBrokerCommission__c</name>
 </CustomFieldTranslation>
