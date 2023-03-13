@@ -1,58 +1,90 @@
 @isTest
 public class CalculationQuoteControllerTest {
     
+    static User insertUser(){
+        Id systemAdminProfileId = [SELECT Id FROM Profile WHERE Name = 'System Administrator' LIMIT 1].Id;
+
+        User userExample = new User();
+        userExample.Username = 'emailtest@test.com'+String.valueOf(1234);
+        userExample.FirstName = 'First';
+        userExample.LastName = 'Last';
+        userExample.Alias = 'Alias';
+        userExample.Email = 'emailtest@test.com';
+        userExample.TimeZoneSidKey = 'America/New_York';
+        userExample.LocaleSidKey = 'en_US';
+        userExample.EmailEncodingKey = 'ISO-8859-1';
+        userExample.ProfileId = systemAdminProfileId;
+        userExample.LanguageLocaleKey = 'en_US';
+        userExample.isActive=true;
+
+
+        insert userExample;
+        try{
+            PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name = 'ChangeContactAccount'];
+			insert new PermissionSetAssignment(AssigneeId = userExample.id, PermissionSetId = ps.Id);
+        }
+        catch(DmlException e){
+            System.debug(e.getMessage());
+        }
+        return userExample;
+    }
+
     @TestSetup
     static void makeData(){
-        Contact mb = new Contact();
-        mb.FirstNAme = 'Frank';
-        mb.LastName = 'Köpsell';
-        mb.Email = 'witte@amstammtisch.de';
-        mb.MaklerBetreuer_E_Mail__c = 'witte@amstammtisch.de';
-        insert mb;
-        Account acc3 = new Account();
-        acc3.Name = 'WH Maklerbetreuer - Frank Köpsell';
-        acc3.Email__c = 'witte@amstammtisch.de';
-        acc3.Maklerbetreuer_Wirtschaftshaus__c = 'Frank Köpsell';
-        acc3.Maklerbetreuer_Wirtschaftshaus_2__c = mb.Id;
-        acc3.BIC__c  = '1';
-        acc3.Geschueftsfuehrer__c = mb.id;
-        acc3.Gesetzliche_MwSt_auf_Provisionszahlung__c = 0.4;
-        acc3.Hinweis_zur_MwSt__c = 'Vertrag';
-        acc3.IBAN__c = 'DE43250501801900212158';
-        acc3.Rechtsform__c = 'GbR';
-        acc3.Unternehmensname__c = 'CareStone';
-        insert acc3;
-        mb.AccountId = acc3.Id;
-        update mb;
+        User u = insertUser();
 
-        Contact potKun = new Contact();
-        potKun.FirstName = 'Tvvsta';
-        potKun.LastName = 'Tekoeeric';
-        insert potKun;
+        System.RunAs(u){
+            Contact mb = new Contact();
+            mb.FirstNAme = 'Frank';
+            mb.LastName = 'Köpsell';
+            mb.Email = 'witte@amstammtisch.de';
+            mb.MaklerBetreuer_E_Mail__c = 'witte@amstammtisch.de';
+            insert mb;
+            Account acc3 = new Account();
+            acc3.Name = 'WH Maklerbetreuer - Frank Köpsell';
+            acc3.Email__c = 'witte@amstammtisch.de';
+            acc3.Maklerbetreuer_Wirtschaftshaus__c = 'Frank Köpsell';
+            acc3.Maklerbetreuer_Wirtschaftshaus_2__c = mb.Id;
+            acc3.BIC__c  = '1';
+            acc3.Geschueftsfuehrer__c = mb.id;
+            acc3.Gesetzliche_MwSt_auf_Provisionszahlung__c = 0.4;
+            acc3.Hinweis_zur_MwSt__c = 'Vertrag';
+            acc3.IBAN__c = 'DE43250501801900212158';
+            acc3.Rechtsform__c = 'GbR';
+            acc3.Unternehmensname__c = 'CareStone';
+            insert acc3;
+            mb.AccountId = acc3.Id;
+            update mb;
 
-        Property__c immobilie = new Property__c();
-        immobilie.Name = 'Immobilie';
-        immobilie.Place__c = 'test';
-        immobilie.Street__c = 'test2';
-        immobilie.Zip_Code__c = '12312';
-        immobilie.Unternehmensname__c = 'asd';
-        immobilie.Gesch_ftsf_hrer__c = mb.id;
-        immobilie.BIC__c = '123';
-        immobilie.Amtsgericht__c = 'test';
-        immobilie.HRB__c = '123';
-        immobilie.Telefon__c = '05123123';
-        immobilie.E_Mail__c = 'test@test.de';
-        immobilie.Website__c = 'www.test.de';
-        immobilie.Arrival__c = Date.today();
-        insert immobilie;
+            Contact potKun = new Contact();
+            potKun.FirstName = 'Tvvsta';
+            potKun.LastName = 'Tekoeeric';
+            insert potKun;
 
-        Appartment__c app2 = new Appartment__c();
-        app2.Name = 'TestApp2';
-        app2.Property__c = immobilie.Id;
-        app2.Status__c = 'Available';
-        app2.Area_sq_m__c = 63;
-        app2.Purchase_Price__c = 150000;
-        insert app2;
+            Property__c immobilie = new Property__c();
+            immobilie.Name = 'Immobilie';
+            immobilie.Place__c = 'test';
+            immobilie.Street__c = 'test2';
+            immobilie.Zip_Code__c = '12312';
+            immobilie.Unternehmensname__c = 'asd';
+            immobilie.Gesch_ftsf_hrer__c = mb.id;
+            immobilie.BIC__c = '123';
+            immobilie.Amtsgericht__c = 'test';
+            immobilie.HRB__c = '123';
+            immobilie.Telefon__c = '05123123';
+            immobilie.E_Mail__c = 'test@test.de';
+            immobilie.Website__c = 'www.test.de';
+            immobilie.Arrival__c = Date.today();
+            insert immobilie;
+
+            Appartment__c app2 = new Appartment__c();
+            app2.Name = 'TestApp2';
+            app2.Property__c = immobilie.Id;
+            app2.Status__c = 'Available';
+            app2.Area_sq_m__c = 63;
+            app2.Purchase_Price__c = 150000;
+            insert app2;
+        }
 
     }
 
