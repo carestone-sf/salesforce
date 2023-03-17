@@ -264,16 +264,6 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DeviatingPurchasePrice__c</fieldItem>
-                <identifier>RecordDeviatingPurchasePrice_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
                 <fieldItem>Record.Bezahlt__c</fieldItem>
                 <identifier>RecordBezahlt_cField</identifier>
             </fieldInstance>
