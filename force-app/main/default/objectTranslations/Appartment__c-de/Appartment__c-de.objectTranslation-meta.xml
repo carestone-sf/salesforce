@@ -132,4 +132,8 @@
             <section>Zusatzkosten</section>
         </sections>
     </layouts>
+    <validationRules>
+        <errorMessage>Im Status &quot;Kontingent&quot; bitte ein Ablaufdatum in &quot;Reserviert bis&quot; setzen (Error x01)</errorMessage>
+        <name>x01_Kontingent_Date_Must_Be_Set</name>
+    </validationRules>
 </CustomObjectTranslation>
