@@ -1,7 +1,6 @@
 public without sharing class CalculationQuoteController {
     public final Berechnung__c calculation;
     public FinanceCalculator fc;
-    public Map<Integer, Decimal> calcSonder {get;set;}
     public List<Map<Integer, Map<String, Object>>> roundedPaginatedYearlyValues {get;set;}
     // The extension constructor initializes the private member
     // variable acct by using the getRecord method from the standard
@@ -12,7 +11,6 @@ public without sharing class CalculationQuoteController {
         this.fc.initFinanceModules(this.calculation.Id);
         this.fc.formatValues();
         this.fc.generatePagination();
-        this.calcSonder = this.fc.calcSondertilgung(this.calculation.Id, getPaginatedYearlyValues());
         this.roundedPaginatedYearlyValues = this.fc.roundPaginatedYearlyValues(getPaginatedYearlyValues());
 
         if(this.fc.c.Finanzierungsart__c == 'Bar') {
