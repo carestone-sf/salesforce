@@ -86,10 +86,12 @@
                 .section-field{
                     border-bottom: 0.5px solid rgb(207, 189, 189);
                     padding-bottom: 1%; 
-                    /*margin-bottom: 2%; */
+                    /*margin-bottom: 2%;*/
                     margin-right: 4%; 
                     white-space: nowrap;
                     text-align: left;
+                    height: auto;
+                    /* overflow-wrap: break-word; */
                     /* page-break-inside: avoid; */
                 }
                 .section-field-label{
@@ -97,10 +99,14 @@
                     display: inline-block;
 
                 }
-                .section__left{
-                    /* page-break-inside: avoid; */
+                p.long-text {
+                    height: auto;
+                    width: 100%;
+                    word-wrap: break-word;
+                    white-space: pre-wrap;
                 }
                 
+
             </style>
         </head>
     
@@ -167,7 +173,7 @@
                             </div>
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.AllgemeineAnmerkungenZumObjekt__c.Label}</p>    
-                                <p style="float: right"><apex:outputField value="{!Property__c.AllgemeineAnmerkungenZumObjekt__c}"/></p>
+                                <p class ="long-text"><apex:outputField value="{!Property__c.AllgemeineAnmerkungenZumObjekt__c}"/></p>
                             </div>
                         </div>
                         <div class="section__right" style="width:45%; float: right;">
@@ -271,7 +277,7 @@
                             </div>                          
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.AllgemeineAnmerkungenZumKaufvertrag__c.Label}</p>                          
-                                <p style="float: right"><apex:outputField value="{!Property__c.AllgemeineAnmerkungenZumKaufvertrag__c}"/></p>
+                                <p class ="long-text" ><apex:outputField value="{!Property__c.AllgemeineAnmerkungenZumKaufvertrag__c}"/></p>
                             </div>                          
                         </div>
                         <div class="section__right" style="width:45%; float: right;">
@@ -305,7 +311,7 @@
                         <div class="section__left" style="width:40%; float: left;">
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.Pflegeart__c.Label}</p>    
-                                <p style="float: right"><apex:outputField value="{!Property__c.Pflegeart__c}"/></p>
+                                <p class ="long-text" ><apex:outputField value="{!Property__c.Pflegeart__c}"/></p>
                             </div>
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.PflegeplaetzeBetten__c.Label}</p>                            
@@ -337,7 +343,7 @@
                             </div>                          
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.BaugenehmigungNotizen__c.Label}</p>                          
-                                <p style="float: right"><apex:outputField value="{!Property__c.BaugenehmigungNotizen__c}"/></p>
+                                <p  class ="long-text"><apex:outputField value="{!Property__c.BaugenehmigungNotizen__c}"/></p>
                             </div>                          
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.KfWGenehmigt__c.Label}</p>                          
@@ -345,7 +351,7 @@
                             </div>                          
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.SonstigeInfosProjektentwicklung__c.Label}</p>                          
-                                <p style="float: right"><apex:outputField value="{!Property__c.SonstigeInfosProjektentwicklung__c}"/></p>
+                                <p class ="long-text" ><apex:outputField value="{!Property__c.SonstigeInfosProjektentwicklung__c}"/></p>
                             </div>                       
                         </div> 
                         <div class="section__right" style="width:40%; float: right;">
@@ -555,7 +561,7 @@
                             </div>                                                
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.AllgemeineAnmerkungenZumMietvertrag__c.Label}</p>                          
-                                <p style="float: right"><apex:outputField value="{!Property__c.AllgemeineAnmerkungenZumMietvertrag__c}"/></p>
+                                <p class ="long-text" ><apex:outputField value="{!Property__c.AllgemeineAnmerkungenZumMietvertrag__c}"/></p>
                             </div>                                                
                         </div>
                         <div class="section__right" style="width:45%; float: right;">
@@ -573,11 +579,11 @@
                             </div>
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.PreOpening__c.Label}</p>    
-                                <p style="float: right"><apex:outputField value="{!Property__c.PreOpening__c}"/></p>
+                                <p class ="long-text" ><apex:outputField value="{!Property__c.PreOpening__c}"/></p>
                             </div>
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.PreOpeningNotizen__c.Label}</p>    
-                                <p style="float: right"><apex:outputField value="{!Property__c.PreOpeningNotizen__c}"/></p>
+                                <p class ="long-text"><apex:outputField value="{!Property__c.PreOpeningNotizen__c}"/></p>
                             </div>
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.Arrival__c.Label}</p>    
@@ -627,7 +633,6 @@
         </body>
     </html>
     
-
 
 
 </apex:page>
