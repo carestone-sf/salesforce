@@ -7,6 +7,7 @@
         <label>Reservierungsvorbereitung</label>
         <closed>false</closed>
         <forecastCategory>Omitted</forecastCategory>
+        <probability>40</probability>
         <won>false</won>
     </standardValue>
     <standardValue>
@@ -15,7 +16,7 @@
         <label>Reservierung angefragt</label>
         <closed>false</closed>
         <forecastCategory>Pipeline</forecastCategory>
-        <probability>10</probability>
+        <probability>40</probability>
         <won>false</won>
     </standardValue>
     <standardValue>
@@ -24,7 +25,7 @@
         <label>Reserviert</label>
         <closed>false</closed>
         <forecastCategory>Pipeline</forecastCategory>
-        <probability>50</probability>
+        <probability>40</probability>
         <won>false</won>
     </standardValue>
     <standardValue>
@@ -34,7 +35,7 @@
         <label>Auftrag zur Beurkundung vorhanden</label>
         <closed>false</closed>
         <forecastCategory>Pipeline</forecastCategory>
-        <probability>60</probability>
+        <probability>95</probability>
         <won>false</won>
     </standardValue>
     <standardValue>
@@ -43,7 +44,7 @@
         <label>Kaufvertragsunterlagen verschickt</label>
         <closed>false</closed>
         <forecastCategory>Pipeline</forecastCategory>
-        <probability>70</probability>
+        <probability>95</probability>
         <won>false</won>
     </standardValue>
     <standardValue>
@@ -52,7 +53,7 @@
         <label>Kaufvertragsangebot abgegeben</label>
         <closed>false</closed>
         <forecastCategory>Pipeline</forecastCategory>
-        <probability>70</probability>
+        <probability>95</probability>
         <won>false</won>
     </standardValue>
     <standardValue>
@@ -61,7 +62,7 @@
         <label>KV wird fremd abgegeben</label>
         <closed>false</closed>
         <forecastCategory>Pipeline</forecastCategory>
-        <probability>80</probability>
+        <probability>95</probability>
         <won>false</won>
     </standardValue>
     <standardValue>
@@ -106,7 +107,7 @@
         <label>Nachrücker</label>
         <closed>false</closed>
         <forecastCategory>Omitted</forecastCategory>
-        <probability>1</probability>
+        <probability>0</probability>
         <won>false</won>
     </standardValue>
 </StandardValueSet>
