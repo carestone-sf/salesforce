@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CurrentStatusVkc__c</fullName>
+    <externalId>false</externalId>
+    <label>Current Status VKC</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Customer still undecided</fullName>
+                <default>false</default>
+                <label>Customer still undecided</label>
+            </value>
+            <value>
+                <fullName>Is at the broker/consultant</fullName>
+                <default>false</default>
+                <label>Is at the broker/consultant</label>
+            </value>
+            <value>
+                <fullName>Missing financing customer bank</fullName>
+                <default>false</default>
+                <label>Missing financing customer bank</label>
+            </value>
+            <value>
+                <fullName>Missing financing Carestone</fullName>
+                <default>false</default>
+                <label>Missing financing Carestone</label>
+            </value>
+            <value>
+                <fullName>KfW requirement not fulfilled Customer</fullName>
+                <default>false</default>
+                <label>KfW requirement not fulfilled Customer</label>
+            </value>
+            <value>
+                <fullName>KfW requirement not fulfilled Carestone</fullName>
+                <default>false</default>
+                <label>KfW requirement not fulfilled Carestone</label>
+            </value>
+            <value>
+                <fullName>Customer has not yet received contract documents</fullName>
+                <default>false</default>
+                <label>Customer has not yet received contract documents</label>
+            </value>
+            <value>
+                <fullName>Notary mistake</fullName>
+                <default>false</default>
+                <label>Notary mistake</label>
+            </value>
+            <value>
+                <fullName>Notary appointment requested</fullName>
+                <default>false</default>
+                <label>Notary appointment requested</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

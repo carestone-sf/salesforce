@@ -5,16 +5,57 @@ public without sharing class FinanceCalculator {
     public Map<Integer, Map<String, Object>> cumulatedYearlyValues;
     public Map<Integer, Map<String, Object>> firstYearAfterPaymentValues;
     public List<Map<Integer, Map<String, Object>>> paginatedYearlyValues;
+
     public Date finanzierungsbeginn;
     public Integer firstYear = 99999;
     public Integer lastYear = 0;
     public Integer firstYearAfterPayment = 0;
     public Integer firstFullYear = 0;
     public Integer pages = 0;
+    public Decimal sumSBetragplusFKreditsumme {get;set;}
 
 
     public FinanceCalculator() {
 
+    }
+    public List<Map<Integer, Map<String, Object>>> deepCopyExistingStructure(List<Map<Integer, Map<String, Object>>> original){
+        List<Map<Integer, Map<String, Object>>> deepCopy = new List<Map<Integer, Map<String, Object>>>();
+        for (Map<Integer, Map<String, Object>> firstMap : original) {
+            Map<Integer, Map<String, Object>> firstMapDeepCopy = new Map<Integer, Map<String, Object>>();
+            for (Integer firstKey : firstMap.keySet()) {
+                Map<String, Object> secondMapDeepCopy = new Map<String, Object>();
+                for (String secondKey : firstMap.get(firstKey).keySet()) {
+                    secondMapDeepCopy.put(secondKey, firstMap.get(firstKey).get(secondKey));
+                }
+                firstMapDeepCopy.put(firstKey, secondMapDeepCopy);
+            }
+            deepCopy.add(firstMapDeepCopy);
+        }
+
+        return deepCopy;
+    }
+    public List<Map<Integer, Map<String, Object>>> roundPaginatedYearlyValues(List<Map<Integer, Map<String, Object>>> currentPaginatedYearlyValues){
+        // List<Map<Integer, Map<String, Object>>> updatedPaginatedYearlyValues = new List<Map<Integer, Map<String, Object>>>();
+        // updatedPaginatedYearlyValues.addAll(currentPaginatedYearlyValues);
+        List<Map<Integer, Map<String, Object>>> updatedPaginatedYearlyValues = deepCopyExistingStructure(currentPaginatedYearlyValues);
+        for (Map<Integer, Map<String, Object>> pagYearlyValue : updatedPaginatedYearlyValues){
+            for (Integer year : pagYearlyValue.keySet()){
+                for (String value : pagYearlyValue.get(year).keySet()) {
+                    try {
+                        String roundValue = (String)pagYearlyValue.get(year).get(value);
+
+                        roundValue = roundValue.replace('.', '');
+                        roundValue = roundValue.replace(',', '.');
+                        pagYearlyValue.get(year).put(value, String.valueOf(Math.round(Decimal.valueOf(roundValue))));
+                    } catch (Exception e) {
+                        System.debug(e.getMessage());
+                    }
+
+
+                }
+            }
+        }
+        return updatedPaginatedYearlyValues;
     }
     public Map<Integer, Decimal> calcSondertilgung(Id calculationId, List<Map<Integer, Map<String, Object>>> pagYearlyValues){
         List<Finanzierungsbaustein__c> fbs = [SELECT Id, Name, Art__c, Finanzierungsbeginn__c, Kreditsumme__c, LaufzeitInJahren__c, TilgungInPercent__c, Tilgungsbeginn__c, ZinsInPercent__c, ZinsbindungBis__c, (SELECT Name, JahrDerAuszahlung__c, Betrag__c FROM Sondertilgungen__r) FROM Finanzierungsbaustein__c WHERE Berechnung__c = :calculationId];
@@ -69,6 +110,23 @@ public without sharing class FinanceCalculator {
 
         List<Finanzierungsbaustein__c> fbs = [SELECT Id, Name, Art__c, Finanzierungsbeginn__c, Kreditsumme__c, LaufzeitInJahren__c, TilgungInPercent__c, Tilgungsbeginn__c, ZinsInPercent__c, ZinsbindungBis__c, (SELECT Name, JahrDerAuszahlung__c, Betrag__c FROM Sondertilgungen__r) FROM Finanzierungsbaustein__c WHERE Berechnung__c = :calculationId];
 
+        //Related to a Calculation (Berechnung__c) are “Finanzierungsbausteine” records
+        for(Finanzierungsbaustein__c f:fbs){
+            if(f.Kreditsumme__c != null){
+
+            }
+            //The “Finanzierungsbaustein” records might sometimes have 1-n related “Sondertilgung” records
+            List<Sondertilgung__c> sondertilgungRelated = [SELECT Id, Name, CreatedById, Prozent__c, Betrag__c FROM Sondertilgung__c WHERE Finanzierungsbaustein__c = :f.Id];
+            for(Sondertilgung__c s:sondertilgungRelated){
+                if(s.Betrag__c != null) {
+                    //If there are “Sondertilgung” records, a new column should be rendered in the PDF table, displaying the amount (“Betrag”) in the corresponding year (“Jahr der Auszahlung”)
+                    this.sumSBetragplusFKreditsumme = s.Betrag__c + f.Kreditsumme__c;
+                } else {
+                    //For years without “Sondertilgung”, 0 € should be displayed
+                    this.sumSBetragplusFKreditsumme = 0;
+                }
+            }
+        }
 
         this.financeModules = new List<FinanceModule>();
         this.cumulatedYearlyValues = new Map<Integer, Map<String, Object>>();

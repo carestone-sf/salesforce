@@ -186,6 +186,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>CurrentStatusVkc__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Grund_VKC_verloren__c</field>
             </layoutItems>
             <layoutItems>
@@ -303,6 +307,14 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Kaufpreis__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>AdditionalCosts__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>AdditionalBrokerCommission__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -850,7 +862,7 @@
         <fields>NAME</fields>
         <fields>Betrag__c</fields>
         <fields>Zahldatum__c</fields>
-        <relatedList>VKCZahlung__c.Verkaufschance__c</relatedList>
+        <relatedList>VkcZahlung__c.Verkaufschance__c</relatedList>
         <sortField>Zahldatum__c</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
