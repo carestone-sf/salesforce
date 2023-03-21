@@ -78,7 +78,7 @@ public without sharing class FinanceCalculator {
                         String creditSumStr = (String)pagYearlyValue.get(Integer.valueOf(s.JahrDerAuszahlung__c)).get('creditSumStartInEuro');
                         creditSumStr = creditSumStr.replace('.', '');
                         creditSumStr = creditSumStr.replace(',', '.');
-                        Decimal sum = s.Betrag__c + Decimal.valueOf(creditSumStr);
+                        Decimal sum = s.Betrag__c;
                         res.put(Integer.valueOf(s.JahrDerAuszahlung__c), sum.format());
                     }
                     else {
