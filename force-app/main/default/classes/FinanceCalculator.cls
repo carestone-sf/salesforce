@@ -14,6 +14,7 @@ public without sharing class FinanceCalculator {
     public Integer pages = 0;
     public Decimal sumSBetragplusFKreditsumme {get;set;}
 
+
     public FinanceCalculator() {
 
     }
@@ -70,7 +71,6 @@ public without sharing class FinanceCalculator {
         for (Sondertilgung__c s : sondertilgungRelated) {
             for (Map<Integer, Map<String, Object>> pagYearlyValue : pagYearlyValues) {
 
-
                 for (Integer year : pagYearlyValue.keySet()) {
                     if (pagYearlyValue.get(Integer.valueOf(s.JahrDerAuszahlung__c)) != null && year == Integer.valueOf(s.JahrDerAuszahlung__c)) {
 
@@ -87,6 +87,10 @@ public without sharing class FinanceCalculator {
                     }
                 }
 
+            }
+        }
+        return res;
+    }
     public void initFinanceModules(Id calculationId) {
         this.c = [SELECT Id, Hauptimmobilie__r.Arrival__c, SteuernBerechnen__c, ZweiterKaeufer__c, Gesamtkosten__c, ZuVersteuerndesEinkommen__c, Kirchensteuer__c, Eigenkapital__c, Finanzierungsart__c, InstandhaltungProJahrGesamt__c, AfAProJahrGesamt__c, VerwaltungProJahrGesamt__c, Mietsteigerung__c, SteigerungInstandhaltung__c, SteigerungVerwaltung__c, (SELECT Apartment__r.Name, MieteProMonatInEuro__c FROM Berechnungs_Apartments__r) FROM Berechnung__c WHERE Id = :calculationId];
         Date today = Date.today();
