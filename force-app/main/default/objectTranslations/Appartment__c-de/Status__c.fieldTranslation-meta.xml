@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Verfügung</label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>Available</masterLabel>
+        <translation>Verfügbar</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>KV wird fremd abgegeben</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kaufvertragsangebot abgegeben</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kaufvertragsunterlagen verschickt -zweiseitig-</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kontingent</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Reserved</masterLabel>
+        <translation>Reserviert</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Reservierung angefragt</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Reservierungsvorbereitung</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sold</masterLabel>
+        <translation>Verkauft</translation>
+    </picklistValues>
+</CustomFieldTranslation>

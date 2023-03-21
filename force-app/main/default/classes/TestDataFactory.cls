@@ -237,7 +237,7 @@ public with sharing class TestDataFactory {
 
     public static Property__c createProperty(Boolean doInsert, Id bautraegerId) {
         Property__c immobilie = new Property__c();
-        immobilie.Name = 'Immobilie ';
+        immobilie.Name = 'Immobilie';
         immobilie.Place__c = 'test';
         immobilie.Street__c = 'test2';
         immobilie.Zip_Code__c = '12312';

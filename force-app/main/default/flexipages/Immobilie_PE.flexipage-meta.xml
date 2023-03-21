@@ -726,6 +726,16 @@
                 <identifier>RecordVerwaltungZustaendigSeit_cField2</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ProbabilityGreater50__c</fieldItem>
+                <identifier>RecordProbabilityGreater50_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-3ct0w3zbiaf</name>
         <type>Facet</type>
     </flexiPageRegions>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Aktueller Status VKC</label>
+    <name>CurrentStatusVkc__c</name>
+    <picklistValues>
+        <masterLabel>Customer has not yet received contract documents</masterLabel>
+        <translation>Kunde hat noch keine Vertragsunterlagen erhalten</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Customer still undecided</masterLabel>
+        <translation>Kunde noch unentschieden</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Is at the broker/consultant</masterLabel>
+        <translation>Liegt beim Makler/Berater</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>KfW requirement not fulfilled Carestone</masterLabel>
+        <translation>KfW Voraussetzungen nicht erfüllt Carestone</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>KfW requirement not fulfilled Customer</masterLabel>
+        <translation>KfW Voraussetzungen nicht erfüllt Kunde</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Missing financing Carestone</masterLabel>
+        <translation>Fehlende Finanzierung Carestone</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Missing financing customer bank</masterLabel>
+        <translation>Fehlende Finanzierung Kundenbank</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Notary appointment requested</masterLabel>
+        <translation>Notartermin angefragt</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Notary mistake</masterLabel>
+        <translation>Fehler Notar</translation>
+    </picklistValues>
+</CustomFieldTranslation>

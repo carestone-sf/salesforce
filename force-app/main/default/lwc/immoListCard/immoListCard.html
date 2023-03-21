@@ -152,6 +152,12 @@
 							<c-google-drive-document-list documents={privateImmobilie.dokumente}></c-google-drive-document-list>
 						</div>
 					</lightning-tab>
+					<lightning-tab label="Baufortschritt" if:true={showBaufortschrittTab}>
+						<div class="slds-text-align_left slds-var-m-top_medium">
+							<image src={privateImmobilie.immobilie.BuildingProgressWebcam__c}
+								   alt=" Property actual image"></image>
+						</div>
+					</lightning-tab>
 					<template if:true={privateImmobilie.immobilie.FAQ__c}>
 						<lightning-tab label="Häufig gestellte Fragen">
 							<div class="slds-text-align_left slds-var-m-top_medium">
@@ -205,7 +211,7 @@
 			</div>
 			<div class="slds-col slds-size_11-of-12 slds-medium-size_5-of-12">
 				<p style="font-size: 0.8125rem;line-height : 13px; padding-bottom: 5px;">
-					<lightning-formatted-number value={privateImmobilie.immobilie.Rendite_in__c}></lightning-formatted-number>% Rendite
+					<lightning-formatted-number value={privateImmobilie.immobilie.Max_Rendite__c}></lightning-formatted-number>% Rendite
 					<template if:true={privateImmobilie.immobilie.MaBV__c}>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{privateImmobilie.immobilie.MaBV__c}
 					</template>

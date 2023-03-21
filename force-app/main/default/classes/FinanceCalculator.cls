@@ -5,6 +5,7 @@ public without sharing class FinanceCalculator {
     public Map<Integer, Map<String, Object>> cumulatedYearlyValues;
     public Map<Integer, Map<String, Object>> firstYearAfterPaymentValues;
     public List<Map<Integer, Map<String, Object>>> paginatedYearlyValues;
+
     public Date finanzierungsbeginn;
     public Integer firstYear = 99999;
     public Integer lastYear = 0;
@@ -15,6 +16,45 @@ public without sharing class FinanceCalculator {
 
     public FinanceCalculator() {
 
+    }
+    public List<Map<Integer, Map<String, Object>>> deepCopyExistingStructure(List<Map<Integer, Map<String, Object>>> original){
+        List<Map<Integer, Map<String, Object>>> deepCopy = new List<Map<Integer, Map<String, Object>>>();
+        for (Map<Integer, Map<String, Object>> firstMap : original) {
+            Map<Integer, Map<String, Object>> firstMapDeepCopy = new Map<Integer, Map<String, Object>>();
+            for (Integer firstKey : firstMap.keySet()) {
+                Map<String, Object> secondMapDeepCopy = new Map<String, Object>();
+                for (String secondKey : firstMap.get(firstKey).keySet()) {
+                    secondMapDeepCopy.put(secondKey, firstMap.get(firstKey).get(secondKey));
+                }
+                firstMapDeepCopy.put(firstKey, secondMapDeepCopy);
+            }
+            deepCopy.add(firstMapDeepCopy);
+        }
+
+        return deepCopy;
+    }
+    public List<Map<Integer, Map<String, Object>>> roundPaginatedYearlyValues(List<Map<Integer, Map<String, Object>>> currentPaginatedYearlyValues){
+        // List<Map<Integer, Map<String, Object>>> updatedPaginatedYearlyValues = new List<Map<Integer, Map<String, Object>>>();
+        // updatedPaginatedYearlyValues.addAll(currentPaginatedYearlyValues);
+        List<Map<Integer, Map<String, Object>>> updatedPaginatedYearlyValues = deepCopyExistingStructure(currentPaginatedYearlyValues);
+        for (Map<Integer, Map<String, Object>> pagYearlyValue : updatedPaginatedYearlyValues){
+            for (Integer year : pagYearlyValue.keySet()){
+                for (String value : pagYearlyValue.get(year).keySet()) {
+                    try {
+                        String roundValue = (String)pagYearlyValue.get(year).get(value);
+
+                        roundValue = roundValue.replace('.', '');
+                        roundValue = roundValue.replace(',', '.');
+                        pagYearlyValue.get(year).put(value, String.valueOf(Math.round(Decimal.valueOf(roundValue))));
+                    } catch (Exception e) {
+                        System.debug(e.getMessage());
+                    }
+
+
+                }
+            }
+        }
+        return updatedPaginatedYearlyValues;
     }
 
     public void initFinanceModules(Id calculationId) {
@@ -34,6 +74,7 @@ public without sharing class FinanceCalculator {
         }
 
         List<Finanzierungsbaustein__c> fbs = [SELECT Id, Name, Art__c, Finanzierungsbeginn__c, Kreditsumme__c, LaufzeitInJahren__c, TilgungInPercent__c, Tilgungsbeginn__c, ZinsInPercent__c, ZinsbindungBis__c, (SELECT Name, JahrDerAuszahlung__c, Betrag__c FROM Sondertilgungen__r) FROM Finanzierungsbaustein__c WHERE Berechnung__c = :calculationId];
+
         //Related to a Calculation (Berechnung__c) are “Finanzierungsbausteine” records
         for(Finanzierungsbaustein__c f:fbs){
             if(f.Kreditsumme__c != null){
