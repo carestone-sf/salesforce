@@ -6,13 +6,16 @@ public without sharing class CalculationQuoteController {
     // The extension constructor initializes the private member
     // variable acct by using the getRecord method from the standard
     // controller.
+    
     public CalculationQuoteController(ApexPages.StandardController stdController) {
         this.calculation = (Berechnung__c)stdController.getRecord();
         this.fc = new FinanceCalculator();
         this.fc.initFinanceModules(this.calculation.Id);
         this.fc.formatValues();
         this.fc.generatePagination();
+        this.calcSonder = this.fc.calcSondertilgung(this.calculation.Id, getPaginatedYearlyValues());
         this.roundedPaginatedYearlyValues = this.fc.roundPaginatedYearlyValues(getPaginatedYearlyValues());
+
 
         if(this.fc.c.Finanzierungsart__c == 'Bar') {
             this.fc.cumulatedYearlyValues.put(this.fc.firstFullYear, new Map<String, Object>());
@@ -74,5 +77,9 @@ public without sharing class CalculationQuoteController {
 
     public Integer getFirstYearAfterPayment() {
         return this.fc.firstYearAfterPayment;
+    }
+
+    public Decimal getSumSBetragplusFKreditsumme() {
+        return this.fc.sumSBetragplusFKreditsumme;
     }
 }

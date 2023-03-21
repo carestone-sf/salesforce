@@ -12,6 +12,8 @@ public without sharing class FinanceCalculator {
     public Integer firstYearAfterPayment = 0;
     public Integer firstFullYear = 0;
     public Integer pages = 0;
+    public Decimal sumSBetragplusFKreditsumme {get;set;}
+
 
     public FinanceCalculator() {
 
@@ -86,6 +88,10 @@ public without sharing class FinanceCalculator {
                     }
                 }
 
+            }
+        }
+        return res;
+    }
     public void initFinanceModules(Id calculationId) {
         this.c = [SELECT Id, Hauptimmobilie__r.Arrival__c, SteuernBerechnen__c, ZweiterKaeufer__c, Gesamtkosten__c, ZuVersteuerndesEinkommen__c, Kirchensteuer__c, Eigenkapital__c, Finanzierungsart__c, InstandhaltungProJahrGesamt__c, AfAProJahrGesamt__c, VerwaltungProJahrGesamt__c, Mietsteigerung__c, SteigerungInstandhaltung__c, SteigerungVerwaltung__c, (SELECT Apartment__r.Name, MieteProMonatInEuro__c FROM Berechnungs_Apartments__r) FROM Berechnung__c WHERE Id = :calculationId];
         Date today = Date.today();
@@ -103,6 +109,24 @@ public without sharing class FinanceCalculator {
         }
 
         List<Finanzierungsbaustein__c> fbs = [SELECT Id, Name, Art__c, Finanzierungsbeginn__c, Kreditsumme__c, LaufzeitInJahren__c, TilgungInPercent__c, Tilgungsbeginn__c, ZinsInPercent__c, ZinsbindungBis__c, (SELECT Name, JahrDerAuszahlung__c, Betrag__c FROM Sondertilgungen__r) FROM Finanzierungsbaustein__c WHERE Berechnung__c = :calculationId];
+
+        //Related to a Calculation (Berechnung__c) are “Finanzierungsbausteine” records
+        for(Finanzierungsbaustein__c f:fbs){
+            if(f.Kreditsumme__c != null){
+
+            }
+            //The “Finanzierungsbaustein” records might sometimes have 1-n related “Sondertilgung” records
+            List<Sondertilgung__c> sondertilgungRelated = [SELECT Id, Name, CreatedById, Prozent__c, Betrag__c FROM Sondertilgung__c WHERE Finanzierungsbaustein__c = :f.Id];
+            for(Sondertilgung__c s:sondertilgungRelated){
+                if(s.Betrag__c != null) {
+                    //If there are “Sondertilgung” records, a new column should be rendered in the PDF table, displaying the amount (“Betrag”) in the corresponding year (“Jahr der Auszahlung”)
+                    this.sumSBetragplusFKreditsumme = s.Betrag__c + f.Kreditsumme__c;
+                } else {
+                    //For years without “Sondertilgung”, 0 € should be displayed
+                    this.sumSBetragplusFKreditsumme = 0;
+                }
+            }
+        }
 
         this.financeModules = new List<FinanceModule>();
         this.cumulatedYearlyValues = new Map<Integer, Map<String, Object>>();
