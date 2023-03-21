@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>WH_Service</letterhead>
+    <name>Notartermin vereinbart Kunde</name>
+    <style>freeForm</style>
+    <subject>Notartermin vereinbart</subject>
+    <textOnly>Sehr geehrte/r Herr/Frau {!Opportunity.Potenzieller_Kunde__c},
+
+für Sie wurde soeben ein Notartermin für den Kauf des {!Opportunity.Appartement__c} der Immobilie {!Opportunity.Immobilie__c} im System hinterlegt. Dieser findet am {!Opportunity.Notartermin__c} statt.
+
+Mit freundlichen Grüßen
+Ihr Team der Carestone Service GmbH</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
