@@ -55,6 +55,36 @@ public without sharing class FinanceCalculator {
         }
         return updatedPaginatedYearlyValues;
     }
+    public Map<Integer, String> calcSondertilgung(Id calculationId, List<Map<Integer, Map<String, Object>>> pagYearlyValues){
+        List<Finanzierungsbaustein__c> fbs = [SELECT Id, Name, Art__c, Finanzierungsbeginn__c, Kreditsumme__c, LaufzeitInJahren__c, TilgungInPercent__c, Tilgungsbeginn__c, ZinsInPercent__c, ZinsbindungBis__c, (SELECT Name, JahrDerAuszahlung__c, Betrag__c FROM Sondertilgungen__r) FROM Finanzierungsbaustein__c WHERE Berechnung__c = :calculationId];
+        List<Id> sonderId = new List<Id>();
+        for (Finanzierungsbaustein__c f : fbs) {
+            sonderId.add(f.id);
+        }
+        List<Sondertilgung__c> sondertilgungRelated = [SELECT Id, Name, CreatedById, JahrDerAuszahlung__c, Prozent__c, Betrag__c FROM Sondertilgung__c WHERE Finanzierungsbaustein__c in :sonderId];
+        if (sondertilgungRelated.size() == 0 || sondertilgungRelated == null) {
+            return null;
+        }
+        Map<Integer,String> res = new Map<Integer,String>();
+        for (Sondertilgung__c s : sondertilgungRelated) {
+            for (Map<Integer, Map<String, Object>> pagYearlyValue : pagYearlyValues) {
+
+
+                for (Integer year : pagYearlyValue.keySet()) {
+                    if (pagYearlyValue.get(Integer.valueOf(s.JahrDerAuszahlung__c)) != null && year == Integer.valueOf(s.JahrDerAuszahlung__c)) {
+
+                        String creditSumStr = (String)pagYearlyValue.get(Integer.valueOf(s.JahrDerAuszahlung__c)).get('creditSumStartInEuro');
+                        creditSumStr = creditSumStr.replace('.', '');
+                        creditSumStr = creditSumStr.replace(',', '.');
+                        Decimal sum = s.Betrag__c + Decimal.valueOf(creditSumStr);
+                        res.put(Integer.valueOf(s.JahrDerAuszahlung__c), sum.format());
+                    }
+                    else {
+                        if (!res.containsKey(year)) {
+                            res.put(year, '0');
+                        }
+                    }
+                }
 
     public void initFinanceModules(Id calculationId) {
         this.c = [SELECT Id, Hauptimmobilie__r.Arrival__c, SteuernBerechnen__c, ZweiterKaeufer__c, Gesamtkosten__c, ZuVersteuerndesEinkommen__c, Kirchensteuer__c, Eigenkapital__c, Finanzierungsart__c, InstandhaltungProJahrGesamt__c, AfAProJahrGesamt__c, VerwaltungProJahrGesamt__c, Mietsteigerung__c, SteigerungInstandhaltung__c, SteigerungVerwaltung__c, (SELECT Apartment__r.Name, MieteProMonatInEuro__c FROM Berechnungs_Apartments__r) FROM Berechnung__c WHERE Id = :calculationId];
