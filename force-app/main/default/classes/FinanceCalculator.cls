@@ -57,7 +57,7 @@ public without sharing class FinanceCalculator {
         }
         return updatedPaginatedYearlyValues;
     }
-    public Map<Integer, Decimal> calcSondertilgung(Id calculationId, List<Map<Integer, Map<String, Object>>> pagYearlyValues){
+    public Map<Integer, String> calcSondertilgung(Id calculationId, List<Map<Integer, Map<String, Object>>> pagYearlyValues){
         List<Finanzierungsbaustein__c> fbs = [SELECT Id, Name, Art__c, Finanzierungsbeginn__c, Kreditsumme__c, LaufzeitInJahren__c, TilgungInPercent__c, Tilgungsbeginn__c, ZinsInPercent__c, ZinsbindungBis__c, (SELECT Name, JahrDerAuszahlung__c, Betrag__c FROM Sondertilgungen__r) FROM Finanzierungsbaustein__c WHERE Berechnung__c = :calculationId];
         List<Id> sonderId = new List<Id>();
         for (Finanzierungsbaustein__c f : fbs) {
@@ -67,7 +67,7 @@ public without sharing class FinanceCalculator {
         if (sondertilgungRelated.size() == 0 || sondertilgungRelated == null) {
             return null;
         }
-        Map<Integer,Decimal> res = new Map<Integer,Decimal>();
+        Map<Integer,String> res = new Map<Integer,String>();
         for (Sondertilgung__c s : sondertilgungRelated) {
             for (Map<Integer, Map<String, Object>> pagYearlyValue : pagYearlyValues) {
 
@@ -79,11 +79,11 @@ public without sharing class FinanceCalculator {
                         creditSumStr = creditSumStr.replace('.', '');
                         creditSumStr = creditSumStr.replace(',', '.');
                         Decimal sum = s.Betrag__c + Decimal.valueOf(creditSumStr);
-                        res.put(Integer.valueOf(s.JahrDerAuszahlung__c), sum);
+                        res.put(Integer.valueOf(s.JahrDerAuszahlung__c), sum.format());
                     }
                     else {
                         if (!res.containsKey(year)) {
-                            res.put(year, 0);
+                            res.put(year, '0');
                         }
                     }
                 }

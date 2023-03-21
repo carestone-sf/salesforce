@@ -1,7 +1,7 @@
 public without sharing class CalculationQuoteController {
     public final Berechnung__c calculation;
     public FinanceCalculator fc;
-    public Map<Integer, Decimal> calcSonder {get;set;}
+    public Map<Integer, String> calcSonder {get;set;}
     public List<Map<Integer, Map<String, Object>>> roundedPaginatedYearlyValues {get;set;}
     // The extension constructor initializes the private member
     // variable acct by using the getRecord method from the standard
