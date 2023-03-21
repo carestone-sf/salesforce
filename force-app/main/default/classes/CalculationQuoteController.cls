@@ -74,4 +74,8 @@ public without sharing class CalculationQuoteController {
     public Integer getFirstYearAfterPayment() {
         return this.fc.firstYearAfterPayment;
     }
+
+    public Decimal getSumSBetragplusFKreditsumme() {
+        return this.fc.sumSBetragplusFKreditsumme;
+    }
 }
