@@ -71,14 +71,13 @@ public without sharing class FinanceCalculator {
         for (Sondertilgung__c s : sondertilgungRelated) {
             for (Map<Integer, Map<String, Object>> pagYearlyValue : pagYearlyValues) {
 
-
                 for (Integer year : pagYearlyValue.keySet()) {
                     if (pagYearlyValue.get(Integer.valueOf(s.JahrDerAuszahlung__c)) != null && year == Integer.valueOf(s.JahrDerAuszahlung__c)) {
 
                         String creditSumStr = (String)pagYearlyValue.get(Integer.valueOf(s.JahrDerAuszahlung__c)).get('creditSumStartInEuro');
                         creditSumStr = creditSumStr.replace('.', '');
                         creditSumStr = creditSumStr.replace(',', '.');
-                        Decimal sum = s.Betrag__c + Decimal.valueOf(creditSumStr);
+                        Decimal sum = s.Betrag__c;
                         res.put(Integer.valueOf(s.JahrDerAuszahlung__c), sum.format());
                     }
                     else {
