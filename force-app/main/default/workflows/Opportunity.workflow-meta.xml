@@ -1017,7 +1017,7 @@
         <criteriaItems>
             <field>Account.KMAZBEingegangen__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -1094,12 +1094,12 @@
         <criteriaItems>
             <field>Opportunity.Kaufpreis_bezahlt__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <criteriaItems>
             <field>Account.KMKaufpreisBezahlt__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -1113,7 +1113,7 @@
         <criteriaItems>
             <field>Opportunity.Kaufpreis_Kunde__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -1127,7 +1127,7 @@
         <criteriaItems>
             <field>Opportunity.Kaufpreis_f_llig__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <criteriaItems>
             <field>Opportunity.MaBV__c</field>
@@ -1137,7 +1137,7 @@
         <criteriaItems>
             <field>Account.KMKaufpreisFaelligGestellt__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -1151,7 +1151,7 @@
         <criteriaItems>
             <field>Opportunity.Kaufpreis_f_llig__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <criteriaItems>
             <field>Opportunity.MaBV__c</field>
@@ -1179,12 +1179,12 @@
         <criteriaItems>
             <field>Opportunity.Kaufvertragsangebot_abgegeben_Controll__c</field>
             <operation>equals</operation>
-            <value>Falsch</value>
+            <value>False</value>
         </criteriaItems>
         <criteriaItems>
             <field>Account.KMKaufvertragsangebotAbgegeben__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -1203,7 +1203,7 @@
         <criteriaItems>
             <field>Opportunity.VKC_Kaufvertragsunterlagen_verschickt_Co__c</field>
             <operation>equals</operation>
-            <value>Falsch</value>
+            <value>False</value>
         </criteriaItems>
         <criteriaItems>
             <field>Opportunity.Kaufvertragsangebot_verschickt__c</field>
@@ -1212,7 +1212,7 @@
         <criteriaItems>
             <field>Account.KMKaufvertragsangebotVerschickt__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -1243,7 +1243,7 @@
         <criteriaItems>
             <field>Account.KMNotarterminVereinbartKunde__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -1261,7 +1261,7 @@
         <criteriaItems>
             <field>Account.KMNotarterminVereinbartMakler__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -1276,12 +1276,12 @@
         <criteriaItems>
             <field>Opportunity.VSA_EK_vorhanden__c</field>
             <operation>equals</operation>
-            <value>Falsch</value>
+            <value>False</value>
         </criteriaItems>
         <criteriaItems>
             <field>Account.KMReservierunglaeuftInXTagenaus__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -1314,7 +1314,7 @@
         <criteriaItems>
             <field>Opportunity.VSA_EK_vorhanden__c</field>
             <operation>equals</operation>
-            <value>Falsch</value>
+            <value>False</value>
         </criteriaItems>
         <criteriaItems>
             <field>Opportunity.Berater_text__c</field>
@@ -1324,7 +1324,7 @@
         <criteriaItems>
             <field>Account.KMReservierunglaeuftInXTagenaus__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -1357,12 +1357,12 @@
         <criteriaItems>
             <field>Opportunity.VSA_EK_vorhanden__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <criteriaItems>
             <field>Account.KMReservierunglaeuftInXTagenaus__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -1395,7 +1395,7 @@
         <criteriaItems>
             <field>Opportunity.VSA_EK_vorhanden__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <criteriaItems>
             <field>Opportunity.Berater_text__c</field>
@@ -1405,7 +1405,7 @@
         <criteriaItems>
             <field>Account.KMReservierunglaeuftInXTagenaus__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -1442,7 +1442,7 @@
         <criteriaItems>
             <field>Account.KMReservierungImSystemKunde__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -1461,7 +1461,7 @@
         <criteriaItems>
             <field>Account.KMReservierungImSystemMakler__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -1525,7 +1525,7 @@
         <criteriaItems>
             <field>Opportunity.VKC_gewonnen__c</field>
             <operation>equals</operation>
-            <value>Falsch</value>
+            <value>False</value>
         </criteriaItems>
         <criteriaItems>
             <field>Opportunity.Immobilie_makler__c</field>
@@ -1562,7 +1562,7 @@
         <criteriaItems>
             <field>Account.KMUnterlagenAnNotarVersendet__c</field>
             <operation>equals</operation>
-            <value>Wahr</value>
+            <value>True</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
