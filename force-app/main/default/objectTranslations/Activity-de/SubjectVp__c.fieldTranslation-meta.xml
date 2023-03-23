@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Thema eingeben, welches im Vertriebsportal angezeigt werden soll</help>
+    <label>Thema Vertriebsportal</label>
+    <name>SubjectVp__c</name>
+</CustomFieldTranslation>
