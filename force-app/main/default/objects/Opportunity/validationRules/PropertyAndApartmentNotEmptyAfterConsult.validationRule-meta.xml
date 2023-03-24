@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PropertyAndApartmentNotEmptyAfterConsult</fullName>
+    <active>true</active>
+    <errorConditionFormula>IsChanged(StageName) &amp;&amp;
+TEXT(StageName) != &apos;Beratung&apos; &amp;&amp;
+OR(IsBlank( Immobilie__c ),
+IsBlank(  Appartement__c ))</errorConditionFormula>
+    <errorDisplayField>Immobilie__c</errorDisplayField>
+    <errorMessage>Die Immobilie und das Teilobjekt dürfen nach der Beratung nicht leer sein</errorMessage>
+</ValidationRule>

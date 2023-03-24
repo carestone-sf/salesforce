@@ -101,7 +101,7 @@
         <label>Auswahl Reservierung Apartment</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Immobilie__c</field>
             </layoutItems>
             <layoutItems>
@@ -739,6 +739,21 @@
             <sortOrder>10</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
+            <actionName>RecordShareHierarchy</actionName>
+            <actionType>StandardButton</actionType>
+            <sortOrder>18</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>Provisionsnachverfolgung_MB</actionName>
+            <actionType>CustomButton</actionType>
+            <sortOrder>19</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>Punktestand</actionName>
+            <actionType>CustomButton</actionType>
+            <sortOrder>20</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
             <actionName>Submit</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>11</sortOrder>
@@ -772,21 +787,6 @@
             <actionName>Clone</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>17</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>RecordShareHierarchy</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>18</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>Provisionsnachverfolgung_MB</actionName>
-            <actionType>CustomButton</actionType>
-            <sortOrder>19</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>Punktestand</actionName>
-            <actionType>CustomButton</actionType>
-            <sortOrder>20</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <quickActionList>
