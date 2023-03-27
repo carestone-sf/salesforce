@@ -631,7 +631,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
             }
         } else {
             Appartment__c oldApartment = updateMap.containsKey(oldOpp.Appartement__c) ? (Appartment__c) updateMap.get(oldOpp.Appartement__c) : mapApartmentsById.get(oldOpp.Appartement__c);
-            if(oldApartment != null && oldApartment.Id != apartment.Id) {
+            if(oldApartment != null && oldApartment.Id != apartment?.Id) {
                 oldApartment.Status__c = 'Available';
                 oldApartment.Customer__c = null;
                 oldApartment.Makler__c = null;
@@ -650,7 +650,9 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                 oldApartment.KaufpreisFaellig__c = false;
                 oldApartment.Bezahlt__c = 0;
                 updateMap.put(oldApartment.Id, oldApartment);
-                
+            } 
+
+            if(apartment != null && (oldApartment.Id != apartment.Id || oldApartment == null)) {
                 apartment.beurkundeter_Kaufpreis__c = opp.beurkundeter_Kaufpreis__c;
                 apartment.Provisionsbasis__c = opp.Provisionsbasis__c;
                 apartment.Customer__c = opp.Potenzieller_Kunde__c;
@@ -663,25 +665,6 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                 apartment.Beurkundung__c = opp.Beurkundung__c;
                 apartment.Kumulierte_Provision_extern__c = opp.KumulierteProvisionExtern__c;
                 apartment.Date_of_purchase__c = opp.Kaufdatum__c;
-                apartment.KaufpreisFaellig__c = opp.Kaufpreis_f_llig__c;
-                if(opp.Bezahlt__c != 0) {
-                    apartment.Bezahlt__c = opp.Bezahlt__c;
-                }
-
-                updateMap.put(apartment.Id, apartment);
-            } else {
-                apartment.beurkundeter_Kaufpreis__c = opp.beurkundeter_Kaufpreis__c;
-                apartment.Provisionsbasis__c = opp.Provisionsbasis__c;
-                apartment.Customer__c = opp.Potenzieller_Kunde__c;
-                apartment.Makler__c = opp.Makler__c;
-                apartment.Reserviert_bis__c = opp.reserviert_bis__c;
-                apartment.Kaufpreis_gezahlt_am__c = opp.Datum_Kaufpreis_bezahlt__c;
-                apartment.Notartermin__c = opp.Notartermin__c;
-                apartment.Finanzierung__c = opp.Finanzierung__c;
-                apartment.Maklerbetreuer_WirtschaftsHaus_lookup__c = opp.Maklerbetreuer_WirtschaftsHaus__c;
-                apartment.Beurkundung__c = opp.Beurkundung__c;
-                apartment.Kumulierte_Provision_extern__c = opp.KumulierteProvisionExtern__c;
-                apartment.Date_of_Purchase__c = opp.Kaufdatum__c;
                 apartment.KaufpreisFaellig__c = opp.Kaufpreis_f_llig__c;
                 if(opp.Bezahlt__c != 0) {
                     apartment.Bezahlt__c = opp.Bezahlt__c;
