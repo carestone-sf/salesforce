@@ -12,33 +12,34 @@ public without sharing class CalculationQuoteController {
         this.fc = new FinanceCalculator();
         this.fc.initFinanceModules(this.calculation.Id);
         this.fc.generatePagination();
+        this.fc.formatValues();
         this.calcSonder = this.fc.calcSondertilgung(this.calculation.Id, getPaginatedYearlyValues());
-        this.roundedPaginatedYearlyValues = this.fc.roundPaginatedYearlyValues(getPaginatedYearlyValues());
+        //this.roundedPaginatedYearlyValues = this.fc.roundPaginatedYearlyValues(getPaginatedYearlyValues());
 
-        if(this.fc.c.Finanzierungsart__c == 'Bar') {
-            this.fc.cumulatedYearlyValues.put(this.fc.firstFullYear, new Map<String, Object>());
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('interestInEuro', '');
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('repaymentInEuro', 0);
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('apartments', new Map<String, Decimal>());
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('taxesInEuro', 0);
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('rentInEuro', 0);
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('taxes', 0);
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('overageGesamtInEuro', 0);
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('percentageSelf', 0);
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('percentageTenant', 0);
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('verwaltungGesamtInEuro', 0);
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('instandhaltungGesamtInEuro', 0);
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('afaGesamtInEuro', 0);
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('vUndVGesamtInEuro', 0);
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('incomeInEuro', '');
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('expenditureInEuro', '');
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('yearlyOverageInEuro', '');
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('monthlyOverageInEuro', '');
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('creditSumStartInEuro', '');
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('creditSumEndInEuro', '');
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('rateInEuro', '');
-            this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('eigenkapitalRendite', 0);
-        }
+        // if(this.fc.c.Finanzierungsart__c == 'Bar') {
+        //     this.fc.cumulatedYearlyValues.put(this.fc.firstFullYear, new Map<String, Object>());
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('interestInEuro', '');
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('repaymentInEuro', 0);
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('apartments', new Map<String, Decimal>());
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('taxesInEuro', 0);
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('rentInEuro', 0);
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('taxes', 0);
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('overageGesamtInEuro', 0);
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('percentageSelf', 0);
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('percentageTenant', 0);
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('verwaltungGesamtInEuro', 0);
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('instandhaltungGesamtInEuro', 0);
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('afaGesamtInEuro', 0);
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('vUndVGesamtInEuro', 0);
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('incomeInEuro', '');
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('expenditureInEuro', '');
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('yearlyOverageInEuro', '');
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('monthlyOverageInEuro', '');
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('creditSumStartInEuro', '');
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('creditSumEndInEuro', '');
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('rateInEuro', '');
+        //     this.fc.cumulatedYearlyValues.get(this.fc.firstFullYear).put('eigenkapitalRendite', 0);
+        // }
     }
  
     public List<FinanceCalculator.FinanceModule> getFinanceModules() {
