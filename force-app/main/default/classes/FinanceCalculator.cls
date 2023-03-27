@@ -18,16 +18,8 @@ public without sharing class FinanceCalculator {
     public FinanceCalculator() {
 
     }
-    public List<Map<Integer, Map<String, Object>>> deepCopyExistingStructureList(List<Map<Integer, Map<String, Object>>> original){
-        List<Map<Integer, Map<String, Object>>> deepCopy = new List<Map<Integer, Map<String, Object>>>();
-        for (Map<Integer, Map<String, Object>> firstMap : original) {
-            deepCopy.add(deepCopyExistingStructureMap(firstMap));
-        }
 
-        return deepCopy;
-    }
-
-    public Map<Integer, Map<String, Object>> deepCopyExistingStructureMap(Map<Integer, Map<String, Object>> original){
+    public Map<Integer, Map<String, Object>> deepCopyExistingStructure(Map<Integer, Map<String, Object>> original){
         Map<Integer, Map<String, Object>> firstMapDeepCopy = new Map<Integer, Map<String, Object>>();
         for (Integer firstKey : original.keySet()) {
             Map<String, Object> secondMapDeepCopy = new Map<String, Object>();
@@ -39,28 +31,6 @@ public without sharing class FinanceCalculator {
         return firstMapDeepCopy;
     }
 
-    // public List<Map<Integer, Map<String, Object>>> roundPaginatedYearlyValues(List<Map<Integer, Map<String, Object>>> currentPaginatedYearlyValues){
-    //     // List<Map<Integer, Map<String, Object>>> updatedPaginatedYearlyValues = new List<Map<Integer, Map<String, Object>>>();
-    //     // updatedPaginatedYearlyValues.addAll(currentPaginatedYearlyValues);
-    //     List<Map<Integer, Map<String, Object>>> updatedPaginatedYearlyValues = deepCopyExistingStructureList(currentPaginatedYearlyValues);
-    //     for (Map<Integer, Map<String, Object>> pagYearlyValue : updatedPaginatedYearlyValues){
-    //         for (Integer year : pagYearlyValue.keySet()){
-    //             for (String value : pagYearlyValue.get(year).keySet()) {
-    //                 try {
-    //                     String roundValue = (String)pagYearlyValue.get(year).get(value);
-    //                     roundValue = roundValue.replace('.', '');
-    //                     roundValue = roundValue.replace(',', '.');
-    //                     pagYearlyValue.get(year).put(value, Math.round(Decimal.valueOf(roundValue)).format());
-    //                 } catch (Exception e) {
-    //                     System.debug(e.getMessage());
-    //                 }
-
-
-    //             }
-    //         }
-    //     }
-    //     return updatedPaginatedYearlyValues;
-    // }
     public Map<Integer, String> calcSondertilgung(Id calculationId, List<Map<Integer, Map<String, Object>>> pagYearlyValues){
         List<Finanzierungsbaustein__c> fbs = [SELECT Id, Name, Art__c, Finanzierungsbeginn__c, Kreditsumme__c, LaufzeitInJahren__c, TilgungInPercent__c, Tilgungsbeginn__c, ZinsInPercent__c, ZinsbindungBis__c, (SELECT Name, JahrDerAuszahlung__c, Betrag__c FROM Sondertilgungen__r) FROM Finanzierungsbaustein__c WHERE Berechnung__c = :calculationId];
         List<Id> sonderId = new List<Id>();
@@ -762,7 +732,7 @@ public without sharing class FinanceCalculator {
         Integer counter = 0;   
         Map<Integer, Map<String, Object>> currentYearlyValues = new Map<Integer, Map<String, Object>>();
         Integer totalYears = cumulatedYearlyValues.keySet().size();
-        Map<Integer, Map<String,Object>> cumulatedYearlyValuesCopy = deepCopyExistingStructureMap(cumulatedYearlyValues);
+        Map<Integer, Map<String,Object>> cumulatedYearlyValuesCopy = deepCopyExistingStructure(cumulatedYearlyValues);
         for(Integer year:cumulatedYearlyValuesCopy.keySet()) {
             Integer currentPage = (Integer)Math.floor(counter/pagebreak);
             Map<String,Object> yearlyValue = cumulatedYearlyValuesCopy.get(year);
