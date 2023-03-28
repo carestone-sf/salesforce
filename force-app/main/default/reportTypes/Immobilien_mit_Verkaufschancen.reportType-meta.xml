@@ -2703,6 +2703,11 @@
             <field>CurrentStatusVkc__c</field>
             <table>Property__c.Opportunities__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AdditionalBrokerCommission__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
 </ReportType>

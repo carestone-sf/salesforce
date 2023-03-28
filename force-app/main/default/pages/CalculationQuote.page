@@ -1049,55 +1049,57 @@
             </div>
             <!-- End of main content -->
         </div>
-        <!-- End of page 7 -->
-        <div class="page page-8" style="page-break-before: always; {!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: block;', 'display: none;')}">
-            <div class="main-content">
-                <h1>Liquiditätsbetrachtung</h1>
-                <br/> <br/> <br/>
-                <div class="pagination">
-                    <apex:variable value="{!0}" var="liquidityOverviewPage"/>
-                    <apex:repeat value="{!paginatedYearlyValues}" var="cumulatedYearlyValues">
-                        <table class="plain overview" style="{!IF(liquidityOverviewPage != pages, 'page-break-after:always;','')}">
-                            <thead>
-                                <th>Jahr</th>
-                                <th align="right">Miete</th>
-                                <th align="right">Tilgung</th>
-                                <th align="right">Zinsen</th>
-                                <th align="right">Verwalt.</th>
-                                <th align="right">Instand.</th>
-                                <th align="right">AfA</th>
-                                <th align="right">V+V</th>
-                                <th style="{!IF(AND(Berechnung__c.ZuVersteuerndesEinkommen__c != null, Berechnung__c.ZuVersteuerndesEinkommen__c != 0, firstYearAfterPaymentValues[firstYearAfterPayment]['taxes'] > 0), 'display: table-cell;', 'display: none;')}" align="right">Steuer</th>
-                                <th style="{!IF(AND(Berechnung__c.ZuVersteuerndesEinkommen__c != null, Berechnung__c.ZuVersteuerndesEinkommen__c != 0, firstYearAfterPaymentValues[firstYearAfterPayment]['taxes'] < 0), 'display: table-cell;', 'display: none;')}" align="right">Steuer</th>
-                                <th align="right">Liquid. p.a.</th>
-                                <th align="right">Liquid. mtl.</th>
-                            </thead>
-                            <tbody>
-                                <apex:repeat value="{!cumulatedYearlyValues}" var="cumulatedYearlyValuesKey">
-                                    <tr>
-                                        <td>{!cumulatedYearlyValuesKey}</td>
-                                        <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['rentInEuro']} &euro;</td>
-                                        <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['repaymentInEuro']} &euro;</td>
-                                        <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['interestInEuro']} &euro;</td>
-                                        <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['verwaltungGesamtInEuro']} &euro;</td>
-                                        <!-- <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['rateInEuro']} &euro;</td> -->
-                                        <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['instandhaltungGesamtInEuro']} &euro;</td>
-                                        <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['afaGesamtInEuro']} &euro;</td>
-                                        <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['vUndVGesamtInEuro']} &euro;</td>
-                                        <td  style="{!IF(AND(Berechnung__c.ZuVersteuerndesEinkommen__c != null, Berechnung__c.ZuVersteuerndesEinkommen__c != 0), 'display: table-cell;', 'display: none;')} padding-top: 0px;" align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['taxesInEuro']} &euro;</td>
-                                        <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['yearlyOverageInEuro']} &euro;</td>
-                                        <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['monthlyOverageInEuro']} &euro;</td>
-                                    </tr>
-                                </apex:repeat>
-                            </tbody>
-                        </table>
-                        <apex:variable value="{!liquidityOverviewPage+1}" var="liquidityOverviewPage" />
-                    </apex:repeat>
-                </div>
-                <apex:outputText value="{!Berechnung__c.ZuVersteuerndesEinkommen__c}" rendered="false"/>
-                <!-- End of main content -->
+    </div>
+    <!-- End of page 7 -->
+    <!--<div class="page page-8" style="page-break-before: always; {!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: block;', 'display: none;')}">-->
+    <div class="page page-8" style="page-break-before: always;">
+        <div class="main-content">
+            <h1>Liquiditätsbetrachtung</h1>
+            <br/> <br/> <br/>
+            <div class="pagination">
+                <apex:variable value="{!0}" var="liquidityOverviewPage"/>
+            <apex:repeat value="{!paginatedYearlyValues}" var="cumulatedYearlyValues">
+                    <table class="plain overview" style="{!IF(liquidityOverviewPage != pages, 'page-break-after:always;','')}">
+                        <thead>
+                            <th>Jahr</th>
+                            <th align="right">Miete</th>
+                            <th align="right">AfA</th>
+                            <th style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: table-cell;', 'display: none;')}" align="right">Zinsen</th>
+                            <th align="right">Verwalt.</th>
+                            <th align="right">V+V</th>
+                            <th style="{!IF(AND(Berechnung__c.ZuVersteuerndesEinkommen__c != null, Berechnung__c.ZuVersteuerndesEinkommen__c != 0, firstYearAfterPaymentValues[firstYearAfterPayment]['taxes'] > 0), 'display: table-cell;', 'display: none;')}" align="right">Steuer</th>
+                            <th style="{!IF(AND(Berechnung__c.ZuVersteuerndesEinkommen__c != null, Berechnung__c.ZuVersteuerndesEinkommen__c != 0, firstYearAfterPaymentValues[firstYearAfterPayment]['taxes'] < 0), 'display: table-cell;', 'display: none;')}" align="right">Steuer</th>
+                            <th style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: table-cell;', 'display: none;')}" align="right">Tilgung</th>
+                            <th align="right">Instand.</th>
+                            <th align="right">Liquid. p.a.</th>
+                            <th align="right">Liquid. mtl.</th>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!cumulatedYearlyValues}" var="cumulatedYearlyValuesKey">
+                                <tr>
+                                    <td>{!cumulatedYearlyValuesKey}</td>
+                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['rentInEuro']} &euro;</td>
+                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['afaGesamtInEuro']} &euro;</td>
+                                    <td style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: table-cell;', 'display: none;')} padding-top: 0px;" align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['interestInEuro']} &euro;</td>
+                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['verwaltungGesamtInEuro']} &euro;</td>
+                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['vUndVGesamtInEuro']} &euro;</td>
+                                    <td style="{!IF(AND(Berechnung__c.ZuVersteuerndesEinkommen__c != null, Berechnung__c.ZuVersteuerndesEinkommen__c != 0), 'display: table-cell;', 'display: none;')} padding-top: 0px;" align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['taxesInEuro']} &euro;</td>
+                                    <td style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: table-cell;', 'display: none;')} padding-top: 0px;" align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['repaymentInEuro']} &euro;</td>
+                                    <!-- <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['rateInEuro']} &euro;</td> -->
+                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['instandhaltungGesamtInEuro']} &euro;</td>
+                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['yearlyOverageInEuro']} &euro;</td>
+                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['monthlyOverageInEuro']} &euro;</td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                    <apex:variable value="{!liquidityOverviewPage+1}" var="liquidityOverviewPage" />
+                </apex:repeat>
             </div>
+            <apex:outputText value="{!Berechnung__c.ZuVersteuerndesEinkommen__c}" rendered="false"/>
+            <!-- End of main content -->
         </div>
     </div>
+
     
 </apex:page>

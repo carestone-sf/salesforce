@@ -105,7 +105,7 @@
         <label>Auswahl Reservierung Apartment</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Immobilie__c</field>
             </layoutItems>
             <layoutItems>
@@ -324,6 +324,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>AdditionalCosts__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>AdditionalBrokerCommission__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
