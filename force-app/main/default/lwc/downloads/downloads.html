@@ -1,54 +1,18 @@
 <template>
     <div class="slds-var-m-top_medium">
         <lightning-layout multiple-rows="true">
-            <template if:true={imageUrl}>
-                <img src={imageUrl}/>
-            </template> 
-            <c-download-element 
-                    download-url={imageUrl} 
-                    preview-url={imageUrl}
-                    thumbnail-url={imageUrl}
-                    file-type="PDF" 
-                    file-name="Beratungsbroschüre"></c-download-element>
-            <template for:each={contentVersions} for:item="element">
-                <c-download-element
-                        key={element.id}
-                        download-url={element.fullFileUrl}
-                        preview-url={element.fullFileUrl}
-                        thumbnail-url={element.fullFileUrl}
-                        file-type="PDF"
-                        file-name={element.Title}>
-                </c-download-element>
-            </template>
-<!--            <template if:true={error}>-->
-<!--                <c-error-panel errors={error}></c-error-panel>-->
-<!--            </template>-->
-
-            aaaaaaaaaaaaaaaaaaaaaa
-
-            <template for:each={contentVersions} for:item="element">
-                <c-download-element
-                        key={element.id}
-                        download-url={element.downloadUrl}
-                        preview-url={element.previewUrl}
-                        thumbnail-url={element.fullFileUrl}
-                        file-type="PDF"
-                        file-name={element.Title}>
-                </c-download-element>
-            </template>
-
             <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="2" padding="around-small">
                 <c-download-element 
-                    download-url="https://www.dropbox.com/s/cctwg0ch4avyf3z/CS_Unternehmensbroschuere.pdf?dl=1" 
-                    preview-url="https://www.dropbox.com/s/cctwg0ch4avyf3z/CS_Unternehmensbroschuere.pdf?dl=0" 
+                    download-url="https://www.dropbox.com/s/5okhbhm6fkago4t/CS_Unternehmensbroschuere.pdf?dl=1" 
+                    preview-url="https://www.dropbox.com/s/5okhbhm6fkago4t/CS_Unternehmensbroschuere.pdf?dl=0" 
                     thumbnail-url="/img/medienbereich/broschueren/Thumbnail_Imagebroschuere.jpg"
                     file-type="PDF" 
                     file-name="Unternehmensbroschüre"></c-download-element>
             </lightning-layout-item>
             <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="2" padding="around-small">
                 <c-download-element 
-                    download-url="https://www.dropbox.com/s/94d3nl228tpmeqi/CS_Beratungsbroschuere.pdf?dl=1" 
-                    preview-url="https://www.dropbox.com/s/94d3nl228tpmeqi/CS_Beratungsbroschuere.pdf?dl=0" 
+                    download-url="https://www.dropbox.com/s/tl9uai8ruzgho8n/CS_Beratungsbroschuere.pdf?dl=1" 
+                    preview-url="https://www.dropbox.com/s/tl9uai8ruzgho8n/CS_Beratungsbroschuere.pdf?dl=0" 
                     thumbnail-url="/img/medienbereich/broschueren/Thumbnail_Beratungsbroschuere.jpg"
                     file-type="PDF" 
                     file-name="Beratungsbroschüre"></c-download-element>
