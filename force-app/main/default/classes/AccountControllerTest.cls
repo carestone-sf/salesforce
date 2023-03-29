@@ -68,7 +68,7 @@ public with sharing class AccountControllerTest {
             TimeZoneSidKey='GMT',
             ContactId=con.Id);
     
-            usr.Username = 'salesaccount5@test.de';
+            usr.Username = 'salesaccount' + String.valueOf(Math.round((Math.random() * (900000) + 100000))) + '@test.de';
             usr.profileId = portalProfileUser.Id;
             con.LastName = 'Sales-Account';
         
