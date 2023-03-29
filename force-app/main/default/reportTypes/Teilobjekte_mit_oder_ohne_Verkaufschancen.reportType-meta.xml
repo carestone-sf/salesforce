@@ -630,6 +630,11 @@
             <field>AdditionalBrokerCommission__c</field>
             <table>Appartment__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ContingentRequester__c</field>
+            <table>Appartment__c</table>
+        </columns>
         <masterLabel>Teilobjekte</masterLabel>
     </sections>
     <sections>
