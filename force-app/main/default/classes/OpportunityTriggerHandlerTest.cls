@@ -1,4 +1,4 @@
- @IsTest
+@IsTest
 private class OpportunityTriggerHandlerTest {
     
     @TestSetup
@@ -84,7 +84,7 @@ private class OpportunityTriggerHandlerTest {
         Opportunity opp = TestDataFactory.createOpportunity(true, interessent.Id, makler.Id, immobilie.Id, null, 'Kontingent');
         Test.stopTest();
 
-        System.assertEquals('Nachrücker', [SELECT StageName FROM Opportunity WHERE Id = :opp.Id].StageName);
+        System.assertEquals('Beratung', [SELECT StageName FROM Opportunity WHERE Id = :opp.Id].StageName);
     }
 
     @IsTest

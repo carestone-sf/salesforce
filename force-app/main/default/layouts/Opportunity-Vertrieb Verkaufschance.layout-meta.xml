@@ -101,7 +101,7 @@
         <label>Auswahl Reservierung Apartment</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Immobilie__c</field>
             </layoutItems>
             <layoutItems>
