@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Beratung</fullName>
+        <default>false</default>
+        <label>Beratung</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>10</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Reservierungsvorbereitung</fullName>
+        <default>false</default>
+        <label>Reservierungsvorbereitung</label>
+        <closed>false</closed>
+        <forecastCategory>Omitted</forecastCategory>
+        <probability>40</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Reservierung angefragt</fullName>
+        <default>false</default>
+        <label>Reservierung angefragt</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>40</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Reserviert</fullName>
+        <default>false</default>
+        <label>Reserviert</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>40</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Auftrag zur Beurkundung vorhanden</fullName>
+        <default>false</default>
+        <description>Auftrag zur Beurkundung vorhanden</description>
+        <label>Auftrag zur Beurkundung vorhanden</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>95</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Kaufvertragsunterlagen verschickt</fullName>
+        <default>false</default>
+        <label>Kaufvertragsunterlagen verschickt</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>95</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Kaufvertragsangebot abgegeben</fullName>
+        <default>false</default>
+        <label>Kaufvertragsangebot abgegeben</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>95</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>KV wird fremd abgegeben</fullName>
+        <default>false</default>
+        <label>KV wird fremd abgegeben</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>95</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Geschlossene und gewonnene</fullName>
+        <default>false</default>
+        <label>Geschlossene und gewonnene</label>
+        <closed>true</closed>
+        <forecastCategory>Closed</forecastCategory>
+        <probability>100</probability>
+        <won>true</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Geschlossen und verloren</fullName>
+        <default>false</default>
+        <label>Geschlossen und verloren</label>
+        <closed>true</closed>
+        <forecastCategory>Omitted</forecastCategory>
+        <probability>0</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>VKC ausgelaufen</fullName>
+        <default>false</default>
+        <label>VKC ausgelaufen</label>
+        <closed>true</closed>
+        <forecastCategory>Omitted</forecastCategory>
+        <probability>0</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Reservierung abgelehnt</fullName>
+        <default>false</default>
+        <label>Reservierung abgelehnt</label>
+        <closed>true</closed>
+        <forecastCategory>Omitted</forecastCategory>
+        <probability>0</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Nachrücker</fullName>
+        <default>false</default>
+        <label>Nachrücker</label>
+        <closed>false</closed>
+        <forecastCategory>Omitted</forecastCategory>
+        <probability>0</probability>
+        <won>false</won>
+    </standardValue>
+</StandardValueSet>
