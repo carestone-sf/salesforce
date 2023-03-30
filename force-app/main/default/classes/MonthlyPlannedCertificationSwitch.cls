@@ -1,6 +1,6 @@
 global with sharing class MonthlyPlannedCertificationSwitch implements Schedulable {
     Set<id> userIds;
-    public static final String CRON_EXP = '0 23 0 L * ?';
+    public static final String CRON_EXP = '0 23 0 1 * ?';
     @testVisible
     private static final String JOB_NAME = 'Switch Opportunity.PlannedCertification__c value at the end of month';
 
