@@ -217,6 +217,10 @@
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.VerwaltungZustaendigSeit__c.Label}</p>    
                                 <p style="float: right"><apex:outputField value="{!Property__c.VerwaltungZustaendigSeit__c}"/></p>
                             </div>
+                            <div class="section-field">
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.ProbabilityGreater50__c.Label}</p>
+                                <p style="float: right"><apex:outputField value="{!Property__c.ProbabilityGreater50__c}"/></p>
+                            </div>
                         </div>
                     </div>
                 
