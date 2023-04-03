@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DescriptionVp__c</fullName>
+    <description>Description to show in Vertriebsportal</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter description when it should differ from above one.</inlineHelpText>
+    <label>Description Vertriebsportal</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>
