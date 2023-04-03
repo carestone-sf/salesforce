@@ -134,6 +134,10 @@
     </layouts>
     <validationRules>
         <errorMessage>Im Status &quot;Kontingent&quot; bitte ein Ablaufdatum in &quot;Reserviert bis&quot; setzen (Error x01)</errorMessage>
-        <name>x01_Kontingent_Date_Must_Be_Set</name>
+        <name>x01_Contingent_Date_Must_Be_Set</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Im Status &quot;Kontingent&quot; bitte den Anfordernden eintragen (Error x02)</errorMessage>
+        <name>x02_Contingent_Requester_Must_Be_Set</name>
     </validationRules>
 </CustomObjectTranslation>
