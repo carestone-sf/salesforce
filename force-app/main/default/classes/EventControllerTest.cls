@@ -13,7 +13,7 @@ public with sharing class EventControllerTest {
         mb.Gesch_ftsbeziehung__c = 'Mitarbeiter WH';
         Database.insert(mb, dml);
         Account acc = new Account();
-        acc.Name = 'CS Maklerbetreuer GmbH';
+        acc.Name = 'Makler GmbH%';
         acc.Email__c = 'f.witte@wirtschaftshaus.de';
         acc.Maklerbetreuer_Wirtschaftshaus__c = 'Frank Köpsell';
         acc.Maklerbetreuer_Wirtschaftshaus_2__c = mb.Id;
@@ -30,7 +30,7 @@ public with sharing class EventControllerTest {
         con.MailingStreet = 'Teststr. 24';
         con.MailingCity = 'Hannover';
         con.MailingPostalCode = '30159';
-        con.LastName = 'Maklermann 6';
+        con.LastName = 'Maklermann 77';
         con.RecordTypeId = maklerRecordTypeId;
         insert con;
 
@@ -68,12 +68,12 @@ public with sharing class EventControllerTest {
             TimeZoneSidKey='GMT',
             ContactId=con.Id);
     
-            usr.Username = 'salesaccount5@test.de';
+            usr.Username = 'salesaccount77@test.de';
             usr.profileId = portalProfileUser.Id;
             con.LastName = 'Sales-Account';
         
         usr.Alias = usr.Username.substring(0,6);
-        usr.Email= 'test@test.de';
+        usr.Email= 'test77@test.de';
         insert usr;
 
         Event e = new Event();
@@ -83,26 +83,21 @@ public with sharing class EventControllerTest {
         e.EndDateTime = DateTime.now() + 1;
         insert e;
 
-        //Create Campaigns
-        List<Campaign> campInsert = new List<Campaign>();
-        Campaign campReg = new Campaign(Name='Registered',Type='Webinar',Organizer__c=acc.Id,DateTime__c=DateTime.now()+2);
-        campInsert.add(campReg);
-        Campaign campUnreg = new Campaign(Name='Unregistered',Type='Webinar',Organizer__c=acc.Id,DateTime__c=DateTime.now()+2);
-        campInsert.add(campUnreg);
-        Database.insert(campInsert,dml);
-
-        //Create Campaign Member
-        CampaignMember cm1 = new CampaignMember(ContactId=con.Id,CampaignId=campReg.Id);
-        CampaignMember cm2 = new CampaignMember(ContactId=con.Id,CampaignId=campUnreg.Id);
-        Database.insert(cm2);
-
-        
-        EventController.createCampaignMember(cm1);
-        EventController.deleteCampaignMember(cm2);
-
-        User user = [SELECT Id FROM User WHERE LastName = 'Maklermann 6'];
+        User user = [SELECT Id FROM User WHERE LastName = 'Maklermann 77'];
         System.runAs(user) {
             EventController.getCampaignsAndEvents();
         }
+    }
+    @isTest
+    private static void testCompareToMethod(){
+        EventController.CustomEvent ce = new EventController.CustomEvent('event', 'e.Subject', null,  Datetime.newInstance(2020, 2, 17), Datetime.newInstance(2020, 2, 19), null, null, null, true, false, 'e.Description',' e.Location', 'ownerFullName', 'e.Who.Name',null,null);
+        EventController.CustomEvent ceToCompare = new EventController.CustomEvent('event', 'e.Subject', null,  Datetime.newInstance(2020, 2, 17), Datetime.newInstance(2020, 2, 19), null, null, null, true, false, 'e.Description',' e.Location', 'ownerFullName', 'e.Who.Name',null,null);
+        system.assertEquals(0, ce.compareTo(ceToCompare));
+        ceToCompare.startDateTime=null;
+        system.assertEquals(0, ce.compareTo(ceToCompare));
+        ceToCompare.startDateTime=Datetime.newInstance(2020, 2, 16);
+        system.assertEquals(1, ce.compareTo(ceToCompare));
+        ceToCompare.startDateTime=Datetime.newInstance(2020, 2, 18);
+        system.assertEquals(-1, ce.compareTo(ceToCompare));
     }
 }
