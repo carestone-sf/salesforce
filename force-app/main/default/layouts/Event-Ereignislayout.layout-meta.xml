@@ -150,10 +150,6 @@
                 <field>WhoId</field>
             </layoutItem>
         </relatedContentItems>
-        <relatedContentItems>
-            <layoutItem>
-            </layoutItem>
-        </relatedContentItems>
     </relatedContent>
     <relatedLists>
         <relatedList>RelatedEventAttendeeAccept</relatedList>
