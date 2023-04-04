@@ -115,6 +115,10 @@
                 <behavior>Readonly</behavior>
                 <field>OeffentlicherStatus__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ContingentRequester__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
