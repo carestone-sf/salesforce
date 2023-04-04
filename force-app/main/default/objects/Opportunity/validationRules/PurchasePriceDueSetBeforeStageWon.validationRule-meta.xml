@@ -4,7 +4,7 @@
     <active>true</active>
     <errorConditionFormula>ISCHANGED(Kaufpreis_f_llig__c) &amp;&amp;
 Kaufpreis_f_llig__c &amp;&amp;
-!IsWon</errorConditionFormula>
+Text(StageName) != &apos;Geschlossen und gewonnen&apos;</errorConditionFormula>
     <errorDisplayField>Kaufpreis_f_llig__c</errorDisplayField>
     <errorMessage>Die Kaufpreisfälligkeit darf erst gesetzt werden, wenn die VKC auf gewonnen gestellt wurde.</errorMessage>
 </ValidationRule>
