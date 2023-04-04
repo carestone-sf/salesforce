@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>SubstanzwertInEuro__c</fullName>
+    <fullName>Kaufpreis__c</fullName>
     <externalId>false</externalId>
-    <formula>Property__r.Building_Share_Value__c  *  IF(DeviatingPurchasePrice__c != 0 &amp;&amp; !IsBlank(DeviatingPurchasePrice__c),DeviatingPurchasePrice__c,Purchase_Price__c)</formula>
+    <formula>IF( Appartement__r.DeviatingPurchasePrice__c != 0 &amp;&amp; !IsBlank(Appartement__r.DeviatingPurchasePrice__c), Appartement__r.DeviatingPurchasePrice__c, Appartement__r.Purchase_Price__c)</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-    <label>Substanzwert in Euro</label>
+    <label>Listenpreis</label>
     <precision>18</precision>
     <required>false</required>
     <scale>2</scale>
-    <trackTrending>false</trackTrending>
+    <trackHistory>false</trackHistory>
     <type>Currency</type>
 </CustomField>
