@@ -88,6 +88,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>DeviatingPurchasePrice__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Bezahlt__c</field>
             </layoutItems>
             <layoutItems>
