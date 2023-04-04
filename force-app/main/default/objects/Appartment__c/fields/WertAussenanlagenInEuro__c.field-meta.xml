@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>WertAussenanlagenInEuro__c</fullName>
     <externalId>false</externalId>
-    <formula>Property__r.Value_Of_Outdoor__c  *  Purchase_Price__c</formula>
+    <formula>Property__r.Value_Of_Outdoor__c  *  IF(DeviatingPurchasePrice__c != 0 &amp;&amp; !IsBlank(DeviatingPurchasePrice__c),DeviatingPurchasePrice__c,Purchase_Price__c)</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Wert Außenanlagen in Euro</label>
     <precision>18</precision>
