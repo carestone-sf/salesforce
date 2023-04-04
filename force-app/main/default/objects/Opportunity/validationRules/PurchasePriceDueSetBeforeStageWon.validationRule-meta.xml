@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PurchasePriceDueSetBeforeStageWon</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED(Kaufpreis_f_llig__c) &amp;&amp;
+Kaufpreis_f_llig__c &amp;&amp;
+Text(StageName) != &apos;Geschlossen und gewonnen&apos;</errorConditionFormula>
+    <errorDisplayField>Kaufpreis_f_llig__c</errorDisplayField>
+    <errorMessage>Die Kaufpreisfälligkeit darf erst gesetzt werden, wenn die VKC auf gewonnen gestellt wurde.</errorMessage>
+</ValidationRule>

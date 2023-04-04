@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcceptanceProtocollSetBeforeStageWon</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED(Abnahmeprotokoll__c) &amp;&amp;
+Abnahmeprotokoll__c &amp;&amp;
+Text(StageName) != &apos;Geschlossen und gewonnen&apos;</errorConditionFormula>
+    <errorDisplayField>Abnahmeprotokoll__c</errorDisplayField>
+    <errorMessage>Die Abnahmeprotokoll darf erst gesetzt werden, wenn die VKC auf gewonnen gestellt wurde.</errorMessage>
+</ValidationRule>
