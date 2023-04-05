@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>SonstigeInfosProjektentwicklung__c</fullName>
+    <fullName>AllgemeineAnmerkungenZumObjekt__c</fullName>
     <externalId>false</externalId>
-    <label>Sonstige Infos Projektentwicklung</label>
+    <label>allgemeine Anmerkungen zum Objekt</label>
     <length>32768</length>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
