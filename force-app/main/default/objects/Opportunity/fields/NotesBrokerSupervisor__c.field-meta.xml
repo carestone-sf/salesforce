@@ -3,8 +3,9 @@
     <fullName>NotesBrokerSupervisor__c</fullName>
     <externalId>false</externalId>
     <label>Notizen Maklerbetreuer</label>
-    <required>false</required>
+    <length>32768</length>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
-    <type>TextArea</type>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
 </CustomField>

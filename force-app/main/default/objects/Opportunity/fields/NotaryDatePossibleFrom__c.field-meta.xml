@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>NotaryDatePossibleFrom__c</fullName>
     <externalId>false</externalId>
-    <formula>FourteenDayDeadlineRunsSince__c + 15</formula>
+    <formula>FourteenDayDeadlineRunsSince__c + 14</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Notartermin möglich ab</label>
     <required>false</required>
