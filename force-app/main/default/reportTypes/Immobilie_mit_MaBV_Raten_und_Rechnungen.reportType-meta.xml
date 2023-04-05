@@ -1543,6 +1543,21 @@
             <field>HideSoldAppartmentsVp__c</field>
             <table>Property__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Action__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ActionUntil__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>GeneralNotesOnDates__c</field>
+            <table>Property__c</table>
+        </columns>
         <masterLabel>Immobilien</masterLabel>
     </sections>
     <sections>
