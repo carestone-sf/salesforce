@@ -2324,6 +2324,16 @@
                 <identifier>RecordTekturBewilligtAm_cField2</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.GeneralNotesOnDates__c</fieldItem>
+                <identifier>RecordGeneralNotesOnDates_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-oebf6izdva</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -2626,16 +2636,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Mietdauer__c</fieldItem>
                 <identifier>RecordMietdauer_cField2</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Mietzins__c</fieldItem>
-                <identifier>RecordMietzins_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -4254,6 +4254,31 @@
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>componentHeight</name>
+                    <value>328</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>defaultView</name>
+                    <value>list</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>widgetType</name>
+                    <value>attachments</value>
+                </componentInstanceProperties>
+                <componentName>cldfs:cloudFilesAttachments</componentName>
+                <identifier>cldfs_cloudFilesAttachments</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!$User.Profile.Name}</leftValue>
+                        <operator>CONTAINS</operator>
+                        <rightValue>Admin</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </componentInstance>
+        </itemInstances>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
