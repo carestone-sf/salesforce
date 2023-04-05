@@ -1590,6 +1590,16 @@
             <field>HideSoldAppartmentsVp__c</field>
             <table>Property__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Action__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ActionUntil__c</field>
+            <table>Property__c</table>
+        </columns>
         <masterLabel>Immobilien</masterLabel>
     </sections>
     <sections>
@@ -2706,6 +2716,36 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>AdditionalBrokerCommission__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NotesBackoffice__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NotesSalesControlling__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NotesBrokerSupervisor__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NotesFinancing__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FourteenDayDeadlineRunsSince__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NotaryDatePossibleFrom__c</field>
             <table>Property__c.Opportunities__r</table>
         </columns>
         <masterLabel>Opportunities</masterLabel>
