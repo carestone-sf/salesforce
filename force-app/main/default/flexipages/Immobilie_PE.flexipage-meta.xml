@@ -4257,31 +4257,6 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>componentHeight</name>
-                    <value>328</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>defaultView</name>
-                    <value>list</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>widgetType</name>
-                    <value>attachments</value>
-                </componentInstanceProperties>
-                <componentName>cldfs:cloudFilesAttachments</componentName>
-                <identifier>cldfs_cloudFilesAttachments</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!$User.Profile.Name}</leftValue>
-                        <operator>CONTAINS</operator>
-                        <rightValue>Admin</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
                     <name>tabs</name>
                     <value>sidebartabs</value>
                 </componentInstanceProperties>
