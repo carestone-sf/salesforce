@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VKC_Sandro_pawils</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>Maklerbetreuer_WirtschaftsHaus__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Maklerprovision__c</columns>
+    <columns>beurkundeter_Kaufpreis__c</columns>
+    <columns>Immobilie__c</columns>
+    <columns>Appartement__c</columns>
+    <columns>Immobilienberater__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Notartermin__c</columns>
+    <columns>reserviert_bis__c</columns>
+    <columns>Kaufvertragsunterlagen_v_Notar_versendet__c</columns>
+    <columns>Finanzierung__c</columns>
+    <columns>OPPORTUNITY.NEXT_STEP</columns>
+    <columns>Notizen__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>greaterThan</operation>
+        <value>01.01.2022</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>notEqual</operation>
+        <value>Geschlossene und gewonnene,Geschlossen und verloren,VKC verloren,VKC ausgelaufen,Reservierung abgelehnt</value>
+    </filters>
+    <filters>
+        <field>Maklerbetreuer_WirtschaftsHaus__c</field>
+        <operation>equals</operation>
+        <value>WH Front,Jost Laue,Sven Schulz,Maurice Fuhrmann,Kelvin Schwabe</value>
+    </filters>
+    <label>VKC Frontoffice aktuelle</label>
+    <language>de</language>
+</ListView>

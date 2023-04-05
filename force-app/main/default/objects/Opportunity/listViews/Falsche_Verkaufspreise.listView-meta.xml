@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Falsche_Verkaufspreise</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Kaufpreis__c</columns>
+    <columns>beurkundeter_Kaufpreis__c</columns>
+    <columns>Provisionsbasis__c</columns>
+    <columns>Immobilie__c</columns>
+    <columns>Appartement__c</columns>
+    <columns>Rabatt_in__c</columns>
+    <columns>WH_Rabatt_in_P__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Verkaufspreis_ungleich_Teilobjekt__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>beurkundeter_Kaufpreis__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Provisionsbasis__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>notEqual</operation>
+        <value>Geschlossen und verloren,VKC verloren,VKC ausgelaufen,Reservierung abgelehnt</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>8/1/2019 12:00 AM</value>
+    </filters>
+    <label>Falsche Verkaufspreise</label>
+</ListView>

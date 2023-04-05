@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Forcast_n_chster_Monat</fullName>
+    <booleanFilter>(1 OR 2)</booleanFilter>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>Immobilie__c</columns>
+    <columns>Appartement__c</columns>
+    <columns>Notartermin__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>PlannedCertification__c</columns>
+    <columns>CurrentStatusVkc__c</columns>
+    <columns>Maklerbetreuer_WirtschaftsHaus__c</columns>
+    <columns>Letztes_Phasenupdate_am__c</columns>
+    <columns>Grund_VKC_verloren__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Notartermin__c</field>
+        <operation>equals</operation>
+        <value>NEXT_MONTH</value>
+    </filters>
+    <filters>
+        <field>PlannedCertification__c</field>
+        <operation>equals</operation>
+        <value>Next Month</value>
+    </filters>
+    <label>Forecast nächster Monat</label>
+</ListView>

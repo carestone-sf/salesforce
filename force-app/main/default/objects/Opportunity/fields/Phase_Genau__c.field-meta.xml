@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phase_Genau__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Text(StageName) == &apos;Reserviert&apos; &amp;&amp; Phasendauer__c &gt; 17,
+    &apos;1 Reserviert und Phasendauer &gt; 17&apos;,
+    IF(Text(StageName) == &apos;Reserviert&apos; &amp;&amp; !ISBLANK(Notartermin__c),
+        &apos;3 Reserviert mit Notartermin&apos;,
+        IF((Text(StageName) == &apos;Kaufvertragsangebot abgegeben&apos; || Text(StageName) == &apos;Kaufvertragsunterlagen verschickt&apos; || Text(StageName) == &apos;KV wird fremd abgegeben&apos;) &amp;&amp; ISBLANK(Notartermin__c) &amp;&amp; Phasendauer__c &gt; 10,
+            &apos;5 KVUV, KVAA, KVF o.N. und Phasendauer &gt; 10&apos;,
+            IF((Text(StageName) == &apos;Kaufvertragsangebot abgegeben&apos; || Text(StageName) == &apos;Kaufvertragsunterlagen verschickt&apos; || Text(StageName) == &apos;KV wird fremd abgegeben&apos;) &amp;&amp; !ISBLANK(Notartermin__c),
+                &apos;6 KVUV, KVAA, KVF mit Notartermin&apos;,
+                IF(Text(StageName) == &apos;Reserviert&apos; &amp;&amp; ISBLANK(Notartermin__c),
+                    &apos;2 Reserviert ohne Notartermin&apos;,
+                    IF((Text(StageName) == &apos;Kaufvertragsangebot abgegeben&apos; || Text(StageName) == &apos;Kaufvertragsunterlagen verschickt&apos; || Text(StageName) == &apos;KV wird fremd abgegeben&apos;) &amp;&amp; ISBLANK(Notartermin__c),
+                        &apos;4 KVUV, KVAA, KVF ohne Notartermin&apos;, 
+                        &apos;&apos;
+                    )
+                )
+            )
+        )
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Phase Genau</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

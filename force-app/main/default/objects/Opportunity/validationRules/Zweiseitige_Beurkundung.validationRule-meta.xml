@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Zweiseitige_Beurkundung</fullName>
+    <active>true</active>
+    <description>Wenn die Beurkundung zweiseitig ist, darf die Angebotsabgabe nicht ausgefüllt sein.</description>
+    <errorConditionFormula>TEXT(Beurkundung__c) == &apos;2-seitig&apos; &amp;&amp; Angebotsabgabe__c != null</errorConditionFormula>
+    <errorDisplayField>Angebotsabgabe__c</errorDisplayField>
+    <errorMessage>Wenn die Beurkundung zweiseitig ist, darf die Angebotsabgabe nicht ausgefüllt sein.</errorMessage>
+</ValidationRule>

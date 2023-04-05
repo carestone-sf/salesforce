@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VKC_ohne_Kaufdatum_geschlossen</fullName>
+    <active>false</active>
+    <description>Die VKC darf nicht ohne ein eingetragenes Kaufdatum geschlossen werden</description>
+    <errorConditionFormula>TEXT(StageName) == &apos;Geschlossen und gewonnen&apos; &amp;&amp;  Kaufdatum__c  == null</errorConditionFormula>
+    <errorDisplayField>Kaufdatum__c</errorDisplayField>
+    <errorMessage>Bitte geben Sie das korrekte Kaufdatum ein</errorMessage>
+</ValidationRule>

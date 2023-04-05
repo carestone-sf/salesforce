@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ProvisionsvoraussetzungenErfuellt__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Wird automatisch aus den PV-Feldern der Immobilie und den damit zusammengehörenden Feldern der Verkaufschance angehakt</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Wird automatisch aus den PV-Feldern der Immobilie und den damit zusammengehörenden Feldern der Verkaufschance angehakt</inlineHelpText>
+    <label>Provisionsvoraussetzungen erfüllt</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

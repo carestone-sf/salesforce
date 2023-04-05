@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MaBV_Abrechnung_relevante_Daten</fullName>
+    <active>true</active>
+    <errorConditionFormula>Immobilie__r.MaBVRechnungenUeberSalesforce__c &amp;&amp;
+Kaufpreis_f_llig__c &amp;&amp;
+(
+IsBlank( Kaufdatum__c ) ||
+IsBlank( Notartermin__c ) ||
+IsBlank( Potenzieller_Kunde__r.MailingCity ) ||
+IsBlank( Potenzieller_Kunde__r.MailingStreet ) ||
+IsBlank( Potenzieller_Kunde__r.MailingPostalCode ) ||
+(IsBlank( UrkundennummerKaufvertrag__c ) &amp;&amp; (
+IsBlank( UrkundennummerKaufvertragsangebot__c ) ||
+IsBlank( UrkundennummerKaufvertragsannahme__c )
+))
+)</errorConditionFormula>
+    <errorMessage>Bitte füllen Sie alle MaBV relevanten Daten aus:
+Kaufdatum, Notartermin, Adresse des Käufers, Urkundennummer Kaufvertrag ODER Urkundennummer Angebot, Annahme</errorMessage>
+</ValidationRule>

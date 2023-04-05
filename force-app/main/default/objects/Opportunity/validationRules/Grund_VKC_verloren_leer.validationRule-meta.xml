@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Grund_VKC_verloren_leer</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(TEXT(StageName) == &apos;Geschlossen und verloren&apos;, TEXT(StageName) == &apos;VKC ausgelaufen&apos;) &amp;&amp; OR(IsBlank(TEXT(Grund_VKC_verloren__c)), TEXT(Grund_VKC_verloren__c) == null) &amp;&amp; TEXT(StageName) != TEXT(PRIORVALUE(StageName))</errorConditionFormula>
+    <errorDisplayField>Grund_VKC_verloren__c</errorDisplayField>
+    <errorMessage>Bitte wählen Sie einen Grund aus, warum die VKC verloren ist.</errorMessage>
+</ValidationRule>

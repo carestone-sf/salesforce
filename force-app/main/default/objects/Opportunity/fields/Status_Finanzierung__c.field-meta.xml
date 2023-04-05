@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Finanzierung__c</fullName>
+    <externalId>false</externalId>
+    <label>Status Finanzierung</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>keine Finanzierung</fullName>
+                <default>false</default>
+                <label>keine Finanzierung</label>
+            </value>
+            <value>
+                <fullName>in Vorbereitung</fullName>
+                <default>false</default>
+                <label>in Vorbereitung</label>
+            </value>
+            <value>
+                <fullName>beantragt</fullName>
+                <default>false</default>
+                <label>beantragt</label>
+            </value>
+            <value>
+                <fullName>Zusage liegt vor</fullName>
+                <default>false</default>
+                <label>Zusage liegt vor</label>
+            </value>
+            <value>
+                <fullName>DV liegt vor</fullName>
+                <default>false</default>
+                <label>DV liegt vor</label>
+            </value>
+            <value>
+                <fullName>Auszahlungsreif</fullName>
+                <default>false</default>
+                <label>Auszahlungsreif</label>
+            </value>
+            <value>
+                <fullName>ausgezahlt</fullName>
+                <default>false</default>
+                <label>ausgezahlt</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

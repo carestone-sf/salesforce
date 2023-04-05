@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Verl_ngerungsanfrage__c</fullName>
+    <externalId>false</externalId>
+    <label>Verlängerungsanfrage</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Genehmigen</fullName>
+                <default>false</default>
+                <label>Genehmigen</label>
+            </value>
+            <value>
+                <fullName>Ablehnen</fullName>
+                <default>false</default>
+                <label>Ablehnen</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

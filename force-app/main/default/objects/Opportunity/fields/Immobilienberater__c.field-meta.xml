@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Immobilienberater__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>Hier wird der Makler eingetragen, der die Beratungsleistung am Kunden durchgeführt hat.</inlineHelpText>
+    <label>Immobilienberater</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Opportunities (Immobilienberater)</relationshipLabel>
+    <relationshipName>Immobilienberater</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

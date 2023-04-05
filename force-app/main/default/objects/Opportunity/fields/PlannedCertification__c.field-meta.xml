@@ -6,7 +6,7 @@
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
-    <trackTrending>false</trackTrending>
+    <trackTrending>true</trackTrending>
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>
@@ -21,6 +21,11 @@
                 <fullName>Next Month</fullName>
                 <default>false</default>
                 <label>Next Month</label>
+            </value>
+            <value>
+                <fullName>Month after next</fullName>
+                <default>false</default>
+                <label>Month after next</label>
             </value>
             <value>
                 <fullName>Uncertain</fullName>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AbgerechneterBetrag__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+    IsWon,
+				IF(ISPICKVAL(Immobilie__r.Kaufpreiszahlung__c, &apos;Endfällig&apos;) &amp;&amp; (Datum_Kaufpreisf_lligkeitsschreiben__c &lt;= TODAY() || Kaufpreis_bezahlt__c),  
+				    beurkundeter_Kaufpreis__c,
+							 AbgerechneterBetragMaBV__c 
+				)
+				, 0
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Abgerechneter Betrag</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

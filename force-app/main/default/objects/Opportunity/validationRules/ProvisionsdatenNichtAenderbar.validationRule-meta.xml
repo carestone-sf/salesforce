@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ProvisionsdatenNichtAenderbar</fullName>
+    <active>true</active>
+    <errorConditionFormula>AnzahlBestaetigteProvisionen__c &gt; 0 &amp;&amp; 
+OR(
+ISCHANGED(  Maklerprovision_nach_Nachtrag__c  ),
+ISCHANGED(  Verkaufsprovision_nach_Nachtrag__c ),
+ISCHANGED(  Overhead__c ),
+ISCHANGED(  Tippprovision__c ),
+ISCHANGED(  Provisionsbasis__c ),
+ISCHANGED( Kaufdatum__c),
+ISCHANGED( MarketingzuschussNichtAusweisen__c )
+)</errorConditionFormula>
+    <errorMessage>Bitte storniere alle Gutschriften, bevor du die Provisionsdaten änderst.</errorMessage>
+</ValidationRule>

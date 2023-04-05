@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VKC_Team_Frontoffice</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>Notartermin__c</columns>
+    <columns>Maklerbetreuer_WirtschaftsHaus__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Appartement__c</columns>
+    <columns>Immobilie__c</columns>
+    <columns>Kaufdatum__c</columns>
+    <columns>OPPORTUNITY.NEXT_STEP</columns>
+    <columns>Finanzierung__c</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>notEqual</operation>
+        <value>Beratung,Reservierungsvorbereitung,Reservierung angefragt,Reserviert,Geschlossen und verloren,VKC verloren,VKC ausgelaufen,Reservierung abgelehnt,Nachrücker</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.CLOSE_DATE</field>
+        <operation>greaterThan</operation>
+        <value>1/5/2023</value>
+    </filters>
+    <filters>
+        <field>Maklerbetreuer_WirtschaftsHaus__c</field>
+        <operation>equals</operation>
+        <value>Kelvin Schwabe,Maurice Fuhrmann,WH Front,Sven Schulz,Jost Laue</value>
+    </filters>
+    <label>VKC Team Frontoffice</label>
+</ListView>

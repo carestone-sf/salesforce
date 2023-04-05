@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Finanzierung__c</fullName>
+    <externalId>false</externalId>
+    <label>Finanzierung</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Finanzierung WH</fullName>
+                <default>false</default>
+                <label>HypoCare</label>
+            </value>
+            <value>
+                <fullName>Finanzierung WH eigen</fullName>
+                <default>false</default>
+                <label>CS fremd</label>
+            </value>
+            <value>
+                <fullName>Fremdfinanzierung</fullName>
+                <default>false</default>
+                <label>Fremdfinanzierung</label>
+            </value>
+            <value>
+                <fullName>Barzahler</fullName>
+                <default>false</default>
+                <label>Barzahler</label>
+            </value>
+            <value>
+                <fullName>Noch ungeklärt</fullName>
+                <default>false</default>
+                <label>Noch ungeklärt</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

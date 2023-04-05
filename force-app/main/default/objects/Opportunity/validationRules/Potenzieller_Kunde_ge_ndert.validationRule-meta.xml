@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Potenzieller_Kunde_ge_ndert</fullName>
+    <active>true</active>
+    <errorConditionFormula>IsChanged(Potenzieller_Kunde__c) &amp;&amp; TEXT(StageName) != &apos;Reservierungsvorbereitung&apos; &amp;&amp; TEXT(StageName) != &apos;Reservierung angefragt&apos; &amp;&amp;  $User.Id != &apos;005b0000001V30P&apos; &amp;&amp; $User.Id != &apos;005b0000000YQLU&apos; &amp;&amp; $User.Id != &apos;005b0000001Rz1K&apos;</errorConditionFormula>
+    <errorDisplayField>Potenzieller_Kunde__c</errorDisplayField>
+    <errorMessage>Der Potenzielle Kunde darf nachträglich nicht mehr geändert werden. Bitte melden Sie sich bei Ihrem Vertriebsmanager.</errorMessage>
+</ValidationRule>

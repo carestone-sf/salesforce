@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Forcast_aktueller_Monat</fullName>
+    <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+    <columns>Notartermin__c</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>Immobilie__c</columns>
+    <columns>OPPORTUNITY.NEXT_STEP</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>CurrentStatusVkc__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>PlannedCertification__c</columns>
+    <columns>Maklerbetreuer_WirtschaftsHaus__c</columns>
+    <columns>Reservierung_l_uft_aus_in__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Notartermin__c</field>
+        <operation>equals</operation>
+        <value>THIS_MONTH</value>
+    </filters>
+    <filters>
+        <field>PlannedCertification__c</field>
+        <operation>equals</operation>
+        <value>Current Month</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Reservierungsvorbereitung,Reservierung angefragt,Reserviert,Auftrag zur Beurkundung vorhanden,Kaufvertragsunterlagen verschickt,Kaufvertragsangebot abgegeben,KV wird fremd abgegeben,Geschlossene und gewonnene</value>
+    </filters>
+    <label>Forecast aktueller Monat</label>
+</ListView>
