@@ -6,7 +6,6 @@
     <logoUrl>https://teamproq.de/wp-content/uploads/cropped-TeamProQ-Icon.png</logoUrl>
     <oauthConfig>
         <callbackUrl>https://test.salesforce.com/services/oauth2/success</callbackUrl>
-        <consumerKey>3MVG91LYYD8O4krSA7xx3nWnK18Kr8Oi19_pqHgYC42Lhf7HfHMQC1cSqt6Dtc4B6rAbUrSyIcBKeZH3ntGfb</consumerKey>
         <isAdminApproved>true</isAdminApproved>
         <isClientCredentialEnabled>true</isClientCredentialEnabled>
         <isCodeCredentialEnabled>false</isCodeCredentialEnabled>
