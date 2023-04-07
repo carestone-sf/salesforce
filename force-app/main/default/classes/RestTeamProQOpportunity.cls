@@ -164,6 +164,9 @@ global without sharing class RestTeamProQOpportunity {
             return '';
         }
         String contactInformation = '';
+        if(con.Salutation != null) {
+            contactInformation += 'Anrede: ' + con.Salutation + '\r\n';
+        }
         if(con.FirstName != null) {
             contactInformation += 'Vorname: ' + con.FirstName + '\r\n';
         }
