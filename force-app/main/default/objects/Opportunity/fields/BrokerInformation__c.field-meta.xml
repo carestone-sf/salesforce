@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>BrokerInformation__c</fullName>
     <externalId>false</externalId>
-    <label>Makler Informationen</label>
+    <label>Makler Infos</label>
     <length>2768</length>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
