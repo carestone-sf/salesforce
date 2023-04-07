@@ -924,6 +924,7 @@
                                 <th align="right">Tilgung</th>
                                 <th align="right">Darlehensstand</th>
                                 <th align="right">Sondertilgung</th>
+
                             </thead>
                             <tbody>
                                 <apex:repeat value="{!yearlyValues}" var="yearlyValuesKey">
@@ -934,7 +935,6 @@
                                         <td align="right">{!yearlyValues[yearlyValuesKey]['interestInEuro']} &euro;</td>
                                         <td align="right">{!yearlyValues[yearlyValuesKey]['repaymentInEuro']} &euro;</td>
                                         <td align="right">{!yearlyValues[yearlyValuesKey]['creditSumEndInEuro']} &euro;</td>
-
 
                                         <td align="right">
                                             <apex:outputText value="{!calcSonder[yearlyValuesKey]}" />
