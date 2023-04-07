@@ -94,10 +94,11 @@ global without sharing class RestTeamProQOpportunity {
         opp.AccountId = data.accountId;
         if(makler.size() == 1) {
             opp.Makler__c = makler[0].Id;
+            opp.Immobilienberater__c = makler[0].Id;
         } else {
             opp.Makler__c = dummyBrokerId;
+            opp.Immobilienberater__c = dummyBrokerId;
         }
-        opp.Immobilienberater__c = dummyBrokerId;
         opp.StageName = onlineReservationStageName;
         opp.CloseDate = Date.today().addMonths(3);
         opp.SourceCreation__c = 'TeamProQ';
