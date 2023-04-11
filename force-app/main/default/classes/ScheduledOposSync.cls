@@ -52,11 +52,18 @@ global without sharing class ScheduledOposSync implements Schedulable {
                     continue;
                 }
                 List<String> columns = row.split(';');
+                String beleginfo1 = columns.get(20) != null ? columns[20] : '';
+                String beleginfo2 = columns.get(21) != null ? columns[21] : '';
+                String beleginfo3 = columns.get(22) != null ? columns[22] : '';
                 Opos opos = new Opos(
                     columns[5], 
                     columns[6],
                     columns[2],
-                    columns[8]
+                    columns[8],
+                    columns[10],
+                    beleginfo1,
+                    beleginfo2,
+                    beleginfo3
                 );
                 String rechnungsNummer = columns[3];
                 if(rechnungsNummer.startsWith('"') && rechnungsNummer.endsWith('"')) {
@@ -82,6 +89,10 @@ global without sharing class ScheduledOposSync implements Schedulable {
                     zahlung.MabvRechnung__c = mabvRechnung.Id;
                     zahlung.Zahldatum__c = opos.zahldatum;
                     zahlung.Betrag__c = opos.betrag;
+                    zahlung.IBAN__c = opos.IBAN;
+                    zahlung.AccountingText__c = opos.buchungstext;
+                    zahlung.BusinessPartner__c = opos.businessPartner;
+                    Zahlung.BIC__c = opos.BIC;
 
                     if(zahlung.Zahldatum__c != null) {
                         zahlung.UniqueId__c = zahlung.Zahldatum__c.year() + '-' + zahlung.Zahldatum__c.month() + '-' + zahlung.Zahldatum__c.day() + '-' + mabvRechnung.Id;
@@ -119,6 +130,10 @@ global without sharing class ScheduledOposSync implements Schedulable {
                     zahlung.Verkaufschance__c = opp.Id;
                     zahlung.Zahldatum__c = opos.zahldatum;
                     zahlung.Betrag__c = opos.betrag;
+                    zahlung.IBAN__c = opos.IBAN;
+                    zahlung.AccountingText__c = opos.buchungstext;
+                    zahlung.BusinessPartner__c = opos.businessPartner;
+                    Zahlung.BIC__c = opos.BIC;
 
                     if(zahlung.Zahldatum__c != null) {
                         zahlung.UniqueId__c = zahlung.Zahldatum__c.year() + '-' + zahlung.Zahldatum__c.month() + '-' + zahlung.Zahldatum__c.day() + '-' + opp.Id;
