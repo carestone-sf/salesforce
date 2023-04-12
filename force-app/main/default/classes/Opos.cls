@@ -38,14 +38,14 @@ public without sharing class Opos {
      */
     public void getTransactionInformation(String beleginfo) {
         //Format IBAN: '...IBAN "DE84255914133156606504"...
-        Integer indexIBANText = beleginfo.indexOf('IBAN');
+        Integer indexIBANText = beleginfo.indexOf('IBAN "');
         if(indexIBANText > -1) {
             Integer indexIBANNumberStart = beleginfo.indexOf('"', indexIBANText);
             Integer indexIBANNumberEnd = beleginfo.indexOf('"', indexIBANNumberStart+1);
             this.IBAN = beleginfo.substring(indexIBANNumberStart+1,indexIBANNumberEnd);
         }
         //Format BIC: '...BIC "GENODEF1NIN"...'
-        Integer indexBICText = beleginfo.indexOf('BIC');
+        Integer indexBICText = beleginfo.indexOf('BIC "');
         if(indexBICText > -1) {
             Integer indexBICNumberStart = beleginfo.indexOf('"', indexBICText);
             Integer indexBICNumberEnd = beleginfo.indexOf('"', indexBICNumberStart+1);
@@ -53,7 +53,7 @@ public without sharing class Opos {
         }
 
         //Format Gesch.Partner: '...Gesch.partner "CARESTONE PROJEKT I GMBH"...'
-        Integer indexBusinessPartnerText = beleginfo.indexOf('Gesch.partner');
+        Integer indexBusinessPartnerText = beleginfo.indexOf('Gesch.partner "');
         if(indexBusinessPartnerText > -1) {
             Integer indexBusinessPartnerNameStart = beleginfo.indexOf('"', indexBusinessPartnerText);
             Integer indexBusinessPartnerNameEnd = beleginfo.indexOf('"', indexBusinessPartnerNameStart+1);
