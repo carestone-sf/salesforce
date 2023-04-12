@@ -27,6 +27,9 @@ public without sharing class Opos {
             bsnr = bsnr.substring(1, bsnr.length()-1);
         }
         this.bsnr = bsnr;
+        if(buchungstext != null && buchungstext.startsWith('"') && buchungstext.endsWith('"')) {
+            buchungstext = buchungstext.substring(1, buchungstext.length()-1);
+        }
         this.buchungstext = buchungstext;
         getTransactionInformation(beleginfo1);
         getTransactionInformation(beleginfo2);
