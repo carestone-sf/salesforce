@@ -151,7 +151,7 @@ global without sharing class ScheduledOposSync implements Schedulable {
         }
 
         if(zahlungen.size() > 0) {
-            database.insert(zahlungen, false);
+            database.upsert(zahlungen, false);
         }
 
         if(updateGutschriften.size() > 0) {
@@ -159,7 +159,7 @@ global without sharing class ScheduledOposSync implements Schedulable {
         }
 
         if(vkcZahlungen.size() > 0) {
-            database.insert(vkcZahlungen, false);
+            database.upsert(vkcZahlungen, false);
         }
     }
 }
