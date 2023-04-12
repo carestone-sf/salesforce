@@ -53,8 +53,8 @@ global without sharing class ScheduledOposSync implements Schedulable {
                 }
                 List<String> columns = row.split(';');
                 String beleginfo1 = columns.get(20) != null ? columns[20] : '';
-                String beleginfo2 = columns.get(21) != null ? columns[21] : '';
-                String beleginfo3 = columns.get(22) != null ? columns[22] : '';
+                String beleginfo2 = columns.get(22) != null ? columns[22] : '';
+                String beleginfo3 = columns.get(24) != null ? columns[24] : '';
                 Opos opos = new Opos(
                     columns[5], 
                     columns[6],
