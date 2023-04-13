@@ -681,7 +681,8 @@
                 <field>Datum_1_MaBV_Rate_gezahlt__c</field>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Edit</behavior>
+                <field>DatumAbnahmeprotokoll__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -834,11 +835,6 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
-            <actionName>Opportunity.Neue_Finanzierungsanfrage</actionName>
-            <actionType>QuickAction</actionType>
-            <sortOrder>0</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
             <actionName>Opportunity.VKC_schlie_en</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>1</sortOrder>
@@ -862,6 +858,11 @@
             <actionName>FeedItem.LinkPost</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>5</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>Opportunity.Neue_Finanzierungsanfrage</actionName>
+            <actionType>QuickAction</actionType>
+            <sortOrder>0</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
             <actionName>FeedItem.PollPost</actionName>
