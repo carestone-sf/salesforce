@@ -647,9 +647,6 @@
                 <field>KV_eingegangen_Datum__c</field>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Datum_KP_F_lligkeit_gem_KV__c</field>
             </layoutItems>
@@ -664,6 +661,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Datum_1_MaBV_Rate_gezahlt__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>DatumAbnahmeprotokoll__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
