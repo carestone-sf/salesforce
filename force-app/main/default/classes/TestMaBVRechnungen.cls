@@ -117,7 +117,8 @@ public with sharing class TestMaBVRechnungen {
     }
 
     public static testMethod void testMaBVRechnungCreation() {
-        Opportunity opp = [SELECT Id, Immobilie__c FROM Opportunity WHERE StageName = 'Geschlossene und gewonnene' LIMIT 1];
+        Opportunity opp = [SELECT Id, Immobilie__c, Immobilie__r.Objektnummer__c, Appartement__r.ApartmentNummer__c FROM Opportunity WHERE StageName = 'Geschlossene und gewonnene' LIMIT 1];
+        String rechnungsNummer = opp.Immobilie__r.Objektnummer__c + '-' + opp.Appartement__r.ApartmentNummer__c;
         Property__c immobilie = [SELECT Id FROM Property__c WHERE Id = :opp.Immobilie__c];
         immobilie.MaBVRechnungenUeberSalesforce__c = true;
         update immobilie;
@@ -173,7 +174,7 @@ public with sharing class TestMaBVRechnungen {
         Document doc;
         doc = new Document();
         doc.Name = 'opos.csv';
-        doc.Body =  Blob.valueOf('Konto;Gegenkonto;Belegdatum;Belegfeld 1;Belegfeld 2;Umsatz Soll;Umsatz Haben;Stapel-Nr.;BSNr;BU-Schl¸ssel;Buchungstext;Steuersatz;WKZ eingeg. Umsatz;Eingeg. Umsatz;Kurs;Herkunft-Kz;Buchungs GUID;Leistungsdatum;Generalumkehr (GU);Beleginfo - Art 1;Beleginfo - Inhalt 1;Beleginfo - Art 2;Beleginfo - Inhalt 2;Beleginfo - Art 3;Beleginfo - Inhalt 3;Beleginfo - Inhalt 4\n122000;3000204;24.01.2022;"1234-001-1-1";"3000204";44.904,50;0,00;"01-2022/0004";2;"";"Weyhausen/ZE/1. Rate/WE 001 Maras";0,00;"EUR";0,00;0,000000;"RE";"765b2085-9333-4352-b7be-401c141df77c";;0;"D_KontoauszugText";"EREF+2301021445-0000001    KREF+2301021445            SVWZ+RNR 108/2022 DATUM 08.12.2022 OBJEKT LEUNA";"D_KontoauszugText";"Bu.Tag 02.01.2023 Valuta 02.01.2023 Umsatz EUR-365000,00 AB EUR+3239905,92 EB EUR+2972821,98 Gesch.partner ""TERRAFORM CONSTRUKTION GMBH"" BLZ 80053762 Konto ""1894113264"" GVCode ""116""";"D_KontoauszugText";"GV ""SEPA Credit Transfer (Einzelbuchung-Soll)"" PN ""       930"" Kd.Ref. ""NONREF"" Text ""EINZELUEBERWEISUNG"" IBAN ""DE03800537621894113264"" BIC ""NOLADE21HAL""";""\n122000;3000204;24.01.2022;"476-001-2-1";"3000204";50.293,04;0,00;"01-2022/0004";3;"";"Weyhausen/ZE/2. Rate/WE 001 Maras";0,00;"EUR";0,00;0,000000;"RE";"fc520912-323a-4cf7-8786-3c9dbace5e83";;0;"D_KontoauszugText";"EREF+2301021445-0000001    KREF+2301021445            SVWZ+RNR 108/2022 DATUM 08.12.2022 OBJEKT LEUNA";"D_KontoauszugText";"D_KontoauszugText";"Bu.Tag 02.01.2023 Valuta 02.01.2023 Umsatz EUR-365000,00 AB EUR+3239905,92 EB EUR+2972821,98 Gesch.partner ""TERRAFORM CONSTRUKTION GMBH"" BLZ 80053762 Konto ""1894113264"" GVCode ""116""";"D_KontoauszugText";"GV ""SEPA Credit Transfer (Einzelbuchung-Soll)"" PN ""       930"" Kd.Ref. ""NONREF"" Text ""EINZELUEBERWEISUNG"" IBAN ""DE03800537621894113264"" BIC ""NOLADE21HAL""";""\n120011;172250;31.05.2022;"1234-000";"3001896";26.614,00;0,00;"05-2022/0002";32;"";"ZE Anteil/Nörten-Hardenberg/WE 030 Racs";0,00;"EUR";0,00;0,000000;"RE";"9c596ca6-b03d-4c2d-aad6-c739d2031275";;0;"D_KontoauszugText";"EREF+2301021445-0000001    KREF+2301021445            SVWZ+RNR 108/2022 DATUM 08.12.2022 OBJEKT LEUNA";"D_KontoauszugText";"Bu.Tag 02.01.2023 Valuta 02.01.2023 Umsatz EUR-365000,00 AB EUR+3239905,92 EB EUR+2972821,98 Gesch.partner ""TERRAFORM CONSTRUKTION GMBH"" BLZ 80053762 Konto ""1894113264"" GVCode ""116""";"D_KontoauszugText";"GV ""SEPA Credit Transfer (Einzelbuchung-Soll)"" PN ""       930"" Kd.Ref. ""NONREF"" Text ""EINZELUEBERWEISUNG"" IBAN ""DE03800537621894113264"" BIC ""NOLADE21HAL""";""');
+        doc.Body =  Blob.valueOf('Konto;Gegenkonto;Belegdatum;Belegfeld 1;Belegfeld 2;Umsatz Soll;Umsatz Haben;Stapel-Nr.;BSNr;BU-Schl¸ssel;Buchungstext;Steuersatz;WKZ eingeg. Umsatz;Eingeg. Umsatz;Kurs;Herkunft-Kz;Buchungs GUID;Leistungsdatum;Generalumkehr (GU);Beleginfo - Art 1;Beleginfo - Inhalt 1;Beleginfo - Art 2;Beleginfo - Inhalt 2;Beleginfo - Art 3;Beleginfo - Inhalt 3;Beleginfo - Inhalt 4\n122000;3000204;24.01.2022;"' + rechnungsNummer + '-1-1";"3000204";44.904,50;0,00;"01-2022/0004";2;"";"Weyhausen/ZE/1. Rate/WE 001 Maras";0,00;"EUR";0,00;0,000000;"RE";"765b2085-9333-4352-b7be-401c141df77c";;0;"D_KontoauszugText";"EREF+2301021445-0000001    KREF+2301021445            SVWZ+RNR 108/2022 DATUM 08.12.2022 OBJEKT LEUNA";"D_KontoauszugText";"Bu.Tag 02.01.2023 Valuta 02.01.2023 Umsatz EUR-365000,00 AB EUR+3239905,92 EB EUR+2972821,98 Gesch.partner ""TERRAFORM CONSTRUKTION GMBH"" BLZ 80053762 Konto ""1894113264"" GVCode ""116""";"D_KontoauszugText";"GV ""SEPA Credit Transfer (Einzelbuchung-Soll)"" PN ""       930"" Kd.Ref. ""NONREF"" Text ""EINZELUEBERWEISUNG"" IBAN ""DE03800537621894113264"" BIC ""NOLADE21HAL""";""\n122000;3000204;24.01.2022;"476-001-2-1";"3000204";50.293,04;0,00;"01-2022/0004";3;"";"Weyhausen/ZE/2. Rate/WE 001 Maras";0,00;"EUR";0,00;0,000000;"RE";"fc520912-323a-4cf7-8786-3c9dbace5e83";;0;"D_KontoauszugText";"EREF+2301021445-0000001    KREF+2301021445            SVWZ+RNR 108/2022 DATUM 08.12.2022 OBJEKT LEUNA";"D_KontoauszugText";"D_KontoauszugText";"Bu.Tag 02.01.2023 Valuta 02.01.2023 Umsatz EUR-365000,00 AB EUR+3239905,92 EB EUR+2972821,98 Gesch.partner ""TERRAFORM CONSTRUKTION GMBH"" BLZ 80053762 Konto ""1894113264"" GVCode ""116""";"D_KontoauszugText";"GV ""SEPA Credit Transfer (Einzelbuchung-Soll)"" PN ""       930"" Kd.Ref. ""NONREF"" Text ""EINZELUEBERWEISUNG"" IBAN ""DE03800537621894113264"" BIC ""NOLADE21HAL""";""\n120011;172250;31.05.2022;"'+ rechnungsNummer + '-2-1";"3001896";26.614,00;0,00;"05-2022/0002";32;"";"ZE Anteil/Nörten-Hardenberg/WE 030 Racs";0,00;"EUR";0,00;0,000000;"RE";"9c596ca6-b03d-4c2d-aad6-c739d2031275";;0;"D_KontoauszugText";"EREF+2301021445-0000001    KREF+2301021445            SVWZ+RNR 108/2022 DATUM 08.12.2022 OBJEKT LEUNA";"D_KontoauszugText";"Bu.Tag 02.01.2023 Valuta 02.01.2023 Umsatz EUR-365000,00 AB EUR+3239905,92 EB EUR+2972821,98 Gesch.partner ""TERRAFORM CONSTRUKTION GMBH"" BLZ 80053762 Konto ""1894113264"" GVCode ""116""";"D_KontoauszugText";"GV ""SEPA Credit Transfer (Einzelbuchung-Soll)"" PN ""       930"" Kd.Ref. ""NONREF"" Text ""EINZELUEBERWEISUNG"" IBAN ""DE03800537621894113264"" BIC ""NOLADE21HAL""";""');
         doc.FolderId = '00l67000001J3k7';//Live
         doc.Type = 'csv';
         doc.ContentType='text/csv; charset=utf-8';
@@ -197,7 +198,9 @@ public with sharing class TestMaBVRechnungen {
             }
         }
         update maBVRechnungen;
-        ScheduledOposSync.syncOposAndInvoices();
+        DateTime dt = System.Now().addHours(-2);
+        List<Document> oposDocuments = [SELECT Id, Body FROM Document WHERE Folder.Name = 'opos' AND CreatedDate >= :dt];
+        ScheduledOposSync.syncOposAndInvoicesForDocuments(oposDocuments);
 
         MaBVRechnungMaster__c maBVRechnungMaster = [SELECT RechnungWurdeStorniert__c FROM MaBVRechnungMaster__c LIMIT 1];
         maBVRechnungMaster.RechnungWurdeStorniert__c = true;
@@ -209,5 +212,10 @@ public with sharing class TestMaBVRechnungen {
 
         maBVRate3.Faelligkeitsdatum__c = Date.Today() + 33;
         update maBVRate3;
+
+        Zahlung__c zahlung = [SELECT ID, IBAN__c, BIC__c, BusinessPartner__c, AccountingText__c FROM Zahlung__c LIMIT 1];
+        System.assertEquals('DE03800537621894113264', zahlung.IBAN__c);
+        System.assertEquals('NOLADE21HAL', zahlung.BIC__c);
+        System.assertEquals('TERRAFORM CONSTRUKTION GMBH', zahlung.BusinessPartner__c);
     }
 }

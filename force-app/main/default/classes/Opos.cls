@@ -40,6 +40,7 @@ public without sharing class Opos {
      * Extracts IBAN and Business Partner Information
      */
     public void getTransactionInformation(String beleginfo) {
+        beleginfo = beleginfo.replace('""', '"');
         //Format IBAN: '...IBAN "DE84255914133156606504"...
         Integer indexIBANText = beleginfo.indexOf('IBAN "');
         if(indexIBANText > -1) {
