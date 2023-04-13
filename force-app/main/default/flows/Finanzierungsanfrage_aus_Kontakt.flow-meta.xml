@@ -151,7 +151,7 @@
         <locationX>176</locationX>
         <locationY>398</locationY>
         <connector>
-            <targetReference>Digitale_VSA_Eingabe</targetReference>
+            <targetReference>FileUploadScreen</targetReference>
         </connector>
         <inputAssignments>
             <field>EinzusetzendesEigenkapital__c</field>
@@ -228,14 +228,14 @@
     <runInMode>SystemModeWithoutSharing</runInMode>
     <screens>
         <name>FileUploadScreen</name>
-        <label>File Upload Screen</label>
+        <label>Screen File Upload</label>
         <locationX>176</locationX>
-        <locationY>638</locationY>
+        <locationY>518</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Success</targetReference>
+            <targetReference>Digitale_VSA_Eingabe</targetReference>
         </connector>
         <fields>
             <name>FileUpload</name>
@@ -389,9 +389,9 @@
         <name>Digitale_VSA_Eingabe</name>
         <label>Digitale VSA Eingabe</label>
         <locationX>176</locationX>
-        <locationY>518</locationY>
+        <locationY>638</locationY>
         <connector>
-            <targetReference>FileUploadScreen</targetReference>
+            <targetReference>Success</targetReference>
         </connector>
         <flowName>Digitale_VSA_Eingabe</flowName>
         <inputAssignments>
