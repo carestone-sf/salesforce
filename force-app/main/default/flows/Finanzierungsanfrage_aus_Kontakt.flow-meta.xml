@@ -227,6 +227,7 @@
     </recordLookups>
     <runInMode>SystemModeWithoutSharing</runInMode>
     <screens>
+        <description>Upload files directly to Finanzierungsanfrage.</description>
         <name>FileUploadScreen</name>
         <label>Screen File Upload</label>
         <locationX>176</locationX>
@@ -384,7 +385,7 @@
             <targetReference>Kontakt</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <subflows>
         <name>Digitale_VSA_Eingabe</name>
         <label>Digitale VSA Eingabe</label>
