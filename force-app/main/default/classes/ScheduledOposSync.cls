@@ -15,7 +15,16 @@ global without sharing class ScheduledOposSync implements Schedulable {
         List<Gutschrift__c> gutschriften = [SELECT Bezahlt__c, Name FROM Gutschrift__c WHERE Bezahlt__c != TRUE AND ZuDatevUebertragen__c = TRUE AND GutschriftStorniert__c = FALSE];
         List<Opportunity> opps = [SELECT Id, Appartement__r.ApartmentNummer__c, Immobilie__r.Objektnummer__c FROM Opportunity WHERE StageName = 'Geschlossene und gewonnene' AND Immobilie__r.Objektnummer__c != null AND Appartement__r.ApartmentNummer__c != null];
 
-        Map<String, List<Opos>> rechnungsNummerToOpos = new Map<String, List<Opos>>();        
+        Map<String, List<Opos>> rechnungsNummerToOpos = new Map<String, List<Opos>>();     
+        
+        Integer i1;
+        Integer i2;
+        Integer i3;
+        Integer i4;
+        Integer i5;
+        Integer i6;
+        Integer i7;
+        Integer i8;
 
         for(Document oposDocument:oposDocuments) {
             String csvString = oposDocument.Body.toString();
