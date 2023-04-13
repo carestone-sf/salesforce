@@ -13,10 +13,6 @@
         <allowDelegate>false</allowDelegate>
         <assignedApprover>
             <approver>
-                <name>k.hemker@wirtschaftshaus.de</name>
-                <type>user</type>
-            </approver>
-            <approver>
                 <name>l.korte@wh-marketing.de</name>
                 <type>user</type>
             </approver>
