@@ -2324,6 +2324,16 @@
                 <identifier>RecordTekturBewilligtAm_cField2</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.GeneralNotesOnDates__c</fieldItem>
+                <identifier>RecordGeneralNotesOnDates_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-oebf6izdva</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -2626,16 +2636,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Mietdauer__c</fieldItem>
                 <identifier>RecordMietdauer_cField2</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Mietzins__c</fieldItem>
-                <identifier>RecordMietzins_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>

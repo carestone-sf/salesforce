@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reservierungsvorbereitung_ge_ndert</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(TEXT(PRIORVALUE(StageName)) = &apos;Reservierungsvorbereitung&apos; &amp;&amp;  TEXT(StageName) != &apos;Reservierungsvorbereitung&apos;, 
+TEXT(PRIORVALUE(StageName)) = &apos;VKC ausgelaufen&apos; &amp;&amp;  TEXT(StageName) != &apos;VKC ausgelaufen&apos;,
+TEXT(PRIORVALUE(StageName)) = &apos;Geschlossen und verloren&apos; &amp;&amp;  TEXT(StageName) != &apos;Geschlossen und verloren&apos;,
+TEXT(PRIORVALUE(StageName)) = &apos;Reservierung abgelehnt&apos; &amp;&amp;  TEXT(StageName) != &apos;Reservierung abgelehnt&apos;)
+ &amp;&amp; AND( 
+NOT($Profile.Id = &apos;00eb0000000Eeda&apos;), 
+NOT($Profile.Id = &apos;00eb0000000VEnA&apos;), 
+NOT($Profile.Id = &apos;00eb0000000EedV&apos;), 
+NOT($Profile.Id = &apos;00eb0000000Eedk&apos;),
+NOT($Profile.Id = &apos;00e0Q000000HvRo&apos;),
+NOT($Profile.Id = &apos;00e0X000000ds1P&apos;),
+NOT($Profile.Id = &apos;00e0X000000S342&apos;))</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>Sie sind nicht dazu berechtigt die Phase zu ändern, bitte melden Sie sich bei Ihrem Vertriebsmanager.</errorMessage>
+</ValidationRule>
