@@ -15,28 +15,16 @@ global without sharing class ScheduledOposSync implements Schedulable {
         List<Gutschrift__c> gutschriften = [SELECT Bezahlt__c, Name FROM Gutschrift__c WHERE Bezahlt__c != TRUE AND ZuDatevUebertragen__c = TRUE AND GutschriftStorniert__c = FALSE];
         List<Opportunity> opps = [SELECT Id, Appartement__r.ApartmentNummer__c, Immobilie__r.Objektnummer__c FROM Opportunity WHERE StageName = 'Geschlossene und gewonnene' AND Immobilie__r.Objektnummer__c != null AND Appartement__r.ApartmentNummer__c != null];
 
-        Map<String, List<Opos>> rechnungsNummerToOpos = new Map<String, List<Opos>>();
-        String a;
-        String b;
-        String c;
-        String d;
-        String e;
-        String f;
-        String g;
-        String h;
-        String i;
-        String j;
-        String a2;
-        String b2;
-        String c2;
-        String d2;
-        String e2;
-        String f2;
-        String g2;
-        String h2;
-        String i2;
-        String j2;
+        Map<String, List<Opos>> rechnungsNummerToOpos = new Map<String, List<Opos>>();     
         
+        Integer i1;
+        Integer i2;
+        Integer i3;
+        Integer i4;
+        Integer i5;
+        Integer i6;
+        Integer i7;
+        Integer i8;
 
         for(Document oposDocument:oposDocuments) {
             String csvString = oposDocument.Body.toString();
@@ -92,7 +80,7 @@ global without sharing class ScheduledOposSync implements Schedulable {
                     zahlung.IBAN__c = opos.IBAN;
                     zahlung.AccountingText__c = opos.buchungstext;
                     zahlung.BusinessPartner__c = opos.businessPartner;
-                    Zahlung.BIC__c = opos.BIC;
+                    zahlung.BIC__c = opos.BIC;
 
                     if(zahlung.Zahldatum__c != null) {
                         zahlung.UniqueId__c = zahlung.Zahldatum__c.year() + '-' + zahlung.Zahldatum__c.month() + '-' + zahlung.Zahldatum__c.day() + '-' + mabvRechnung.Id;
@@ -151,7 +139,8 @@ global without sharing class ScheduledOposSync implements Schedulable {
         }
 
         if(zahlungen.size() > 0) {
-            database.upsert(zahlungen, false);
+            Schema.SObjectField zahlungUniqueIdField = Zahlung__c.Fields.UniqueId__c;
+            database.upsert(zahlungen, zahlungUniqueIdField, false);
         }
 
         if(updateGutschriften.size() > 0) {
@@ -159,7 +148,8 @@ global without sharing class ScheduledOposSync implements Schedulable {
         }
 
         if(vkcZahlungen.size() > 0) {
-            database.upsert(vkcZahlungen, false);
+            Schema.SObjectField vkcZahlungUniqueIdField = VKCZahlung__c.Fields.UniqueId__c;
+            database.upsert(vkcZahlungen, vkcZahlungUniqueIdField, false);
         }
     }
 }
