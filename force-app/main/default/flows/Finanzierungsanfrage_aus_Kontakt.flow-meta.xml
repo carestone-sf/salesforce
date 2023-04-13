@@ -227,6 +227,7 @@
     </recordLookups>
     <runInMode>SystemModeWithoutSharing</runInMode>
     <screens>
+        <description>Upload files directly to Finanzierungsanfrage.</description>
         <name>FileUploadScreen</name>
         <label>Screen File Upload</label>
         <locationX>176</locationX>
