@@ -49,6 +49,10 @@
             <name>Kundenschutz_genehmigt</name>
             <type>FieldUpdate</type>
         </action>
+        <action>
+            <name>New_contact_created</name>
+            <type>Alert</type>
+        </action>
     </finalApprovalActions>
     <finalApprovalRecordLock>false</finalApprovalRecordLock>
     <finalRejectionActions>
