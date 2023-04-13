@@ -1181,6 +1181,16 @@
             <field>AdditionalBrokerCommission__c</field>
             <table>Opportunity</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NotesFinancialAccounting__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DatumAbnahmeprotokoll__c</field>
+            <table>Opportunity</table>
+        </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
     <sections>
