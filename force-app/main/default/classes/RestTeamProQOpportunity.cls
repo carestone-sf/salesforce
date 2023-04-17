@@ -103,6 +103,7 @@ global without sharing class RestTeamProQOpportunity {
         opp.CloseDate = Date.today().addMonths(3);
         opp.SourceCreation__c = 'TeamProQ';
         opp.KfwWunsch__c = 'Kein KfW';
+        opp.TeamProQId__c = data.teamProQId;
 
         // Fill in text area fields so that information can be checked 
         // or contacts can be created manually 
@@ -197,6 +198,7 @@ global without sharing class RestTeamProQOpportunity {
     global class RestTeamProQOpportunityRequest {
         global String propertyExternalId;
         global String apartmentExternalId;
+        global String teamProQId;
         global Id accountId;
         global Contact firstBuyer;
         global Contact secondBuyer;
