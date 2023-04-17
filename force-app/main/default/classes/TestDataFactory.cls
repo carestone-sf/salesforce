@@ -562,4 +562,19 @@ public with sharing class TestDataFactory {
         insert con;
         return createActivitySummary(doInsert, userId, con.Id, nmonth);
     }
+
+    public static ImmobilienDmsDatei__c createImmobilienDmsDatei(Boolean doInsert, Id propertyId, String fileType) {
+        ImmobilienDmsDatei__c idd = new ImmobilienDmsDatei__c();
+        idd.ThumbnailUrl__c = 'https://drive.google.com/thumbnail?authuser=0&sz=w320&id=13QfxKrQyGTwflCFtuQ67bHnS-CzFf-pX';
+        idd.MimeType__c = 'application/pdf';
+        // 'Bilder' oder 'Dokumente'
+        idd.DateiTyp__c = fileType;
+        idd.Name = 'Datei.pdf';
+        idd.DateiUrl__c = 'https://drive.google.com/uc?id=13QfxKrQyGTwflCFtuQ67bHnS-CzFf-pX&export=download';
+        idd.Immobilie__c = propertyId;
+        if(doInsert) {
+            insert idd;
+        }
+        return idd;
+    }
 }
