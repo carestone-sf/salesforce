@@ -538,11 +538,7 @@
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.NachtraegeZumMietvertrag__c.Label}</p>                          
                                 <p style="float: right"><apex:outputField value="{!Property__c.NachtraegeZumMietvertrag__c}"/></p>
-                            </div>                                                
-                            <div class="section-field">
-                                <p class="section-field-label">{!$ObjectType.Property__c.fields.Mietzins__c.Label}"</p>                         
-                                <p style="float: right"><apex:outputField value="{!Property__c.Mietzins__c}"/></p>
-                            </div>                                                
+                            </div>
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.StatPflegeMieteProPlatzTag__c.Label}</p>                          
                                 <p style="float: right"><apex:outputField value="{!Property__c.StatPflegeMieteProPlatzTag__c}"/></p>
