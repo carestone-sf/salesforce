@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Benachrichtigung_ber_interne_Provision_an_MB</name>
+        <label>Benachrichtigung über interne Provision an MB</label>
+        <locationX>50</locationX>
+        <locationY>695</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Neue interne Provision</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Makler__r.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>newInternalProvisionEmailText</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>54.0</apiVersion>
+    <decisions>
+        <name>Interne_Provision</name>
+        <label>Interne Provision?</label>
+        <locationX>182</locationX>
+        <locationY>575</locationY>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>Interne_Provision2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Makler__r.Ist_Maklerbetreuer_WH__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Makler__r.Email</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Benachrichtigung_ber_interne_Provision_an_MB</targetReference>
+            </connector>
+            <label>Interne Provision?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_New</name>
+        <label>Is New?</label>
+        <locationX>380</locationX>
+        <locationY>455</locationY>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>Is_New2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>isNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Interne_Provision</targetReference>
+            </connector>
+            <label>Is New?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Run_Automations</name>
+        <label>Run Automations?</label>
+        <locationX>611</locationX>
+        <locationY>335</locationY>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>Run_Automations2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Permission.Run_Automations</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Is_New</targetReference>
+            </connector>
+            <label>Run Automations?</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>detailLink</name>
+        <dataType>String</dataType>
+        <expression>LEFT($Api.Enterprise_Server_URL_510, FIND( &apos;/services&apos;, $Api.Enterprise_Server_URL_510)) + {!$Record.Id}</expression>
+    </formulas>
+    <formulas>
+        <name>isNew</name>
+        <dataType>Boolean</dataType>
+        <expression>isNew()</expression>
+    </formulas>
+    <interviewLabel>Provision after insert / update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Provision after insert / update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>485</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Run_Automations</targetReference>
+        </connector>
+        <object>Provision__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>newInternalProvisionEmailText</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Es wurde eine neue interne Provision angelegt:
+Link: {!detailLink}
+VKC: {!$Record.Verkaufschance__r.Name}
+Immobilie: {!$Record.Verkaufschance__r.Immobilie__r.Name}
+Apartment: {!$Record.Verkaufschance__r.Appartement__r.Name}</text>
+    </textTemplates>
+</Flow>
