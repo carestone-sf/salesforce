@@ -2725,6 +2725,16 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>NotesFinancialAccounting__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DatumAbnahmeprotokoll__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>TippgeberProvisionEmpfaenger__c</field>
             <table>Property__c.Opportunities__r</table>
         </columns>
