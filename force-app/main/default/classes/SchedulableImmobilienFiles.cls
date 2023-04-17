@@ -121,6 +121,16 @@ global class SchedulableImmobilienFiles implements Schedulable, Database.AllowsC
         new ImmobilienBilder__c();
         new ImmobilienBilder__c();
         new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
 
         for(Id propertyId:propertyIds) {
             getDocuments(propertyId);
@@ -175,6 +185,7 @@ global class SchedulableImmobilienFiles implements Schedulable, Database.AllowsC
                         immobilienDatei.ParentOrdner__c = null;
                         immobilienDatei.PreviewUrl__c = innerChild.getAlternateLink();
                         immobilienDatei.ThumbnailUrl__c = thumbnailUrl + innerChild.getId();
+                        immobilienDatei.MimeType__c = innerChild.getMimeType();
                         immobilienDatei.FileLastModifiedDate__c = innerChild.getModifiedDate();
                         immobilienDateien.add(immobilienDatei);
                     } else {
@@ -202,6 +213,7 @@ global class SchedulableImmobilienFiles implements Schedulable, Database.AllowsC
                             immobilienDatei.PreviewUrl__c = documentChild.getAlternateLink();
                             immobilienDatei.ThumbnailUrl__c = thumbnailUrl + documentChild.getId();
                             immobilienDatei.FileLastModifiedDate__c = documentChild.getModifiedDate();
+                            immobilienDatei.MimeType__c = documentChild.getMimeType();
                             immobilienDateien.add(immobilienDatei);
                         }
                     }
