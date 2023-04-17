@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NameValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(REGEX(Name, &quot;^[a-zA-Z0-9_\\- ]+$&quot;))</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>This field accept only characters and numbers and underline and minus</errorMessage>
+</ValidationRule>
