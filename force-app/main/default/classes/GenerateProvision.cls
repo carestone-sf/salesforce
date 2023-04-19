@@ -18,9 +18,9 @@ public without sharing class GenerateProvision {
         prov.MarketingzuschussNichtAusweisen__c = opp.MarketingzuschussNichtAusweisen__c;
 
         if(con.Gesch_ftsbeziehung__c != null) {
-            if((con.Maklerauftrag__c == 'Maklerauftrag beidseitig unterzeichnet' || con.Maklerauftrag__c == 'Makler mit altem Vertrag') && !con.Gesch_ftsbeziehung__c.contains('Mitarbeiter WH') && !con.Gesch_ftsbeziehung__c.contains('Interessent') && !con.Gesch_ftsbeziehung__c.contains('Kunde')) {
+            if((con.Maklerauftrag__c == 'Maklerauftrag beidseitig unterzeichnet' || con.Maklerauftrag__c == 'Makler mit altem Vertrag') && !con.Ist_Maklerbetreuer_WH__c && !con.Gesch_ftsbeziehung__c.contains('Interessent') && !con.Gesch_ftsbeziehung__c.contains('Kunde')) {
                 prov.Eingereicht_Check__c = true;
-            } else if (((con.Maklerauftrag__c != 'Maklerauftrag beidseitig unterzeichnet' || con.Maklerauftrag__c != 'Makler mit altem Vertrag') && !con.Gesch_ftsbeziehung__c.contains('Mitarbeiter WH') && opp.Abrechnung_ber__c == null)) {
+            } else if (((con.Maklerauftrag__c != 'Maklerauftrag beidseitig unterzeichnet' || con.Maklerauftrag__c != 'Makler mit altem Vertrag') && !con.Ist_Maklerbetreuer_WH__c && opp.Abrechnung_ber__c == null)) {
                 opp.addError(pageError);
             }
         }
@@ -33,7 +33,7 @@ public without sharing class GenerateProvision {
         }
         if(opp.Immobilienberater__c == con.Id && (opp.Abrechnung_ber__c == null || opp.AbrechnungUeberNurFuerGrundprovision__c)) {
             prov.Wert_Verk_ufer_Beratungsprovision_m_R__c = opp.Wert_Verk_ufer_Beratungsprovision_m_R__c;
-        } else if(opp.Immobilienberater__c == con.Id && con.Gesch_ftsbeziehung__c.contains('Mitarbeiter WH')) {
+        } else if(opp.Immobilienberater__c == con.Id && con.Ist_Maklerbetreuer_WH__c) {
             prov.Wert_Verk_ufer_Beratungsprovision_m_R__c = opp.Wert_Verk_ufer_Beratungsprovision_m_R__c;
         }
         if(opp.Makler__c == con.Id && opp.Abrechnung_ber__c == null) {
@@ -94,7 +94,7 @@ public without sharing class GenerateProvision {
         }
         if(opp.Immobilienberater__c == oldMakler || (opp.Abrechnung_ber__c == oldMakler && !opp.AbrechnungUeberNurFuerGrundprovision__c)) {
             prov.Wert_Verk_ufer_Beratungsprovision_m_R__c = opp.Wert_Verk_ufer_Beratungsprovision_m_R__c;
-            if(prov.Makler__c == null && opp.Abrechnung_ber__c != null && !con.Gesch_ftsbeziehung__c.contains('Mitarbeiter WH') && !opp.AbrechnungUeberNurFuerGrundprovision__c) {
+            if(prov.Makler__c == null && opp.Abrechnung_ber__c != null && !con.Ist_Maklerbetreuer_WH__c && !opp.AbrechnungUeberNurFuerGrundprovision__c) {
                 prov.Makler__c = opp.Abrechnung_ber__c;
             } else if(prov.Makler__c == null) {
                 prov.Makler__c = opp.Immobilienberater__c;
@@ -179,11 +179,11 @@ public without sharing class GenerateProvision {
 
         // Get all the Contacts which are Makler__c in Provision__c from old and new Opportunities
         Set<Id> empfaengerIds = getEmpfaengerIds(opps.values());
-        Map<Id,Contact> provEmpfaenger = new Map<Id, Contact>([SELECT Id, Gesch_ftsbeziehung__c, Email, Maklerauftrag__c FROM Contact WHERE Id IN : empfaengerIds]);
+        Map<Id,Contact> provEmpfaenger = new Map<Id, Contact>([SELECT Id, Gesch_ftsbeziehung__c, Ist_Maklerbetreuer_WH__c, Email, Maklerauftrag__c FROM Contact WHERE Id IN : empfaengerIds]);
 
         Set<Id> oldEmpfaengerIds = getEmpfaengerIds(oldOpps.values());
 
-        Map<Id,Contact> alleEmpfaenger = new Map<Id, Contact>([SELECT Id, Gesch_ftsbeziehung__c, Email, Maklerauftrag__c FROM Contact WHERE Id IN : oldEmpfaengerIds OR Id IN : empfaengerIds]);
+        Map<Id,Contact> alleEmpfaenger = new Map<Id, Contact>([SELECT Id, Gesch_ftsbeziehung__c, Ist_Maklerbetreuer_WH__c, Email, Maklerauftrag__c FROM Contact WHERE Id IN : oldEmpfaengerIds OR Id IN : empfaengerIds]);
 
         for(Opportunity opp: opps.values()) {
             List<Provision__c> deleteProvs = new List<Provision__c>();
@@ -204,7 +204,7 @@ public without sharing class GenerateProvision {
                     prov.E_Mail__c = alleEmpfaenger.get(prov.Makler__c).Email;
                     if(type == 'all') {
                         updateProvs.add(prov);
-                    } else if(type == 'intern' && con.Gesch_ftsbeziehung__c != null && con.Gesch_ftsbeziehung__c.contains('Mitarbeiter WH')) {
+                    } else if(type == 'intern' && con.Ist_Maklerbetreuer_WH__c) {
                         updateProvs.add(prov);
                     }
                 }
