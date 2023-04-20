@@ -185,6 +185,10 @@
                 <behavior>Edit</behavior>
                 <field>Grundprovision__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ClosingBonus__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
