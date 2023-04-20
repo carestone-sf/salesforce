@@ -552,6 +552,16 @@
                 <identifier>RecordVerkaufsprovision_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ClosingBonus__c</fieldItem>
+                <identifier>RecordClosingBonus_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-f636b300-8ab1-4876-b29f-96e41d02a052</name>
         <type>Facet</type>
     </flexiPageRegions>
