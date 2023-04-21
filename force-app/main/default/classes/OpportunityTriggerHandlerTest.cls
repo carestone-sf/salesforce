@@ -4,6 +4,8 @@ private class OpportunityTriggerHandlerTest {
     @TestSetup
     static void makeData(){
         TestDataFactory.createDatevSettings();
+
+        User u = TestDataFactory.createTestuser(true, 'test', 1234);
     }
 
     /*
@@ -148,19 +150,31 @@ private class OpportunityTriggerHandlerTest {
 
     @IsTest
     private static void testSetCustomerToContinouslyProtected() {
-        Account acc = TestDataFactory.createAccount(true);
-        Property__c immobilie = TestDataFactory.createProperty(true, TestDataFactory.createBautraeger(true).Id);
-        Appartment__c appartment = TestDataFactory.createAppartment(true, immobilie.Id);
+        User u = [SELECT Id FROM User WHERE Username LIKE 'emailtest@test.com%'];
 
-        Contact makler = TestDataFactory.createMakler(false, acc.Id);
-        Contact interessent = TestDataFactory.createInteressent(false, acc.Id);
-        insert new List<Contact> {makler, interessent};
+        PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name = 'Can_change_stage_status'];
+        insert new PermissionSetAssignment(AssigneeId = u.id, PermissionSetId = ps.Id);
 
-        Test.startTest();
-        Opportunity opp = TestDataFactory.createOpportunity(true, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Kaufvertragsunterlagen verschickt');
-        Test.stopTest();
+        PermissionSet ps2 = [SELECT Id FROM PermissionSet WHERE Name = 'SkipOpportunityValidation'];
+        insert new PermissionSetAssignment(AssigneeId = u.id, PermissionSetId = ps2.Id);
 
-        System.assert([SELECT Dauerhaft_gesch_tzt__c FROM Contact WHERE Id = :interessent.Id].Dauerhaft_gesch_tzt__c);
+        System.runAs(u) {
+            Account acc = TestDataFactory.createAccount(true);
+            Property__c immobilie = TestDataFactory.createProperty(true, TestDataFactory.createBautraeger(true).Id);
+            Appartment__c appartment = TestDataFactory.createAppartment(true, immobilie.Id);
+
+            Contact makler = TestDataFactory.createMakler(false, acc.Id);
+            Contact interessent = TestDataFactory.createInteressent(false, acc.Id);
+            insert new List<Contact>{
+                    makler, interessent
+            };
+
+            Test.startTest();
+            Opportunity opp = TestDataFactory.createOpportunity(true, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Kaufvertragsunterlagen verschickt');
+            Test.stopTest();
+
+            System.assert([SELECT Dauerhaft_gesch_tzt__c FROM Contact WHERE Id = :interessent.Id].Dauerhaft_gesch_tzt__c);
+        }
     }
 
     @IsTest
@@ -211,87 +225,124 @@ private class OpportunityTriggerHandlerTest {
 
     @IsTest
     private static void testOpportunityWasWOn() {
-        Account acc = TestDataFactory.createAccount(true);
-        Property__c immobilie = TestDataFactory.createProperty(true, TestDataFactory.createBautraeger(true).Id);
-        Appartment__c appartment = TestDataFactory.createAppartment(true, immobilie.Id);
 
-        Contact makler = TestDataFactory.createMakler(false, acc.Id);
-        Contact interessent = TestDataFactory.createInteressent(false, acc.Id);
-        Contact interessent2 = TestDataFactory.createInteressent(false, acc.Id);
-        insert new List<Contact> {makler, interessent, interessent2};
+        User u = [SELECT Id FROM User WHERE Username LIKE 'emailtest@test.com%'];
 
-        TestDataFactory.createProvisionsverhandlung(true, acc.Id, immobilie.Id);
+        PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name = 'Can_change_stage_status'];
+        insert new PermissionSetAssignment(AssigneeId = u.id, PermissionSetId = ps.Id);
 
-        Opportunity opp = TestDataFactory.createOpportunity(false, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Kontingent');
-        opp.Immobilienberater__c = makler.Id;
-        opp.Kunde2__c = interessent2.Id;
-        insert opp;
+        PermissionSet ps2 = [SELECT Id FROM PermissionSet WHERE Name = 'SkipOpportunityValidation'];
+        insert new PermissionSetAssignment(AssigneeId = u.id, PermissionSetId = ps2.Id);
 
-        Test.startTest();
-        opp.StageName = 'Geschlossene und gewonnene';
-        update opp;
-        Test.stopTest();
+        System.runAs(u) {
+            Account acc = TestDataFactory.createAccount(true);
+            Property__c immobilie = TestDataFactory.createProperty(true, TestDataFactory.createBautraeger(true).Id);
+            Appartment__c appartment = TestDataFactory.createAppartment(true, immobilie.Id);
 
-        System.assertEquals(2, [SELECT COUNT() FROM Contact WHERE LetzteImmobiliennummer__c = :immobilie.Objektnummer__c]);
+            Contact makler = TestDataFactory.createMakler(false, acc.Id);
+            Contact interessent = TestDataFactory.createInteressent(false, acc.Id);
+            Contact interessent2 = TestDataFactory.createInteressent(false, acc.Id);
+            insert new List<Contact>{
+                    makler, interessent, interessent2
+            };
+
+            TestDataFactory.createProvisionsverhandlung(true, acc.Id, immobilie.Id);
+
+            Opportunity opp = TestDataFactory.createOpportunity(false, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Kontingent');
+            opp.Immobilienberater__c = makler.Id;
+            opp.Kunde2__c = interessent2.Id;
+            insert opp;
+
+            Test.startTest();
+            opp.StageName = 'Geschlossene und gewonnene';
+            update opp;
+            Test.stopTest();
+
+            System.assertEquals(2, [SELECT COUNT() FROM Contact WHERE LetzteImmobiliennummer__c = :immobilie.Objektnummer__c]);
+        }
     }
 
     @IsTest
     private static void testSetApartmentFieldsOnInsert() {
-        Account acc = TestDataFactory.createAccount(true);
-        Property__c immobilie = TestDataFactory.createProperty(true, TestDataFactory.createBautraeger(true).Id);
-        Appartment__c appartment = TestDataFactory.createAppartment(true, immobilie.Id);
+        User u = [SELECT Id FROM User WHERE Username LIKE 'emailtest@test.com%'];
 
-        Contact makler = TestDataFactory.createMakler(false, acc.Id);
-        Contact interessent = TestDataFactory.createInteressent(false, acc.Id);
-        insert new List<Contact> {makler, interessent};
+        PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name = 'Can_change_stage_status'];
+        insert new PermissionSetAssignment(AssigneeId = u.id, PermissionSetId = ps.Id);
 
-        TestDataFactory.createProvisionsverhandlung(true, acc.Id, immobilie.Id);
-        
-        Test.startTest();
-        
-        Opportunity opp = TestDataFactory.createOpportunity(true, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Reserviert');
-        appartment = [SELECT Status__c, Customer__c, Makler__c FROM Appartment__c WHERE Id = :appartment.Id];
-        System.assertEquals(interessent.Id, appartment.Customer__c);
-        System.assertEquals('Reserved', appartment.Status__c);
+        PermissionSet ps2 = [SELECT Id FROM PermissionSet WHERE Name = 'SkipOpportunityValidation'];
+        insert new PermissionSetAssignment(AssigneeId = u.id, PermissionSetId = ps2.Id);
 
-        Test.stopTest();
+        System.runAs(u) {
+            Account acc = TestDataFactory.createAccount(true);
+            Property__c immobilie = TestDataFactory.createProperty(true, TestDataFactory.createBautraeger(true).Id);
+            Appartment__c appartment = TestDataFactory.createAppartment(true, immobilie.Id);
+
+            Contact makler = TestDataFactory.createMakler(false, acc.Id);
+            Contact interessent = TestDataFactory.createInteressent(false, acc.Id);
+            insert new List<Contact>{
+                    makler, interessent
+            };
+
+            TestDataFactory.createProvisionsverhandlung(true, acc.Id, immobilie.Id);
+
+            Test.startTest();
+
+            Opportunity opp = TestDataFactory.createOpportunity(true, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Reserviert');
+            appartment = [SELECT Status__c, Customer__c, Makler__c FROM Appartment__c WHERE Id = :appartment.Id];
+            System.assertEquals(interessent.Id, appartment.Customer__c);
+            System.assertEquals('Reserved', appartment.Status__c);
+
+            Test.stopTest();
+        }
     }
 
     @IsTest
     private static void testSetApartmentFields() {
-        Account acc = TestDataFactory.createAccount(true);
-        Property__c immobilie = TestDataFactory.createProperty(true, TestDataFactory.createBautraeger(true).Id);
-        Appartment__c appartment = TestDataFactory.createAppartment(true, immobilie.Id);
+        User u = [SELECT Id FROM User WHERE Username LIKE 'emailtest@test.com%'];
 
-        Contact makler = TestDataFactory.createMakler(false, acc.Id);
-        Contact interessent = TestDataFactory.createInteressent(false, acc.Id);
-        Contact interessent2 = TestDataFactory.createInteressent(false, acc.Id);
-        insert new List<Contact> {makler, interessent, interessent2};
+        PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name = 'Can_change_stage_status'];
+        insert new PermissionSetAssignment(AssigneeId = u.id, PermissionSetId = ps.Id);
 
-        TestDataFactory.createProvisionsverhandlung(true, acc.Id, immobilie.Id);
+        PermissionSet ps2 = [SELECT Id FROM PermissionSet WHERE Name = 'SkipOpportunityValidation'];
+        insert new PermissionSetAssignment(AssigneeId = u.id, PermissionSetId = ps2.Id);
 
-        Opportunity opp = TestDataFactory.createOpportunity(true, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Reserviert');
+        System.runAs(u) {
+            Account acc = TestDataFactory.createAccount(true);
+            Property__c immobilie = TestDataFactory.createProperty(true, TestDataFactory.createBautraeger(true).Id);
+            Appartment__c appartment = TestDataFactory.createAppartment(true, immobilie.Id);
 
-        System.debug([SELECT Status__c, Customer__c, Makler__c FROM Appartment__c WHERE Id = :appartment.Id]);
+            Contact makler = TestDataFactory.createMakler(false, acc.Id);
+            Contact interessent = TestDataFactory.createInteressent(false, acc.Id);
+            Contact interessent2 = TestDataFactory.createInteressent(false, acc.Id);
+            insert new List<Contact>{
+                    makler, interessent, interessent2
+            };
 
-        Test.startTest();
-        
-        opp.StageName = 'VKC ausgelaufen';
-        opp.Grund_VKC_verloren__c = 'Interessent möchte sein Kapital jetzt anlegen';
-        update opp;
+            TestDataFactory.createProvisionsverhandlung(true, acc.Id, immobilie.Id);
 
-        System.assertEquals(null, [SELECT Customer__c FROM Appartment__c WHERE Id = :appartment.Id].Customer__c);
+            Opportunity opp = TestDataFactory.createOpportunity(true, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Reserviert');
 
-        Opportunity opp2 = TestDataFactory.createOpportunity(true, interessent2.Id, makler.Id, immobilie.Id, appartment.Id, 'Kontingent');
+            System.debug([SELECT Status__c, Customer__c, Makler__c FROM Appartment__c WHERE Id = :appartment.Id]);
+
+            Test.startTest();
+
+            opp.StageName = 'VKC ausgelaufen';
+            opp.Grund_VKC_verloren__c = 'Interessent möchte sein Kapital jetzt anlegen';
+            update opp;
+
+            System.assertEquals(null, [SELECT Customer__c FROM Appartment__c WHERE Id = :appartment.Id].Customer__c);
+
+            Opportunity opp2 = TestDataFactory.createOpportunity(true, interessent2.Id, makler.Id, immobilie.Id, appartment.Id, 'Kontingent');
 
 
-        System.assertEquals('Kontingent', [SELECT Status__c FROM Appartment__c WHERE Id = :appartment.Id].Status__c);
+            System.assertEquals('Kontingent', [SELECT Status__c FROM Appartment__c WHERE Id = :appartment.Id].Status__c);
 
-        opp2.StageName = 'Reserviert';
-        update opp2;
-        System.assertEquals('Reserved', [SELECT Status__c FROM Appartment__c WHERE Id = :appartment.Id].Status__c);
-        System.assertEquals(interessent2.Id, [SELECT Customer__c FROM Appartment__c WHERE Id = :appartment.Id].Customer__c);
-        Test.stopTest();
+            opp2.StageName = 'Reserviert';
+            update opp2;
+            System.assertEquals('Reserved', [SELECT Status__c FROM Appartment__c WHERE Id = :appartment.Id].Status__c);
+            System.assertEquals(interessent2.Id, [SELECT Customer__c FROM Appartment__c WHERE Id = :appartment.Id].Customer__c);
+            Test.stopTest();
+        }
     }
 
     @IsTest
@@ -342,30 +393,43 @@ private class OpportunityTriggerHandlerTest {
 
     @IsTest
     private static void testCumulatedProvisionAggregation() {
-        Account acc = TestDataFactory.createAccount(true);
-        Property__c immobilie = TestDataFactory.createProperty(true, TestDataFactory.createBautraeger(true).Id);
-        Appartment__c appartment = TestDataFactory.createAppartment(true, immobilie.Id);
 
-        Contact makler = TestDataFactory.createMakler(false, acc.Id);
-        Contact interessent = TestDataFactory.createInteressent(false, acc.Id);
-        Contact interessent2 = TestDataFactory.createInteressent(false, acc.Id);
-        insert new List<Contact> {makler, interessent, interessent2};
+        User u = [SELECT Id FROM User WHERE Username LIKE 'emailtest@test.com%'];
 
-        TestDataFactory.createProvisionsverhandlung(true, acc.Id, immobilie.Id);
+        PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name = 'Can_change_stage_status'];
+        insert new PermissionSetAssignment(AssigneeId = u.id, PermissionSetId = ps.Id);
 
-        Opportunity opp = TestDataFactory.createOpportunity(false, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Reserviert');
-        opp.Immobilienberater__c = makler.Id;
-        opp.Kunde2__c = interessent2.Id;
-        opp.Provisionsbasis__c = 500;
-        opp.KumulierteProvisionExtern__c = 3;
-        insert opp; 
+        PermissionSet ps2 = [SELECT Id FROM PermissionSet WHERE Name = 'SkipOpportunityValidation'];
+        insert new PermissionSetAssignment(AssigneeId = u.id, PermissionSetId = ps2.Id);
 
-        opp.StageName = 'Geschlossene und gewonnene';
-        Test.startTest();
-        update opp;
-        Test.stopTest();
+        System.runAs(u){
 
-        Assert.isNotNull([SELECT SummeWertKumulierteProvisionExtern__c FROM Property__c WHERE Id = :opp.Immobilie__c].SummeWertKumulierteProvisionExtern__c);
+            Account acc = TestDataFactory.createAccount(true);
+            Property__c immobilie = TestDataFactory.createProperty(true, TestDataFactory.createBautraeger(true).Id);
+            Appartment__c appartment = TestDataFactory.createAppartment(true, immobilie.Id);
+
+            Contact makler = TestDataFactory.createMakler(false, acc.Id);
+            Contact interessent = TestDataFactory.createInteressent(false, acc.Id);
+            Contact interessent2 = TestDataFactory.createInteressent(false, acc.Id);
+            insert new List<Contact> {makler, interessent, interessent2};
+
+            TestDataFactory.createProvisionsverhandlung(true, acc.Id, immobilie.Id);
+
+            Opportunity opp = TestDataFactory.createOpportunity(false, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Reserviert');
+            opp.Immobilienberater__c = makler.Id;
+            opp.Kunde2__c = interessent2.Id;
+            opp.Provisionsbasis__c = 500;
+            opp.KumulierteProvisionExtern__c = 3;
+            insert opp;
+
+            opp.StageName = 'Geschlossene und gewonnene';
+            Test.startTest();
+            update opp;
+            Test.stopTest();
+
+            Assert.isNotNull([SELECT SummeWertKumulierteProvisionExtern__c FROM Property__c WHERE Id = :opp.Immobilie__c].SummeWertKumulierteProvisionExtern__c);
+        }
+
     }
     @IsTest
     static void testThatEmailWasSent() {
