@@ -3,13 +3,13 @@
     <fullName>Unternehmen__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
     <externalId>false</externalId>
-    <label>Unternehmen</label>
+    <label>Carestone-Gesellschaft</label>
     <lookupFilter>
         <active>true</active>
         <filterItems>
-            <field>Account.Gesch_ftsbeziehung__c</field>
+            <field>Account.RecordType.Id</field>
             <operation>equals</operation>
-            <value>Bauträger</value>
+            <value>01267000000OmcYAAS</value>
         </filterItems>
         <infoMessage>Für das Unternehmen sind nur Accounts mit der Geschäftsbeziehung &quot;Bauträger&quot; auswählbar</infoMessage>
         <isOptional>false</isOptional>
