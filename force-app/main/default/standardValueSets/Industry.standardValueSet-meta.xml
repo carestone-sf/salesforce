@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Immobilienmakler</fullName>
+        <default>false</default>
+        <label>Immobilienmakler</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Finanzmakler</fullName>
+        <default>false</default>
+        <label>Finanzmakler</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Versicherungsmakler</fullName>
+        <default>false</default>
+        <label>Versicherungsmakler</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Bank</fullName>
+        <default>false</default>
+        <label>Bank</label>
+    </standardValue>
+</StandardValueSet>
