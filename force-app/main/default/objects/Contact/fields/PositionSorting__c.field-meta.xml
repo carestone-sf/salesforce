@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PositionSorting__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(INCLUDES( Position_Abteilung__c , &apos;Primärer Ansprechpartner&apos;), &apos;01&apos;, 
+IF(INCLUDES(Position_Abteilung__c, &apos;Geschäftsführer/Vorstand&apos;), &apos;02&apos;,
+IF(INCLUDES(Position_Abteilung__c, &apos;Firmeninhaber&apos;), &apos;03&apos;, 
+IF(INCLUDES(Position_Abteilung__c, &apos;Vertriebsleiter&apos;), &apos;04&apos;,
+IF(INCLUDES(Position_Abteilung__c, &apos;Leitender Angestellter&apos;), &apos;05&apos;, 
+IF(INCLUDES(Position_Abteilung__c, &apos;Vertrieb&apos;), &apos;06&apos;, 
+IF(INCLUDES(Position_Abteilung__c, &apos;Sachbearbeiter&apos;), &apos;07&apos;, 
+IF(INCLUDES(Position_Abteilung__c, &apos;Buchhaltung&apos;), &apos;08&apos;, 
+IF(INCLUDES(Position_Abteilung__c, &apos;Kundenservice&apos;), &apos;09&apos;, 
+IF(INCLUDES(Position_Abteilung__c, &apos;Assistenz&apos;), &apos;10&apos;, 
+IF(INCLUDES(Position_Abteilung__c, &apos;Sonstige&apos;), &apos;11&apos;,
+IF(INCLUDES(Position_Abteilung__c, &apos;Privatperson (ohne Firma)&apos;), &apos;12&apos;, &apos;13&apos;
+))))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Sortierung Position</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

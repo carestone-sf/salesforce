@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Notary</fullName>
+    <active>true</active>
+    <label>Notar</label>
+    <picklistValues>
+        <picklist>AccountSource</picklist>
+        <values>
+            <fullName>Anruf</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bestandskunde</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FWS Lead</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Facebook</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Immobilienscout24%2Ede</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Immoframe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Immowelt%2Ede</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Infoveranstaltung in Rietberg</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Neubaukompass</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objektveranstaltung</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pflege%2Ede</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pflege%2Ede-Curainvest</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ploke</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reach Local</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SL Immobilien</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WH Direct</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WH Express</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WH Ferien</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webinare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>simply Leads</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CS_Vertriebsvereinbarung_Status__c</picklist>
+        <values>
+            <fullName>Erstellt und an Makler versendet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Keine Vereinbarung</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Makler ohne eigenen Vertrag</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maklerauftrag beidseitig unterzeichnet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unterschrieben eingegangen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vom Makler gekündigt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vom Maklerbetreuer angefordert</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Von CareStone gekündigt</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Gesch_ftsbeziehung__c</picklist>
+        <values>
+            <fullName>Bank</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bauträger</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dienstleister</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finanzmakler</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gekündigt vom WirtschaftsHaus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gekündigt von Extern</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hausbank</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Immobilienmakler</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Key Account</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Notar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Versicherungsmakler</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Industry</picklist>
+        <values>
+            <fullName>Bank</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finanzmakler</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Immobilienmakler</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Versicherungsmakler</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Kategorie__c</picklist>
+        <values>
+            <fullName>A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nicht kategorisiert</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Makler_Status__c</picklist>
+        <values>
+            <fullName>Makler ist nicht interessiert</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Makler mit Vertrag</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Makler mit altem Vertrag</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Makler ohne Vertrag</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Makler ohne eigenen Vertrag</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maklerauftrag verschickt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vertrag vom WH gekündigt</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Maklerauftr_ge__c</picklist>
+        <values>
+            <fullName>OV Heiligenhafen Fischerhaus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OV Heiligenhafen Gutshaus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OV Heiligenhafen Torhaus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OV Wohnpark Bergen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WH Sach Rahmenvereinbarung</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WHS Maklerauftrag</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Maklerbetreuer_Wirtschaftshaus__c</picklist>
+        <values>
+            <fullName>Andreas Pohl</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Attila Dachwitz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bastian Dörge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boris Bökert</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Christoph Ellermann</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Erich Pilz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Frank Köpsell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Harald Senftleben</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jana Pawils</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Johann Kuipers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jonas Laue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jost Laue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jürgen Engler</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Karsten Fengler</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kelvin Schwabe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lars Wagner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marc Claes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marco Ellermann</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Martin Ledvinka</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maurice Fuhrmann</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Max Hergt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mirco Buchholz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nico Niemeier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nils Nebel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Peter Eulitz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Raik Lubitz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ralf Döring</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Robin Bergmann</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rüdiger Panzer-Sennholz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sandro Pawils</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Susanne Köppel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sven Brauns</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sven Schulz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thomas Arnold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thomas Nickel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tobias Kenter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Uwe Hinz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WH Front</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Overhead_Vereinbarung__c</picklist>
+        <values>
+            <fullName>0%2E25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>0%2E5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>0%2E75</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1%2E25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1%2E5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1%2E75</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2%2E25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2%2E5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2%2E75</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3%2E25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3%2E5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3%2E75</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Keine</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Ownership</picklist>
+        <values>
+            <fullName>Andere</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Privat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tochtergesellschaft</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Öffentlich</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rating</picklist>
+        <values>
+            <fullName>Aktuell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Etwas zurückliegend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lange zurückliegend</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Bank</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dienstleister</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Immobilienfirma</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Notar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Versicherung</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>UST_Veranlagung__c</picklist>
+        <values>
+            <fullName>UST</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>WHS_Maklerauftrag__c</picklist>
+        <values>
+            <fullName>Erstellt und an Makler versendet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Keine Vereinbarung</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Makler mit altem Vertrag</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Makler ohne eigenen Vertrag</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maklerauftrag beidseitig unterzeichnet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unterschrieben eingegangen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vom Makler gekündigt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vom Maklerbetreuer angefordert</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vom WH gekündigt</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>WHS_Maklerprovision__c</picklist>
+        <values>
+            <fullName>0%2E5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>0%2E75</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1%2E25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1%2E5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1%2E75</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>10</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2%2E25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2%2E5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2%2E75</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3%2E25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3%2E5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3%2E75</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4%2E25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4%2E5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4%2E75</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5%2E25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5%2E5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5%2E75</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6%2E25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6%2E5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6%2E75</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>7</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>7%2E25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>7%2E5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>7%2E75</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8%2E25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8%2E5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>9</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>9%2E5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>keine</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Position_Abteilung__c</fullName>
+    <description>Hier soll die Position (vor allem Geschäftsführung/Inhaber) oder eine Abteilung angeben werden, um später besser selektieren zu können</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Bitte mindestens eine Position/Zuordnung (z.B. Geschäftsführer) auswählen</inlineHelpText>
+    <label>Position/Abteilung</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Privatperson (ohne Firma)</fullName>
+                <default>true</default>
+                <label>Privatperson (ohne Firma)</label>
+            </value>
+            <value>
+                <fullName>------------------------------------</fullName>
+                <default>false</default>
+                <label>------------------------------------</label>
+            </value>
+            <value>
+                <fullName>Firmeninhaber</fullName>
+                <default>false</default>
+                <label>Firmeninhaber</label>
+            </value>
+            <value>
+                <fullName>Primärer Ansprechpartner</fullName>
+                <default>false</default>
+                <label>Primärer Ansprechpartner</label>
+            </value>
+            <value>
+                <fullName>Geschäftsführer/Vorstand</fullName>
+                <default>false</default>
+                <label>Geschäftsführer/Vorstand</label>
+            </value>
+            <value>
+                <fullName>Leitender Angestellter</fullName>
+                <default>false</default>
+                <label>Leitender Angestellter</label>
+            </value>
+            <value>
+                <fullName>Vertriebsleiter</fullName>
+                <default>false</default>
+                <label>Vertriebsleiter</label>
+            </value>
+            <value>
+                <fullName>Vertrieb</fullName>
+                <default>false</default>
+                <label>Vertrieb</label>
+            </value>
+            <value>
+                <fullName>Sachbearbeiter</fullName>
+                <default>false</default>
+                <label>Sachbearbeiter</label>
+            </value>
+            <value>
+                <fullName>Buchhaltung</fullName>
+                <default>false</default>
+                <label>Buchhaltung</label>
+            </value>
+            <value>
+                <fullName>Kundenservice</fullName>
+                <default>false</default>
+                <label>Kundenservice</label>
+            </value>
+            <value>
+                <fullName>Assistenz</fullName>
+                <default>false</default>
+                <label>Assistenz</label>
+            </value>
+            <value>
+                <fullName>Sonstige</fullName>
+                <default>false</default>
+                <label>Sonstige</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>6</visibleLines>
+</CustomField>
