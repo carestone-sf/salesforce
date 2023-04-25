@@ -1,4 +1,4 @@
-<apex:page standardController="Opportunity" showHeader="false" applyHtmlTag="false" renderAs="pdf">
+<apex:page standardController="Opportunity" extensions="KaufpreisEingangBestaetigungExtension" showHeader="false" applyHtmlTag="false" renderAs="pdf">
     
     <head>
         <style>
@@ -44,121 +44,200 @@
                 vertical-align: bottom;
                 font-family: 'sans-serif';
             }
+
+            .zahlungen {
+                border-width: 1px;
+                border-color: #000000;
+                border-collapse:collapse;
+                border-style: solid;
+            }
+
+            .zahlungen td {
+                border-width: 1px;
+                border-color: #000000;
+                border-style: solid;
+            }
+
+            .zahlungen th {
+                border-width: 1px;
+                border-color: #000000;
+                border-style: solid;
+            }
         </style>
     </head>
     
-    <div class="header">
-        <apex:image url="{!$Resource.Carestone_Logo}" width="200px" height="auto"></apex:image>
-    </div>
-
-
-
-    <div class="footer">
-
-
-        <div class="bottom-center-div" style="font-size: 8px; line-height: 12px;">
-            {!Opportunity.Immobilie__r.Unternehmen__r.Name} &#183; {!Opportunity.Immobilie__r.Unternehmen__r.BillingStreet} &#183; {!Opportunity.Immobilie__r.Unternehmen__r.BillingPostalCode} {!Opportunity.Immobilie__r.Unternehmen__r.BillingCity} &#183; Tel. {!Opportunity.Immobilie__r.Unternehmen__r.Phone} &#183; Fax: {!Opportunity.Immobilie__r.Unternehmen__r.Fax}
-             &#183; {!Opportunity.Immobilie__r.Unternehmen__r.Website} &#183; {!Opportunity.Immobilie__r.Unternehmen__r.Email__c}<br/>
-            Geschäftsführer: {!Opportunity.Immobilie__r.Unternehmen__r.GeschaeftsfuehrerNeu__c}<br/>
-            Amtsgericht {!Opportunity.Immobilie__r.Unternehmen__r.Amtsgericht_bei_Kapitalgesellschaften__c} {!Opportunity.Immobilie__r.Unternehmen__r.HRB_bei_Kapitalgesellschaften__c} | <span style="{!IF(!IsBlank(Opportunity.Immobilie__r.Unternehmen__r.Komplementaer__c), 'display:inline', 'display:none')}"> Komplementär: {!Opportunity.Immobilie__r.Unternehmen__r.Komplementaer__c} |</span> St.Nr. {!Opportunity.Immobilie__r.Unternehmen__r.Steuernummer__c} | USt-IdNr. {!Opportunity.Immobilie__r.Unternehmen__r.UStd_Id__c}<br/>
-            <apex:outputPanel rendered="{!Opportunity.Immobilie__r.Unternehmen__r.Bank__c != null}">
-                {!Opportunity.Immobilie__r.Unternehmen__r.Bank__c} &#183; IBAN {!Opportunity.Immobilie__r.Unternehmen__r.IBAN__c} &#183; BIC {!Opportunity.Immobilie__r.Unternehmen__r.BIC__c}
-            </apex:outputPanel>
+    <div style="page-break-after:always;">
+        <div class="header">
+            <apex:image url="{!$Resource.Carestone_Logo}" width="200px" height="auto"></apex:image>
         </div>
-    
-        <!--
-        <table>
-            <tr>
-                <td width="25%">
-                    <b>{!Opportunity.Immobilie__r.Unternehmen__r.Name}</b>
-                    <br/>
-                    {!Opportunity.Immobilie__r.Unternehmen__r.BillingStreet}, {!Opportunity.Immobilie__r.Unternehmen__r.BillingPostalCode} {!Opportunity.Immobilie__r.Unternehmen__r.BillingCity}
-                    <br/><br/>
-                    T: {!Opportunity.Immobilie__r.Unternehmen__r.Phone}
-                    <br/>
-                    F: {!Opportunity.Immobilie__r.Unternehmen__r.Fax}
-                    <br/>
-                    E: {!Opportunity.Immobilie__r.Unternehmen__r.Email__c}
-                </td>
-                <td width="25%">
-                    <i>Geschäftsführung:</i>
-                    <br/>
-                    <apex:outputText escape="false" value="{!SUBSTITUTE(JSENCODE(Opportunity.Immobilie__r.Unternehmen__r.GeschaeftsfuehrerNeu__c), ',', '<br/>')}" />
-                </td>
-                <td width="25%">
-                    {!Opportunity.Immobilie__r.Unternehmen__r.Amtsgericht_bei_Kapitalgesellschaften__c}
-                    <br/>
-                    {!Opportunity.Immobilie__r.Unternehmen__r.HRB_bei_Kapitalgesellschaften__c}
-                    <br/>
-                    StNr: {!Opportunity.Immobilie__r.Unternehmen__r.Steuernummer__c}
-                </td>
-                <td width="25%">
 
+
+
+        <div class="footer">
+
+
+            <div class="bottom-center-div" style="font-size: 8px; line-height: 12px;">
+                {!Opportunity.Immobilie__r.Unternehmen__r.Name} &#183; {!Opportunity.Immobilie__r.Unternehmen__r.BillingStreet} &#183; {!Opportunity.Immobilie__r.Unternehmen__r.BillingPostalCode} {!Opportunity.Immobilie__r.Unternehmen__r.BillingCity} &#183; Tel. {!Opportunity.Immobilie__r.Unternehmen__r.Phone} &#183; Fax: {!Opportunity.Immobilie__r.Unternehmen__r.Fax}
+                &#183; {!Opportunity.Immobilie__r.Unternehmen__r.Website} &#183; {!Opportunity.Immobilie__r.Unternehmen__r.Email__c}<br/>
+                Geschäftsführer: {!Opportunity.Immobilie__r.Unternehmen__r.GeschaeftsfuehrerNeu__c}<br/>
+                Amtsgericht {!Opportunity.Immobilie__r.Unternehmen__r.Amtsgericht_bei_Kapitalgesellschaften__c} {!Opportunity.Immobilie__r.Unternehmen__r.HRB_bei_Kapitalgesellschaften__c} | <span style="{!IF(!IsBlank(Opportunity.Immobilie__r.Unternehmen__r.Komplementaer__c), 'display:inline', 'display:none')}"> Komplementär: {!Opportunity.Immobilie__r.Unternehmen__r.Komplementaer__c} |</span> St.Nr. {!Opportunity.Immobilie__r.Unternehmen__r.Steuernummer__c} | USt-IdNr. {!Opportunity.Immobilie__r.Unternehmen__r.UStd_Id__c}<br/>
+                <apex:outputPanel rendered="{!Opportunity.Immobilie__r.Unternehmen__r.Bank__c != null}">
+                    {!Opportunity.Immobilie__r.Unternehmen__r.Bank__c} &#183; IBAN {!Opportunity.Immobilie__r.Unternehmen__r.IBAN__c} &#183; BIC {!Opportunity.Immobilie__r.Unternehmen__r.BIC__c}
+                </apex:outputPanel>
+            </div>
+        
+            <!--
+            <table>
+                <tr>
+                    <td width="25%">
+                        <b>{!Opportunity.Immobilie__r.Unternehmen__r.Name}</b>
+                        <br/>
+                        {!Opportunity.Immobilie__r.Unternehmen__r.BillingStreet}, {!Opportunity.Immobilie__r.Unternehmen__r.BillingPostalCode} {!Opportunity.Immobilie__r.Unternehmen__r.BillingCity}
+                        <br/><br/>
+                        T: {!Opportunity.Immobilie__r.Unternehmen__r.Phone}
+                        <br/>
+                        F: {!Opportunity.Immobilie__r.Unternehmen__r.Fax}
+                        <br/>
+                        E: {!Opportunity.Immobilie__r.Unternehmen__r.Email__c}
+                    </td>
+                    <td width="25%">
+                        <i>Geschäftsführung:</i>
+                        <br/>
+                        <apex:outputText escape="false" value="{!SUBSTITUTE(JSENCODE(Opportunity.Immobilie__r.Unternehmen__r.GeschaeftsfuehrerNeu__c), ',', '<br/>')}" />
+                    </td>
+                    <td width="25%">
+                        {!Opportunity.Immobilie__r.Unternehmen__r.Amtsgericht_bei_Kapitalgesellschaften__c}
+                        <br/>
+                        {!Opportunity.Immobilie__r.Unternehmen__r.HRB_bei_Kapitalgesellschaften__c}
+                        <br/>
+                        StNr: {!Opportunity.Immobilie__r.Unternehmen__r.Steuernummer__c}
+                    </td>
+                    <td width="25%">
+
+                    </td>
+                </tr>
+            </table>
+        -->
+        </div>
+
+        <p style="font-size: 7pt;">
+            <b>
+                {!Opportunity.Immobilie__r.Unternehmen__r.Name}, {!Opportunity.Immobilie__r.Unternehmen__r.BillingStreet}, {!Opportunity.Immobilie__r.Unternehmen__r.BillingPostalCode} {!Opportunity.Immobilie__r.Unternehmen__r.BillingCity}
+            </b>
+        </p>
+
+        <p>
+            {!Opportunity.Immobilie__r.Notar__r.Account.Name}<br/>
+            {!Opportunity.Immobilie__r.Notar__r.Account.BillingStreet}<br/>
+            {!Opportunity.Immobilie__r.Notar__r.Account.BillingPostalCode} {!Opportunity.Immobilie__r.Notar__r.Account.BillingCity}
+        </p>
+
+        <br/><br/>
+        <br/><br/>
+
+        <table style="border: none;">
+            <thead>
+            <tr>
+                <td>
+                    
+                </td>
+                <td>
+                    <p style="text-align: right;">
+                        Hannover, 
+                        <apex:outputText value="{0, date, dd.MM.yyyy}">
+                            <apex:param value="{!TODAY()}" /> 
+                        </apex:outputText>
+                    </p>
                 </td>
             </tr>
+            </thead>
         </table>
-    -->
+
+        <br/><br/>
+        <p>
+            <b>
+                {!Opportunity.Immobilie__r.Unternehmen__r.Name}, Objekt {!Opportunity.Immobilie__r.Name}, {!Opportunity.Immobilie__r.Street__c} / {!Opportunity.Appartement__r.Name}
+                <br/>
+                Zahlungseingang vom&nbsp;<apex:outputField value="{!Opportunity.Datum_Kaufpreis_bezahlt__c}"></apex:outputField>
+            </b>
+        </p>
+        <br/>
+        <p>
+            Sehr geehrte Damen und Herren,
+            <br/><br/>
+            hiermit bestätigen wir den Erhalt der vollständigen Kaufpreiszahlung am&nbsp;<apex:outputField value="{!Opportunity.Datum_Kaufpreis_bezahlt__c}"></apex:outputField> in 
+            Höhe von&nbsp;<apex:outputField value="{!Opportunity.beurkundeter_Kaufpreis__c}"/> für die Wohneinheit / {!Opportunity.Appartement__r.Name},
+            <br/>
+            Erwerber {!Opportunity.Potenzieller_Kunde__r.Name}
+            <apex:outputPanel rendered="{!NOT(ISBLANK(Opportunity.Kunde2__c))}">, {!Opportunity.Kunde2__r.Name}</apex:outputPanel>.
+            <br/><br/>
+            Wir bitten Sie die Eigentumsumschreibung nunmehr zu veranlassen.
+            <br/><br/>
+            Mit freundlichen Grüßen
+            <br/><br/><br/>
+            i.A. {!$User.FirstName} {!$User.LastName}
+            <br/>
+            - Buchhaltung -
+        </p>
     </div>
 
-    <p style="font-size: 7pt;">
-        <b>
-            {!Opportunity.Immobilie__r.Unternehmen__r.Name}, {!Opportunity.Immobilie__r.Unternehmen__r.BillingStreet}, {!Opportunity.Immobilie__r.Unternehmen__r.BillingPostalCode} {!Opportunity.Immobilie__r.Unternehmen__r.BillingCity}
-        </b>
-    </p>
+    <div>
+        <div class="header">
+            <apex:image url="{!$Resource.Carestone_Logo}" width="200px" height="auto"></apex:image>
+        </div>
 
-    <p>
-        {!Opportunity.Immobilie__r.Notar__r.Account.Name}<br/>
-        {!Opportunity.Immobilie__r.Notar__r.Account.BillingStreet}<br/>
-        {!Opportunity.Immobilie__r.Notar__r.Account.BillingPostalCode} {!Opportunity.Immobilie__r.Notar__r.Account.BillingCity}
-    </p>
 
-    <br/><br/>
-    <br/><br/>
 
-    <table style="border: none;">
-        <thead>
-        <tr>
-            <td>
-                
-            </td>
-            <td>
-                <p style="text-align: right;">
-                    Hannover, 
-                    <apex:outputText value="{0, date, dd.MM.yyyy}">
-                        <apex:param value="{!TODAY()}" /> 
-                    </apex:outputText>
-                </p>
-            </td>
-        </tr>
-        </thead>
-    </table>
+        <div class="footer">
 
-    <br/><br/>
-    <p>
-        <b>
-            {!Opportunity.Immobilie__r.Unternehmen__r.Name}, Objekt {!Opportunity.Immobilie__r.Name}, {!Opportunity.Immobilie__r.Street__c} / {!Opportunity.Appartement__r.Name}
-            <br/>
-            Zahlungseingang vom&nbsp;<apex:outputField value="{!Opportunity.Datum_Kaufpreis_bezahlt__c}"></apex:outputField>
-        </b>
-    </p>
-    <br/>
-    <p>
-        Sehr geehrte Damen und Herren,
-        <br/><br/>
-        hiermit bestätigen wir den Erhalt der vollständigen Kaufpreiszahlung am&nbsp;<apex:outputField value="{!Opportunity.Datum_Kaufpreis_bezahlt__c}"></apex:outputField> in 
-        Höhe von&nbsp;<apex:outputField value="{!Opportunity.beurkundeter_Kaufpreis__c}"/> für die Wohneinheit / {!Opportunity.Appartement__r.Name},
-        <br/>
-        Erwerber {!Opportunity.Potenzieller_Kunde__r.Name}
-        <apex:outputPanel rendered="{!NOT(ISBLANK(Opportunity.Kunde2__c))}">, {!Opportunity.Kunde2__r.Name}</apex:outputPanel>.
-        <br/><br/>
-        Wir bitten Sie die Eigentumsumschreibung nunmehr zu veranlassen.
-        <br/><br/>
-        Mit freundlichen Grüßen
+
+            <div class="bottom-center-div" style="font-size: 8px; line-height: 12px;">
+                {!Opportunity.Immobilie__r.Unternehmen__r.Name} &#183; {!Opportunity.Immobilie__r.Unternehmen__r.BillingStreet} &#183; {!Opportunity.Immobilie__r.Unternehmen__r.BillingPostalCode} {!Opportunity.Immobilie__r.Unternehmen__r.BillingCity} &#183; Tel. {!Opportunity.Immobilie__r.Unternehmen__r.Phone} &#183; Fax: {!Opportunity.Immobilie__r.Unternehmen__r.Fax}
+                &#183; {!Opportunity.Immobilie__r.Unternehmen__r.Website} &#183; {!Opportunity.Immobilie__r.Unternehmen__r.Email__c}<br/>
+                Geschäftsführer: {!Opportunity.Immobilie__r.Unternehmen__r.GeschaeftsfuehrerNeu__c}<br/>
+                Amtsgericht {!Opportunity.Immobilie__r.Unternehmen__r.Amtsgericht_bei_Kapitalgesellschaften__c} {!Opportunity.Immobilie__r.Unternehmen__r.HRB_bei_Kapitalgesellschaften__c} | <span style="{!IF(!IsBlank(Opportunity.Immobilie__r.Unternehmen__r.Komplementaer__c), 'display:inline', 'display:none')}"> Komplementär: {!Opportunity.Immobilie__r.Unternehmen__r.Komplementaer__c} |</span> St.Nr. {!Opportunity.Immobilie__r.Unternehmen__r.Steuernummer__c} | USt-IdNr. {!Opportunity.Immobilie__r.Unternehmen__r.UStd_Id__c}<br/>
+                <apex:outputPanel rendered="{!Opportunity.Immobilie__r.Unternehmen__r.Bank__c != null}">
+                    {!Opportunity.Immobilie__r.Unternehmen__r.Bank__c} &#183; IBAN {!Opportunity.Immobilie__r.Unternehmen__r.IBAN__c} &#183; BIC {!Opportunity.Immobilie__r.Unternehmen__r.BIC__c}
+                </apex:outputPanel>
+            </div>
+        </div>
+        <p>
+            <b>Zahlungsempfänger:</b> <br/><br/>
+            Unternehmen:<br/> {!Opportunity.Immobilie__r.Unternehmen__r.Name} <br/>
+            IBAN: {!Opportunity.Immobilie__r.Unternehmen__r.IBAN__c}<br/>
+            BIC: {!Opportunity.Immobilie__r.Unternehmen__r.BIC__c}<br/>
+        </p>
         <br/><br/><br/>
-        i.A. {!$User.FirstName} {!$User.LastName}
-        <br/>
-        - Buchhaltung -
-    </p>
-
+        <b>Zahlungen:</b> <br/><br/>
+        <table class="zahlungen">
+            <thead>
+                <th style="width: 15%">Betrag</th>
+                <th style="width: 33%">Buchungstext</th>
+                <th style="width: 12%">Zahldatum</th>
+                <th style="width: 20%">Geschäftspartner</th>
+                <th style="width: 20%">IBAN</th>
+            </thead>
+            <tbody>
+                <apex:repeat value="{!zahlungen}" var="zahlung">
+                    <tr>
+                        <td align="right"><apex:outputField value="{!zahlung.Betrag__c}"></apex:outputField></td>
+                        <td style="font-size: 9pt;">{!zahlung.AccountingText__c}</td>
+                        <td><apex:outputField value="{!zahlung.Zahldatum__c}"></apex:outputField></td>
+                        <td>{!zahlung.BusinessPartner__c}</td>
+                        <td>{!zahlung.IBAN__c}</td>
+                    </tr>
+                </apex:repeat>
+                <apex:repeat value="{!vkcZahlungen}" var="vkcZahlung">
+                    <tr>
+                        <td align="right"><apex:outputField value="{!vkcZahlung.Betrag__c}"></apex:outputField></td>
+                        <td style="font-size: 9pt;">{!vkcZahlung.AccountingText__c}</td>
+                        <td><apex:outputField value="{!vkcZahlung.Zahldatum__c}"></apex:outputField></td>
+                        <td>{!vkcZahlung.BusinessPartner__c}</td>
+                        <td>{!vkcZahlung.IBAN__c}</td>
+                    </tr>
+                </apex:repeat>
+            </tbody>
+        </table>
+    </div>
 
 </apex:page>

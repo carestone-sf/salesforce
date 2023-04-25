@@ -397,7 +397,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Provisionsvoraussetzungen</label>
+        <label>Provision</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -436,6 +436,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Provision_nach_Kaufpreiszahlung__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ClosingBonus__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -828,6 +832,9 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>ImmobilienDmsDatei__c.Immobilie__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedContentNoteList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>

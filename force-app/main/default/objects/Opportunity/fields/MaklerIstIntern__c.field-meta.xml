@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MaklerIstIntern__c</fullName>
+    <externalId>false</externalId>
+    <formula>Makler__r.Ist_Maklerbetreuer_WH__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Makler ist intern</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>
