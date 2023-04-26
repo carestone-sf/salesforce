@@ -5,6 +5,7 @@ public without sharing class CalculationQuoteController {
     // The extension constructor initializes the private member
     // variable acct by using the getRecord method from the standard
     // controller.
+    
     public CalculationQuoteController(ApexPages.StandardController stdController) {
         this.calculation = (Berechnung__c)stdController.getRecord();
         this.fc = new FinanceCalculator();

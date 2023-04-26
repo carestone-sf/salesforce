@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Share_TeamProQ_Opps_with_TeamProQ</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share TeamProQ Opps with TeamProQ</label>
+        <sharedTo>
+            <role>TeamProQ</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>SourceCreation__c</field>
+            <operation>equals</operation>
+            <value>TeamProQ</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

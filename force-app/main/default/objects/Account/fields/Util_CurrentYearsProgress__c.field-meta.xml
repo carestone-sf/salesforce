@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Util_CurrentYearsProgress__c</fullName>
+    <description>Helper field which displays current years progress by already past days in percent.</description>
+    <externalId>false</externalId>
+    <formula>IF(OR( 
+  MOD( YEAR( TODAY() ), 400 ) = 0, 
+  AND( 
+   MOD( YEAR( TODAY() ), 4 ) = 0,
+    MOD( YEAR( TODAY() ), 100 ) != 0
+  )
+),
+		DAYOFYEAR(TODAY()) / 366,
+			DAYOFYEAR(TODAY()) / 365)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Current Years Progess</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <type>Percent</type>
+</CustomField>

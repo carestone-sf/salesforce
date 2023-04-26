@@ -3,8 +3,9 @@
     <fullName>SonstigeInfosProjektentwicklung__c</fullName>
     <externalId>false</externalId>
     <label>Sonstige Infos Projektentwicklung</label>
-    <required>false</required>
+    <length>32768</length>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
-    <type>TextArea</type>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
 </CustomField>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Grund_VKC_verloren__c</fullName>
+    <externalId>false</externalId>
+    <label>Grund VKC verloren</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Aus TeamProQ storniert</fullName>
+                <default>false</default>
+                <label>Aus TeamProQ storniert</label>
+            </value>
+            <value>
+                <fullName>Durch WH auf anderes Objekt umgestellt</fullName>
+                <default>false</default>
+                <label>Durch WH auf anderes Objekt umgestellt</label>
+            </value>
+            <value>
+                <fullName>Interessent bevorzugt ein anderes Investment</fullName>
+                <default>false</default>
+                <label>Interessent bevorzugt ein anderes Investment</label>
+            </value>
+            <value>
+                <fullName>Interessent hat kein Interesse mehr</fullName>
+                <default>false</default>
+                <label>Interessent hat kein Interesse mehr</label>
+            </value>
+            <value>
+                <fullName>Interessent ist erkrankt</fullName>
+                <default>false</default>
+                <label>Interessent ist erkrankt</label>
+            </value>
+            <value>
+                <fullName>Interessent möchte ein anderes Objekt</fullName>
+                <default>false</default>
+                <label>Interessent möchte ein anderes Objekt</label>
+            </value>
+            <value>
+                <fullName>Interessent möchte sein Kapital jetzt anlegen</fullName>
+                <default>false</default>
+                <label>Interessent möchte sein Kapital jetzt anlegen</label>
+            </value>
+            <value>
+                <fullName>Interessent reagiert nicht mehr</fullName>
+                <default>false</default>
+                <label>Interessent reagiert nicht mehr</label>
+            </value>
+            <value>
+                <fullName>Interessent unzufrieden mit Abwicklung WH</fullName>
+                <default>false</default>
+                <label>Interessent unzufrieden mit Abwicklung WH</label>
+            </value>
+            <value>
+                <fullName>Interessent unzufrieden mit Makler</fullName>
+                <default>false</default>
+                <label>Interessent unzufrieden mit Makler</label>
+            </value>
+            <value>
+                <fullName>Interessent will später investieren</fullName>
+                <default>false</default>
+                <label>Interessent will später investieren</label>
+            </value>
+            <value>
+                <fullName>Kapital wird anderweitig benötigt</fullName>
+                <default>false</default>
+                <label>Kapital wird anderweitig benötigt</label>
+            </value>
+            <value>
+                <fullName>Keine Finanzierung möglich</fullName>
+                <default>false</default>
+                <label>Keine Finanzierung möglich</label>
+            </value>
+            <value>
+                <fullName>Makler ist erkrankt</fullName>
+                <default>false</default>
+                <label>Makler ist erkrankt</label>
+            </value>
+            <value>
+                <fullName>Makler reagiert nicht mehr</fullName>
+                <default>false</default>
+                <label>Makler reagiert nicht mehr</label>
+            </value>
+            <value>
+                <fullName>Objekt wird anderweitig verkauft</fullName>
+                <default>false</default>
+                <label>Objekt wird anderweitig verkauft</label>
+            </value>
+            <value>
+                <fullName>VKC ausgelaufen</fullName>
+                <default>false</default>
+                <label>VKC ausgelaufen</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
