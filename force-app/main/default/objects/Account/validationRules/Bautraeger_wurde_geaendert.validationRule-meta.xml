@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bautraeger_wurde_geaendert</fullName>
+    <active>true</active>
+    <errorConditionFormula>RecordType.DeveloperName = &apos;PropertyDeveloper&apos; &amp;&amp;
+$Profile.Id != &apos;00eb0000000VEnA&apos; &amp;&amp;
+$Profile.Id != &apos;00e0X000000ds1S&apos;</errorConditionFormula>
+    <errorMessage>Nur die Finanzbuchhaltung und Systemadministratoren dürfen Bauträger anpassen</errorMessage>
+</ValidationRule>
