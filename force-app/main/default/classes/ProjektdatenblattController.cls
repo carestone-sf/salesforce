@@ -1,6 +1,8 @@
 public with sharing class ProjektdatenblattController {
     @TestVisible
 
+    //It specifies all characters except for lowercase and uppercase letters (a-z and A-Z), numbers (0-9), underscore (_), hyphen (-), and space ( ).
+    private String CROPPED_NAME_REGEXP = '[^a-zA-Z0-9_\\\\x20\\\\x2D]';
     private id testImmobilieID;
     public ProjektdatenblattController(ApexPages.StandardController controller) {
         Apexpages.currentPage().getHeaders().put('content-disposition', 'attachment; filename=' + immobiliePdfDownloadName());
@@ -37,7 +39,16 @@ public with sharing class ProjektdatenblattController {
         }
         set;
     }
+
+    public String buildFullPDFName (){
+        String returnedString = '';
+        returnedString = String.valueOf(Date.Today())
+                + '_' + immobiliePdfName.replaceAll(CROPPED_NAME_REGEXP, '')
+                + '_Projektdatenblatt.pdf';
+
+        return returnedString;
+    }
     public String immobiliePdfDownloadName() {
-        return String.valueOf(Date.Today()) + '_' + immobiliePdfName + '_Projektdatenblatt.pdf';
+        return buildFullPDFName();
     }
 }
