@@ -260,6 +260,61 @@
                 
                 </div>
                 <div class='section'>
+                    <div class="section__body"   >
+                        <h3 class="section__header">Akquise</h3>
+                        <div class="section__left" style="width:45%; float: left;">
+                            <div class="section-field">
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.OfferReceipt__c.Label}</p>
+                                <p style="float: right"><apex:outputField value="{!Property__c.OfferReceipt__c}"/></p>
+                            </div>
+                            <div class="section-field">
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.VendorType__c.Label}</p>
+                                <p style="float: right"><apex:outputField value="{!Property__c.VendorType__c}"/></p>
+                            </div>
+                            <div class="section-field">
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.Vendor__c.Label}</p>
+                                <p style="float: right"><apex:outputField value="{!Property__c.Vendor__c}"/></p>
+                            </div>
+                            <div class="section-field">
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.OfferedObject__c.Label}</p>
+                                <p style="float: right"><apex:outputField value="{!Property__c.OfferedObject__c}"/></p>
+                            </div>
+                            <div class="section-field">
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.PurchasePriceExpectationsVendor__c.Label}</p>
+                                <p style="float: right"><apex:outputField value="{!Property__c.PurchasePriceExpectationsVendor__c}"/></p>
+                            </div>
+                        </div>
+                        <div class="section__right" style="width:45%; float: right;">
+                            <div class="section-field">
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.CheckDemand__c.Label}</p>
+                                <p style="float: right"><apex:outputField value="{!Property__c.CheckDemand__c}"/></p>
+                            </div>
+                            <div class="section-field">
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.ResultDemandCheck__c.Label}</p>
+                                <p style="float: right"><apex:outputField value="{!Property__c.ResultDemandCheck__c}"/></p>
+                            </div>
+                            <div class="section-field">
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.CheckEconomicEfficiency__c.Label}</p>
+                                <p style="float: right"><apex:outputField value="{!Property__c.CheckEconomicEfficiency__c}"/></p>
+                            </div>
+                            <div class="section-field">
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.ResultEconomicEfficiencyCheck__c.Label}</p>
+                                <p style="float: right"><apex:outputField value="{!Property__c.ResultEconomicEfficiencyCheck__c}"/></p>
+                            </div>
+                            <div class="section-field">
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.StatusAcquisition__c.Label}</p>
+                                <p style="float: right"><apex:outputField value="{!Property__c.StatusAcquisition__c}"/></p>
+                            </div>
+                            <div class="section-field">
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.RejectionDate__c.Label}</p>
+                                <p style="float: right"><apex:outputField value="{!Property__c.RejectionDate__c}"/></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class='section'>
                     <div class="section__body"  >
                         <h3 class="section__header">Ankauf</h3>
                         <div class="section__left" style="width:45%; float: left;">
