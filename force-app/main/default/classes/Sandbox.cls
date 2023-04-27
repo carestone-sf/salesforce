@@ -1,5 +1,15 @@
-public class Sandbox {
-    public Sandbox() {
+global class Sandbox implements SandboxPostCopy {
+
+    global Sandbox() {
+        //Implementations of SandboxPostCopy must have a no-arg constructor.
+        //This constructor is used during the sandbox copy process.
+        //You can also implement constructors with arguments, but be aware that
+        //they won’t be used by the sandbox copy process (unless as part of the
+        //no-arg constructor).
+        // this(some_args);
+    }
+
+    global void runApexClass(SandboxContext context) {
         Database.DMLOptions dml = new Database.DMLOptions();
         dml.DuplicateRuleHeader.AllowSave = true;
         // Maklerbetreuer + Account erstellen
@@ -21,7 +31,11 @@ public class Sandbox {
         Database.update(mb, dml);
 
         // Accounts erstellen
-        createAccounts(1, acc.Id, 1);
+        List<Account> accs = TestDataFactory.createAccounts(true, acc.Id, 1);
+        for(Account currentAcc:accs) {
+            currentAcc.isPartner = true;
+        }
+        Database.update(accs);
 
         // Interessenten erstellen
         createContacts(2, 'Interessent');
@@ -32,37 +46,20 @@ public class Sandbox {
         // Community User erstellen
         createCommunityUsers();
 
-        // Bauträger erstellen
-        Account bautraeger = new Account();
-        bautraeger.Name = 'Carestone Projekt GmbH';
-        bautraeger.Gesch_ftsbeziehung__c = 'Bauträger';
-        bautraeger.Maklerbetreuer_Wirtschaftshaus__c = 'Frank Köpsell';
-        bautraeger.Maklerbetreuer_Wirtschaftshaus_2__c = mb.Id;
-        bautraeger.BillingCity = 'Test Stadt';
-        bautraeger.BillingStreet = 'Test Str. 12';
-        bautraeger.BillingPostalCode = '30159';
-        bautraeger.Email__c = 'f.witte@wirtschaftshaus.de';
-        bautraeger.Phone = '113';
-        bautraeger.Fax = '113';
-        bautraeger.Website = 'https://carestone.com';
-        bautraeger.UStd_Id__c = 'DE12345';
-        bautraeger.Steuernummer__c = '24/231/113';
-        bautraeger.GeschaeftsfuehrerNeu__c = 'Sandro Pawils';
-        bautraeger.Rechtsform__c = 'GbR';
-        bautraeger.Amtsgericht_bei_Kapitalgesellschaften__c = 'Amtsgericht Hannover';
-        bautraeger.HRB_bei_Kapitalgesellschaften__c = 'HRB 210203';
-        bautraeger.Datev_Mandantennummer__c = 113;
-        bautraeger.Unternehmensname__c = 'CareStone';
-        Database.insert(bautraeger, dml);
+        Account bautraeger = TestDataFactory.createBautraeger(true);
 
         // Immobilien erstellen
-        createProperties(2, bautraeger.Id);
+        List<Property__c> properties = TestDataFactory.createProperties(true, bautraeger.Id, 2);
 
+        List<Appartment__c> apps = new List<Appartment__c>();
+        for(Property__c property:properties) {
+            apps.addAll(TestDataFactory.createAppartments(false, property.Id, 30));
+        }
         //Teilobjekte erstellen
-        createApartments(20);
+        insert apps; 
 
         //Provisionsvereinbarungen erstellen
-        createProvisionsverhandlungen();
+        TestDataFactory.createProvisionsverhandlungenForAllAccounts(true);
 
         //Opportunities erstellen
         createOpenOpportunities(2);
@@ -70,45 +67,6 @@ public class Sandbox {
 
         //add to contacts email suffix '.invalid'
         Database.executeBatch(new BatchAddSuffixToAllContactsEmails());
-    }
-
-    public static void createAccounts(Integer numAccounts, Id parentId, Integer levels) {
-        List<Account> accs = new List<Account>();
-
-        for(Integer i = 0; i < numAccounts; i++) {
-            Account acc = new Account();
-            if(parentId != null) {
-                acc.ParentId = parentId;
-            }
-            Integer z = i+1;
-            acc.Name = 'Makler GmbH ' + z;
-            acc.Email__c = 'f.witte@wirtschaftshaus.de';
-            acc.BIC__c  = 'SPKHDE2HXXX';
-            acc.GeschaeftsfuehrerNeu__c = 'Sandro Pawils';
-            acc.Gesetzliche_MwSt_auf_Provisionszahlung__c = 0.4;
-            acc.Hinweis_zur_MwSt__c = 'Vertrag';
-            acc.IBAN__c = 'DE43250501801900212158';
-            acc.Rechtsform__c = 'GbR';
-            acc.Unternehmensname__c = 'CareStone';
-            acc.Carestone_Vertriebsvereinbarung__c = true;
-            accs.add(acc);
-        }
-        Database.DMLOptions dml = new Database.DMLOptions();
-        dml.DuplicateRuleHeader.AllowSave = true;
-        Database.insert(accs, dml);
-
-        for(Account acc:accs) {
-            acc.isPartner = true;
-        }
-        Database.update(accs);
-
-        levels = levels - 1;
-
-        for(Account acc:accs) {
-            if(levels > 0) {
-                createAccounts(numAccounts, acc.Id, levels);
-            }
-        }
     }
 
     public static void createContacts(Integer numContacts, String geschaeftsbeziehung) {
@@ -121,24 +79,13 @@ public class Sandbox {
         for(Account acc:accs) {
             for(Integer i = 0; i < numContacts; i++) {
                 Contact con = new Contact();
-                con.AccountId = acc.Id;
-                con.Gesch_ftsbeziehung__c = geschaeftsbeziehung;
-                con.FirstName = 'Max';
-                con.MailingStreet = 'Teststr. 24';
-                con.MailingCity = 'Hannover';
-                con.MailingPostalCode = '30159';
-                con.DatevDebitorenKundennummerKaeufer__c = '3000001';
-                con.Birthdate = Date.newInstance(2000,01,01);
-                con.Email = 'sandbox@carestone.com.invalid';
-                con.Phone = '0123456789';
-
                 Integer z = i+1;
-                if(con.Gesch_ftsbeziehung__c == 'Interessent') {
+                if(geschaeftsbeziehung == 'Interessent') {
+                    con = TestDataFactory.createInteressent(false, acc.Id);
                     con.LastName = 'Interessentenmann ' + z;
-                    con.RecordTypeId = interessentenRecordTypeId;
                 } else {
+                    con = TestDataFactory.createMakler(false, acc.Id);
                     con.LastName = 'Maklermann ' + z;
-                    con.RecordTypeId = maklerRecordTypeId;
                 }
                 cons.add(con);
             }
@@ -296,88 +243,6 @@ public class Sandbox {
             }
             update communityUsers;
         }
-    }
-
-    public void createProperties(Integer numProperties, Id bautraegerId) {
-        List<Property__c> immobilien = new List<Property__c>();
-
-        for(Integer i = 0; i < numProperties; i++) {
-            Property__c immobilie = new Property__c();
-            Integer z = i+1;
-            immobilie.Name = 'Immobilie ' + z;
-            immobilie.Place__c = 'test';
-            immobilie.Street__c = 'test2';
-            immobilie.Zip_Code__c = '12312';
-            immobilie.State__c = 'Niedersachsen';
-            immobilie.Unternehmen__c = bautraegerId;
-            immobilie.Bank__c = 'Sparkasse';
-            immobilie.IBAN__c = 'DE124943103936283819';
-            immobilie.BIC__c = 'SPKHDE2HXXX';
-            immobilie.Telefon__c = '05123123';
-            immobilie.E_Mail__c = 'test@test.de';
-            immobilie.Website__c = 'www.test.de';
-            immobilie.Objektnummer__c = '1234';
-            immobilie.ZahlungszielInTagen__c = 14;
-            immobilie.ParagraphKaufpreisfaelligkeit__c = 'Test Paragraph';
-            if(Math.mod(i, 2) == 0) {
-                immobilie.Collection_Id__c = '13PD6CXYIgK2Q6pK-AswOwkX6AIuCrfEk';
-            } else if(Math.mod(i, 3) == 0) {
-                immobilie.Collection_Id__c = '1hlv9-kGBQt2IZprDFFTZGatv8tFOzB71';
-            } else {
-                immobilie.Collection_Id__c = '1gfa4M4tURZK-PpbMSCXMAg5flB9q4Chb';
-            }
-            immobilie.Purchase_Price_sqm__c = 1500;
-            immobilie.Property_Price__c = 1500000;
-            immobilie.Surface_Object_sqm__c = 2500;
-            immobilie.Repayment_Beginning__c = Date.Today() + 180;
-            immobilie.Arrival__c = Date.Today() + 180;
-            immobilie.Rent_Long_Term_sqm__c = 10.5;
-            immobilie.Is_Public__c = true;
-            immobilien.add(immobilie);
-        }
-        
-        insert immobilien;
-    }
-
-    public void createApartments(Integer numApps) {
-        List<Property__c> immobilien = [SELECT ID FROM Property__c WHERE Name LIKE 'Immobilie %'];
-        
-        List<Appartment__c> apps = new List<Appartment__c>();
-        for(Property__c immobilie:immobilien) {
-            for(Integer i = 0; i < numApps; i++) {
-                Appartment__c app = new Appartment__c();
-                if(i > 9) {
-                    app.Name = 'Apartment 0' + i;
-                } else {
-                    app.Name = 'Apartment 00' + i;
-                }
-                app.Property__c = immobilie.Id;
-                app.Status__c = 'Available';
-                app.Area_sq_m__c = 63;
-                apps.add(app);
-            }
-        }
-        
-        insert apps;
-    }
-
-    public void createProvisionsverhandlungen() {
-        List<Account> accs = [SELECT Id FROM Account WHERE Name LIKE 'Makler GmbH%'];
-        List<Property__c> immobilien = [SELECT ID FROM Property__c WHERE Name LIKE 'Immobilie %'];
-        List<Provisionsverhandlung__c> provisionsverhandlungen = new List<Provisionsverhandlung__c>();
-
-        for(Account acc:accs) {
-            for(Property__c immobilie:immobilien) {
-                Provisionsverhandlung__c provisionsverhandlung = new Provisionsverhandlung__c();
-                provisionsverhandlung.Immobilie__c = immobilie.Id;
-                provisionsverhandlung.Grundprovision__c = 6.0;
-                provisionsverhandlung.Verkaufsprovision__c = 1.5;
-                provisionsverhandlung.Account__c = acc.Id;
-                provisionsverhandlungen.add(provisionsverhandlung);
-            }
-        }
-
-        insert provisionsverhandlungen;
     }
 
     @Future(callout=true)

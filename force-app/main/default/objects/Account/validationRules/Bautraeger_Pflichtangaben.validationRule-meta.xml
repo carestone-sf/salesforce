@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bautraeger_Pflichtangaben</fullName>
+    <active>true</active>
+    <errorConditionFormula>RecordType.DeveloperName = &apos;PropertyDeveloper&apos; &amp;&amp; (
+IsBlank( Unternehmensname__c ) ||
+IsBlank(Amtsgericht_bei_Kapitalgesellschaften__c) || IsBlank(Datev_Mandantennummer__c) || 
+IsBlank(GeschaeftsfuehrerNeu__c) || 
+IsBlank( BillingStreet ) || 
+IsBlank( BillingCity ) || 
+IsBlank( BillingPostalCode ) || 
+IsBlank( Phone ) || 
+IsBlank( Email__c ) ||
+IsBlank( Website ) ||
+IsBlank( HRB_bei_Kapitalgesellschaften__c ) ||
+IsBlank( Steuernummer__c ) ||
+IsBlank( UStd_Id__c )
+)</errorConditionFormula>
+    <errorMessage>Bitte fülle alle Daten unter &quot;Abrechnung&quot; aus und zusätzlich:
+Telefon, Telefax, Email, Website, Rechnungsadresse</errorMessage>
+</ValidationRule>
