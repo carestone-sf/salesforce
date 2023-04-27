@@ -11,6 +11,24 @@ public with sharing class TestDataFactory {
         ); 
     }
 
+    public static void createNecessaryCustomSettings() {
+        Gutschrift_Laufnummer__c gutschriftLaufnummer = Gutschrift_Laufnummer__c.getOrgDefaults();
+        gutschriftLaufnummer.Gutschrift_Laufnummer__c = 0;
+        insert gutschriftLaufnummer;
+
+        Gutschrift_Storno_Laufnummer__c gutschriftStornoLaufnummer = Gutschrift_Storno_Laufnummer__c.getOrgDefaults();
+        gutschriftStornoLaufnummer.Gutschrift_Storno_Laufnummer__c = 0;
+        insert gutschriftStornoLaufnummer;
+
+        MaBVRechnungLaufnummer__c maBVRechnungLaufnummer = MaBVRechnungLaufnummer__c.getOrgDefaults();
+        maBVRechnungLaufnummer.Laufnummer__c = 0;
+        insert maBVRechnungLaufnummer;
+
+        DatevDebitorennummerKaeufer__c datevDebitorennummerKaeufer = DatevDebitorennummerKaeufer__c.getOrgDefaults();
+        datevDebitorennummerKaeufer.DatevDebitorennummerKaeufer__c = 3000000;
+        insert datevDebitorennummerKaeufer;
+    }
+
     public static User createTestUser(Boolean doInsert) {
         User user = new User();
         
@@ -85,6 +103,7 @@ public with sharing class TestDataFactory {
     }
     
     public static Account createAccount(Boolean doInsert, String accountName, String accType) {
+        Id brokerageRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName().get('Brokerage').getRecordTypeId();
         Account acc = new Account();
 
         acc.Name = accountName;
@@ -98,6 +117,7 @@ public with sharing class TestDataFactory {
         acc.Unternehmensname__c = 'CareStone';
         acc.Carestone_Vertriebsvereinbarung__c = true;
         acc.Dauerhaft_gesch_tzt__c = true;
+        acc.RecordTypeId = brokerageRecordTypeId;
 
         if(accType != null){
             acc.Type = accType;
@@ -110,21 +130,38 @@ public with sharing class TestDataFactory {
         return acc;
     }
 
+    public static List<Account> createAccounts(Boolean doInsert, Id parentId, Integer numAccounts) {
+        List<Account> accs = new List<Account>();
+        for(Integer i = 0; i < numAccounts; i++) {
+            Account acc = createAccount(false, 'Makler GmbH ' + i, null);
+            acc.ParentId = parentId;
+            accs.add(acc);
+        }
+
+        if(doInsert) {
+            Database.DMLOptions dml = new Database.DMLOptions();
+            dml.DuplicateRuleHeader.AllowSave = true;
+            Database.insert(accs, dml);
+        }
+        return accs;
+    }
+
     public static Account createBautraeger(Boolean doInsert) {
+        Id propertyDeveloperRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName().get('PropertyDeveloper').getRecordTypeId();
         Account bautraeger = new Account();
         bautraeger.Name = 'Carestone Projekt GmbH';
-        bautraeger.Gesch_ftsbeziehung__c = 'Bauträger';
-        bautraeger.Maklerbetreuer_Wirtschaftshaus__c = 'Frank Köpsell';
+        bautraeger.RecordTypeId = propertyDeveloperRecordTypeId;
+        bautraeger.Maklerbetreuer_Wirtschaftshaus__c = 'Frank Müller';
         bautraeger.BillingCity = 'Test Stadt';
         bautraeger.BillingStreet = 'Test Str. 12';
         bautraeger.BillingPostalCode = '30159';
-        bautraeger.Email__c = 'f.witte@wirtschaftshaus.de';
+        bautraeger.Email__c = 'm.mustermann@carestone.com';
         bautraeger.Phone = '113';
         bautraeger.Fax = '113';
         bautraeger.Website = 'https://carestone.com';
         bautraeger.UStd_Id__c = 'DE12345';
         bautraeger.Steuernummer__c = '24/231/113';
-        bautraeger.GeschaeftsfuehrerNeu__c = 'Sandro Pawils';
+        bautraeger.GeschaeftsfuehrerNeu__c = 'Gabor Kowalski';
         bautraeger.Rechtsform__c = 'GbR';
         bautraeger.Amtsgericht_bei_Kapitalgesellschaften__c = 'Amtsgericht Hannover';
         bautraeger.HRB_bei_Kapitalgesellschaften__c = 'HRB 210203';
@@ -236,8 +273,13 @@ public with sharing class TestDataFactory {
     }
 
     public static Property__c createProperty(Boolean doInsert, Id bautraegerId) {
+        String propertyName = 'Immobilie';
+        return createProperty(doInsert, bautraegerId, propertyName);
+    }
+
+    public static Property__c createProperty(Boolean doInsert, Id bautraegerId, String propertyName) {
         Property__c immobilie = new Property__c();
-        immobilie.Name = 'Immobilie';
+        immobilie.Name = propertyName;
         immobilie.Place__c = 'test';
         immobilie.Street__c = 'test2';
         immobilie.Zip_Code__c = '12312';
@@ -269,9 +311,26 @@ public with sharing class TestDataFactory {
         return immobilie;
     }
 
+    public static List<Property__c> createProperties(Boolean doInsert, Id bautraegerId, Integer numProperties) {
+        List<Property__c> properties = new List<Property__c>();
+        for(Integer i = 0; i < numProperties; i++) {
+            String propertyName = 'Immobilie ' + (i+1);
+            properties.add(createProperty(false, bautraegerId, propertyName));
+        }
+        if(doInsert) {
+            insert properties;
+        }
+        return properties;
+    }
+
     public static Appartment__c createAppartment(Boolean doInsert, Id immobilieId) {
+        String apartmentName = 'Apartment001';
+        return createAppartment(doInsert, immobilieId, apartmentName);
+    }
+
+    public static Appartment__c createAppartment(Boolean doInsert, Id immobilieId, String apartmentName) {
         Appartment__c app = new Appartment__c();
-        app.Name = 'Apartment001';
+        app.Name = apartmentName;
         app.Property__c = immobilieId;
         app.Status__c = 'Available';
         app.Area_sq_m__c = 63;
@@ -281,6 +340,25 @@ public with sharing class TestDataFactory {
         }
 
         return app;
+    }
+
+    public static List<Appartment__c> createAppartments(Boolean doInsert, Id immobilieId, Integer numApartments) {
+        List<Appartment__c> apps = new List<Appartment__c>();
+        for(Integer i = 0; i < numApartments; i++) {
+            String apartmentName = 'Apartment ';
+            if(i > 9) {
+                apartmentName += '0' + (i+1);
+            } else {
+                apartmentName += '0' + (i+1);
+            }
+            apps.add(createAppartment(doInsert, immobilieId, apartmentName));
+        }
+
+        if(doInsert) {
+            insert apps;
+        }
+
+        return apps;
     }
 
     public static MaBVRate__c createMaBVRate(Boolean doInsert, Id immobilienId) {
@@ -415,7 +493,7 @@ public with sharing class TestDataFactory {
     }
 
     public static Provisionsverhandlung__c createProvisionsverhandlung(Boolean doInsert, Id accountId, Id immoId) {
-        Provisionsverhandlung__c provisionsverhandlung =new Provisionsverhandlung__c(
+        Provisionsverhandlung__c provisionsverhandlung = new Provisionsverhandlung__c(
             Account__c = accountId,
             Immobilie__c = immoId,
             Grundprovision__c = 5.0,
@@ -427,6 +505,30 @@ public with sharing class TestDataFactory {
         }
 
         return provisionsverhandlung;
+    }
+
+    public static List<Provisionsverhandlung__c> createProvisionsverhandlungenForAllAccounts(Boolean doInsert) {
+        Id brokerageRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName().get('Brokerage').getRecordTypeId();
+        List<Account> accs = [SELECT Id FROM Account WHERE RecordTypeId = :brokerageRecordTypeId];
+        List<Property__c> immobilien = [SELECT ID FROM Property__c];
+        List<Provisionsverhandlung__c> provisionsverhandlungen = new List<Provisionsverhandlung__c>();
+
+        for(Account acc:accs) {
+            for(Property__c immobilie:immobilien) {
+                Provisionsverhandlung__c provisionsverhandlung = new Provisionsverhandlung__c();
+                provisionsverhandlung.Immobilie__c = immobilie.Id;
+                provisionsverhandlung.Grundprovision__c = 6.0;
+                provisionsverhandlung.Verkaufsprovision__c = 1.5;
+                provisionsverhandlung.Account__c = acc.Id;
+                provisionsverhandlungen.add(provisionsverhandlung);
+            }
+        }
+
+        if(doInsert) {
+            insert provisionsverhandlungen;
+        }
+
+        return provisionsverhandlungen;
     }
 
     public static User createCommunityUser() {

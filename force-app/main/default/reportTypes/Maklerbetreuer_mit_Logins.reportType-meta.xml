@@ -778,6 +778,16 @@
             <field>AnnualTargetPlanning__c</field>
             <table>Account</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Util_CurrentYearsProgress__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ActionsAnnualTarget__c</field>
+            <table>Account</table>
+        </columns>
         <masterLabel>Accounts</masterLabel>
     </sections>
     <sections>
@@ -2405,6 +2415,16 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>DayInMonth__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts.Activity_Summaries__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts.Activity_Summaries__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Maklerbetreuer__c</field>
             <table>Account.BetreuteAccounts__r.Contacts.Activity_Summaries__r</table>
         </columns>
         <masterLabel>Activity Summaries</masterLabel>
