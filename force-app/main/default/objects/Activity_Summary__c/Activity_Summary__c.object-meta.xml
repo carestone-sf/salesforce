@@ -154,12 +154,14 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <label>Activity Summary</label>
+    <gender>Feminine</gender>
+    <label>VP Logins</label>
     <nameField>
-        <label>Activity Summary Name</label>
-        <type>Text</type>
+        <displayFormat>VP Login {0000000}</displayFormat>
+        <label>Name</label>
+        <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Activity Summaries</pluralLabel>
+    <pluralLabel>VP Logins</pluralLabel>
     <searchLayouts></searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>

@@ -2429,4 +2429,12 @@
         </columns>
         <masterLabel>Activity Summaries</masterLabel>
     </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastLogin__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts.Activity_Summaries__r</table>
+        </columns>
+        <masterLabel>VP Logins</masterLabel>
+    </sections>
 </ReportType>
