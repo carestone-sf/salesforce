@@ -44,7 +44,7 @@ public with sharing class UserActivitySummaryBatch implements Database.Batchable
         LIST<AggregateResult> results = [
                 SELECT userID, count(id) numberOflogins
                 from LoginHistory
-                WHERE LoginTime >= :FIRST_DAY_OF_CURRENT_MONTH
+                WHERE LoginTime > :FIRST_DAY_OF_CURRENT_MONTH
                 AND userId = :users.keySet()
                 Group by userid
         ];
