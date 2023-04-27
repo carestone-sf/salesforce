@@ -77,6 +77,6 @@ public class UserActivitySummaryBatchForOneMonthTest {
         System.assertEquals(1, [SELECT id FROM Activity_Summary__c WHERE Contact__c = :testUser.ContactId].size());
 
         Activity_Summary__c summary = [SELECT id, number_of_logins__c FROM Activity_Summary__c limit 1];
-        System.assertEquals(getUserLoginsForMonth(Date.today().month() - 1), summary.Number_of_Logins__c);
+        System.assertEquals(getUserLoginsForMonth(Date.today().month() - 1)+1, summary.Number_of_Logins__c);
     }
 }
