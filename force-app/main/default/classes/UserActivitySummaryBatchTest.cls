@@ -12,6 +12,7 @@ public class UserActivitySummaryBatchTest {
         LIST<AggregateResult> results =[SELECT userID,count(id) numberOflogins
                                         from LoginHistory 
                                         WHERE LoginTime > :firstDayOfMonth 
+                                        AND UserId = :UserInfo.getUserId()
                                         Group by userid];
         
         for(aggregateResult result : results){
@@ -56,7 +57,7 @@ public class UserActivitySummaryBatchTest {
     private static void testUsersWithoutActiveSummaryCreated(){
         Account acc = TestDataFactory.createAccount(true);
         User testUser = TestDataFactory.createCommunityUser(acc.Id);
-        
+
         System.Debug('summaries: '+[select count(id)from Activity_Summary__c]);
         System.debug('loginhistory: '+[select count(id) from LoginHistory]);
         
@@ -64,7 +65,7 @@ public class UserActivitySummaryBatchTest {
         Map<id,user> users= new Map<id, user>([select id, name from user where contactId!=null]);
         
         Test.startTest();
-        Database.executeBatch(new UserActivitySummaryBatch());
+        Database.executeBatch(new UserActivitySummaryBatch(new Set<Id> { UserInfo.getUserId() }));
         Test.stopTest();
         Map<id,Activity_Summary__c> summaries =new map<id, Activity_Summary__c>([select id, number_of_logins__c,userId__c 
                                                 from Activity_Summary__c 
