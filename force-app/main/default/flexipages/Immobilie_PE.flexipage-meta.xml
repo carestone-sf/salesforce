@@ -1746,6 +1746,16 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.MonumentDepreciation__c</fieldItem>
+                <identifier>RecordMonumentDepreciation_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Erbbaurecht__c</fieldItem>
                 <identifier>RecordErbbaurecht_cField2</identifier>
             </fieldInstance>
