@@ -11,7 +11,7 @@
                 <field>Contact__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Readonly</behavior>
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
@@ -21,6 +21,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Maklerbetreuer__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>LastLogin__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>
