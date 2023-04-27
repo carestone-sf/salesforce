@@ -22,9 +22,14 @@ public class DatevControllerTest {
         mb.AccountId = acc.Id;
         Database.update(mb, dml);
         // Accounts erstellen
-        Sandbox.createAccounts(1, acc.Id, 1);
+        List<Account> accs = TestDataFactory.createAccounts(true, acc.Id, 1);
         // Interessenten erstellen
-        Sandbox.createContacts(2, 'Interessent');
+        Contact interessentOne = TestDataFactory.createInteressent(false, accs[0].Id);
+        interessentOne.LastName += '1';
+        Database.insert(interessentOne, dml);
+        Contact interessentTwo = TestDataFactory.createInteressent(false, accs[0].Id);
+        interessentOne.LastName += '2';
+        Database.insert(interessentTwo, dml);
         DatevController.sendDatevStammdatenCsvAsEmail(Date.today(), Date.today(), 'debitors');
         DatevController.sendDatevStammdatenCsvAsEmail(Date.today(), Date.today(), 'creditors');
     }
