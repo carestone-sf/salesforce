@@ -1241,11 +1241,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Mietzins__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Min_Rendite__c</field>
             <table>Property__c</table>
         </columns>
