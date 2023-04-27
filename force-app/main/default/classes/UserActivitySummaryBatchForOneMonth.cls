@@ -18,9 +18,9 @@ public with sharing class UserActivitySummaryBatchForOneMonth implements Databas
         system.debug('----------started-----------');
         if (usersIds != null) {
 
-            return [select id, ContactId from user where id = :this.usersIds];
+            return [select id, ContactId, ContactAccountId__c, ContactAccountOwnerId__c from user where id = :this.usersIds];
         } else {
-            return [select id, ContactId from user where ContactId != null];
+            return [select id, ContactId, ContactAccountId__c, ContactAccountOwnerId__c from user where ContactId != null];
         }
     }
     public void execute(Database.BatchableContext BC, list<user> scope) {
@@ -88,6 +88,8 @@ public with sharing class UserActivitySummaryBatchForOneMonth implements Databas
                 System.debug('Counts: ' + loginCounts);
                 newSummary.number_of_logins__c = loginCounts;
                 newSummary.Contact__c = getContactId(us);
+                newSummary.Account__c = getContactAccountId(us);
+                newSummary.Maklerbetreuer__c = getContactAccountOwnerId(us);
                 summariesToUpsert.add(newSummary);
 
             }
@@ -104,6 +106,22 @@ public with sharing class UserActivitySummaryBatchForOneMonth implements Databas
             return [SELECT Id FROM Contact LIMIT 1].Id;
         } else {
             return user.ContactId;
+        }
+    }
+
+    private static Id getContactAccountId(User user) {
+        if(Test.isRunningTest()) {
+            return [SELECT Id FROM Account LIMIT 1].Id;
+        } else {
+            return user.ContactAccountId__c;
+        }
+    }
+
+    private static Id getContactAccountOwnerId(User user) {
+        if(Test.isRunningTest()) {
+            return [SELECT OwnerId FROM Account LIMIT 1].OwnerId;
+        } else {
+            return user.ContactAccountOwnerId__c;
         }
     }
 }
