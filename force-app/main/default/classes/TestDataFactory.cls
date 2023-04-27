@@ -314,7 +314,7 @@ public with sharing class TestDataFactory {
     public static List<Property__c> createProperties(Boolean doInsert, Id bautraegerId, Integer numProperties) {
         List<Property__c> properties = new List<Property__c>();
         for(Integer i = 0; i < numProperties; i++) {
-            String propertyName = 'Immobilie ' + i;
+            String propertyName = 'Immobilie ' + (i+1);
             properties.add(createProperty(false, bautraegerId, propertyName));
         }
         if(doInsert) {
@@ -347,9 +347,9 @@ public with sharing class TestDataFactory {
         for(Integer i = 0; i < numApartments; i++) {
             String apartmentName = 'Apartment ';
             if(i > 9) {
-                apartmentName += '0' + i;
+                apartmentName += '0' + (i+1);
             } else {
-                apartmentName += '0' + i;
+                apartmentName += '0' + (i+1);
             }
             apps.add(createAppartment(doInsert, immobilieId, apartmentName));
         }

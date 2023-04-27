@@ -2,7 +2,6 @@
 public class SandboxTest {
     @TestSetup
     static void makeData(){
-        Sandbox sb = new Sandbox();
         TestDataFactory.createNecessaryCustomSettings();
     }
     
@@ -10,7 +9,7 @@ public class SandboxTest {
         Test.startTest();
         Test.testSandboxPostCopyScript(
             new Sandbox(), UserInfo.getOrganizationId(),
-                UserInfo.getOrganizationId(), UserInfo.getOrganizationName(), true);
+                UserInfo.getOrganizationId(), UserInfo.getOrganizationName());
         Test.stopTest();
     }
 }
