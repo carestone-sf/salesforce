@@ -8,7 +8,7 @@ private class SchedulableImmobilienFilesTest {
     ct.TokenEndpoint__c = 'https://accounts.google.com/o/oauth2/token';
     ct.ClientId__c = '166550496015-h41c6c5pe3jtu799iefm6gidetre397c.apps.googleusercontent.com';
     ct.ClientSecret__c = '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';
-    ct.RedirectUri__c = 'https://wirtschaftshaus.lightning.force.com/apex/connector';
+    ct.RedirectUri__c = 'https://carestone.lightning.force.com/apex/connector';
     ct.ScopeRequired__c = true;
     ct.Scope__c = 'https://www.googleapis.com/auth/drive';
     ct.ExtraUrlParameters__c = 'access_type=offline';
