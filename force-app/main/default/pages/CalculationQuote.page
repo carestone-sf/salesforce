@@ -730,7 +730,7 @@
                                 <tr style="{!IF(cumulatedYearlyValues[firstFullYear]['taxes'] < 0, 'display: table-row;', 'display: none;')}">
                                     <td align="left">Steuerbelastung</td>
                                     <td align="right">
-                                        {!cumulatedYearlyValues[firstFullYear]['taxesInEuro']} &euro;
+                                        {!SUBSTITUTE(cumulatedYearlyValues[firstFullYear]['taxesInEuro'], '-', '')} &euro;
                                     </td>
                                 </tr>
                             </tbody>
@@ -818,7 +818,7 @@
                                 <tr style="{!IF(firstYearAfterPaymentValues[firstYearAfterPayment]['taxes'] < 0, 'display: table-row;', 'display: none;')}">
                                     <td align="left">Steuerbelastung</td>
                                     <td align="right">
-                                        {!firstYearAfterPaymentValues[firstYearAfterPayment]['taxesInEuro']} &euro;
+                                        {!SUBSTITUTE(firstYearAfterPaymentValues[firstYearAfterPayment]['taxesInEuro'], '-', '')} &euro;
                                     </td>
                                 </tr>
                             </tbody>
@@ -924,7 +924,6 @@
                                 <th align="right">Tilgung</th>
                                 <th align="right">Darlehensstand</th>
                                 <th align="right">Sondertilgung</th>
-
                             </thead>
                             <tbody>
                                 <apex:repeat value="{!yearlyValues}" var="yearlyValuesKey">
@@ -935,6 +934,7 @@
                                         <td align="right">{!yearlyValues[yearlyValuesKey]['interestInEuro']} &euro;</td>
                                         <td align="right">{!yearlyValues[yearlyValuesKey]['repaymentInEuro']} &euro;</td>
                                         <td align="right">{!yearlyValues[yearlyValuesKey]['creditSumEndInEuro']} &euro;</td>
+
 
                                         <td align="right">
                                             <apex:outputText value="{!calcSonder[yearlyValuesKey]}" />
