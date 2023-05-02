@@ -464,7 +464,7 @@
                 <thead>
                     <th>Immobilie</th>
                     <th>Apartment</th>
-                    <th>Gesamtfläche</th>
+                    <th>Mietfläche</th>
                     <th>Miete p.m.</th>
                     <th align="right">Kaufpreis</th>
                 </thead>
@@ -588,7 +588,7 @@
                         <thead>
                             <th>Immobilie</th>
                             <th>Apartment</th>
-                            <th>Gesamtfläche</th>
+                            <th>Mietfläche</th>
                             <th>Miete p.m.</th>
                             <th align="right">Kaufpreis</th>
                         </thead>
