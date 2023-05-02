@@ -1,0 +1,22 @@
+<messaging:emailTemplate subject="Neue Dateien im Carestone-Vertriebsportal" recipientType="Contact" >
+<messaging:htmlEmailBody >
+
+    <apex:image style="float: right" value="https://carestone.file.force.com/servlet/servlet.ImageServer?id=0150X000008Zu7r&oid=00Db0000000Hcue&lastMod=1582017927000" width="200" height="auto"/>
+
+    <br/><br/><br/>
+    <hr style="border: 2px solid #005555;"/>
+    <br/><br/>
+
+    <div style="font-family: Arial"> 
+        {!recipient.Anrede_Formel__c} {!recipient.LastName},<br/>
+        <br/>
+        es gibt neue Dateien im Carestone-Vertriebsportal:<br/>
+        
+        <c:NewFileOverview />
+        
+        <br/>
+        Mit freundlichen Grüßen<br/>
+        Ihr Carestone-Team
+    </div>
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>
