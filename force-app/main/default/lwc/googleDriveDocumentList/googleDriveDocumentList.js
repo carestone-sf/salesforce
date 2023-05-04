@@ -1,4 +1,5 @@
 import { LightningElement, api, track } from 'lwc';
+import generateFileDownloadLog from '@salesforce/apex/FileDownloadLogController.createFileDownloadLog';
 
 export default class GoogleDriveDocumentList extends LightningElement {
 
@@ -57,6 +58,12 @@ export default class GoogleDriveDocumentList extends LightningElement {
         this.setup();
     }
 
+    createDownloadFileLog(immobilenDMSDateiId){
+        generateFileDownloadLog({immobilenDMSDateiId: immobilenDMSDateiId}).then(res => {
+        }).catch(err => {
+        });
+    }
+
     setup() {
         const documentsByParentFolderJson = {};
         this.documentsByParentFolder = [];
@@ -82,6 +89,7 @@ export default class GoogleDriveDocumentList extends LightningElement {
     }
 
     handleRowAction(event){
+        this.createDownloadFileLog(event.detail.row.id);
         const actionName = event.detail.action.name;
         const row = event.detail.row;
         switch (actionName) {

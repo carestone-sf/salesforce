@@ -918,6 +918,12 @@
                             <value>Number_of_Logins__c</value>
                         </valueListItems>
                         <valueListItems>
+                            <value>Number_of_downloads__c</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Number_of_new_prospects__c</value>
+                        </valueListItems>
+                        <valueListItems>
                             <value>DayInMonth__c</value>
                         </valueListItems>
                         <valueListItems>
@@ -1195,6 +1201,12 @@
                             <value>Number_of_Logins__c</value>
                         </valueListItems>
                         <valueListItems>
+                            <value>Number_of_downloads__c</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Number_of_new_prospects__c</value>
+                        </valueListItems>
+                        <valueListItems>
                             <value>DayInMonth__c</value>
                         </valueListItems>
                         <valueListItems>
@@ -1383,6 +1395,9 @@
                         </valueListItems>
                         <valueListItems>
                             <value>Gesch_ftsbeziehung__c</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>PositionSorting__c</value>
                         </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
