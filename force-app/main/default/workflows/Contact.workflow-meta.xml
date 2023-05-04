@@ -1,6 +1,286 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>Interessentenschutz_Verl_ngerung_abgelehnt</fullName>
+        <description>Interessentenschutz Verlängerung abgelehnt</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Makler_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Kontakt_Verl_ngerung_abgelehnt</template>
+    </alerts>
+    <alerts>
+        <fullName>Interessentenschutz_Verl_ngerung_beantragt</fullName>
+        <description>Interessentenschutz Verlängerung beantragt</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Service_Team</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Standard/Kontakt_Verl_ngerung_beantragt</template>
+    </alerts>
+    <alerts>
+        <fullName>Interessentenschutz_Verl_ngerung_genehmigt</fullName>
+        <description>Interessentenschutz Verlängerung genehmigt</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Makler_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Kontakt_Verl_ngerung_genehmigt</template>
+    </alerts>
+    <alerts>
+        <fullName>Kunden_Maklerschutz_l_uft_aus</fullName>
+        <description>Kunden-/Maklerschutz läuft aus</description>
+        <protected>false</protected>
+        <recipients>
+            <field>MaklerBetreuer_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Makler_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Maklerschutz_aufheben</template>
+    </alerts>
+    <alerts>
+        <fullName>Kundenschutz_Mail</fullName>
+        <description>Kundenschutz Mail</description>
+        <protected>false</protected>
+        <recipients>
+            <field>MaklerBetreuer_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Makler_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Kundenschutz_Vorlage</template>
+    </alerts>
+    <alerts>
+        <fullName>Kundenschutz_l_uft_aus_1_Woche_vorher</fullName>
+        <description>Kundenschutz läuft aus 1 Woche vorher</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <recipients>
+            <field>MaklerBetreuer_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Makler_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Kundenschutz_l_uft_aus_3_Wochen</template>
+    </alerts>
+    <alerts>
+        <fullName>Kundenschutz_wurde_erfolgreich_erstellt</fullName>
+        <description>Kundenschutz wurde erfolgreich erstellt</description>
+        <protected>false</protected>
+        <recipients>
+            <field>E_Mail_Portalnutzer__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Kundenschutz_Vorlage</template>
+    </alerts>
+    <alerts>
+        <fullName>Kundenschutzmail_senden</fullName>
+        <description>Kundenschutzmail senden</description>
+        <protected>false</protected>
+        <recipients>
+            <field>MaklerBetreuer_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Makler_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Maklerschutz</template>
+    </alerts>
+    <alerts>
+        <fullName>Lead_Berater_zugewiesen</fullName>
+        <description>Lead Berater zugewiesen</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Berater__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Lead_Berater_zugewiesen</template>
+    </alerts>
+    <alerts>
+        <fullName>Lead_konnte_nicht_gesch_tzt_werden</fullName>
+        <description>Lead konnte nicht geschützt werden</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Makler_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Abgelehnter_Kontakt</template>
+    </alerts>
+    <alerts>
+        <fullName>Lead_konnte_nicht_gesch_tzt_werden2</fullName>
+        <description>Lead konnte nicht geschützt werden</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Makler_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Abgelehnter_Kontakt</template>
+    </alerts>
+    <alerts>
+        <fullName>Lead_reklamiert_Raik</fullName>
+        <description>Lead reklamiert Raik</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>witte@amstammtisch.de</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Lead_Reklamiert</template>
+    </alerts>
+    <alerts>
+        <fullName>Makler_best_tigt</fullName>
+        <description>Makler bestätigt</description>
+        <protected>false</protected>
+        <recipients>
+            <field>MaklerBetreuer_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Makler_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Makler_best_tigt</template>
+    </alerts>
+    <alerts>
+        <fullName>Makler_mit_Vertrag1</fullName>
+        <description>Makler mit Vertrag1</description>
+        <protected>false</protected>
+        <recipients>
+            <field>MaklerBetreuer_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Makler_mit_Vertrag</template>
+    </alerts>
+    <alerts>
+        <fullName>Makler_mit_Vertrag2</fullName>
+        <description>Makler mit Vertrag2</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Makler_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Makler_mit_Vertrag2</template>
+    </alerts>
+    <alerts>
+        <fullName>Maklerschutz_wurde_erfolgreich_erstellt</fullName>
+        <description>Maklerschutz wurde erfolgreich erstellt</description>
+        <protected>false</protected>
+        <recipients>
+            <field>E_Mail_Portalnutzer__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Maklerschutz</template>
+    </alerts>
+    <alerts>
+        <fullName>Maklervertrag_verschickt</fullName>
+        <description>Maklervertrag verschickt</description>
+        <protected>false</protected>
+        <recipients>
+            <field>MaklerBetreuer_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Makler_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Maklervertrag_verschickt</template>
+    </alerts>
+    <alerts>
+        <fullName>Maklervertrag_vor_3_Wochen_verschickt</fullName>
+        <description>Maklervertrag vor 3 Wochen verschickt</description>
+        <protected>false</protected>
+        <recipients>
+            <field>MaklerBetreuer_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <recipient>j.pawils@wirtschaftshaus.de</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>m.krueger@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Erinnerung_Maklervertrag_verschickt</template>
+    </alerts>
+    <alerts>
+        <fullName>Neuer_Lead_Kontakt_im_System</fullName>
+        <description>Neuer Lead Kontakt im System</description>
+        <protected>false</protected>
+        <recipients>
+            <field>MaklerBetreuer_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <recipient>Team_Leads</recipient>
+            <type>group</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Neuer_Lead_Kontakt_im_System</template>
+    </alerts>
+    <alerts>
+        <fullName>New_User_Requestion_Alert</fullName>
+        <description>New User Requestion Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/On_Create_Contact_Email_Templete</template>
+    </alerts>
+    <alerts>
         <fullName>New_contact_created</fullName>
         <description>New contact created</description>
         <protected>false</protected>
@@ -12,4 +292,468 @@
         <senderType>OrgWideEmailAddress</senderType>
         <template>unfiled$public/New_contact_create</template>
     </alerts>
+    <fieldUpdates>
+        <fullName>E_Mail_Maklerbetreuer_setzen</fullName>
+        <field>MaklerBetreuer_E_Mail__c</field>
+        <formula>Account.Maklerbetreuer_Wirtschaftshaus_2__r.Email</formula>
+        <name>E-Mail Maklerbetreuer setzen</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Externe_Maklerbetreuer_E_Mail_setzen_Int</fullName>
+        <field>Makler_E_Mail__c</field>
+        <formula>Account.Email__c</formula>
+        <name>Externe Maklerbetreuer E-Mail setzen Int</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Externe_Maklerbetreuer_E_Mail_setzen_Mak</fullName>
+        <field>Makler_E_Mail__c</field>
+        <formula>Account.Parent.Email__c</formula>
+        <name>Externe Maklerbetreuer E-Mail setzen Mak</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Feld_leeren</fullName>
+        <field>Kundenschutz__c</field>
+        <name>Feld leeren</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Inhaber_ndern</fullName>
+        <field>OwnerId</field>
+        <lookupValue>s.pawils@carestone.com</lookupValue>
+        <lookupValueType>User</lookupValueType>
+        <name>Inhaberändern</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Kontakt_Grund_Verl_ngerung</fullName>
+        <field>Grund_Schutz_Verl_ngerung__c</field>
+        <name>Kontakt Grund Verlängerung</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Kontakt_Verl_ngerung_beantragen</fullName>
+        <field>Schutz_Verl_ngerung_beantragen__c</field>
+        <literalValue>0</literalValue>
+        <name>Kontakt Verlängerung beantragen</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Kontakt_Verl_ngerungsanfrage</fullName>
+        <field>Schutz_Verl_ngerung__c</field>
+        <name>Kontakt Verlängerungsanfrage</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Kontakt_Verl_ngerungszeitraum</fullName>
+        <field>Schutz_Verl_ngerung_Zeitraum__c</field>
+        <name>Kontakt Verlängerungszeitraum</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Kontakt_in_Genehmigung</fullName>
+        <description>Wenn der Kontakt in der Genehmigung ist, wird das Feld &quot;In Genehmigungsprozess&quot; auf true gesetzt.</description>
+        <field>In_Genehmigungsprozess__c</field>
+        <literalValue>1</literalValue>
+        <name>Kontakt in Genehmigung</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Kontakt_nicht_in_Genehmigung</fullName>
+        <description>Wenn der Kontakt durch den Prozess durch ist, wird das Feld &quot;In Genehmigungsprozess&quot; auf false gesetzt.</description>
+        <field>In_Genehmigungsprozess__c</field>
+        <literalValue>0</literalValue>
+        <name>Kontakt nicht in Genehmigung</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Kunden_Maklerschutz</fullName>
+        <field>Kunden_Maklerschutz__c</field>
+        <literalValue>0</literalValue>
+        <name>Kunden-Maklerschutz</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Kunden_Maklerschutz_Checkbox_checken</fullName>
+        <field>Kunden_Maklerschutz__c</field>
+        <literalValue>1</literalValue>
+        <name>Kunden-/Maklerschutz Checkbox checken</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Kunden_Maklerschutz_aufheben</fullName>
+        <field>Kunden_Maklerschutz__c</field>
+        <literalValue>0</literalValue>
+        <name>Kunden-Maklerschutz aufheben</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Kundenschutz_1</fullName>
+        <field>Kunden_Maklerschutz__c</field>
+        <literalValue>0</literalValue>
+        <name>Kundenschutz1</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Kundenschutz_bis_leeren</fullName>
+        <field>Kundenschutz__c</field>
+        <name>Kundenschutz bis leeren</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Kundenschutz_genehmigt</fullName>
+        <description>Setzt den Haken beim Feld Kunden_Maklerschutz__c, wodurch die Email durch eine Workflow-Regel getriggert wird.</description>
+        <field>Kunden_Maklerschutz__c</field>
+        <literalValue>1</literalValue>
+        <name>Kundenschutz genehmigt</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Kundenschutzdatum</fullName>
+        <field>Kundenschutz__c</field>
+        <formula>Kundenschutz__c  + 28</formula>
+        <name>Kundenschutzdatum</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Maklerschutz_genehmigt</fullName>
+        <description>Setzt den Haken beim Feld Kunden_Maklerschutz__c, wodurch die Email durch eine Workflow-Regel getriggert wird.</description>
+        <field>Kunden_Maklerschutz__c</field>
+        <literalValue>1</literalValue>
+        <name>Maklerschutz genehmigt</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Maklervertrag_verschickt</fullName>
+        <field>Maklervertrag_verschickt_am__c</field>
+        <formula>now()</formula>
+        <name>Maklervertrag verschickt</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Skip_Duplicate_Check_False</fullName>
+        <field>Skip_Duplicate_Check__c</field>
+        <literalValue>0</literalValue>
+        <name>Skip Duplicate Check False</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>X6_Wochen_Schutz</fullName>
+        <field>Kundenschutz__c</field>
+        <formula>NOW()+42</formula>
+        <name>6 Wochen Schutz</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Disable Skip Duplicate Check</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Contact.Skip_Duplicate_Check__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Skip_Duplicate_Check_False</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>E-Mail Maklerbetreuer setzen</fullName>
+        <actions>
+            <name>E_Mail_Maklerbetreuer_setzen</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(
+NOT(ISBLANK(AccountId)),
+OR(AND(
+    NOT(ISNEW()),
+    ISCHANGED(AccountId)
+), ISNEW(),
+ Daten_aktualisieren__c)
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Externe Maklerbetreuer E-Mail setzen Interessent</fullName>
+        <actions>
+            <name>Externe_Maklerbetreuer_E_Mail_setzen_Int</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Für Kunden und Interessenten die Externe Maklerbetreuer E-Mail setzen</description>
+        <formula>OR(
+ AND(Daten_aktualisieren__c,
+    OR(Includes(Gesch_ftsbeziehung__c, &apos;Kunde&apos;), Includes(Gesch_ftsbeziehung__c, &apos;Interessent&apos;))
+),
+AND(
+    NOT(ISNEW()),
+    ISCHANGED(AccountId),
+    OR(Includes(Gesch_ftsbeziehung__c, &apos;Kunde&apos;), Includes(Gesch_ftsbeziehung__c, &apos;Interessent&apos;))
+), AND(
+ISNEW(),
+ OR(Includes(Gesch_ftsbeziehung__c, &apos;Kunde&apos;), Includes(Gesch_ftsbeziehung__c, &apos;Interessent&apos;))))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Externe Maklerbetreuer E-Mail setzen Makler</fullName>
+        <actions>
+            <name>Externe_Maklerbetreuer_E_Mail_setzen_Mak</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Für Makler die Externe Maklerbetreuer E-Mail setzen</description>
+        <formula>AND(
+NOT(ISNULL(Account.ParentId)), 
+OR(Includes(Gesch_ftsbeziehung__c, &apos;Versicherungsmakler&apos;), Includes(Gesch_ftsbeziehung__c, &apos;Immobilienmakler&apos;),
+Includes(Gesch_ftsbeziehung__c, &apos;Immobilien- oder Versicherungsmakler&apos;),
+Includes(Gesch_ftsbeziehung__c, &apos;Finanz- und Versicherungsmakler&apos;),
+Includes(Gesch_ftsbeziehung__c, &apos;Finanzmakler&apos;)
+),
+OR(
+Daten_aktualisieren__c,
+AND(
+    NOT(ISNEW()),
+    ISCHANGED(AccountId)
+),
+ISNEW()
+)
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Kontakt Verlängerung abgelehnt</fullName>
+        <actions>
+            <name>Interessentenschutz_Verl_ngerung_abgelehnt</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Schutz_Verl_ngerung__c</field>
+            <operation>equals</operation>
+            <value>Ablehnen</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Kontakt_Grund_Verl_ngerung</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Kontakt_Verl_ngerung_beantragen</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Kontakt_Verl_ngerungsanfrage</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Kontakt_Verl_ngerungszeitraum</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Kontakt Verlängerung beantragt</fullName>
+        <actions>
+            <name>Interessentenschutz_Verl_ngerung_beantragt</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Schutz_Verl_ngerung_beantragen__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Kontakt Verlängerung genehmigt</fullName>
+        <actions>
+            <name>Interessentenschutz_Verl_ngerung_genehmigt</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Schutz_Verl_ngerung__c</field>
+            <operation>equals</operation>
+            <value>Genehmigen</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Kontakt_Grund_Verl_ngerung</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Kontakt_Verl_ngerung_beantragen</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Kontakt_Verl_ngerungsanfrage</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Kontakt_Verl_ngerungszeitraum</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Kunden-%2FMaklerschutz aufheben</fullName>
+        <active>false</active>
+        <formula>NOT(ISBLANK( Kundenschutz__c )) &amp;&amp; Dauerhaft_gesch_tzt__c = false &amp;&amp; AccountId != &apos;001b000003Hj9WtAAJ&apos;</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Kunden_Maklerschutz_aufheben</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Kundenschutz_bis_leeren</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Contact.Kundenschutz__c</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Kundenschutz Checkbox beim Erstellen checken</fullName>
+        <actions>
+            <name>Kunden_Maklerschutz_Checkbox_checken</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Contact.E_Mail_Portalnutzer__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Gesch_ftsbeziehung__c</field>
+            <operation>equals</operation>
+            <value>Interessent,Kunde</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Kundenschutz läuft aus  1 Wochen vorher</fullName>
+        <active>false</active>
+        <formula>NOT(ISBLANK( Kundenschutz__c )) &amp;&amp; includes( Gesch_ftsbeziehung__c, &apos;Interessent&apos;) &amp;&amp;  Dauerhaft_gesch_tzt__c == FALSE</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Kundenschutz_l_uft_aus_1_Woche_vorher</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Contact.Kundenschutz__c</offsetFromField>
+            <timeLength>-7</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Lead zur Wiedervorlage</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Wiedervorlage__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <offsetFromField>Contact.Wiedervorlage__c</offsetFromField>
+            <timeLength>-1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Neuer Lead Kontakt im System</fullName>
+        <actions>
+            <name>Neuer_Lead_Kontakt_im_System</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Contact.LeadSource</field>
+            <operation>equals</operation>
+            <value>AdressButler,Bondis,FWS Lead,Pflege.de,WH Landingpage,simply Leads</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
 </Workflow>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowTest xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Checks if Mailing Address is changed when Other Address changes.</description>
+    <flowApiName>ContactBeforeInsertCreateUpdate</flowApiName>
+    <label>Other Address Change</label>
+    <testPoints>
+        <elementApiName>Start</elementApiName>
+        <parameters>
+            <leftValueReference>$Record</leftValueReference>
+            <type>InputTriggeringRecordInitial</type>
+            <value>
+                <sobjectValue>{&quot;Aus_Lead_konvertiert__c&quot;:false,&quot;Aus_Maklerportal__c&quot;:false,&quot;BerufIstBefristet__c&quot;:false,&quot;Blacklist__c&quot;:false,&quot;Daten_aktualisieren__c&quot;:false,&quot;Dauerhaft_gesch_tzt__c&quot;:false,&quot;HasOptedOutOfEmail&quot;:false,&quot;HatEinenBeratungsportalZugang__c&quot;:false,&quot;In_Genehmigungsprozess__c&quot;:false,&quot;Ist_Maklerbetreuer_WH__c&quot;:false,&quot;Keine_Vorabprovision__c&quot;:false,&quot;Keine_Werbung_postalisch__c&quot;:false,&quot;Keinen_Kontakt_postalisch__c&quot;:false,&quot;Kunden_Maklerschutz__c&quot;:false,&quot;LastName&quot;:&quot;Testcontact&quot;,&quot;Makler_Best_tigungsmail__c&quot;:false,&quot;NebenjobIstBefristet__c&quot;:false,&quot;Newsletter__c&quot;:false,&quot;Objektliste_abbestellen__c&quot;:false,&quot;Opt_In__c&quot;:&quot;Nicht Vorhanden&quot;,&quot;OtherCity&quot;:&quot;Bottrop&quot;,&quot;OtherCountry&quot;:&quot;Germany&quot;,&quot;OtherPostalCode&quot;:&quot;46244&quot;,&quot;OtherState&quot;:&quot;NRW&quot;,&quot;OtherStreet&quot;:&quot;Teststraße 1&quot;,&quot;OwnerId&quot;:&quot;0056700000CsBX8AAN&quot;,&quot;Position_Abteilung__c&quot;:&quot;Privatperson (ohne Firma)&quot;,&quot;Schutz_Verl_ngerung_Zeitraum__c&quot;:&quot;2&quot;,&quot;Schutz_Verl_ngerung_beantragen__c&quot;:false,&quot;Skip_Duplicate_Check__c&quot;:false,&quot;Vertriebskontakt_verboten_Interessent__c&quot;:false,&quot;WhatsApp_Widget_ausblenden__c&quot;:false,&quot;tdc_tsw__SMS_Opt_out__c&quot;:false}</sobjectValue>
+            </value>
+        </parameters>
+        <parameters>
+            <leftValueReference>$Record</leftValueReference>
+            <type>InputTriggeringRecordUpdated</type>
+            <value>
+                <sobjectValue>{&quot;Aus_Lead_konvertiert__c&quot;:false,&quot;Aus_Maklerportal__c&quot;:false,&quot;BerufIstBefristet__c&quot;:false,&quot;Blacklist__c&quot;:false,&quot;Daten_aktualisieren__c&quot;:false,&quot;Dauerhaft_gesch_tzt__c&quot;:false,&quot;HasOptedOutOfEmail&quot;:false,&quot;HatEinenBeratungsportalZugang__c&quot;:false,&quot;In_Genehmigungsprozess__c&quot;:false,&quot;Ist_Maklerbetreuer_WH__c&quot;:false,&quot;Keine_Vorabprovision__c&quot;:false,&quot;Keine_Werbung_postalisch__c&quot;:false,&quot;Keinen_Kontakt_postalisch__c&quot;:false,&quot;Kunden_Maklerschutz__c&quot;:false,&quot;LastName&quot;:&quot;Testcontact&quot;,&quot;Makler_Best_tigungsmail__c&quot;:false,&quot;NebenjobIstBefristet__c&quot;:false,&quot;Newsletter__c&quot;:false,&quot;Objektliste_abbestellen__c&quot;:false,&quot;Opt_In__c&quot;:&quot;Nicht Vorhanden&quot;,&quot;OtherCity&quot;:&quot;Bottrop&quot;,&quot;OtherCountry&quot;:&quot;Germany&quot;,&quot;OtherPostalCode&quot;:&quot;46244&quot;,&quot;OtherState&quot;:&quot;NRW&quot;,&quot;OtherStreet&quot;:&quot;Geänderte Teststraße 1&quot;,&quot;OwnerId&quot;:&quot;0056700000CsBX8AAN&quot;,&quot;Position_Abteilung__c&quot;:&quot;Privatperson (ohne Firma)&quot;,&quot;Schutz_Verl_ngerung_Zeitraum__c&quot;:&quot;2&quot;,&quot;Schutz_Verl_ngerung_beantragen__c&quot;:false,&quot;Skip_Duplicate_Check__c&quot;:false,&quot;Vertriebskontakt_verboten_Interessent__c&quot;:false,&quot;WhatsApp_Widget_ausblenden__c&quot;:false,&quot;tdc_tsw__SMS_Opt_out__c&quot;:false}</sobjectValue>
+            </value>
+        </parameters>
+    </testPoints>
+    <testPoints>
+        <assertions>
+            <conditions>
+                <leftValueReference>$Record.MailingStreet</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Geänderte Teststraße 1</stringValue>
+                </rightValue>
+            </conditions>
+            <errorMessage>Mailing Address hasn&apos;t changed.</errorMessage>
+        </assertions>
+        <elementApiName>Finish</elementApiName>
+    </testPoints>
+</FlowTest>
