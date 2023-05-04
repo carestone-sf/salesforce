@@ -679,4 +679,14 @@ public with sharing class TestDataFactory {
         }
         return idd;
     }
+
+    public static FileDownloadLog__c createFileDownloadLog(Boolean doInsert,id contatcId){
+        FileDownloadLog__c fdl =new FileDownloadLog__c();
+        fdl.Contact__c =contatcId;
+        if(doInsert){
+            insert fdl;
+        }
+
+        return fdl;
+    }
 }
