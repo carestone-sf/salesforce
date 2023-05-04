@@ -57,13 +57,13 @@ public with sharing class UserActivitySummaryBatch implements Database.Batchable
         Id interessentRecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('Interessent').getRecordTypeId();
         Id kundeRecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('Kunde').getRecordTypeId();
         Map<Id, List<Contact>> contactToContactsMap = new Map<Id, List<Contact>>();
-        for(Contact con:[SELECT Id FROM Contact WHERE CreatedById IN :users.keySet() AND CreatedDate > :FIRST_DAY_OF_CURRENT_MONTH AND (RecordTypeId = :interessentRecordTypeId OR RecordTypeId = :kundeRecordTypeId)]) {
-            List<Contact> cons = contactToContactsMap.get(con.Id);
+        for(Contact con:[SELECT Id, CreatedById FROM Contact WHERE CreatedById IN :users.keySet() AND CreatedDate > :FIRST_DAY_OF_CURRENT_MONTH AND (RecordTypeId = :interessentRecordTypeId OR RecordTypeId = :kundeRecordTypeId)]) {
+            List<Contact> cons = contactToContactsMap.get(con.CreatedById);
             if(cons == null) {
                 cons = new List<Contact>();
             }
             cons.add(con);
-            contactToContactsMap.put(con.Id, cons);
+            contactToContactsMap.put(con.CreatedById, cons);
         }
 
         //Get User ids with number of logins for current month
@@ -89,7 +89,7 @@ public with sharing class UserActivitySummaryBatch implements Database.Batchable
             if (loginCounts == null) {
                 loginCounts = 0;
             }
-            integer numberOfNewProspects = contactToContactsMap.get(us.ContactId)?.size();
+            integer numberOfNewProspects = contactToContactsMap.get(us.Id)?.size();
             if(numberOfNewProspects == null) {
                 numberOfNewProspects = 0;
             }
