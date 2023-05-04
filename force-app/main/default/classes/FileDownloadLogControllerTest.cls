@@ -2,7 +2,8 @@
 public class FileDownloadLogControllerTest {
     @isTest
     private static void wasFileDownloadLogCreated(){
-        Contact con = TestDataFactory.createContact(true);
+        Account acc = TestDataFactory.createAccount(true);
+        User testUser = TestDataFactory.createCommunityUser(acc.Id);
         Account bautraeger = TestDataFactory.createBautraeger(true);
         Property__c p = TestDataFactory.createProperty(true, bautraeger.Id);
         ImmobilienDMSDatei__c dmsDatei = TestDataFactory.createImmobilienDMSDatei(true, p.Id, 'Dokumente');
@@ -10,7 +11,9 @@ public class FileDownloadLogControllerTest {
         List<FileDownloadLog__c> logslist =[SELECT id FROM FileDownloadLog__c];
         System.assertEquals(0, logslist.size());
 
-        FileDownloadLogController.createFileDownloadLog(dmsDatei.Id);
+        System.RunAs(testUser) {
+            FileDownloadLogController.createFileDownloadLog(dmsDatei.Id);
+        }
 
         logslist =[SELECT id FROM FileDownloadLog__c];
         System.assertEquals(1, logslist.size());
