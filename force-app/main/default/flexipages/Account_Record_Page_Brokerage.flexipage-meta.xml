@@ -1056,6 +1056,9 @@
                         <valueListItems>
                             <value>Gesch_ftsbeziehung__c</value>
                         </valueListItems>
+                        <valueListItems>
+                            <value>CONTACT.CREATED_DATE</value>
+                        </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
@@ -1465,6 +1468,9 @@
                         </valueListItems>
                         <valueListItems>
                             <value>Gesch_ftsbeziehung__c</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>CONTACT.CREATED_DATE</value>
                         </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
