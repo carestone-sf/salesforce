@@ -1020,6 +1020,9 @@
                         <valueListItems>
                             <value>CONTACT.RECORDTYPE|EQUALS|[&quot;Interessent&quot;,&quot;Kunde&quot;]</value>
                         </valueListItems>
+                        <valueListItems>
+                            <value>CreatedInPartnerPortal__c|EQUALS|true</value>
+                        </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
@@ -1426,6 +1429,9 @@
                     <valueList>
                         <valueListItems>
                             <value>CONTACT.RECORDTYPE|EQUALS|[&quot;Interessent&quot;,&quot;Kunde&quot;]</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>CreatedInPartnerPortal__c|EQUALS|true</value>
                         </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
