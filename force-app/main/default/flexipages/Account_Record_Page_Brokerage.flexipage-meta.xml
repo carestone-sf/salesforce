@@ -1056,6 +1056,9 @@
                         <valueListItems>
                             <value>Gesch_ftsbeziehung__c</value>
                         </valueListItems>
+                        <valueListItems>
+                            <value>CONTACT.CREATED_DATE</value>
+                        </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
@@ -1079,6 +1082,16 @@
             </componentInstance>
         </itemInstances>
         <name>Facet-91577c64-15fd-4b4b-a283-564b74f3a373</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>forceChatter:recordFeedContainer</componentName>
+                <identifier>forceChatter_recordFeedContainer</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-1fee8342-e93c-4d7e-b3c7-73f494e1cf3d</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -1144,6 +1157,20 @@
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
                 <identifier>flexipage_tab8</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-1fee8342-e93c-4d7e-b3c7-73f494e1cf3d</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Chatter</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+                <identifier>flexipage_tab10</identifier>
             </componentInstance>
         </itemInstances>
         <mode>Replace</mode>
@@ -1466,6 +1493,9 @@
                         <valueListItems>
                             <value>Gesch_ftsbeziehung__c</value>
                         </valueListItems>
+                        <valueListItems>
+                            <value>CONTACT.CREATED_DATE</value>
+                        </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
@@ -1489,6 +1519,16 @@
             </componentInstance>
         </itemInstances>
         <name>Facet-cngmv2sadf</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>forceChatter:recordFeedContainer</componentName>
+                <identifier>forceChatter_recordFeedContainer2</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-uwh0jkv5puh</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -1540,6 +1580,20 @@
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
                 <identifier>flexipage_tab9</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-uwh0jkv5puh</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Chatter</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+                <identifier>flexipage_tab11</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-zns43au1ce</name>
