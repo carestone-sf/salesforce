@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Allows to toggle execution of triggers, flows etc.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Automation Controller</label>
+    <visibility>Public</visibility>
+</CustomObject>

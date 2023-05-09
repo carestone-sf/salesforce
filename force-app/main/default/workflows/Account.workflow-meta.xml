@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Makler_mit_Vertrag</fullName>
+        <description>Makler mit Vertrag</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Maklerbetreuer_Wirtschaftshaus_2__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Makler_mit_Vertrag_Account</template>
+    </alerts>
+    <alerts>
+        <fullName>Maklerauftrag_beidseitig_unterschrieben</fullName>
+        <description>Maklerauftrag beidseitig unterschrieben</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Maklerbetreuer_Wirtschaftshaus_2__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Maklerauftrag_beidseitig_unterschrieben</template>
+    </alerts>
+    <alerts>
+        <fullName>Maklerauftrag_unterschrieben_eingegangen</fullName>
+        <description>Maklerauftrag unterschrieben eingegangen</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Maklerbetreuer_Wirtschaftshaus_2__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Maklerauftrag_unterschrieben_eingegangen</template>
+    </alerts>
+    <alerts>
+        <fullName>Maklerauftrag_verschickt</fullName>
+        <description>Maklerauftrag verschickt</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Maklerbetreuer_Wirtschaftshaus_2__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Maklerauftrag_verschickt</template>
+    </alerts>
+    <alerts>
+        <fullName>Maklerschutz_best_tigt</fullName>
+        <description>Maklerschutz bestätigt</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Maklerbetreuer_Wirtschaftshaus_2__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <field>E_Mail_bergeordneter_Makler__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Standard/Maklerschutz</template>
+    </alerts>
+    <alerts>
+        <fullName>Maklerschutz_l_uft_in_zwei_Wochen_aus</fullName>
+        <description>Maklerschutz läuft in zwei Wochen aus</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Maklerbetreuer_Wirtschaftshaus_2__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <field>E_Mail_bergeordneter_Makler__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Standard/Maklerschutz_aufheben</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>CS_Vertriebsvereinbarung_Statusupdate</fullName>
+        <field>CS_VV_Bearbeitungsdatum__c</field>
+        <formula>NOW()</formula>
+        <name>CS Vertriebsvereinbarung Statusupdate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Maklerschutz_ausgelaufen</fullName>
+        <field>Maklerschutz_bis__c</field>
+        <name>Maklerschutz ausgelaufen</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Maklerschutz_besteht_falsch</fullName>
+        <field>Maklerschutz_besteht__c</field>
+        <literalValue>0</literalValue>
+        <name>Maklerschutz besteht falsch</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Overhead_Provision_zur_cksetzen</fullName>
+        <field>Overhead_Vereinbarung__c</field>
+        <literalValue>Keine</literalValue>
+        <name>Overhead Provision zurücksetzen</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Tippgeber_Provision_zur_cksetzen</fullName>
+        <field>Tippgeber_in__c</field>
+        <name>Tippgeber Provision zurücksetzen</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>WHS_Maklerauftrag_Statusupdate</fullName>
+        <field>WHS_Maklerauftrag_Bearbeitungsdatum__c</field>
+        <formula>NOW()</formula>
+        <name>WHS Maklerauftrag Statusupdate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>CS Vertriebsvereinbarung Statusupdate</fullName>
+        <actions>
+            <name>CS_Vertriebsvereinbarung_Statusupdate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED( CS_Vertriebsvereinbarung_Status__c  )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Maklerauftrag beidseitig unterschrieben</fullName>
+        <actions>
+            <name>Maklerauftrag_beidseitig_unterschrieben</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.CS_Vertriebsvereinbarung_Status__c</field>
+            <operation>equals</operation>
+            <value>Maklerauftrag beidseitig unterzeichnet</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Maklerauftrag unterschrieben eingegangen</fullName>
+        <actions>
+            <name>Maklerauftrag_unterschrieben_eingegangen</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.CS_Vertriebsvereinbarung_Status__c</field>
+            <operation>equals</operation>
+            <value>Unterschrieben eingegangen</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Maklerauftrag verschickt</fullName>
+        <actions>
+            <name>Maklerauftrag_verschickt</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.CS_Vertriebsvereinbarung_Status__c</field>
+            <operation>equals</operation>
+            <value>Erstellt und an Makler versendet</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Maklerschutz bestätigt</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Maklerschutz_besteht__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Dauerhaft_gesch_tzt__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Maklerschutz_bis__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Maklerschutz_ausgelaufen</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Maklerschutz_besteht_falsch</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Account.Maklerschutz_bis__c</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Maklerschutz_l_uft_in_zwei_Wochen_aus</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Account.Maklerschutz_bis__c</offsetFromField>
+            <timeLength>-14</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Overhead Provision zurücksetzen</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Overhead_Vereinbarung__c</field>
+            <operation>notEqual</operation>
+            <value>,Keine</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.OverheadProvisionBis__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Wenn das Datum &quot;Overhead Provision bis&quot; erreicht wurde, sollte die Overhead Provision auf 0 gesetzt werden</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Overhead_Provision_zur_cksetzen</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Account.OverheadProvisionBis__c</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Tippgeber Provision zurücksetzen</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Tippgeber_in__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.TippgeberProvisionBis__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Wenn das Datum &quot;Tippgeber Provision bis&quot; erreicht wurde, sollte die Tippgeber Provision auf 0 gesetzt werden</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Tippgeber_Provision_zur_cksetzen</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Account.TippgeberProvisionBis__c</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>WHS Maklerauftrag Statusupdate</fullName>
+        <actions>
+            <name>WHS_Maklerauftrag_Statusupdate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED( WHS_Maklerauftrag__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>
