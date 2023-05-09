@@ -303,7 +303,7 @@
         </rules>
     </decisions>
     <environments>Default</environments>
-    <interviewLabel>Account After Insert/Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <interviewLabel>Account - After Insert - Create/Update {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Account - After Insert - Create/Update</label>
     <processMetadataValues>
         <name>BuilderType</name>
