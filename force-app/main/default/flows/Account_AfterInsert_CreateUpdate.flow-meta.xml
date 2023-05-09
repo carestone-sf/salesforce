@@ -34,8 +34,8 @@
                 <elementReference>$Record</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>BatchAccountUpdateContacts</nameSegment>
-        <versionSegment>1</versionSegment>
+        <!--<nameSegment>BatchAccountUpdateContacts</nameSegment>
+        <versionSegment>1</versionSegment>-->
     </actionCalls>
     <actionCalls>
         <name>BatchUpdateStructure</name>
@@ -54,8 +54,8 @@
                 <elementReference>$Record</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>BatchAccountUpdateStructure</nameSegment>
-        <versionSegment>1</versionSegment>
+        <!--<nameSegment>BatchAccountUpdateStructure</nameSegment>
+        <versionSegment>1</versionSegment>-->
     </actionCalls>
     <actionCalls>
         <name>Check_IBAN</name>
@@ -74,12 +74,12 @@
                 <elementReference>$Record.IBAN__c</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>Iban</nameSegment>
+        <!--<nameSegment>Iban</nameSegment>-->
         <outputParameters>
             <assignToReference>IbanValid</assignToReference>
             <name>ibanValid</name>
         </outputParameters>
-        <versionSegment>1</versionSegment>
+        <!--<versionSegment>1</versionSegment>-->
     </actionCalls>
     <actionCalls>
         <name>SendConfirmation</name>
@@ -98,8 +98,8 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>Account.Maklerschutz_best_tigt</nameSegment>
-        <versionSegment>1</versionSegment>
+        <!--<nameSegment>Account.Maklerschutz_best_tigt</nameSegment>
+        <versionSegment>1</versionSegment>-->
     </actionCalls>
     <apiVersion>57.0</apiVersion>
     <decisions>
