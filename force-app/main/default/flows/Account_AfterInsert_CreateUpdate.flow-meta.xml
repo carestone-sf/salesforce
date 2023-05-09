@@ -15,7 +15,7 @@
             </value>
         </inputParameters>
         <!--<nameSegment>BatchAccountUpdateChildAccounts</nameSegment>-->
-        <versionSegment>1</versionSegment>
+        <!--<versionSegment>1</versionSegment>-->
     </actionCalls>
     <actionCalls>
         <name>BatchUpdateContacts</name>
