@@ -14,7 +14,7 @@
                 <elementReference>$Record</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>BatchAccountUpdateChildAccounts</nameSegment>
+        <!--<nameSegment>BatchAccountUpdateChildAccounts</nameSegment>-->
         <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
