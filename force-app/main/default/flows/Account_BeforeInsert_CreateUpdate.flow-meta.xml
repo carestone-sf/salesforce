@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+    <decisions>
+        <description>Checks if parent id has been changed.</description>
+        <name>Check_ParentIdChanged</name>
+        <label>ParentId changed?</label>
+        <locationX>314</locationX>
+        <locationY>311</locationY>
+        <defaultConnector>
+            <targetReference>CheckBrokerageProtectionExists</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not changed</defaultConnectorLabel>
+        <rules>
+            <name>ParentIDChange</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CheckIsParentCarestoneGroupAccount</targetReference>
+            </connector>
+            <label>ParentID Change</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checks if brokerage protection (Maklerschutz) exists.</description>
+        <name>CheckBrokerageProtectionExists</name>
+        <label>Brokerage Protection exists?</label>
+        <locationX>314</locationX>
+        <locationY>863</locationY>
+        <defaultConnector>
+            <targetReference>CheckBrokerWithContract</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Protection</defaultConnectorLabel>
+        <rules>
+            <name>BrokerageProtectionExists</name>
+            <conditionLogic>1 AND 2 AND ((3 AND 4) OR (4 AND 5))</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Dauerhaft_gesch_tzt__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Maklerschutz_bis__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Maklerschutz_besteht__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Maklerschutz_besteht__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SetMaklerschutzToday90</targetReference>
+            </connector>
+            <label>Brokerage Protection exists</label>
+        </rules>
+        <rules>
+            <name>PermanentBrokerProtection</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Dauerhaft_gesch_tzt__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SetPermanentBrokerProtection</targetReference>
+            </connector>
+            <label>Permanent Broker Protection</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checks is account is contracted broker and permanently protected.</description>
+        <name>CheckBrokerWithContract</name>
+        <label>Broker with Contract?</label>
+        <locationX>314</locationX>
+        <locationY>1199</locationY>
+        <defaultConnectorLabel>No Contract</defaultConnectorLabel>
+        <rules>
+            <name>HasContract</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WHS_Maklerauftrag__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Maklerauftrag beidseitig unterzeichnet</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.WHS_Maklerauftrag__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Makler ohne eigenen Vertrag</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.WHS_Maklerauftrag__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Makler mit altem Vertrag</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SetPermanentProtection</targetReference>
+            </connector>
+            <label>Has Contract</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checks if parent account is the highest account in account hierarchy.</description>
+        <name>CheckIsParentCarestoneGroupAccount</name>
+        <label>Is Carestone Group Account?</label>
+        <locationX>138</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>UpdateFieldsFromParentAccount</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False</defaultConnectorLabel>
+        <rules>
+            <name>True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Parent.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>&quot;Carestone Group&quot;</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CheckBrokerageProtectionExists</targetReference>
+            </connector>
+            <label>True</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <description>Date value 90 days from today.</description>
+        <name>TodayPlus90Days</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()+90</expression>
+    </formulas>
+    <interviewLabel>Account - Before Insert - Create/Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account - Before Insert - Create/Update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Set Maklerschutz bis field to 90 days from now.</description>
+        <name>SetMaklerschutzToday90</name>
+        <label>Set Maklerschutz Today + 90 Days</label>
+        <locationX>50</locationX>
+        <locationY>983</locationY>
+        <connector>
+            <targetReference>CheckBrokerWithContract</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Maklerschutz_bis__c</field>
+            <value>
+                <elementReference>TodayPlus90Days</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Sets Maklerschutz to true but date of protection to null</description>
+        <name>SetPermanentBrokerProtection</name>
+        <label>Set Permanent Broker Protection</label>
+        <locationX>314</locationX>
+        <locationY>983</locationY>
+        <connector>
+            <targetReference>CheckBrokerWithContract</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Maklerschutz_besteht__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Maklerschutz_bis__c</field>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Set permanent protection for this broker.</description>
+        <name>SetPermanentProtection</name>
+        <label>Set Permanent Protection</label>
+        <locationX>182</locationX>
+        <locationY>1319</locationY>
+        <inputAssignments>
+            <field>Dauerhaft_gesch_tzt__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Maklerschutz_besteht__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Maklerschutz_bis__c</field>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Updates field from parent account details.</description>
+        <name>UpdateFieldsFromParentAccount</name>
+        <label>Update Fields from Parent Account</label>
+        <locationX>226</locationX>
+        <locationY>551</locationY>
+        <connector>
+            <targetReference>CheckBrokerageProtectionExists</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>E_Mail_bergeordneter_Makler__c</field>
+            <value>
+                <elementReference>$Record.Parent.Email__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Maklerbetreuer_Wirtschaftshaus_2__c</field>
+            <value>
+                <elementReference>$Record.Parent.Maklerbetreuer_Wirtschaftshaus_2__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.Parent.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_ParentIdChanged</targetReference>
+        </connector>
+        <filterFormula>{!$Setup.AutomationController__c.AccountFlows__c}</filterFormula>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>
