@@ -140,11 +140,22 @@ global without sharing class RestTeamProQOpportunity {
         List<Contact> buyerContacts = [SELECT Id FROM Contact WHERE LastName = :buyer.LastName AND FirstName = :buyer.FirstName AND AccountId = :accountId];
         
         if(buyerContacts.size() == 1) {
-            buyer = buyerContacts[0];
+            Contact existingBuyer = buyerContacts[0];
+            existingBuyer.Salutation = buyer.Salutation;
+            existingBuyer.MailingStreet = buyer.MailingStreet;
+            existingBuyer.MailingCity = buyer.MailingCity;
+            existingBuyer.MailingPostalCode = buyer.MailingPostalCode;
+            existingBuyer.Phone = buyer.Phone;
+            existingBuyer.Email = buyer.Email;
+            existingBuyer.Birthdate = buyer.Birthdate;
+            update existingBuyer;
+            return existingBuyer;
         }
 
         Database.SaveResult buyerSaveResult;
         if(buyer.Id == null) {
+            Id interessentRecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('Interessent').getRecordTypeId();
+            buyer.RecordTypeId = interessentRecordTypeId;
             buyer.AccountId = accountId;
             buyer.Gesch_ftsbeziehung__c = 'Interessent';
             buyerSaveResult = Database.insert(buyer, false);
