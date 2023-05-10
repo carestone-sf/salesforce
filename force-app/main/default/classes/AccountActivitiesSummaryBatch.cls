@@ -1,9 +1,10 @@
 public without sharing class AccountActivitiesSummaryBatch implements Database.Batchable<sObject> {
     static final DateTime FIRST_DAY_OF_CURRENT_YEAR = DateTime.newInstance(Date.today().year(), 1, 1);
-    public List<Account> start(Database.BatchableContext bc) {
+    public Database.QueryLocator start(Database.BatchableContext bc) {
         system.debug('----------started-----------');
         Id brokerageRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName().get('Brokerage').getRecordTypeId();
-        return [SELECT Id, VPUserLastLogin__c, CalculationsCurrentYear__c, CustomersCreatedCurrentYear__c, LastCalculation__c, LastIncomingCall__c, LastOutgoingCall__c, IncomingCallsCurrentYear__c, OutgoingCallsCurrentYear__c, (SELECT Id, AccountId FROM Contacts) FROM Account WHERE RecordTypeId = :brokerageRecordTypeId];
+        String query = 'SELECT Id, VPUserLastLogin__c, CalculationsCurrentYear__c, CustomersCreatedCurrentYear__c, LastCalculation__c, LastIncomingCall__c, LastOutgoingCall__c, IncomingCallsCurrentYear__c, OutgoingCallsCurrentYear__c, (SELECT Id, AccountId FROM Contacts) FROM Account WHERE RecordTypeId = :brokerageRecordTypeId';
+        return Database.getQueryLocator(query);
     }
 
     public void execute(Database.BatchableContext BC, list<Account> scope) {
