@@ -92,8 +92,6 @@ global without sharing class RestTeamProQOpportunity {
             opp.Kunde2__c = secondBuyer.Id;
         }
         opp.AccountId = data.accountId;
-        System.debug(makler);
-        System.debug(dummyBrokerId);
         if(makler.size() == 1) {
             opp.Makler__c = makler[0].Id;
             opp.Immobilienberater__c = makler[0].Id;
