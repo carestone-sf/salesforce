@@ -340,7 +340,6 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
 
     public void setMaklerFields(Opportunity opp) {
         Contact makler = mapRelatedContactsByIds.get(opp.Makler__c);
-        opp.AccountId = makler.AccountId;
         opp.Makler_E_Mail__c = makler.Email;
         opp.OwnerId = makler.OwnerId;
     }

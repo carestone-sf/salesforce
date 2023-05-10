@@ -680,13 +680,58 @@ public with sharing class TestDataFactory {
         return idd;
     }
 
-    public static FileDownloadLog__c createFileDownloadLog(Boolean doInsert,id contatcId){
+    public static FileDownloadLog__c createFileDownloadLog(Boolean doInsert,id contactId){
         FileDownloadLog__c fdl =new FileDownloadLog__c();
-        fdl.Contact__c =contatcId;
+        fdl.Contact__c =contactId;
+        fdl.Name = 'Test file.pdf';
         if(doInsert){
             insert fdl;
         }
 
         return fdl;
+    }
+
+    public static Berechnung__c createCalculation(Boolean doInsert, Id contactId, Id vkrId){
+        Berechnung__c b = new Berechnung__c();
+        b.Makler__c = contactId;
+        b.Verkaufsraum__c = vkrId;
+        if(doInsert){
+            insert b;
+        }
+
+        return b;
+    }
+
+    public static Berechnung__c createCalculation(Boolean doInsert, Id contactId){
+        Berechnung__c b = new Berechnung__c();
+        b.Makler__c = contactId;
+        b.Verkaufsraum__c = createVerkaufsraum(true, contactId).Id;
+        if(doInsert){
+            insert b;
+        }
+
+        return b;
+    }
+
+    public static Verkaufsraum__c createVerkaufsraum(Boolean doInsert, Id contactId){
+        Verkaufsraum__c vkr = new Verkaufsraum__c();
+        vkr.Makler__c = contactId;
+        vkr.ErsterKaeufer__c = contactId;
+        if(doInsert){
+            insert vkr;
+        }
+
+        return vkr;
+    }
+
+    public static Task createTask(Boolean doInsert, Id whoId, String subject) {
+        Task t = new Task();
+        t.Subject = subject;
+        t.WhoId = whoId;
+        if(doInsert) {
+            insert t;
+        }
+        
+        return t;
     }
 }

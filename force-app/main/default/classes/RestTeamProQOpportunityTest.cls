@@ -133,7 +133,8 @@ private class RestTeamProQOpportunityTest {
     }
 
     public static RestTeamProQOpportunity.RestTeamProQOpportunityRequest getFullTestData() {
-        Account acc = [SELECT Id FROM Account WHERE Gesch_ftsbeziehung__c != 'Bauträger' LIMIT 1];
+        Id brokerageRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName().get('Brokerage').getRecordTypeId();
+        Account acc = [SELECT Id FROM Account WHERE RecordTypeId = :brokerageRecordTypeId LIMIT 1];
         Contact broker = [SELECT FirstName, LastName FROM Contact LIMIT 1];
         Property__c property = [SELECT Id, TeamProQId__c FROM Property__c LIMIT 1];
         Appartment__c app = [SELECT Id, TeamProQId__c FROM Appartment__c LIMIT 1];
