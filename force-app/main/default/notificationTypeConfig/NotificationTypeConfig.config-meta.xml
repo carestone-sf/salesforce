@@ -382,23 +382,4 @@
         </notificationChannels>
         <notificationType>ya_contract_renewal_notify</notificationType>
     </notificationTypeSettings>
-    <notificationTypeSettings>
-        <appSettings>
-            <connectedAppName>mp_01__mp_00D5f000005vGz8_0041</connectedAppName>
-            <enabled>false</enabled>
-        </appSettings>
-        <appSettings>
-            <connectedAppName>sf_chttr_apps__Chatter_for_Android</connectedAppName>
-            <enabled>true</enabled>
-        </appSettings>
-        <appSettings>
-            <connectedAppName>sf_chttr_apps__Chatter_for_iOS</connectedAppName>
-            <enabled>true</enabled>
-        </appSettings>
-        <notificationChannels>
-            <desktopEnabled>true</desktopEnabled>
-            <mobileEnabled>true</mobileEnabled>
-        </notificationChannels>
-        <notificationType>NewCalculation</notificationType>
-    </notificationTypeSettings>
 </NotificationTypeConfig>
