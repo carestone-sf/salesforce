@@ -3,9 +3,9 @@
     <fullName>Monthly_rent_sq_m__c</fullName>
     <externalId>false</externalId>
     <label>Monthly rent (sq m)</label>
-    <precision>15</precision>
+    <precision>12</precision>
     <required>false</required>
-    <scale>5</scale>
+    <scale>2</scale>
     <trackFeedHistory>true</trackFeedHistory>
     <trackTrending>false</trackTrending>
     <type>Currency</type>
