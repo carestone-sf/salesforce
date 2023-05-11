@@ -4,6 +4,10 @@
     <fields>Name</fields>
     <fields>ErsterKaeufer__c</fields>
     <fields>ZweiterKaeufer__c</fields>
+    <fields>Hauptimmobilie__c</fields>
+    <fields>ZuVersteuerndesEinkommen__c</fields>
+    <fields>Eigenkapital__c</fields>
+    <fields>ListenpreisGesamt__c</fields>
     <fields>Verkaufsraum__c</fields>
     <label>Default Layout</label>
 </CompactLayout>
