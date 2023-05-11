@@ -8,10 +8,9 @@ public with sharing class SendHTMLEmailTest {
         SendHTMLEmail.Request testReq = new SendHTMLEmail.Request();
         testReq.HTMLbody = 'this is the body';
         testReq.Subject = 'this is the subject';
-        testReq.SendTOthisOneEmailAddress = 'test@foo.com';
+        testReq.SendTOthisOneEmailAddress = 'test+test@example.com';
         testReq.SendCCthisOneEmailAddress = 'test@foo.com';
         testReq.SendBCCthisOneEmailAddress = 'test@foo.com';
-        testReq.attachments = new List<Attachment>();
 
         List<SendHTMLEmail.Request> reqList = new List<SendHTMLEmail.Request>();
         reqList.add(testReq);
@@ -29,7 +28,6 @@ public with sharing class SendHTMLEmailTest {
         SendHTMLEmail.Request testReq = new SendHTMLEmail.Request();
         testReq.HTMLbody = 'this is the body';
         testReq.Subject = 'this is the subject';
-        testReq.attachments = new List<Attachment>();
         //testReq.SendTOthisOneEmailAddress = 'test@foo.com';
 
         List<SendHTMLEmail.Request> reqList = new List<SendHTMLEmail.Request>();
@@ -50,7 +48,6 @@ public with sharing class SendHTMLEmailTest {
         testReq.templateID = 'temp';
         testReq.Subject = 'this is the subject';
         testReq.SendTOthisOneEmailAddress = 'test@foo.com';
-        testReq.attachments = new List<Attachment>();
 
         List<SendHTMLEmail.Request> reqList = new List<SendHTMLEmail.Request>();
         reqList.add(testReq);
@@ -75,7 +72,6 @@ public with sharing class SendHTMLEmailTest {
         testReq.templateID = 'temp';
         testReq.Subject = 'this is the subject';
         testReq.SendTOthisOneEmailAddress = 'test@foo.com';
-        testReq.attachments = new List<Attachment>();
 
         List<SendHTMLEmail.Request> reqList = new List<SendHTMLEmail.Request>();
         reqList.add(testReq);
