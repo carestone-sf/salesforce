@@ -4,7 +4,7 @@
         <name>BatchUpdateChildAccounts</name>
         <label>Update Child Accounts</label>
         <locationX>72</locationX>
-        <locationY>1823</locationY>
+        <locationY>1523</locationY>
         <actionName>BatchAccountUpdateChildAccounts</actionName>
         <actionType>apex</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -21,7 +21,7 @@
         <name>BatchUpdateContacts</name>
         <label>Update Contacts</label>
         <locationX>204</locationX>
-        <locationY>1523</locationY>
+        <locationY>1223</locationY>
         <actionName>BatchAccountUpdateContacts</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -41,7 +41,7 @@
         <name>BatchUpdateStructure</name>
         <label>Update Structure</label>
         <locationX>336</locationX>
-        <locationY>1823</locationY>
+        <locationY>1523</locationY>
         <actionName>BatchAccountUpdateStructure</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -81,73 +81,13 @@
         </outputParameters>
         <versionSegment>1</versionSegment>
     </actionCalls>
-    <actionCalls>
-        <name>SendConfirmation</name>
-        <label>Send Confirmation</label>
-        <locationX>204</locationX>
-        <locationY>1223</locationY>
-        <actionName>Account.Maklerschutz_best_tigt</actionName>
-        <actionType>emailAlert</actionType>
-        <connector>
-            <targetReference>CheckContactUpdate</targetReference>
-        </connector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>SObjectRowId</name>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </inputParameters>
-        <nameSegment>Account.Maklerschutz_best_tigt</nameSegment>
-        <versionSegment>1</versionSegment>
-    </actionCalls>
     <apiVersion>57.0</apiVersion>
-    <decisions>
-        <description>Checks if non-permanent broker protection exists.</description>
-        <name>CheckBrokerProtection</name>
-        <label>Broker Protection?</label>
-        <locationX>336</locationX>
-        <locationY>1115</locationY>
-        <defaultConnector>
-            <targetReference>CheckContactUpdate</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Not or permanent protected</defaultConnectorLabel>
-        <rules>
-            <name>BrokerProtected</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Maklerschutz_besteht__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Maklerschutz_bis__c</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Dauerhaft_gesch_tzt__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>SendConfirmation</targetReference>
-            </connector>
-            <label>Broker protected</label>
-        </rules>
-    </decisions>
     <decisions>
         <description>Check if fields are changed which triggers child account updates.</description>
         <name>CheckChildAccountsUpdate</name>
         <label>Child Accounts Update?</label>
         <locationX>336</locationX>
-        <locationY>1715</locationY>
+        <locationY>1415</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>EmailChanged</name>
@@ -185,7 +125,7 @@
         <name>CheckContactUpdate</name>
         <label>Contacts update?</label>
         <locationX>336</locationX>
-        <locationY>1415</locationY>
+        <locationY>1115</locationY>
         <defaultConnector>
             <targetReference>CheckChildAccountsUpdate</targetReference>
         </defaultConnector>
@@ -219,7 +159,7 @@
         <locationX>336</locationX>
         <locationY>515</locationY>
         <defaultConnector>
-            <targetReference>CheckBrokerProtection</targetReference>
+            <targetReference>CheckContactUpdate</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -283,7 +223,7 @@
         <locationX>182</locationX>
         <locationY>731</locationY>
         <defaultConnector>
-            <targetReference>CheckBrokerProtection</targetReference>
+            <targetReference>CheckContactUpdate</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -328,7 +268,7 @@
         <name>DisableUpdateStructureField</name>
         <label>Disable Update Structure field</label>
         <locationX>336</locationX>
-        <locationY>1931</locationY>
+        <locationY>1631</locationY>
         <inputAssignments>
             <field>Struktur_aktualisieren__c</field>
             <value>
@@ -343,7 +283,7 @@
         <locationX>50</locationX>
         <locationY>839</locationY>
         <connector>
-            <targetReference>CheckBrokerProtection</targetReference>
+            <targetReference>CheckContactUpdate</targetReference>
         </connector>
         <inputAssignments>
             <field>IBANUngueltig__c</field>
