@@ -4,6 +4,7 @@ public with sharing class TestMaBVRechnungen {
     @TestSetup
     static void makeData(){
         Sandbox sb = new Sandbox();
+        sb.runApexClass(null);
         
         Gutschrift_Laufnummer__c gutschriftLaufnummer = Gutschrift_Laufnummer__c.getOrgDefaults();
         gutschriftLaufnummer.Gutschrift_Laufnummer__c = 0;
@@ -46,7 +47,7 @@ public with sharing class TestMaBVRechnungen {
         acc.Maklerbetreuer_Wirtschaftshaus_2__c = mb.Id;
         acc.BIC__c  = '1';
         acc.GeschaeftsfuehrerNeu__c = 'Frank Köpsell';
-        acc.Gesch_ftsbeziehung__c = 'Bauträger';
+        acc.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName().get('PropertyDeveloper').getRecordTypeId();
 
         String message;
         Test.startTest();
