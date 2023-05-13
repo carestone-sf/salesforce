@@ -12,12 +12,20 @@ public with sharing class MaBVRechnungPdf {
             invoiceFileName = 'MaBV Storno ';
             emailTemplateName = 'MaBVStornoPDF';
         }
-        List<MaBVRechnung__c> maBVRechnungen = [SELECT Id, Name, IDKunde__c, StornoLaufnummer__c FROM MaBVRechnung__c WHERE Id IN :maBVRechnungenIds];
+        List<MaBVRechnung__c> maBVRechnungen = [SELECT Id, Name, IDKunde__c, StornoLaufnummer__c, Rechnungsdatum__c, MaBVRechnungMaster__r.MaBVRate__c FROM MaBVRechnung__c WHERE Id IN :maBVRechnungenIds];
         Id templateId = [SELECT Id, Name FROM EmailTemplate WHERE developername = :emailTemplateName].id;
         List<OrgWideEmailAddress> oweas = new List<OrgWideEmailAddress>([SELECT Id, DisplayName FROM OrgWideEmailAddress WHERE Address = 'maklerbetreuung@wirtschaftshaus.de']);
         Messaging.Email[] messages = new Messaging.Email[0];
         Map<Id, ContentVersion> maBVRechnungIdToFile = new Map<Id, ContentVersion>();
         List<ContentDocumentLink> fileLinks = new List<ContentDocumentLink>();
+        Set<Id> mabvRateIds = new Set<Id>();
+
+        for(MaBVRechnung__c maBVRechnung:maBVRechnungen) {
+            mabvRateIds.add(maBVRechnung.MaBVRechnungMaster__r.MaBVRate__c);
+        }
+
+        Map<Id, MaBVRate__c> mabvRaten = new Map<Id, MaBVRate__c>([SELECT DateFirstInvoice__c, DateLastInvoice__c FROM MaBVRate__c WHERE Id IN :mabvRateIds]);
+        List<MaBVRate__c> updateMaBVRaten = new List<MaBVRate__c>();
 
         for(MaBVRechnung__c maBVRechnung:maBVRechnungen) {
             PageReference pdf = Page.MaBVRechnung;
@@ -80,6 +88,22 @@ public with sharing class MaBVRechnungPdf {
             } else {
                 maBVRechnung.RechnungWurdeGeneriert__c = true;
             }
+
+            Boolean updateMabvRate = false;
+            MaBVRate__c mabvRate = mabvRaten.get(maBVRechnung.MaBVRechnungMaster__r.MaBVRate__c);
+            if(!storno && (mabvRate.DateFirstInvoice__c == null || mabvRate.DateFirstInvoice__c != null && mabvRate.DateFirstInvoice__c > mabvRechnung.Rechnungsdatum__c)) {
+                mabvRate.DateFirstInvoice__c = mabvRechnung.Rechnungsdatum__c;
+                updateMabvRate = true;
+            }
+
+            if(!storno && (mabvRate.DateLastInvoice__c == null || mabvRate.DateLastInvoice__c != null && mabvRate.DateLastInvoice__c < mabvRechnung.Rechnungsdatum__c)) {
+                mabvRate.DateLastInvoice__c = mabvRechnung.Rechnungsdatum__c;
+                updateMabvRate = true;
+            }
+
+            if(updateMabvRate) {
+                updateMaBVRaten.add(mabvRate);
+            }
         }
         // Sends the email
         Messaging.SendEmailResult [] r = Messaging.sendEmail(messages, false);
@@ -107,5 +131,6 @@ public with sharing class MaBVRechnungPdf {
         }
         insert fileLinks;
         update maBVRechnungen;
+        update updateMaBVRaten;
     }
 }
