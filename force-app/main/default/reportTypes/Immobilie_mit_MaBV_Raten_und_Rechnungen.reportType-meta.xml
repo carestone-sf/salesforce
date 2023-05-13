@@ -1628,6 +1628,26 @@
             <field>MonumentDepreciation__c</field>
             <table>Property__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FocusLiquidity__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TargetSoldUntil__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CurrentRateDateFirstInvoice__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CurrentRateDateLastInvoice__c</field>
+            <table>Property__c</table>
+        </columns>
         <masterLabel>Immobilien</masterLabel>
     </sections>
     <sections>
@@ -1724,6 +1744,16 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>SicherheitseinbehaltInPercentage__c</field>
+            <table>Property__c.MaBV_Raten__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DateFirstInvoice__c</field>
+            <table>Property__c.MaBV_Raten__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DateLastInvoice__c</field>
             <table>Property__c.MaBV_Raten__r</table>
         </columns>
         <masterLabel>MaBV Raten</masterLabel>
