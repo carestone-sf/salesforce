@@ -25,7 +25,7 @@ public with sharing class MaBVRechnungPdf {
         }
 
         Map<Id, MaBVRate__c> mabvRaten = new Map<Id, MaBVRate__c>([SELECT DateFirstInvoice__c, DateLastInvoice__c FROM MaBVRate__c WHERE Id IN :mabvRateIds]);
-        List<MaBVRate__c> updateMaBVRaten = new List<MaBVRate__c>();
+        Map<Id, MaBVRate__c> updateMaBVRaten = new Map<Id, MaBVRate__c>();
 
         for(MaBVRechnung__c maBVRechnung:maBVRechnungen) {
             PageReference pdf = Page.MaBVRechnung;
@@ -102,7 +102,7 @@ public with sharing class MaBVRechnungPdf {
             }
 
             if(updateMabvRate) {
-                updateMaBVRaten.add(mabvRate);
+                updateMaBVRaten.put(mabvRate.Id, mabvRate);
             }
         }
         // Sends the email
@@ -131,6 +131,6 @@ public with sharing class MaBVRechnungPdf {
         }
         insert fileLinks;
         update maBVRechnungen;
-        update updateMaBVRaten;
+        update updateMaBVRaten.values();
     }
 }
