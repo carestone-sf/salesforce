@@ -349,7 +349,7 @@ public with sharing class TestDataFactory {
             if(i > 9) {
                 apartmentName += '0' + (i+1);
             } else {
-                apartmentName += '0' + (i+1);
+                apartmentName += '00' + (i+1);
             }
             apps.add(createAppartment(doInsert, immobilieId, apartmentName));
         }
@@ -731,7 +731,7 @@ public with sharing class TestDataFactory {
         if(doInsert) {
             insert t;
         }
-        
+
         return t;
     }
 }
