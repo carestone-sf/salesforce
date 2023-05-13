@@ -186,6 +186,14 @@
                 <field>FORMULA_AktuelleMaBVRate_Num__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>CurrentRateDateFirstInvoice__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>CurrentRateDateLastInvoice__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Action__c</field>
             </layoutItems>
@@ -200,14 +208,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>TargetSoldUntil__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>CurrentRateDateFirstInvoice__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>CurrentRateDateLastInvoice__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
