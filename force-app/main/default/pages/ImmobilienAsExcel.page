@@ -174,7 +174,7 @@ margin-top: 30px;
               <!--<td>{!app.Zimmerart__c}</td>-->
               <td><apex:outputField value="{!app.Monthly_rent_sq_m__c}"></apex:outputField></td>
               <td><apex:outputField value="{!app.Monthly_Rent__c}"></apex:outputField></td>
-              <td><apex:outputField value="{!app.Purchase_Price__c}"></apex:outputField></td>
+              <td><apex:outputField value="{!app.PurchasePriceRounded__c}"></apex:outputField></td>
               <td>{!IF(app.Status__c = 'Available', 'Verfügbar', 'Reserviert')}</td>
           </tr>
       </apex:repeat>
