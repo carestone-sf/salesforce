@@ -4,7 +4,7 @@
         <name>Apex_Reservierungsscheine_via_DocuSign_versenden</name>
         <label>Apex Reservierungsscheine via DocuSign versenden</label>
         <locationX>402</locationX>
-        <locationY>3734</locationY>
+        <locationY>3338</locationY>
         <actionName>DocuSignHandler</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -40,7 +40,7 @@
         <name>BerechnungsApartmentIds</name>
         <label>BerechnungsApartmentIds</label>
         <locationX>314</locationX>
-        <locationY>2342</locationY>
+        <locationY>2090</locationY>
         <actionName>MultiSelectFlowValues</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -60,7 +60,7 @@
         <name>Set_CountBerechnungen_and_SingleBerechnungId</name>
         <label>Set CountBerechnungen and SingleBerechnungId</label>
         <locationX>402</locationX>
-        <locationY>1670</locationY>
+        <locationY>1490</locationY>
         <assignmentItems>
             <assignToReference>CountBerechnungen</assignToReference>
             <operator>Add</operator>
@@ -83,7 +83,7 @@
         <name>Set_DocuSignTemplateId_to_AZB_Id</name>
         <label>Set DocuSignTemplateId to AZB Id</label>
         <locationX>314</locationX>
-        <locationY>2582</locationY>
+        <locationY>2306</locationY>
         <assignmentItems>
             <assignToReference>DocuSignTemplateId</assignToReference>
             <operator>Assign</operator>
@@ -99,7 +99,7 @@
         <name>Set_DocuSignTemplateId_to_Reservierungsschein_Id</name>
         <label>Set DocuSignTemplateId to Reservierungsschein Id</label>
         <locationX>50</locationX>
-        <locationY>2582</locationY>
+        <locationY>2306</locationY>
         <assignmentItems>
             <assignToReference>DocuSignTemplateId</assignToReference>
             <operator>Assign</operator>
@@ -115,7 +115,7 @@
         <name>Set_SendWithDocuSign_to_true</name>
         <label>Set SendWithDocuSign to true</label>
         <locationX>182</locationX>
-        <locationY>2918</locationY>
+        <locationY>2606</locationY>
         <assignmentItems>
             <assignToReference>SendWithDocuSign</assignToReference>
             <operator>Assign</operator>
@@ -168,7 +168,7 @@
         <name>Dokumente_via_DocuSign_versenden</name>
         <label>Dokumente via DocuSign versenden?</label>
         <locationX>314</locationX>
-        <locationY>2462</locationY>
+        <locationY>2198</locationY>
         <defaultConnector>
             <targetReference>Dokumente_via_DocuSign_versenden_0</targetReference>
         </defaultConnector>
@@ -208,7 +208,7 @@
         <name>Dokumente_via_DocuSign_versenden0</name>
         <label>Dokumente via DocuSign versenden?</label>
         <locationX>534</locationX>
-        <locationY>3614</locationY>
+        <locationY>3230</locationY>
         <defaultConnector>
             <targetReference>Loop_BerechnungsApartmentIds</targetReference>
         </defaultConnector>
@@ -233,7 +233,7 @@
         <name>Dokumente_via_DocuSign_versenden_0</name>
         <label>Dokumente via DocuSign versenden?</label>
         <locationX>314</locationX>
-        <locationY>2798</locationY>
+        <locationY>2498</locationY>
         <defaultConnector>
             <targetReference>Loop_BerechnungsApartmentIds</targetReference>
         </defaultConnector>
@@ -265,7 +265,7 @@
         <name>ErsterKaeufer_fehlende_Daten</name>
         <label>ErsterKaeufer fehlende Daten</label>
         <locationX>314</locationX>
-        <locationY>518</locationY>
+        <locationY>458</locationY>
         <defaultConnector>
             <targetReference>ZweiterKaeufer_fehlende_Daten</targetReference>
         </defaultConnector>
@@ -297,7 +297,7 @@
         <name>Mehr_als_eine_Berechnung</name>
         <label>Mehr als eine Berechnung?</label>
         <locationX>314</locationX>
-        <locationY>1886</locationY>
+        <locationY>1682</locationY>
         <defaultConnector>
             <targetReference>Apartmentauswahl</targetReference>
         </defaultConnector>
@@ -322,7 +322,7 @@
         <name>ZweiterKaeufer_fehlende_Daten</name>
         <label>ZweiterKaeufer fehlende Daten</label>
         <locationX>314</locationX>
-        <locationY>974</locationY>
+        <locationY>866</locationY>
         <defaultConnector>
             <targetReference>Berechnungen</targetReference>
         </defaultConnector>
@@ -418,7 +418,7 @@
         <name>Loop_Berechnungen</name>
         <label>Loop Berechnungen</label>
         <locationX>314</locationX>
-        <locationY>1550</locationY>
+        <locationY>1382</locationY>
         <collectionReference>Berechnungen</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -432,7 +432,7 @@
         <name>Loop_BerechnungsApartmentIds</name>
         <label>Loop BerechnungsApartmentIds</label>
         <locationX>314</locationX>
-        <locationY>3254</locationY>
+        <locationY>2906</locationY>
         <collectionReference>BerechnungsApartmentIds</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -465,7 +465,7 @@
         <name>Verkaufschance_erstellen</name>
         <label>Verkaufschance erstellen</label>
         <locationX>534</locationX>
-        <locationY>3494</locationY>
+        <locationY>3122</locationY>
         <connector>
             <targetReference>Dokumente_via_DocuSign_versenden0</targetReference>
         </connector>
@@ -542,7 +542,7 @@
         <name>Berechnungen</name>
         <label>Berechnungen</label>
         <locationX>314</locationX>
-        <locationY>1430</locationY>
+        <locationY>1274</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Loop_Berechnungen</targetReference>
@@ -563,7 +563,7 @@
         <name>Berechnungs_Apartment</name>
         <label>Berechnungs-Apartment</label>
         <locationX>534</locationX>
-        <locationY>3374</locationY>
+        <locationY>3014</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Verkaufschance_erstellen</targetReference>
@@ -584,7 +584,7 @@
         <name>ErsterKaeufer</name>
         <label>ErsterKaeufer</label>
         <locationX>314</locationX>
-        <locationY>278</locationY>
+        <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>ZweiterKaeufer</targetReference>
@@ -605,7 +605,7 @@
         <name>Verkaufsraum</name>
         <label>Verkaufsraum</label>
         <locationX>314</locationX>
-        <locationY>158</locationY>
+        <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>ErsterKaeufer</targetReference>
@@ -626,7 +626,7 @@
         <name>ZweiterKaeufer</name>
         <label>ZweiterKaeufer</label>
         <locationX>314</locationX>
-        <locationY>398</locationY>
+        <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>ErsterKaeufer_fehlende_Daten</targetReference>
@@ -647,7 +647,7 @@
         <name>Update_ErsterKaeufer</name>
         <label>Update ErsterKaeufer</label>
         <locationX>182</locationX>
-        <locationY>758</locationY>
+        <locationY>674</locationY>
         <connector>
             <targetReference>ZweiterKaeufer_fehlende_Daten</targetReference>
         </connector>
@@ -677,7 +677,7 @@
         <name>Update_ZweiterKaeufer_0</name>
         <label>Update ZweiterKaeufer</label>
         <locationX>182</locationX>
-        <locationY>1214</locationY>
+        <locationY>1082</locationY>
         <connector>
             <targetReference>Berechnungen</targetReference>
         </connector>
@@ -708,7 +708,7 @@
         <name>Apartmentauswahl</name>
         <label>Apartmentauswahl</label>
         <locationX>314</locationX>
-        <locationY>2222</locationY>
+        <locationY>1982</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -735,7 +735,7 @@
             <choiceReferences>Keine_Auswahl</choiceReferences>
             <dataType>String</dataType>
             <defaultSelectedChoiceReference>Keine_Auswahl</defaultSelectedChoiceReference>
-            <fieldText>DocuSign</fieldText>
+            <fieldText>Unterlagen zur Unterschrift an Kunden senden</fieldText>
             <fieldType>DropdownBox</fieldType>
             <isRequired>false</isRequired>
         </fields>
@@ -746,7 +746,7 @@
         <name>Berechnung_ausw_hlen_0</name>
         <label>Berechnung auswählen</label>
         <locationX>182</locationX>
-        <locationY>2006</locationY>
+        <locationY>1790</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -773,7 +773,7 @@
         <name>DocuSign_E_Mail_0_0</name>
         <label>DocuSign E-Mail</label>
         <locationX>182</locationX>
-        <locationY>3038</locationY>
+        <locationY>2714</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -806,7 +806,7 @@
         <name>Input_ErsterKaeufer</name>
         <label>Input ErsterKaeufer</label>
         <locationX>182</locationX>
-        <locationY>638</locationY>
+        <locationY>566</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -863,7 +863,7 @@
         <name>Input_ZweiterKaeufer</name>
         <label>Input ZweiterKaeufer</label>
         <locationX>182</locationX>
-        <locationY>1094</locationY>
+        <locationY>974</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -920,7 +920,7 @@
         <name>Success</name>
         <label>Success</label>
         <locationX>314</locationX>
-        <locationY>4046</locationY>
+        <locationY>3614</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>

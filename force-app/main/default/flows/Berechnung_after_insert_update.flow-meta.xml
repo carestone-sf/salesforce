@@ -7,6 +7,9 @@
         <locationY>539</locationY>
         <actionName>customNotificationAction</actionName>
         <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>Contact_values_changed</targetReference>
+        </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>customNotifTypeId</name>
@@ -38,8 +41,6 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </inputParameters>
-        <!--<nameSegment>customNotificationAction</nameSegment>-->
-        <!--<versionSegment>1</versionSegment>-->
     </actionCalls>
     <apiVersion>57.0</apiVersion>
     <assignments>
@@ -59,10 +60,77 @@
         </connector>
     </assignments>
     <decisions>
+        <name>Contact_values_changed</name>
+        <label>Contact values changed?</label>
+        <locationX>182</locationX>
+        <locationY>731</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Contact_values_changed2</name>
+            <conditionLogic>(1 AND (4 OR 5)) OR (2 AND (4 OR 6)) OR ((3 AND 4) OR 7)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Eigenkapital__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ZuVersteuerndesEinkommen__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Kirchensteuer__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>isNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Eigenkapital__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ZuVersteuerndesEinkommen__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Kirchensteuer__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_contact</targetReference>
+            </connector>
+            <label>Contact values changed?</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Is_New</name>
         <label>Is New?</label>
         <locationX>182</locationX>
         <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Contact_values_changed</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Is_New2</name>
@@ -117,6 +185,39 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_contact</name>
+        <label>Update contact</label>
+        <locationX>50</locationX>
+        <locationY>839</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ErsterKaeufer__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>ChurchTax__c</field>
+            <value>
+                <elementReference>$Record.Kirchensteuer__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Equity__c</field>
+            <value>
+                <elementReference>$Record.Eigenkapital__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Jahresbruttoeinkommen__c</field>
+            <value>
+                <elementReference>$Record.ZuVersteuerndesEinkommen__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
     <start>
         <locationX>56</locationX>
         <locationY>0</locationY>
