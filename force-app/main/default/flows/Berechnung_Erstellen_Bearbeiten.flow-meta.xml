@@ -17,8 +17,6 @@
                 <elementReference>recordId</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>RestQuote</nameSegment>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>Apartments_f_r_Immobilie_0</name>
@@ -41,12 +39,10 @@
                 <elementReference>ApartmentsQueryString</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>ExecuteSOQL</nameSegment>
         <outputParameters>
             <assignToReference>apartmentsForImmobilie</assignToReference>
             <name>sObjects</name>
         </outputParameters>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>Commit_Transaction</name>
@@ -59,8 +55,6 @@
             <targetReference>Angebot_als_PDF_an_Berechnung_anh_ngen</targetReference>
         </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <nameSegment>c:CommitTransaction</nameSegment>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>Get_Existing_Apartments</name>
@@ -83,12 +77,10 @@
                 <elementReference>ExistingApartmentsQueryString</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>ExecuteSOQL</nameSegment>
         <outputParameters>
             <assignToReference>ExistingApartments</assignToReference>
             <name>sObjects</name>
         </outputParameters>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>Navigate_to_Berechnung</name>
