@@ -3,6 +3,7 @@ public without sharing class FinanceCalculator {
     public Berechnung__c c;
     public List<FinanceModule> financeModules;
     public Map<Integer, Map<String, Object>> cumulatedYearlyValues;
+    public Map<Integer, Map<String, Object>> cumulatedYearlyValuesBezugsphase;
     public Map<Integer, Map<String, Object>> firstYearAfterPaymentValues;
     public List<Map<Integer, Map<String, Object>>> paginatedYearlyValues;
 
@@ -12,6 +13,9 @@ public without sharing class FinanceCalculator {
     public Integer firstYearAfterPayment = 0;
     public Integer firstFullYear = 0;
     public Integer pages = 0;
+    Decimal factor = 1.0;
+    Decimal cumulatedCost = 0;
+    Integer yearsPassed = 0;
     public Decimal sumSBetragplusFKreditsumme {get;set;}
 
 
@@ -67,7 +71,7 @@ public without sharing class FinanceCalculator {
         return res;
     }
     public void initFinanceModules(Id calculationId) {
-        this.c = [SELECT Id, Hauptimmobilie__r.Arrival__c, SteuernBerechnen__c, ZweiterKaeufer__c, Gesamtkosten__c, ZuVersteuerndesEinkommen__c, Kirchensteuer__c, Eigenkapital__c, Finanzierungsart__c, InstandhaltungProJahrGesamt__c, AfAProJahrGesamt__c, VerwaltungProJahrGesamt__c, Mietsteigerung__c, SteigerungInstandhaltung__c, SteigerungVerwaltung__c, (SELECT Apartment__r.Name, MieteProMonatInEuro__c FROM Berechnungs_Apartments__r) FROM Berechnung__c WHERE Id = :calculationId];
+        this.c = [SELECT Id, Hauptimmobilie__r.Arrival__c, TaxableIncomePension__c, ErsterKaeufer__c, ErsterKaeufer__r.BirthDate, ZweiterKaeufer__c, ZweiterKaeufer__r.BirthDate, Gesamtkosten__c, ZuVersteuerndesEinkommen__c, Kirchensteuer__c, Eigenkapital__c, Finanzierungsart__c, InstandhaltungProJahrGesamt__c, AfAProJahrGesamt__c, VerwaltungProJahrGesamt__c, Mietsteigerung__c, SteigerungInstandhaltung__c, SteigerungVerwaltung__c, (SELECT Apartment__r.Name, MieteProMonatInEuro__c FROM Berechnungs_Apartments__r) FROM Berechnung__c WHERE Id = :calculationId];
         Date today = Date.today();
         this.finanzierungsbeginn = this.c.Hauptimmobilie__r.Arrival__c;
         if(today > this.c.Hauptimmobilie__r.Arrival__c) {
@@ -84,9 +88,9 @@ public without sharing class FinanceCalculator {
 
         List<Finanzierungsbaustein__c> fbs = [SELECT Id, Name, Art__c, Finanzierungsbeginn__c, Kreditsumme__c, LaufzeitInJahren__c, TilgungInPercent__c, Tilgungsbeginn__c, ZinsInPercent__c, ZinsbindungBis__c, (SELECT Name, JahrDerAuszahlung__c, Betrag__c FROM Sondertilgungen__r) FROM Finanzierungsbaustein__c WHERE Berechnung__c = :calculationId];
 
-
         this.financeModules = new List<FinanceModule>();
         this.cumulatedYearlyValues = new Map<Integer, Map<String, Object>>();
+        this.cumulatedYearlyValuesBezugsphase = new Map<Integer, Map<String, Object>>();
         this.firstYearAfterPaymentValues = new Map<Integer, Map<String, Object>>();
         this.paginatedYearlyValues = new List<Map<Integer, Map<String, Object>>>();
 
@@ -100,17 +104,26 @@ public without sharing class FinanceCalculator {
             }
             this.cumulateYearsFinancing();
         }
+        
     }
+
+    @future
+    public static void updateBerechnung(Decimal liquidityMonthlyFirstYear, Id berechnungId) {
+        Berechnung__c b = new Berechnung__c();
+        b.Id = berechnungId;
+        b.LiquidityMonthlyFirstYear__c = liquidityMonthlyFirstYear;
+        update b;
+    }  
 
     public Decimal calculateTaxesForCurrentYear(Decimal salary, Integer year) {
         Decimal taxes = 0;
         if(this.c.ZweiterKaeufer__c != null) {
-            salary -= 9744;
+            salary -= 10908;
         }
-        if(salary < 9744) {
+        if(salary < 10908) {
             taxes = 0;
         } else if(salary >= 9745 && salary <= 14753) {
-            taxes = ( 995.21 * (salary-9744) / 10000 + 1400) * (salary-9744) / 10000;  
+            taxes = ( 995.21 * (salary-10908) / 10000 + 1400) * (salary-10908) / 10000;  
         } else if(salary >= 14754 && salary <= 57918) {
             taxes = ( 208.85 * (salary-14753) / 10000 + 2397) * (salary-14753) / 10000 + 950.96;
         } else if(salary >= 57919 && salary <= 274612) {
@@ -122,6 +135,21 @@ public without sharing class FinanceCalculator {
             taxes *= 1.09;
         }
         return taxes;
+    }
+
+    public Decimal calculateTaxDifferenceForCurrentYear(Decimal vUndVInEuro, Integer year) {
+        Date dateInYear = Date.newInstance(year, Date.Today().month(), Date.today().day());
+        Integer days = this.c.ErsterKaeufer__r.BirthDate.daysBetween(dateInYear); 
+        Integer age = Integer.valueOf(days/365); 
+        Decimal taxableIncome = this.c.ZuVersteuerndesEinkommen__c;
+        Decimal totalIncome = taxableIncome + vUndVInEuro;
+        if(age >= 67) {
+            Decimal pensionTaxableIncomePercentage = TaxService.getPensionTaxPercentage(year);
+            taxableIncome = this.c.TaxableIncomePension__c * pensionTaxableIncomePercentage;
+            totalIncome = (this.c.TaxableIncomePension__c + vUndVInEuro) * pensionTaxableIncomePercentage;
+        }
+        Decimal taxDifference = this.calculateTaxesForCurrentYear(taxableIncome, this.firstYearAfterPayment) - this.calculateTaxesForCurrentYear(totalIncome, this.firstYearAfterPayment);
+        return taxDifference;
     }
 
     public void cumulateYearsFinancing() {
@@ -194,31 +222,33 @@ public without sharing class FinanceCalculator {
             }
         }
 
-        Decimal factor = 1.0;
-        Decimal cumulatedCost = 0;
-        Integer yearsPassed = 0;
-        calculateLiquidity(factor, cumulatedCost, yearsPassed);
+        
+        calculateLiquidity(this.cumulatedYearlyValues);
+        System.debug(this.factor);
+        System.debug(this.cumulatedCost);
+        System.debug(this.yearsPassed);
 
         if(this.c.Finanzierungsart__c == 'Finanzierung') {
             this.firstYearAfterPayment = this.lastYear + 1;
         } 
 
-        Map<String, Object> lastYearCumulatedValues = this.cumulatedYearlyValues.get(lastYear);
+        Map<String, Object> lastYearCumulatedValues = this.cumulatedYearlyValues.get(this.lastYear);
         Map<String, Object> currentYearCumulatedValues = new Map<String, Object>();
+        Decimal firstYearAfterPaymentFactor = this.factor;
         if(lastYearCumulatedValues != null) {
             Decimal incomeInEuro = 0;
             Decimal expenditureInEuro = 0;
             Decimal overageInEuro = 0;
 
             if(yearsPassed > 0 && Math.mod(yearsPassed, 5) == 0) {
-                factor *= 1.05;
+                firstYearAfterPaymentFactor *= 1.05;
             }
             // Mieteinnahmen pro Apartment
             Map<String, Decimal> apartmentNameToRent = (Map<String, Decimal>)lastYearCumulatedValues.get('apartments');
             for(String key:apartmentNameToRent.keySet()) {
                 Decimal rent = apartmentNameToRent.get(key);
                 if(Math.mod(yearsPassed, 5) == 0 && this.c.Mietsteigerung__c) {
-                    rent *= factor;
+                    rent *= firstYearAfterPaymentFactor;
                 }
                 apartmentNameToRent.put(key, rent);
                 incomeInEuro += rent;
@@ -230,7 +260,7 @@ public without sharing class FinanceCalculator {
 
             Decimal instandhaltungInEuro = (Decimal)lastYearCumulatedValues.get('instandhaltungGesamtInEuro');
             if(Math.mod(yearsPassed, 5) == 0 && this.c.SteigerungInstandhaltung__c) {
-                instandHaltungInEuro *= factor;
+                instandHaltungInEuro *= firstYearAfterPaymentFactor;
             }
             expenditureInEuro -= instandHaltungInEuro;
             currentYearCumulatedValues.put('instandhaltungGesamtInEuro', instandHaltungInEuro);
@@ -238,7 +268,7 @@ public without sharing class FinanceCalculator {
             lastYearCumulatedValues.get('verwaltungGesamtInEuro');
             Decimal verwaltungInEuro = (Decimal)lastYearCumulatedValues.get('verwaltungGesamtInEuro');
             if(Math.mod(yearsPassed, 5) == 0 && this.c.SteigerungInstandhaltung__c) {
-                verwaltungInEuro *= factor;
+                verwaltungInEuro *= firstYearAfterPaymentFactor;
             }
             expenditureInEuro -= verwaltungInEuro;
             currentYearCumulatedValues.put('verwaltungGesamtInEuro', verwaltungInEuro);
@@ -254,9 +284,7 @@ public without sharing class FinanceCalculator {
 
             // Steuern
             if(this.c.ZuVersteuerndesEinkommen__c != null) {
-                Decimal taxableIncome = this.c.ZuVersteuerndesEinkommen__c;
-                Decimal totalIncome = taxableIncome + vUndVInEuro;
-                Decimal taxDifference = this.calculateTaxesForCurrentYear(taxableIncome, this.firstYearAfterPayment) - this.calculateTaxesForCurrentYear(totalIncome, this.firstYearAfterPayment);
+                Decimal taxDifference = calculateTaxDifferenceForCurrentYear(vUndVInEuro, this.firstYearAfterPayment);
                 currentYearCumulatedValues.put('taxesInEuro', taxDifference);
                 currentYearCumulatedValues.put('taxes', taxDifference);
                 if(taxDifference < 0) {
@@ -272,7 +300,6 @@ public without sharing class FinanceCalculator {
             overageInEuro = incomeInEuro + expenditureInEuro;
 
             currentYearCumulatedValues.put('overageGesamtInEuro', cumulatedCost);
-            System.debug(cumulatedCost);
             Decimal percentageSelf = Math.abs((this.c.Eigenkapital__c - cumulatedCost) / this.c.Gesamtkosten__c * 100);
             percentageSelf = percentageSelf >= 100 ? 100 : percentageSelf;
             Decimal percentageTenant = 100-percentageSelf;
@@ -290,6 +317,21 @@ public without sharing class FinanceCalculator {
             }
             currentYearCumulatedValues.put('eigenkapitalRendite', eigenkapitalRendite);
         } 
+
+        for(Integer i = 0; i < 25; i++) {
+            Map<String, Object> liquidityCurrentYearValues = new Map<String, Object>();
+            liquidityCurrentYearValues.put('interestInEuro', 0);
+            liquidityCurrentYearValues.put('repaymentInEuro', 0);
+            liquidityCurrentYearValues.put('overageGesamtInEuro', 0);
+            liquidityCurrentYearValues.put('percentageSelf', 0);
+            liquidityCurrentYearValues.put('percentageTenant', 0);
+            liquidityCurrentYearValues.put('creditSumStartInEuro', 0);
+            liquidityCurrentYearValues.put('creditSumEndInEuro', 0);
+            liquidityCurrentYearValues.put('rateInEuro', 0);
+            liquidityCurrentYearValues.put('eigenkapitalRendite', 0);
+            this.cumulatedYearlyValuesBezugsphase.put(this.firstYear + i + this.yearsPassed, liquidityCurrentYearValues);
+        }
+        calculateLiquidity(this.cumulatedYearlyValuesBezugsphase);
 
         this.firstYearAfterPaymentValues.put(firstYearAfterPayment, currentYearCumulatedValues);
     }
@@ -363,7 +405,7 @@ public without sharing class FinanceCalculator {
 
         this.firstYearAfterPaymentValues.put(firstYearAfterPayment, currentYearCumulatedValues);
 
-        for(Integer i = 0; i < 20; i++) {
+        for(Integer i = 0; i < 25; i++) {
             Map<String, Object> liquidityCurrentYearValues = new Map<String, Object>();
             liquidityCurrentYearValues.put('interestInEuro', 0);
             liquidityCurrentYearValues.put('repaymentInEuro', 0);
@@ -374,24 +416,28 @@ public without sharing class FinanceCalculator {
             liquidityCurrentYearValues.put('creditSumEndInEuro', 0);
             liquidityCurrentYearValues.put('rateInEuro', 0);
             liquidityCurrentYearValues.put('eigenkapitalRendite', 0);
-            this.cumulatedYearlyValues.put(this.firstYear + i, liquidityCurrentYearValues);
+            this.cumulatedYearlyValuesBezugsphase.put(this.firstYear + i+1, liquidityCurrentYearValues);
+            this.cumulatedYearlyValues = deepCopyExistingStructure(this.cumulatedYearlyValuesBezugsphase);
         }
-        Decimal factor = 1.0;
-        Decimal cumulatedCost = 0;
-        Integer yearsPassed = 0;
-        calculateLiquidity(factor, cumulatedCost, yearsPassed);
+        this.yearsPassed = 1;
+        calculateLiquidity(this.cumulatedYearlyValuesBezugsphase);
+        this.yearsPassed = 0;
+        this.factor = 1;
+        this.cumulatedCost = 0;
+        calculateLiquidity(this.cumulatedYearlyValues);
     }
 
-    public void calculateLiquidity(Decimal factor, Decimal cumulatedCost, Integer yearsPassed) {
-        for(Integer year:this.cumulatedYearlyValues.keySet()) {
-            Map<String, Object> currentYearCumulatedValues = this.cumulatedYearlyValues.get(year);
+    public void calculateLiquidity(Map<Integer, Map<String, Object>> yearlyValuesMap) {
+        // Somehow get the "Bezugsphase" in here...
+        for(Integer year:yearlyValuesMap.keySet()) {
+            Map<String, Object> currentYearCumulatedValues = yearlyValuesMap.get(year);
             Decimal incomeInEuro = 0;
             Decimal expenditureInEuro = 0;
             Decimal overageInEuro = 0;
             Integer daysWithRent = 360;
 
             if(yearsPassed > 0 && Math.mod(yearsPassed, 5) == 0) {
-                factor *= 1.05;
+                this.factor *= 1.05;
             }
 
             if(yearsPassed == 0) {
@@ -405,7 +451,7 @@ public without sharing class FinanceCalculator {
             for(BerechnungsApartment__c ba:this.c.Berechnungs_Apartments__r) {
                 Decimal rent = ba.MieteProMonatInEuro__c * 12;
                 if(this.c.MietSteigerung__c) {
-                    rent *= factor;
+                    rent *= this.factor;
                 }
                 rent = rent * daysWithRent/360;
                 apartmentNameToRent.put(ba.Apartment__r.Name, rent);
@@ -419,7 +465,7 @@ public without sharing class FinanceCalculator {
             // Verwaltung gesamt
             Decimal verwaltungInEuro = this.c.VerwaltungProJahrGesamt__c;
             if(this.c.SteigerungVerwaltung__c) {
-                verwaltungInEuro *= factor;
+                verwaltungInEuro *= this.factor;
             }
             verwaltungInEuro = verwaltungInEuro * daysWithRent/360;
             expenditureInEuro -= verwaltungInEuro;
@@ -428,7 +474,7 @@ public without sharing class FinanceCalculator {
             // Instandhaltung gesamt
             Decimal instandHaltungInEuro = this.c.InstandhaltungProJahrGesamt__c;
             if(this.c.SteigerungInstandhaltung__c) {
-                instandHaltungInEuro *= factor;
+                instandHaltungInEuro *= this.factor;
             }
             instandHaltungInEuro = instandHaltungInEuro * daysWithRent/360;
             expenditureInEuro -= instandHaltungInEuro;
@@ -445,9 +491,7 @@ public without sharing class FinanceCalculator {
 
             // Steuern
             if(this.c.ZuVersteuerndesEinkommen__c != null) {
-                Decimal taxableIncome = this.c.ZuVersteuerndesEinkommen__c;
-                Decimal totalIncome = taxableIncome + vUndVInEuro;
-                Decimal taxDifference = this.calculateTaxesForCurrentYear(taxableIncome, year) - this.calculateTaxesForCurrentYear(totalIncome, year);
+                Decimal taxDifference = calculateTaxDifferenceForCurrentYear(vUndVInEuro, year);
                 currentYearCumulatedValues.put('taxesInEuro', taxDifference);
                 currentYearCumulatedValues.put('taxes', taxDifference);
                 if(taxDifference < 0) {
@@ -472,9 +516,9 @@ public without sharing class FinanceCalculator {
             overageInEuro = incomeInEuro + expenditureInEuro;
             currentYearCumulatedValues.put('yearlyOverageInEuro', overageInEuro);
             currentYearCumulatedValues.put('monthlyOverageInEuro', overageInEuro/12);
-            this.cumulatedYearlyValues.put(year, currentYearCumulatedValues);
-            yearsPassed++;
-            cumulatedCost += overageInEuro;
+            yearlyValuesMap.put(year, currentYearCumulatedValues);
+            this.yearsPassed++;
+            this.cumulatedCost += overageInEuro;
         }
     }
 
@@ -483,6 +527,7 @@ public without sharing class FinanceCalculator {
             formatCumulatedYearlyValues(currentCumulatedYearlyValues, 0);
         }
         formatCumulatedYearlyValues(this.cumulatedYearlyValues, 2);
+        formatCumulatedYearlyValues(this.cumulatedYearlyValuesBezugsphase, 0);
 
         for(Integer year:this.firstYearAfterPaymentValues.keySet()) {
             Map<String, Object> currentYearValues = this.firstYearAfterPaymentValues.get(year);

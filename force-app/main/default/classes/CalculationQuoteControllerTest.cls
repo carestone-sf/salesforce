@@ -39,6 +39,7 @@ public class CalculationQuoteControllerTest {
             mb.LastName = 'Köpsell';
             mb.Email = 'witte@amstammtisch.de';
             mb.MaklerBetreuer_E_Mail__c = 'witte@amstammtisch.de';
+            mb.Birthdate = Date.Today().addYears(-68);
             insert mb;
             Account acc3 = new Account();
             acc3.Name = 'WH Maklerbetreuer - Frank Köpsell';
@@ -59,6 +60,7 @@ public class CalculationQuoteControllerTest {
             Contact potKun = new Contact();
             potKun.FirstName = 'Tvvsta';
             potKun.LastName = 'Tekoeeric';
+            potKun.Birthdate = Date.Today().addYears(-68);
             insert potKun;
 
             Property__c immobilie = new Property__c();
@@ -97,6 +99,8 @@ public class CalculationQuoteControllerTest {
         vkr.BeratungsPortalZugangAnlegen__c = false;
         insert vkr;
         Berechnung__c b = new Berechnung__c(Name='Test', Makler__c = cons[0].Id, Hauptimmobilie__c=p.Id, Verkaufsraum__c=vkr.Id);
+        b.ZuVersteuerndesEinkommen__c = 100000;
+        b.TaxableIncomePension__c = 50000;
         insert b;
         BerechnungsApartment__c ba = new BerechnungsApartment__c(Berechnung__c = b.Id, Immobilie__c = p.Id, Apartment__c = a.Id);
         insert ba;
@@ -118,6 +122,8 @@ public class CalculationQuoteControllerTest {
         vkr.BeratungsPortalZugangAnlegen__c = false;
         insert vkr;
         Berechnung__c b = new Berechnung__c(Name='Test', Makler__c = cons[0].Id, Hauptimmobilie__c=p.Id,Verkaufsraum__c=vkr.Id);
+        b.ZuVersteuerndesEinkommen__c = 100000;
+        b.TaxableIncomePension__c = 50000;
         insert b;
         BerechnungsApartment__c ba = new BerechnungsApartment__c(Berechnung__c = b.Id, Immobilie__c = p.Id, Apartment__c = a.Id);
         insert ba;

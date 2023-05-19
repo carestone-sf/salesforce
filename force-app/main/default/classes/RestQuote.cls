@@ -20,6 +20,13 @@ global without sharing class RestQuote {
                 return null;
             }
 
+            FinanceCalculator fc = new FinanceCalculator();
+            fc.initFinanceModules(c.Id);
+            if(fc.cumulatedYearlyValues.get(fc.firstFullYear) != null) {
+                fc.c.LiquidityMonthlyFirstYear__c = (Decimal)fc.cumulatedYearlyValues.get(fc.firstFullYear).get('monthlyOverageInEuro');
+                update fc.c;
+            }
+
             String blobAsBase64 = EncodingUtil.base64Encode(body);
             return blobAsBase64;
         }
@@ -66,6 +73,13 @@ global without sharing class RestQuote {
             cde.ContentDocumentId = file.ContentDocumentId;
             cde.LinkedEntityId = calculationId;
             insert cde;
+        }
+
+        FinanceCalculator fc = new FinanceCalculator();
+        fc.initFinanceModules(calculationId);
+        if(fc.cumulatedYearlyValues.get(fc.firstFullYear) != null) {
+            fc.c.LiquidityMonthlyFirstYear__c = (Decimal)fc.cumulatedYearlyValues.get(fc.firstFullYear).get('monthlyOverageInEuro');
+            update fc.c;
         }
     }
 
