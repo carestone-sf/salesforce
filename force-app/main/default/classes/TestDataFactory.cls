@@ -1,4 +1,4 @@
-@IsTest
+@isTest
 public with sharing class TestDataFactory {
 
     public static void createDatevSettings() {

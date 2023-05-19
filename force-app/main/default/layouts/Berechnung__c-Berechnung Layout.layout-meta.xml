@@ -88,7 +88,12 @@
                 <field>MieteProMonatGesamt__c</field>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns/>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>LiquidityMonthlyFirstYear__c</field>
+            </layoutItems>
+        </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
@@ -148,6 +153,9 @@
                 <field>Kirchensteuer__c</field>
             </layoutItems>
             <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>AfaProJahrGesamt__c</field>
             </layoutItems>
@@ -156,6 +164,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ZuVersteuerndesEinkommen__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>TaxableIncomePension__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
