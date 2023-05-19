@@ -75,6 +75,7 @@ public with sharing class RestQuoteTest {
         RestContext.request = req;
         RestContext.response = res;
         RestQuote.getQuoteFromCalculation();
+        RestQuote.attachQuoteFromIdFlowAction(new List<Id>{b.Id});
         Test.stopTest();
     }
 }
