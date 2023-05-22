@@ -110,7 +110,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>VerantwortlichPE__c</field>
+                <field>ResponsiblePE__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
