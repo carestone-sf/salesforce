@@ -2356,8 +2356,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.VerantwortlichPE__c</fieldItem>
-                <identifier>RecordVerantwortlichPE_cField2</identifier>
+                <fieldItem>Record.ResponsiblePE__c</fieldItem>
+                <identifier>RecordResponsiblePE_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -2376,8 +2376,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.VerantwortlichAM__c</fieldItem>
-                <identifier>RecordVerantwortlichAM_cField2</identifier>
+                <fieldItem>Record.ResponsibleAM__c</fieldItem>
+                <identifier>RecordResponsibleAM_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
