@@ -5,7 +5,7 @@
         <description>CS-203</description>
         <name>NewTaskBeurkundungAnkauf</name>
         <label>New Task Beurkundung Ankauf</label>
-        <locationX>50</locationX>
+        <locationX>158</locationX>
         <locationY>2375</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
@@ -64,14 +64,80 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>CreatePeTasks</targetReference>
+            <targetReference>GetPublicGroup</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>CS-203</description>
+        <name>NewTaskBeurkundungAnkaufGroup</name>
+        <label>New Task Beurkundung Ankauf Group</label>
+        <locationX>138</locationX>
+        <locationY>2975</locationY>
+        <assignmentItems>
+            <assignToReference>TaskDummy.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>LoopAllGroupMembers.UserOrGroupId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.Subject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Beurkundung erfolgt</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.Description</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Der Ankaufsvertrag für dieses Projekt wurde unterzeichnet. Bitte die Fälligkeitsvoraussetzungen aus dem Vertrag beachten.</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.ActivityDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>BeurkundungAnkauf_1DayAfter</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.IsReminderSet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.ReminderDateTime</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>BeurkundungAnkauf_2WeeksAfter</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>PeTasksToCreate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>TaskDummy</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.WhatId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>LoopAllGroupMembers</targetReference>
         </connector>
     </assignments>
     <assignments>
         <description>CS-203</description>
         <name>NewTaskExklusivitaetBetreiberBis</name>
         <label>New Task Exklusivitaet Betreiber Bis</label>
-        <locationX>50</locationX>
+        <locationX>168</locationX>
         <locationY>1703</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
@@ -137,7 +203,7 @@
         <description>CS-203</description>
         <name>NewTaskExklusivitaetVerkaeuferBis</name>
         <label>New Task Exklusivitaet Verkaeufer Bis</label>
-        <locationX>50</locationX>
+        <locationX>168</locationX>
         <locationY>1367</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
@@ -203,7 +269,7 @@
         <description>CS-203</description>
         <name>NewTaskIva1</name>
         <label>New Task IVA1</label>
-        <locationX>50</locationX>
+        <locationX>168</locationX>
         <locationY>2039</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
@@ -269,7 +335,7 @@
         <description>CS-203</description>
         <name>BeurkundungAnkaufEmpty</name>
         <label>Beurkundung Ankauf Empty?</label>
-        <locationX>182</locationX>
+        <locationX>300</locationX>
         <locationY>2255</locationY>
         <defaultConnector>
             <targetReference>CreatePeTasks</targetReference>
@@ -295,7 +361,7 @@
         <description>CS-203</description>
         <name>CheckExklusivitaetBetreiberBisEmpty</name>
         <label>Exklusivitaet Betreiber Bis Empty?</label>
-        <locationX>182</locationX>
+        <locationX>300</locationX>
         <locationY>1583</locationY>
         <defaultConnector>
             <targetReference>CheckIva1Empty</targetReference>
@@ -321,7 +387,7 @@
         <description>CS-203</description>
         <name>CheckExklusivitaetVerkaeuferBisEmpty</name>
         <label>Exklusivitaet Verkaeufer Bis Empty?</label>
-        <locationX>182</locationX>
+        <locationX>300</locationX>
         <locationY>1247</locationY>
         <defaultConnector>
             <targetReference>CheckExklusivitaetBetreiberBisEmpty</targetReference>
@@ -347,7 +413,7 @@
         <description>CS-201</description>
         <name>CheckFormerPeTasksEmpty</name>
         <label>Former PE Tasks Empty?</label>
-        <locationX>490</locationX>
+        <locationX>613</locationX>
         <locationY>695</locationY>
         <defaultConnector>
             <targetReference>CheckResponsiblePeEmpty</targetReference>
@@ -370,10 +436,35 @@
         </rules>
     </decisions>
     <decisions>
+        <name>CheckGroupMembersNotEmpty</name>
+        <label>Group Members not empty</label>
+        <locationX>158</locationX>
+        <locationY>2735</locationY>
+        <defaultConnector>
+            <targetReference>CreatePeTasks</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No group members</defaultConnectorLabel>
+        <rules>
+            <name>GroupMembersExist</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetRecipientsFromGroup</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>LoopAllGroupMembers</targetReference>
+            </connector>
+            <label>Group Members exist</label>
+        </rules>
+    </decisions>
+    <decisions>
         <description>CS-203</description>
         <name>CheckIva1Empty</name>
         <label>IVA1 Empty?</label>
-        <locationX>182</locationX>
+        <locationX>300</locationX>
         <locationY>1919</locationY>
         <defaultConnector>
             <targetReference>BeurkundungAnkaufEmpty</targetReference>
@@ -400,7 +491,7 @@
 CS-203</description>
         <name>CheckResponsiblePeChangedOrNew</name>
         <label>Responsible PE changed or New?</label>
-        <locationX>567</locationX>
+        <locationX>690</locationX>
         <locationY>335</locationY>
         <defaultConnectorLabel>Not changed</defaultConnectorLabel>
         <rules>
@@ -430,8 +521,12 @@ CS-203</description>
         <description>CS-203</description>
         <name>CheckResponsiblePeEmpty</name>
         <label>Responsible PE Empty?</label>
-        <locationX>336</locationX>
+        <locationX>459</locationX>
         <locationY>1127</locationY>
+        <defaultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>GetPublicGroup</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>Is Empty</defaultConnectorLabel>
         <rules>
             <name>ResponsiblePeNotEmpty</name>
@@ -453,7 +548,7 @@ CS-203</description>
         <description>CS-203</description>
         <name>CheckResponsiblePeInitiallySet</name>
         <label>Responsible PE initially set?</label>
-        <locationX>336</locationX>
+        <locationX>459</locationX>
         <locationY>455</locationY>
         <defaultConnector>
             <targetReference>GetFormerPeTasks</targetReference>
@@ -523,6 +618,22 @@ CS-203</description>
     </formulas>
     <interviewLabel>Property - After Insert - Create/Update {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Property - After Insert - Create/Update</label>
+    <loops>
+        <description>Loop through all Group Members.
+CS-203</description>
+        <name>LoopAllGroupMembers</name>
+        <label>Loop all Group Members</label>
+        <locationX>50</locationX>
+        <locationY>2855</locationY>
+        <collectionReference>GetRecipientsFromGroup</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>NewTaskBeurkundungAnkaufGroup</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>CreatePeTasks</targetReference>
+        </noMoreValuesConnector>
+    </loops>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -546,15 +657,15 @@ CS-203</description>
         <description>CS-203</description>
         <name>CreatePeTasks</name>
         <label>Create PE Tasks</label>
-        <locationX>182</locationX>
-        <locationY>2591</locationY>
+        <locationX>300</locationX>
+        <locationY>3383</locationY>
         <inputReference>PeTasksToCreate</inputReference>
     </recordCreates>
     <recordDeletes>
         <description>CS-203</description>
         <name>DeleteFormerPeTasks</name>
         <label>Delete former PE Tasks</label>
-        <locationX>358</locationX>
+        <locationX>481</locationX>
         <locationY>815</locationY>
         <connector>
             <targetReference>CheckResponsiblePeEmpty</targetReference>
@@ -566,7 +677,7 @@ CS-203</description>
 CS-203</description>
         <name>GetFormerPeTasks</name>
         <label>Get Former PE Tasks</label>
-        <locationX>490</locationX>
+        <locationX>613</locationX>
         <locationY>575</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -591,8 +702,54 @@ CS-203</description>
         <object>Task</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <description>Get Public Group including recipients for this task.
+CS-203</description>
+        <name>GetPublicGroup</name>
+        <label>Get Public Group</label>
+        <locationX>158</locationX>
+        <locationY>2495</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>GetRecipientsFromGroup</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>PeRecipientsTaskBeurkundungAnkauf</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Group</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Get recipients of this task from public group PeRecipientsTaskBeurkundungAnkauf
+CS-203</description>
+        <name>GetRecipientsFromGroup</name>
+        <label>Get Recipients from Group</label>
+        <locationX>158</locationX>
+        <locationY>2615</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>CheckGroupMembersNotEmpty</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>GroupId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>GetPublicGroup.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>GroupMember</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <start>
-        <locationX>441</locationX>
+        <locationX>564</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>CheckResponsiblePeChangedOrNew</targetReference>
