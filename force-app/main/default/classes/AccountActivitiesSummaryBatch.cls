@@ -77,8 +77,7 @@ public without sharing class AccountActivitiesSummaryBatch implements Database.B
             if(taskCounted.contains(t.Id)) {
                 continue;
             }
-            Contact con = contactIdToContacts.get(t.WhoId);
-            Account acc = updateAccountsMap.get(con.AccountId) != null ? updateAccountsMap.get(con.AccountId) : accountIdToAccounts.get(con.AccountId);
+            Account acc = updateAccountsMap.get(t.WhatId) != null ? updateAccountsMap.get(t.WhatId) : accountIdToAccounts.get(t.WhatId);
             if(t.Subject.toLowerCase().indexOf('eingehend') > -1 || t.Subject.toLowerCase().indexOf('incoming') > -1) {
                 acc.IncomingCallsCurrentYear__c++;
                 if(acc.LastIncomingCall__c == null || (acc.LastIncomingCall__c != null && t.CreatedDate > acc.LastIncomingCall__c)) {
