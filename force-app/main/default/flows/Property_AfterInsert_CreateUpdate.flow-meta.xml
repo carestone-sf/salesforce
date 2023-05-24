@@ -18,7 +18,7 @@
             <assignToReference>TaskDummy.Subject</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Beurkundung erfolgt</stringValue>
+                <elementReference>TaskSubject_BeurkundungAnkauf</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -50,17 +50,17 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>PeTasksToCreate</assignToReference>
-            <operator>Add</operator>
-            <value>
-                <elementReference>TaskDummy</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
             <assignToReference>TaskDummy.WhatId</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>PeTasksToCreate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>TaskDummy</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -84,7 +84,7 @@
             <assignToReference>TaskDummy.Subject</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Beurkundung erfolgt</stringValue>
+                <elementReference>TaskSubject_BeurkundungAnkauf</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -116,17 +116,17 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>PeTasksToCreate</assignToReference>
-            <operator>Add</operator>
-            <value>
-                <elementReference>TaskDummy</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
             <assignToReference>TaskDummy.WhatId</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>PeTasksToCreate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>TaskDummy</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -150,7 +150,7 @@
             <assignToReference>TaskDummy.Subject</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Terminerinnerung Exklusivität Betreiber</stringValue>
+                <elementReference>TaskSubject_ExklusivitaetBetreiberBis</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -182,10 +182,69 @@
             </value>
         </assignmentItems>
         <assignmentItems>
+            <assignToReference>TaskDummy.WhatId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
             <assignToReference>PeTasksToCreate</assignToReference>
             <operator>Add</operator>
             <value>
                 <elementReference>TaskDummy</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>CheckIva1Empty</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>CS-203</description>
+        <name>NewTaskExklusivitaetBetreiberBisDate</name>
+        <label>New Task Exklusivitaet Betreiber Bis</label>
+        <locationX>921</locationX>
+        <locationY>1247</locationY>
+        <assignmentItems>
+            <assignToReference>TaskDummy.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.ResponsiblePE__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.Subject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TaskSubject_ExklusivitaetBetreiberBis</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.Description</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Die Exklusivität mit dem Betreiber läuft am {!$Record.ExklusivitaetBis__c} aus.</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.ActivityDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>ExklusivitaetBetreiberBis_2WeeksBefore</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.IsReminderSet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.ReminderDateTime</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>ExklusivitaetBetreiberBis_1WeekBefore</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -195,8 +254,15 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>PeTasksToCreate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>TaskDummy</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
-            <targetReference>CheckIva1Empty</targetReference>
+            <targetReference>CheckIva1DateChanged</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -216,7 +282,7 @@
             <assignToReference>TaskDummy.Subject</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Terminerinnerung Exklusivität Verkäufer</stringValue>
+                <elementReference>TaskSubject_ExklusivitaetVerkaeuferBis</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -248,10 +314,69 @@
             </value>
         </assignmentItems>
         <assignmentItems>
+            <assignToReference>TaskDummy.WhatId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
             <assignToReference>PeTasksToCreate</assignToReference>
             <operator>Add</operator>
             <value>
                 <elementReference>TaskDummy</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>CheckExklusivitaetBetreiberBisEmpty</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>CS-203</description>
+        <name>NewTaskExklusivitaetVerkaeuferBisDate</name>
+        <label>New Task Exklusivitaet Verkaeufer Bis</label>
+        <locationX>921</locationX>
+        <locationY>575</locationY>
+        <assignmentItems>
+            <assignToReference>TaskDummy.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.ResponsiblePE__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.Subject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TaskSubject_ExklusivitaetVerkaeuferBis</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.Description</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Die Exklusivität mit dem Verkäufer läuft am {!$Record.ExclusivitySellerUntil__c} aus.</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.ActivityDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>ExklusivitaetVerkaeuferBis_2WeeksBefore</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.IsReminderSet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.ReminderDateTime</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>ExklusivitaetVerkaeuferBis_1WeekBefore</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -261,8 +386,15 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>PeTasksToCreate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>TaskDummy</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
-            <targetReference>CheckExklusivitaetBetreiberBisEmpty</targetReference>
+            <targetReference>CheckExklusivitaetBetreiberDateChanged</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -282,7 +414,7 @@
             <assignToReference>TaskDummy.Subject</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>IVA 1</stringValue>
+                <elementReference>TaskSubject_Iva1</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -314,10 +446,69 @@
             </value>
         </assignmentItems>
         <assignmentItems>
+            <assignToReference>TaskDummy.WhatId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
             <assignToReference>PeTasksToCreate</assignToReference>
             <operator>Add</operator>
             <value>
                 <elementReference>TaskDummy</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>BeurkundungAnkaufEmpty</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>CS-203</description>
+        <name>NewTaskIVA1Date</name>
+        <label>New Task IVA1</label>
+        <locationX>921</locationX>
+        <locationY>1919</locationY>
+        <assignmentItems>
+            <assignToReference>TaskDummy.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.ResponsiblePE__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.Subject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TaskSubject_Iva1</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.Description</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Wurde der IVA 1 bereits genehmigt?</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.ActivityDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Iva1_3WeeksAfter</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.IsReminderSet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.ReminderDateTime</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Iva1_4WeeksAfter</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -327,10 +518,49 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>PeTasksToCreate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>TaskDummy</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
-            <targetReference>BeurkundungAnkaufEmpty</targetReference>
+            <targetReference>CheckBeurkundungAnkaufDateChanged</targetReference>
         </connector>
     </assignments>
+    <constants>
+        <description>Subject of task related to date field Beurkundung Ankauf</description>
+        <name>TaskSubject_BeurkundungAnkauf</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Beurkundung erfolgt</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <description>Subject of task related to date field Exklusivität Betreiber Bis</description>
+        <name>TaskSubject_ExklusivitaetBetreiberBis</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Terminerinnerung Exklusivität Betreiber</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <description>Subject of Task related to date field Exklusivität Verkäufer bis</description>
+        <name>TaskSubject_ExklusivitaetVerkaeuferBis</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Terminerinnerung Exklusivität Verkäufer</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <description>Subject of task related to date field IVA1</description>
+        <name>TaskSubject_Iva1</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>IVA 1</stringValue>
+        </value>
+    </constants>
     <decisions>
         <description>CS-203</description>
         <name>BeurkundungAnkaufEmpty</name>
@@ -355,6 +585,169 @@
                 <targetReference>NewTaskBeurkundungAnkauf</targetReference>
             </connector>
             <label>Burkundung Ankauf Populated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>CS-203</description>
+        <name>CheckBADateTasksEmpty</name>
+        <label>BA Date Tasks Empty?</label>
+        <locationX>1581</locationX>
+        <locationY>2711</locationY>
+        <defaultConnector>
+            <targetReference>CreatePeTasks</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Tasks</defaultConnectorLabel>
+        <rules>
+            <name>BaDateTasksNotEmpty</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetBaDateTasks</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>DeleteBaDateTasks</targetReference>
+            </connector>
+            <label>Not Empty</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>CS-203</description>
+        <name>CheckBeurkundungAnkaufDateChanged</name>
+        <label>Beurkundung Ankauf Date changed?</label>
+        <locationX>1405</locationX>
+        <locationY>2471</locationY>
+        <defaultConnector>
+            <targetReference>CreatePeTasks</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Changed</defaultConnectorLabel>
+        <rules>
+            <name>BADateInitiallySet</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.BeurkundungAnkauf__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.BeurkundungAnkauf__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ResponsiblePE__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>NewTaskBeurkundungAnkauf</targetReference>
+            </connector>
+            <label>BADate Initially Set</label>
+        </rules>
+        <rules>
+            <name>BADateChanged</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.BeurkundungAnkauf__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.BeurkundungAnkauf__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdateBeurkundungAnkaufTask</targetReference>
+            </connector>
+            <label>BADate Changed</label>
+        </rules>
+        <rules>
+            <name>BADateSetToNull</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.BeurkundungAnkauf__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.BeurkundungAnkauf__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetBaDateTasks</targetReference>
+            </connector>
+            <label>BADate Set to Null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>CS-203</description>
+        <name>CheckEbDateTasksEmpty</name>
+        <label>EBDate Tasks Empty?</label>
+        <locationX>1581</locationX>
+        <locationY>1367</locationY>
+        <defaultConnector>
+            <targetReference>CheckIva1DateChanged</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Tasks</defaultConnectorLabel>
+        <rules>
+            <name>NotEmpty</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetEbDateTasks</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>DeleteEBDateTasks</targetReference>
+            </connector>
+            <label>Not Empty</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>CS-203</description>
+        <name>CheckEvDateTasksEmpty</name>
+        <label>EVDate Tasks Empty?</label>
+        <locationX>1581</locationX>
+        <locationY>695</locationY>
+        <defaultConnector>
+            <targetReference>CheckExklusivitaetBetreiberDateChanged</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Tasks</defaultConnectorLabel>
+        <rules>
+            <name>EVDateTasksNotEmpty</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetEvDateTasks</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>DeleteEvDateTasks</targetReference>
+            </connector>
+            <label>Not Empty</label>
         </rules>
     </decisions>
     <decisions>
@@ -385,6 +778,104 @@
     </decisions>
     <decisions>
         <description>CS-203</description>
+        <name>CheckExklusivitaetBetreiberDateChanged</name>
+        <label>Exklusivitaet Betreiber Date changed?</label>
+        <locationX>1405</locationX>
+        <locationY>1127</locationY>
+        <defaultConnector>
+            <targetReference>CheckIva1DateChanged</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Changed</defaultConnectorLabel>
+        <rules>
+            <name>EBDateInitiallySet</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ExklusivitaetBis__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.ExklusivitaetBis__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ResponsiblePE__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ExklusivitaetBis__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NewTaskExklusivitaetBetreiberBisDate</targetReference>
+            </connector>
+            <label>EBDate Initially Set</label>
+        </rules>
+        <rules>
+            <name>EBDateChanged</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ExklusivitaetBis__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ResponsiblePE__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ExklusivitaetBis__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdateEBTask</targetReference>
+            </connector>
+            <label>EBDate Changed</label>
+        </rules>
+        <rules>
+            <name>EBDateSetToNull</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ExklusivitaetBis__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ExklusivitaetBis__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetEbDateTasks</targetReference>
+            </connector>
+            <label>EBDate Set to Null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>CS-203</description>
         <name>CheckExklusivitaetVerkaeuferBisEmpty</name>
         <label>Exklusivitaet Verkaeufer Bis Empty?</label>
         <locationX>300</locationX>
@@ -407,6 +898,104 @@
                 <targetReference>NewTaskExklusivitaetVerkaeuferBis</targetReference>
             </connector>
             <label>Eklusivitaet Verkaeufer Bis Populated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>CS-203</description>
+        <name>CheckExklusivitaetVerkaeuferDateChanged</name>
+        <label>Exklusivitaet Verkaeufer Date changed?</label>
+        <locationX>1405</locationX>
+        <locationY>455</locationY>
+        <defaultConnector>
+            <targetReference>CheckExklusivitaetBetreiberDateChanged</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Changed</defaultConnectorLabel>
+        <rules>
+            <name>EVDateInitiallySet</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ExclusivitySellerUntil__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.ExclusivitySellerUntil__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ResponsiblePE__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ExclusivitySellerUntil__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NewTaskExklusivitaetVerkaeuferBisDate</targetReference>
+            </connector>
+            <label>EVDate Initially Set</label>
+        </rules>
+        <rules>
+            <name>EVDateChanged</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ExclusivitySellerUntil__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ResponsiblePE__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ExclusivitySellerUntil__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdateEVTask</targetReference>
+            </connector>
+            <label>EVDate Changed</label>
+        </rules>
+        <rules>
+            <name>EVDateSetToNull</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ExclusivitySellerUntil__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ExclusivitySellerUntil__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetEvDateTasks</targetReference>
+            </connector>
+            <label>EVDate Set to Null</label>
         </rules>
     </decisions>
     <decisions>
@@ -462,6 +1051,104 @@
     </decisions>
     <decisions>
         <description>CS-203</description>
+        <name>CheckIva1DateChanged</name>
+        <label>IVA1 Date changed?</label>
+        <locationX>1405</locationX>
+        <locationY>1799</locationY>
+        <defaultConnector>
+            <targetReference>CheckBeurkundungAnkaufDateChanged</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Changed</defaultConnectorLabel>
+        <rules>
+            <name>IVA1DateInitiallySet</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.IVA1__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.IVA1__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ResponsiblePE__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IVA1__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NewTaskIVA1Date</targetReference>
+            </connector>
+            <label>IVA1 Date Initially Set</label>
+        </rules>
+        <rules>
+            <name>Iva1DateChanged</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.IVA1__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ResponsiblePE__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IVA1__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdateIva1Task</targetReference>
+            </connector>
+            <label>IVA1 Date Changed</label>
+        </rules>
+        <rules>
+            <name>IVA1DateSetToNull</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.IVA1__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IVA1__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetIva1DateTasks</targetReference>
+            </connector>
+            <label>IVA1 Date Set To Null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>CS-203</description>
         <name>CheckIva1Empty</name>
         <label>IVA1 Empty?</label>
         <locationX>300</locationX>
@@ -487,15 +1174,15 @@
         </rules>
     </decisions>
     <decisions>
-        <description>Check if field Responsible PE is changed or newly created.
+        <description>Check if fields relevant to PE tasks has changed.
 CS-203</description>
-        <name>CheckResponsiblePeChangedOrNew</name>
-        <label>Responsible PE changed or New?</label>
-        <locationX>690</locationX>
+        <name>CheckPeTaskChanges</name>
+        <label>Check PE Task Changes</label>
+        <locationX>1262</locationX>
         <locationY>335</locationY>
         <defaultConnectorLabel>Not changed</defaultConnectorLabel>
         <rules>
-            <name>IsChangedOrNew</name>
+            <name>ResponsiblePeIsChangedOrNew</name>
             <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.ResponsiblePE__c</leftValueReference>
@@ -514,7 +1201,43 @@ CS-203</description>
             <connector>
                 <targetReference>CheckResponsiblePeInitiallySet</targetReference>
             </connector>
-            <label>IsChangedOrNew</label>
+            <label>Responsible PE Is Changed Or New</label>
+        </rules>
+        <rules>
+            <name>PeTaskDatesChanged</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ExclusivitySellerUntil__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ExklusivitaetBis__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IVA1__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.BeurkundungAnkauf__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CheckExklusivitaetVerkaeuferDateChanged</targetReference>
+            </connector>
+            <label>PE Task Dates changed</label>
         </rules>
     </decisions>
     <decisions>
@@ -523,10 +1246,6 @@ CS-203</description>
         <label>Responsible PE Empty?</label>
         <locationX>459</locationX>
         <locationY>1127</locationY>
-        <defaultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>GetPublicGroup</targetReference>
-        </defaultConnector>
         <defaultConnectorLabel>Is Empty</defaultConnectorLabel>
         <rules>
             <name>ResponsiblePeNotEmpty</name>
@@ -568,6 +1287,32 @@ CS-203</description>
                 <targetReference>CheckResponsiblePeEmpty</targetReference>
             </connector>
             <label>Initially Set</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>CS-203</description>
+        <name>Iva1TasksEmpty</name>
+        <label>IVA1 Tasks Empty?</label>
+        <locationX>1581</locationX>
+        <locationY>2039</locationY>
+        <defaultConnector>
+            <targetReference>CheckBeurkundungAnkaufDateChanged</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Tasks</defaultConnectorLabel>
+        <rules>
+            <name>Iva1NotEmpty</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetIva1DateTasks</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>DeleteIva1Tasks</targetReference>
+            </connector>
+            <label>Not Empty</label>
         </rules>
     </decisions>
     <environments>Default</environments>
@@ -657,10 +1402,43 @@ CS-203</description>
         <description>CS-203</description>
         <name>CreatePeTasks</name>
         <label>Create PE Tasks</label>
-        <locationX>300</locationX>
-        <locationY>3383</locationY>
+        <locationX>1262</locationX>
+        <locationY>3575</locationY>
         <inputReference>PeTasksToCreate</inputReference>
     </recordCreates>
+    <recordDeletes>
+        <description>CS-203</description>
+        <name>DeleteBaDateTasks</name>
+        <label>Delete BADate Tasks</label>
+        <locationX>1449</locationX>
+        <locationY>2831</locationY>
+        <connector>
+            <targetReference>CreatePeTasks</targetReference>
+        </connector>
+        <inputReference>GetBaDateTasks</inputReference>
+    </recordDeletes>
+    <recordDeletes>
+        <description>CS-203</description>
+        <name>DeleteEBDateTasks</name>
+        <label>Delete EBDate Tasks</label>
+        <locationX>1449</locationX>
+        <locationY>1487</locationY>
+        <connector>
+            <targetReference>CheckIva1DateChanged</targetReference>
+        </connector>
+        <inputReference>GetEbDateTasks</inputReference>
+    </recordDeletes>
+    <recordDeletes>
+        <description>CS-203</description>
+        <name>DeleteEvDateTasks</name>
+        <label>Delete EVDate Tasks</label>
+        <locationX>1449</locationX>
+        <locationY>815</locationY>
+        <connector>
+            <targetReference>CheckExklusivitaetBetreiberDateChanged</targetReference>
+        </connector>
+        <inputReference>GetEvDateTasks</inputReference>
+    </recordDeletes>
     <recordDeletes>
         <description>CS-203</description>
         <name>DeleteFormerPeTasks</name>
@@ -672,6 +1450,107 @@ CS-203</description>
         </connector>
         <inputReference>GetFormerPeTasks</inputReference>
     </recordDeletes>
+    <recordDeletes>
+        <description>CS-203</description>
+        <name>DeleteIva1Tasks</name>
+        <label>Delete IVA1 Tasks</label>
+        <locationX>1449</locationX>
+        <locationY>2159</locationY>
+        <connector>
+            <targetReference>CheckBeurkundungAnkaufDateChanged</targetReference>
+        </connector>
+        <inputReference>GetIva1DateTasks</inputReference>
+    </recordDeletes>
+    <recordLookups>
+        <description>Get former tasks related to date field Beurkundung Ankauf
+CS-203</description>
+        <name>GetBaDateTasks</name>
+        <label>Get BA Date Tasks</label>
+        <locationX>1581</locationX>
+        <locationY>2591</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>CheckBADateTasksEmpty</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>WhatId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TaskSubject_BeurkundungAnkauf</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Get former tasks related to date field Exklusivität Betreiber bis
+CS-203</description>
+        <name>GetEbDateTasks</name>
+        <label>Get EBDate Tasks</label>
+        <locationX>1581</locationX>
+        <locationY>1247</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>CheckEbDateTasksEmpty</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>WhatId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TaskSubject_ExklusivitaetBetreiberBis</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Get former tasks related to date field Exklusivität Verkäufer bis
+CS-203</description>
+        <name>GetEvDateTasks</name>
+        <label>Get EVDate Tasks</label>
+        <locationX>1581</locationX>
+        <locationY>575</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>CheckEvDateTasksEmpty</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>WhatId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TaskSubject_ExklusivitaetVerkaeuferBis</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordLookups>
         <description>Get tasks to be done be former Responsible PE
 CS-203</description>
@@ -696,6 +1575,36 @@ CS-203</description>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>$Record__Prior.ResponsiblePE__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Get former tasks related to date field IVA1
+CS-203</description>
+        <name>GetIva1DateTasks</name>
+        <label>Get IVA1 Date Tasks</label>
+        <locationX>1581</locationX>
+        <locationY>1919</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Iva1TasksEmpty</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>WhatId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TaskSubject_Iva1</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
@@ -748,17 +1657,170 @@ CS-203</description>
         <object>GroupMember</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordUpdates>
+        <description>Update Task related to date field Beurkundung Ankauf</description>
+        <name>UpdateBeurkundungAnkaufTask</name>
+        <label>Update Beurkundung Ankauf Task</label>
+        <locationX>1185</locationX>
+        <locationY>2591</locationY>
+        <connector>
+            <targetReference>CreatePeTasks</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TaskSubject_BeurkundungAnkauf</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>BeurkundungAnkauf_1DayAfter</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ReminderDateTime</field>
+            <value>
+                <elementReference>BeurkundungAnkauf_2WeeksAfter</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Tasks</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Task related to date field Exklusivität Betreiber bis</description>
+        <name>UpdateEBTask</name>
+        <label>UpdateEBTask</label>
+        <locationX>1185</locationX>
+        <locationY>1247</locationY>
+        <connector>
+            <targetReference>CheckIva1DateChanged</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OwnerId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ResponsiblePE__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TaskSubject_ExklusivitaetBetreiberBis</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>ExklusivitaetBetreiberBis_2WeeksBefore</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ReminderDateTime</field>
+            <value>
+                <elementReference>ExklusivitaetBetreiberBis_1WeekBefore</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Tasks</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Task related to date field Exklusivität Verkäufer bis</description>
+        <name>UpdateEVTask</name>
+        <label>UpdateEVTask</label>
+        <locationX>1185</locationX>
+        <locationY>575</locationY>
+        <connector>
+            <targetReference>CheckExklusivitaetBetreiberDateChanged</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OwnerId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ResponsiblePE__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TaskSubject_ExklusivitaetVerkaeuferBis</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>ExklusivitaetVerkaeuferBis_2WeeksBefore</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ReminderDateTime</field>
+            <value>
+                <elementReference>ExklusivitaetVerkaeuferBis_1WeekBefore</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Tasks</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Task related to date field IVA 1</description>
+        <name>UpdateIva1Task</name>
+        <label>Update IVA1 Task</label>
+        <locationX>1185</locationX>
+        <locationY>1919</locationY>
+        <connector>
+            <targetReference>CheckBeurkundungAnkaufDateChanged</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OwnerId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ResponsiblePE__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TaskSubject_Iva1</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>Iva1_3WeeksAfter</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ReminderDateTime</field>
+            <value>
+                <elementReference>Iva1_4WeeksAfter</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Tasks</inputReference>
+    </recordUpdates>
     <start>
-        <locationX>564</locationX>
+        <locationX>1136</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>CheckResponsiblePeChangedOrNew</targetReference>
+            <targetReference>CheckPeTaskChanges</targetReference>
         </connector>
         <object>Property__c</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>
+    <variables>
+        <name>currentItem_FilterBaDateTasks</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Task</objectType>
+    </variables>
     <variables>
         <description>Collection of PE Tasks to be created</description>
         <name>PeTasksToCreate</name>
