@@ -62,7 +62,7 @@ public without sharing class AccountActivitiesSummaryBatch implements Database.B
                 if(acc.LastIncomingCall__c == null || (acc.LastIncomingCall__c != null && t.CreatedDate > acc.LastIncomingCall__c)) {
                     acc.LastIncomingCall__c = t.CreatedDate;
                 } 
-            } else if(t.Subject.toLowerCase().indexOf('ausgehend') > -1 || t.Subject.toLowerCase().indexOf('incoming') > -1) {
+            } else if(t.Subject.toLowerCase().indexOf('ausgehend') > -1 || t.Subject.toLowerCase().indexOf('outgoing') > -1) {
                 acc.OutgoingCallsCurrentYear__c++;
                 taskCounted.add(t.Id);
                 if(acc.LastOutgoingCall__c == null || (acc.LastOutgoingCall__c != null && t.CreatedDate > acc.LastOutgoingCall__c)) {
@@ -83,7 +83,7 @@ public without sharing class AccountActivitiesSummaryBatch implements Database.B
                 if(acc.LastIncomingCall__c == null || (acc.LastIncomingCall__c != null && t.CreatedDate > acc.LastIncomingCall__c)) {
                     acc.LastIncomingCall__c = t.CreatedDate;
                 } 
-            } else if(t.Subject.toLowerCase().indexOf('ausgehend') > -1 || t.Subject.toLowerCase().indexOf('incoming') > -1) {
+            } else if(t.Subject.toLowerCase().indexOf('ausgehend') > -1 || t.Subject.toLowerCase().indexOf('outgoing') > -1) {
                 acc.OutgoingCallsCurrentYear__c++;
                 if(acc.LastOutgoingCall__c == null || (acc.LastOutgoingCall__c != null && t.CreatedDate > acc.LastOutgoingCall__c)) {
                     acc.LastOutgoingCall__c = t.CreatedDate;
