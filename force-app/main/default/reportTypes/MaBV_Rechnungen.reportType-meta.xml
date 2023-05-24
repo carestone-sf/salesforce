@@ -1,15 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
     <baseObject>MaBVRechnung__c</baseObject>
-    <category>other</category>
+    <category>opportunities</category>
     <deployed>true</deployed>
-    <description>MaBV Rechnungen mit Zahlungen</description>
-    <join>
-        <outerJoin>true</outerJoin>
-        <relationship>ZahlungenMaBVRechnungen__r</relationship>
-    </join>
-    <label>MaBV Rechnungen mit Zahlungen</label>
+    <description>MaBV Rechnungen</description>
+    <label>MaBV Rechnungen</label>
     <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Id</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <field>Name</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedDate</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedBy</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedDate</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedBy</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastActivityDate</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>AmtsgerichtUnternehmen__c</field>
@@ -22,12 +58,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>AnredeZweiterKaeufer__c</field>
+            <field>AnredeGeschaeftsfuehrerUnternehmen__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>AnredeGeschaeftsfuehrerUnternehmen__c</field>
+            <field>AnredeZweiterKaeufer__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
@@ -37,27 +73,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Bank__c</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>BenoetigtGenehmigung__c</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>BIC__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CreatedBy</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CreatedDate</field>
+            <field>Bank__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
@@ -73,11 +94,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>EmailUnternehmen__c</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Genehmigt__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
@@ -112,26 +128,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Komplementaer__c</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastActivityDate</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedBy</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedDate</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Leistung__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
@@ -147,32 +143,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Id</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>MaBVRechnungMaster__c</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>true</checkedByDefault>
-            <field>Name</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Notartermin__c</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>OffenerBetrag__c</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ParagraphKaufpreisfaelligkeit__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
@@ -187,7 +158,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>PreisanpassungInPercent__c</field>
+            <field>ParagraphKaufpreisfaelligkeit__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
@@ -197,23 +168,27 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>PreisanpassungInPercent__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>PreisanpassungText__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Rechnungsbetrag</displayNameOverride>
             <field>RateGesamtInEuro__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>RateInPercentage__c</field>
+            <field>RateInEuro__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>RateInEuro__c</field>
+            <field>RateInPercentage__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
@@ -228,7 +203,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>RechnungWurdeGeneriert__c</field>
+            <field>SicherheitPlusInEuro__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
@@ -238,17 +213,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>SicherheitPlusInEuro__c</field>
+            <field>SicherheitseinbehaltInEuro__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>SicherheitseinbehaltInPercentage__c</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>SicherheitseinbehaltInEuro__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
@@ -278,11 +248,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>StornoWurdeGeneriert__c</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>StrasseErsterKaeufer__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
@@ -299,6 +264,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>TelefonUnternehmen__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>UStIdNr__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
@@ -323,11 +293,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>UStIdNr__c</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>WebsiteUnternehmen__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
@@ -338,12 +303,17 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ZuDatevUebertragen__c</field>
+            <field>Genehmigt__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>MaBVRechnungMaster__c.Opportunity__c.Appartement__c</field>
+            <field>BenoetigtGenehmigung__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>StornoWurdeGeneriert__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
@@ -353,8 +323,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Offen</displayNameOverride>
             <field>OffenerBetragNeu__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>RechnungWurdeGeneriert__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
@@ -364,12 +338,27 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>MahnungGenerieren__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MahnungVersendetAm__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ZahlungUeberfaellig__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>TageUeberfaellig__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>MaBVRechnungMaster__c.Opportunity__c.Potenzieller_Kunde__c.DatevDebitorenKundennummerKaeufer__c</field>
+            <field>MahnungZurGenehmigungSenden__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
@@ -384,17 +373,17 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>MaBVRechnungMaster__c.Opportunity__c.WertKumulierteProvisionExtern__c</field>
+            <field>Mahnstufe__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>MaBVRechnungMaster__c.Opportunity__c.WertKumulierteProvision__c</field>
+            <field>TageSeitLetzterMahnung__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Teilobjekt__c.Property__c.Objektnummer__c</field>
+            <field>Teilobjekt__c.Property__c.FORMULA_AktuelleMaBVRate_Num__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
@@ -422,95 +411,16 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Zahlungseingang</displayNameOverride>
-            <field>Betrag__c</field>
-            <table>MaBVRechnung__c.ZahlungenMaBVRechnungen__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CreatedBy</field>
-            <table>MaBVRechnung__c.ZahlungenMaBVRechnungen__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CreatedDate</field>
-            <table>MaBVRechnung__c.ZahlungenMaBVRechnungen__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedBy</field>
-            <table>MaBVRechnung__c.ZahlungenMaBVRechnungen__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedDate</field>
-            <table>MaBVRechnung__c.ZahlungenMaBVRechnungen__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Zahldatum__c</field>
-            <table>MaBVRechnung__c.ZahlungenMaBVRechnungen__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Id</field>
-            <table>MaBVRechnung__c.ZahlungenMaBVRechnungen__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>true</checkedByDefault>
-            <field>Name</field>
-            <table>MaBVRechnung__c.ZahlungenMaBVRechnungen__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>UniqueId__c</field>
-            <table>MaBVRechnung__c.ZahlungenMaBVRechnungen__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>AccountingText__c</field>
-            <table>MaBVRechnung__c.ZahlungenMaBVRechnungen__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IBAN__c</field>
-            <table>MaBVRechnung__c.ZahlungenMaBVRechnungen__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>BIC__c</field>
-            <table>MaBVRechnung__c.ZahlungenMaBVRechnungen__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>BusinessPartner__c</field>
-            <table>MaBVRechnung__c.ZahlungenMaBVRechnungen__r</table>
-        </columns>
-        <masterLabel>Zahlungen</masterLabel>
-    </sections>
-    <sections>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>MaBVRechnungMaster__c.MaBVRate__c.Name</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <masterLabel>MaBV Rate</masterLabel>
-    </sections>
-    <sections>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>MaBVRechnungMaster__c.MaBVRate__c.Immobilie__c.Name</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Anzahl Einheiten</displayNameOverride>
             <field>MaBVRechnungMaster__c.MaBVRate__c.Immobilie__c.Anzahl_Einheiten__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Anzahl verkaufte Einheiten</displayNameOverride>
+            <field>MaBVRechnungMaster__c.MaBVRate__c.Immobilie__c.Reservierte_Appartements__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>MaBVRechnungMaster__c.MaBVRate__c.Immobilie__c.Verkaufte_Appartements__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
@@ -519,37 +429,69 @@
             <field>MaBVRechnungMaster__c.MaBVRate__c.Immobilie__c.Freie_Appartments__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>MaBVRechnungMaster__c.MaBVRate__c.Immobilie__c.GLControllingUebersicht__c</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>MaBVRechnungMaster__c.MaBVRate__c.Immobilie__c.Id</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>MaBVRechnungMaster__c.MaBVRate__c.Immobilie__c</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Anzahl Kaufpreis fällig</displayNameOverride>
-            <field>MaBVRechnungMaster__c.MaBVRate__c.Immobilie__c.AnzahlKaufpreisFaellig__c</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>MaBVRechnungMaster__c.MaBVRate__c.Immobilie__c.Property_Price__c</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>MaBVRechnungMaster__c.MaBVRate__c.Immobilie__c.BemerkungenControlling__c</field>
-            <table>MaBVRechnung__c</table>
-        </columns>
         <masterLabel>Immobilie</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c.Opportunity__c.Maklerbetreuer_WirtschaftsHaus__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c.Opportunity__c.Immobilie__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c.Opportunity__c.Potenzieller_Kunde__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c.Opportunity__c.Kunde2__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c.Opportunity__c.Name</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c.Opportunity__c.Makler__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c.Opportunity__c.Kaufpreis__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c.Opportunity__c.Kaufdatum__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c.Opportunity__c.Notartermin__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c.Opportunity__c.Datum_KP_F_lligkeit_gem_KV__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c.Opportunity__c.Appartement__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c.Opportunity__c.Account</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <masterLabel>Verkaufschance</masterLabel>
     </sections>
 </ReportType>
