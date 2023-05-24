@@ -160,6 +160,22 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Assign_ErsterKaufer_Id_3</name>
+        <label>Assign ErsterKaufer Id</label>
+        <locationX>468</locationX>
+        <locationY>2342</locationY>
+        <assignmentItems>
+            <assignToReference>ErsterKaeuferContact.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Verkaufsraum.ErsterKaeufer__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_new_Berechnung</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Assign_remaining_ErsterKaeufer_values</name>
         <label>Assign remaining ErsterKaeufer values</label>
         <locationX>402</locationX>
@@ -685,7 +701,7 @@
         <locationX>336</locationX>
         <locationY>2102</locationY>
         <defaultConnector>
-            <targetReference>Create_new_Berechnung</targetReference>
+            <targetReference>Get_Verkaufsraum</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -894,7 +910,6 @@
         <object>Property__c</object>
         <valueField>Id</valueField>
     </dynamicChoiceSets>
-    <environments>Default</environments>
     <formulas>
         <name>eigenkapitalValue</name>
         <dataType>Currency</dataType>
@@ -1167,6 +1182,27 @@
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Verkaufsraum</name>
+        <label>Get Verkaufsraum</label>
+        <locationX>468</locationX>
+        <locationY>2222</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_ErsterKaufer_Id_3</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>berechnung.Verkaufsraum__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Verkaufsraum__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>

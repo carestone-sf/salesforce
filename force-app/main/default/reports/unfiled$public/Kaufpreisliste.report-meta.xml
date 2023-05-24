@@ -7,7 +7,6 @@
         <field>Appartment__c$Name</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$Area_sq_m__c</field>
     </columns>
     <columns>
@@ -39,15 +38,17 @@
         <field>Appartment__c.Opportunities__r$Kaufpreis_f_llig__c</field>
     </columns>
     <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Appartment__c.Opportunities__r$Kaufpreis_bezahlt__c</field>
+    </columns>
+    <columns>
+        <field>Appartment__c.Opportunities__r$DatumAbnahmeprotokoll__c</field>
+    </columns>
+    <columns>
         <field>Appartment__c$FirstMabvInvoice__c.Rechnungsdatum__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$FirstMabvInvoice__c.SicherheitseinbehaltInPercentage__c</field>
-    </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Appartment__c$FirstMabvInvoice__c.SicherheitPlusInPercentage__c</field>
     </columns>
     <columns>
         <field>Appartment__c$FirstMabvInvoice__c.Leistung__c</field>
@@ -59,34 +60,22 @@
         <field>Appartment__c$FirstMabvInvoice__c.Name</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$FirstMabvInvoice__c.RateGesamtInEuro__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$FirstMabvInvoice__c.AnzahlZahlungen__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$FirstMabvInvoice__c.Bezahlt__c</field>
     </columns>
     <columns>
         <field>Appartment__c$FirstMabvInvoice__c.Zahldatum__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$FirstMabvInvoice__c.OffenerBetragNeu__c</field>
     </columns>
     <columns>
         <field>Appartment__c$SecondMabvInvoice__c.Rechnungsdatum__c</field>
-    </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Appartment__c$SecondMabvInvoice__c.SicherheitseinbehaltInPercentage__c</field>
-    </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Appartment__c$SecondMabvInvoice__c.SicherheitPlusInPercentage__c</field>
     </columns>
     <columns>
         <field>Appartment__c$SecondMabvInvoice__c.Leistung__c</field>
@@ -98,34 +87,22 @@
         <field>Appartment__c$SecondMabvInvoice__c.Name</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$SecondMabvInvoice__c.RateGesamtInEuro__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$SecondMabvInvoice__c.AnzahlZahlungen__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$SecondMabvInvoice__c.Bezahlt__c</field>
     </columns>
     <columns>
         <field>Appartment__c$SecondMabvInvoice__c.Zahldatum__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$SecondMabvInvoice__c.OffenerBetragNeu__c</field>
     </columns>
     <columns>
         <field>Appartment__c$ThirdMabvInvoice__c.Rechnungsdatum__c</field>
-    </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Appartment__c$ThirdMabvInvoice__c.SicherheitseinbehaltInPercentage__c</field>
-    </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Appartment__c$ThirdMabvInvoice__c.SicherheitPlusInPercentage__c</field>
     </columns>
     <columns>
         <field>Appartment__c$ThirdMabvInvoice__c.Leistung__c</field>
@@ -137,34 +114,22 @@
         <field>Appartment__c$ThirdMabvInvoice__c.Name</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$ThirdMabvInvoice__c.RateGesamtInEuro__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$ThirdMabvInvoice__c.AnzahlZahlungen__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$ThirdMabvInvoice__c.Bezahlt__c</field>
     </columns>
     <columns>
         <field>Appartment__c$ThirdMabvInvoice__c.Zahldatum__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$ThirdMabvInvoice__c.OffenerBetragNeu__c</field>
     </columns>
     <columns>
         <field>Appartment__c$FourthMabvInvoice__c.Rechnungsdatum__c</field>
-    </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Appartment__c$FourthMabvInvoice__c.SicherheitseinbehaltInPercentage__c</field>
-    </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Appartment__c$FourthMabvInvoice__c.SicherheitPlusInPercentage__c</field>
     </columns>
     <columns>
         <field>Appartment__c$FourthMabvInvoice__c.Leistung__c</field>
@@ -176,34 +141,22 @@
         <field>Appartment__c$FourthMabvInvoice__c.Name</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$FourthMabvInvoice__c.RateGesamtInEuro__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$FourthMabvInvoice__c.AnzahlZahlungen__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$FourthMabvInvoice__c.Bezahlt__c</field>
     </columns>
     <columns>
         <field>Appartment__c$FourthMabvInvoice__c.Zahldatum__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$FourthMabvInvoice__c.OffenerBetragNeu__c</field>
     </columns>
     <columns>
         <field>Appartment__c$FifthMabvInvoice__c.Rechnungsdatum__c</field>
-    </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Appartment__c$FifthMabvInvoice__c.SicherheitseinbehaltInPercentage__c</field>
-    </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Appartment__c$FifthMabvInvoice__c.SicherheitPlusInPercentage__c</field>
     </columns>
     <columns>
         <field>Appartment__c$FifthMabvInvoice__c.Leistung__c</field>
@@ -215,34 +168,22 @@
         <field>Appartment__c$FifthMabvInvoice__c.Name</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$FifthMabvInvoice__c.RateGesamtInEuro__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$FifthMabvInvoice__c.AnzahlZahlungen__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$FifthMabvInvoice__c.Bezahlt__c</field>
     </columns>
     <columns>
         <field>Appartment__c$FifthMabvInvoice__c.Zahldatum__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$FifthMabvInvoice__c.OffenerBetragNeu__c</field>
     </columns>
     <columns>
         <field>Appartment__c$SixthMabvInvoice__c.Rechnungsdatum__c</field>
-    </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Appartment__c$SixthMabvInvoice__c.SicherheitseinbehaltInPercentage__c</field>
-    </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Appartment__c$SixthMabvInvoice__c.SicherheitPlusInPercentage__c</field>
     </columns>
     <columns>
         <field>Appartment__c$SixthMabvInvoice__c.Leistung__c</field>
@@ -254,33 +195,24 @@
         <field>Appartment__c$SixthMabvInvoice__c.Name</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$SixthMabvInvoice__c.RateGesamtInEuro__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$SixthMabvInvoice__c.AnzahlZahlungen__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$SixthMabvInvoice__c.Bezahlt__c</field>
     </columns>
     <columns>
         <field>Appartment__c$SixthMabvInvoice__c.Zahldatum__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$SixthMabvInvoice__c.OffenerBetragNeu__c</field>
     </columns>
     <columns>
         <field>Appartment__c$SeventhMabvInvoice__c.Rechnungsdatum__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Appartment__c$SeventhMabvInvoice__c.SicherheitseinbehaltInPercentage__c</field>
-    </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$SeventhMabvInvoice__c.SicherheitPlusInPercentage__c</field>
     </columns>
     <columns>
@@ -293,31 +225,37 @@
         <field>Appartment__c$SeventhMabvInvoice__c.Name</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$SeventhMabvInvoice__c.RateGesamtInEuro__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$SeventhMabvInvoice__c.AnzahlZahlungen__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$SeventhMabvInvoice__c.Bezahlt__c</field>
     </columns>
     <columns>
         <field>Appartment__c$SeventhMabvInvoice__c.Zahldatum__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
         <field>Appartment__c$SeventhMabvInvoice__c.OffenerBetragNeu__c</field>
     </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Appartment__c.Opportunities__r$Kaufpreis_bezahlt__c</field>
-    </columns>
-    <columns>
-        <field>Appartment__c.Opportunities__r$DatumAbnahmeprotokoll__c</field>
-    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Appartment__c$Property__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Unna – Betreutes Wohnen</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Appartment__c.Opportunities__r$StageName</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Geschlossen und verloren,VKC verloren,VKC ausgelaufen,Reservierung abgelehnt,Nachrücker</value>
+        </criteriaItems>
+        <language>de</language>
+    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
