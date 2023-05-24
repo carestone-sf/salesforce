@@ -3,7 +3,6 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
     TriggerFactory.createHandler(Opportunity.getSObjectType());
 
     if (Trigger.isBefore) {
-
         if (trigger.isInsert || trigger.isUpdate) {
             //Liste für das Updaten der Appartments
             Map<Id,SObject> recordsWithFormulaValues = new Map<Id,SObject>(); 
@@ -208,6 +207,10 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                         opp.Marketingzuschuss__c = (opp.MarketingzuschussInEuro__c / opp.Provisionsbasis__c) * 100;
                     } else if (opp.MarketingzuschussInEuro__c != oldOpp.MarketingzuschussInEuro__c && (opp.MarketingzuschussInEuro__c == null || opp.MarketingzuschussInEuro__c == 0)) {
                         opp.Marketingzuschuss__c = 0;
+                    }
+
+                    if (opp.Provisionsbasis__c != oldOpp.Provisionsbasis__c && opp.Marketingzuschuss__c != null && opp.MarketingzuschussInEuro__c != null) {
+                        opp.Marketingzuschuss__c = (opp.MarketingzuschussInEuro__c / opp.Provisionsbasis__c) * 100;
                     }
 
                     if(opp.ErfolgsabhaengigeProvision__c != oldOpp.ErfolgsabhaengigeProvision__c || opp.Verkaufsprovision_nach_Nachtrag__c != oldOpp.Verkaufsprovision_nach_Nachtrag__c || opp.Wert_Maklerprovision__c != oldOpp.Wert_Maklerprovision__c || opp.Wert_Overhead__c != oldOpp.Wert_Overhead__c || opp.Wert_Tippprovision__c != oldOpp.Wert_Tippprovision__c || opp.Abrechnung_ber__c != oldOpp.Abrechnung_ber__c || opp.Makler__c != oldOpp.Makler__c || opp.Immobilienberater__c != oldOpp.Immobilienberater__c || opp.Maklerbetreuer_Wirtschaftshaus__c != oldOpp.Maklerbetreuer_Wirtschaftshaus__c || opp.Rabatt_in__c != oldOpp.Rabatt_in__c || opp.WH_Rabatt_in_P__c != oldOpp.WH_Rabatt_in_P__c || opp.Provision_Thoben__c != oldOpp.Provision_Thoben__c || opp.Marketingzuschuss__c != oldOpp.Marketingzuschuss__c) {

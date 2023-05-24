@@ -1648,6 +1648,11 @@
             <field>CurrentRateDateLastInvoice__c</field>
             <table>Property__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AuswertungRechtUndUFI__c</field>
+            <table>Property__c</table>
+        </columns>
         <masterLabel>Immobilien</masterLabel>
     </sections>
     <sections>
@@ -2230,6 +2235,21 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Kommentar__c</field>
+            <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Zahldatum__c</field>
+            <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AnzahlZahlungen__c</field>
+            <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ZahlungszielDatum__c</field>
             <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
         </columns>
         <masterLabel>MaBV Rechnungen</masterLabel>
