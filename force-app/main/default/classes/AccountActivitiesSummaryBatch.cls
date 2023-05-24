@@ -52,15 +52,15 @@ public without sharing class AccountActivitiesSummaryBatch implements Database.B
         }
 
         // Tasks data
-        for(Task t:[SELECT WhoId, WhatId, Subject, CreatedDate FROM Task WHERE CreatedDate > :FIRST_DAY_OF_CURRENT_YEAR AND WhoID IN (SELECT Id FROM Contact WHERE AccountId IN :accountIdToAccounts.keySet())]) {
+        for(Task t:[SELECT WhoId, WhatId, Subject, CreatedDate FROM Task WHERE CreatedDate > :FIRST_DAY_OF_CURRENT_YEAR AND WhatId IN :accountIdToAccounts.keySet()]) {
             Contact con = contactIdToContacts.get(t.WhoId);
             Account acc = updateAccountsMap.get(con.AccountId) != null ? updateAccountsMap.get(con.AccountId) : accountIdToAccounts.get(con.AccountId);
-            if(t.Subject.toLowerCase().indexOf('eingehend') > -1) {
+            if(t.Subject.toLowerCase().indexOf('eingehend') > -1 || t.Subject.toLowerCase().indexOf('incoming') > -1) {
                 acc.IncomingCallsCurrentYear__c++;
                 if(acc.LastIncomingCall__c == null || (acc.LastIncomingCall__c != null && t.CreatedDate > acc.LastIncomingCall__c)) {
                     acc.LastIncomingCall__c = t.CreatedDate;
                 } 
-            } else if(t.Subject.toLowerCase().indexOf('ausgehend') > -1) {
+            } else if(t.Subject.toLowerCase().indexOf('ausgehend') > -1 || t.Subject.toLowerCase().indexOf('outgoing') > -1) {
                 acc.OutgoingCallsCurrentYear__c++;
                 if(acc.LastOutgoingCall__c == null || (acc.LastOutgoingCall__c != null && t.CreatedDate > acc.LastOutgoingCall__c)) {
                     acc.LastOutgoingCall__c = t.CreatedDate;
