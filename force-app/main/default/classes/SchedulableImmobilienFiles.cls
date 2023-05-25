@@ -131,6 +131,13 @@ global class SchedulableImmobilienFiles implements Schedulable, Database.AllowsC
         new ImmobilienBilder__c();
         new ImmobilienBilder__c();
         new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
 
         for(Id propertyId:propertyIds) {
             getDocuments(propertyId);
@@ -177,8 +184,10 @@ global class SchedulableImmobilienFiles implements Schedulable, Database.AllowsC
                         immobilienDatei.Name = fullTitle;
                         if(child.getTitle() == 'Bilder') {
                             immobilienDatei.DateiTyp__c = 'Bilder';
-                        } else {
+                        } else if(child.getTitle() == 'Highlights') {
                             immobilienDatei.DateiTyp__c = 'Highlights';
+                        } else if(child.getTitle() == 'Grundrisse') {
+                            immobilienDatei.DateiTyp__c = 'Grundrisse';
                         }
                         immobilienDatei.DateiUrl__c = innerChild.getWebContentLink();
                         immobilienDatei.Immobilie__c = propertyId;
@@ -274,94 +283,4 @@ global class SchedulableImmobilienFiles implements Schedulable, Database.AllowsC
     	return client;
     }
 
-    // @future(callout=true)
-    // public static void getDocuments(Id propertyId) {
-    //     List<ImmobilienBilder__c> propertyImmobilienBilder = [SELECT Id, (SELECT Name FROM ImmobilienBilder__r) FROM ImmobilienBilder__c WHERE Immobilie__c = :propertyId];
-    //     List<ContentVersion> bilderCvs = new List<ContentVersion>();
-    //     if(propertyImmobilienBilder.size() == 0) {
-    //         ImmobilienBilder__c newImmobilienBilder = new ImmobilienBilder__c();
-    //         newImmobilienBilder.Name = 'Bilder';
-    //         newImmobilienBilder.Immobilie__c = propertyId;
-    //         propertyImmobilienBilder.add(newImmobilienBilder);
-    //         insert propertyImmobilienBilder;   
-    //     }
-
-    //     List<String> imageNames = new List<String>();
-    //     for(ImmobilienBild__c immobilienBild:propertyImmobilienBilder[0].ImmobilienBilder__r) {
-    //         imageNames.add(immobilienBild.Name);
-    //     }
-
-    //     List<String> dmsImageNames = new List<String>();
-
-    //     List<DMSController.OpenTextDocumentMeta> bilder = DMSController.getDocuments(propertyId + '_bilder');
-    //     for(DMSController.OpenTextDocumentMeta bild:bilder) {
-    //         dmsImageNames.add(bild.documentName);
-    //         if(!imageNames.contains(bild.documentName) && bilderCvs.size() == 0) {
-    //             DMSController.OpenTextDocument dmsDoc = DMSController.getDocument(bild.docNumber);
-    //             ContentVersion cv = getContentVersionFromDmsDoc(dmsDoc);
-    //             bilderCvs.add(cv);
-    //         } 
-    //     }
-    //     insert bilderCvs;
-
-    //     List<ContentDocumentLink> cdls = new List<ContentDocumentLink>();
-    //     List<ContentVersion> insertedBilderCvs = new List<ContentVersion>();
-    //     Map<Id, Id> contentDocumentIdToLinkedEntityId = new Map<Id, Id>();
-    //     for(ImmobilienBilder__c newImmobilienBilder:propertyImmobilienBilder) {
-    //         Id linkedEntityId = newImmobilienBilder.Id;
-    //         List<Id> contentVersionIds = new List<Id>();
-    //         for(ContentVersion cv:bilderCvs) {
-    //             contentVersionIds.add(cv.Id);
-    //         }
-
-    //         insertedBilderCvs = [SELECT ContentDocumentId, Title FROM ContentVersion WHERE Id IN :contentVersionIds];
-    //         for(ContentVersion cv:insertedBilderCvs) {
-    //             ContentDocumentLink cdl = new ContentDocumentLink();
-    //             cdl.ContentDocumentId = cv.ContentDocumentId;
-    //             cdl.LinkedEntityId = linkedEntityId;
-    //             cdl.Visibility = 'AllUsers';
-    //             cdls.add(cdl);
-    //             contentDocumentIdToLinkedEntityId.put(cv.ContentDocumentId, linkedEntityId);
-    //         }
-    //     }
-    //     insert cdls;
-
-    //     List<ContentDistribution> cdImgs = new List<ContentDistribution>();
-    //     for(ContentVersion cv:insertedBilderCvs) {
-    //         ContentDistribution cdImg = new ContentDistribution();
-    //         cdImg.Name = cv.Title;
-    //         cdImg.ContentVersionId = cv.Id;
-    //         cdImg.PreferencesAllowViewInBrowser= true;
-    //         cdImg.PreferencesLinkLatestVersion=true;
-    //         cdImg.PreferencesNotifyOnVisit=false;
-    //         cdImg.PreferencesPasswordRequired=false;
-    //         cdImg.PreferencesAllowOriginalDownload= true;
-    //         cdImgs.add(cdImg);
-    //     }
-    //     Database.insert(cdImgs, false);
-
-    //     List<Id> cdImgIds = new List<Id>();
-    //     for(ContentDistribution cd:cdImgs) {
-    //         cdImgIds.add(cd.Id);
-    //     }
-
-    //     List<ContentDistribution> insertedCdImgs = [SELECT ContentDownloadUrl, ContentDocumentId, ContentVersion.Title FROM ContentDistribution WHERE Id IN :cdImgIds];
-    //     List<ImmobilienBild__c> singleImmobilienBilder = new List<ImmobilienBild__c>();
-    //     for(ContentDistribution insertedCdImg:insertedCdImgs) {
-    //         ImmobilienBild__c singleImmobilienBild = new ImmobilienBild__c();
-    //         singleImmobilienBild.Name = insertedCdImg.ContentVersion.Title;
-    //         singleImmobilienBild.ImmobilienBilder__c = contentDocumentIdToLinkedEntityId.get(insertedCdImg.ContentDocumentId);
-    //         singleImmobilienBild.BildUrl__c = insertedCdImg.ContentDownloadUrl;
-    //         singleImmobilienBilder.add(singleImmobilienBild);
-    //     }
-    //     insert singleImmobilienBilder;
-    // }
-
-    // public static ContentVersion getContentVersionFromDmsDoc(DMSController.OpenTextDocument dmsDoc) {
-    //     ContentVersion cv=new Contentversion();
-    //     cv.title = dmsDoc.fileName;
-    //     cv.PathOnClient = dmsDoc.fileName + '.' + dmsDoc.fileExtension;
-    //     cv.versiondata=EncodingUtil.base64Decode(dmsDoc.fileContent);
-    //     return cv;
-    // }
 }

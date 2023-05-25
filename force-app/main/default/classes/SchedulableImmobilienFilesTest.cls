@@ -2,6 +2,9 @@
 private class SchedulableImmobilienFilesTest {
   @TestSetup
   static void makeData(){
+    Account bautraeger = TestDataFactory.createBautraeger(true);
+    Property__c p = TestDataFactory.createProperty(true, bautraeger.Id);
+
     ConnectorType__c ct = new ConnectorType__c();
     ct.Name = 'Google Drive';
     ct.AuthorizationEndpoint__c = 'https://accounts.google.com/o/oauth2/auth';

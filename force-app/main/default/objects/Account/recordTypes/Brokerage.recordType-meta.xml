@@ -183,6 +183,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Pflegeimmobilienspezialist</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Versicherungsmakler</fullName>
             <default>false</default>
         </values>
