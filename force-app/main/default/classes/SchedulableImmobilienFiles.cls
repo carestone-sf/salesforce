@@ -177,8 +177,10 @@ global class SchedulableImmobilienFiles implements Schedulable, Database.AllowsC
                         immobilienDatei.Name = fullTitle;
                         if(child.getTitle() == 'Bilder') {
                             immobilienDatei.DateiTyp__c = 'Bilder';
-                        } else {
+                        } else if(child.getTitle() == 'Highlights') {
                             immobilienDatei.DateiTyp__c = 'Highlights';
+                        } else if(child.getTitle() == 'Grundrisse') {
+                            immobilienDatei.DateiTyp__c = 'Grundrisse';
                         }
                         immobilienDatei.DateiUrl__c = innerChild.getWebContentLink();
                         immobilienDatei.Immobilie__c = propertyId;

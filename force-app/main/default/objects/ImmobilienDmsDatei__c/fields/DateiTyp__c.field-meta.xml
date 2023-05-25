@@ -25,6 +25,11 @@
                 <default>false</default>
                 <label>Highlights</label>
             </value>
+            <value>
+                <fullName>Grundrisse</fullName>
+                <default>false</default>
+                <label>Grundrisse</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>
