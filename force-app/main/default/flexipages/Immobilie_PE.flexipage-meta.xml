@@ -1472,6 +1472,26 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.ShowOnWebsite__c</fieldItem>
+                <identifier>RecordShowOnWebsite_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.PropertyStatus__c</fieldItem>
+                <identifier>RecordObjectStatus_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Art_der_Teilobjekte__c</fieldItem>
                 <identifier>RecordArt_der_Teilobjekte_cField</identifier>
             </fieldInstance>
@@ -1484,6 +1504,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Bauart__c</fieldItem>
                 <identifier>RecordBauart_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.InspectionByDekra__c</fieldItem>
+                <identifier>RecordInspectionByDekra_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -1722,6 +1752,16 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.ImmoframeHeadline__c</fieldItem>
+                <identifier>RecordImmoframeHeadline_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Description__c</fieldItem>
                 <identifier>RecordDescription_cField3</identifier>
             </fieldInstance>
@@ -1742,6 +1782,26 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.DisruptorLogoButton__c</fieldItem>
+                <identifier>RecordDisruptorLogoButton_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.DisruptorLogoBanner__c</fieldItem>
+                <identifier>RecordDisruptorLogoBanner_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Website_Header_Bild__c</fieldItem>
                 <identifier>RecordWebsite_Header_Bild_cField</identifier>
             </fieldInstance>
@@ -1754,6 +1814,26 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Objektvideo_Link__c</fieldItem>
                 <identifier>RecordObjektvideo_Link_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Url360DegreeTour__c</fieldItem>
+                <identifier>RecordUrl360DegreeTour_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Url360DegreeTour__c</fieldItem>
+                <identifier>RecordUrl360DegreeTour_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -1866,6 +1946,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Immobilie_promoten__c</fieldItem>
                 <identifier>RecordImmobilie_promoten_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.SalesDescription__c</fieldItem>
+                <identifier>RecordSalesDescription_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-bdf6af8c-e8bc-44e9-8be6-b9cfd3dafcf4</name>
@@ -5185,7 +5275,7 @@
                 <identifier>RecordPreis_ab_cField4</identifier>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-cyxbdprjuu9</name>
+        <name>Facet-6jr8dp3cd8i</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -5197,6 +5287,26 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Is_Public__c</fieldItem>
                 <identifier>RecordIs_Public_cField4</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ShowOnWebsite__c</fieldItem>
+                <identifier>RecordShowOnWebsite_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.PropertyStatus__c</fieldItem>
+                <identifier>RecordObjectStatus_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -5217,6 +5327,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Bauart__c</fieldItem>
                 <identifier>RecordBauart_cField4</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.InspectionByDekra__c</fieldItem>
+                <identifier>RecordInspectionByDekra_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -5319,7 +5439,7 @@
                 <identifier>RecordBetreiber_cField5</identifier>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-a2bm19w6pw</name>
+        <name>Facet-ekqrce3zj2</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -5327,7 +5447,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-cyxbdprjuu9</value>
+                    <value>Facet-6jr8dp3cd8i</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:column</componentName>
                 <identifier>flexipage_column56</identifier>
@@ -5337,13 +5457,13 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-a2bm19w6pw</value>
+                    <value>Facet-ekqrce3zj2</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:column</componentName>
                 <identifier>flexipage_column57</identifier>
             </componentInstance>
         </itemInstances>
-        <name>Facet-sclrd8abxid</name>
+        <name>Facet-728xd1eqyrk</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -5455,6 +5575,16 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.ImmoframeHeadline__c</fieldItem>
+                <identifier>RecordImmoframeHeadline_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Description__c</fieldItem>
                 <identifier>RecordDescription_cField4</identifier>
             </fieldInstance>
@@ -5467,6 +5597,26 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Lagebeschreibung__c</fieldItem>
                 <identifier>RecordLagebeschreibung_cField4</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.DisruptorLogoButton__c</fieldItem>
+                <identifier>RecordDisruptorLogoButton_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.DisruptorLogoBanner__c</fieldItem>
+                <identifier>RecordDisruptorLogoBanner_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -5495,11 +5645,31 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.Url360DegreeTour__c</fieldItem>
+                <identifier>RecordUrl360DegreeTour_cField3</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Url360DegreeTour__c</fieldItem>
+                <identifier>RecordUrl360DegreeTour_cField4</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Collection_Id__c</fieldItem>
                 <identifier>RecordCollection_Id_cField2</identifier>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-hk66u1atn2t</name>
+        <name>Facet-kgowpgdd4w</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -5507,13 +5677,13 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-hk66u1atn2t</value>
+                    <value>Facet-kgowpgdd4w</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:column</componentName>
                 <identifier>flexipage_column60</identifier>
             </componentInstance>
         </itemInstances>
-        <name>Facet-7hye2l93v27</name>
+        <name>Facet-vpa8e48r1bo</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -5599,6 +5769,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Immobilie_promoten__c</fieldItem>
                 <identifier>RecordImmobilie_promoten_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.SalesDescription__c</fieldItem>
+                <identifier>RecordSalesDescription_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-8phgac56la7</name>
@@ -5715,7 +5895,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>columns</name>
-                    <value>Facet-sclrd8abxid</value>
+                    <value>Facet-728xd1eqyrk</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
@@ -5743,7 +5923,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>columns</name>
-                    <value>Facet-7hye2l93v27</value>
+                    <value>Facet-vpa8e48r1bo</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
