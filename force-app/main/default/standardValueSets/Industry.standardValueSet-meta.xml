@@ -21,4 +21,9 @@
         <default>false</default>
         <label>Bank</label>
     </standardValue>
+    <standardValue>
+        <fullName>Pflegeimmobilienspezialist</fullName>
+        <default>false</default>
+        <label>Pflegeimmobilienspezialist</label>
+    </standardValue>
 </StandardValueSet>

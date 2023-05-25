@@ -9,20 +9,26 @@ public with sharing class ImmoframeProperty {
     public String postalCode;
     // Betreutes Wohnen || Pflegeimmobilie
     public String propertyType; 
+    public String propertyStatus;
+    public boolean showOnWebsite;
+    public boolean showOnImmoframe;
+    public boolean inspectionByDekra;
+    public String immoframeHeadline;
     public String description;
+    public String locationDescription;
     // Currently always null, maybe not used
     //Decimal shareRefurbishmentSubstanceInPercent;
     public Decimal yieldInPercent;
     public String googleDriveFolderId;
     public String websiteHeaderImage;
-    // Is used or not?
-    // public String image; 
+    public ImmoframeImage image; 
     // Currently always null, maybe not used
     //public String highlight;
     public Decimal valuePlotInPercent;
     public String objectVideoLink;
     public String operatorDescription;
     public String operatorLogoUrl;
+    public String operatorWebsiteUrl;
     public String operatorName;
     public Integer availableApartments;
     public Integer reservedApartments;
@@ -30,34 +36,40 @@ public with sharing class ImmoframeProperty {
     public String infoLineOne;
     public String infoLineTwo;
     public Boolean isPublic;
+    public Decimal minYieldInPercent;
     public Decimal maxYieldInPercent;
     public Decimal apartmentsMinPriceInEuro;
     public Decimal apartmentsMaxPriceInEuro;
+    public Decimal apartmentsMinAreaInSqm;
+    public Decimal apartmentsMaxAreaInSqm;
     public Date constructionDate;
     public String energyStandard;
+    public String constructionProgressUrl;
+    public String threeSixtyDegreeTourUrl;
+    public String disruptorLogoBanner;
+    public String disruptorLogoButton;
     public List<ImmoframeDocument> documents;
     public List<ImmoframeImage> images;
+    public List<ImmoframeImage> floorPlans;
     public List<ImmoframeApartment> apartments;
 
     public ImmoframeProperty() {
         this.documents = new List<ImmoframeDocument>();
         this.images = new List<ImmoframeImage>();
+        this.floorPlans = new List<ImmoframeImage>();
         this.apartments = new List<ImmoframeApartment>();
     }
 
     public class ImmoframeDocument {
         public String name;
         public String url;
-        // Aktuell nicht im System
         public String mimeType;
     }
 
     public class ImmoframeImage {
-        //https://drive.google.com/thumbnail?authuser=0&amp;sz=w1920&amp;id=1wMxGCT3QG3LmE304Bb7t9RzRhJz2lZpo
-        // Schauen wie wir es machen
+        // Example: https://drive.google.com/thumbnail?authuser=0&amp;sz=w1920&amp;id=1wMxGCT3QG3LmE304Bb7t9RzRhJz2lZpo
         public String fullSizeUrl;
-        //https://drive.google.com/thumbnail?authuser=0&amp;sz=w220&amp;id=1wMxGCT3QG3LmE304Bb7t9RzRhJz2lZpo
-        // Schauen wie wir es machen
+        // Example: https://drive.google.com/thumbnail?authuser=0&amp;sz=w220&amp;id=1wMxGCT3QG3LmE304Bb7t9RzRhJz2lZpo
         public String thumbnailUrl;
     }
 
