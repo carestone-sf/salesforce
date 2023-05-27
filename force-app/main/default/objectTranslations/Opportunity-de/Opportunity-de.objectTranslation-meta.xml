@@ -84,6 +84,10 @@
         </sections>
         <sections>
             <label></label>
+            <section>TeamProQ Informationen</section>
+        </sections>
+        <sections>
+            <label></label>
             <section>Vorhandene Unterlagen/Kaufpreisabwicklung</section>
         </sections>
     </layouts>
@@ -112,6 +116,10 @@
         <sections>
             <label></label>
             <section>Status</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>TeamProQ Informationen</section>
         </sections>
         <sections>
             <label></label>
@@ -150,6 +158,10 @@
         </sections>
         <sections>
             <label></label>
+            <section>TeamProQ Informationen</section>
+        </sections>
+        <sections>
+            <label></label>
             <section>Verlängerung</section>
         </sections>
         <sections>
@@ -185,6 +197,10 @@
         </sections>
         <sections>
             <label></label>
+            <section>TeamProQ Informationen</section>
+        </sections>
+        <sections>
+            <label></label>
             <section>Verlängerung</section>
         </sections>
         <sections>
@@ -204,6 +220,10 @@
         <label></label>
         <name>tdc_tsw__Send_SMS</name>
     </quickActions>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>AcceptanceProtocollSetBeforeStageWon</name>
+    </validationRules>
     <validationRules>
         <errorMessage></errorMessage>
         <name>Account_Pflichtfelder</name>
@@ -246,7 +266,15 @@
     </validationRules>
     <validationRules>
         <errorMessage></errorMessage>
+        <name>PropertyAndApartmentNotEmptyAfterConsult</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
         <name>ProvisionsdatenNichtAenderbar</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>PurchasePriceDueSetBeforeStageWon</name>
     </validationRules>
     <validationRules>
         <errorMessage></errorMessage>

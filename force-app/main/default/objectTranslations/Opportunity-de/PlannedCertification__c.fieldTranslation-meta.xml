@@ -11,6 +11,10 @@
         <translation>verloren</translation>
     </picklistValues>
     <picklistValues>
+        <masterLabel>Month after next</masterLabel>
+        <translation>übernächster Monat</translation>
+    </picklistValues>
+    <picklistValues>
         <masterLabel>Next Month</masterLabel>
         <translation>nächster Monat</translation>
     </picklistValues>
