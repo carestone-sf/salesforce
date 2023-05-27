@@ -3,6 +3,10 @@
     <label>Verfügung</label>
     <name>Status__c</name>
     <picklistValues>
+        <masterLabel>Auftrag zur Beurkundung vorhanden</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
         <masterLabel>Available</masterLabel>
         <translation>Verfügbar</translation>
     </picklistValues>

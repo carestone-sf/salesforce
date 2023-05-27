@@ -2175,17 +2175,22 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>DisruptorLogoButton__c</field>
+            <field>DisruptorLogoOne__c</field>
             <table>Property__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>DisruptorLogoBanner__c</field>
+            <field>DisruptorLogoTwo__c</field>
             <table>Property__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ShowOnWebsite__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>KommentarZentralprozesse__c</field>
             <table>Property__c</table>
         </columns>
         <masterLabel>Immobilien</masterLabel>

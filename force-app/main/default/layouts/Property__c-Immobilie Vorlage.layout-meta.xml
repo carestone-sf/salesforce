@@ -201,6 +201,10 @@
                 <behavior>Edit</behavior>
                 <field>KommentarFiBu__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>KommentarZentralprozesse__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
