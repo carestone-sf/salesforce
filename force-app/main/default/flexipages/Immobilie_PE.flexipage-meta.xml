@@ -1782,8 +1782,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DisruptorLogoButton__c</fieldItem>
-                <identifier>RecordDisruptorLogoButton_cField</identifier>
+                <fieldItem>Record.DisruptorLogoOne__c</fieldItem>
+                <identifier>RecordDisruptorLogoOne_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -1792,8 +1792,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DisruptorLogoBanner__c</fieldItem>
-                <identifier>RecordDisruptorLogoBanner_cField</identifier>
+                <fieldItem>Record.DisruptorLogoTwo__c</fieldItem>
+                <identifier>RecordDisruptorLogoTwo_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -1832,8 +1832,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Url360DegreeTour__c</fieldItem>
-                <identifier>RecordUrl360DegreeTour_cField2</identifier>
+                <fieldItem>Record.UrlConstructionProgress__c</fieldItem>
+                <identifier>RecordUrlConstructionProgress_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -5605,8 +5605,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DisruptorLogoButton__c</fieldItem>
-                <identifier>RecordDisruptorLogoButton_cField2</identifier>
+                <fieldItem>Record.DisruptorLogoOne__c</fieldItem>
+                <identifier>RecordDisruptorLogoOne_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -5615,8 +5615,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DisruptorLogoBanner__c</fieldItem>
-                <identifier>RecordDisruptorLogoBanner_cField2</identifier>
+                <fieldItem>Record.DisruptorLogoTwo__c</fieldItem>
+                <identifier>RecordDisruptorLogoTwo_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -5655,8 +5655,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Url360DegreeTour__c</fieldItem>
-                <identifier>RecordUrl360DegreeTour_cField4</identifier>
+                <fieldItem>Record.UrlConstructionProgress__c</fieldItem>
+                <identifier>RecordUrlConstructionProgress_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
