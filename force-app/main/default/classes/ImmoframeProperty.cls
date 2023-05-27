@@ -46,8 +46,8 @@ public with sharing class ImmoframeProperty {
     public String energyStandard;
     public String constructionProgressUrl;
     public String threeSixtyDegreeTourUrl;
-    public String disruptorLogoBanner;
-    public String disruptorLogoButton;
+    public String disruptorLogoOne;
+    public String disruptorLogoTwo;
     public List<ImmoframeDocument> documents;
     public List<ImmoframeImage> images;
     public List<ImmoframeImage> floorPlans;

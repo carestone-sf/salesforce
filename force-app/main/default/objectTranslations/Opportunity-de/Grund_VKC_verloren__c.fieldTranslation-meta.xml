@@ -3,6 +3,10 @@
     <label></label>
     <name>Grund_VKC_verloren__c</name>
     <picklistValues>
+        <masterLabel>Aus TeamProQ storniert</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
         <masterLabel>Durch WH auf anderes Objekt umgestellt</masterLabel>
         <translation></translation>
     </picklistValues>
