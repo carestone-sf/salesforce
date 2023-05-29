@@ -2885,4 +2885,12 @@
         </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ForecastCurrentYear__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <masterLabel>Verkaufschancen</masterLabel>
+    </sections>
 </ReportType>

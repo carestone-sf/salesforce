@@ -2190,6 +2190,11 @@
             <field>MarketingzuschussInEuro__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ForecastCurrentYear__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
         <masterLabel>Verkaufschancen</masterLabel>
     </sections>
 </ReportType>

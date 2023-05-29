@@ -2727,4 +2727,12 @@
         </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ForecastCurrentYear__c</field>
+            <table>Account.BetreuteAccounts__r.Opportunities</table>
+        </columns>
+        <masterLabel>Verkaufschancen</masterLabel>
+    </sections>
 </ReportType>
