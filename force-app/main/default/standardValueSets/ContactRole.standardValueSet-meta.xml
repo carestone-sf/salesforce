@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Geschäftsbenutzer</fullName>
+        <default>false</default>
+        <label>Geschäftsbenutzer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Entscheidungsträger</fullName>
+        <default>false</default>
+        <label>Entscheidungsträger</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Einkäufer in der Wirtschaft</fullName>
+        <default>false</default>
+        <label>Einkäufer in der Wirtschaft</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Entscheidungsträger in der Wirtschaft</fullName>
+        <default>false</default>
+        <label>Entscheidungsträger in der Wirtschaft</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Gutachter</fullName>
+        <default>false</default>
+        <label>Gutachter</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Leitender Auftraggeber</fullName>
+        <default>false</default>
+        <label>Leitender Auftraggeber</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Beeinflusser</fullName>
+        <default>false</default>
+        <label>Beeinflusser</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Technischer Einkäufer</fullName>
+        <default>false</default>
+        <label>Technischer Einkäufer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Andere</fullName>
+        <default>false</default>
+        <label>Andere</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Makler</fullName>
+        <default>false</default>
+        <label>Makler</label>
+    </standardValue>
+    <standardValue>
+        <fullName>1. Käufer</fullName>
+        <default>false</default>
+        <label>1. Käufer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>2. Käufer</fullName>
+        <default>false</default>
+        <label>2. Käufer</label>
+    </standardValue>
+</StandardValueSet>
