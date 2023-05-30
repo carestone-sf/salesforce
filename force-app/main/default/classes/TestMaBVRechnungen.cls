@@ -65,7 +65,7 @@ public with sharing class TestMaBVRechnungen {
     // Validation rule: Veroeffentlichung_MaBV_Objekt
     public static testMethod void testMissingPropertyData() {
         Property__c immobilie = new Property__c();
-        immobilie.Name = 'Immobilie';
+        immobilie.Name = 'Essen-Kettwig – Pflege';
         immobilie.Place__c = 'test';
         immobilie.Street__c = 'test2';
         immobilie.Zip_Code__c = '12312';
@@ -187,6 +187,7 @@ public with sharing class TestMaBVRechnungen {
         insert maBVRate3;
         update opp;
         insert maBVRate4;
+        ScheduledOposSync.syncOposAndInvoices();
         Test.stopTest();
 
         List<MaBVRechnung__c> maBVRechnungen = [SELECT Id, MaBVRechnungMaster__r.MaBVRate__c FROM MaBVRechnung__c];
