@@ -3,12 +3,19 @@ private with sharing class ers_DatatableControllerTest {
 
     @TestSetup
     private static void setup(){
-        Account acc1 = TestDataFactory.createAccount(true, 'Test1', 'Type1');
-        acc1.AccountNumber = '1';
-        acc1.AnnualRevenue = 1000000;
-        update acc1;
-        TestDataFactory.createAccount(true, 'Test2', 'Type2');
+        Account a1 = TestDataFactory.createAccount(false, 'Test1', 'Bank');
+        a1.AccountNumber='1';
+        a1.AnnualRevenue=1000000;
+        a1.Website='https://trailblazer.me/id/ericsmith';
+        a1.Description='D1';
+        insert a1;
 
+        Account a2 = TestDataFactory.createAccount(false, 'Test2', 'Bank');
+        a2.AccountNumber='2';
+        a2.AnnualRevenue=2000000;
+        a2.Website='https://ericsplayground.wordpress.com/blog/';
+        a2.Description='D2';
+        insert a2;
     }
 
     @IsTest
