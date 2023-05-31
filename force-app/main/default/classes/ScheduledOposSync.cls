@@ -118,6 +118,8 @@ global without sharing class ScheduledOposSync implements Schedulable {
                 rechnungsNummerAddition = 'PF';
             } else if(opp.Immobilie__r.Name == 'Essen-Kettwig – Betreutes Wohnen') {
                 rechnungsNummerAddition = 'BW';
+            } else {
+                rechnungsNummerAddition = '';
             }
             String rechnungsNummer = opp.Immobilie__r.Objektnummer__c + '-' + opp.Appartement__r.ApartmentNummer__c + rechnungsNummerAddition;
             List<Opos> oposList = rechnungsNummerToOpos.get(rechnungsNummer);
