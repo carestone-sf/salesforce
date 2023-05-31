@@ -4,7 +4,7 @@
         <name>BatchUpdateChildAccounts</name>
         <label>Update Child Accounts</label>
         <locationX>72</locationX>
-        <locationY>1523</locationY>
+        <locationY>1463</locationY>
         <actionName>BatchAccountUpdateChildAccounts</actionName>
         <actionType>apex</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -14,14 +14,12 @@
                 <elementReference>$Record</elementReference>
             </value>
         </inputParameters>
-        <!--<nameSegment>BatchAccountUpdateChildAccounts</nameSegment>-->
-        <!--<versionSegment>1</versionSegment>-->
     </actionCalls>
     <actionCalls>
         <name>BatchUpdateContacts</name>
         <label>Update Contacts</label>
         <locationX>204</locationX>
-        <locationY>1223</locationY>
+        <locationY>1127</locationY>
         <actionName>BatchAccountUpdateContacts</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -34,14 +32,12 @@
                 <elementReference>$Record</elementReference>
             </value>
         </inputParameters>
-        <!--<nameSegment>BatchAccountUpdateContacts</nameSegment>
-        <versionSegment>1</versionSegment>-->
     </actionCalls>
     <actionCalls>
         <name>BatchUpdateStructure</name>
         <label>Update Structure</label>
         <locationX>336</locationX>
-        <locationY>1523</locationY>
+        <locationY>1463</locationY>
         <actionName>BatchAccountUpdateStructure</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -54,14 +50,12 @@
                 <elementReference>$Record</elementReference>
             </value>
         </inputParameters>
-        <!--<nameSegment>BatchAccountUpdateStructure</nameSegment>
-        <versionSegment>1</versionSegment>-->
     </actionCalls>
     <actionCalls>
         <name>Check_IBAN</name>
         <label>Check IBAN</label>
         <locationX>182</locationX>
-        <locationY>623</locationY>
+        <locationY>455</locationY>
         <actionName>Iban</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -74,12 +68,10 @@
                 <elementReference>$Record.IBAN__c</elementReference>
             </value>
         </inputParameters>
-        <!--<nameSegment>Iban</nameSegment>-->
         <outputParameters>
             <assignToReference>IbanValid</assignToReference>
             <name>ibanValid</name>
         </outputParameters>
-        <!--<versionSegment>1</versionSegment>-->
     </actionCalls>
     <apiVersion>57.0</apiVersion>
     <decisions>
@@ -87,7 +79,7 @@
         <name>CheckChildAccountsUpdate</name>
         <label>Child Accounts Update?</label>
         <locationX>336</locationX>
-        <locationY>1415</locationY>
+        <locationY>1343</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>EmailChanged</name>
@@ -125,7 +117,7 @@
         <name>CheckContactUpdate</name>
         <label>Contacts update?</label>
         <locationX>336</locationX>
-        <locationY>1115</locationY>
+        <locationY>1007</locationY>
         <defaultConnector>
             <targetReference>CheckChildAccountsUpdate</targetReference>
         </defaultConnector>
@@ -157,7 +149,7 @@
         <name>IBAN_nicht_leer_oder_ge_ndert</name>
         <label>IBAN nicht leer oder geändert?</label>
         <locationX>336</locationX>
-        <locationY>515</locationY>
+        <locationY>335</locationY>
         <defaultConnector>
             <targetReference>CheckContactUpdate</targetReference>
         </defaultConnector>
@@ -193,35 +185,10 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Is_New</name>
-        <label>Is New?</label>
-        <locationX>336</locationX>
-        <locationY>323</locationY>
-        <defaultConnector>
-            <targetReference>IBAN_nicht_leer_oder_ge_ndert</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Is_New2</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record__Prior.Id</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>IBAN_nicht_leer_oder_ge_ndert</targetReference>
-            </connector>
-            <label>Is New?</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>Ist_IBAN_ung_ltig</name>
         <label>Ist IBAN ungültig?</label>
         <locationX>182</locationX>
-        <locationY>731</locationY>
+        <locationY>575</locationY>
         <defaultConnector>
             <targetReference>CheckContactUpdate</targetReference>
         </defaultConnector>
@@ -268,7 +235,7 @@
         <name>DisableUpdateStructureField</name>
         <label>Disable Update Structure field</label>
         <locationX>336</locationX>
-        <locationY>1631</locationY>
+        <locationY>1583</locationY>
         <inputAssignments>
             <field>Struktur_aktualisieren__c</field>
             <value>
@@ -281,7 +248,7 @@
         <name>Update_Account</name>
         <label>Update Account</label>
         <locationX>50</locationX>
-        <locationY>839</locationY>
+        <locationY>695</locationY>
         <connector>
             <targetReference>CheckContactUpdate</targetReference>
         </connector>
@@ -297,14 +264,14 @@
         <locationX>210</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Is_New</targetReference>
+            <targetReference>IBAN_nicht_leer_oder_ge_ndert</targetReference>
         </connector>
         <filterFormula>{!$Setup.AutomationController__c.AccountFlows__c}</filterFormula>
         <object>Account</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <variables>
         <name>IbanValid</name>
         <dataType>Boolean</dataType>
