@@ -8,7 +8,7 @@ public without sharing class EventController {
         User usr = [SELECT ContactId, AccountId FROM User WHERE Id = :userId];
         Id conId = usr.ContactId;
         Id accId = usr.AccountId;
-        List<Campaign> cmsRegistered = [SELECT Id, Name, Url__c, StartDate, EndDate, DateTime__c FROM Campaign WHERE Id IN (SELECT CampaignId FROM CampaignMember WHERE ContactId = :conId) AND StartDate >= TODAY];
+        List<Campaign> cmsRegistered = [SELECT Id, Name, Url__c, StartDate, EndDate, DateTime__c FROM Campaign WHERE Id IN (SELECT CampaignId FROM CampaignMember WHERE ContactId = :conId) AND StartDate >= TODAY AND ShowInPartnerPortal__c = true];
         List<Campaign> cmsNotRegistered = [SELECT Id, Name, Url__c, StartDate, EndDate, DateTime__c, Type FROM Campaign WHERE Type = 'Webinar' AND StartDate >= TODAY AND ID NOT IN (SELECT CampaignId FROM CampaignMember WHERE ContactId = :conId)];
         //Type of shown items on in the LWC is set in EventController.cls in line 12. At the moment restricted to “Webinar”. Please add Type “Objektveranstaltung” in addition.
         List<Campaign> cmsNotRegisteredObjektveranstaltung = [SELECT Id, Name, Url__c, StartDate, EndDate, DateTime__c, Type FROM Campaign WHERE Type = 'Objektveranstaltung' AND StartDate >= TODAY AND ID NOT IN (SELECT CampaignId FROM CampaignMember WHERE ContactId = :conId)];
