@@ -10,7 +10,25 @@
     <formulas>
         <name>calendlyCode</name>
         <dataType>String</dataType>
-        <expression>&apos;&lt;!-- Calendly Inline-Widget Beginn --&gt; &lt;div class=&quot;calendly-inline-widget&quot; data-url=&quot;https://calendly.com/&apos; + LOWER({!Get_account.Owner.FirstName})+&apos;-&apos;+LOWER({!Get_account.Owner.LastName}) + &apos;/online-sachwertwebinar?utm_source=&apos; + {!accountNameUrlEncoded} + &apos;&amp;utm_medium=&apos; + {!Get_account.Id} + &apos;&amp;utm_campaign=&apos; + {!campaignId} + &apos;&amp;utm_term=runzap&amp;hide_event_type_details=1&amp;hide_gdpr_banner=1&amp;primary_color=535353 &quot; style=&quot;min-width:320px;height:700px;&quot;&gt;&lt;/div&gt; &lt;script type=&quot;text/javascript&quot; src=&quot;https://assets.calendly.com/assets/external/widget.js&quot; async&gt;&lt;/script&gt; &lt;!-- Calendly Inline-Widget Ende --&gt;&apos;</expression>
+        <expression>&apos;&lt;!-- Calendly Inline-Widget Beginn --&gt; &lt;div class=&quot;calendly-inline-widget&quot; data-url=&quot;https://calendly.com/&apos; + {!maklerbetreuerToCalendlyUserMap} + &apos;/online-sachwertwebinar?utm_source=&apos; + {!accountNameUrlEncoded} + &apos;&amp;utm_medium=&apos; + {!Get_account.Id} + &apos;&amp;utm_campaign=&apos; + {!campaignId} + &apos;&amp;utm_term=runzap&amp;hide_event_type_details=1&amp;hide_gdpr_banner=1&amp;primary_color=535353 &quot; style=&quot;min-width:320px;height:700px;&quot;&gt;&lt;/div&gt; &lt;script type=&quot;text/javascript&quot; src=&quot;https://assets.calendly.com/assets/external/widget.js&quot; async&gt;&lt;/script&gt; &lt;!-- Calendly Inline-Widget Ende --&gt;&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>maklerbetreuerToCalendlyUserMap</name>
+        <dataType>String</dataType>
+        <expression>CASE({!Get_account.Owner.FirstName} + &apos; &apos; + {!Get_account.Owner.LastName},
+&apos;Frank Köpsell&apos;, &apos;f-koepsell&apos;, 
+&apos;Maurice Fuhrmann&apos;, &apos;maurice-fuhrmann&apos;,
+&apos;Joschka Dittrich&apos;, &apos;j-dittrich&apos;,
+&apos;Lars Wagner&apos;, &apos;carestonewagner&apos;,
+&apos;Sven Schulz&apos;, &apos;sven_schulz&apos;,
+&apos;Martin Namendorff&apos;, &apos;m-namendorff&apos;,
+&apos;Jost Laue&apos;, &apos;jost-laue&apos;,
+&apos;Carsten Pausch&apos;, &apos;c-pausch&apos;,
+&apos;Maurice Lindenblatt&apos;, &apos;m-lindenblatt&apos;,
+&apos;Dennis Podssun&apos;, &apos;d-podssun&apos;,
+&apos;Kelvin Schwabe&apos;, &apos;k-schwabe&apos;,
+&apos;Vincent Ostrowsky&apos;, &apos;v-ostrowsky&apos;,
+&apos;&apos;)</expression>
     </formulas>
     <interviewLabel>Account - Calendly Code Generator {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Account - Calendly Code Generator</label>
