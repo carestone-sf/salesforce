@@ -37,6 +37,7 @@ trigger Provision on Provision__c (before update, before insert, after update, a
                 gutschrift.Objekt__c = provision.Objekt__c;
                 gutschrift.MarketingzuschussNichtAusweisen__c = provision.MarketingzuschussNichtAusweisen__c;
                 gutschrift.OwnerId = provision.Maklerbetreuer__c;
+                gutschrift.AdditionalBrokerCommission__c = provision.AdditionalBrokerCommission__c;
 
                 if (provision.GutschriftBestaetigt__c && !oldProvision.GutschriftBestaetigt__c) {
                     gutschrift.DatumGutschriftBestaetigt__c = Date.today();
