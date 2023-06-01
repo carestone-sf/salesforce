@@ -183,6 +183,17 @@
                 <apex:outputField value="{!Gutschrift__c.WertMarketingzuschuss__c}"/>
             </td>
         </tr>
+        <tr style="{!IF(AND(Gutschrift__c.AdditionalBrokerCommission__c != 0, Gutschrift__c.AdditionalBrokerCommission__c != null), 'display:table-row', 'display:none')}">
+            <td>
+                Incentive:
+            </td>
+            <td>
+                <apex:outputField value="{!Gutschrift__c.AdditionalBrokerCommissionInPercent__c}"/>
+            </td>
+            <td style="text-align: right;">
+                <apex:outputField value="{!Gutschrift__c.AdditionalBrokerCommission__c}"/>
+            </td>
+        </tr>
     </table>
     <hr/>
     <table>
