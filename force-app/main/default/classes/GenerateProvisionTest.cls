@@ -8,6 +8,11 @@ private class GenerateProvisionTest {
         mb.Email = 'witte@amstammtisch.de';
         mb.MaklerBetreuer_E_Mail__c = 'witte@amstammtisch.de';
         mb.Gesch_ftsbeziehung__c = 'Versicherungsmakler';
+        mb.Phone = '0511123123';
+        mb.MailingStreet = 'Lister Meile 45';
+        mb.MailingPostalCode = '30159';
+        mb.MailingCity = 'Hannover';
+        mb.BirthDate = Date.today()-12000;
         insert mb;
         Account acc3 = new Account();
         acc3.Name = 'WH Maklerbetreuer - Frank Köpsell';
@@ -27,6 +32,12 @@ private class GenerateProvisionTest {
         Contact potKun = new Contact();
         potKun.FirstName = 'Tvvsta';
         potKun.LastName = 'Tekoeeric';
+        potKun.Email = 'test@tester.de';
+        potKun.Phone = '0511123123';
+        potKun.MailingStreet = 'Lister Meile 45';
+        potKun.MailingPostalCode = '30159';
+        potKun.MailingCity = 'Hannover';
+        potKun.BirthDate = Date.today()-12000;
         insert potKun;
 
         Property__c immobilie = new Property__c();

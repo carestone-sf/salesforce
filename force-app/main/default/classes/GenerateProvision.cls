@@ -39,6 +39,7 @@ public without sharing class GenerateProvision {
         if(opp.Makler__c == con.Id && opp.Abrechnung_ber__c == null) {
             prov.Wert_Maklerprovision__c = opp.Wert_Maklerprovision__c;
             prov.WertMarketingzuschuss__c = opp.WertMarketingzuschuss__c;
+            prov.AdditionalBrokerCommission__c = opp.AdditionalBrokerCommission__c;
         }
         if(opp.Abrechnung_ber__c == con.Id) {
             if(String.isBlank(opp.Verkaufsprovision_intern__c) && !opp.AbrechnungUeberNurFuerGrundprovision__c) {
@@ -46,6 +47,7 @@ public without sharing class GenerateProvision {
             }
             prov.Wert_Maklerprovision__c = opp.Wert_Maklerprovision__c;
             prov.WertMarketingzuschuss__c = opp.WertMarketingzuschuss__c;
+            prov.AdditionalBrokerCommission__c = opp.AdditionalBrokerCommission__c;
             prov.Makler__c = opp.Abrechnung_ber__c;
         }
         if(opp.TippgeberProvisionEmpfaenger__c == con.Id) {
@@ -112,6 +114,7 @@ public without sharing class GenerateProvision {
             opp.Abrechnung_ber__c == oldMakler) {
             prov.Wert_Maklerprovision__c = opp.Wert_Maklerprovision__c;
             prov.WertMarketingzuschuss__c = opp.WertMarketingzuschuss__c;
+            prov.AdditionalBrokerCommission__c = opp.AdditionalBrokerCommission__c;
             if(prov.Makler__c == null && opp.Abrechnung_ber__c == null) {
                 prov.Makler__c = opp.Makler__c;
             } else if(prov.Makler__c == null) {
@@ -120,6 +123,7 @@ public without sharing class GenerateProvision {
         } else if(oldOpp.Makler__c == oldMakler) {
             prov.Wert_Maklerprovision__c = 0;
             prov.WertMarketingzuschuss__c = 0;
+            prov.AdditionalBrokerCommission__c = 0;
         }
 
         if(opp.Wert_Tippprovision__c == 0) {
@@ -163,7 +167,7 @@ public without sharing class GenerateProvision {
 
         // Get all Provision__c records which are related to the passed in Opportunities
         Set<Id> oppIds = opps.keySet();
-        List<Provision__c> provs = [SELECT Verkaufschance__c, Wert_Provision_Thoben__c, Makler__c, Provisionssatz__c, Objekt__c, Wohneinheit__c, Kunde__c, Ausl_ser__c, E_Mail__c, Kaufpreis__c, Erfolgsabh_ngige_Provision_direkt__c, Wert_Verk_ufer_Beratungsprovision_m_R__c, Wert_Sonstige_1__c, Wert_Sonstige_2__c, JMB_Beteiligung__c, Wert_Maklerprovision__c, Wert_Beteiligung_SMB_an_JMB__c, Wert_Differenzprovision__c, Maklerbetreuer__c, Wert_Tippprovision__c, Wert_Overhead__c, Wert_Referentenverg_tung__c, WertMarketingzuschuss__c FROM Provision__c WHERE Verkaufschance__c IN : oppIds];
+        List<Provision__c> provs = [SELECT Verkaufschance__c, Wert_Provision_Thoben__c, Makler__c, Provisionssatz__c, Objekt__c, Wohneinheit__c, Kunde__c, Ausl_ser__c, E_Mail__c, Kaufpreis__c, Erfolgsabh_ngige_Provision_direkt__c, Wert_Verk_ufer_Beratungsprovision_m_R__c, Wert_Sonstige_1__c, Wert_Sonstige_2__c, JMB_Beteiligung__c, Wert_Maklerprovision__c, Wert_Beteiligung_SMB_an_JMB__c, Wert_Differenzprovision__c, Maklerbetreuer__c, Wert_Tippprovision__c, Wert_Overhead__c, Wert_Referentenverg_tung__c, WertMarketingzuschuss__c, AdditionalBrokerCommission__c FROM Provision__c WHERE Verkaufschance__c IN : oppIds];
         // Map the Provision__c records to a single Contact Id to a single Opportunity Id to use correct List in for loop
         Map<Id, Map<Id, List<Provision__c>>> oppToMaklerToProvMap = new Map<Id, Map<Id, List<Provision__c>>>();
         for(Opportunity opp:opps.values()) {
