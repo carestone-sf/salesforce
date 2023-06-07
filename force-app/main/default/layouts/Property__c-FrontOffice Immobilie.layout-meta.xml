@@ -114,7 +114,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>VerantwortlichPM__c</field>
+                <field>ResponsiblePM__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
