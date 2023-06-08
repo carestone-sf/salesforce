@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Datum_Automatisierte_Genehmigung_leeren</fullName>
+        <field>PaymentReminderAutomaticDate__c</field>
+        <name>Datum Automatisierte Genehmigung leeren</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Datum_Automatisierte_Genehmigung_setzen</fullName>
+        <field>PaymentReminderAutomaticDate__c</field>
+        <formula>IF(WEEKDAY(TODAY()+2) = 7, NOW()+4, IF(WEEKDAY(TODAY()+2) = 1, NOW()+3, NOW()+2))</formula>
+        <name>Datum Automatisierte Genehmigung setzen</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Genehmigt_true</fullName>
+        <field>Genehmigt__c</field>
+        <literalValue>1</literalValue>
+        <name>Genehmigt = true</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Mahnung_generieren</fullName>
+        <field>MahnungGenerieren__c</field>
+        <literalValue>1</literalValue>
+        <name>Mahnung generieren</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Mahnung_zu_Genehmigung_senden_false</fullName>
+        <field>MahnungZurGenehmigungSenden__c</field>
+        <literalValue>0</literalValue>
+        <name>Mahnung zu Genehmigung senden false</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>
