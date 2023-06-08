@@ -27,7 +27,7 @@ MaBVRechnungMasterUtil {
             propertyIdsSet.add(maBVRate.Immobilie__c);
         }
         List<Id> propertyIds = new List<Id>(propertyIdsSet);
-        List<Opportunity> opps = [SELECT Id, Immobilie__c, Abnahmeprotokoll__c FROM Opportunity WHERE Kaufpreis_f_llig__c = TRUE AND Immobilie__c IN :propertyIds AND KeineMaBVRechnungGenerieren__c = FALSE];
+        List<Opportunity> opps = [SELECT Id, Immobilie__c, Abnahmeprotokoll__c, OwnerId FROM Opportunity WHERE Kaufpreis_f_llig__c = TRUE AND Immobilie__c IN :propertyIds AND KeineMaBVRechnungGenerieren__c = FALSE];
         createMaBVRechnung(opps, maBVRaten);
     }
 
@@ -46,12 +46,14 @@ MaBVRechnungMasterUtil {
                 MaBVRechnungMaster__c maBVRechnungMaster;
                 if(oppToMaBVRateToMaBVRechnungMasterMap.get(opp.Id) != null && oppToMaBVRateToMaBVRechnungMasterMap.get(opp.Id).get(maBVRate.Id) != null) {
                     maBVRechnungMaster = oppToMaBVRateToMaBVRechnungMasterMap.get(opp.Id).get(maBVRate.Id);
+                    maBVRechnungMaster.OwnerId = opp.OwnerId;
                     if(maBVRechnungMaster.Faelligkeitsdatum__c > Date.Today()) {
                         maBVRechnungMaster.Faelligkeitsdatum__c = maBVRate.Faelligkeitsdatum__c;
                         maBVRechnungenMaster.add(maBVRechnungMaster);
                     }
                 } else {
                     maBVRechnungMaster = new MaBVRechnungMaster__c();
+                    maBVRechnungMaster.OwnerId = opp.OwnerId;
                     maBVRechnungMaster.Opportunity__c = opp.Id;
                     maBVRechnungMaster.MaBVRate__c = maBVRate.Id;
                     maBVRechnungMaster.Faelligkeitsdatum__c = maBVRate.Faelligkeitsdatum__c;

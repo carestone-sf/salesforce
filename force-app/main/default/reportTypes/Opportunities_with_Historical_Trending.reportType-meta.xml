@@ -1247,6 +1247,11 @@
             <field>ForecastCurrentYear__c</field>
             <table>Opportunity</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PaymentReminderAutomaticDate__c</field>
+            <table>Opportunity</table>
+        </columns>
         <masterLabel>Verkaufschancen</masterLabel>
     </sections>
 </ReportType>

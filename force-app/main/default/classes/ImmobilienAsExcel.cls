@@ -50,8 +50,8 @@ global class ImmobilienAsExcel implements Schedulable {
 				Emailwithattch.setTemplateId(templateId);
 				Emailwithattch.setTargetObjectId(con.Id);
 				if ( oweas.size() > 0 ) {
-					if(oweaStringToId.containsKey(con.Account.Maklerbetreuer_Wirtschaftshaus__c) && con.Account.Maklerbetreuer_Wirtschaftshaus__c != 'Mirco Buchholz') {
-						Emailwithattch.setOrgWideEmailAddressId(oweaStringToId.get(con.Account.Maklerbetreuer_Wirtschaftshaus__c));
+					if(con.Account.Maklerbetreuer_Wirtschaftshaus_2__c != null && oweaStringToId.containsKey(con.Account.Maklerbetreuer_Wirtschaftshaus_2__r.Name) && con.Account.Maklerbetreuer_Wirtschaftshaus_2__r.Name != 'Mirco Buchholz') {
+						Emailwithattch.setOrgWideEmailAddressId(oweaStringToId.get(con.Account.Maklerbetreuer_Wirtschaftshaus_2__r.Name));
 					} else {
 						Emailwithattch.setOrgWideEmailAddressId(oweaStringToId.get('Carestone Service'));
 					}

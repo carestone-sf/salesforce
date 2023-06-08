@@ -3,7 +3,7 @@ global without sharing class ImmobilienAsExcelBatch implements Database.Batchabl
     global Database.QueryLocator start(Database.BatchableContext BC)
     {
         
-        String query = 'SELECT Id, Gesch_ftsbeziehung__c, Email, Account.Maklerbetreuer_Wirtschaftshaus__c FROM Contact WHERE HasOptedOutOfEmail = FALSE AND Objektliste_abbestellen__c = FALSE AND Gesch_ftsbeziehung__c includes (\'Finanzmakler\',\'Finanz- und Versicherungsmakler\', \'Immobilien- oder Versicherungsmakler\', \'Versicherungsmakler\', \'Immobilienmakler\', \'Mitarbeiter WH\') AND Gesch_ftsbeziehung__c != null AND Email != null AND (Account.WHS_Maklerauftrag__c = \'Maklerauftrag beidseitig unterzeichnet\' OR Account.WHS_Maklerauftrag__c = \'Makler mit altem Vertrag\' OR Account.Carestone_Vertriebsvereinbarung__c = true) Order By AccountId';
+        String query = 'SELECT Id, Gesch_ftsbeziehung__c, Email, Account.Maklerbetreuer_Wirtschaftshaus__r.Name FROM Contact WHERE HasOptedOutOfEmail = FALSE AND Objektliste_abbestellen__c = FALSE AND Gesch_ftsbeziehung__c includes (\'Finanzmakler\',\'Finanz- und Versicherungsmakler\', \'Immobilien- oder Versicherungsmakler\', \'Versicherungsmakler\', \'Immobilienmakler\', \'Mitarbeiter WH\') AND Gesch_ftsbeziehung__c != null AND Email != null AND (Account.WHS_Maklerauftrag__c = \'Maklerauftrag beidseitig unterzeichnet\' OR Account.WHS_Maklerauftrag__c = \'Makler mit altem Vertrag\' OR Account.Carestone_Vertriebsvereinbarung__c = true) Order By AccountId';
         return Database.getQueryLocator(query);
     }
  
