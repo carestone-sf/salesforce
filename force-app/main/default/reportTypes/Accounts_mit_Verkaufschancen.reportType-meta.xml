@@ -484,6 +484,11 @@
             <field>ActionsAnnualTarget__c</field>
             <table>Account</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ReparentDate__c</field>
+            <table>Account</table>
+        </columns>
         <masterLabel>Accounts</masterLabel>
     </sections>
     <sections>
@@ -1271,6 +1276,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ForecastCurrentYear__c</field>
+            <table>Account.Opportunities</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PaymentReminderAutomaticDate__c</field>
             <table>Account.Opportunities</table>
         </columns>
         <masterLabel>Verkaufschancen</masterLabel>

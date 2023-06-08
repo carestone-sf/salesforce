@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>57.0</apiVersion>
+    <assignments>
+        <name>Set_Reparent_Date</name>
+        <label>Set Reparent Date</label>
+        <locationX>182</locationX>
+        <locationY>671</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.ReparentDate__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>now</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
     <decisions>
         <description>Checks if parent id has been changed.</description>
         <name>Check_ParentIdChanged</name>
         <label>ParentId changed?</label>
-        <locationX>226</locationX>
-        <locationY>287</locationY>
+        <locationX>248</locationX>
+        <locationY>311</locationY>
         <defaultConnectorLabel>Not changed</defaultConnectorLabel>
         <rules>
             <name>ParentIDChangeOrNew</name>
@@ -43,7 +56,7 @@
         <name>CheckIsParentCarestoneGroupAccount</name>
         <label>Is Carestone Group Account?</label>
         <locationX>50</locationX>
-        <locationY>395</locationY>
+        <locationY>431</locationY>
         <defaultConnector>
             <targetReference>UpdateFieldsFromParentAccount</targetReference>
         </defaultConnector>
@@ -66,6 +79,11 @@
         <name>isNew</name>
         <dataType>Boolean</dataType>
         <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>now</name>
+        <dataType>DateTime</dataType>
+        <expression>now()</expression>
     </formulas>
     <formulas>
         <description>Date value 90 days from today.</description>
@@ -98,8 +116,11 @@
         <description>Updates field from parent account details.</description>
         <name>UpdateFieldsFromParentAccount</name>
         <label>Update Fields from Parent Account</label>
-        <locationX>138</locationX>
-        <locationY>503</locationY>
+        <locationX>182</locationX>
+        <locationY>551</locationY>
+        <connector>
+            <targetReference>Set_Reparent_Date</targetReference>
+        </connector>
         <inputAssignments>
             <field>E_Mail_bergeordneter_Makler__c</field>
             <value>
@@ -121,7 +142,7 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>100</locationX>
+        <locationX>122</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Check_ParentIdChanged</targetReference>
@@ -132,4 +153,5 @@
         <triggerType>RecordBeforeSave</triggerType>
     </start>
     <status>Active</status>
+    <triggerOrder>10</triggerOrder>
 </Flow>

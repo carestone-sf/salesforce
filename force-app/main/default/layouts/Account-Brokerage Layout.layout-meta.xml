@@ -51,6 +51,10 @@
                 <field>IsKeyAccount__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>IstMaklerbetreuerCarestone__c</field>
+            </layoutItems>
+            <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
         </layoutColumns>
@@ -114,6 +118,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>PotenzialanalyseErfasstAm__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ReparentDate__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

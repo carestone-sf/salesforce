@@ -12,12 +12,6 @@
         </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
-            <name>processDefinitionNameOrId</name>
-            <value>
-                <stringValue>Zahlungserinnerung</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
             <name>objectId</name>
             <value>
                 <elementReference>$Record.Id</elementReference>
@@ -33,6 +27,12 @@
             <name>submitterId</name>
             <value>
                 <elementReference>$User.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>processDefinitionNameOrId</name>
+            <value>
+                <stringValue>Zahlungserinnerung2</stringValue>
             </value>
         </inputParameters>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -74,7 +74,7 @@
         </inputParameters>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
-    <apiVersion>53.0</apiVersion>
+    <apiVersion>54.0</apiVersion>
     <assignments>
         <name>Assign_fifth_invoice_to_apartment</name>
         <label>Assign fifth invoice to apartment</label>
