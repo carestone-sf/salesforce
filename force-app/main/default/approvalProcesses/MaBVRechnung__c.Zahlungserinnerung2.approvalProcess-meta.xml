@@ -34,10 +34,6 @@
         <type>user</type>
     </allowedSubmitters>
     <allowedSubmitters>
-        <submitter>e.pilz@wirtschaftshaus.de</submitter>
-        <type>user</type>
-    </allowedSubmitters>
-    <allowedSubmitters>
         <submitter>h.deres@carestone.com</submitter>
         <type>user</type>
     </allowedSubmitters>
