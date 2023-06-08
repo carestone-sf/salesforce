@@ -229,6 +229,21 @@ TestOpportunity {
         provision.GutschriftBestaetigt__c = true;
         update provision;
 
+        List<ResolveApprovalRequest.Requests> requests = new List<ResolveApprovalRequest.Requests>();
+        ResolveApprovalRequest.Requests req = new ResolveApprovalRequest.Requests();
+        req.action = 'Approve';
+        req.comments = 'Test Comments';
+        req.recordId = provision.Id;
+        req.objName = 'Provision__c';
+        List<ProcessInstanceWorkitem> workItems = [Select p.Id, p.ProcessInstance.TargetObjectId from ProcessInstanceWorkitem p];
+        req.approvalRequestId = workItems[0].Id;
+
+        // Add req to requests
+        requests.add(req);
+
+        // Run Test
+        ResolveApprovalRequest.execute(requests);
+
         Gutschrift__c gs = [SELECT Id FROM Gutschrift__c];
         gs.ZuDatevUebertragen__c = true;
         update gs;

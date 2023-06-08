@@ -242,6 +242,10 @@
                 <behavior>Readonly</behavior>
                 <field>ZahlungszielDatum__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Maklerbetreuer__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
