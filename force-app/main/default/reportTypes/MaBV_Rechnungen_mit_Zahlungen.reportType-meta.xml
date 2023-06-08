@@ -417,6 +417,16 @@
             <field>ZahlungszielDatum__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Maklerbetreuer__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PaymentReminderAutomaticDate__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
         <masterLabel>MaBV Rechnungen</masterLabel>
     </sections>
     <sections>

@@ -1590,6 +1590,16 @@
             <field>ZahlungszielDatum__c</field>
             <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Maklerbetreuer__c</field>
+            <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PaymentReminderAutomaticDate__c</field>
+            <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
         <masterLabel>MaBV Rechnungen</masterLabel>
     </sections>
     <sections>
@@ -1614,6 +1624,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ForecastCurrentYear__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PaymentReminderAutomaticDate__c</field>
             <table>Opportunity</table>
         </columns>
         <masterLabel>Verkaufschancen</masterLabel>

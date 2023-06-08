@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Offen</fullName>
+        <default>true</default>
+        <label>Offen</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Kontaktiert</fullName>
+        <default>false</default>
+        <label>Kontaktiert</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Interessiert</fullName>
+        <default>false</default>
+        <label>Interessiert</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Konvertiert</fullName>
+        <default>false</default>
+        <label>Konvertiert</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Lead verloren</fullName>
+        <default>false</default>
+        <label>Lead verloren</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Konvertiert_inaktiv</fullName>
+        <default>false</default>
+        <label>Konvertiert_inaktiv</label>
+        <converted>true</converted>
+    </standardValue>
+</StandardValueSet>
