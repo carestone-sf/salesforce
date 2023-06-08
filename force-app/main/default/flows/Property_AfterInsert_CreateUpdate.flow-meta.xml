@@ -3,6 +3,138 @@
     <apiVersion>57.0</apiVersion>
     <assignments>
         <description>CS-203</description>
+        <name>NewTaskAufschBedingung</name>
+        <label>New Task Aufschiebende Bedinung/Rücktrittsrecht</label>
+        <locationX>168</locationX>
+        <locationY>1367</locationY>
+        <assignmentItems>
+            <assignToReference>TaskDummy.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.ResponsiblePE__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.Subject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TaskSubject_AufschiebendeBedingungRuecktrittsrecht</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.Description</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TaskDescription_AufschiebendeBedingungRuecktrittsrechte</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.ActivityDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AufschiebendeBedingung_2WeeksBefore</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.IsReminderSet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.ReminderDateTime</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AufschiebendeBedingung_1WeekBefore</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.WhatId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>PeTasksToCreate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>TaskDummy</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>CheckExklusivitaetVerkaeuferBisEmpty</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>CS-203</description>
+        <name>NewTaskAufschBedingungDate</name>
+        <label>New Task Aufschiebende Bedingung</label>
+        <locationX>921</locationX>
+        <locationY>575</locationY>
+        <assignmentItems>
+            <assignToReference>TaskDummy.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.ResponsiblePE__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.Subject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TaskSubject_AufschiebendeBedingungRuecktrittsrecht</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.Description</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TaskDescription_AufschiebendeBedingungRuecktrittsrechte</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.ActivityDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AufschiebendeBedingung_2WeeksBefore</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.IsReminderSet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.ReminderDateTime</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AufschiebendeBedingung_1WeekBefore</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.WhatId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>PeTasksToCreate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>TaskDummy</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>CheckExklusivitaetVerkaeuferDateChanged</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>CS-203</description>
         <name>NewTaskBeurkundungAnkauf</name>
         <label>New Task Beurkundung Ankauf</label>
         <locationX>158</locationX>
@@ -25,7 +157,7 @@
             <assignToReference>TaskDummy.Description</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Der Ankaufsvertrag für dieses Projekt wurde unterzeichnet. Bitte die Fälligkeitsvoraussetzungen aus dem Vertrag beachten.</stringValue>
+                <elementReference>TaskDescription_BeurkundungAnkauf</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -91,7 +223,7 @@
             <assignToReference>TaskDummy.Description</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Der Ankaufsvertrag für dieses Projekt wurde unterzeichnet. Bitte die Fälligkeitsvoraussetzungen aus dem Vertrag beachten.</stringValue>
+                <elementReference>TaskDescription_BeurkundungAnkauf</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -157,7 +289,7 @@
             <assignToReference>TaskDummy.Description</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Die Exklusivität mit dem Betreiber läuft am {!$Record.ExklusivitaetBis__c} aus.</stringValue>
+                <elementReference>TaskDescription_ExklusivitaetBetreiberBis</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -223,7 +355,7 @@
             <assignToReference>TaskDummy.Description</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Die Exklusivität mit dem Betreiber läuft am {!$Record.ExklusivitaetBis__c} aus.</stringValue>
+                <elementReference>TaskDescription_ExklusivitaetBetreiberBis</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -289,7 +421,7 @@
             <assignToReference>TaskDummy.Description</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Die Exklusivität mit dem Verkäufer läuft am {!$Record.ExclusivitySellerUntil__c} aus.</stringValue>
+                <elementReference>TaskDescription_ExklusivitaetVerkaeuferBis</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -355,7 +487,7 @@
             <assignToReference>TaskDummy.Description</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Die Exklusivität mit dem Verkäufer läuft am {!$Record.ExclusivitySellerUntil__c} aus.</stringValue>
+                <elementReference>TaskDescription_ExklusivitaetVerkaeuferBis</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -421,7 +553,7 @@
             <assignToReference>TaskDummy.Description</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Wurde der IVA 1 bereits genehmigt?</stringValue>
+                <elementReference>TaskDescription_Iva1</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -487,7 +619,7 @@
             <assignToReference>TaskDummy.Description</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Wurde der IVA 1 bereits genehmigt?</stringValue>
+                <elementReference>TaskDescription_Iva1</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -1361,6 +1493,38 @@ CS-203</description>
         <dataType>Date</dataType>
         <expression>{!$Record.IVA1__c} + 28</expression>
     </formulas>
+    <formulas>
+        <name>TaskDescription_AufschiebendeBedingungRuecktrittsrechte</name>
+        <dataType>String</dataType>
+        <expression>&quot;Die Frist für die aufschiebende Bedingung / das Rücktrittsrecht läuft am &quot; + TEXT(Day({!$Record.DateConditionPrecedentRightOfWithdrawal__c})) + &quot;.&quot; + TEXT(MONTH({!$Record.DateConditionPrecedentRightOfWithdrawal__c})) + &quot;.&quot; +
+TEXT(YEAR({!$Record.DateConditionPrecedentRightOfWithdrawal__c})) + &quot; aus.&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>TaskDescription_BeurkundungAnkauf</name>
+        <dataType>String</dataType>
+        <expression>&quot;Der Ankaufsvertrag für dieses Projekt wurde unterzeichnet. Bitte die Fälligkeitsvoraussetzungen aus dem Vertrag beachten.&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>TaskDescription_ExklusivitaetBetreiberBis</name>
+        <dataType>String</dataType>
+        <expression>&quot;Die Exklusivität mit dem Betreiber läuft am &quot; + 
+TEXT(DAY({!$Record.ExklusivitaetBis__c})) + &quot;.&quot; +
+TEXT(MONTH({!$Record.ExklusivitaetBis__c})) + &quot;.&quot; +
+TEXT(YEAR({!$Record.ExklusivitaetBis__c})) + &quot; aus.&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>TaskDescription_ExklusivitaetVerkaeuferBis</name>
+        <dataType>String</dataType>
+        <expression>&quot;Die Exklusivität mit dem Verkäufer läuft am &quot; + 
+TEXT(DAY({!$Record.ExclusivitySellerUntil__c})) + &quot;.&quot; +
+TEXT(MONTH({!$Record.ExclusivitySellerUntil__c})) + &quot;.&quot; +
+TEXT(YEAR({!$Record.ExclusivitySellerUntil__c})) + &quot; aus.&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>TaskDescription_Iva1</name>
+        <dataType>String</dataType>
+        <expression>&quot;Wurde der IVA 1 bereits genehmigt?&quot;</expression>
+    </formulas>
     <interviewLabel>Property - After Insert - Create/Update {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Property - After Insert - Create/Update</label>
     <loops>
@@ -1658,6 +1822,50 @@ CS-203</description>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
+        <description>Update Task related to date field Aufschiebende Bedingung/Rücktrittsrechte</description>
+        <name>UpdateAufschBedingungTask</name>
+        <label>Update AufschBedinung Task</label>
+        <locationX>1185</locationX>
+        <locationY>575</locationY>
+        <connector>
+            <targetReference>CheckExklusivitaetVerkaeuferDateChanged</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OwnerId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ResponsiblePE__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TaskSubject_AufschiebendeBedingungRuecktrittsrecht</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>AufschiebendeBedingung_2WeeksBefore</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>TaskDescription_AufschiebendeBedingungRuecktrittsrechte</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ReminderDateTime</field>
+            <value>
+                <elementReference>AufschiebendeBedingung_1WeekBefore</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Tasks</inputReference>
+    </recordUpdates>
+    <recordUpdates>
         <description>Update Task related to date field Beurkundung Ankauf</description>
         <name>UpdateBeurkundungAnkaufTask</name>
         <label>Update Beurkundung Ankauf Task</label>
@@ -1678,6 +1886,12 @@ CS-203</description>
             <field>ActivityDate</field>
             <value>
                 <elementReference>BeurkundungAnkauf_1DayAfter</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>TaskDescription_BeurkundungAnkauf</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1719,6 +1933,12 @@ CS-203</description>
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>TaskDescription_ExklusivitaetBetreiberBis</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>ReminderDateTime</field>
             <value>
                 <elementReference>ExklusivitaetBetreiberBis_1WeekBefore</elementReference>
@@ -1757,6 +1977,12 @@ CS-203</description>
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>TaskDescription_ExklusivitaetVerkaeuferBis</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>ReminderDateTime</field>
             <value>
                 <elementReference>ExklusivitaetVerkaeuferBis_1WeekBefore</elementReference>
@@ -1792,6 +2018,12 @@ CS-203</description>
             <field>ActivityDate</field>
             <value>
                 <elementReference>Iva1_3WeeksAfter</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>TaskDescription_Iva1</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
