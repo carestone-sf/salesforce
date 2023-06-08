@@ -122,10 +122,6 @@
         <type>user</type>
     </allowedSubmitters>
     <allowedSubmitters>
-        <submitter>s.sommer@carestone.com</submitter>
-        <type>user</type>
-    </allowedSubmitters>
-    <allowedSubmitters>
         <submitter>witte@amstammtisch.de</submitter>
         <type>user</type>
     </allowedSubmitters>
