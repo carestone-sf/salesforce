@@ -58,10 +58,6 @@
         <type>user</type>
     </allowedSubmitters>
     <allowedSubmitters>
-        <submitter>m.namendorff@carestone.com</submitter>
-        <type>user</type>
-    </allowedSubmitters>
-    <allowedSubmitters>
         <submitter>p.staehler@carestone.com</submitter>
         <type>user</type>
     </allowedSubmitters>
