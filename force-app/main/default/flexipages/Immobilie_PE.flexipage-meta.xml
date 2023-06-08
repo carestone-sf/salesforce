@@ -3030,6 +3030,16 @@
                 <identifier>RecordAufschiebendeBedingungRuecktrittrecht_cField2</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.DateConditionPrecedentRightOfWithdrawal__c</fieldItem>
+                <identifier>RecordDateConditionPrecedentRightOfWithdrawal_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-kut8s1atvlq</name>
         <type>Facet</type>
     </flexiPageRegions>

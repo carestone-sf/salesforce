@@ -3,10 +3,142 @@
     <apiVersion>57.0</apiVersion>
     <assignments>
         <description>CS-203</description>
+        <name>NewTaskAufschBedingung</name>
+        <label>New Task Aufschiebende Bedinung/Rücktrittsrecht</label>
+        <locationX>168</locationX>
+        <locationY>1367</locationY>
+        <assignmentItems>
+            <assignToReference>TaskDummy.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.ResponsiblePE__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.Subject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TaskSubject_AufschiebendeBedingungRuecktrittsrecht</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.Description</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Die Frist für die aufschiebende Bedingung / das Rücktrittsrecht läuft am {!$Record.DateConditionPrecedentRightOfWithdrawal__c} aus.</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.ActivityDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AufschiebendeBedingung_2WeeksBefore</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.IsReminderSet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.ReminderDateTime</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AufschiebendeBedingung_1WeekBefore</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.WhatId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>PeTasksToCreate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>TaskDummy</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>CheckExklusivitaetVerkaeuferBisEmpty</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>CS-203</description>
+        <name>NewTaskAufschBedingungDate</name>
+        <label>New Task Aufschiebende Bedingung</label>
+        <locationX>921</locationX>
+        <locationY>575</locationY>
+        <assignmentItems>
+            <assignToReference>TaskDummy.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.ResponsiblePE__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.Subject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TaskSubject_AufschiebendeBedingungRuecktrittsrecht</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.Description</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Die Frist für die aufschiebende Bedingung / das Rücktrittsrecht läuft am {!$Record.DateConditionPrecedentRightOfWithdrawal__c} aus.</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.ActivityDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AufschiebendeBedingung_2WeeksBefore</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.IsReminderSet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.ReminderDateTime</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AufschiebendeBedingung_1WeekBefore</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TaskDummy.WhatId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>PeTasksToCreate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>TaskDummy</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>CheckExklusivitaetVerkaeuferDateChanged</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>CS-203</description>
         <name>NewTaskBeurkundungAnkauf</name>
         <label>New Task Beurkundung Ankauf</label>
         <locationX>158</locationX>
-        <locationY>2375</locationY>
+        <locationY>2711</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -72,7 +204,7 @@
         <name>NewTaskBeurkundungAnkaufGroup</name>
         <label>New Task Beurkundung Ankauf Group</label>
         <locationX>138</locationX>
-        <locationY>2975</locationY>
+        <locationY>3311</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -138,7 +270,7 @@
         <name>NewTaskExklusivitaetBetreiberBis</name>
         <label>New Task Exklusivitaet Betreiber Bis</label>
         <locationX>168</locationX>
-        <locationY>1703</locationY>
+        <locationY>2039</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -204,7 +336,7 @@
         <name>NewTaskExklusivitaetBetreiberBisDate</name>
         <label>New Task Exklusivitaet Betreiber Bis</label>
         <locationX>921</locationX>
-        <locationY>1247</locationY>
+        <locationY>1919</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -270,7 +402,7 @@
         <name>NewTaskExklusivitaetVerkaeuferBis</name>
         <label>New Task Exklusivitaet Verkaeufer Bis</label>
         <locationX>168</locationX>
-        <locationY>1367</locationY>
+        <locationY>1703</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -336,7 +468,7 @@
         <name>NewTaskExklusivitaetVerkaeuferBisDate</name>
         <label>New Task Exklusivitaet Verkaeufer Bis</label>
         <locationX>921</locationX>
-        <locationY>575</locationY>
+        <locationY>1247</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -402,7 +534,7 @@
         <name>NewTaskIva1</name>
         <label>New Task IVA1</label>
         <locationX>168</locationX>
-        <locationY>2039</locationY>
+        <locationY>2375</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -468,7 +600,7 @@
         <name>NewTaskIVA1Date</name>
         <label>New Task IVA1</label>
         <locationX>921</locationX>
-        <locationY>1919</locationY>
+        <locationY>2591</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -530,6 +662,14 @@
         </connector>
     </assignments>
     <constants>
+        <description>Subject of task related to date field Aufschiebende Bedingung/Rücktrittsrecht</description>
+        <name>TaskSubject_AufschiebendeBedingungRuecktrittsrecht</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Terminerinnerung Aufschiebende Bedingung/Rücktrittsrecht</stringValue>
+        </value>
+    </constants>
+    <constants>
         <description>Subject of task related to date field Beurkundung Ankauf</description>
         <name>TaskSubject_BeurkundungAnkauf</name>
         <dataType>String</dataType>
@@ -566,7 +706,7 @@
         <name>BeurkundungAnkaufEmpty</name>
         <label>Beurkundung Ankauf Empty?</label>
         <locationX>300</locationX>
-        <locationY>2255</locationY>
+        <locationY>2591</locationY>
         <defaultConnector>
             <targetReference>CreatePeTasks</targetReference>
         </defaultConnector>
@@ -589,10 +729,160 @@
     </decisions>
     <decisions>
         <description>CS-203</description>
+        <name>CheckAufschBedingungDate_changed</name>
+        <label>Aufschiebende Bedingung Date changed?</label>
+        <locationX>1405</locationX>
+        <locationY>455</locationY>
+        <defaultConnector>
+            <targetReference>CheckExklusivitaetVerkaeuferDateChanged</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Changed</defaultConnectorLabel>
+        <rules>
+            <name>AufschbedingungInitiallySet</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.DateConditionPrecedentRightOfWithdrawal__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.DateConditionPrecedentRightOfWithdrawal__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ResponsiblePE__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.DateConditionPrecedentRightOfWithdrawal__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NewTaskAufschBedingungDate</targetReference>
+            </connector>
+            <label>AufschBedingung Initially Set</label>
+        </rules>
+        <rules>
+            <name>AufschBedingungChanged</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.DateConditionPrecedentRightOfWithdrawal__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ResponsiblePE__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.DateConditionPrecedentRightOfWithdrawal__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdateAufschBedingungTask</targetReference>
+            </connector>
+            <label>AufschBedingung Changed</label>
+        </rules>
+        <rules>
+            <name>AufschBedingungSetToNull</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.DateConditionPrecedentRightOfWithdrawal__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.DateConditionPrecedentRightOfWithdrawal__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetAufschBedingungTasks</targetReference>
+            </connector>
+            <label>AufschBedingung Set to Null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>CS-203</description>
+        <name>CheckAufschBedingungEmpty</name>
+        <label>Aufschiebende Bedingung Empty?</label>
+        <locationX>300</locationX>
+        <locationY>1247</locationY>
+        <defaultConnector>
+            <targetReference>CheckExklusivitaetVerkaeuferBisEmpty</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Is Empty</defaultConnectorLabel>
+        <rules>
+            <name>AufschBedingungPopulated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.DateConditionPrecedentRightOfWithdrawal__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NewTaskAufschBedingung</targetReference>
+            </connector>
+            <label>Aufsch. Bedingung Populated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>CS-203</description>
+        <name>CheckAufschBedingungTasksEmpty</name>
+        <label>Aufschiebende Bedingung Tasks Empty?</label>
+        <locationX>1581</locationX>
+        <locationY>695</locationY>
+        <defaultConnector>
+            <targetReference>CheckExklusivitaetVerkaeuferDateChanged</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Tasks</defaultConnectorLabel>
+        <rules>
+            <name>AufschBedingungNotEmpty</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetAufschBedingungTasks</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>DeleteAufschBedingungTasks</targetReference>
+            </connector>
+            <label>Not Empty</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>CS-203</description>
         <name>CheckBADateTasksEmpty</name>
         <label>BA Date Tasks Empty?</label>
         <locationX>1581</locationX>
-        <locationY>2711</locationY>
+        <locationY>3383</locationY>
         <defaultConnector>
             <targetReference>CreatePeTasks</targetReference>
         </defaultConnector>
@@ -618,7 +908,7 @@
         <name>CheckBeurkundungAnkaufDateChanged</name>
         <label>Beurkundung Ankauf Date changed?</label>
         <locationX>1405</locationX>
-        <locationY>2471</locationY>
+        <locationY>3143</locationY>
         <defaultConnector>
             <targetReference>CreatePeTasks</targetReference>
         </defaultConnector>
@@ -703,7 +993,7 @@
         <name>CheckEbDateTasksEmpty</name>
         <label>EBDate Tasks Empty?</label>
         <locationX>1581</locationX>
-        <locationY>1367</locationY>
+        <locationY>2039</locationY>
         <defaultConnector>
             <targetReference>CheckIva1DateChanged</targetReference>
         </defaultConnector>
@@ -729,7 +1019,7 @@
         <name>CheckEvDateTasksEmpty</name>
         <label>EVDate Tasks Empty?</label>
         <locationX>1581</locationX>
-        <locationY>695</locationY>
+        <locationY>1367</locationY>
         <defaultConnector>
             <targetReference>CheckExklusivitaetBetreiberDateChanged</targetReference>
         </defaultConnector>
@@ -755,7 +1045,7 @@
         <name>CheckExklusivitaetBetreiberBisEmpty</name>
         <label>Exklusivitaet Betreiber Bis Empty?</label>
         <locationX>300</locationX>
-        <locationY>1583</locationY>
+        <locationY>1919</locationY>
         <defaultConnector>
             <targetReference>CheckIva1Empty</targetReference>
         </defaultConnector>
@@ -781,7 +1071,7 @@
         <name>CheckExklusivitaetBetreiberDateChanged</name>
         <label>Exklusivitaet Betreiber Date changed?</label>
         <locationX>1405</locationX>
-        <locationY>1127</locationY>
+        <locationY>1799</locationY>
         <defaultConnector>
             <targetReference>CheckIva1DateChanged</targetReference>
         </defaultConnector>
@@ -879,7 +1169,7 @@
         <name>CheckExklusivitaetVerkaeuferBisEmpty</name>
         <label>Exklusivitaet Verkaeufer Bis Empty?</label>
         <locationX>300</locationX>
-        <locationY>1247</locationY>
+        <locationY>1583</locationY>
         <defaultConnector>
             <targetReference>CheckExklusivitaetBetreiberBisEmpty</targetReference>
         </defaultConnector>
@@ -905,7 +1195,7 @@
         <name>CheckExklusivitaetVerkaeuferDateChanged</name>
         <label>Exklusivitaet Verkaeufer Date changed?</label>
         <locationX>1405</locationX>
-        <locationY>455</locationY>
+        <locationY>1127</locationY>
         <defaultConnector>
             <targetReference>CheckExklusivitaetBetreiberDateChanged</targetReference>
         </defaultConnector>
@@ -1028,7 +1318,7 @@
         <name>CheckGroupMembersNotEmpty</name>
         <label>Group Members not empty</label>
         <locationX>158</locationX>
-        <locationY>2735</locationY>
+        <locationY>3071</locationY>
         <defaultConnector>
             <targetReference>CreatePeTasks</targetReference>
         </defaultConnector>
@@ -1054,7 +1344,7 @@
         <name>CheckIva1DateChanged</name>
         <label>IVA1 Date changed?</label>
         <locationX>1405</locationX>
-        <locationY>1799</locationY>
+        <locationY>2471</locationY>
         <defaultConnector>
             <targetReference>CheckBeurkundungAnkaufDateChanged</targetReference>
         </defaultConnector>
@@ -1152,7 +1442,7 @@
         <name>CheckIva1Empty</name>
         <label>IVA1 Empty?</label>
         <locationX>300</locationX>
-        <locationY>1919</locationY>
+        <locationY>2255</locationY>
         <defaultConnector>
             <targetReference>BeurkundungAnkaufEmpty</targetReference>
         </defaultConnector>
@@ -1234,8 +1524,15 @@ CS-203</description>
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.DateConditionPrecedentRightOfWithdrawal__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
-                <targetReference>CheckExklusivitaetVerkaeuferDateChanged</targetReference>
+                <targetReference>CheckAufschBedingungDate_changed</targetReference>
             </connector>
             <label>PE Task Dates changed</label>
         </rules>
@@ -1258,7 +1555,7 @@ CS-203</description>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>CheckExklusivitaetVerkaeuferBisEmpty</targetReference>
+                <targetReference>CheckAufschBedingungEmpty</targetReference>
             </connector>
             <label>Responsible PE Not Empty</label>
         </rules>
@@ -1294,7 +1591,7 @@ CS-203</description>
         <name>Iva1TasksEmpty</name>
         <label>IVA1 Tasks Empty?</label>
         <locationX>1581</locationX>
-        <locationY>2039</locationY>
+        <locationY>2711</locationY>
         <defaultConnector>
             <targetReference>CheckBeurkundungAnkaufDateChanged</targetReference>
         </defaultConnector>
@@ -1316,6 +1613,16 @@ CS-203</description>
         </rules>
     </decisions>
     <environments>Default</environments>
+    <formulas>
+        <name>AufschiebendeBedingung_1WeekBefore</name>
+        <dataType>Date</dataType>
+        <expression>{!$Record.DateConditionPrecedentRightOfWithdrawal__c} - 7</expression>
+    </formulas>
+    <formulas>
+        <name>AufschiebendeBedingung_2WeeksBefore</name>
+        <dataType>Date</dataType>
+        <expression>{!$Record.DateConditionPrecedentRightOfWithdrawal__c} - 14</expression>
+    </formulas>
     <formulas>
         <name>BeurkundungAnkauf_1DayAfter</name>
         <dataType>Date</dataType>
@@ -1369,7 +1676,7 @@ CS-203</description>
         <name>LoopAllGroupMembers</name>
         <label>Loop all Group Members</label>
         <locationX>50</locationX>
-        <locationY>2855</locationY>
+        <locationY>3191</locationY>
         <collectionReference>GetRecipientsFromGroup</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -1403,15 +1710,26 @@ CS-203</description>
         <name>CreatePeTasks</name>
         <label>Create PE Tasks</label>
         <locationX>1262</locationX>
-        <locationY>3575</locationY>
+        <locationY>3911</locationY>
         <inputReference>PeTasksToCreate</inputReference>
     </recordCreates>
+    <recordDeletes>
+        <description>CS-203</description>
+        <name>DeleteAufschBedingungTasks</name>
+        <label>Delete AufschBedingung Tasks</label>
+        <locationX>1449</locationX>
+        <locationY>815</locationY>
+        <connector>
+            <targetReference>CheckExklusivitaetVerkaeuferDateChanged</targetReference>
+        </connector>
+        <inputReference>GetAufschBedingungTasks</inputReference>
+    </recordDeletes>
     <recordDeletes>
         <description>CS-203</description>
         <name>DeleteBaDateTasks</name>
         <label>Delete BADate Tasks</label>
         <locationX>1449</locationX>
-        <locationY>2831</locationY>
+        <locationY>3503</locationY>
         <connector>
             <targetReference>CreatePeTasks</targetReference>
         </connector>
@@ -1422,7 +1740,7 @@ CS-203</description>
         <name>DeleteEBDateTasks</name>
         <label>Delete EBDate Tasks</label>
         <locationX>1449</locationX>
-        <locationY>1487</locationY>
+        <locationY>2159</locationY>
         <connector>
             <targetReference>CheckIva1DateChanged</targetReference>
         </connector>
@@ -1433,7 +1751,7 @@ CS-203</description>
         <name>DeleteEvDateTasks</name>
         <label>Delete EVDate Tasks</label>
         <locationX>1449</locationX>
-        <locationY>815</locationY>
+        <locationY>1487</locationY>
         <connector>
             <targetReference>CheckExklusivitaetBetreiberDateChanged</targetReference>
         </connector>
@@ -1455,19 +1773,49 @@ CS-203</description>
         <name>DeleteIva1Tasks</name>
         <label>Delete IVA1 Tasks</label>
         <locationX>1449</locationX>
-        <locationY>2159</locationY>
+        <locationY>2831</locationY>
         <connector>
             <targetReference>CheckBeurkundungAnkaufDateChanged</targetReference>
         </connector>
         <inputReference>GetIva1DateTasks</inputReference>
     </recordDeletes>
     <recordLookups>
+        <description>Get former tasks related to date field Aufschiebende Bedingung/Rücktrittrechte
+CS-203</description>
+        <name>GetAufschBedingungTasks</name>
+        <label>Get AufschBedingung Tasks</label>
+        <locationX>1581</locationX>
+        <locationY>575</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>CheckAufschBedingungTasksEmpty</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>WhatId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TaskSubject_AufschiebendeBedingungRuecktrittsrecht</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <description>Get former tasks related to date field Beurkundung Ankauf
 CS-203</description>
         <name>GetBaDateTasks</name>
         <label>Get BA Date Tasks</label>
         <locationX>1581</locationX>
-        <locationY>2591</locationY>
+        <locationY>3263</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>CheckBADateTasksEmpty</targetReference>
@@ -1497,7 +1845,7 @@ CS-203</description>
         <name>GetEbDateTasks</name>
         <label>Get EBDate Tasks</label>
         <locationX>1581</locationX>
-        <locationY>1247</locationY>
+        <locationY>1919</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>CheckEbDateTasksEmpty</targetReference>
@@ -1527,7 +1875,7 @@ CS-203</description>
         <name>GetEvDateTasks</name>
         <label>Get EVDate Tasks</label>
         <locationX>1581</locationX>
-        <locationY>575</locationY>
+        <locationY>1247</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>CheckEvDateTasksEmpty</targetReference>
@@ -1562,7 +1910,7 @@ CS-203</description>
         <connector>
             <targetReference>CheckFormerPeTasksEmpty</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
+        <filterLogic>1 AND 2 AND (3 OR 4 OR 5 OR 6 OR 7)</filterLogic>
         <filters>
             <field>WhatId</field>
             <operator>EqualTo</operator>
@@ -1577,6 +1925,41 @@ CS-203</description>
                 <elementReference>$Record__Prior.ResponsiblePE__c</elementReference>
             </value>
         </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TaskSubject_AufschiebendeBedingungRuecktrittsrecht</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TaskSubject_BeurkundungAnkauf</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TaskSubject_ExklusivitaetBetreiberBis</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TaskSubject_ExklusivitaetVerkaeuferBis</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TaskSubject_Iva1</elementReference>
+            </value>
+        </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Task</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -1587,7 +1970,7 @@ CS-203</description>
         <name>GetIva1DateTasks</name>
         <label>Get IVA1 Date Tasks</label>
         <locationX>1581</locationX>
-        <locationY>1919</locationY>
+        <locationY>2591</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Iva1TasksEmpty</targetReference>
@@ -1617,7 +2000,7 @@ CS-203</description>
         <name>GetPublicGroup</name>
         <label>Get Public Group</label>
         <locationX>158</locationX>
-        <locationY>2495</locationY>
+        <locationY>2831</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>GetRecipientsFromGroup</targetReference>
@@ -1640,7 +2023,7 @@ CS-203</description>
         <name>GetRecipientsFromGroup</name>
         <label>Get Recipients from Group</label>
         <locationX>158</locationX>
-        <locationY>2615</locationY>
+        <locationY>2951</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>CheckGroupMembersNotEmpty</targetReference>
@@ -1658,11 +2041,49 @@ CS-203</description>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
+        <description>Update Task related to date field Aufschiebende Bedingung/Rücktrittsrechte</description>
+        <name>UpdateAufschBedingungTask</name>
+        <label>Update AufschBedinung Task</label>
+        <locationX>1185</locationX>
+        <locationY>575</locationY>
+        <connector>
+            <targetReference>CheckExklusivitaetVerkaeuferDateChanged</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OwnerId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ResponsiblePE__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TaskSubject_AufschiebendeBedingungRuecktrittsrecht</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>AufschiebendeBedingung_2WeeksBefore</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ReminderDateTime</field>
+            <value>
+                <elementReference>AufschiebendeBedingung_1WeekBefore</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Tasks</inputReference>
+    </recordUpdates>
+    <recordUpdates>
         <description>Update Task related to date field Beurkundung Ankauf</description>
         <name>UpdateBeurkundungAnkaufTask</name>
         <label>Update Beurkundung Ankauf Task</label>
         <locationX>1185</locationX>
-        <locationY>2591</locationY>
+        <locationY>3263</locationY>
         <connector>
             <targetReference>CreatePeTasks</targetReference>
         </connector>
@@ -1693,7 +2114,7 @@ CS-203</description>
         <name>UpdateEBTask</name>
         <label>UpdateEBTask</label>
         <locationX>1185</locationX>
-        <locationY>1247</locationY>
+        <locationY>1919</locationY>
         <connector>
             <targetReference>CheckIva1DateChanged</targetReference>
         </connector>
@@ -1731,7 +2152,7 @@ CS-203</description>
         <name>UpdateEVTask</name>
         <label>UpdateEVTask</label>
         <locationX>1185</locationX>
-        <locationY>575</locationY>
+        <locationY>1247</locationY>
         <connector>
             <targetReference>CheckExklusivitaetBetreiberDateChanged</targetReference>
         </connector>
@@ -1769,7 +2190,7 @@ CS-203</description>
         <name>UpdateIva1Task</name>
         <label>Update IVA1 Task</label>
         <locationX>1185</locationX>
-        <locationY>1919</locationY>
+        <locationY>2591</locationY>
         <connector>
             <targetReference>CheckBeurkundungAnkaufDateChanged</targetReference>
         </connector>
