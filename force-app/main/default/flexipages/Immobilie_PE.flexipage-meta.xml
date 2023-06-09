@@ -3188,8 +3188,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Anzahl_Einzelzimmer__c</fieldItem>
-                <identifier>RecordAnzahl_Einzelzimmer_cField2</identifier>
+                <fieldItem>Record.SingleRoomsPlanned__c</fieldItem>
+                <identifier>RecordSingleRoomsPlanned_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -3198,8 +3198,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Anzahl_Doppelzimmer__c</fieldItem>
-                <identifier>RecordAnzahl_Doppelzimmer_cField2</identifier>
+                <fieldItem>Record.DoubleRoomsPlanned__c</fieldItem>
+                <identifier>RecordDoubleRoomsPlanned_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
