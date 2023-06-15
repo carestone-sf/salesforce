@@ -2139,6 +2139,16 @@
             <field>Potenzieller_Kunde__c.MailingCountry</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Kunde2__c.Email</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Potenzieller_Kunde__c.Email</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
         <masterLabel>Käufer</masterLabel>
     </sections>
     <sections>
