@@ -1,6 +1,6 @@
 public without sharing class OpportunityTriggerHandler implements ITrigger {
 
-    private static final String ZAHLUNGSERINNERUNG_APPROVAL_PROCESS_NAME = 'Zahlungserinnerung2';
+    private static final String ZAHLUNGSERINNERUNG_APPROVAL_PROCESS_NAME = 'Zahlungserinnerung';
     private static final String ZAHLUNGSEINGANG_APPROVAL_PROCESS_NAME = 'Zahlungseingang';
     private static final String FIBU_MAILBOX = 'MaBV-Rechnungen@carestone.com';
     private static final String OPPORTUNITY_STAGE_RESERVIERUNG_ANGEFRAGT = 'Reservierung angefragt';

@@ -4,7 +4,7 @@
         <name>Mahnung_zur_Genehmigung3</name>
         <label>Mahnung zur Genehmigung</label>
         <locationX>1392</locationX>
-        <locationY>455</locationY>
+        <locationY>431</locationY>
         <actionName>submit</actionName>
         <actionType>submit</actionType>
         <connector>
@@ -18,12 +18,6 @@
             </value>
         </inputParameters>
         <inputParameters>
-            <name>skipEntryCriteria</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
             <name>submitterId</name>
             <value>
                 <elementReference>$User.Id</elementReference>
@@ -32,16 +26,24 @@
         <inputParameters>
             <name>processDefinitionNameOrId</name>
             <value>
-                <stringValue>Zahlungserinnerung2</stringValue>
+                <stringValue>Zahlungserinnerung</stringValue>
             </value>
         </inputParameters>
+        <inputParameters>
+            <name>skipEntryCriteria</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>submit</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>Zur_Genehmigung_senden</name>
         <label>Zur Genehmigung senden</label>
         <locationX>1392</locationX>
-        <locationY>791</locationY>
+        <locationY>731</locationY>
         <actionName>submit</actionName>
         <actionType>submit</actionType>
         <connector>
@@ -72,14 +74,16 @@
                 <stringValue>Genehmigung</stringValue>
             </value>
         </inputParameters>
+        <nameSegment>submit</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>54.0</apiVersion>
     <assignments>
         <name>Assign_fifth_invoice_to_apartment</name>
         <label>Assign fifth invoice to apartment</label>
         <locationX>1106</locationX>
-        <locationY>1919</locationY>
+        <locationY>1739</locationY>
         <assignmentItems>
             <assignToReference>teilobjekt.Id</assignToReference>
             <operator>Assign</operator>
@@ -109,7 +113,7 @@
         <name>Assign_first_invoice_to_apartment</name>
         <label>Assign first invoice to apartment</label>
         <locationX>50</locationX>
-        <locationY>1919</locationY>
+        <locationY>1739</locationY>
         <assignmentItems>
             <assignToReference>teilobjekt.Id</assignToReference>
             <operator>Assign</operator>
@@ -139,7 +143,7 @@
         <name>Assign_fourth_invoice_to_apartment</name>
         <label>Assign fourth invoice to apartment</label>
         <locationX>842</locationX>
-        <locationY>1919</locationY>
+        <locationY>1739</locationY>
         <assignmentItems>
             <assignToReference>teilobjekt.Id</assignToReference>
             <operator>Assign</operator>
@@ -169,7 +173,7 @@
         <name>Assign_second_invoice_to_apartment</name>
         <label>Assign second invoice to apartment</label>
         <locationX>314</locationX>
-        <locationY>1919</locationY>
+        <locationY>1739</locationY>
         <assignmentItems>
             <assignToReference>teilobjekt.Id</assignToReference>
             <operator>Assign</operator>
@@ -199,7 +203,7 @@
         <name>Assign_seventh_invoice_to_apartment</name>
         <label>Assign seventh invoice to apartment</label>
         <locationX>1634</locationX>
-        <locationY>1919</locationY>
+        <locationY>1739</locationY>
         <assignmentItems>
             <assignToReference>teilobjekt.Id</assignToReference>
             <operator>Assign</operator>
@@ -229,7 +233,7 @@
         <name>Assign_sixth_invoice_to_apartment</name>
         <label>Assign sixth invoice to apartment</label>
         <locationX>1370</locationX>
-        <locationY>1919</locationY>
+        <locationY>1739</locationY>
         <assignmentItems>
             <assignToReference>teilobjekt.Id</assignToReference>
             <operator>Assign</operator>
@@ -259,7 +263,7 @@
         <name>Assign_third_invoice_to_apartment</name>
         <label>Assign third invoice to apartment</label>
         <locationX>578</locationX>
-        <locationY>1919</locationY>
+        <locationY>1739</locationY>
         <assignmentItems>
             <assignToReference>teilobjekt.Id</assignToReference>
             <operator>Assign</operator>
@@ -289,7 +293,7 @@
         <name>Ben_tigt_Genehmigung</name>
         <label>Benötigt Genehmigung?</label>
         <locationX>1524</locationX>
-        <locationY>671</locationY>
+        <locationY>623</locationY>
         <defaultConnector>
             <targetReference>Mabv_Rechnung_oder_Storno_Beleg_wurde_generiert</targetReference>
         </defaultConnector>
@@ -328,7 +332,7 @@
         <name>Mabv_Rechnung_oder_Storno_Beleg_wurde_generiert</name>
         <label>Mabv Rechnung oder Storno Beleg wurde generiert?</label>
         <locationX>1524</locationX>
-        <locationY>1007</locationY>
+        <locationY>923</locationY>
         <defaultConnector>
             <targetReference>Seventh_invoice_paid</targetReference>
         </defaultConnector>
@@ -381,7 +385,7 @@
         <name>Mahnung_zur_Genehmigung</name>
         <label>Mahnung zur Genehmigung?</label>
         <locationX>1524</locationX>
-        <locationY>335</locationY>
+        <locationY>323</locationY>
         <defaultConnector>
             <targetReference>Ben_tigt_Genehmigung</targetReference>
         </defaultConnector>
@@ -407,7 +411,7 @@
         <name>Not_canceled</name>
         <label>Not canceled?</label>
         <locationX>1524</locationX>
-        <locationY>1679</locationY>
+        <locationY>1523</locationY>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
             <name>Not_canceled2</name>
@@ -437,7 +441,7 @@
         <name>Seventh_invoice_paid</name>
         <label>Seventh invoice paid?</label>
         <locationX>1524</locationX>
-        <locationY>1343</locationY>
+        <locationY>1223</locationY>
         <defaultConnector>
             <targetReference>Not_canceled</targetReference>
         </defaultConnector>
@@ -470,7 +474,7 @@
         <name>Update_apartment</name>
         <label>Update apartment?</label>
         <locationX>974</locationX>
-        <locationY>2135</locationY>
+        <locationY>1931</locationY>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
             <name>Update_apartment2</name>
@@ -492,7 +496,7 @@
         <name>Which_rate</name>
         <label>Which rate?</label>
         <locationX>974</locationX>
-        <locationY>1799</locationY>
+        <locationY>1631</locationY>
         <defaultConnector>
             <targetReference>Update_apartment</targetReference>
         </defaultConnector>
@@ -677,14 +681,14 @@
         <name>Update_apartment3</name>
         <label>Update apartment</label>
         <locationX>842</locationX>
-        <locationY>2255</locationY>
+        <locationY>2039</locationY>
         <inputReference>teilobjekt</inputReference>
     </recordUpdates>
     <recordUpdates>
         <name>Update_opportunity</name>
         <label>Update opportunity</label>
         <locationX>1392</locationX>
-        <locationY>1463</locationY>
+        <locationY>1331</locationY>
         <connector>
             <targetReference>Not_canceled</targetReference>
         </connector>
@@ -725,7 +729,7 @@
         <name>Generate_Accounting_Documents</name>
         <label>Generate Accounting Documents</label>
         <locationX>1392</locationX>
-        <locationY>1127</locationY>
+        <locationY>1031</locationY>
         <connector>
             <targetReference>Seventh_invoice_paid</targetReference>
         </connector>
