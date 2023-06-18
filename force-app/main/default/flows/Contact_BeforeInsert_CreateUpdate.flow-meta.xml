@@ -1,6 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>57.0</apiVersion>
+    <assignments>
+        <name>Set_Germany_as_MailingCountry</name>
+        <label>Set Germany as MailingCountry</label>
+        <locationX>182</locationX>
+        <locationY>695</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.MailingCountry</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Deutschland</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>OtherCountry_is_null_and_address_is_not_null</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Germany_as_OtherCountry</name>
+        <label>Set Germany as OtherCountry</label>
+        <locationX>182</locationX>
+        <locationY>995</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OtherCountry</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Deutschland</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>CheckAdressUpdate</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Mailing_Address</name>
+        <label>Update Mailing Address</label>
+        <locationX>314</locationX>
+        <locationY>1295</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.MailingCity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.OtherCity</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.MailingStreet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.OtherStreet</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.MailingPostalCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.OtherPostalCode</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.MailingState</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.OtherState</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.MailingCountry</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.OtherCountry</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Update_Other_Address</name>
+        <label>Update Other Address</label>
+        <locationX>50</locationX>
+        <locationY>1295</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OtherCity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.MailingCity</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.OtherStreet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.MailingStreet</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.OtherPostalCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.MailingPostalCode</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.OtherState</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.MailingState</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.OtherCountry</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.MailingCountry</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
     <decisions>
         <description>Account ID field changes.</description>
         <name>CheckAccountId</name>
@@ -8,7 +122,7 @@
         <locationX>314</locationX>
         <locationY>287</locationY>
         <defaultConnector>
-            <targetReference>CheckAdressUpdate</targetReference>
+            <targetReference>MailingCountry_is_null_and_address_is_not_null</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>No changes</defaultConnectorLabel>
         <rules>
@@ -46,7 +160,7 @@
         <name>CheckAdressUpdate</name>
         <label>Adress Update?</label>
         <locationX>314</locationX>
-        <locationY>587</locationY>
+        <locationY>1187</locationY>
         <defaultConnectorLabel>No changes</defaultConnectorLabel>
         <rules>
             <name>MailingChanged</name>
@@ -101,7 +215,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>UpdateOtherAddress</targetReference>
+                <targetReference>Update_Other_Address</targetReference>
             </connector>
             <label>Mailing changed</label>
         </rules>
@@ -158,9 +272,75 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>UpdateMailingAddress</targetReference>
+                <targetReference>Update_Mailing_Address</targetReference>
             </connector>
             <label>Other changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>MailingCountry_is_null_and_address_is_not_null</name>
+        <label>MailingCountry is null and address is not null?</label>
+        <locationX>314</locationX>
+        <locationY>587</locationY>
+        <defaultConnector>
+            <targetReference>OtherCountry_is_null_and_address_is_not_null</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>MailingCountry_is_null_and_address_is_not_null2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.MailingCountry</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MailingStreet</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Germany_as_MailingCountry</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>MailingCountry is null and address is not null?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>OtherCountry_is_null_and_address_is_not_null</name>
+        <label>OtherCountry is null and address is not null?</label>
+        <locationX>314</locationX>
+        <locationY>887</locationY>
+        <defaultConnector>
+            <targetReference>CheckAdressUpdate</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>OtherCountryCountry_is_null_and_address_is_not_null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OtherCountry</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.OtherStreet</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Germany_as_OtherCountry</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>OtherCountryCountry is null and address is not null?</label>
         </rules>
     </decisions>
     <environments>Default</environments>
@@ -198,88 +378,12 @@
         <locationX>182</locationX>
         <locationY>395</locationY>
         <connector>
-            <targetReference>CheckAdressUpdate</targetReference>
+            <targetReference>MailingCountry_is_null_and_address_is_not_null</targetReference>
         </connector>
         <inputAssignments>
             <field>OwnerId</field>
             <value>
                 <elementReference>$Record.Account.OwnerId</elementReference>
-            </value>
-        </inputAssignments>
-        <inputReference>$Record</inputReference>
-    </recordUpdates>
-    <recordUpdates>
-        <description>Update Mailing address from Other address fields.</description>
-        <name>UpdateMailingAddress</name>
-        <label>Update Mailing Address</label>
-        <locationX>314</locationX>
-        <locationY>695</locationY>
-        <inputAssignments>
-            <field>MailingCity</field>
-            <value>
-                <elementReference>$Record.OtherCity</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>MailingCountry</field>
-            <value>
-                <elementReference>$Record.OtherCountry</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>MailingPostalCode</field>
-            <value>
-                <elementReference>$Record.OtherPostalCode</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>MailingState</field>
-            <value>
-                <elementReference>$Record.OtherState</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>MailingStreet</field>
-            <value>
-                <elementReference>$Record.OtherStreet</elementReference>
-            </value>
-        </inputAssignments>
-        <inputReference>$Record</inputReference>
-    </recordUpdates>
-    <recordUpdates>
-        <description>Update Other address from Mailing address fields.</description>
-        <name>UpdateOtherAddress</name>
-        <label>Update Other Address</label>
-        <locationX>50</locationX>
-        <locationY>695</locationY>
-        <inputAssignments>
-            <field>OtherCity</field>
-            <value>
-                <elementReference>$Record.MailingCity</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>OtherCountry</field>
-            <value>
-                <elementReference>$Record.MailingCountry</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>OtherPostalCode</field>
-            <value>
-                <elementReference>$Record.MailingPostalCode</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>OtherState</field>
-            <value>
-                <elementReference>$Record.MailingState</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>OtherStreet</field>
-            <value>
-                <elementReference>$Record.MailingStreet</elementReference>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
