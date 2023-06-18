@@ -97,6 +97,36 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.ResponsiblePE__c</fieldItem>
+                <identifier>RecordResponsiblePE_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ResponsibleAM__c</fieldItem>
+                <identifier>RecordResponsibleAM_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ResponsiblePM__c</fieldItem>
+                <identifier>RecordResponsiblePM_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Betreiber__c</fieldItem>
                 <identifier>RecordBetreiber_cField</identifier>
             </fieldInstance>
@@ -900,6 +930,10 @@
                     <value>Facet-c2acb127-225c-4c11-9266-120dbb06ed63</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
+                    <name>horizontalAlignment</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
                     <name>label</name>
                     <value>Allgemein</value>
                 </componentInstanceProperties>
@@ -912,6 +946,10 @@
                 <componentInstanceProperties>
                     <name>columns</name>
                     <value>Facet-c1512ca4-b607-44aa-a702-8ffa7f26792f</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>horizontalAlignment</name>
+                    <value>false</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
@@ -928,6 +966,10 @@
                     <value>Facet-317795e0-f99a-46c8-beb8-d47bc36cc7e0</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
+                    <name>horizontalAlignment</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
                     <name>label</name>
                     <value>Beschreibung</value>
                 </componentInstanceProperties>
@@ -940,6 +982,10 @@
                 <componentInstanceProperties>
                     <name>columns</name>
                     <value>Facet-6b8de2b9-8fe8-4a48-9473-9d78ff690416</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>horizontalAlignment</name>
+                    <value>false</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
@@ -956,6 +1002,10 @@
                     <value>Facet-f912fabb-9d54-46fd-94d7-36697f8f7ca6</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
+                    <name>horizontalAlignment</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
                     <name>label</name>
                     <value>Abschreibungen</value>
                 </componentInstanceProperties>
@@ -968,6 +1018,10 @@
                 <componentInstanceProperties>
                     <name>columns</name>
                     <value>Facet-0c29c63a-de95-48fc-b9c9-a8d3ce723f45</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>horizontalAlignment</name>
+                    <value>false</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
@@ -984,6 +1038,10 @@
                     <value>Facet-b67e9fb2-8164-44af-9f2e-a966ef8ba6f3</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
+                    <name>horizontalAlignment</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
                     <name>label</name>
                     <value>Kostensteigerung</value>
                 </componentInstanceProperties>
@@ -996,6 +1054,10 @@
                 <componentInstanceProperties>
                     <name>columns</name>
                     <value>Facet-3c4478c8-3ae4-45be-8e20-c17822c51e0a</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>horizontalAlignment</name>
+                    <value>false</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
