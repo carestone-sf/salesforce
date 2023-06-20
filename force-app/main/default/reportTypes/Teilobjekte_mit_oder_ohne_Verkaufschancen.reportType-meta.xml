@@ -2210,6 +2210,21 @@
             <field>PaymentReminderAutomaticDate__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CarestoneFinancingRecommended__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>InterestedInCarestoneFinancing__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CommentCarestoneFinancing__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
         <masterLabel>Verkaufschancen</masterLabel>
     </sections>
 </ReportType>

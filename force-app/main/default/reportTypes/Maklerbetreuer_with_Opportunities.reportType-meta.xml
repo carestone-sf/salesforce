@@ -2014,6 +2014,39 @@
             <field>PaymentReminderAutomaticDate__c</field>
             <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CarestoneFinancingRecommended__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>InterestedInCarestoneFinancing__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CommentCarestoneFinancing__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
         <masterLabel>Verkaufschancen</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LatLng__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LatitudeRounded__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LongitudeRounded__c</field>
+            <table>Contact</table>
+        </columns>
+        <masterLabel>Kontakte</masterLabel>
     </sections>
 </ReportType>
