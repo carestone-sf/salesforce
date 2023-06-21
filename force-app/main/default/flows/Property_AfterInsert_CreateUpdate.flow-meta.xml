@@ -6,7 +6,7 @@
         <name>NewTaskAufschBedingung</name>
         <label>New Task Aufschiebende Bedinung/Rücktrittsrecht</label>
         <locationX>168</locationX>
-        <locationY>1367</locationY>
+        <locationY>1547</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -72,7 +72,7 @@
         <name>NewTaskAufschBedingungDate</name>
         <label>New Task Aufschiebende Bedingung</label>
         <locationX>921</locationX>
-        <locationY>575</locationY>
+        <locationY>839</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -138,7 +138,7 @@
         <name>NewTaskBeurkundungAnkauf</name>
         <label>New Task Beurkundung Ankauf</label>
         <locationX>158</locationX>
-        <locationY>2711</locationY>
+        <locationY>2747</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -204,7 +204,7 @@
         <name>NewTaskBeurkundungAnkaufGroup</name>
         <label>New Task Beurkundung Ankauf Group</label>
         <locationX>138</locationX>
-        <locationY>3311</locationY>
+        <locationY>3287</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -270,7 +270,7 @@
         <name>NewTaskExklusivitaetBetreiberBis</name>
         <label>New Task Exklusivitaet Betreiber Bis</label>
         <locationX>168</locationX>
-        <locationY>2039</locationY>
+        <locationY>2147</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -336,7 +336,7 @@
         <name>NewTaskExklusivitaetBetreiberBisDate</name>
         <label>New Task Exklusivitaet Betreiber Bis</label>
         <locationX>921</locationX>
-        <locationY>1919</locationY>
+        <locationY>2039</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -402,7 +402,7 @@
         <name>NewTaskExklusivitaetVerkaeuferBis</name>
         <label>New Task Exklusivitaet Verkaeufer Bis</label>
         <locationX>168</locationX>
-        <locationY>1703</locationY>
+        <locationY>1847</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -468,7 +468,7 @@
         <name>NewTaskExklusivitaetVerkaeuferBisDate</name>
         <label>New Task Exklusivitaet Verkaeufer Bis</label>
         <locationX>921</locationX>
-        <locationY>1247</locationY>
+        <locationY>1439</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -534,7 +534,7 @@
         <name>NewTaskIva1</name>
         <label>New Task IVA1</label>
         <locationX>168</locationX>
-        <locationY>2375</locationY>
+        <locationY>2447</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -600,7 +600,7 @@
         <name>NewTaskIVA1Date</name>
         <label>New Task IVA1</label>
         <locationX>921</locationX>
-        <locationY>2591</locationY>
+        <locationY>2639</locationY>
         <assignmentItems>
             <assignToReference>TaskDummy.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -702,11 +702,92 @@
         </value>
     </constants>
     <decisions>
+        <name>Address_changed_or_not_null</name>
+        <label>Address changed or not null?</label>
+        <locationX>1262</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>CheckPeTaskChanges</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>Address_changed_or_not_null2</name>
+            <conditionLogic>1 AND 2 AND 3 AND 4 AND (5  OR 6 OR 7 OR 8 OR 9)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Street__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Place__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Zip_Code__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.State__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>isNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Street__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Place__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Zip_Code__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.State__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Lead_for_location</targetReference>
+            </connector>
+            <label>Address changed or not null?</label>
+        </rules>
+    </decisions>
+    <decisions>
         <description>CS-203</description>
         <name>BeurkundungAnkaufEmpty</name>
         <label>Beurkundung Ankauf Empty?</label>
         <locationX>300</locationX>
-        <locationY>2591</locationY>
+        <locationY>2639</locationY>
         <defaultConnector>
             <targetReference>CreatePeTasks</targetReference>
         </defaultConnector>
@@ -732,7 +813,7 @@
         <name>CheckAufschBedingungDate_changed</name>
         <label>Aufschiebende Bedingung Date changed?</label>
         <locationX>1405</locationX>
-        <locationY>455</locationY>
+        <locationY>731</locationY>
         <defaultConnector>
             <targetReference>CheckExklusivitaetVerkaeuferDateChanged</targetReference>
         </defaultConnector>
@@ -830,7 +911,7 @@
         <name>CheckAufschBedingungEmpty</name>
         <label>Aufschiebende Bedingung Empty?</label>
         <locationX>300</locationX>
-        <locationY>1247</locationY>
+        <locationY>1439</locationY>
         <defaultConnector>
             <targetReference>CheckExklusivitaetVerkaeuferBisEmpty</targetReference>
         </defaultConnector>
@@ -856,7 +937,7 @@
         <name>CheckAufschBedingungTasksEmpty</name>
         <label>Aufschiebende Bedingung Tasks Empty?</label>
         <locationX>1581</locationX>
-        <locationY>695</locationY>
+        <locationY>947</locationY>
         <defaultConnector>
             <targetReference>CheckExklusivitaetVerkaeuferDateChanged</targetReference>
         </defaultConnector>
@@ -882,7 +963,7 @@
         <name>CheckBADateTasksEmpty</name>
         <label>BA Date Tasks Empty?</label>
         <locationX>1581</locationX>
-        <locationY>3383</locationY>
+        <locationY>3347</locationY>
         <defaultConnector>
             <targetReference>CreatePeTasks</targetReference>
         </defaultConnector>
@@ -908,7 +989,7 @@
         <name>CheckBeurkundungAnkaufDateChanged</name>
         <label>Beurkundung Ankauf Date changed?</label>
         <locationX>1405</locationX>
-        <locationY>3143</locationY>
+        <locationY>3131</locationY>
         <defaultConnector>
             <targetReference>CreatePeTasks</targetReference>
         </defaultConnector>
@@ -993,7 +1074,7 @@
         <name>CheckEbDateTasksEmpty</name>
         <label>EBDate Tasks Empty?</label>
         <locationX>1581</locationX>
-        <locationY>2039</locationY>
+        <locationY>2147</locationY>
         <defaultConnector>
             <targetReference>CheckIva1DateChanged</targetReference>
         </defaultConnector>
@@ -1019,7 +1100,7 @@
         <name>CheckEvDateTasksEmpty</name>
         <label>EVDate Tasks Empty?</label>
         <locationX>1581</locationX>
-        <locationY>1367</locationY>
+        <locationY>1547</locationY>
         <defaultConnector>
             <targetReference>CheckExklusivitaetBetreiberDateChanged</targetReference>
         </defaultConnector>
@@ -1045,7 +1126,7 @@
         <name>CheckExklusivitaetBetreiberBisEmpty</name>
         <label>Exklusivitaet Betreiber Bis Empty?</label>
         <locationX>300</locationX>
-        <locationY>1919</locationY>
+        <locationY>2039</locationY>
         <defaultConnector>
             <targetReference>CheckIva1Empty</targetReference>
         </defaultConnector>
@@ -1071,7 +1152,7 @@
         <name>CheckExklusivitaetBetreiberDateChanged</name>
         <label>Exklusivitaet Betreiber Date changed?</label>
         <locationX>1405</locationX>
-        <locationY>1799</locationY>
+        <locationY>1931</locationY>
         <defaultConnector>
             <targetReference>CheckIva1DateChanged</targetReference>
         </defaultConnector>
@@ -1169,7 +1250,7 @@
         <name>CheckExklusivitaetVerkaeuferBisEmpty</name>
         <label>Exklusivitaet Verkaeufer Bis Empty?</label>
         <locationX>300</locationX>
-        <locationY>1583</locationY>
+        <locationY>1739</locationY>
         <defaultConnector>
             <targetReference>CheckExklusivitaetBetreiberBisEmpty</targetReference>
         </defaultConnector>
@@ -1195,7 +1276,7 @@
         <name>CheckExklusivitaetVerkaeuferDateChanged</name>
         <label>Exklusivitaet Verkaeufer Date changed?</label>
         <locationX>1405</locationX>
-        <locationY>1127</locationY>
+        <locationY>1331</locationY>
         <defaultConnector>
             <targetReference>CheckExklusivitaetBetreiberDateChanged</targetReference>
         </defaultConnector>
@@ -1293,7 +1374,7 @@
         <name>CheckFormerPeTasksEmpty</name>
         <label>Former PE Tasks Empty?</label>
         <locationX>613</locationX>
-        <locationY>695</locationY>
+        <locationY>947</locationY>
         <defaultConnector>
             <targetReference>CheckResponsiblePeEmpty</targetReference>
         </defaultConnector>
@@ -1344,7 +1425,7 @@
         <name>CheckIva1DateChanged</name>
         <label>IVA1 Date changed?</label>
         <locationX>1405</locationX>
-        <locationY>2471</locationY>
+        <locationY>2531</locationY>
         <defaultConnector>
             <targetReference>CheckBeurkundungAnkaufDateChanged</targetReference>
         </defaultConnector>
@@ -1442,7 +1523,7 @@
         <name>CheckIva1Empty</name>
         <label>IVA1 Empty?</label>
         <locationX>300</locationX>
-        <locationY>2255</locationY>
+        <locationY>2339</locationY>
         <defaultConnector>
             <targetReference>BeurkundungAnkaufEmpty</targetReference>
         </defaultConnector>
@@ -1469,7 +1550,7 @@ CS-203</description>
         <name>CheckPeTaskChanges</name>
         <label>Check PE Task Changes</label>
         <locationX>1262</locationX>
-        <locationY>335</locationY>
+        <locationY>623</locationY>
         <defaultConnectorLabel>Not changed</defaultConnectorLabel>
         <rules>
             <name>ResponsiblePeIsChangedOrNew</name>
@@ -1542,7 +1623,7 @@ CS-203</description>
         <name>CheckResponsiblePeEmpty</name>
         <label>Responsible PE Empty?</label>
         <locationX>459</locationX>
-        <locationY>1127</locationY>
+        <locationY>1331</locationY>
         <defaultConnectorLabel>Is Empty</defaultConnectorLabel>
         <rules>
             <name>ResponsiblePeNotEmpty</name>
@@ -1565,7 +1646,7 @@ CS-203</description>
         <name>CheckResponsiblePeInitiallySet</name>
         <label>Responsible PE initially set?</label>
         <locationX>459</locationX>
-        <locationY>455</locationY>
+        <locationY>731</locationY>
         <defaultConnector>
             <targetReference>GetFormerPeTasks</targetReference>
         </defaultConnector>
@@ -1591,7 +1672,7 @@ CS-203</description>
         <name>Iva1TasksEmpty</name>
         <label>IVA1 Tasks Empty?</label>
         <locationX>1581</locationX>
-        <locationY>2711</locationY>
+        <locationY>2747</locationY>
         <defaultConnector>
             <targetReference>CheckBeurkundungAnkaufDateChanged</targetReference>
         </defaultConnector>
@@ -1669,6 +1750,11 @@ CS-203</description>
         <expression>{!$Record.IVA1__c} + 28</expression>
     </formulas>
     <formulas>
+        <name>lastNameLocationLead</name>
+        <dataType>String</dataType>
+        <expression>&apos;Test &apos; + {!$Record.Id}</expression>
+    </formulas>
+    <formulas>
         <name>TaskDescription_AufschiebendeBedingungRuecktrittsrechte</name>
         <dataType>String</dataType>
         <expression>&quot;Die Frist für die aufschiebende Bedingung / das Rücktrittsrecht läuft am &quot; + TEXT(Day({!$Record.DateConditionPrecedentRightOfWithdrawal__c})) + &quot;.&quot; + TEXT(MONTH({!$Record.DateConditionPrecedentRightOfWithdrawal__c})) + &quot;.&quot; +
@@ -1708,7 +1794,7 @@ CS-203</description>
         <name>LoopAllGroupMembers</name>
         <label>Loop all Group Members</label>
         <locationX>50</locationX>
-        <locationY>3191</locationY>
+        <locationY>3179</locationY>
         <collectionReference>GetRecipientsFromGroup</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -1738,11 +1824,70 @@ CS-203</description>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordCreates>
+        <name>Create_Lead_for_location</name>
+        <label>Create Lead for location</label>
+        <locationX>1130</locationX>
+        <locationY>431</locationY>
+        <connector>
+            <targetReference>CheckPeTaskChanges</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>City</field>
+            <value>
+                <elementReference>$Record.Place__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Company</field>
+            <value>
+                <elementReference>lastNameLocationLead</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Country</field>
+            <value>
+                <stringValue>Deutschland</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LastName</field>
+            <value>
+                <elementReference>lastNameLocationLead</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PostalCode</field>
+            <value>
+                <elementReference>$Record.Zip_Code__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>State</field>
+            <value>
+                <elementReference>$Record.State__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Street</field>
+            <value>
+                <elementReference>$Record.Street__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Lead</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
         <description>CS-203</description>
         <name>CreatePeTasks</name>
         <label>Create PE Tasks</label>
         <locationX>1262</locationX>
-        <locationY>3911</locationY>
+        <locationY>3815</locationY>
         <inputReference>PeTasksToCreate</inputReference>
     </recordCreates>
     <recordDeletes>
@@ -1750,7 +1895,7 @@ CS-203</description>
         <name>DeleteAufschBedingungTasks</name>
         <label>Delete AufschBedingung Tasks</label>
         <locationX>1449</locationX>
-        <locationY>815</locationY>
+        <locationY>1055</locationY>
         <connector>
             <targetReference>CheckExklusivitaetVerkaeuferDateChanged</targetReference>
         </connector>
@@ -1761,7 +1906,7 @@ CS-203</description>
         <name>DeleteBaDateTasks</name>
         <label>Delete BADate Tasks</label>
         <locationX>1449</locationX>
-        <locationY>3503</locationY>
+        <locationY>3455</locationY>
         <connector>
             <targetReference>CreatePeTasks</targetReference>
         </connector>
@@ -1772,7 +1917,7 @@ CS-203</description>
         <name>DeleteEBDateTasks</name>
         <label>Delete EBDate Tasks</label>
         <locationX>1449</locationX>
-        <locationY>2159</locationY>
+        <locationY>2255</locationY>
         <connector>
             <targetReference>CheckIva1DateChanged</targetReference>
         </connector>
@@ -1783,7 +1928,7 @@ CS-203</description>
         <name>DeleteEvDateTasks</name>
         <label>Delete EVDate Tasks</label>
         <locationX>1449</locationX>
-        <locationY>1487</locationY>
+        <locationY>1655</locationY>
         <connector>
             <targetReference>CheckExklusivitaetBetreiberDateChanged</targetReference>
         </connector>
@@ -1794,7 +1939,7 @@ CS-203</description>
         <name>DeleteFormerPeTasks</name>
         <label>Delete former PE Tasks</label>
         <locationX>481</locationX>
-        <locationY>815</locationY>
+        <locationY>1055</locationY>
         <connector>
             <targetReference>CheckResponsiblePeEmpty</targetReference>
         </connector>
@@ -1805,7 +1950,7 @@ CS-203</description>
         <name>DeleteIva1Tasks</name>
         <label>Delete IVA1 Tasks</label>
         <locationX>1449</locationX>
-        <locationY>2831</locationY>
+        <locationY>2855</locationY>
         <connector>
             <targetReference>CheckBeurkundungAnkaufDateChanged</targetReference>
         </connector>
@@ -1817,7 +1962,7 @@ CS-203</description>
         <name>GetAufschBedingungTasks</name>
         <label>Get AufschBedingung Tasks</label>
         <locationX>1581</locationX>
-        <locationY>575</locationY>
+        <locationY>839</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>CheckAufschBedingungTasksEmpty</targetReference>
@@ -1847,7 +1992,7 @@ CS-203</description>
         <name>GetBaDateTasks</name>
         <label>Get BA Date Tasks</label>
         <locationX>1581</locationX>
-        <locationY>3263</locationY>
+        <locationY>3239</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>CheckBADateTasksEmpty</targetReference>
@@ -1877,7 +2022,7 @@ CS-203</description>
         <name>GetEbDateTasks</name>
         <label>Get EBDate Tasks</label>
         <locationX>1581</locationX>
-        <locationY>1919</locationY>
+        <locationY>2039</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>CheckEbDateTasksEmpty</targetReference>
@@ -1907,7 +2052,7 @@ CS-203</description>
         <name>GetEvDateTasks</name>
         <label>Get EVDate Tasks</label>
         <locationX>1581</locationX>
-        <locationY>1247</locationY>
+        <locationY>1439</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>CheckEvDateTasksEmpty</targetReference>
@@ -1937,7 +2082,7 @@ CS-203</description>
         <name>GetFormerPeTasks</name>
         <label>Get Former PE Tasks</label>
         <locationX>613</locationX>
-        <locationY>575</locationY>
+        <locationY>839</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>CheckFormerPeTasksEmpty</targetReference>
@@ -2002,7 +2147,7 @@ CS-203</description>
         <name>GetIva1DateTasks</name>
         <label>Get IVA1 Date Tasks</label>
         <locationX>1581</locationX>
-        <locationY>2591</locationY>
+        <locationY>2639</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Iva1TasksEmpty</targetReference>
@@ -2032,7 +2177,7 @@ CS-203</description>
         <name>GetPublicGroup</name>
         <label>Get Public Group</label>
         <locationX>158</locationX>
-        <locationY>2831</locationY>
+        <locationY>2855</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>GetRecipientsFromGroup</targetReference>
@@ -2055,7 +2200,7 @@ CS-203</description>
         <name>GetRecipientsFromGroup</name>
         <label>Get Recipients from Group</label>
         <locationX>158</locationX>
-        <locationY>2951</locationY>
+        <locationY>2963</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>CheckGroupMembersNotEmpty</targetReference>
@@ -2077,7 +2222,7 @@ CS-203</description>
         <name>UpdateAufschBedingungTask</name>
         <label>Update AufschBedinung Task</label>
         <locationX>1185</locationX>
-        <locationY>575</locationY>
+        <locationY>839</locationY>
         <connector>
             <targetReference>CheckExklusivitaetVerkaeuferDateChanged</targetReference>
         </connector>
@@ -2121,7 +2266,7 @@ CS-203</description>
         <name>UpdateBeurkundungAnkaufTask</name>
         <label>Update Beurkundung Ankauf Task</label>
         <locationX>1185</locationX>
-        <locationY>3263</locationY>
+        <locationY>3239</locationY>
         <connector>
             <targetReference>CreatePeTasks</targetReference>
         </connector>
@@ -2158,7 +2303,7 @@ CS-203</description>
         <name>UpdateEBTask</name>
         <label>UpdateEBTask</label>
         <locationX>1185</locationX>
-        <locationY>1919</locationY>
+        <locationY>2039</locationY>
         <connector>
             <targetReference>CheckIva1DateChanged</targetReference>
         </connector>
@@ -2202,7 +2347,7 @@ CS-203</description>
         <name>UpdateEVTask</name>
         <label>UpdateEVTask</label>
         <locationX>1185</locationX>
-        <locationY>1247</locationY>
+        <locationY>1439</locationY>
         <connector>
             <targetReference>CheckExklusivitaetBetreiberDateChanged</targetReference>
         </connector>
@@ -2246,7 +2391,7 @@ CS-203</description>
         <name>UpdateIva1Task</name>
         <label>Update IVA1 Task</label>
         <locationX>1185</locationX>
-        <locationY>2591</locationY>
+        <locationY>2639</locationY>
         <connector>
             <targetReference>CheckBeurkundungAnkaufDateChanged</targetReference>
         </connector>
@@ -2289,7 +2434,7 @@ CS-203</description>
         <locationX>1136</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>CheckPeTaskChanges</targetReference>
+            <targetReference>Address_changed_or_not_null</targetReference>
         </connector>
         <object>Property__c</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
