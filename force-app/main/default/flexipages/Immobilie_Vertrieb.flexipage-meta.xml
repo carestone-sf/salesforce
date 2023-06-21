@@ -1155,6 +1155,24 @@
                 <identifier>force_relatedListSingleContainer4</identifier>
             </componentInstance>
         </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>componentHeight</name>
+                    <value>328</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>defaultView</name>
+                    <value>list</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>widgetType</name>
+                    <value>attachments</value>
+                </componentInstanceProperties>
+                <componentName>cldfs:cloudFilesAttachments</componentName>
+                <identifier>cldfs_cloudFilesAttachments</identifier>
+            </componentInstance>
+        </itemInstances>
         <name>rightcol</name>
         <type>Region</type>
     </flexiPageRegions>
