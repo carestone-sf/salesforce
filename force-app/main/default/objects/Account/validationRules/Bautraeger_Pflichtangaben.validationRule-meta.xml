@@ -15,7 +15,9 @@ IsBlank( Website ) ||
 IsBlank( HRB_bei_Kapitalgesellschaften__c ) ||
 IsBlank( Steuernummer__c ) ||
 IsBlank( UStd_Id__c )
-)</errorConditionFormula>
+) &amp;&amp;
+$Profile.Id != &apos;00eb0000000VEnA&apos; &amp;&amp;
+$Profile.Id != &apos;00e670000012DuY&apos;</errorConditionFormula>
     <errorMessage>Bitte fülle alle Daten unter &quot;Abrechnung&quot; aus und zusätzlich:
 Telefon, Telefax, Email, Website, Rechnungsadresse</errorMessage>
 </ValidationRule>
