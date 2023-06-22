@@ -4,6 +4,7 @@
     <active>true</active>
     <errorConditionFormula>RecordType.DeveloperName = &apos;PropertyDeveloper&apos; &amp;&amp;
 $Profile.Id != &apos;00eb0000000VEnA&apos; &amp;&amp;
-$Profile.Id != &apos;00e0X000000ds1S&apos;</errorConditionFormula>
-    <errorMessage>Nur die Finanzbuchhaltung und Systemadministratoren dürfen Bauträger anpassen</errorMessage>
+$Profile.Id != &apos;00e0X000000ds1S&apos; &amp;&amp;
+$Profile.Id != &apos;00e670000012DuY&apos;</errorConditionFormula>
+    <errorMessage>Nur die Finanzbuchhaltung, Projektentwicklung und Systemadministratoren dürfen Bauträger anpassen</errorMessage>
 </ValidationRule>

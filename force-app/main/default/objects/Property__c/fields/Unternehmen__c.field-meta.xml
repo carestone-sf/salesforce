@@ -3,7 +3,7 @@
     <fullName>Unternehmen__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
     <externalId>false</externalId>
-    <label>Carestone-Gesellschaft</label>
+    <label>Bauträger</label>
     <lookupFilter>
         <active>true</active>
         <filterItems>
