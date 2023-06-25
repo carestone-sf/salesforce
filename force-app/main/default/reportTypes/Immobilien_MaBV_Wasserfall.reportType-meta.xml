@@ -521,7 +521,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Ebit__c</field>
+            <field>EBT__c</field>
             <table>Property__c</table>
         </columns>
         <columns>
