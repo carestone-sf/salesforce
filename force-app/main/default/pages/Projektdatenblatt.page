@@ -144,16 +144,16 @@
                                 <p style="float: right"><apex:outputField value="{!Property__c.ObjektartProjektentwicklung__c}"/></p>
                             </div>
                             <div class="section-field">
-                                <p class="section-field-label">{!$ObjectType.Property__c.fields.VerantwortlichPE__c.Label}</p>                            
-                                <p style="float: right"><apex:outputField value="{!Property__c.VerantwortlichPE__c}"/></p>
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.ResponsiblePE__c.Label}</p>                            
+                                <p style="float: right"><apex:outputField value="{!Property__c.ResponsiblePE__c}"/></p>
                             </div>
                             <div class="section-field">
-                                <p class="section-field-label">{!$ObjectType.Property__c.fields.VerantwortlichPM__c.Label}</p>                            
-                                <p style="float: right"><apex:outputField value="{!Property__c.VerantwortlichPM__c}"/></p>
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.ResponsiblePM__c.Label}</p>                            
+                                <p style="float: right"><apex:outputField value="{!Property__c.ResponsiblePM__c}"/></p>
                             </div>
                             <div class="section-field">
-                                <p class="section-field-label">{!$ObjectType.Property__c.fields.VerantwortlichAM__c.Label}</p>                               
-                                <p style="float: right"><apex:outputField value="{!Property__c.VerantwortlichAM__c}"/></p>
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.ResponsibleAM__c.Label}</p>                               
+                                <p style="float: right"><apex:outputField value="{!Property__c.ResponsibleAM__c}"/></p>
                             </div>
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.ZugehoerigkeitPortfolio__c.Label}</p>                                
@@ -370,7 +370,11 @@
                             </div>
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.AufschiebendeBedingungRuecktrittrecht__c.Label}</p>    
-                                <p style="float: right"><apex:outputField value="{!Property__c.AufschiebendeBedingungRuecktrittrecht__c}" /> </p>
+                                <p style="float: right"><apex:outputField value="{!Property__c.AufschiebendeBedingungRuecktrittrecht__c}" /></p>
+                            </div>
+                            <div class="section-field">
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.DateConditionPrecedentRightOfWithdrawal__c.Label}</p>    
+                                <p style="float: right"><apex:outputField value="{!Property__c.DateConditionPrecedentRightOfWithdrawal__c}" /></p>
                             </div>
                         </div>
                     </div>
@@ -427,12 +431,12 @@
                         </div> 
                         <div class="section__right" style="width:40%; float: right;">
                             <div class="section-field">
-                                <p class="section-field-label">{!$ObjectType.Property__c.fields.Anzahl_Einzelzimmer__c.Label}</p>    
-                                <p style="float: right"><apex:outputField value="{!Property__c.Anzahl_Einzelzimmer__c}"/></p>
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.SingleRoomsPlanned__c.Label}</p>    
+                                <p style="float: right"><apex:outputField value="{!Property__c.SingleRoomsPlanned__c}"/></p>
                             </div>
                             <div class="section-field">
-                                <p class="section-field-label">{!$ObjectType.Property__c.fields.Anzahl_Doppelzimmer__c.Label}</p>    
-                                <p style="float: right"><apex:outputField value="{!Property__c.Anzahl_Doppelzimmer__c}"/></p>
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.DoubleRoomsPlanned__c.Label}</p>    
+                                <p style="float: right"><apex:outputField value="{!Property__c.DoubleRoomsPlanned__c}"/></p>
                             </div>
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.WohneinheitenBetreutesWohnen__c.Label}</p>    
