@@ -4,8 +4,10 @@
     <active>true</active>
     <errorConditionFormula>IsChanged(StageName) &amp;&amp;
 TEXT(StageName) != &apos;Beratung&apos; &amp;&amp;
+TEXT(StageName) != &apos;Nachrücker&apos; &amp;&amp;
 OR(IsBlank( Immobilie__c ),
-IsBlank(  Appartement__c ))</errorConditionFormula>
+IsBlank(  Appartement__c ))
+&amp;&amp; IsClosed = false</errorConditionFormula>
     <errorDisplayField>Immobilie__c</errorDisplayField>
     <errorMessage>Die Immobilie und das Teilobjekt dürfen nach der Beratung nicht leer sein</errorMessage>
 </ValidationRule>

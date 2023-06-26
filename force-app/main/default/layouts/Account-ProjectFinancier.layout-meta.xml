@@ -282,6 +282,17 @@
         <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Property__c</fields>
+        <fields>Street__c</fields>
+        <fields>State__c</fields>
+        <fields>Place__c</fields>
+        <fields>Purchase_Price_sqm__c</fields>
+        <fields>Rent_Long_Term_sqm__c</fields>
+        <fields>Is_Public__c</fields>
+        <relatedList>Property__c.ProjectFinancier__c</relatedList>
+    </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>
