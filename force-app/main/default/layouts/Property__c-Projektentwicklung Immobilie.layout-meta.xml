@@ -44,6 +44,14 @@
                 <behavior>Edit</behavior>
                 <field>ActionUntil__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ProjectFinancier__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>PriceAdjustmentOnlyAfterRFConsultation__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
