@@ -2522,8 +2522,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.VerantwortlichPM__c</fieldItem>
-                <identifier>RecordVerantwortlichPM_cField2</identifier>
+                <fieldItem>Record.ResponsiblePM__c</fieldItem>
+                <identifier>RecordResponsiblePM_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
