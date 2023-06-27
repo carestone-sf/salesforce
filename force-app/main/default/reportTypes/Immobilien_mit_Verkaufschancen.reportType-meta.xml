@@ -1087,16 +1087,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>VerantwortlichPE__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>VerantwortlichPM__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Generalunternehmer__c</field>
             <table>Property__c</table>
         </columns>
@@ -1732,12 +1722,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ProjectFinancier__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>PriceAdjustmentOnlyAfterRFConsultation__c</field>
+            <field>DoubleRoomRatioPlanned__c</field>
             <table>Property__c</table>
         </columns>
         <masterLabel>Immobilien</masterLabel>

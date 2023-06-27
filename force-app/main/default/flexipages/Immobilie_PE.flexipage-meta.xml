@@ -3258,8 +3258,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DZQuote__c</fieldItem>
-                <identifier>RecordDZQuote_cField2</identifier>
+                <fieldItem>Record.DoubleRoomRatioPlanned__c</fieldItem>
+                <identifier>RecordDoubleRoomRatioPlanned_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
