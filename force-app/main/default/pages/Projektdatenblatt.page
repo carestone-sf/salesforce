@@ -397,8 +397,8 @@
                                 <p style="float: right"><apex:outputField value="{!Property__c.AnzahlZimmerStationaeePflege__c}"/></p>
                             </div>
                             <div class="section-field">
-                                <p class="section-field-label">{!$ObjectType.Property__c.fields.DZQuote__c.Label}</p>                          
-                                <p style="float: right"><apex:outputField value="{!Property__c.DZQuote__c}"/></p>
+                                <p class="section-field-label">{!$ObjectType.Property__c.fields.DoubleRoomRatioPlanned__c.Label}</p>                          
+                                <p style="float: right"><apex:outputField value="{!Property__c.DoubleRoomRatioPlanned__c}"/></p>
                             </div>                          
                             <div class="section-field">
                                 <p class="section-field-label">{!$ObjectType.Property__c.fields.PlaetzeAmbulantePflege__c.Label}</p>                          
