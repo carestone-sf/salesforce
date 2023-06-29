@@ -1,0 +1,21 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[Sehr geehrte/r {!Opportunity.Makler__c},&nbsp;<div><br></div><div>erfreulicherweise teilen wir Ihnen heute mit, dass nach Auskunft des Notariats
+der Kaufvertrag bzw. das Angebot auf Abschluss eines Kaufvertrags für
+die&nbsp;</div><div><br></div><div>Wohneinheit: <b>{!Opportunity.Appartement__c}</b>, der Immobilie:&nbsp;<b>{!Opportunity.Immobilie__c}</b>&nbsp;</div><div><br></div><div>mit Ihrem Kunden:&nbsp;<b>{!Opportunity.Potenzieller_Kunde__c}</b>&nbsp;</div><div><br></div><div>erfolgreich beurkundet wurde.&nbsp;</div><div><br></div><div>Zur weiteren Bearbeitung senden Sie uns bitte&nbsp;</div><div><br></div><div>• die vollständige, von Ihnen und vom Käufer unterzeichnete Risikobelehrung
+("Beratungsprotokoll")
+sowie</div><div><br></div><div>• den Finanzierungs- bzw. Eigenkapitalnachweis des Käufers per E-Mail an: fibu@carestone.com oder per Post zu.&nbsp;</div><div><br></div><div>Sollten Sie uns die vorgenannten Unterlagen bereits eingereicht bzw. gesandt
+haben, betrachten Sie diese Aufforderung bitte als gegenstandslos.&nbsp;</div><div><br></div><div>Sobald uns alle erforderlichen Unterlagen (eine Ausfertigung des Kaufvertrages,
+die Risikobelehrung ["Beratungsprotokoll"] und der Finanzierungs- bzw.
+Eigenkapitalnachweis) vorliegen, erhalten Sie eine "Provisionsvorlage"
+per E-Mail mit den genauen Provisionsdaten entsprechend den mit Ihnen
+getroffenen Vereinbarungen.&nbsp;</div><div><br></div><div><b>Bitte beachten Sie, dass die E-Mail "Provisionsvorlage" bei Kaufverträgen,
+in denen mit dem Käufer ein Zahlungsplan nach der MaBV vereinbart
+wurde, erst nach Eingang der 1. MaBV-Rate generiert wird. Unmittelbar
+nach Eingang der 1. MaBV-Rate beim Verkäufer erhalten Sie von
+uns unaufgefordert eine entsprechende E-Mail. Erst auf der Grundlage
+dieser E-Mail reichen Sie uns bitte Ihre Provisionsrechnung ein.&nbsp;</b></div><div><br></div><div>Wir gratulieren Ihnen zu Ihrem erfolgreichen Geschäftsabschluss und
+freuen uns auf eine weiterhin gute Zusammenarbeit!</div>]]></td>
+</tr>
+</table>
