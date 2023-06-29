@@ -2803,6 +2803,11 @@
             <field>CommentCarestoneFinancing__c</field>
             <table>Account.BetreuteAccounts__r.Opportunities</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CustomerIncentiveWasPaid__c</field>
+            <table>Account.BetreuteAccounts__r.Opportunities</table>
+        </columns>
         <masterLabel>Verkaufschancen</masterLabel>
     </sections>
 </ReportType>

@@ -356,12 +356,15 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
 
 
             Boolean stageHasChanged = true;
+            Boolean customerHasChanged = true;
             if (Trigger.isUpdate) {
                 Opportunity oldOpp = Trigger.oldMap.get(opp.Id);
-                if (oldOpp.StageName != opp.StageName) {
-                    stageHasChanged = true;
-                } else {
+                if (oldOpp.StageName == opp.StageName) {
                     stageHasChanged = false;
+                }
+
+                if(oldOpp.Potenzieller_Kunde__c == opp.Potenzieller_Kunde__c) {
+                    customerHasChanged = false;
                 }
             }
 
@@ -525,7 +528,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
             }
 
             // Logic to create list for "Datev Debitor Number Buyers"
-            if (opp.StageName == 'Geschlossene und gewonnene' && stageHasChanged) {
+            if (opp.StageName == 'Geschlossene und gewonnene' && (stageHasChanged || customerHasChanged)) {
                 oppsWonCustomersIds.add(opp.Potenzieller_Kunde__c);
             }
         }
