@@ -1356,6 +1356,11 @@
             <field>CommentCarestoneFinancing__c</field>
             <table>Opportunity</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CustomerIncentiveWasPaid__c</field>
+            <table>Opportunity</table>
+        </columns>
         <masterLabel>Verkaufschancen</masterLabel>
     </sections>
 </ReportType>

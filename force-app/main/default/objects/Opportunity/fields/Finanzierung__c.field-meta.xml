@@ -4,8 +4,8 @@
     <externalId>false</externalId>
     <label>Finanzierung</label>
     <required>false</required>
-    <trackFeedHistory>true</trackFeedHistory>
-    <trackTrending>false</trackTrending>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
     <type>Picklist</type>
     <valueSet>
         <valueSetDefinition>
@@ -13,7 +13,12 @@
             <value>
                 <fullName>Finanzierung WH</fullName>
                 <default>false</default>
-                <label>Finanzierung WH</label>
+                <label>HypoCare</label>
+            </value>
+            <value>
+                <fullName>Finanzierung WH eigen</fullName>
+                <default>false</default>
+                <label>CS fremd</label>
             </value>
             <value>
                 <fullName>Fremdfinanzierung</fullName>
@@ -24,6 +29,11 @@
                 <fullName>Eigenkapitalzahlung</fullName>
                 <default>false</default>
                 <label>Eigenkapitalzahlung</label>
+            </value>
+            <value>
+                <fullName>Noch ungeklärt</fullName>
+                <default>false</default>
+                <label>Noch ungeklärt</label>
             </value>
         </valueSetDefinition>
     </valueSet>

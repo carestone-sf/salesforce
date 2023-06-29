@@ -317,6 +317,10 @@
                 <field>AdditionalCosts__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CustomerIncentiveWasPaid__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>AdditionalBrokerCommission__c</field>
             </layoutItems>
