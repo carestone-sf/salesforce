@@ -416,7 +416,7 @@ public without sharing class FinanceCalculator {
             liquidityCurrentYearValues.put('creditSumEndInEuro', 0);
             liquidityCurrentYearValues.put('rateInEuro', 0);
             liquidityCurrentYearValues.put('eigenkapitalRendite', 0);
-            this.cumulatedYearlyValuesBezugsphase.put(this.firstYear + i+1, liquidityCurrentYearValues);
+            this.cumulatedYearlyValuesBezugsphase.put(this.firstFullYear + i, liquidityCurrentYearValues);
             this.cumulatedYearlyValues = deepCopyExistingStructure(this.cumulatedYearlyValuesBezugsphase);
         }
         this.yearsPassed = 1;
