@@ -6,7 +6,7 @@ global class ImmobilienAsExcel implements Schedulable {
 
 	global void execute(SchedulableContext sc) {
 		ImmobilienAsExcelBatch iaeb = new ImmobilienAsExcelBatch();
-		Database.executebatch(iaeb, 800);
+		Database.executebatch(iaeb, 500);
 	}
 
 	public void sendexcelfile(List<Contact> contacts){

@@ -1,0 +1,23 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #454545}
+p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #454545; min-height: 14.0px}
+p.p3 {margin: 0.0px 0.0px 2.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #454545; min-height: 17.0px}
+p.p4 {margin: 0.0px 0.0px 2.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #454545}
+span.Apple-tab-span {white-space:pre}
+</style>
+
+
+<p class="p1" style=""><font face="Arial, sans-serif" style="" size="4"><font color="#000000" face="arial"><span style="font-size: 12pt;">Guten Tag&nbsp;Herr </span></font>{!Account.Maklerbetreuer_Wirtschaftshaus_2__c}<font color="#000000" face="arial"><span style="font-size: 12pt;">,</span></font></font></p>
+<p class="p2" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><font face="Arial, sans-serif" size="4"><br></font></p>
+<p class="p1" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><font face="Arial, sans-serif" size="4">soeben wurde der Vertrag von<span class="Apple-tab-span">	</span></font></p><p class="p1" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></p>
+<p class="p1" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><font face="Arial, sans-serif" size="4"><b>{!Account.Name}</b><span class="Apple-tab-span">	</span></font></p><p class="p1" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></p>
+<p class="p1" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><font face="Arial, sans-serif" size="4">beidseitig unterschrieben.</font></p>
+<p class="p2" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><font face="Arial, sans-serif" size="4"><br></font></p>
+<p class="p1" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><font face="Arial, sans-serif" size="4">Mit freundlichen Grüßen</font></p>
+<p class="p3" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><b><span class="Apple-tab-span"><font face="Arial, sans-serif" size="4">	</font></span></b></p>
+<p class="p4" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><font face="Arial, sans-serif" style="" size="4">Ihr Carestone Team</font></p>]]></td>
+</tr>
+</table>

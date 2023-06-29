@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>WH_Service</letterhead>
+    <name>VKC gewonnen</name>
+    <style>freeForm</style>
+    <subject>Erfolgreicher Verkauf</subject>
+    <textOnly>Sehr geehrte/r {!Opportunity.Makler__c},
+
+erfreulicherweise teilen wir Ihnen heute mit, dass nach Auskunft des Notariats der Kaufvertrag bzw. das Angebot auf Abschluss eines Kaufvertrags für die
+
+Wohneinheit: {!Opportunity.Appartement__c}, der Immobilie: {!Opportunity.Immobilie__c}
+
+mit Ihrem Kunden: {!Opportunity.Potenzieller_Kunde__c}
+
+erfolgreich beurkundet wurde.
+
+Zur weiteren Bearbeitung senden Sie uns bitte
+
+• die vollständige, von Ihnen und vom Käufer unterzeichnete Risikobelehrung (&quot;Beratungsprotokoll&quot;) sowie
+
+• den Finanzierungs- bzw. Eigenkapitalnachweis des Käufers per E-Mail an: fibu@carestone.com oder per Post zu.
+
+Sollten Sie uns die vorgenannten Unterlagen bereits eingereicht bzw. gesandt haben, betrachten Sie diese Aufforderung bitte als gegenstandslos.
+
+Sobald uns alle erforderlichen Unterlagen (eine Ausfertigung des Kaufvertrages, die Risikobelehrung [&quot;Beratungsprotokoll&quot;] und der Finanzierungs- bzw. Eigenkapitalnachweis) vorliegen, erhalten Sie eine &quot;Provisionsvorlage&quot; per E-Mail mit den genauen Provisionsdaten entsprechend den mit Ihnen getroffenen Vereinbarungen.
+
+Bitte beachten Sie, dass die E-Mail &quot;Provisionsvorlage&quot; bei Kaufverträgen, in denen mit dem Käufer ein Zahlungsplan nach der MaBV vereinbart wurde, erst nach Eingang der 1. MaBV-Rate generiert wird. Unmittelbar nach Eingang der 1. MaBV-Rate beim Verkäufer erhalten Sie von uns unaufgefordert eine entsprechende E-Mail. Erst auf der Grundlage dieser E-Mail reichen Sie uns bitte Ihre Provisionsrechnung ein.
+
+Wir gratulieren Ihnen zu Ihrem erfolgreichen Geschäftsabschluss und freuen uns auf eine weiterhin gute Zusammenarbeit!</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
