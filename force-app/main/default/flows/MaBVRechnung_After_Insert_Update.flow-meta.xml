@@ -514,7 +514,6 @@
             <connector>
                 <targetReference>Assign_first_invoice_to_apartment</targetReference>
             </connector>
-            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
             <label>1. Rate</label>
         </rules>
         <rules>
@@ -530,7 +529,6 @@
             <connector>
                 <targetReference>Assign_second_invoice_to_apartment</targetReference>
             </connector>
-            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
             <label>2. Rate</label>
         </rules>
         <rules>
@@ -546,7 +544,6 @@
             <connector>
                 <targetReference>Assign_third_invoice_to_apartment</targetReference>
             </connector>
-            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
             <label>3. Rate</label>
         </rules>
         <rules>
@@ -562,7 +559,6 @@
             <connector>
                 <targetReference>Assign_fourth_invoice_to_apartment</targetReference>
             </connector>
-            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
             <label>4. Rate</label>
         </rules>
         <rules>
@@ -578,7 +574,6 @@
             <connector>
                 <targetReference>Assign_fifth_invoice_to_apartment</targetReference>
             </connector>
-            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
             <label>5. Rate</label>
         </rules>
         <rules>
@@ -594,7 +589,6 @@
             <connector>
                 <targetReference>Assign_sixth_invoice_to_apartment</targetReference>
             </connector>
-            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
             <label>6. Rate</label>
         </rules>
         <rules>
@@ -610,7 +604,6 @@
             <connector>
                 <targetReference>Assign_seventh_invoice_to_apartment</targetReference>
             </connector>
-            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
             <label>7. Rate</label>
         </rules>
     </decisions>
