@@ -87,6 +87,8 @@ public without sharing class EventController {
         public String whoName{get;set;}
         @AuraEnabled
         public String ownerName{get;set;}
+        @AuraEnabled
+        public Boolean hideDescription{get;set;}
 
         public Integer compareTo(Object compareTo) {
             // needs bus logic to decide if null date is < non null date or vice-versa
@@ -110,6 +112,7 @@ public without sharing class EventController {
             this.unregistered = unregistered;
             this.location = location;
             this.description =  descriptionVp != null ? descriptionVp:description;
+            this.hideDescription = (descriptionVp == null && description == null) || this.location == 'Microsoft Teams-Besprechung';
             this.ownerName = ownerName;
             this.whoName = whoName;
         }
