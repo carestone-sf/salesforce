@@ -21,7 +21,7 @@
                                 hour="2-digit"
                                 minute="2-digit"></lightning-formatted-date-time>
                         </p>
-                        <p if:true={event.description}>
+                        <p if:false={event.hideDescription}>
                             Beschreibung: {event.description}
                         </p>
                         <p if:true={event.location}>
