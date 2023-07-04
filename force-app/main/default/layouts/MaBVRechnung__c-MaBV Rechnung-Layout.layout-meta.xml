@@ -246,6 +246,10 @@
                 <behavior>Edit</behavior>
                 <field>Maklerbetreuer__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>CountDaysUntilInvoicePaid__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
