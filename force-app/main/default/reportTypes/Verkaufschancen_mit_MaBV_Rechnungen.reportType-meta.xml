@@ -1600,6 +1600,11 @@
             <field>PaymentReminderAutomaticDate__c</field>
             <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CountDaysUntilInvoicePaid__c</field>
+            <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
         <masterLabel>MaBV Rechnungen</masterLabel>
     </sections>
     <sections>
