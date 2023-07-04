@@ -2262,6 +2262,11 @@
             <field>Kommentar__c</field>
             <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CountDaysUntilInvoicePaid__c</field>
+            <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
         <masterLabel>MaBV Rechnungen</masterLabel>
     </sections>
 </ReportType>
