@@ -427,6 +427,11 @@
             <field>PaymentReminderAutomaticDate__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CountDaysUntilInvoicePaid__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
         <masterLabel>MaBV Rechnungen</masterLabel>
     </sections>
     <sections>
