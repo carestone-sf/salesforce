@@ -21,21 +21,6 @@
                 <default>false</default>
                 <label>Nicht vorhanden</label>
             </value>
-            <value>
-                <fullName>Noch nicht beantragt</fullName>
-                <default>false</default>
-                <label>Noch nicht beantragt</label>
-            </value>
-            <value>
-                <fullName>In Beantragung</fullName>
-                <default>false</default>
-                <label>In Beantragung</label>
-            </value>
-            <value>
-                <fullName>Kann beantragt werden</fullName>
-                <default>false</default>
-                <label>Kann beantragt werden</label>
-            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>
