@@ -1861,11 +1861,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Immobilie__c.Ebit__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Immobilie__c.EBT__c</field>
             <table>Opportunity</table>
         </columns>
