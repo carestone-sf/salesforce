@@ -3356,32 +3356,17 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Immobilie__c.VerantwortlichAM__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Immobilie__c.ResponsibleAM__c</field>
             <table>Opportunity</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Immobilie__c.VerantwortlichPE__c</field>
+            <field>Immobilie__c.ResponsiblePM__c</field>
             <table>Opportunity</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Immobilie__c.ResponsiblePE__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Immobilie__c.VerantwortlichPM__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Immobilie__c.ResponsiblePM__c</field>
             <table>Opportunity</table>
         </columns>
         <columns>
