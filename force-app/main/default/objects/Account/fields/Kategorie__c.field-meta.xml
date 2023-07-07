@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Kategorie__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Vergeben Sie A, B, C oder D für eine entsprechende Klassifizierung des Potenzials und der Aktivität dieses Maklers.(A = Topmakler, B = Gelegentlich aktiv, hat produziert, C = Potenzial vorhanden und noch zu entwickeln, D = Kein Potenzial, Vertriebsverbot = nicht mehr kontaktieren)</inlineHelpText>
+    <label>Klassifizierung</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Nicht kategorisiert</fullName>
+                <default>true</default>
+                <label>Nicht kategorisiert</label>
+            </value>
+            <value>
+                <fullName>A</fullName>
+                <default>false</default>
+                <label>A</label>
+            </value>
+            <value>
+                <fullName>B</fullName>
+                <default>false</default>
+                <label>B</label>
+            </value>
+            <value>
+                <fullName>C</fullName>
+                <default>false</default>
+                <label>C</label>
+            </value>
+            <value>
+                <fullName>D</fullName>
+                <default>false</default>
+                <label>D</label>
+            </value>
+            <value>
+                <fullName>Vertriebsverbot</fullName>
+                <default>false</default>
+                <label>Vertriebsverbot</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
