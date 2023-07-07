@@ -212,7 +212,7 @@
 			</div>
 			<div class="slds-col slds-size_11-of-12 slds-medium-size_5-of-12">
 				<p style="font-size: 0.8125rem;line-height : 13px; padding-bottom: 5px;">
-					<lightning-formatted-number value={privateImmobilie.immobilie.Max_Rendite__c}></lightning-formatted-number>% Rendite
+					<lightning-formatted-number value={privateImmobilie.immobilie.Min_Rendite__c}></lightning-formatted-number>% - <lightning-formatted-number value={privateImmobilie.immobilie.Max_Rendite__c}></lightning-formatted-number>% Rendite
 					<template if:true={privateImmobilie.immobilie.MaBV__c}>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{privateImmobilie.immobilie.MaBV__c}
 					</template>
