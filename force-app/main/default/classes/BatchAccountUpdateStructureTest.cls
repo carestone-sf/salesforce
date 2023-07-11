@@ -4,7 +4,7 @@ public class BatchAccountUpdateStructureTest {
     @TestSetup
     static void setup(){
         //Create Dummy User
-        User user = TestDataFactory.createTestuser(true, 'newOwner', 1);
+        User user = TestDataFactory.createTestuser(true, 'newOwner');
 
         //Create Maklerbetreuer Contact
         Contact maklerbetreuer = TestDataFactory.createContact(true,'New','Maklerbetreuer','new@maklerbetreuer.de');
