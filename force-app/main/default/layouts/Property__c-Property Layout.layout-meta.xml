@@ -209,14 +209,6 @@
                 <behavior>Edit</behavior>
                 <field>TargetSoldUntil__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>ProjectFinancier__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>PriceAdjustmentOnlyAfterRFConsultation__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -258,6 +250,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ResponsiblePM__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ResponsibleRF__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>PriceAdjustmentOnlyAfterRFConsultation__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -1456,6 +1456,12 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>FileDownloadLog__c.Property__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Account.NAME</fields>
+        <fields>CreditAmount__c</fields>
+        <relatedList>ProjectFinancing__c.Property__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>

@@ -209,6 +209,10 @@
             <fullName>Nicht kategorisiert</fullName>
             <default>true</default>
         </values>
+        <values>
+            <fullName>Vertriebsverbot</fullName>
+            <default>false</default>
+        </values>
     </picklistValues>
     <picklistValues>
         <picklist>Makler_Status__c</picklist>
