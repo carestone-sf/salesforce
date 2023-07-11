@@ -2,13 +2,8 @@
 public class ApprovalControllerTest {
 
     @testSetup static void test_setup() {
-        Contact mb = new Contact();
-        mb.FirstNAme = 'Frank';
-        mb.LastName = 'Köpsell';
-        mb.Email = 'witte@amstammtisch.de';
-        mb.Salutation = 'Herr';
-        mb.MaklerBetreuer_E_Mail__c = 'witte@amstammtisch.de';
-        insert mb;
+        Contact mb = TestDataFactory.createMakler(true,'Köpsell');
+  
         Account acc3 = new Account();
         acc3.Name = 'WH Maklerbetreuer - Frank Köpsell';
         acc3.Email__c = 'witte@amstammtisch.de';
@@ -25,14 +20,12 @@ public class ApprovalControllerTest {
         acc3.BillingCity = 'Hannover';
         acc3.BillingPostalCode = '30159';
         acc3.BillingStreet = 'Lister Meile 45';
+        acc3.Carestone_Vertriebsvereinbarung__c = true;
         insert acc3;
         mb.AccountId = acc3.Id;
         update mb;
 
-        Contact potKun = new Contact();
-        potKun.FirstName = 'Tvvsta';
-        potKun.LastName = 'Tekoeeric';
-        insert potKun;
+        Contact potKun = TestDataFactory.createContact(true, 'Tvvsta', 'Tekoeeric');
 
         Property__c immobilie = new Property__c();
         immobilie.Name = 'Immobilie';
@@ -91,20 +84,7 @@ public class ApprovalControllerTest {
 
         Account acc3 = [SELECT Id FROM Account];
 
-        Id maklerRecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName()
-        .get('Makler').getRecordTypeId();
-        Contact con = new Contact();
-        con.AccountId = acc3.Id;
-        con.Gesch_ftsbeziehung__c = 'Versicherungsmakler';
-        con.FirstName = 'Max';
-        con.MailingStreet = 'Teststr. 24';
-        con.MailingCity = 'Hannover';
-        con.MailingPostalCode = '30159';
-        con.LastName = 'Maklermann 6';
-        con.RecordTypeId = maklerRecordTypeId;
-        insert con;
-
-        Database.insert(con, dml);
+        Contact con = TestDataFactory.createMakler(true, acc3.Id);
 
         Profile portalProfileUser = [SELECT Id FROM Profile WHERE Name LIKE '%Partner Community%User' Limit 1];
         Profile portalProfileManager = [SELECT Id FROM Profile WHERE Name LIKE '%Partner Community%Manager' Limit 1];
@@ -180,7 +160,7 @@ public class ApprovalControllerTest {
         provision.Maklerbetreuer__c = '005b0000001V30P';
         insert provision;
 
-        User user = [SELECT Id FROM User WHERE LastName = 'Maklermann 6'];
+       Test.stopTest();
 
 //        TODO run in Maklerbetreuer context
 //        List<ApprovalController.ProvisionApproval> pas = ApprovalController.getProvisionApprovals();
