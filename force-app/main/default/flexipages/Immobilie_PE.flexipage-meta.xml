@@ -2214,14 +2214,144 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.ProjectFinancier__c</fieldItem>
-                <identifier>RecordProjectFinancier_cField</identifier>
+                <fieldItem>Record.Objektnummer__c</fieldItem>
+                <identifier>RecordObjektnummer_cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-a2eb6de8-29c8-44cc-93d5-02bb9ee425a2</name>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Unternehmen__c</fieldItem>
+                <identifier>RecordUnternehmen_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Bauart__c</fieldItem>
+                <identifier>RecordBauart_cField5</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Property__c</fieldItem>
+                <identifier>RecordProperty_cField5</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ResponsibleAM__c</fieldItem>
+                <identifier>RecordResponsibleAM_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ResponsiblePE__c</fieldItem>
+                <identifier>RecordResponsiblePE_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ResponsiblePM__c</fieldItem>
+                <identifier>RecordResponsiblePM_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ResponsibleRF__c</fieldItem>
+                <identifier>RecordResponsibleRF_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Verkaeufer__c</fieldItem>
+                <identifier>RecordVerkaeufer_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-621242bc-be04-4bca-8a1a-c605b34c158d</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.BeurkundungAnkauf__c</fieldItem>
+                <identifier>RecordBeurkundungAnkauf_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.NotarAnkauf__c</fieldItem>
+                <identifier>RecordNotarAnkauf_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Kaufpreisfaelligkeit__c</fieldItem>
+                <identifier>RecordKaufpreisfaelligkeit_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Kaufpreishoehe__c</fieldItem>
+                <identifier>RecordKaufpreishoehe_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.NebenkostenKauf__c</fieldItem>
+                <identifier>RecordNebenkostenKauf_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
@@ -2232,7 +2362,7 @@
                 <identifier>RecordPriceAdjustmentOnlyAfterRFConsultation_cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-5bfa95ab-1334-44b8-a01a-b6893d56ee7d</name>
+        <name>Facet-670a997d-2e3d-4048-b451-a5e6d212357d</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -2240,23 +2370,23 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-a2eb6de8-29c8-44cc-93d5-02bb9ee425a2</value>
+                    <value>Facet-621242bc-be04-4bca-8a1a-c605b34c158d</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:column</componentName>
-                <identifier>flexipage_column65</identifier>
+                <identifier>flexipage_column69</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-5bfa95ab-1334-44b8-a01a-b6893d56ee7d</value>
+                    <value>Facet-670a997d-2e3d-4048-b451-a5e6d212357d</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:column</componentName>
-                <identifier>flexipage_column66</identifier>
+                <identifier>flexipage_column70</identifier>
             </componentInstance>
         </itemInstances>
-        <name>Facet-927a29a4-27cf-441c-a232-629b66dbdea1</name>
+        <name>Facet-d9d34a96-0d51-4df2-b524-f029879e6b8e</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -2264,18 +2394,44 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>columns</name>
-                    <value>Facet-927a29a4-27cf-441c-a232-629b66dbdea1</value>
+                    <value>Facet-d9d34a96-0d51-4df2-b524-f029879e6b8e</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>horizontalAlignment</name>
-                    <value>false</value>
+                    <value>true</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
-                    <value>Projektfinanzierung</value>
+                    <value>Allgemein</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
-                <identifier>flexipage_fieldSection35</identifier>
+                <identifier>flexipage_fieldSection37</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>parentFieldApiName</name>
+                    <value>Property__c.Id</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListApiName</name>
+                    <value>ProjectFinancings__r</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListComponentOverride</name>
+                    <value>NONE</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>rowsToDisplay</name>
+                    <value>10</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>showActionBar</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer6</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-b5497f2e-0d26-4eb9-acf4-1d1473f87bc0</name>
@@ -2622,6 +2778,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.ResponsibleAM__c</fieldItem>
                 <identifier>RecordResponsibleAM_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ResponsibleRF__c</fieldItem>
+                <identifier>RecordResponsibleRF_cField3</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -6219,14 +6385,144 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.ProjectFinancier__c</fieldItem>
-                <identifier>RecordProjectFinancier_cField2</identifier>
+                <fieldItem>Record.Objektnummer__c</fieldItem>
+                <identifier>RecordObjektnummer_cField2</identifier>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-jpjcakdhw7g</name>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Unternehmen__c</fieldItem>
+                <identifier>RecordUnternehmen_cField3</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Bauart__c</fieldItem>
+                <identifier>RecordBauart_cField6</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Property__c</fieldItem>
+                <identifier>RecordProperty_cField6</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ResponsibleAM__c</fieldItem>
+                <identifier>RecordResponsibleAM_cField3</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ResponsiblePE__c</fieldItem>
+                <identifier>RecordResponsiblePE_cField3</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ResponsiblePM__c</fieldItem>
+                <identifier>RecordResponsiblePM_cField3</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ResponsibleRF__c</fieldItem>
+                <identifier>RecordResponsibleRF_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Verkaeufer__c</fieldItem>
+                <identifier>RecordVerkaeufer_cField3</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-1idan0vfonu</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.BeurkundungAnkauf__c</fieldItem>
+                <identifier>RecordBeurkundungAnkauf_cField3</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.NotarAnkauf__c</fieldItem>
+                <identifier>RecordNotarAnkauf_cField3</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Kaufpreisfaelligkeit__c</fieldItem>
+                <identifier>RecordKaufpreisfaelligkeit_cField3</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Kaufpreishoehe__c</fieldItem>
+                <identifier>RecordKaufpreishoehe_cField3</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.NebenkostenKauf__c</fieldItem>
+                <identifier>RecordNebenkostenKauf_cField3</identifier>
+            </fieldInstance>
+        </itemInstances>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
@@ -6237,7 +6533,7 @@
                 <identifier>RecordPriceAdjustmentOnlyAfterRFConsultation_cField2</identifier>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-l5cibere61s</name>
+        <name>Facet-4vgxoey5qf4</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -6245,23 +6541,23 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-jpjcakdhw7g</value>
+                    <value>Facet-1idan0vfonu</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:column</componentName>
-                <identifier>flexipage_column67</identifier>
+                <identifier>flexipage_column65</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-l5cibere61s</value>
+                    <value>Facet-4vgxoey5qf4</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:column</componentName>
-                <identifier>flexipage_column68</identifier>
+                <identifier>flexipage_column66</identifier>
             </componentInstance>
         </itemInstances>
-        <name>Facet-is6vqz1y8r</name>
+        <name>Facet-1wlqrd9h397</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -6269,7 +6565,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>columns</name>
-                    <value>Facet-is6vqz1y8r</value>
+                    <value>Facet-1wlqrd9h397</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>horizontalAlignment</name>
@@ -6277,10 +6573,36 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
-                    <value>Projektfinanzierung</value>
+                    <value>Allgemein</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
-                <identifier>flexipage_fieldSection36</identifier>
+                <identifier>flexipage_fieldSection35</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>parentFieldApiName</name>
+                    <value>Property__c.Id</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListApiName</name>
+                    <value>ProjectFinancings__r</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListComponentOverride</name>
+                    <value>NONE</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>rowsToDisplay</name>
+                    <value>10</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>showActionBar</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer7</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-4vlk3qomfje</name>
