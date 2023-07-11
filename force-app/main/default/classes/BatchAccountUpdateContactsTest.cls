@@ -17,7 +17,7 @@ public class BatchAccountUpdateContactsTest {
         Assert.isNull(acc.Maklerbetreuer_Wirtschaftshaus_2__c,'Maklerbetreuer should be empty at start.');
 
         //Set new Owner of Account
-        User user = TestDataFactory.createTestuser(true, 'test', 1);
+        User user = TestDataFactory.createTestuser(true, 'test');
         acc.OwnerId = user.Id;
 
         //Set Maklerbetreuer of Account
