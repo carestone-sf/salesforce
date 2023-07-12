@@ -2,11 +2,10 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>KfwWunsch__c</fullName>
     <externalId>false</externalId>
-    <label>KfW-Wunsch</label>
+    <label>KfW Wunsch</label>
     <required>false</required>
-    <trackFeedHistory>true</trackFeedHistory>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
-    <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>
@@ -31,12 +30,6 @@
                 <fullName>Kein KfW</fullName>
                 <default>false</default>
                 <label>Kein KfW</label>
-            </value>
-            <value>
-                <fullName>KfW-Darlehen (461)</fullName>
-                <default>false</default>
-                <isActive>false</isActive>
-                <label>KfW-Darlehen (461)</label>
             </value>
             <value>
                 <fullName>KfW-Zuschuss (461)</fullName>
