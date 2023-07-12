@@ -3,8 +3,8 @@
     <actionCalls>
         <name>Zum_Datensatz</name>
         <label>Zum Datensatz</label>
-        <locationX>176</locationX>
-        <locationY>998</locationY>
+        <locationX>182</locationX>
+        <locationY>1082</locationY>
         <actionName>c:navigateToRecord</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -26,7 +26,9 @@
                 <stringValue>View</stringValue>
             </value>
         </inputParameters>
+        <nameSegment>c:navigateToRecord</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>51.0</apiVersion>
     <choices>
@@ -65,6 +67,31 @@
         <choiceText>Sondertilgungsoption</choiceText>
         <dataType>String</dataType>
     </choices>
+    <decisions>
+        <name>False</name>
+        <label>False</label>
+        <locationX>182</locationX>
+        <locationY>674</locationY>
+        <defaultConnector>
+            <targetReference>Success</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>false2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Flow.CurrentDate</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Digitale_VSA_Eingabe</targetReference>
+            </connector>
+            <label>false</label>
+        </rules>
+    </decisions>
     <dynamicChoiceSets>
         <name>Berechnungen1</name>
         <dataType>String</dataType>
@@ -154,10 +181,10 @@
     <recordCreates>
         <name>Finanzierungsanfrage_Apartment_erstellen</name>
         <label>Finanzierungsanfrage Apartment erstellen</label>
-        <locationX>176</locationX>
-        <locationY>638</locationY>
+        <locationX>182</locationX>
+        <locationY>566</locationY>
         <connector>
-            <targetReference>Digitale_VSA_Eingabe</targetReference>
+            <targetReference>False</targetReference>
         </connector>
         <inputAssignments>
             <field>Apartment__c</field>
@@ -183,8 +210,8 @@
     <recordCreates>
         <name>Finanzierungsanfrage_erstellen</name>
         <label>Finanzierungsanfrage erstellen</label>
-        <locationX>176</locationX>
-        <locationY>398</locationY>
+        <locationX>182</locationX>
+        <locationY>350</locationY>
         <connector>
             <targetReference>ScreenFileUpload</targetReference>
         </connector>
@@ -219,12 +246,6 @@
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>MonatlicheRate__c</field>
-            <value>
-                <elementReference>Monatlicher_EigenaufwandInput</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>Opportunity__c</field>
             <value>
                 <elementReference>Verkaufschance.Id</elementReference>
@@ -248,8 +269,8 @@
     <recordLookups>
         <name>Verkaufschance</name>
         <label>Verkaufschance</label>
-        <locationX>176</locationX>
-        <locationY>158</locationY>
+        <locationX>182</locationX>
+        <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Neue_Finanzierungsanfrage</targetReference>
@@ -270,8 +291,8 @@
     <screens>
         <name>Neue_Finanzierungsanfrage</name>
         <label>Neue Finanzierungsanfrage</label>
-        <locationX>176</locationX>
-        <locationY>278</locationY>
+        <locationX>182</locationX>
+        <locationY>242</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -322,27 +343,12 @@
             <scale>0</scale>
         </fields>
         <fields>
-            <name>Monatlicher_EigenaufwandInput</name>
-            <dataType>Currency</dataType>
-            <fieldText>Monatlicher Eigenaufwand</fieldText>
-            <fieldType>InputField</fieldType>
-            <isRequired>false</isRequired>
-            <scale>2</scale>
-        </fields>
-        <fields>
             <name>KfW_WunschInput</name>
             <choiceReferences>KfwWunschChoiceSet</choiceReferences>
             <dataType>String</dataType>
             <fieldText>KfW-Wunsch (falls vorhanden)</fieldText>
             <fieldType>DropdownBox</fieldType>
             <isRequired>false</isRequired>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>$Flow.CurrentDate</leftValueReference>
-                    <operator>EqualTo</operator>
-                </conditions>
-            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -350,8 +356,8 @@
     <screens>
         <name>ScreenFileUpload</name>
         <label>Screen File Upload</label>
-        <locationX>176</locationX>
-        <locationY>518</locationY>
+        <locationX>182</locationX>
+        <locationY>458</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -384,8 +390,8 @@
     <screens>
         <name>Success</name>
         <label>Success</label>
-        <locationX>176</locationX>
-        <locationY>878</locationY>
+        <locationX>182</locationX>
+        <locationY>974</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -401,7 +407,7 @@
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>50</locationX>
+        <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Verkaufschance</targetReference>
@@ -411,8 +417,8 @@
     <subflows>
         <name>Digitale_VSA_Eingabe</name>
         <label>Digitale VSA Eingabe</label>
-        <locationX>176</locationX>
-        <locationY>758</locationY>
+        <locationX>50</locationX>
+        <locationY>782</locationY>
         <connector>
             <targetReference>Success</targetReference>
         </connector>

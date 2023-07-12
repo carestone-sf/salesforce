@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <decisions>
+        <name>Automation_Switch</name>
+        <label>Automation Switch</label>
+        <locationX>413</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Automation_Switch2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Flow.CurrentDate</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Neu</targetReference>
+            </connector>
+            <label>Automation Switch</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>KfW_Best_tigung_vorhanden</name>
+        <label>KfW Bestätigung vorhanden?</label>
+        <locationX>336</locationX>
+        <locationY>839</locationY>
+        <defaultConnector>
+            <targetReference>KfW_Wunsch_ge_ndert</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>KfW_Best_tigung_vorhanden2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.KfWBestaetigungVorhanden__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opportunity_2</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>KfW Bestätigung vorhanden?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>KfW_Wunsch_ge_ndert</name>
+        <label>KfW Wunsch geändert?</label>
+        <locationX>182</locationX>
+        <locationY>1223</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>KfW_Wunsch_ge_ndert2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>KfwIsChangedOrNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opportunity_3</targetReference>
+            </connector>
+            <label>KfW Wunsch geändert?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Neu</name>
+        <label>Neu?</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>VSA_vorhanden</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Neu2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>KfW_Wunsch_ge_ndert</targetReference>
+            </connector>
+            <label>Neu?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>VSA_vorhanden</name>
+        <label>VSA vorhanden?</label>
+        <locationX>336</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>KfW_Best_tigung_vorhanden</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>VSA_vorhanden2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Phase__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>VSA vorhanden</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opportunity</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>VSA vorhanden?</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>AmpelExternChanges</name>
+        <dataType>String</dataType>
+        <expression>IF(TEXT({!$Record__Prior.Ampel__c}) != TEXT({!$Record.Ampel__c}), &apos;Ampel extern: &apos; + TEXT({!$Record__Prior.Ampel__c})  + &apos; -&gt; &apos; + TEXT({!$Record.Ampel__c}), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>AmpelInternChanges</name>
+        <dataType>String</dataType>
+        <expression>IF(TEXT({!$Record__Prior.AmpelIntern__c}) != TEXT({!$Record.AmpelIntern__c}), &apos;Ampel intern: &apos; + TEXT({!$Record__Prior.AmpelIntern__c}) + &apos; -&gt; &apos; + TEXT({!$Record.AmpelIntern__c}), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>DetailLink</name>
+        <dataType>String</dataType>
+        <expression>LEFT($Api.Enterprise_Server_URL_510, FIND( &apos;/services&apos;, $Api.Enterprise_Server_URL_510)) + {!$Record.Id}</expression>
+    </formulas>
+    <formulas>
+        <name>EigenkapitalChanges</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record__Prior.EinzusetzendesEigenkapital__c} != {!$Record.EinzusetzendesEigenkapital__c}, &apos;Eigenkapital: &apos; + TEXT({!$Record__Prior.EinzusetzendesEigenkapital__c}) + &apos; -&gt; &apos; + TEXT({!$Record.EinzusetzendesEigenkapital__c}), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>FinanzierungsbedarfChanges</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record__Prior.Finanzierungsbedarf__c} != {!$Record.Finanzierungsbedarf__c}, &apos;Finanzierungsbedarf: &apos; + TEXT({!$Record__Prior.Finanzierungsbedarf__c})  + &apos; -&gt; &apos; + TEXT({!$Record.Finanzierungsbedarf__c}), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>GeforderteUnterlagenChanges</name>
+        <dataType>String</dataType>
+        <expression>IF(true, &apos;&quot;Welche Unterlagen werden gefordert&quot; wurde angepasst. Die Werte können hier nicht dargestellt werden.&apos; , &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>GenehmigungKfwVorhandenChanges</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record__Prior.KfWBestaetigungVorhanden__c} != {!$Record.KfWBestaetigungVorhanden__c}, &apos;Genehmigung KfW Zuschuss vorhanden: &apos; + if({!$Record__Prior.KfWBestaetigungVorhanden__c}, &apos;Angehakt&apos;, &apos;Nicht angehakt&apos;)  + &apos; -&gt; &apos; + if({!$Record.KfWBestaetigungVorhanden__c}, &apos;Angehakt&apos;, &apos;Nicht angehakt&apos;), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>KfwIsChangedOrNew</name>
+        <dataType>Boolean</dataType>
+        <expression>IsNew() || IsChanged({!$Record.KfwWunsch__c})</expression>
+    </formulas>
+    <formulas>
+        <name>KfwWunschChanges</name>
+        <dataType>String</dataType>
+        <expression>IF(TEXT({!$Record__Prior.KfwWunsch__c}) != TEXT({!$Record.KfwWunsch__c}), &apos;KfW Wunsch: &apos; + TEXT({!$Record__Prior.KfwWunsch__c}) + &apos; -&gt; &apos; + TEXT({!$Record.KfwWunsch__c}), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>LaufzeitInMonatenChanges</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record__Prior.LaufzeitInMonaten__c} != {!$Record.LaufzeitInMonaten__c}, &apos;Laufzeit in Monaten: &apos; + TEXT({!$Record__Prior.LaufzeitInMonaten__c}) + &apos; -&gt; &apos; + TEXT({!$Record.LaufzeitInMonaten__c}), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>MaximaleFinanzierungssummeChanges</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record__Prior.MaximaleFinanzierungssumme__c} != {!$Record.MaximaleFinanzierungssumme__c}, &apos;Maximale Finanzierungssumme: &apos; + TEXT({!$Record__Prior.MaximaleFinanzierungssumme__c}) + &apos; -&gt; &apos; + TEXT({!$Record.MaximaleFinanzierungssumme__c}), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>MonatlicheRateBisChanges</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record__Prior.MonatlicheRateBis__c} != {!$Record.MonatlicheRateBis__c}, &apos;Monatliche Rate bis: &apos; + TEXT({!$Record__Prior.MonatlicheRateBis__c}) + &apos; -&gt; &apos; + TEXT({!$Record.MonatlicheRateBis__c}), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>MonatlicheRateChanges</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record__Prior.MonatlicheRate__c} != {!$Record.MonatlicheRate__c}, &apos;Monatliche Rate: &apos; + TEXT({!$Record__Prior.MonatlicheRate__c}) + &apos; -&gt; &apos; + TEXT({!$Record.MonatlicheRate__c}), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>MonatlicheRateVonChanges</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record__Prior.MonatlicheRateVon__c} != {!$Record.MonatlicheRateVon__c}, &apos;Monatliche Rate von: &apos; + TEXT({!$Record__Prior.MonatlicheRateVon__c}) + &apos; -&gt; &apos; + TEXT({!$Record.MonatlicheRateVon__c}), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>NaechsterSchrittChanges</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record__Prior.NaechsterSchritt__c} != {!$Record.NaechsterSchritt__c}, &apos;Nächster Schritt: &apos; +{!$Record__Prior.NaechsterSchritt__c} + &apos; -&gt; &apos; + {!$Record.NaechsterSchritt__c}, &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>PhaseChanges</name>
+        <dataType>String</dataType>
+        <expression>IF(TEXT({!$Record__Prior.Phase__c}) != TEXT({!$Record.Phase__c}), &apos;Phase: &apos; + TEXT({!$Record__Prior.Phase__c}) + &apos; -&gt; &apos; + TEXT({!$Record.Phase__c}), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>SondertilgungChanges</name>
+        <dataType>String</dataType>
+        <expression>IF(TEXT({!$Record__Prior.Sondertilgung__c}) != TEXT({!$Record.Sondertilgung__c}), &apos;Sondertilgung: &apos; + TEXT({!$Record__Prior.Sondertilgung__c}) + &apos; -&gt; &apos; + TEXT({!$Record.Sondertilgung__c}), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>StatusChanges</name>
+        <dataType>String</dataType>
+        <expression>&apos;&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>VsaVorhandenChanges</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record__Prior.VsaVorhanden__c} != {!$Record.VsaVorhanden__c}, &apos;VSA vorhanden: &apos; + if({!$Record__Prior.VsaVorhanden__c}, &apos;Angehakt&apos;, &apos;Nicht angehakt&apos;)  + &apos; -&gt; &apos; + if({!$Record.VsaVorhanden__c}, &apos;Angehakt&apos;, &apos;Nicht angehakt&apos;), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>WelcheUnterlagenWerdenGefordertChanged</name>
+        <dataType>String</dataType>
+        <expression>IF(IsChanged({!$Record.WelcheUnterlagenWerdenGefordert__c}), &apos;Die geforderten Unterlagen wurden geändert&apos;,&apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>WiedervorlageAmChanges</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record__Prior.WiedervorlageAm__c} != {!$Record.WiedervorlageAm__c}, &apos;Wiedervorlage am: &apos; +TEXT({!$Record__Prior.WiedervorlageAm__c}) + &apos; -&gt; &apos; + TEXT({!$Record.WiedervorlageAm__c}), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>ZinsbindungsWunschInJahrenChanges</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record__Prior.ZinsbindungswunschInJahren__c} != {!$Record.ZinsbindungswunschInJahren__c}, &apos;Zinsbindungswunsch in Jahren: &apos; + TEXT({!$Record__Prior.ZinsbindungswunschInJahren__c}) + &apos; -&gt; &apos; + TEXT({!$Record.ZinsbindungswunschInJahren__c}), &apos;&apos;)</expression>
+    </formulas>
+    <interviewLabel>Finanzierungsanfrage - After Insert/Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Finanzierungsanfrage - After Insert/Update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Opportunity</name>
+        <label>Update Opportunity</label>
+        <locationX>204</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>KfW_Best_tigung_vorhanden</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>VSA_EK_vorhanden__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Opportunity_2</name>
+        <label>Update Opportunity 2</label>
+        <locationX>204</locationX>
+        <locationY>947</locationY>
+        <connector>
+            <targetReference>KfW_Wunsch_ge_ndert</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>KfwBestaetigungVorhanden__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Opportunity_3</name>
+        <label>Update Opportunity 3</label>
+        <locationX>50</locationX>
+        <locationY>1331</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>KfwWunschFinanzierungsanfrage__c</field>
+            <value>
+                <elementReference>$Record.KfwWunsch__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <start>
+        <locationX>287</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Automation_Switch</targetReference>
+        </connector>
+        <object>Finanzierungsanfrage__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>RalfGrellNotificationEmailTemplate</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Bei der folgenden Finanzierungsanfrage haben sich Daten geändert: {!DetailLink}
+Vorher -&gt; Nachher:
+{!WelcheUnterlagenWerdenGefordertChanged}
+{!AmpelExternChanges}
+{!AmpelInternChanges}
+{!EigenkapitalChanges}
+{!FinanzierungsbedarfChanges}
+{!GenehmigungKfwVorhandenChanges}
+{!KfwWunschChanges}
+{!LaufzeitInMonatenChanges}
+{!MaximaleFinanzierungssummeChanges}
+{!MonatlicheRateChanges}
+{!MonatlicheRateVonChanges}
+{!MonatlicheRateBisChanges}
+{!NaechsterSchrittChanges}
+{!PhaseChanges}
+{!SondertilgungChanges}
+{!VsaVorhandenChanges}
+{!WiedervorlageAmChanges}
+{!ZinsbindungsWunschInJahrenChanges}
+
+Änderungen an den Feldern &quot;Status&quot; und &quot;Welche Unterlagen werden gefordert?&quot; können hier nicht dargestellt werden</text>
+    </textTemplates>
+    <variables>
+        <name>Attachments</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Attachment</objectType>
+    </variables>
+</Flow>

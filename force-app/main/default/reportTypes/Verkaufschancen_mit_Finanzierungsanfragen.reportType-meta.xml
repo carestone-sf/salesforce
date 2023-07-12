@@ -1323,6 +1323,11 @@
             <field>InformationenZurFANachErstpruefung__c</field>
             <table>Opportunity.Finanzierungsanfragen__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BankantragUnterschrieben__c</field>
+            <table>Opportunity.Finanzierungsanfragen__r</table>
+        </columns>
         <masterLabel>Finanzierungsanfragen</masterLabel>
     </sections>
     <sections>

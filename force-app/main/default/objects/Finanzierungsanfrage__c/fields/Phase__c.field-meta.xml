@@ -13,29 +13,34 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Neu</fullName>
+                <fullName>Finanzierungsanfrage gestellt</fullName>
                 <default>false</default>
-                <label>Neu</label>
+                <label>Finanzierungsanfrage gestellt</label>
             </value>
             <value>
-                <fullName>In Bearbeitung</fullName>
+                <fullName>VSA vorhanden</fullName>
                 <default>false</default>
-                <label>In Bearbeitung</label>
+                <label>VSA vorhanden</label>
             </value>
             <value>
-                <fullName>In Bearbeitung CS</fullName>
+                <fullName>Unterlagen angefordert</fullName>
                 <default>false</default>
-                <label>In Bearbeitung CS</label>
+                <label>Unterlagen angefordert</label>
             </value>
             <value>
-                <fullName>Gewonnen</fullName>
+                <fullName>Bankantrag</fullName>
                 <default>false</default>
-                <label>Gewonnen</label>
+                <label>Bankantrag</label>
             </value>
             <value>
-                <fullName>Verloren</fullName>
+                <fullName>Finanzierung genehmigt</fullName>
                 <default>false</default>
-                <label>Verloren</label>
+                <label>Finanzierung genehmigt</label>
+            </value>
+            <value>
+                <fullName>Finanzierung abgelehnt</fullName>
+                <default>false</default>
+                <label>Finanzierung abgelehnt</label>
             </value>
             <value>
                 <fullName>Abgelehnt</fullName>
@@ -62,6 +67,24 @@
                 <label>Erfolgreich</label>
             </value>
             <value>
+                <fullName>Gewonnen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Gewonnen</label>
+            </value>
+            <value>
+                <fullName>In Bearbeitung</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>In Bearbeitung</label>
+            </value>
+            <value>
+                <fullName>In Bearbeitung CS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>In Bearbeitung CS</label>
+            </value>
+            <value>
                 <fullName>Keine Finanzierung möglich</fullName>
                 <default>false</default>
                 <isActive>false</isActive>
@@ -72,6 +95,18 @@
                 <default>false</default>
                 <isActive>false</isActive>
                 <label>Kreditverträge unterzeichnet</label>
+            </value>
+            <value>
+                <fullName>Neu</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Neu</label>
+            </value>
+            <value>
+                <fullName>Verloren</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Verloren</label>
             </value>
         </valueSetDefinition>
     </valueSet>
