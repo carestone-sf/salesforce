@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>E-Mailing</fullName>
+        <default>false</default>
+        <label>E-Mailing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Post-Mailing</fullName>
+        <default>false</default>
+        <label>Post-Mailing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sachwertveranstaltung</fullName>
+        <default>false</default>
+        <label>Sachwertveranstaltung</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Mediterraner Abend</fullName>
+        <default>false</default>
+        <label>Mediterraner Abend</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Maklerzirkel</fullName>
+        <default>false</default>
+        <label>Maklerzirkel</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Objektveranstaltung</fullName>
+        <color>#990000</color>
+        <default>false</default>
+        <label>Objektveranstaltung</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Seminar (Live)</fullName>
+        <default>false</default>
+        <label>Seminar (Live)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Online-Seminar-Endkunde</fullName>
+        <color>#66CCCC</color>
+        <default>false</default>
+        <label>Online-Seminar Endkunde</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Messe</fullName>
+        <default>false</default>
+        <label>Messe</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fest / Feier</fullName>
+        <default>false</default>
+        <label>Fest / Feier</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Andere</fullName>
+        <default>false</default>
+        <label>Andere</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Online Seminar &quot;In Zukunft erfolgreich&quot;</fullName>
+        <default>false</default>
+        <label>Online Seminar &quot;In Zukunft erfolgreich&quot;</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Online Objektvorstellung</fullName>
+        <default>false</default>
+        <label>Online Objektvorstellung</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Maklerworkshop</fullName>
+        <default>false</default>
+        <label>Maklerworkshop</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Beratertag</fullName>
+        <default>false</default>
+        <label>Beratertag</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Makleraktivierung Objekt</fullName>
+        <default>false</default>
+        <label>Makleraktivierung Objekt</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Telefonkampagne</fullName>
+        <default>false</default>
+        <label>Telefonkampagne</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Webinar</fullName>
+        <default>false</default>
+        <label>Webinar</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Webinar Telefonkampagne</fullName>
+        <default>false</default>
+        <label>Webinar Telefonkampagne</label>
+    </standardValue>
+</StandardValueSet>
