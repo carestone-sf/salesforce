@@ -4,7 +4,7 @@
         <name>Zum_Datensatz</name>
         <label>Zum Datensatz</label>
         <locationX>182</locationX>
-        <locationY>1082</locationY>
+        <locationY>1382</locationY>
         <actionName>c:navigateToRecord</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -31,6 +31,38 @@
         <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>51.0</apiVersion>
+    <assignments>
+        <name>EK_EK_Input</name>
+        <label>EK = EK Input</label>
+        <locationX>314</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>eigenkapital</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>EigenkapitalInput</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Finanzierungsanfrage_erstellen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>EK_Nebenkosten3</name>
+        <label>EK = Nebenkosten</label>
+        <locationX>50</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>eigenkapital</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>nebenkosten</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Finanzierungsanfrage_erstellen</targetReference>
+        </connector>
+    </assignments>
     <choices>
         <name>Frau</name>
         <choiceText>Frau</choiceText>
@@ -68,10 +100,35 @@
         <dataType>String</dataType>
     </choices>
     <decisions>
+        <name>EK_Nebenkosten</name>
+        <label>EK = Nebenkosten?</label>
+        <locationX>182</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>EK_EK_Input</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>EK_Nebenkosten2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Eigenkapital_Nebenkosten</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>EK_Nebenkosten3</targetReference>
+            </connector>
+            <label>EK = Nebenkosten?</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>False</name>
         <label>False</label>
         <locationX>182</locationX>
-        <locationY>674</locationY>
+        <locationY>974</locationY>
         <defaultConnector>
             <targetReference>Success</targetReference>
         </defaultConnector>
@@ -154,13 +211,19 @@
     <formulas>
         <name>finanzierungsbedarf</name>
         <dataType>Number</dataType>
-        <expression>{!Gesamtkosten} - {!EigenkapitalInput}</expression>
+        <expression>{!Gesamtkosten} - {!eigenkapital}</expression>
         <scale>2</scale>
     </formulas>
     <formulas>
         <name>Gesamtkosten</name>
         <dataType>Currency</dataType>
         <expression>ROUND({!Verkaufschance.Appartement__r.Purchase_Price__c} + {!Verkaufschance.Appartement__r.Notary_And_Court_Costs_1_5__c} + {!Verkaufschance.Appartement__r.Real_Estate_Transfer_Tax__c}, 2)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>nebenkosten</name>
+        <dataType>Number</dataType>
+        <expression>{!Gesamtkosten}-{!Verkaufschance.Kaufpreis__c}</expression>
         <scale>2</scale>
     </formulas>
     <interviewLabel>Finanzierungsanfrage aus Verkaufschance {!$Flow.CurrentDateTime}</interviewLabel>
@@ -188,7 +251,7 @@
         <name>Finanzierungsanfrage_Apartment_erstellen</name>
         <label>Finanzierungsanfrage Apartment erstellen</label>
         <locationX>182</locationX>
-        <locationY>566</locationY>
+        <locationY>866</locationY>
         <connector>
             <targetReference>False</targetReference>
         </connector>
@@ -217,14 +280,14 @@
         <name>Finanzierungsanfrage_erstellen</name>
         <label>Finanzierungsanfrage erstellen</label>
         <locationX>182</locationX>
-        <locationY>350</locationY>
+        <locationY>650</locationY>
         <connector>
             <targetReference>ScreenFileUpload</targetReference>
         </connector>
         <inputAssignments>
             <field>EinzusetzendesEigenkapital__c</field>
             <value>
-                <elementReference>EigenkapitalInput</elementReference>
+                <elementReference>eigenkapital</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -309,12 +372,19 @@
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Finanzierungsanfrage_erstellen</targetReference>
+            <targetReference>EK_Nebenkosten</targetReference>
         </connector>
         <fields>
             <name>AllgemeineInformationenHelpText</name>
             <fieldText>&lt;p&gt;Geben Sie die benötigten Daten ein und drücken Sie auf &quot;weiter&quot;.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Eigenkapital_Nebenkosten</name>
+            <dataType>Boolean</dataType>
+            <fieldText>Eigenkapital = Nebenkosten</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
         </fields>
         <fields>
             <name>EigenkapitalInput</name>
@@ -326,6 +396,16 @@
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
             <scale>2</scale>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Eigenkapital_Nebenkosten</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>Gew_nschte_Finanzierungslaufzeit_in_JahrenInput</name>
@@ -350,7 +430,7 @@
         <name>ScreenFileUpload</name>
         <label>Screen File Upload</label>
         <locationX>182</locationX>
-        <locationY>458</locationY>
+        <locationY>758</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -384,7 +464,7 @@
         <name>Success</name>
         <label>Success</label>
         <locationX>182</locationX>
-        <locationY>974</locationY>
+        <locationY>1274</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -411,7 +491,7 @@
         <name>Digitale_VSA_Eingabe</name>
         <label>Digitale VSA Eingabe</label>
         <locationX>50</locationX>
-        <locationY>782</locationY>
+        <locationY>1082</locationY>
         <connector>
             <targetReference>Success</targetReference>
         </connector>
@@ -424,6 +504,14 @@
         </inputAssignments>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </subflows>
+    <variables>
+        <name>eigenkapital</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
     <variables>
         <name>OppIds</name>
         <dataType>String</dataType>
