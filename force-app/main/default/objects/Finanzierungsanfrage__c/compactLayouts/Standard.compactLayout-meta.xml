@@ -3,7 +3,6 @@
     <fullName>Standard</fullName>
     <fields>Name</fields>
     <fields>AmpelInternImg__c</fields>
-    <fields>VSAVorhanden__c</fields>
     <fields>KfwWunsch__c</fields>
     <fields>KfWBestaetigungVorhanden__c</fields>
     <label>Standard</label>

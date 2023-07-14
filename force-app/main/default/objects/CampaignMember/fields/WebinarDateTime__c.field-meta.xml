@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WebinarDateTime__c</fullName>
+    <externalId>false</externalId>
+    <label>Webinar Datum und Uhrzeit</label>
+    <required>false</required>
+    <type>DateTime</type>
+</CustomField>
