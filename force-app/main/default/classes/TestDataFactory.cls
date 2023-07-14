@@ -703,7 +703,19 @@ public with sharing class TestDataFactory {
     }
 
 
+    // CampaignMember
+    public static CampaignMember createCampaignMember(Boolean doInsert, Id contactId, Id campaignId) {
+        CampaignMember campaignMember = new CampaignMember(
+            ContactId = contactId,
+            CampaignId = campaignId
+        );
+        
+        if(doInsert) {
+            insert campaignMember;
+        }
 
+        return campaignMember;
+    }
 
 
     // Realty_User__c
