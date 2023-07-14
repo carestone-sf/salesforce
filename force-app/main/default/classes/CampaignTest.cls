@@ -117,7 +117,7 @@ public with sharing class CampaignTest {
         insert c12;
         Campaign c13 = TestDataFactory.createCampaign(false);
         c13.Name = 'Webinar "Maklerportal';
-        insert c11;
+        insert c13;
         Test.stopTest();
     }
 }
