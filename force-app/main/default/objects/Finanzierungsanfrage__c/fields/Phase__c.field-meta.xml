@@ -14,7 +14,7 @@
             <sorted>false</sorted>
             <value>
                 <fullName>Finanzierungsanfrage gestellt</fullName>
-                <default>false</default>
+                <default>true</default>
                 <label>Finanzierungsanfrage gestellt</label>
             </value>
             <value>

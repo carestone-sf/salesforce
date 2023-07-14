@@ -152,6 +152,12 @@
         <expression>TODAY()+365</expression>
     </formulas>
     <formulas>
+        <name>finanzierungsbedarf</name>
+        <dataType>Number</dataType>
+        <expression>{!Gesamtkosten} - {!EigenkapitalInput}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
         <name>Gesamtkosten</name>
         <dataType>Currency</dataType>
         <expression>ROUND({!Verkaufschance.Appartement__r.Purchase_Price__c} + {!Verkaufschance.Appartement__r.Notary_And_Court_Costs_1_5__c} + {!Verkaufschance.Appartement__r.Real_Estate_Transfer_Tax__c}, 2)</expression>
@@ -230,13 +236,13 @@
         <inputAssignments>
             <field>Finanzierungsbedarf__c</field>
             <value>
-                <elementReference>FinanzierungsbedarfInput</elementReference>
+                <elementReference>finanzierungsbedarf</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>KfwWunsch__c</field>
             <value>
-                <stringValue>Kein KfW</stringValue>
+                <elementReference>KfW_WunschInput</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -249,6 +255,12 @@
             <field>Opportunity__c</field>
             <value>
                 <elementReference>Verkaufschance.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Phase__c</field>
+            <value>
+                <stringValue>Finanzierungsanfrage gestellt</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -305,21 +317,6 @@
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
-            <name>FinanzierungsbedarfInput</name>
-            <dataType>Currency</dataType>
-            <defaultValue>
-                <elementReference>Gesamtkosten</elementReference>
-            </defaultValue>
-            <fieldText>Finanzierungsbedarf</fieldText>
-            <fieldType>InputField</fieldType>
-            <isRequired>true</isRequired>
-            <scale>2</scale>
-            <validationRule>
-                <errorMessage>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt;Der Finanzierungsbedarf + Eigenkapital muss auf die Gesamtkosten von &lt;/span&gt;{!Gesamtkosten}&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt; kommen&lt;/span&gt;&lt;/p&gt;</errorMessage>
-                <formulaExpression>{!FinanzierungsbedarfInput} + {!EigenkapitalInput} == {!Gesamtkosten}</formulaExpression>
-            </validationRule>
-        </fields>
-        <fields>
             <name>EigenkapitalInput</name>
             <dataType>Currency</dataType>
             <defaultValue>
@@ -329,10 +326,6 @@
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
             <scale>2</scale>
-            <validationRule>
-                <errorMessage>&lt;p&gt;Der Finanzierungsbedarf + Eigenkapital muss auf die Gesamtkosten von {!Gesamtkosten} kommen&lt;/p&gt;</errorMessage>
-                <formulaExpression>{!FinanzierungsbedarfInput} + {!EigenkapitalInput} == {!Gesamtkosten}</formulaExpression>
-            </validationRule>
         </fields>
         <fields>
             <name>Gew_nschte_Finanzierungslaufzeit_in_JahrenInput</name>
