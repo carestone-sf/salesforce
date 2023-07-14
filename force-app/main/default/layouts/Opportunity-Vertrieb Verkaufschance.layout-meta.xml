@@ -827,14 +827,14 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
-            <actionName>Opportunity.Neue_Finanzierungsanfrage</actionName>
-            <actionType>QuickAction</actionType>
-            <sortOrder>0</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
             <actionName>NewTask</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>1</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>Edit</actionName>
+            <actionType>StandardButton</actionType>
+            <sortOrder>2</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
             <actionName>Delete</actionName>
@@ -847,6 +847,11 @@
             <sortOrder>4</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
+            <actionName>Opportunity.Neue_Finanzierungsanfrage</actionName>
+            <actionType>QuickAction</actionType>
+            <sortOrder>0</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
             <actionName>LogACall</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>5</sortOrder>
@@ -855,11 +860,6 @@
             <actionName>NewEvent</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>6</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>Edit</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>2</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <quickActionList>
@@ -899,6 +899,12 @@
             </layoutItem>
         </relatedContentItems>
     </relatedContent>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>AmpelInternImg__c</fields>
+        <fields>Phase__c</fields>
+        <relatedList>Finanzierungsanfrage__c.Opportunity__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <fields>CreatedDate</fields>
         <fields>StepStatus</fields>
@@ -946,14 +952,6 @@
         <fields>MaBVRate__c</fields>
         <fields>RateGesamtInEur__c</fields>
         <relatedList>MaBVRechnungMaster__c.Opportunity__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>AmpelInternImg__c</fields>
-        <fields>AmpelExternImg__c</fields>
-        <fields>VSAVorhanden__c</fields>
-        <fields>KfWBestaetigungVorhanden__c</fields>
-        <relatedList>Finanzierungsanfrage__c.Opportunity__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
