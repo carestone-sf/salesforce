@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PurchasePriceCantBeChangedWithoutRF</fullName>
+    <active>true</active>
+    <errorConditionFormula>((IsChanged(WH_Rabatt_in__c) &amp;&amp; !IsBlank(WH_Rabatt_in__c) &amp;&amp; WH_Rabatt_in__c != 0) ||
+(IsChanged(Maklerrabatt_in__c) &amp;&amp; !IsBlank(Maklerrabatt_in__c) &amp;&amp; Maklerrabatt_in__c != 0)) &amp;&amp;  Immobilie__r.PriceAdjustmentOnlyAfterRFConsultation__c &amp;&amp; NOT($Permission.CanChangePurchasePrice)</errorConditionFormula>
+    <errorMessage>Der Preis darf nur nach Rücksprache mit R&amp;F angepasst werden.</errorMessage>
+</ValidationRule>
