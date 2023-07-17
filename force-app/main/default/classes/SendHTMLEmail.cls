@@ -181,7 +181,7 @@ public with sharing class SendHTMLEmail {
             System.debug('address list is now:' + addressList); 
         }
         
-        //handle inputs involving collections of Contacts
+        //handle inputs involving collections of Users
         List<User> curUsers = (List<User>)m.get('Send' + type + 'theEmailAddressesFromThisCollectionOfUsers');
         if (curUsers != null) {
             List<String> extractedEmailAddresses = new List<String>();
