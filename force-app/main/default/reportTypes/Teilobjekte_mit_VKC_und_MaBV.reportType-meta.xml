@@ -2063,6 +2063,21 @@
             <field>CustomerIncentiveWasPaid__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TageUeberfaellig__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CommentOPOS__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LostInterest__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
         <masterLabel>Verkaufschancen</masterLabel>
     </sections>
 </ReportType>

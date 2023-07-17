@@ -421,6 +421,11 @@
             <field>CountDaysUntilInvoicePaid__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LostInterest__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
         <masterLabel>MaBV Rechnungen</masterLabel>
     </sections>
     <sections>
@@ -505,6 +510,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>MaBVRechnungMaster__c.Opportunity__c.Account</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c.Opportunity__c.Finanzierung__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <masterLabel>Verkaufschance</masterLabel>
