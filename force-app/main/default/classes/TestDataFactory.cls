@@ -991,8 +991,6 @@ public with sharing class TestDataFactory {
         lead.Company = 'Test Company';
         lead.Phone = '123456';
         lead.Email = 'lead@carestone.com';
-        // lead.Gesch_ftsbeziehung__c = getActivePicklistValues('Lead', Gesch_ftsbeziehung__c)[0].getValue();
-        // lead.Gesch_ftsbeziehung__c = getActivePicklistValues('Lead', Gesch_ftsbeziehung__c)[0].getValue();
 
         if(doInsert) {
             insert lead;
@@ -1015,22 +1013,4 @@ public with sharing class TestDataFactory {
         return leads;
     }
 
-
-
-
-
-    /* // Helper Methods
-
-    private static List<Schema.PicklistEntry> getActivePicklistValues(String object, String field) {
-
-        Schema.DescribeFieldResult fieldDescription = object.field.getDescribe();
-        List entries = fieldDescription.getPicklistValues();
-        List<Schema.PicklistEntry> activeEntries = new List<Schema.PicklistEntry>();
-        for (Schema.PicklistEntry entry : entries) {
-            if (entry.isActive()) {
-                activeEntries.add(entry);
-            }
-        }
-        return activeEntries;
-    } */
 }
