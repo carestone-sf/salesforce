@@ -148,7 +148,33 @@ Trigger autoCampaignMemberStatusTrigger on Campaign (before insert, after insert
                                                                      Label = 'Reagiert', SortOrder = 5);
                 cms2Insert.add(cms3);
             }
-            else
+            else if(camp.Type == 'Webinar Telefonkampagne')
+            {
+
+                CampaignMemberStatus cms1 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=true,
+                                                                     Label = 'Angemeldet', SortOrder = 6, isDefault = true);
+                cms2Insert.add(cms1);
+
+                CampaignMemberStatus cms2 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=true,
+                                                                     Label = 'Teilgenommen', SortOrder = 7);
+                cms2Insert.add(cms2);
+
+                CampaignMemberStatus cms3 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=false,
+                                                                     Label = 'Nicht erschienen', SortOrder = 8);
+                cms2Insert.add(cms3);
+
+                CampaignMemberStatus cms4 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=false,
+                                                                     Label = 'Einzeltermin', SortOrder = 9);
+                cms2Insert.add(cms4);
+
+                CampaignMemberStatus cms5 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=false,
+                                                                     Label = 'Kein Interesse', SortOrder = 10);
+                cms2Insert.add(cms5);
+
+                CampaignMemberStatus cms6 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=false,
+                                                                     Label = 'Vertriebsvereinbarung', SortOrder = 11);
+                cms2Insert.add(cms6);
+            } else
             {
                 CampaignMemberStatus cms1 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=false,
                                                                      Label = 'Ohne', SortOrder = 3, isDefault = true);

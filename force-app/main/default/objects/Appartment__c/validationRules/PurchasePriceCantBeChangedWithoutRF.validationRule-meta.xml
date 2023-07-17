@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PurchasePriceCantBeChangedWithoutRF</fullName>
+    <active>true</active>
+    <errorConditionFormula>IsChanged(Purchase_Price__c) &amp;&amp;  Property__r.PriceAdjustmentOnlyAfterRFConsultation__c &amp;&amp;  NOT($Permission.CanChangePurchasePrice)</errorConditionFormula>
+    <errorDisplayField>Purchase_Price__c</errorDisplayField>
+    <errorMessage>Der Preis darf nur nach Rücksprache mit R&amp;F angepasst werden.</errorMessage>
+</ValidationRule>

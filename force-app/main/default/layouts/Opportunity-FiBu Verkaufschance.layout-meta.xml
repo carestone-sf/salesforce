@@ -114,6 +114,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>CommentOPOS__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>NotesSalesControlling__c</field>
             </layoutItems>
             <layoutItems>
@@ -931,6 +935,12 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
+        <fields>NAME</fields>
+        <fields>AmpelInternImg__c</fields>
+        <fields>Phase__c</fields>
+        <relatedList>Finanzierungsanfrage__c.Opportunity__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>CreatedDate</fields>
         <fields>StepStatus</fields>
         <fields>OriginalActor</fields>
@@ -977,14 +987,6 @@
         <fields>MaBVRate__c</fields>
         <fields>RateGesamtInEur__c</fields>
         <relatedList>MaBVRechnungMaster__c.Opportunity__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>AmpelInternImg__c</fields>
-        <fields>AmpelExternImg__c</fields>
-        <fields>VSAVorhanden__c</fields>
-        <fields>KfWBestaetigungVorhanden__c</fields>
-        <relatedList>Finanzierungsanfrage__c.Opportunity__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

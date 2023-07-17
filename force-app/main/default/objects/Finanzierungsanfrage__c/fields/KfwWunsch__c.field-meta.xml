@@ -13,14 +13,14 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>KfW-Darlehen (261)</fullName>
+                <fullName>KfW-Darlehen 261 - energieeffzient sanieren</fullName>
                 <default>false</default>
-                <label>KfW-Darlehen (261)</label>
+                <label>KfW-Darlehen 261 - energieeffzient sanieren</label>
             </value>
             <value>
-                <fullName>KfW-Zuschuss (461)</fullName>
+                <fullName>KfW-Darlehen 298 - Klimafreundlicher Neubau</fullName>
                 <default>false</default>
-                <label>KfW-Zuschuss (461)</label>
+                <label>KfW-Darlehen 298 - Klimafreundlicher Neubau</label>
             </value>
             <value>
                 <fullName>Bestand</fullName>
@@ -37,6 +37,12 @@
                 <default>false</default>
                 <isActive>false</isActive>
                 <label>KfW-Darlehen (461)</label>
+            </value>
+            <value>
+                <fullName>KfW-Zuschuss (461)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>KfW-Zuschuss (461)</label>
             </value>
         </valueSetDefinition>
     </valueSet>

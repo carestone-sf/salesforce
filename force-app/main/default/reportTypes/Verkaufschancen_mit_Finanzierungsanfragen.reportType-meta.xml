@@ -1323,6 +1323,16 @@
             <field>InformationenZurFANachErstpruefung__c</field>
             <table>Opportunity.Finanzierungsanfragen__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BankantragUnterschrieben__c</field>
+            <table>Opportunity.Finanzierungsanfragen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Maklerbetreuer__c</field>
+            <table>Opportunity.Finanzierungsanfragen__r</table>
+        </columns>
         <masterLabel>Finanzierungsanfragen</masterLabel>
     </sections>
     <sections>
@@ -1359,6 +1369,21 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CustomerIncentiveWasPaid__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TageUeberfaellig__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CommentOPOS__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LostInterest__c</field>
             <table>Opportunity</table>
         </columns>
         <masterLabel>Verkaufschancen</masterLabel>
