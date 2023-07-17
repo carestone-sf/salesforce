@@ -111,6 +111,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>CommentOPOS__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>NotesSalesControlling__c</field>
             </layoutItems>
             <layoutItems>
