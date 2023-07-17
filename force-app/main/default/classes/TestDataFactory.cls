@@ -35,6 +35,8 @@ public with sharing class TestDataFactory {
 
     // User
 
+
+    //TODO Merge duplicate User Creation Methods!
     public static User createTestUser(Boolean doInsert) {
         User user = new User();
         
@@ -118,6 +120,21 @@ public with sharing class TestDataFactory {
         }
 
         return userExample;
+    }
+
+    public static List<User> createStandardUsers(Boolean doInsert, Integer count) {
+        List<User> users = new List<User>();
+
+        for(Integer i = 0; i < count; i++) {
+            User u = createStandardUser(false, 'User'+i);
+            users.add(u);
+        }
+
+        if(doInsert) {
+            insert users;
+        }
+
+        return users;
     }
 
     public static userRole createUserRole(boolean doInsert){
@@ -302,14 +319,7 @@ public with sharing class TestDataFactory {
     //Contact
   
     public static Contact createContact(Boolean doInsert){
-        Contact con = new Contact();
-        con.FirstName='Test First Name';
-        con.LastName='Test Last Name';
-        con.MailingStreet = 'Contactstreet 2';
-        con.MailingCity = 'City';
-        con.Email = 'test@email.de';
-        con.Birthdate = System.today().addYears(-30);
-        con.Phone = '0123456789';
+        Contact con = createContact(false, 'Test First Name', 'Test Last Name', 'TestLastName@email.de');
 
         if(doInsert){
             insert con;
@@ -318,15 +328,7 @@ public with sharing class TestDataFactory {
     }
 
     public static Contact createContact(Boolean doInsert,string firstName,string lastName){
-        Contact con = new Contact();
-        con.FirstName=firstName;
-        con.LastName=lastName;
-        con.MailingStreet = 'Contactstreet 2';
-        con.MailingCity = 'City';
-        con.Email = lastName + '@email.de';
-        con.Birthdate = System.today().addYears(-30);
-        con.Phone = '0123456789';
-
+        Contact con = createContact(false, firstName, lastName, lastName + '@email.de');
         if(doInsert){
             insert con;
         }
@@ -347,6 +349,20 @@ public with sharing class TestDataFactory {
             insert con;
         }
         return con;
+    }
+
+    public static List<Contact> createContacts(Boolean doInsert, Integer count) {
+        List<Contact> contacts = new List<Contact>();
+
+        for(Integer i = 0; i < count ;i++) {
+            Contact con = createContact(false);
+            contacts.add(con);
+        }
+
+        if(doInsert){
+            insert contacts;
+        }
+        return contacts;
     }
 
     public static Contact createMakler(Boolean doInsert, String lastName) {
@@ -963,4 +979,38 @@ public with sharing class TestDataFactory {
 
         return t;
     }
+
+
+
+
+    // Lead
+
+    public static Lead createLead(Boolean doInsert) {
+        Lead lead = new Lead();
+        lead.LastName = 'Test Lead';
+        lead.Company = 'Test Company';
+        lead.Phone = '123456';
+        lead.Email = 'lead@carestone.com';
+
+        if(doInsert) {
+            insert lead;
+        }
+
+        return lead;
+    }
+
+    public static List<Lead> createLeads(Boolean doInsert, Integer count) {
+        List<Lead> leads = new List<Lead>();
+
+        for(Integer i = 0; i < count ;i++) {
+            Lead lead = createLead(false);
+            leads.add(lead);
+        }
+
+        if(doInsert){
+            insert leads;
+        }
+        return leads;
+    }
+
 }
