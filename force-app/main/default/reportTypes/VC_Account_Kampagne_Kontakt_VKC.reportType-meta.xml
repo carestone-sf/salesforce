@@ -568,6 +568,11 @@
             <field>CustomerCreditsInBillion__c</field>
             <table>Account</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Telefonkampagne__c</field>
+            <table>Account</table>
+        </columns>
         <masterLabel>Accounts</masterLabel>
     </sections>
     <sections>
@@ -2148,6 +2153,21 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CustomerIncentiveWasPaid__c</field>
+            <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TageUeberfaellig__c</field>
+            <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CommentOPOS__c</field>
+            <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LostInterest__c</field>
             <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
         </columns>
         <masterLabel>Verkaufschancen</masterLabel>
