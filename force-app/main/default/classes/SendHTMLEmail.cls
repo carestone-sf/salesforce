@@ -69,8 +69,10 @@ public with sharing class SendHTMLEmail {
             mail.setUseSignature(true);
         }
 
-        mail = AddAttachments(mail, requests[0].attachments);
-         
+        if (requests[0].attachments != null) {
+            mail = AddAttachments(mail, requests[0].attachments);
+        }
+        
         if (templateID != null && ((HTMLbody != null) || (plainTextBody != null)))
             throw new FlowEmailActionException('you\'re trying to pass in both a plaintext/html body and a template ID. Gotta pick one or the other. Make sure you\'re not confusing the Text Template resources in Flow, (which you can pass into either the HTMLBody or the plainTextBody) with the templateId, which represents a Salesforce Email Template (either Classic or Lightning).');
            
@@ -179,7 +181,7 @@ public with sharing class SendHTMLEmail {
             System.debug('address list is now:' + addressList); 
         }
         
-        //handle inputs involving collections of Contacts
+        //handle inputs involving collections of Users
         List<User> curUsers = (List<User>)m.get('Send' + type + 'theEmailAddressesFromThisCollectionOfUsers');
         if (curUsers != null) {
             List<String> extractedEmailAddresses = new List<String>();
