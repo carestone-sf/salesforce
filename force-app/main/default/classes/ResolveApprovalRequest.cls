@@ -11,9 +11,12 @@ public with sharing class ResolveApprovalRequest {
             approvalWorkItem.setNextApproverIds(curRequest.nextApproverIds);
             if(String.isBlank(curRequest.approvalRequestId)){
                 approverId = getapprovalRequestID(curRequest.recordId,curRequest.ObjName).Id;
+                approvalWorkItem.setWorkitemId(approverId);
+            }
+            else {
+                approvalWorkItem.setWorkitemId(curRequest.approvalRequestId);
             }
             
-            approvalWorkItem.setWorkitemId(curRequest.approvalRequestId);
             
             system.debug('approvalWorkItem ' + approvalWorkItem);
             
