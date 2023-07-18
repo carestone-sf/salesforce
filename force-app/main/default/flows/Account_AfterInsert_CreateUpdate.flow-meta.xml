@@ -4,7 +4,7 @@
         <name>BatchUpdateChildAccounts</name>
         <label>Update Child Accounts</label>
         <locationX>72</locationX>
-        <locationY>1463</locationY>
+        <locationY>1631</locationY>
         <actionName>BatchAccountUpdateChildAccounts</actionName>
         <actionType>apex</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -14,12 +14,14 @@
                 <elementReference>$Record</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>BatchAccountUpdateChildAccounts</nameSegment>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>BatchUpdateContacts</name>
         <label>Update Contacts</label>
         <locationX>204</locationX>
-        <locationY>1127</locationY>
+        <locationY>1331</locationY>
         <actionName>BatchAccountUpdateContacts</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -32,12 +34,14 @@
                 <elementReference>$Record</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>BatchAccountUpdateContacts</nameSegment>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>BatchUpdateStructure</name>
         <label>Update Structure</label>
         <locationX>336</locationX>
-        <locationY>1463</locationY>
+        <locationY>1631</locationY>
         <actionName>BatchAccountUpdateStructure</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -50,12 +54,14 @@
                 <elementReference>$Record</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>BatchAccountUpdateStructure</nameSegment>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>Check_IBAN</name>
         <label>Check IBAN</label>
         <locationX>182</locationX>
-        <locationY>455</locationY>
+        <locationY>431</locationY>
         <actionName>Iban</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -68,10 +74,12 @@
                 <elementReference>$Record.IBAN__c</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>Iban</nameSegment>
         <outputParameters>
             <assignToReference>IbanValid</assignToReference>
             <name>ibanValid</name>
         </outputParameters>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>57.0</apiVersion>
     <decisions>
@@ -79,7 +87,7 @@
         <name>CheckChildAccountsUpdate</name>
         <label>Child Accounts Update?</label>
         <locationX>336</locationX>
-        <locationY>1343</locationY>
+        <locationY>1523</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>EmailChanged</name>
@@ -117,7 +125,7 @@
         <name>CheckContactUpdate</name>
         <label>Contacts update?</label>
         <locationX>336</locationX>
-        <locationY>1007</locationY>
+        <locationY>1223</locationY>
         <defaultConnector>
             <targetReference>CheckChildAccountsUpdate</targetReference>
         </defaultConnector>
@@ -149,9 +157,9 @@
         <name>IBAN_nicht_leer_oder_ge_ndert</name>
         <label>IBAN nicht leer oder geändert?</label>
         <locationX>336</locationX>
-        <locationY>335</locationY>
+        <locationY>323</locationY>
         <defaultConnector>
-            <targetReference>CheckContactUpdate</targetReference>
+            <targetReference>Vertriebsvereinbarung_Telefonkampagne</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -188,9 +196,9 @@
         <name>Ist_IBAN_ung_ltig</name>
         <label>Ist IBAN ungültig?</label>
         <locationX>182</locationX>
-        <locationY>575</locationY>
+        <locationY>539</locationY>
         <defaultConnector>
-            <targetReference>CheckContactUpdate</targetReference>
+            <targetReference>Vertriebsvereinbarung_Telefonkampagne</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -207,6 +215,39 @@
                 <targetReference>Update_Account</targetReference>
             </connector>
             <label>Ist IBAN ungültig?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Vertriebsvereinbarung_Telefonkampagne</name>
+        <label>Vertriebsvereinbarung + Telefonkampagne?</label>
+        <locationX>336</locationX>
+        <locationY>923</locationY>
+        <defaultConnector>
+            <targetReference>CheckContactUpdate</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>Vertriebsvereinbarung_Telefonkampagne2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Carestone_Vertriebsvereinbarung__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Telefonkampagne__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_CampaignMember</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Vertriebsvereinbarung + Telefonkampagne?</label>
         </rules>
     </decisions>
     <environments>Default</environments>
@@ -235,7 +276,7 @@
         <name>DisableUpdateStructureField</name>
         <label>Disable Update Structure field</label>
         <locationX>336</locationX>
-        <locationY>1583</locationY>
+        <locationY>1739</locationY>
         <inputAssignments>
             <field>Struktur_aktualisieren__c</field>
             <value>
@@ -248,9 +289,9 @@
         <name>Update_Account</name>
         <label>Update Account</label>
         <locationX>50</locationX>
-        <locationY>695</locationY>
+        <locationY>647</locationY>
         <connector>
-            <targetReference>CheckContactUpdate</targetReference>
+            <targetReference>Vertriebsvereinbarung_Telefonkampagne</targetReference>
         </connector>
         <inputAssignments>
             <field>IBANUngueltig__c</field>
@@ -259,6 +300,37 @@
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_CampaignMember</name>
+        <label>Update CampaignMember</label>
+        <locationX>204</locationX>
+        <locationY>1031</locationY>
+        <connector>
+            <targetReference>CheckContactUpdate</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Kampagnentyp__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Webinar Telefonkampagne</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Vertriebsvereinbarung</stringValue>
+            </value>
+        </inputAssignments>
+        <object>CampaignMember</object>
     </recordUpdates>
     <start>
         <locationX>210</locationX>
@@ -271,7 +343,7 @@
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>IbanValid</name>
         <dataType>Boolean</dataType>
