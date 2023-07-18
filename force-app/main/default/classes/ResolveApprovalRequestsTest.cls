@@ -1,27 +1,33 @@
 @isTest
 public with sharing class ResolveApprovalRequestsTest {
+
     // Create New Request and Test Error Response
     @isTest(SeeAllData=true)
     public static void executeTest() {
         // Get Current User Id
         String userId = UserInfo.getUserId();
 
-        // Find Acme (Sample) Account
-        Account a = [SELECT Id FROM Account WHERE Name = 'Acme (Sample)'];
+        // Create Contact
+        Contact con = TestDataFactory.createContact(false);
+        con.Aus_Maklerportal__c = true;
+        con.Gesch_ftsbeziehung__c = 'Interessent';
+        insert(con);
 
-        // Find Process Definition
-        ProcessDefinition pd = [SELECT Id FROM ProcessDefinition WHERE DeveloperName = 'Test_Process_Definition'];
+        // Create an approval request for the account
+        Approval.ProcessSubmitRequest req1 = new Approval.ProcessSubmitRequest();
+        req1.setComments('Submitting request for approval.');
+        req1.setObjectId(con.id);
 
-        // Find New Process Instance
-        ProcessInstance pi = [SELECT Id FROM ProcessInstance WHERE ProcessDefinitionId = :pd.Id LIMIT 1];
+        // Submit the approval request for the account
+        Approval.ProcessResult result = Approval.process(req1);
 
         // Create Request Object
         List<ResolveApprovalRequest.Requests> requests = new List<ResolveApprovalRequest.Requests>();
         ResolveApprovalRequest.Requests req = new ResolveApprovalRequest.Requests();
         req.action = 'Approve';
         req.comments = 'Test Comments';
-        req.recordId = a.Id;
-        req.objName = 'Account';
+        req.recordId = con.Id;
+        req.objName = 'Contact';
         req.nextApproverIds = new List<String>{userId};
 
         // Add req to requests
