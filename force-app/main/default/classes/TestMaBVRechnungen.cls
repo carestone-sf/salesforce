@@ -34,29 +34,35 @@ public with sharing class TestMaBVRechnungen {
     // Tests missing MaBV Abrechnungsdaten 
     // Validation rule: Bautraeger_Pflichtangaben
     public static testMethod void testMissingAccountData() {
-        Contact mb = new Contact();
-        mb.FirstNAme = 'Frank';
-        mb.LastName = 'Köpsell';
-        mb.Email = 'witte@amstammtisch.de';
-        mb.MaklerBetreuer_E_Mail__c = 'witte@amstammtisch.de';
-        insert mb;
-        Account acc = new Account();
-        acc.Name = 'WH Maklerbetreuer - Frank Köpsell';
-        acc.Email__c = 'witte@amstammtisch.de';
-        acc.Maklerbetreuer_Wirtschaftshaus__c = 'Frank Köpsell';
-        acc.Maklerbetreuer_Wirtschaftshaus_2__c = mb.Id;
-        acc.BIC__c  = '1';
-        acc.GeschaeftsfuehrerNeu__c = 'Frank Köpsell';
-        acc.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName().get('PropertyDeveloper').getRecordTypeId();
-
         String message;
-        Test.startTest();
-        try {
-            insert acc;
-        } catch(Exception e) {
-            message = e.getMessage();
+
+        //Create Standard User
+        User u = TestDataFactory.createStandardUser(true, 'Testuser');
+
+        System.runAs(u) {
+            Contact mb = new Contact();
+            mb.FirstNAme = 'Frank';
+            mb.LastName = 'Köpsell';
+            mb.Email = 'witte@amstammtisch.de';
+            mb.MaklerBetreuer_E_Mail__c = 'witte@amstammtisch.de';
+            insert mb;
+            Account acc = new Account();
+            acc.Name = 'WH Maklerbetreuer - Frank Köpsell';
+            acc.Email__c = 'witte@amstammtisch.de';
+            acc.Maklerbetreuer_Wirtschaftshaus__c = 'Frank Köpsell';
+            acc.Maklerbetreuer_Wirtschaftshaus_2__c = mb.Id;
+            acc.BIC__c  = '1';
+            acc.GeschaeftsfuehrerNeu__c = 'Frank Köpsell';
+            acc.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName().get('PropertyDeveloper').getRecordTypeId();
+
+            Test.startTest();
+            try {
+                insert acc;
+            } catch(Exception e) {
+                message = e.getMessage();
+            }
+            Test.stopTest();
         }
-        Test.stopTest();
 
         System.Assert(message.contains('FIELD_CUSTOM_VALIDATION_EXCEPTION'));
     }
