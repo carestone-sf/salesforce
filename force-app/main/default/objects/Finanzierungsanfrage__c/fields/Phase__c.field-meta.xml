@@ -38,9 +38,9 @@
                 <label>Finanzierung genehmigt</label>
             </value>
             <value>
-                <fullName>Finanzierung abgelehnt</fullName>
+                <fullName>Finanzierung verloren</fullName>
                 <default>false</default>
-                <label>Finanzierung abgelehnt</label>
+                <label>Finanzierung verloren</label>
             </value>
             <value>
                 <fullName>Abgelehnt</fullName>
