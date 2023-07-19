@@ -35,7 +35,7 @@ public with sharing class ImmoframeProperty {
     public Integer soldApartments;
     public String infoLineOne;
     public String infoLineTwo;
-    public Boolean isPublic;
+    //public Boolean isPublic;
     public Decimal minYieldInPercent;
     public Decimal maxYieldInPercent;
     public Decimal apartmentsMinPriceInEuro;
@@ -48,6 +48,8 @@ public with sharing class ImmoframeProperty {
     public String threeSixtyDegreeTourUrl;
     public String disruptorLogoOne;
     public String disruptorLogoTwo;
+    public String pressReleaseTypo3Ids;
+    public String similarPropertiesIds;
     public List<ImmoframeDocument> documents;
     public List<ImmoframeImage> images;
     public List<ImmoframeImage> floorPlans;

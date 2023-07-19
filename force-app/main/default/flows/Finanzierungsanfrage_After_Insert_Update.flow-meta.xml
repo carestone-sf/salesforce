@@ -57,10 +57,31 @@
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>KfW_Wunsch_ge_ndert2</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
-                <leftValueReference>KfwIsChangedOrNew</leftValueReference>
+                <leftValueReference>isNew</leftValueReference>
                 <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.KfwWunsch__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Phase__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.AmpelIntern__c</leftValueReference>
+                <operator>IsChanged</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
                 </rightValue>
@@ -164,6 +185,11 @@
         <name>GenehmigungKfwVorhandenChanges</name>
         <dataType>String</dataType>
         <expression>IF({!$Record__Prior.KfWBestaetigungVorhanden__c} != {!$Record.KfWBestaetigungVorhanden__c}, &apos;Genehmigung KfW Zuschuss vorhanden: &apos; + if({!$Record__Prior.KfWBestaetigungVorhanden__c}, &apos;Angehakt&apos;, &apos;Nicht angehakt&apos;)  + &apos; -&gt; &apos; + if({!$Record.KfWBestaetigungVorhanden__c}, &apos;Angehakt&apos;, &apos;Nicht angehakt&apos;), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>isNew</name>
+        <dataType>Boolean</dataType>
+        <expression>isNew()</expression>
     </formulas>
     <formulas>
         <name>KfwIsChangedOrNew</name>
@@ -323,9 +349,21 @@
             </value>
         </filters>
         <inputAssignments>
+            <field>BewertungFinanzierungsanfrage__c</field>
+            <value>
+                <elementReference>$Record.AmpelIntern__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>KfwWunschFinanzierungsanfrage__c</field>
             <value>
                 <elementReference>$Record.KfwWunsch__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PhaseFinanzierungsanfrage__c</field>
+            <value>
+                <elementReference>$Record.Phase__c</elementReference>
             </value>
         </inputAssignments>
         <object>Opportunity</object>
