@@ -1255,6 +1255,21 @@
             <field>PlannedCertification__c_hst</field>
             <table>Opportunity.Opportunity__hd</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PhaseFinanzierungsanfrage__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BewertungFinanzierungsanfrage__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BewertungAmpelFinanzierungsanfrage__c</field>
+            <table>Opportunity</table>
+        </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
     <sections>
