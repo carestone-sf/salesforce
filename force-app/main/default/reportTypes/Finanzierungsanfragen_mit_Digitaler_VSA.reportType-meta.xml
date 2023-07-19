@@ -250,6 +250,11 @@
             <field>Maklerbetreuer__c</field>
             <table>Finanzierungsanfrage__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>GrundVerloren__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
         <masterLabel>Finanzierungsanfragen</masterLabel>
     </sections>
     <sections>

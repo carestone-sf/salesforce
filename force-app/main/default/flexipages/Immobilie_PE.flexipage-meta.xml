@@ -1888,6 +1888,26 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.PressemeldungenIds__c</fieldItem>
+                <identifier>RecordPressemeldungenIds_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.AehnlicheObjekteIds__c</fieldItem>
+                <identifier>RecordAehnlicheObjekteIds_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Collection_Id__c</fieldItem>
                 <identifier>RecordCollection_Id_cField</identifier>
             </fieldInstance>
@@ -6051,6 +6071,26 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.UrlConstructionProgress__c</fieldItem>
                 <identifier>RecordUrlConstructionProgress_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.PressemeldungenIds__c</fieldItem>
+                <identifier>RecordPressemeldungenIds_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.AehnlicheObjekteIds__c</fieldItem>
+                <identifier>RecordAehnlicheObjekteIds_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>

@@ -261,6 +261,8 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         apartment.KaufpreisFaellig__c = false;
         apartment.Bezahlt__c = 0;
         apartment.ReserviertFuer__c = null;
+        apartment.PhaseFinanzierungsanfrage__c = null;
+        apartment.BewertungFinanzierungsanfrage__c = null;
     }
 
     public Boolean stageSetToReserved(Opportunity opp, Opportunity oldOpp) {
@@ -602,7 +604,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     }
 
     public Boolean apartmentOrApartmentRelevantFieldChanged(Opportunity opp, Opportunity oldOpp) {
-        return !lostOpportunityStages.contains(opp.StageName) && (Trigger.isInsert || (Trigger.isUpdate && (opp.Appartement__c != oldOpp.Appartement__c || opp.Kaufpreis_f_llig__c != oldOpp.Kaufpreis_f_llig__c || opp.reserviert_bis__c != oldOpp.reserviert_bis__c || opp.Potenzieller_Kunde__c != oldOpp.Potenzieller_Kunde__c || opp.Makler__c != oldOpp.Makler__c || opp.Datum_Kaufpreis_bezahlt__c != oldOpp.Datum_Kaufpreis_bezahlt__c || opp.Notartermin__c != oldOpp.Notartermin__c || opp.Finanzierung__c != oldOpp.Finanzierung__c || opp.Maklerbetreuer_WirtschaftsHaus__c != oldOpp.Maklerbetreuer_WirtschaftsHaus__c || opp.StageName != oldOpp.StageName || opp.beurkundeter_Kaufpreis__c != oldOpp.beurkundeter_Kaufpreis__c || opp.Provisionsbasis__c != oldOpp.Provisionsbasis__c || opp.KumulierteProvisionExtern__c != oldOpp.KumulierteProvisionExtern__c || opp.Kaufdatum__c != oldOpp.Kaufdatum__c || opp.Bezahlt__c != oldOpp.Bezahlt__c)));
+        return !lostOpportunityStages.contains(opp.StageName) && (Trigger.isInsert || (Trigger.isUpdate && (opp.Appartement__c != oldOpp.Appartement__c || opp.Kaufpreis_f_llig__c != oldOpp.Kaufpreis_f_llig__c || opp.reserviert_bis__c != oldOpp.reserviert_bis__c || opp.Potenzieller_Kunde__c != oldOpp.Potenzieller_Kunde__c || opp.Makler__c != oldOpp.Makler__c || opp.Datum_Kaufpreis_bezahlt__c != oldOpp.Datum_Kaufpreis_bezahlt__c || opp.Notartermin__c != oldOpp.Notartermin__c || opp.Finanzierung__c != oldOpp.Finanzierung__c || opp.Maklerbetreuer_WirtschaftsHaus__c != oldOpp.Maklerbetreuer_WirtschaftsHaus__c || opp.StageName != oldOpp.StageName || opp.beurkundeter_Kaufpreis__c != oldOpp.beurkundeter_Kaufpreis__c || opp.Provisionsbasis__c != oldOpp.Provisionsbasis__c || opp.KumulierteProvisionExtern__c != oldOpp.KumulierteProvisionExtern__c || opp.Kaufdatum__c != oldOpp.Kaufdatum__c || opp.Bezahlt__c != oldOpp.Bezahlt__c || opp.PhaseFinanzierungsanfrage__c != oldOpp.PhaseFinanzierungsanfrage__c || opp.BewertungFinanzierungsanfrage__c != oldOpp.BewertungFinanzierungsanfrage__c)));
     }
 
     public void setApartmentFields(Opportunity opp, Opportunity oldOpp) {
@@ -622,6 +624,8 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                 apartment.Kumulierte_Provision_extern__c = opp.KumulierteProvisionExtern__c;
                 apartment.KaufpreisFaellig__c = opp.Kaufpreis_f_llig__c;
                 apartment.Date_of_purchase__c = opp.Kaufdatum__c;
+                apartment.PhaseFinanzierungsanfrage__c = opp.PhaseFinanzierungsanfrage__c;
+                apartment.BewertungFinanzierungsanfrage__c = opp.BewertungFinanzierungsanfrage__c;
                 if(opp.Bezahlt__c != 0) {
                     apartment.Bezahlt__c = opp.Bezahlt__c;
                 }
@@ -649,6 +653,8 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                 oldApartment.Date_of_purchase__c = null;
                 oldApartment.KaufpreisFaellig__c = false;
                 oldApartment.Bezahlt__c = 0;
+                oldApartment.PhaseFinanzierungsanfrage__c = null;
+                oldApartment.BewertungFinanzierungsanfrage__c = null;
                 updateMap.put(oldApartment.Id, oldApartment);
             } 
         }
