@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GrundVerloren__c</fullName>
+    <externalId>false</externalId>
+    <label>Grund verloren</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Finanzierung von Bank abgelehnt</fullName>
+                <default>false</default>
+                <label>Finanzierung von Bank abgelehnt</label>
+            </value>
+            <value>
+                <fullName>Finanzierung von Carestone abgelehnt</fullName>
+                <default>false</default>
+                <label>Finanzierung von Carestone abgelehnt</label>
+            </value>
+            <value>
+                <fullName>Kunde hat sich für andere Finanzierung entschieden</fullName>
+                <default>false</default>
+                <label>Kunde hat sich für andere Finanzierung entschieden</label>
+            </value>
+            <value>
+                <fullName>VKC verloren</fullName>
+                <default>false</default>
+                <label>VKC verloren</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

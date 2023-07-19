@@ -158,6 +158,88 @@
                 <identifier>flexipage_fieldSection</identifier>
             </componentInstance>
         </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>cardHeight</name>
+                    <value>300</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>column1</name>
+                    <value>Title</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>column10</name>
+                    <value>none</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>column2</name>
+                    <value>CreatedDate</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>column3</name>
+                    <value>none</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>column4</name>
+                    <value>none</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>column5</name>
+                    <value>none</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>column6</name>
+                    <value>none</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>column7</name>
+                    <value>none</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>column8</name>
+                    <value>none</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>column9</name>
+                    <value>none</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>downloadFiles</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>icon</name>
+                    <value>standard:file</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>includeChildRecords</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>includeNotes</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>Enhanced Files</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>minMobileColumns</name>
+                    <value>3</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>pageSize</name>
+                    <value>10</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>uploadFiles</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentName>efl:fileCard</componentName>
+                <identifier>efl_fileCard</identifier>
+            </componentInstance>
+        </itemInstances>
         <name>Facet-d9198f14-e275-4ede-9051-6205b98e489f</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -344,32 +426,6 @@
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
                 <identifier>force_relatedListSingleContainer2</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>parentFieldApiName</name>
-                    <value>Finanzierungsanfrage__c.Id</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListApiName</name>
-                    <value>FinanzierungsanfrageNotizen__r</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListComponentOverride</name>
-                    <value>NONE</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>rowsToDisplay</name>
-                    <value>10</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showActionBar</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentName>force:relatedListSingleContainer</componentName>
-                <identifier>force_relatedListSingleContainer3</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
