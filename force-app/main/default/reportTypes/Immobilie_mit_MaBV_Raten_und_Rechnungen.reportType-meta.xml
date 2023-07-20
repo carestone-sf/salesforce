@@ -1688,6 +1688,16 @@
             <field>ClosingBonusInPercent__c</field>
             <table>Property__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PressemeldungenIds__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AehnlicheObjekteIds__c</field>
+            <table>Property__c</table>
+        </columns>
         <masterLabel>Immobilien</masterLabel>
     </sections>
     <sections>
