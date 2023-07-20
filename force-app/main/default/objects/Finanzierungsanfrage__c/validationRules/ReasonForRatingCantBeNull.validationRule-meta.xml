@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReasonForRatingCantBeNull</fullName>
+    <active>true</active>
+    <errorConditionFormula>(TEXT(AmpelIntern__c) == &apos;Rot&apos; || TEXT(AmpelIntern__c) == &apos;Gelb&apos;) &amp;&amp;  IsBlank(GrundBewertung__c)</errorConditionFormula>
+    <errorDisplayField>GrundBewertung__c</errorDisplayField>
+    <errorMessage>Bei &quot;roten&quot; oder &quot;gelben&quot; Bewertungen muss ein Grund angegeben werden.</errorMessage>
+</ValidationRule>
