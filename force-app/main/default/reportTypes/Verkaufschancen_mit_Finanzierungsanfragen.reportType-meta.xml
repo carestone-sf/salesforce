@@ -1353,6 +1353,16 @@
             <field>GrundVerloren__c</field>
             <table>Opportunity.Finanzierungsanfragen__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Finanzierung__c</field>
+            <table>Opportunity.Finanzierungsanfragen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PhaseOpportunity__c</field>
+            <table>Opportunity.Finanzierungsanfragen__r</table>
+        </columns>
         <masterLabel>Finanzierungsanfragen</masterLabel>
     </sections>
     <sections>
