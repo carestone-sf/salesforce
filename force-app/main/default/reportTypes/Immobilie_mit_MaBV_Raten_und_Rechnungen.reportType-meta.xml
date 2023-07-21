@@ -1683,6 +1683,21 @@
             <field>ResponsibleRF__c</field>
             <table>Property__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ClosingBonusInPercent__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PressemeldungenIds__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AehnlicheObjekteIds__c</field>
+            <table>Property__c</table>
+        </columns>
         <masterLabel>Immobilien</masterLabel>
     </sections>
     <sections>
@@ -2270,6 +2285,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CountDaysUntilInvoicePaid__c</field>
+            <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LostInterest__c</field>
             <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
         </columns>
         <masterLabel>MaBV Rechnungen</masterLabel>

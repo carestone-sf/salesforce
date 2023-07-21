@@ -1109,6 +1109,21 @@
             <field>DatumAbnahmeprotokoll__c</field>
             <table>Opportunity</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PhaseFinanzierungsanfrage__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BewertungFinanzierungsanfrage__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BewertungAmpelFinanzierungsanfrage__c</field>
+            <table>Opportunity</table>
+        </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
     <sections>
@@ -1605,6 +1620,11 @@
             <field>CountDaysUntilInvoicePaid__c</field>
             <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LostInterest__c</field>
+            <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
         <masterLabel>MaBV Rechnungen</masterLabel>
     </sections>
     <sections>
@@ -1654,6 +1674,21 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CustomerIncentiveWasPaid__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TageUeberfaellig__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CommentOPOS__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LostInterest__c</field>
             <table>Opportunity</table>
         </columns>
         <masterLabel>Verkaufschancen</masterLabel>
