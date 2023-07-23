@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <environments>Default</environments>
+    <interviewLabel>CampaignMember - Update Status to not interested {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CampaignMember - Update Status to not interested</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_zu_kein_Interesse</name>
+        <label>Update zu &quot;kein Interesse&quot;</label>
+        <locationX>308</locationX>
+        <locationY>276</locationY>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Kein Interesse</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Vertriebsvereinbarung</stringValue>
+            </value>
+        </filters>
+        <object>CampaignMember</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>One_month_after_webinar</name>
+            <connector>
+                <targetReference>Update_zu_kein_Interesse</targetReference>
+            </connector>
+            <label>One month after webinar</label>
+            <offsetNumber>1</offsetNumber>
+            <offsetUnit>Months</offsetUnit>
+            <recordField>WebinarDateTime__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>
