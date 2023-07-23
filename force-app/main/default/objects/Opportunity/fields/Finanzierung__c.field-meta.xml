@@ -11,12 +11,12 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Finanzierung WH</fullName>
+                <fullName>HypoCare</fullName>
                 <default>false</default>
                 <label>HypoCare</label>
             </value>
             <value>
-                <fullName>Finanzierung WH eigen</fullName>
+                <fullName>CS fremd</fullName>
                 <default>false</default>
                 <label>CS fremd</label>
             </value>
