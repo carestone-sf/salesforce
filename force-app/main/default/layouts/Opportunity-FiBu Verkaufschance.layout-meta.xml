@@ -234,6 +234,10 @@
                 <field>PhaseFinanzierungsanfrage__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>LetztePhasenaenderungFA__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>BewertungAmpelFinanzierungsanfrage__c</field>
             </layoutItems>

@@ -24,39 +24,13 @@
         </rules>
     </decisions>
     <decisions>
-        <name>KfW_Best_tigung_vorhanden</name>
-        <label>KfW Bestätigung vorhanden?</label>
-        <locationX>336</locationX>
-        <locationY>839</locationY>
-        <defaultConnector>
-            <targetReference>KfW_Wunsch_ge_ndert</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>KfW_Best_tigung_vorhanden2</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.KfWBestaetigungVorhanden__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Update_Opportunity_2</targetReference>
-            </connector>
-            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
-            <label>KfW Bestätigung vorhanden?</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>KfW_Wunsch_ge_ndert</name>
-        <label>KfW Wunsch geändert?</label>
+        <name>FA_Daten_ge_ndert</name>
+        <label>FA Daten geändert?</label>
         <locationX>182</locationX>
         <locationY>1223</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>KfW_Wunsch_ge_ndert2</name>
+            <name>FA_Daten_ge_ndert2</name>
             <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>isNew</leftValueReference>
@@ -89,7 +63,33 @@
             <connector>
                 <targetReference>Update_Opportunity_3</targetReference>
             </connector>
-            <label>KfW Wunsch geändert?</label>
+            <label>FA Daten geändert?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>KfW_Best_tigung_vorhanden</name>
+        <label>KfW Bestätigung vorhanden?</label>
+        <locationX>336</locationX>
+        <locationY>839</locationY>
+        <defaultConnector>
+            <targetReference>FA_Daten_ge_ndert</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>KfW_Best_tigung_vorhanden2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.KfWBestaetigungVorhanden__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opportunity_2</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>KfW Bestätigung vorhanden?</label>
         </rules>
     </decisions>
     <decisions>
@@ -112,7 +112,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>KfW_Wunsch_ge_ndert</targetReference>
+                <targetReference>FA_Daten_ge_ndert</targetReference>
             </connector>
             <label>Neu?</label>
         </rules>
@@ -317,7 +317,7 @@
         <locationX>204</locationX>
         <locationY>947</locationY>
         <connector>
-            <targetReference>KfW_Wunsch_ge_ndert</targetReference>
+            <targetReference>FA_Daten_ge_ndert</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -378,7 +378,7 @@
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <textTemplates>
         <name>RalfGrellNotificationEmailTemplate</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
