@@ -361,6 +361,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>LetztePhasenaenderungFA__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>PhaseFinanzierungsanfrage__c</field>
             <value>
                 <elementReference>$Record.Phase__c</elementReference>
@@ -378,7 +384,7 @@
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <textTemplates>
         <name>RalfGrellNotificationEmailTemplate</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
