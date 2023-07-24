@@ -1735,6 +1735,11 @@
             <field>BewertungAmpelFinanzierungsanfrage__c</field>
             <table>Account.Contacts.Opportunities__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LetztePhasenaenderungFA__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
     <sections>
