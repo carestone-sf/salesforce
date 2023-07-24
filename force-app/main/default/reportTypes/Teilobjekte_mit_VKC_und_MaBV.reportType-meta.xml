@@ -724,6 +724,11 @@
             <field>PhaseFinanzierungsanfrage__c</field>
             <table>Appartment__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LetztePhasenaenderungFA__c</field>
+            <table>Appartment__c</table>
+        </columns>
         <masterLabel>Teilobjekte</masterLabel>
     </sections>
     <sections>
@@ -1980,6 +1985,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>BewertungAmpelFinanzierungsanfrage__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LetztePhasenaenderungFA__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <masterLabel>Opportunities</masterLabel>

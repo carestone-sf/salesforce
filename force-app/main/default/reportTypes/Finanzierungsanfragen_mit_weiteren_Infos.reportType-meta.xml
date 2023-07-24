@@ -266,6 +266,11 @@
             <field>GrundBewertung__c</field>
             <table>Finanzierungsanfrage__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LetztePhasenaenderung__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
         <masterLabel>Finanzierungsanfragen</masterLabel>
     </sections>
     <sections>
