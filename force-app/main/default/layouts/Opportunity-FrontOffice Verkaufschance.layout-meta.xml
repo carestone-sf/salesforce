@@ -273,6 +273,10 @@
                 <field>PhaseFinanzierungsanfrage__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>LetztePhasenaenderungFA__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>BewertungAmpelFinanzierungsanfrage__c</field>
             </layoutItems>
@@ -849,6 +853,11 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
+            <actionName>Opportunity.Neue_Finanzierungsanfrage</actionName>
+            <actionType>QuickAction</actionType>
+            <sortOrder>0</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
             <actionName>Opportunity.VKC_schlie_en</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>1</sortOrder>
@@ -962,11 +971,6 @@
             <actionName>LogACall</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>23</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>Opportunity.Neue_Finanzierungsanfrage</actionName>
-            <actionType>QuickAction</actionType>
-            <sortOrder>0</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <quickActionList>

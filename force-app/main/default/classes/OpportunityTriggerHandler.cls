@@ -262,6 +262,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         apartment.Bezahlt__c = 0;
         apartment.ReserviertFuer__c = null;
         apartment.PhaseFinanzierungsanfrage__c = null;
+        apartment.LetztePhasenaenderungFA__c = null;
         apartment.BewertungFinanzierungsanfrage__c = null;
     }
 
@@ -625,6 +626,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                 apartment.KaufpreisFaellig__c = opp.Kaufpreis_f_llig__c;
                 apartment.Date_of_purchase__c = opp.Kaufdatum__c;
                 apartment.PhaseFinanzierungsanfrage__c = opp.PhaseFinanzierungsanfrage__c;
+                apartment.LetztePhasenaenderungFA__c = opp.LetztePhasenaenderungFA__c;
                 apartment.BewertungFinanzierungsanfrage__c = opp.BewertungFinanzierungsanfrage__c;
                 if(opp.Bezahlt__c != 0) {
                     apartment.Bezahlt__c = opp.Bezahlt__c;
@@ -654,6 +656,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                 oldApartment.KaufpreisFaellig__c = false;
                 oldApartment.Bezahlt__c = 0;
                 oldApartment.PhaseFinanzierungsanfrage__c = null;
+                oldApartment.LetztePhasenaenderungFA__c = null;
                 oldApartment.BewertungFinanzierungsanfrage__c = null;
                 updateMap.put(oldApartment.Id, oldApartment);
             } 
