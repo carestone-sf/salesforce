@@ -9,6 +9,7 @@ public with sharing class ImmoframeProperty {
     public String postalCode;
     // Betreutes Wohnen || Pflegeimmobilie
     public String propertyType; 
+    public String constructionType;
     public String propertyStatus;
     public boolean showOnWebsite;
     public boolean showOnImmoframe;
