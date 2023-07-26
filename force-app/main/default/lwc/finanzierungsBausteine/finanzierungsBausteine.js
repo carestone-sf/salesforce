@@ -356,6 +356,10 @@ export default class FinanzierungsBausteine extends LightningElement {
         this.calculateTilgungInPercent();
     }
 
+    handleTilgungInPercentChange() {
+        this.calculateLaufzeitInJahren();
+    }
+
     handleSondertilgungChange(event) {
         const val = event.detail.value;
         if(val.includes('showSondertilgung')) {
@@ -372,14 +376,39 @@ export default class FinanzierungsBausteine extends LightningElement {
         const kreditsummeField = this.template.querySelector('lightning-input-field[data-name="Kreditsumme__c"]');
         const zinsInPercentField = this.template.querySelector('lightning-input-field[data-name="ZinsInPercent__c"]');
         const tilgungInPercentField = this.template.querySelector('lightning-input-field[data-name="TilgungInPercent__c"]');
+        const festeLaufzeitField = this.template.querySelector('lightning-input-field[data-name="FesteLaufzeit__c"]');
+
         const laufzeitInJahrenValue = laufzeitInJahrenField?.value;
         const kreditsummeValue = kreditsummeField?.value;
         const zinsInPercentValue = zinsInPercentField?.value;
-        if(laufzeitInJahrenValue && kreditsummeValue && zinsInPercentValue) {
+        const festeLaufzeitValue = festeLaufzeitField?.value;
+
+        if(laufzeitInJahrenValue && kreditsummeValue && zinsInPercentValue && festeLaufzeitValue === true) {
             const annuityZinsValue = zinsInPercentValue/100+1;
             const annuityRate = kreditsummeValue * Math.pow(annuityZinsValue, laufzeitInJahrenValue) * ((annuityZinsValue-1) / (Math.pow(annuityZinsValue, laufzeitInJahrenValue)-1));
             const tilgungInPercent = (annuityRate - (kreditsummeValue * zinsInPercentValue / 100) ) / kreditsummeValue * 100;
             tilgungInPercentField.value = tilgungInPercent.toFixed(2);
+        }
+    }
+
+    calculateLaufzeitInJahren() {
+        const laufzeitInJahrenField = this.template.querySelector('lightning-input-field[data-name="LaufzeitInJahren__c"]');
+        const zinsInPercentField = this.template.querySelector('lightning-input-field[data-name="ZinsInPercent__c"]');
+        const tilgungInPercentField = this.template.querySelector('lightning-input-field[data-name="TilgungInPercent__c"]');
+        const festeLaufzeitField = this.template.querySelector('lightning-input-field[data-name="FesteLaufzeit__c"]');
+
+        const zinsInPercentValue = zinsInPercentField?.value;
+        const tilgungInPercentValue = tilgungInPercentField?.value;
+        const festeLaufzeitValue = festeLaufzeitField?.value;
+
+        if (tilgungInPercentValue && zinsInPercentValue && festeLaufzeitValue === false) {
+            const zinsPercent = zinsInPercentValue/100;
+            const tilgungPercent = tilgungInPercentValue/100;
+
+            //Formula from https://de.wikipedia.org/wiki/Annuit%C3%A4tendarlehen#Bestimmung_der_Laufzeit
+            const laufzeitInJahren = Math.log(1+(zinsPercent)/tilgungPercent)/Math.log(zinsPercent+1);
+
+            laufzeitInJahrenField.value = laufzeitInJahren.toFixed(2);
         }
     }
 
