@@ -171,8 +171,6 @@
             Erwerber {!Opportunity.Potenzieller_Kunde__r.Name}
             <apex:outputPanel rendered="{!NOT(ISBLANK(Opportunity.Kunde2__c))}">, {!Opportunity.Kunde2__r.Name}</apex:outputPanel>.
             <br/><br/>
-            Wir bitten Sie die Eigentumsumschreibung nunmehr zu veranlassen.
-            <br/><br/>
             Mit freundlichen Grüßen
             <br/><br/><br/>
             i.A. {!$User.FirstName} {!$User.LastName}
