@@ -215,7 +215,7 @@
     <textTemplates>
         <name>opportunityClosedLostEmailTemplate</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Die folgende VKC ist verloren:&lt;/p&gt;&lt;p&gt;https://carestone.lightning.force.com/{!$Record.Id}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Phase Finanzierung: {!$Record.PhaseFinanzierungsanfrage__c}&lt;/p&gt;&lt;p&gt;Bewertung Finanzierung: {!$Record.BewertungFinanzierungsanfrage__c}&lt;/p&gt;</text>
+        <text>&lt;p&gt;Die folgende VKC ist verloren:&lt;/p&gt;&lt;p&gt;https://carestone.lightning.force.com/{!$Record.Id}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Name der VKC: {!$Record.Name}&lt;/p&gt;&lt;p&gt;Maklerbetreuer: {!$Record.Maklerbetreuer_WirtschaftsHaus__r.FirstName} + &apos; &apos; + &lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;{!$Record.Maklerbetreuer_WirtschaftsHaus__r.LastName} &lt;/span&gt;&lt;/p&gt;&lt;p&gt;Phase Finanzierung: {!$Record.PhaseFinanzierungsanfrage__c}&lt;/p&gt;&lt;p&gt;Bewertung Finanzierung: {!$Record.BewertungFinanzierungsanfrage__c}&lt;/p&gt;</text>
     </textTemplates>
     <textTemplates>
         <name>opportunityWonInformation</name>
