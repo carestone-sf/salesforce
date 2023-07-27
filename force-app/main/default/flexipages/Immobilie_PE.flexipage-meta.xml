@@ -2024,6 +2024,16 @@
                 <identifier>RecordSalesDescription_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ShowInObjectArchive__c</fieldItem>
+                <identifier>RecordShowInObjectArchive_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-bdf6af8c-e8bc-44e9-8be6-b9cfd3dafcf4</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -6379,6 +6389,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.SalesDescription__c</fieldItem>
                 <identifier>RecordSalesDescription_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ShowInObjectArchive__c</fieldItem>
+                <identifier>RecordShowInObjectArchive_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-8phgac56la7</name>
