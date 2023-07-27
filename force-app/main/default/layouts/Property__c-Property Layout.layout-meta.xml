@@ -221,6 +221,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>ShowInObjectArchive__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>HideSoldAppartmentsVp__c</field>
             </layoutItems>
             <layoutItems>
