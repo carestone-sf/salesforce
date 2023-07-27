@@ -224,9 +224,6 @@ public without sharing class FinanceCalculator {
 
         
         calculateLiquidity(this.cumulatedYearlyValues);
-        System.debug(this.factor);
-        System.debug(this.cumulatedCost);
-        System.debug(this.yearsPassed);
 
         if(this.c.Finanzierungsart__c == 'Finanzierung') {
             this.firstYearAfterPayment = this.lastYear + 1;
@@ -234,7 +231,7 @@ public without sharing class FinanceCalculator {
 
         Map<String, Object> lastYearCumulatedValues = this.cumulatedYearlyValues.get(this.lastYear);
         Map<String, Object> currentYearCumulatedValues = new Map<String, Object>();
-        Decimal firstYearAfterPaymentFactor = this.factor;
+        Decimal firstYearAfterPaymentFactor = 1;
         if(lastYearCumulatedValues != null) {
             Decimal incomeInEuro = 0;
             Decimal expenditureInEuro = 0;
@@ -253,6 +250,7 @@ public without sharing class FinanceCalculator {
                 apartmentNameToRent.put(key, rent);
                 incomeInEuro += rent;
             }
+
             currentYearCumulatedValues.put('apartments', apartmentNameToRent);
 
             // Miete gesamt
@@ -318,6 +316,8 @@ public without sharing class FinanceCalculator {
             currentYearCumulatedValues.put('eigenkapitalRendite', eigenkapitalRendite);
         } 
 
+        this.firstYearAfterPaymentValues.put(firstYearAfterPayment, currentYearCumulatedValues);
+
         for(Integer i = 0; i < 25; i++) {
             Map<String, Object> liquidityCurrentYearValues = new Map<String, Object>();
             liquidityCurrentYearValues.put('interestInEuro', 0);
@@ -333,7 +333,6 @@ public without sharing class FinanceCalculator {
         }
         calculateLiquidity(this.cumulatedYearlyValuesBezugsphase);
 
-        this.firstYearAfterPaymentValues.put(firstYearAfterPayment, currentYearCumulatedValues);
     }
 
     public void cumulateYearsCashPayment() {
