@@ -41,6 +41,14 @@
 			</div>
 			<div class="slds-col slds-size_2-of-2">
 				<lightning-tabset>
+					<lightning-tab label="Unterlagen">
+						<div class="slds-text-align_left slds-var-m-top_medium">
+							<!-- <c-document-list record-id={privateImmobilie.immobilie.Id} folder-suffix="_dokumente" hide-upload-button="true"></c-document-list> -->
+							<template if:true={privateImmobilie.dokumente}>
+								<c-google-drive-document-list documents={privateImmobilie.dokumente}></c-google-drive-document-list>
+							</template>
+						</div>
+					</lightning-tab>
 					<lightning-tab label="Apartments">
 						<lightning-datatable 
 						key-field="id" 
@@ -118,14 +126,6 @@
 									</div>
 								</lightning-layout-item>
 							</lightning-layout>
-						</div>
-					</lightning-tab>
-					<lightning-tab label="Unterlagen">
-						<div class="slds-text-align_left slds-var-m-top_medium">
-							<!-- <c-document-list record-id={privateImmobilie.immobilie.Id} folder-suffix="_dokumente" hide-upload-button="true"></c-document-list> -->
-							<template if:true={privateImmobilie.dokumente}>
-								<c-google-drive-document-list documents={privateImmobilie.dokumente}></c-google-drive-document-list>
-							</template>
 						</div>
 					</lightning-tab>
 				</lightning-tabset>
