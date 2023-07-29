@@ -2,7 +2,11 @@
 	<lightning-card style="display: none" data-id="2" class="immobilien-list-card slds-p-left_xx-small">
 		<div class="slds-grid slds-grid_vertical">
 			<div class="slds-grid slds-wrap slds-gutters_xx-small">
-				<div class="slds-col slds-size_12-of-12 slds-medium-size_12-of-12">		
+				<div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 slds-box slds-box_x-small"
+				style="border:none; padding-left:10px;">
+					<c-picture-carousel onclick={openPictureModal} immobilie={immobilie}></c-picture-carousel>
+				</div>
+				<div class="slds-col slds-size_12-of-12 slds-medium-size_9-of-12">		
 					<p style="font-size:24px"><b>{privateImmobilie.immobilie.Name}</b></p>
 					<p><b>{privateImmobilie.immobilie.Place__c}({privateImmobilie.immobilie.Zip_Code__c}),&nbsp;{privateImmobilie.immobilie.State__c},&nbsp;{privateImmobilie.immobilie.Street__c}</b>
 					</p>
@@ -29,7 +33,6 @@
 							<p style="font-size: 11px;">Kaufpreis pro Apartment</p>
 						</div>
 					</div>
-					<c-progress-bar immobilie={privateImmobilie.immobilie}></c-progress-bar>
 				</div>
 				<div style="position:absolute; top:10px; right:15px;">
 					<lightning-button variant="base" label="-" onclick={collapseCard}>
