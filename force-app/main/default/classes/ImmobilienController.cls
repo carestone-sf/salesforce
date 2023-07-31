@@ -144,6 +144,9 @@ public without sharing class ImmobilienController {
                 }
             }
             immosByIds.put(property.Id, i);
+            for(Appartment__c teilobjekt : property.Appartments__r) {
+                immosByIds.get(teilobjekt.Property__c).teilobjekte.add(teilobjekt);
+            }
         }
 
         return immosByIds.values();
