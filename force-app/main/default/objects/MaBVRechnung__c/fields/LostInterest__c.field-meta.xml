@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>LostInterest__c</fullName>
     <externalId>false</externalId>
-    <formula>RateGesamtInEuro__c * ZahlungszielInTagen__c / 365 * 0.01</formula>
+    <formula>OffenerBetragNeu__c * TageUeberfaellig__c / 365 * 0.01</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Entgangene Zinsen</label>
     <precision>18</precision>
