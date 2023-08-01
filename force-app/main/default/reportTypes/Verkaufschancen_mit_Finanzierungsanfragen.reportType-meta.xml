@@ -1378,6 +1378,16 @@
             <field>LetztePhasenaenderung__c</field>
             <table>Opportunity.Finanzierungsanfragen__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Finanzierungsvermittler__c</field>
+            <table>Opportunity.Finanzierungsanfragen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>GrundFinanzierungsanfragePausiert__c</field>
+            <table>Opportunity.Finanzierungsanfragen__r</table>
+        </columns>
         <masterLabel>Finanzierungsanfragen</masterLabel>
     </sections>
     <sections>
