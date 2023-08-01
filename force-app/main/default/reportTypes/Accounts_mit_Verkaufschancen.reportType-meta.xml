@@ -1330,6 +1330,11 @@
             <field>EventSubtype</field>
             <table>Account.Opportunities.Activities</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>EmailWhenTaskIsDone__c</field>
+            <table>Account.Opportunities.Activities</table>
+        </columns>
         <masterLabel>Aktivitäten</masterLabel>
     </sections>
     <sections>
