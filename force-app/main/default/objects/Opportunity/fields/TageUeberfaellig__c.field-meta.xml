@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>TageUeberfaellig__c</fullName>
     <externalId>false</externalId>
-    <formula>TODAY() - (Datum_Kaufpreisf_lligkeitsschreiben__c + Immobilie__r.ZahlungszielinTagen__c)</formula>
+    <formula>IF(TODAY() - (Datum_Kaufpreisf_lligkeitsschreiben__c + Immobilie__r.ZahlungszielinTagen__c) &gt; 0, TODAY() - (Datum_Kaufpreisf_lligkeitsschreiben__c + Immobilie__r.ZahlungszielinTagen__c), 0)</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Tage überfällig</label>
     <precision>18</precision>
