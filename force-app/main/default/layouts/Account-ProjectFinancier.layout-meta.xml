@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Verkaufsvolumen_mit_Hierarchie</customButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>SendEmail</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
@@ -284,14 +285,8 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Property__c</fields>
-        <fields>Street__c</fields>
-        <fields>State__c</fields>
-        <fields>Place__c</fields>
-        <fields>Purchase_Price_sqm__c</fields>
-        <fields>Rent_Long_Term_sqm__c</fields>
-        <fields>Is_Public__c</fields>
-        <relatedList>Property__c.ProjectFinancier__c</relatedList>
+        <fields>Property__c.NAME</fields>
+        <relatedList>ProjectFinancing__c.ProjectFinancier__c</relatedList>
     </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>

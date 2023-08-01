@@ -1857,4 +1857,12 @@
         </columns>
         <masterLabel>Activities</masterLabel>
     </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>EmailWhenTaskIsDone__c</field>
+            <table>Account.BetreuteAccounts__r.Activities</table>
+        </columns>
+        <masterLabel>Aktivitäten</masterLabel>
+    </sections>
 </ReportType>
