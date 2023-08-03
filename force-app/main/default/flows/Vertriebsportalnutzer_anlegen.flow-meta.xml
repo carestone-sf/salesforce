@@ -5,7 +5,7 @@
         <name>Assign_Manager_Role</name>
         <label>Assign Manager Role</label>
         <locationX>248</locationX>
-        <locationY>2570</locationY>
+        <locationY>2678</locationY>
         <assignmentItems>
             <assignToReference>UserRoleId</assignToReference>
             <operator>Assign</operator>
@@ -15,6 +15,23 @@
         </assignmentItems>
         <connector>
             <targetReference>Create_Portal_User</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Get count of internal users of the given VP credentials</description>
+        <name>Obtain_Internal_User_Count</name>
+        <label>Obtain Internal User Count</label>
+        <locationX>380</locationX>
+        <locationY>1274</locationY>
+        <assignmentItems>
+            <assignToReference>InternalUserCount</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Check_Internal_Users_Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Vertriebsportalnutzer_aktivieren</targetReference>
         </connector>
     </assignments>
     <choices>
@@ -45,7 +62,7 @@
         <name>Darf_Provisionsdaten_sehen2</name>
         <label>Darf Provisionsdaten sehen?</label>
         <locationX>182</locationX>
-        <locationY>3410</locationY>
+        <locationY>3518</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Darf_Provisionsdaten_sehen3</name>
@@ -67,7 +84,7 @@
         <name>Duplicate_Username</name>
         <label>Duplicate Username?</label>
         <locationX>1238</locationX>
-        <locationY>2870</locationY>
+        <locationY>2978</locationY>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
             <name>PortalUserAlreadyExists</name>
@@ -169,7 +186,7 @@
         <name>Is_manager_User</name>
         <label>Is manager User?</label>
         <locationX>380</locationX>
-        <locationY>3086</locationY>
+        <locationY>3194</locationY>
         <defaultConnector>
             <targetReference>Assign_Accounts_bearbeiten_Permission_Set_0</targetReference>
         </defaultConnector>
@@ -194,7 +211,7 @@
         <name>Is_manager_User_0</name>
         <label>Is manager User?</label>
         <locationX>380</locationX>
-        <locationY>2462</locationY>
+        <locationY>2570</locationY>
         <defaultConnector>
             <targetReference>Create_Portal_User</targetReference>
         </defaultConnector>
@@ -241,7 +258,7 @@
         <description>Username convention</description>
         <name>Username</name>
         <dataType>String</dataType>
-        <expression>IF(ISNULL({!Check_Internal_Users_Email.Id}),
+        <expression>IF({!InternalUserCount} = 0,
 {!Get_Contact.Email},
 {!Get_Contact.Email} + &quot;.vp&quot;)</expression>
     </formulas>
@@ -270,7 +287,7 @@
         <name>Assign_Accounts_bearbeiten_Permission_Set</name>
         <label>Assign Accounts bearbeiten Permission Set</label>
         <locationX>182</locationX>
-        <locationY>3194</locationY>
+        <locationY>3302</locationY>
         <connector>
             <targetReference>Assign_Kontakte_bearbeiten_Permission_Set</targetReference>
         </connector>
@@ -293,7 +310,7 @@
         <name>Assign_Accounts_bearbeiten_Permission_Set_0</name>
         <label>Assign Accounts bearbeiten Permission Set</label>
         <locationX>578</locationX>
-        <locationY>3194</locationY>
+        <locationY>3302</locationY>
         <connector>
             <targetReference>Assign_Kontakte_bearbeiten_Permission_Set_0</targetReference>
         </connector>
@@ -316,7 +333,7 @@
         <name>Assign_Default_Permission_Set</name>
         <label>Assign Default Permission Set</label>
         <locationX>380</locationX>
-        <locationY>2870</locationY>
+        <locationY>2978</locationY>
         <connector>
             <targetReference>Assign_DocuSign_Permission_Set</targetReference>
         </connector>
@@ -339,7 +356,7 @@
         <name>Assign_DocuSign_Permission_Set</name>
         <label>Assign DocuSign Permission Set</label>
         <locationX>380</locationX>
-        <locationY>2978</locationY>
+        <locationY>3086</locationY>
         <connector>
             <targetReference>Is_manager_User</targetReference>
         </connector>
@@ -362,7 +379,7 @@
         <name>Assign_Kontakte_bearbeiten_Permission_Set</name>
         <label>Assign Kontakte bearbeiten Permission Set</label>
         <locationX>182</locationX>
-        <locationY>3302</locationY>
+        <locationY>3410</locationY>
         <connector>
             <targetReference>Darf_Provisionsdaten_sehen2</targetReference>
         </connector>
@@ -385,7 +402,7 @@
         <name>Assign_Kontakte_bearbeiten_Permission_Set_0</name>
         <label>Assign Kontakte bearbeiten Permission Set</label>
         <locationX>578</locationX>
-        <locationY>3302</locationY>
+        <locationY>3410</locationY>
         <inputAssignments>
             <field>AssigneeId</field>
             <value>
@@ -405,7 +422,7 @@
         <name>Assign_Provision_Permission_Set</name>
         <label>Assign Provision Permission Set</label>
         <locationX>50</locationX>
-        <locationY>3518</locationY>
+        <locationY>3626</locationY>
         <inputAssignments>
             <field>AssigneeId</field>
             <value>
@@ -425,7 +442,7 @@
         <name>Create_Portal_User</name>
         <label>Create Portal User</label>
         <locationX>380</locationX>
-        <locationY>2762</locationY>
+        <locationY>2870</locationY>
         <connector>
             <targetReference>Assign_Default_Permission_Set</targetReference>
         </connector>
@@ -523,7 +540,7 @@
         <name>Create_Portal_User_Custom_Nickname</name>
         <label>Create Portal User Custom Nickname</label>
         <locationX>1370</locationX>
-        <locationY>3086</locationY>
+        <locationY>3194</locationY>
         <inputAssignments>
             <field>Alias</field>
             <value>
@@ -619,7 +636,7 @@
         <locationY>1166</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Vertriebsportalnutzer_aktivieren</targetReference>
+            <targetReference>Obtain_Internal_User_Count</targetReference>
         </connector>
         <filterLogic>(1 OR 2) AND 3</filterLogic>
         <filters>
@@ -643,8 +660,9 @@
                 <booleanValue>false</booleanValue>
             </value>
         </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>User</object>
+        <queriedFields>Id</queriedFields>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
@@ -672,7 +690,7 @@
         <name>Get_Account_bearbeiten_Permission_Set</name>
         <label>Get Account bearbeiten Permission Set</label>
         <locationX>380</locationX>
-        <locationY>1706</locationY>
+        <locationY>1814</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Kontakte_bearbeiten_Permission_Set</targetReference>
@@ -693,7 +711,7 @@
         <name>Get_Benutzer_User_Role</name>
         <label>Get Benutzer User Role</label>
         <locationX>380</locationX>
-        <locationY>2354</locationY>
+        <locationY>2462</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Is_manager_User_0</targetReference>
@@ -742,7 +760,7 @@
         <name>Get_Default_Permission_Set</name>
         <label>Get Default Permission Set</label>
         <locationX>380</locationX>
-        <locationY>1598</locationY>
+        <locationY>1706</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Account_bearbeiten_Permission_Set</targetReference>
@@ -763,7 +781,7 @@
         <name>Get_DocuSign_Permission_Set</name>
         <label>Get DocuSign Permission Set</label>
         <locationX>380</locationX>
-        <locationY>2030</locationY>
+        <locationY>2138</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Manager_User_Role</targetReference>
@@ -784,7 +802,7 @@
         <name>Get_F_hrungskraft_User_Role</name>
         <label>Get Führungskraft User Role</label>
         <locationX>380</locationX>
-        <locationY>2246</locationY>
+        <locationY>2354</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Benutzer_User_Role</targetReference>
@@ -812,7 +830,7 @@
         <name>Get_Kontakte_bearbeiten_Permission_Set</name>
         <label>Get Kontakte bearbeiten Permission Set</label>
         <locationX>380</locationX>
-        <locationY>1814</locationY>
+        <locationY>1922</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Provision_Permission_Set</targetReference>
@@ -833,7 +851,7 @@
         <name>Get_Manager_Profile</name>
         <label>Get Manager Profile</label>
         <locationX>380</locationX>
-        <locationY>1382</locationY>
+        <locationY>1490</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_normal_profile</targetReference>
@@ -854,7 +872,7 @@
         <name>Get_Manager_User_Role</name>
         <label>Get Manager User Role</label>
         <locationX>380</locationX>
-        <locationY>2138</locationY>
+        <locationY>2246</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_F_hrungskraft_User_Role</targetReference>
@@ -882,7 +900,7 @@
         <name>Get_normal_profile</name>
         <label>Get normal profile</label>
         <locationX>380</locationX>
-        <locationY>1490</locationY>
+        <locationY>1598</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Default_Permission_Set</targetReference>
@@ -903,7 +921,7 @@
         <name>Get_Provision_Permission_Set</name>
         <label>Get Provision Permission Set</label>
         <locationX>380</locationX>
-        <locationY>1922</locationY>
+        <locationY>2030</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_DocuSign_Permission_Set</targetReference>
@@ -978,7 +996,7 @@
         <name>Benutzername_bereits_vergeben</name>
         <label>Benutzername bereits vergeben</label>
         <locationX>1106</locationX>
-        <locationY>2978</locationY>
+        <locationY>3086</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -1019,7 +1037,7 @@
         <name>Nickname_already_exists</name>
         <label>Nickname already exists</label>
         <locationX>1370</locationX>
-        <locationY>2978</locationY>
+        <locationY>3086</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -1052,7 +1070,7 @@
         <name>Portal_User_already_exists</name>
         <label>Portal User already exists</label>
         <locationX>842</locationX>
-        <locationY>2978</locationY>
+        <locationY>3086</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -1068,7 +1086,7 @@
         <name>Vertriebsportalnutzer_aktivieren</name>
         <label>Vertriebsportalnutzer aktivieren</label>
         <locationX>380</locationX>
-        <locationY>1274</locationY>
+        <locationY>1382</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -1103,6 +1121,15 @@
         </connector>
     </start>
     <status>Active</status>
+    <variables>
+        <description>Count of internal users for the given VP User credentials.</description>
+        <name>InternalUserCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
     <variables>
         <name>recordId</name>
         <dataType>String</dataType>
