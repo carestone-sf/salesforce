@@ -60,6 +60,13 @@
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.BeurkundungMoeglich__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Update_Opportunity_3</targetReference>
             </connector>
@@ -348,6 +355,12 @@
                 <elementReference>$Record.Opportunity__c</elementReference>
             </value>
         </filters>
+        <inputAssignments>
+            <field>BeurkundungMoeglich__c</field>
+            <value>
+                <elementReference>$Record.BeurkundungMoeglich__c</elementReference>
+            </value>
+        </inputAssignments>
         <inputAssignments>
             <field>BewertungFinanzierungsanfrage__c</field>
             <value>
