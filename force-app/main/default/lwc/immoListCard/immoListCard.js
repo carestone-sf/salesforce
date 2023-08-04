@@ -8,6 +8,7 @@ const columns = [
     { label: 'Fläche', fieldName: 'FlaecheQmText__c', hideDefaultActions:"true", sortable: "true", cellAttributes: { alignment: 'left' }},
     { label: 'Preis m²', fieldName: 'Purchase_Price_sq_m__c', hideDefaultActions:"true", sortable: "true", type: 'currency', cellAttributes: { alignment: 'left' }},
     { label: 'Miete pa', fieldName: 'Jahresmiete__c', hideDefaultActions:"true", sortable: "true", type: 'currency', cellAttributes: { alignment: 'left' }},
+    { label: 'Rendite', fieldName: 'RentalReturnFormulaVP__c', hideDefaultActions:"true", sortable: "true", type: 'percent',typeAttributes: { minimumFractionDigits: 2 }, cellAttributes: { alignment: 'left' }},
     { label: 'Status', fieldName: 'OeffentlicherStatus__c', type:'text', hideDefaultActions:"true", sortable: "true", cellAttributes: { alignment: 'left', class: {fieldName:'statusColorClass'} }},
 ];
 
@@ -65,6 +66,11 @@ export default class ImmoListCard extends LightningElement {
     
     connectedCallback() {
         
+    }
+
+    get renditeMinIsSameAsRenditeMax() {
+        console.log(this.privateImmobilie.immobilie.Min_Rendite__c);
+        return this.privateImmobilie != null && this.privateImmobilie.immobilie != null && this.privateImmobilie.immobilie.Max_Rendite__c == this.privateImmobilie.immobilie.Min_Rendite__c;
     }
     
     renderedCallback() {
