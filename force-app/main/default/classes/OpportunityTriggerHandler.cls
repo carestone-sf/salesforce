@@ -264,6 +264,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         apartment.PhaseFinanzierungsanfrage__c = null;
         apartment.LetztePhasenaenderungFA__c = null;
         apartment.BewertungFinanzierungsanfrage__c = null;
+        apartment.BeurkundungMoeglich__c = false;
     }
 
     public Boolean stageSetToReserved(Opportunity opp, Opportunity oldOpp) {
@@ -628,6 +629,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                 apartment.PhaseFinanzierungsanfrage__c = opp.PhaseFinanzierungsanfrage__c;
                 apartment.LetztePhasenaenderungFA__c = opp.LetztePhasenaenderungFA__c;
                 apartment.BewertungFinanzierungsanfrage__c = opp.BewertungFinanzierungsanfrage__c;
+                apartment.BeurkundungMoeglich__c = opp.BeurkundungMoeglich__c;
                 if(opp.Bezahlt__c != 0) {
                     apartment.Bezahlt__c = opp.Bezahlt__c;
                 }
@@ -658,6 +660,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                 oldApartment.PhaseFinanzierungsanfrage__c = null;
                 oldApartment.LetztePhasenaenderungFA__c = null;
                 oldApartment.BewertungFinanzierungsanfrage__c = null;
+                oldApartment.BeurkundungMoeglich__c = false;
                 updateMap.put(oldApartment.Id, oldApartment);
             } 
         }

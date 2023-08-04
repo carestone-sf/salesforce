@@ -695,6 +695,16 @@
             <field>LetztePhasenaenderungFA__c</field>
             <table>Appartment__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>RentalReturnFormulaVP__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BeurkundungMoeglich__c</field>
+            <table>Appartment__c</table>
+        </columns>
         <masterLabel>Teilobjekte</masterLabel>
     </sections>
     <sections>
@@ -2283,6 +2293,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LostInterest__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BeurkundungMoeglich__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <masterLabel>Verkaufschancen</masterLabel>
