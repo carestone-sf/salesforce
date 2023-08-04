@@ -963,6 +963,11 @@
             <field>LostInterest__c</field>
             <table>Opportunity</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BeurkundungMoeglich__c</field>
+            <table>Opportunity</table>
+        </columns>
         <masterLabel>Verkaufschancen</masterLabel>
     </sections>
 </ReportType>

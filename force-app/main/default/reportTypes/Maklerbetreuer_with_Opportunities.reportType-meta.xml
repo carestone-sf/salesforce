@@ -2069,6 +2069,11 @@
             <field>LostInterest__c</field>
             <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BeurkundungMoeglich__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
         <masterLabel>Verkaufschancen</masterLabel>
     </sections>
     <sections>

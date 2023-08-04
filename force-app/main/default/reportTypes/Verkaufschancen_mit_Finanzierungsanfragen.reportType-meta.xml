@@ -1388,6 +1388,11 @@
             <field>GrundFinanzierungsanfragePausiert__c</field>
             <table>Opportunity.Finanzierungsanfragen__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BeurkundungMoeglich__c</field>
+            <table>Opportunity.Finanzierungsanfragen__r</table>
+        </columns>
         <masterLabel>Finanzierungsanfragen</masterLabel>
     </sections>
     <sections>
@@ -1439,6 +1444,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LostInterest__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BeurkundungMoeglich__c</field>
             <table>Opportunity</table>
         </columns>
         <masterLabel>Verkaufschancen</masterLabel>
