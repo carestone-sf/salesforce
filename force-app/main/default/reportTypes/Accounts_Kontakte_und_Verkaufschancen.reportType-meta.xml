@@ -1798,6 +1798,11 @@
             <field>LostInterest__c</field>
             <table>Account.Contacts.Opportunities__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BeurkundungMoeglich__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
         <masterLabel>Verkaufschancen</masterLabel>
     </sections>
     <sections>

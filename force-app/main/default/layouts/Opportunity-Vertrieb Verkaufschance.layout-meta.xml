@@ -250,6 +250,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>BeurkundungMoeglich__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>VoraussetzungenFuerNotarterminErfuellt__c</field>
             </layoutItems>
             <layoutItems>
