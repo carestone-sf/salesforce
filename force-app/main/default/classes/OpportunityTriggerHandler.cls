@@ -264,7 +264,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         apartment.PhaseFinanzierungsanfrage__c = null;
         apartment.LetztePhasenaenderungFA__c = null;
         apartment.BewertungFinanzierungsanfrage__c = null;
-        apartment.BeurkundungMoeglich__c = null;
+        apartment.BeurkundungMoeglich__c = false;
     }
 
     public Boolean stageSetToReserved(Opportunity opp, Opportunity oldOpp) {
@@ -660,7 +660,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                 oldApartment.PhaseFinanzierungsanfrage__c = null;
                 oldApartment.LetztePhasenaenderungFA__c = null;
                 oldApartment.BewertungFinanzierungsanfrage__c = null;
-                oldApartment.BeurkundungMoeglich__c = null;
+                oldApartment.BeurkundungMoeglich__c = false;
                 updateMap.put(oldApartment.Id, oldApartment);
             } 
         }
