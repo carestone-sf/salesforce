@@ -4,7 +4,7 @@
     <decisions>
         <name>Automation_Switch</name>
         <label>Automation Switch</label>
-        <locationX>413</locationX>
+        <locationX>545</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -26,12 +26,15 @@
     <decisions>
         <name>FA_Daten_ge_ndert</name>
         <label>FA Daten geändert?</label>
-        <locationX>182</locationX>
+        <locationX>314</locationX>
         <locationY>1223</locationY>
+        <defaultConnector>
+            <targetReference>Opportunity_was_changed</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>FA_Daten_ge_ndert2</name>
-            <conditionLogic>or</conditionLogic>
+            <conditionLogic>(1 OR 2 OR 3 OR 4 OR 5 OR 8) AND (6 AND 7)</conditionLogic>
             <conditions>
                 <leftValueReference>isNew</leftValueReference>
                 <operator>EqualTo</operator>
@@ -67,16 +70,60 @@
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Phase__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Finanzierung verloren</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Update_Opportunity_3</targetReference>
             </connector>
             <label>FA Daten geändert?</label>
         </rules>
+        <rules>
+            <name>FA_lost</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Phase__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Finanzierung verloren</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opportunity2</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>FA lost?</label>
+        </rules>
     </decisions>
     <decisions>
         <name>KfW_Best_tigung_vorhanden</name>
         <label>KfW Bestätigung vorhanden?</label>
-        <locationX>336</locationX>
+        <locationX>468</locationX>
         <locationY>839</locationY>
         <defaultConnector>
             <targetReference>FA_Daten_ge_ndert</targetReference>
@@ -102,7 +149,7 @@
     <decisions>
         <name>Neu</name>
         <label>Neu?</label>
-        <locationX>182</locationX>
+        <locationX>314</locationX>
         <locationY>431</locationY>
         <defaultConnector>
             <targetReference>VSA_vorhanden</targetReference>
@@ -125,9 +172,38 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Opportunity_was_changed</name>
+        <label>Opportunity was changed?</label>
+        <locationX>314</locationX>
+        <locationY>1523</locationY>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>Opportunity_was_changed2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Opportunity__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_old_Opportunity</targetReference>
+            </connector>
+            <label>Opportunity was changed?</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>VSA_vorhanden</name>
         <label>VSA vorhanden?</label>
-        <locationX>336</locationX>
+        <locationX>468</locationX>
         <locationY>539</locationY>
         <defaultConnector>
             <targetReference>KfW_Best_tigung_vorhanden</targetReference>
@@ -295,9 +371,45 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordUpdates>
+        <name>Update_old_Opportunity</name>
+        <label>Update old Opportunity</label>
+        <locationX>182</locationX>
+        <locationY>1631</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record__Prior.Opportunity__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>BeurkundungMoeglich__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BewertungFinanzierungsanfrage__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LetztePhasenaenderungFA__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PhaseFinanzierungsanfrage__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_Opportunity</name>
         <label>Update Opportunity</label>
-        <locationX>204</locationX>
+        <locationX>336</locationX>
         <locationY>647</locationY>
         <connector>
             <targetReference>KfW_Best_tigung_vorhanden</targetReference>
@@ -319,9 +431,48 @@
         <object>Opportunity</object>
     </recordUpdates>
     <recordUpdates>
+        <name>Update_Opportunity2</name>
+        <label>Update Opportunity</label>
+        <locationX>314</locationX>
+        <locationY>1331</locationY>
+        <connector>
+            <targetReference>Opportunity_was_changed</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Opportunity__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>BeurkundungMoeglich__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BewertungFinanzierungsanfrage__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LetztePhasenaenderungFA__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PhaseFinanzierungsanfrage__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_Opportunity_2</name>
         <label>Update Opportunity 2</label>
-        <locationX>204</locationX>
+        <locationX>336</locationX>
         <locationY>947</locationY>
         <connector>
             <targetReference>FA_Daten_ge_ndert</targetReference>
@@ -347,6 +498,9 @@
         <label>Update Opportunity 3</label>
         <locationX>50</locationX>
         <locationY>1331</locationY>
+        <connector>
+            <targetReference>Opportunity_was_changed</targetReference>
+        </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -388,7 +542,7 @@
         <object>Opportunity</object>
     </recordUpdates>
     <start>
-        <locationX>287</locationX>
+        <locationX>419</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Automation_Switch</targetReference>
