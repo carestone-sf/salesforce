@@ -101,6 +101,9 @@ public with sharing class ImmobilienControllerTest {
         immobilie.Website__c = 'www.test.de';
         immobilie.Arrival__c = Date.today();
         insert immobilie;
+
+        TestDataFactory.createImmobilienDMSDatei(true, immobilie.Id, 'Dokumente');
+        TestDataFactory.createImmobilienDMSDatei(true, immobilie.Id, 'Bilder');
         
         List<Appartment__c> apps = new List<Appartment__c>();
         for(Integer i = 0; i < 5; i++) {
