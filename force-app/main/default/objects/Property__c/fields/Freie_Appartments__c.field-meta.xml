@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Freie_Appartments__c</fullName>
     <externalId>false</externalId>
-    <label>Freie Appartments</label>
+    <label>Freie Apartments</label>
     <summaryFilterItems>
         <field>Appartment__c.Status__c</field>
         <operation>equals</operation>
