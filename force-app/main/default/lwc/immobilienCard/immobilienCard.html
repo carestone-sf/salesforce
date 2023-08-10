@@ -49,6 +49,23 @@
 							</template>
 						</div>
 					</lightning-tab>
+					<lightning-tab label="Objektfotos">
+						<div class="slds-text-align_left slds-var-m-top_medium">
+							<!-- <c-document-list record-id={privateImmobilie.immobilie.Id} folder-suffix="_dokumente" hide-upload-button="true"></c-document-list> -->
+							<div class="slds-var-m-top_medium">
+								<lightning-layout multiple-rows="true">
+									<template for:each={immobilie.bilder} for:item="bild">
+										<lightning-layout-item size="12" small-device-size="6" medium-device-size="4"
+											large-device-size="2" padding="around-small" key={bild.thumbnailUrl}>
+											<c-download-element download-url={bild.downloadUrl}
+												preview-url={bild.previewUrl} thumbnail-url={bild.thumbnailUrl}
+												file-type="Bild" file-name=""></c-download-element>
+										</lightning-layout-item>
+									</template>
+								</lightning-layout>
+							</div>
+						</div>
+					</lightning-tab>
 					<lightning-tab label="Apartments">
 						<lightning-datatable 
 						key-field="id" 

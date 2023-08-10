@@ -128,7 +128,11 @@ public without sharing class ImmobilienController {
             for(ImmobilienDmsDatei__c immobilienDatei:property.ImmobilienDmsDateien__r) {
                 if(immobilienDatei.DateiTyp__c != 'Dokumente') { 
                     if(!immobilienDatei.Name.contains('logo')) {
-                        i.bilder.add(immobilienDatei.ThumbnailUrl__c);
+                        Map<String, String> metadata = new Map<String, String>();
+                        metadata.put('previewUrl', immobilienDatei.PreviewUrl__c);
+                        metadata.put('downloadUrl', immobilienDatei.DateiUrl__c);
+                        metadata.put('thumbnailUrl', immobilienDatei.ThumbnailUrl__c);
+                        i.bilder.add(metadata);
                     } else {
                         i.logo = immobilienDatei.ThumbnailUrl__c;
                     }
@@ -157,7 +161,7 @@ public without sharing class ImmobilienController {
         public Property__c immobilie{get;set;}
 
         @AuraEnabled
-        public List<String> bilder{get;set;}
+        public List<Map<String, String>> bilder{get;set;}
 
         @AuraEnabled
         public List<Map<String, String>> dokumente{get;set;}
@@ -169,7 +173,7 @@ public without sharing class ImmobilienController {
         public List<Appartment__c> teilobjekte {get;set;}
 
         public Immobilie() {
-            this.bilder = new List<String>();
+            this.bilder = new List<Map<String,String>>();
             this.dokumente = new List<Map<String,String>>();
             this.teilobjekte = new List<Appartment__c>();
         }
