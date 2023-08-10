@@ -1485,11 +1485,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>SummeUnverkaufterEinheiten__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>FORMULA_AktuelleMaBVRate_Num__c</field>
             <table>Property__c</table>
         </columns>
@@ -1701,6 +1696,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ShowInObjectArchive__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AnzahlReservierungenOhneKontingent__c</field>
             <table>Property__c</table>
         </columns>
         <masterLabel>Immobilien</masterLabel>
