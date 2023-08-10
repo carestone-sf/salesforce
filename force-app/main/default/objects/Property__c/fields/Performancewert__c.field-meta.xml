@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Performancewert__c</fullName>
     <externalId>false</externalId>
-    <formula>(Verkaufte_Appartements__c  + (Reservierte_Appartements__c-AnzahlNurReservierungen__c) + AnzahlNurReservierungen__c / 2) / ( IF(  Reservierte_Appartements__c = 0 &amp;&amp;  Freie_Appartments__c =0, LetztesKaufdatum__c, TODAY() ) - DatumErsteReservierung__c ) * 30.42</formula>
+    <formula>(Verkaufte_Appartements__c  + (AnzahlReservierungenOhneKontingent__c-AnzahlNurReservierungen__c) + AnzahlNurReservierungen__c / 2) / ( IF(  AnzahlReservierungenOhneKontingent__c = 0 &amp;&amp;  Freie_Appartments__c =0, LetztesKaufdatum__c, TODAY() ) - DatumErsteReservierung__c ) * 30.42</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Performancewert</label>
     <precision>18</precision>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Reservierte_Appartements__c</fullName>
+    <fullName>AnzahlReservierungenOhneKontingent__c</fullName>
     <externalId>false</externalId>
-    <label>Reservierte Apartments</label>
+    <label>Anzahl Reservierungen ohne Kontingent</label>
     <summaryFilterItems>
         <field>Appartment__c.Status__c</field>
         <operation>equals</operation>
-        <value>Kontingent, Reserviert, Reservierung angefragt, Reservierungsvorbereitung, Auftrag zur Beurkundung vorhanden, Kaufvertragsangebot abgegeben, Kaufvertragsunterlagen verschickt -zweiseitig-, KV wird fremd abgegeben</value>
+        <value>Reservierungsvorbereitung, Reservierung angefragt, Reserviert, Kaufvertragsangebot abgegeben, KV wird fremd abgegeben, Kaufvertragsunterlagen verschickt -zweiseitig-, Auftrag zur Beurkundung vorhanden</value>
     </summaryFilterItems>
     <summaryForeignKey>Appartment__c.Property__c</summaryForeignKey>
     <summaryOperation>count</summaryOperation>
