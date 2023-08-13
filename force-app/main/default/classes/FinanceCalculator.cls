@@ -71,7 +71,7 @@ public without sharing class FinanceCalculator {
         return res;
     }
     public void initFinanceModules(Id calculationId) {
-        this.c = [SELECT Id, Hauptimmobilie__r.Arrival__c, TaxableIncomePension__c, ErsterKaeufer__c, ErsterKaeufer__r.BirthDate, ZweiterKaeufer__c, ZweiterKaeufer__r.BirthDate, Gesamtkosten__c, ZuVersteuerndesEinkommen__c, Kirchensteuer__c, Eigenkapital__c, Finanzierungsart__c, InstandhaltungProJahrGesamt__c, AfAProJahrGesamt__c, VerwaltungProJahrGesamt__c, Mietsteigerung__c, SteigerungInstandhaltung__c, SteigerungVerwaltung__c, (SELECT Apartment__r.Name, MieteProMonatInEuro__c FROM Berechnungs_Apartments__r) FROM Berechnung__c WHERE Id = :calculationId];
+        this.c = [SELECT Id, Hauptimmobilie__r.Arrival__c, TaxableIncomePension__c, ErsterKaeufer__c, ErsterKaeufer__r.BirthDate, ZweiterKaeufer__c, ZweiterKaeufer__r.BirthDate, Gesamtkosten__c, ZuVersteuerndesEinkommen__c, Kirchensteuer__c, Eigenkapital__c, Finanzierungsart__c, InstandhaltungProJahrGesamt__c, AfAProJahrGesamt__c, VerwaltungProJahrGesamt__c, Mietsteigerung__c, SteigerungInstandhaltung__c, SteigerungVerwaltung__c, (SELECT Apartment__r.Name, MieteProMonatInEuro__c, AfAAussenanlagenProJahrInProzent__c, AfAAussenanlagenProJahrInEuro__c, AfASubstanzProJahrInProzent__c, AfASubstanzProJahrInEuro__c FROM Berechnungs_Apartments__r) FROM Berechnung__c WHERE Id = :calculationId];
         Date today = Date.today();
         this.finanzierungsbeginn = this.c.Hauptimmobilie__r.Arrival__c;
         if(today > this.c.Hauptimmobilie__r.Arrival__c) {
@@ -272,7 +272,7 @@ public without sharing class FinanceCalculator {
             currentYearCumulatedValues.put('verwaltungGesamtInEuro', verwaltungInEuro);
 
             // AfA in Euro gesamt
-            Decimal afaInEuro = this.c.AfaProJahrGesamt__c;
+            Decimal afaInEuro = calculateAfa();
             currentYearCumulatedValues.put('afaGesamtInEuro', afaInEuro);
 
             // vUndV in Euro gesamt
@@ -366,7 +366,7 @@ public without sharing class FinanceCalculator {
         currentYearCumulatedValues.put('instandhaltungGesamtInEuro', instandHaltungInEuro);
 
         // AfA in Euro gesamt
-        Decimal afaInEuro = this.c.AfaProJahrGesamt__c;
+        Decimal afaInEuro = calculateAfa();
         currentYearCumulatedValues.put('afaGesamtInEuro', afaInEuro);
 
         // vUndV in Euro gesamt
@@ -480,7 +480,7 @@ public without sharing class FinanceCalculator {
             currentYearCumulatedValues.put('instandhaltungGesamtInEuro', instandHaltungInEuro);
 
             // AfA in Euro gesamt
-            Decimal afaInEuro = this.c.AfaProJahrGesamt__c * daysWithRent/360;
+            Decimal afaInEuro = calculateAfa() * daysWithRent/360;
             currentYearCumulatedValues.put('afaGesamtInEuro', afaInEuro);
 
             // vUndV in Euro gesamt
@@ -772,6 +772,20 @@ public without sharing class FinanceCalculator {
             }
         }
         this.pages = (Integer) Math.ceil(totalYears / pagebreak);
+    }
+
+    Decimal calculateAfa() {
+        Decimal afaInEuro = 0;
+        for(BerechnungsApartment__c ba:this.c.Berechnungs_Apartments__r) {
+            if(this.yearsPassed <= Math.round(100/ba.AfAAussenanlagenProJahrInProzent__c)) {
+                afaInEuro += ba.AfAAussenanlagenProJahrInEuro__c;
+            }
+
+            if(this.yearsPassed <= Math.round(100/ba.AfASubstanzProJahrInProzent__c)) {
+                afaInEuro += ba.AfASubstanzProJahrInEuro__c;
+            }
+        }
+        return afaInEuro;   
     }
 
     public class FinanceModule {
