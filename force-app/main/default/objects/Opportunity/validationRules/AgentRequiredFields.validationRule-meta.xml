@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AgentRequiredFields</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISNEW(),
+OR(
+ISBLANK(Makler__r.MailingAddress),
+ISBLANK(Makler__r.Email),
+ISBLANK(Makler__r.Phone)
+),
+NOT($Permission.SkipOpportunityValidation)
+)</errorConditionFormula>
+    <errorDisplayField>Makler__c</errorDisplayField>
+    <errorMessage>Bevor eine Verkaufschance angelegt werden kann, müssen folgende Felder auf dem Makler gepflegt sein: Adresse, E-Mail, Telefon-Nr.</errorMessage>
+</ValidationRule>
