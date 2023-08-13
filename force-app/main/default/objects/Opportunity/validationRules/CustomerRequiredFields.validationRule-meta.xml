@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CustomerRequiredFields</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISNEW(),
+OR(
+    ISBLANK(Potenzieller_Kunde__r.MailingAddress),  
+				ISBLANK(Potenzieller_Kunde__r.Email),
+				ISBLANK(Potenzieller_Kunde__r.Phone),
+				ISBLANK(Potenzieller_Kunde__r.Birthdate)
+),
+				NOT($Permission.SkipOpportunityValidation)
+)</errorConditionFormula>
+    <errorDisplayField>Potenzieller_Kunde__c</errorDisplayField>
+    <errorMessage>Bevor eine Verkaufschance angelegt werden kann, müssen folgende Felder auf dem Käufer gepflegt sein: Adresse, E-Mail, Telefon-Nr., Geburtsdatum.</errorMessage>
+</ValidationRule>
