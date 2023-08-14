@@ -739,7 +739,10 @@ public without sharing class FinanceCalculator {
     }
 
     public void generatePagination() {
-        Integer pagebreak = 28;
+        Integer pagebreak = 29;
+        if(this.financeModules != null) {
+            pagebreak = pagebreak - this.financeModules.size();
+        }
         for(FinanceModule fm:this.financeModules) {
             Integer counter = 0;   
             Integer totalYears = fm.yearlyValues.keySet().size();

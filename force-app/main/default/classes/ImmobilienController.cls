@@ -126,14 +126,14 @@ public without sharing class ImmobilienController {
             Immobilie i = new Immobilie();
             i.immobilie = property;
             for(ImmobilienDmsDatei__c immobilienDatei:property.ImmobilienDmsDateien__r) {
-                if(immobilienDatei.DateiTyp__c != 'Dokumente') { 
-                    if(!immobilienDatei.Name.contains('logo')) {
+                if(immobilienDatei.DateiTyp__c == 'Bilder' || immobilienDatei.DateiTyp__c == 'Grundrisse' || immobilienDatei.DateiTyp__c == 'Highlights') { 
+                    if(!immobilienDatei.Name.contains('logo') && !immobilienDatei.Name.contains('berechnung')) {
                         Map<String, String> metadata = new Map<String, String>();
                         metadata.put('previewUrl', immobilienDatei.PreviewUrl__c);
                         metadata.put('downloadUrl', immobilienDatei.DateiUrl__c);
                         metadata.put('thumbnailUrl', immobilienDatei.ThumbnailUrl__c);
                         i.bilder.add(metadata);
-                    } else {
+                    } else if(immobilienDatei.Name.contains('logo')) {
                         i.logo = immobilienDatei.ThumbnailUrl__c;
                     }
                 } else {
