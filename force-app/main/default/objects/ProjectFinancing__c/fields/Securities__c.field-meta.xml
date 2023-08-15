@@ -6,5 +6,47 @@
     <required>false</required>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
-    <type>TextArea</type>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Abtretung GU Ansprüche</fullName>
+                <default>false</default>
+                <label>Abtretung GU Ansprüche</label>
+            </value>
+            <value>
+                <fullName>Abtretung Kaufpreisansprüche</fullName>
+                <default>false</default>
+                <label>Abtretung Kaufpreisansprüche</label>
+            </value>
+            <value>
+                <fullName>Abtretung Pachtansprüche</fullName>
+                <default>false</default>
+                <label>Abtretung Pachtansprüche</label>
+            </value>
+            <value>
+                <fullName>Bürgschaft</fullName>
+                <default>false</default>
+                <label>Bürgschaft</label>
+            </value>
+            <value>
+                <fullName>Grundschulden</fullName>
+                <default>false</default>
+                <label>Grundschulden</label>
+            </value>
+            <value>
+                <fullName>Patronatserklärung</fullName>
+                <default>false</default>
+                <label>Patronatserklärung</label>
+            </value>
+            <value>
+                <fullName>Rangrücktritt</fullName>
+                <default>false</default>
+                <label>Rangrücktritt</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
 </CustomField>
