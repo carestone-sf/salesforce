@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>FundingStatus__c</fullName>
+    <fullName>InterestModalities__c</fullName>
     <externalId>false</externalId>
-    <label>Finanzierungsstand</label>
+    <label>Zinsmodalitäten</label>
     <required>false</required>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
@@ -12,24 +12,19 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Laufende Verhandlung</fullName>
+                <fullName>Fix</fullName>
                 <default>false</default>
-                <label>Laufende Verhandlung</label>
+                <label>Fix</label>
             </value>
             <value>
-                <fullName>Termsheet</fullName>
-                <default>false</default>
-                <label>Termsheet</label>
+                <fullName>Variabel</fullName>
+                <default>true</default>
+                <label>Variabel</label>
             </value>
             <value>
-                <fullName>Kreditvertrag unterzeichnet</fullName>
+                <fullName>Fix + Variabel</fullName>
                 <default>false</default>
-                <label>Kreditvertrag unterzeichnet</label>
-            </value>
-            <value>
-                <fullName>Absage</fullName>
-                <default>false</default>
-                <label>Absage</label>
+                <label>Fix + Variabel</label>
             </value>
         </valueSetDefinition>
     </valueSet>
