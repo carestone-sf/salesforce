@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>FundingStatus__c</fullName>
+    <fullName>ReferenceInterestRate__c</fullName>
     <externalId>false</externalId>
-    <label>Finanzierungsstand</label>
+    <label>Referenzzinssatz</label>
     <required>false</required>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
@@ -12,24 +12,29 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Laufende Verhandlung</fullName>
+                <fullName>1-M-EURIBOR</fullName>
                 <default>false</default>
-                <label>Laufende Verhandlung</label>
+                <label>1-M-EURIBOR</label>
             </value>
             <value>
-                <fullName>Termsheet</fullName>
-                <default>false</default>
-                <label>Termsheet</label>
+                <fullName>3-M-EURIBOR</fullName>
+                <default>true</default>
+                <label>3-M-EURIBOR</label>
             </value>
             <value>
-                <fullName>Kreditvertrag unterzeichnet</fullName>
+                <fullName>6-M-EURIBOR</fullName>
                 <default>false</default>
-                <label>Kreditvertrag unterzeichnet</label>
+                <label>6-M-EURIBOR</label>
             </value>
             <value>
-                <fullName>Absage</fullName>
+                <fullName>12-M-EURIBOR</fullName>
                 <default>false</default>
-                <label>Absage</label>
+                <label>12-M-EURIBOR</label>
+            </value>
+            <value>
+                <fullName>Sonstige</fullName>
+                <default>false</default>
+                <label>Sonstige</label>
             </value>
         </valueSetDefinition>
     </valueSet>
