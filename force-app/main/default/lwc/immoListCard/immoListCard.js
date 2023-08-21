@@ -72,8 +72,15 @@ export default class ImmoListCard extends LightningElement {
     }
 
     get renditeMinIsSameAsRenditeMax() {
-        console.log(this.privateImmobilie.immobilie.Min_Rendite__c);
-        return this.privateImmobilie != null && this.privateImmobilie.immobilie != null && this.privateImmobilie.immobilie.Max_Rendite__c == this.privateImmobilie.immobilie.Min_Rendite__c;
+        return this.privateImmobilie != null && this.privateImmobilie.immobilie != null && this.privateImmobilie.immobilie.Max_Rendite__c == this.privateImmobilie.immobilie.Min_Rendite__c && this.privateImmobilie.immobilie.Property__c != 'Wohnimmobilie';
+    }
+
+    get renditeMinIsDifferentAsRenditeMax() {
+        return this.privateImmobilie != null && this.privateImmobilie.immobilie != null && this.privateImmobilie.immobilie.Max_Rendite__c != this.privateImmobilie.immobilie.Min_Rendite__c && this.privateImmobilie.immobilie.Property__c != 'Wohnimmobilie';
+    }
+
+    get isWohnimmobilie() {
+        return this.privateImmobilie != null && this.privateImmobilie.immobilie != null && this.privateImmobilie.immobilie.Property__c == 'Wohnimmobilie';
     }
     
     renderedCallback() {
