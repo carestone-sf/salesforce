@@ -1703,6 +1703,26 @@
             <field>AnzahlReservierungenOhneKontingent__c</field>
             <table>Property__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Mahnstopp__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MahnstoppKommentar__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsGemKaufvertrag__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ImVertriebsportalSichtbar__c</field>
+            <table>Property__c</table>
+        </columns>
         <masterLabel>Immobilien</masterLabel>
     </sections>
     <sections>
@@ -2295,6 +2315,36 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LostInterest__c</field>
+            <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ZweiteMahnungVersendetAm__c</field>
+            <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DritteMahnungVersendetAm__c</field>
+            <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsDatensatz__c</field>
+            <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsInEuro__c</field>
+            <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsInProzent__c</field>
+            <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>OffenerBetragInklusiveVerzugszinsen__c</field>
             <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
         </columns>
         <masterLabel>MaBV Rechnungen</masterLabel>

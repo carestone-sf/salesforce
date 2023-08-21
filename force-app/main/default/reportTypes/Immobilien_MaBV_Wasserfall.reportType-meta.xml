@@ -2193,6 +2193,26 @@
             <field>AnzahlReservierungenOhneKontingent__c</field>
             <table>Property__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Mahnstopp__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MahnstoppKommentar__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsGemKaufvertrag__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ImVertriebsportalSichtbar__c</field>
+            <table>Property__c</table>
+        </columns>
         <masterLabel>Immobilien</masterLabel>
     </sections>
 </ReportType>

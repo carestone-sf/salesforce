@@ -41,12 +41,12 @@ public without sharing class ImmobilienController {
         Property_Selector selector = new Property_Selector(contact.AccountId);
         selector.setFields(new List<Schema.SObjectField> {Property__c.Location__Latitude__s, Property__c.PreSale__c, Property__c.Property__c, Property__c.Bauart__c});
         selector.addSubquery('Appartments__r', new List<Schema.SObjectField> {Appartment__c.Id, Appartment__c.Name, Appartment__c.Purchase_Price__c, Appartment__c.Purchase_Price__c, Appartment__c.Notartermin__c, Appartment__c.Property__r.Name}, null);
-        selector.setConditionWithSharing('Is_Public__c = TRUE AND PreSale__c = FALSE');
+        selector.setConditionWithSharing('ImVertriebsportalSichtbar__c = TRUE AND PreSale__c = FALSE');
         return getImmobilienList(selector.getRecords());
-        selector.setConditionWithSharing('Is_Public__c = TRUE AND PreSale__c = FALSE');
+        selector.setConditionWithSharing('ImVertriebsportalSichtbar__c = TRUE AND PreSale__c = FALSE');
         */
         
-        String query = 'SELECT Id, Name, Location__Latitude__s, PreSale__c, Property__c, Bauart__c, (SELECT Id, Name, Purchase_Price__c, Notartermin__c, Property__r.Name FROM Appartments__r Order By Name ASC) FROM Property__c WHERE Is_Public__c = TRUE AND PreSale__c = FALSE';
+        String query = 'SELECT Id, Name, Location__Latitude__s, PreSale__c, Property__c, Bauart__c, (SELECT Id, Name, Purchase_Price__c, Notartermin__c, Property__r.Name FROM Appartments__r Order By Name ASC) FROM Property__c WHERE ImVertriebsportalSichtbar__c = TRUE AND PreSale__c = FALSE';
 
         if(0 != [SELECT COUNT() FROM Contact WHERE Id IN (SELECT ContactId FROM User WHERE Id = :UserInfo.getUserId())]) {
             Contact contact = [SELECT Id, AccountId FROM Contact WHERE Id IN (SELECT ContactId FROM User WHERE Id = :UserInfo.getUserId())];
@@ -71,7 +71,7 @@ public without sharing class ImmobilienController {
 
         List<Property__c> publicProperties = [
             SELECT  Id, Teaser_Highlight_1__c, Teaser_Highlight_2__c, Teaser_Highlight_3__c, Name, Website_Header_Bild__c, (SELECT Id, DateiUrl__c, PreviewUrl__c, FileLastModifiedDate__c, ThumbnailUrl__c, Name, ParentOrdner__c, DateiTyp__c FROM ImmobilienDmsDateien__r), PreSale__c, Preis_ab__c, MaBV__c, Foerderung__c, Projektbeauftragte__r.Name, Projektbeauftragte__r.Email__c,Projektbeauftragte__r.Telefonnummer__c,Projektbeauftragte__r.Foto_URL__c, Preis_bis__c, Anzahl_Einheiten__c, Location__Latitude__s, Property__c, State__c, Rendite_in__c, Arrival__c, Bauart__c, Location__Longitude__s, Street__c, Zip_Code__c, Place__c, Unternehmen__c,Verkaufte_Appartements__c, MieteVon__c, MieteBis__c,Reservierte_Appartements__c, Fl_che_ab__c, Fl_che_bis__c, Operating_Company__c,Freie_Appartments__c, Description__c, SalesDescription__c, Lagebeschreibung__c, Betreiber__r.Name, Betreiber__r.Betreiberinformationen__c, Betreiber__r.Betreiber_Logo__c, Finanzierung_Details__c, Operating_Company__r.Name,Notar__r.Account.Name,Notar__r.Account.BillingStreet,Notar__r.Account.BillingCity,Notar__r.Account.BillingPostalCode, Completion__c, FAQ__c,BuildingProgressWebcam__c, Max_Rendite__c, Min_Rendite__c, (SELECT Id, OeffentlicherStatus__c, Name,Area_sq_m__c,Purchase_Price_sq_m__c,Monthly_Rent__c, RentalReturnFormulaVP__c, Purchase_Price__c, Notartermin__c, Status__c, Property__r.Name, FlaecheQmText__c, Jahresmiete__c FROM Appartments__r Order By Name ASC)
-            FROM Property__c WHERE Is_Public__c = true
+            FROM Property__c WHERE ImVertriebsportalSichtbar__c = true
             AND Id NOT IN (SELECT Property__c FROM HiddenProperty__c WHERE Account__c = :accId)
         ];
 
@@ -101,7 +101,7 @@ public without sharing class ImmobilienController {
                 SELECT Id, Name, Website_Header_Bild__c, (SELECT Id, DateiUrl__c, PreviewUrl__c, FileLastModifiedDate__c, ThumbnailUrl__c, Name, ParentOrdner__c, DateiTyp__c FROM ImmobilienDmsDateien__r), PreSale__c, Verkaufte_Appartements__c, MieteVon__c, MieteBis__c, Reservierte_Appartements__c, Freie_Appartments__c, Preis_ab__c, Preis_bis__c, 
                 (SELECT Id, Name,Area_sq_m__c,Purchase_Price_sq_m__c,Monthly_Rent__c, RentalReturnFormulaVP__c, Purchase_Price__c, Notartermin__c, Status__c, Property__r.Name FROM Appartments__r Order By Name ASC) 
                 FROM Property__c 
-                WHERE Is_Public__c = true 
+                WHERE ImVertriebsportalSichtbar__c = true 
                 AND Immobilie_promoten__c = true
                 AND Id NOT IN (SELECT Property__c FROM HiddenProperty__c WHERE Account__c = :contact.AccountId)
             ];
@@ -111,7 +111,7 @@ public without sharing class ImmobilienController {
                 SELECT Id, Name, Website_Header_Bild__c, (SELECT Id, DateiUrl__c, PreviewUrl__c, FileLastModifiedDate__c, ThumbnailUrl__c, Name, ParentOrdner__c, DateiTyp__c FROM ImmobilienDmsDateien__r), PreSale__c, Verkaufte_Appartements__c, MieteVon__c, MieteBis__c, Reservierte_Appartements__c, Freie_Appartments__c, Preis_ab__c, Preis_bis__c, 
                 (SELECT Id, Name,Area_sq_m__c,Purchase_Price_sq_m__c,Monthly_Rent__c, RentalReturnFormulaVP__c, Purchase_Price__c, Notartermin__c, Status__c, Property__r.Name FROM Appartments__r Order By Name ASC) 
                 FROM Property__c 
-                WHERE Is_Public__c = true 
+                WHERE ImVertriebsportalSichtbar__c = true 
                 AND Immobilie_promoten__c = true
             ];
             return getImmobilienList(properties);
