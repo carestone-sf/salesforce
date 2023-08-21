@@ -209,6 +209,18 @@
                 <behavior>Edit</behavior>
                 <field>TargetSoldUntil__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Mahnstopp__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MahnstoppKommentar__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>VerzugszinsGemKaufvertrag__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -221,11 +233,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ShowInObjectArchive__c</field>
+                <field>ImVertriebsportalSichtbar__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>HideSoldAppartmentsVp__c</field>
+                <field>ShowInObjectArchive__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
