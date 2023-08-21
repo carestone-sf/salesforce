@@ -145,7 +145,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>HideSoldAppartmentsVp__c</field>
+                <field>ImVertriebsportalSichtbar__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>

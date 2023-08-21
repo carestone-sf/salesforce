@@ -35,6 +35,11 @@
                 <default>false</default>
                 <label>Betreutes Wohnen</label>
             </value>
+            <value>
+                <fullName>Wohnimmobilie</fullName>
+                <default>false</default>
+                <label>Wohnimmobilie</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>
