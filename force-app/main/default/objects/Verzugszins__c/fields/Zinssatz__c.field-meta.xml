@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>MahnungVersendetAm__c</fullName>
+    <fullName>Zinssatz__c</fullName>
     <externalId>false</externalId>
-    <label>1. Mahnung versendet am</label>
+    <label>Zinssatz</label>
+    <precision>5</precision>
     <required>false</required>
-    <trackHistory>false</trackHistory>
+    <scale>2</scale>
     <trackTrending>false</trackTrending>
-    <type>Date</type>
+    <type>Percent</type>
 </CustomField>
