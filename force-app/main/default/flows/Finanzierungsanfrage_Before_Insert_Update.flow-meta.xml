@@ -62,7 +62,7 @@
     <formulas>
         <name>recordName</name>
         <dataType>String</dataType>
-        <expression>{!$Record.ErsterKaeufer__r.LastName} + &apos;, &apos; + {!$Record.ErsterKaeufer__r.FirstName} + IF(!IsBlank({!$Record.Opportunity__c}), &apos; - &apos; + {!$Record.Opportunity__r.Immobilie__r.Name} + &apos; - &apos; +{!$Record.Opportunity__r.Appartement__r.Name}, &apos;&apos;)</expression>
+        <expression>{!$Record.ErsterKaeufer__r.LastName} + &apos;, &apos; + {!$Record.ErsterKaeufer__r.FirstName} + IF(!IsBlank({!$Record.Opportunity__c}), &apos; - &apos; + {!$Record.Opportunity__r.Immobilie__r.Name} + IF(!IsBlank({!$Record.Opportunity__r.Appartement__c}), &apos; - &apos; +{!$Record.Opportunity__r.Appartement__r.Name}, &apos;&apos;), &apos;&apos;)</expression>
     </formulas>
     <interviewLabel>Finanzierungsanfrage {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Finanzierungsanfrage - Before Insert/Update</label>
