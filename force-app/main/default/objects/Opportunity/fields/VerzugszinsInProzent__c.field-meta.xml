@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VerzugszinsInProzent__c</fullName>
+    <externalId>false</externalId>
+    <formula>VerzugszinsDatensatz__r.Zinssatz__c + IF(!IsBlank(Immobilie__r.VerzugszinsGemKaufvertrag__c), Immobilie__r.VerzugszinsGemKaufvertrag__c, 0.05)</formula>
+    <label>Verzugszins in Prozent</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>
