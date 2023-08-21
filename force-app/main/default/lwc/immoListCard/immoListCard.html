@@ -249,7 +249,7 @@
 						<lightning-formatted-number
 							value={privateImmobilie.immobilie.Max_Rendite__c}></lightning-formatted-number>% Rendite
 					</template>
-					<template if:false={renditeMinIsSameAsRenditeMax}>
+					<template if:true={renditeMinIsDifferentAsRenditeMax}>
 						<lightning-formatted-number
 							value={privateImmobilie.immobilie.Min_Rendite__c}></lightning-formatted-number>% -
 						<lightning-formatted-number
@@ -270,13 +270,15 @@
 						value={privateImmobilie.immobilie.Preis_bis__c} format-style="currency"
 						currency-code="EUR"></lightning-formatted-number>
 				</p>
-				<p style="font-size: 0.8125rem;">
-					Miete:&nbsp;
-					<lightning-formatted-number value={privateImmobilie.immobilie.MieteVon__c} format-style="currency"
-						currency-code="EUR"></lightning-formatted-number> - <lightning-formatted-number
-						value={privateImmobilie.immobilie.MieteBis__c} format-style="currency"
-						currency-code="EUR"></lightning-formatted-number>
-				</p>
+				<template if:false={isWohnimmobilie}>
+					<p style="font-size: 0.8125rem;">
+						Miete:&nbsp;
+						<lightning-formatted-number value={privateImmobilie.immobilie.MieteVon__c} format-style="currency"
+							currency-code="EUR"></lightning-formatted-number> - <lightning-formatted-number
+							value={privateImmobilie.immobilie.MieteBis__c} format-style="currency"
+							currency-code="EUR"></lightning-formatted-number>
+					</p>
+				</template>
 				<div class="teaserHighlightContainer">
 					<div if:true={privateImmobilie.immobilie.Teaser_Highlight_1__c}
 						class="slds-box slds-box_xx-small slds-var-m-top_small">
