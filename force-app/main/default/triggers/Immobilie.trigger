@@ -67,14 +67,14 @@ trigger Immobilie on Property__c (before update, before insert, after update, af
             for(Property__c prop : trigger.new){
 
                 Property__c propOlder = Trigger.OldMap.get(prop.id);
-                if(propOlder.Afa_Outdoor__c != prop.Afa_Outdoor__c || propOlder.Repayment_Beginning__c != prop.Repayment_Beginning__c){
+                if(propOlder.Afa_Outdoor__c != prop.Afa_Outdoor__c || propOlder.Repayment_Beginning__c != prop.Repayment_Beginning__c || propOlder.Afa_Building_Shares__c != prop.Afa_Building_Shares__c){
                 	somethingChanged = true;
                 }
 
             }
             List<Appartment__c> apps = new List<Appartment__c>();
             if(somethingChanged) {
-            		apps = new List<Appartment__c>([SELECT Property__c, Repayment_Beginning__c, Outdoor_AFA__c FROM Appartment__c WHERE Property__c in :propertyId]);
+            		apps = new List<Appartment__c>([SELECT Property__c, Repayment_Beginning__c, Outdoor_AFA__c, Net_Asset_Value_AFA__c FROM Appartment__c WHERE Property__c in :propertyId]);
             	}
 
             for(Property__c prop : trigger.new){
@@ -85,6 +85,9 @@ trigger Immobilie on Property__c (before update, before insert, after update, af
 
                     if(propOlder.Afa_Outdoor__c != prop.Afa_Outdoor__c){
                         app.Outdoor_AFA__c = prop.Afa_Outdoor__c;
+                    }
+                    if(propOlder.Afa_Building_Shares__c != prop.Afa_Building_Shares__c) {
+                        app.Net_Asset_Value_AFA__c = prop.Afa_Building_Shares__c;
                     }
                     if(propOlder.Repayment_Beginning__c != prop.Repayment_Beginning__c){
                         app.Repayment_Beginning__c = prop.Repayment_Beginning__c;
