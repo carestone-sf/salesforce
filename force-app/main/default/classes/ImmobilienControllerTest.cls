@@ -89,6 +89,7 @@ public with sharing class ImmobilienControllerTest {
         immobilie.Name = 'Immobilie';
         immobilie.Place__c = 'test';
         immobilie.Is_Public__c = true;
+        immobilie.ImVertriebsportalSichtbar__c = true;
         immobilie.Street__c = 'test2';
         immobilie.Zip_Code__c = '12312';
         immobilie.Unternehmensname__c = 'asd';

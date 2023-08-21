@@ -65,12 +65,22 @@ export default class ImmoListCard extends LightningElement {
     ];
     
     connectedCallback() {
-        
+        if(this.privateImmobilie != null && this.privateImmobilie.immobilie != null && this.privateImmobilie.immobilie.Property__c == 'Wohnimmobilie') {
+            this.hideCheckbox = true;
+            this.columns = [...columns].filter(col => col.fieldName != 'Jahresmiete__c' && col.fieldName != 'RentalReturnFormulaVP__c');
+        }
     }
 
     get renditeMinIsSameAsRenditeMax() {
-        console.log(this.privateImmobilie.immobilie.Min_Rendite__c);
-        return this.privateImmobilie != null && this.privateImmobilie.immobilie != null && this.privateImmobilie.immobilie.Max_Rendite__c == this.privateImmobilie.immobilie.Min_Rendite__c;
+        return this.privateImmobilie != null && this.privateImmobilie.immobilie != null && this.privateImmobilie.immobilie.Max_Rendite__c == this.privateImmobilie.immobilie.Min_Rendite__c && this.privateImmobilie.immobilie.Property__c != 'Wohnimmobilie';
+    }
+
+    get renditeMinIsDifferentAsRenditeMax() {
+        return this.privateImmobilie != null && this.privateImmobilie.immobilie != null && this.privateImmobilie.immobilie.Max_Rendite__c != this.privateImmobilie.immobilie.Min_Rendite__c && this.privateImmobilie.immobilie.Property__c != 'Wohnimmobilie';
+    }
+
+    get isWohnimmobilie() {
+        return this.privateImmobilie != null && this.privateImmobilie.immobilie != null && this.privateImmobilie.immobilie.Property__c == 'Wohnimmobilie';
     }
     
     renderedCallback() {
