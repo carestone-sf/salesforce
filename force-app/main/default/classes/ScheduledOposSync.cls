@@ -29,6 +29,10 @@ global without sharing class ScheduledOposSync implements Schedulable {
         Integer i10;
         Integer i11;
         Integer i12;
+        Integer i13;
+        Integer i14;
+        Integer i15;
+        Integer i16;
 
         for(Document oposDocument:oposDocuments) {
             String csvString = oposDocument.Body.toString();
