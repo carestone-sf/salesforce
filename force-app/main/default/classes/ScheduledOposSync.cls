@@ -113,6 +113,7 @@ global without sharing class ScheduledOposSync implements Schedulable {
 
         String rechnungsNummerAddition = '';
         List<VkcZahlung__c> vkcZahlungen = new List<VkcZahlung__c>();
+        Set<String> uniqueIds = new Set<String>();
         for(Opportunity opp:opps) {
             if(opp.Immobilie__r.Name == 'Essen-Kettwig – Pflege') {
                 rechnungsNummerAddition = 'PF';
@@ -142,6 +143,12 @@ global without sharing class ScheduledOposSync implements Schedulable {
                     if(opos.bsnr != null) {
                         zahlung.UniqueId__c += '-' + opos.bsnr;
                     }
+
+                    if(uniqueIds.contains(zahlung.UniqueId__c)) {
+                        zahlung.UniqueId__c += '-' + zahlung.Betrag__c;
+                    }
+
+                    uniqueIds.add(zahlung.UniqueId__c);
 
                     if(zahlung.Betrag__c != null && zahlung.Betrag__c != 0) {
                         vkcZahlungen.add(zahlung);
