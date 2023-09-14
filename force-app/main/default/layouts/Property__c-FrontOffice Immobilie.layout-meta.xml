@@ -550,6 +550,14 @@
                 <behavior>Edit</behavior>
                 <field>Beurkundungsstart__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AbschlussMietvertrag__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>NachtraegeZumMietvertrag__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
