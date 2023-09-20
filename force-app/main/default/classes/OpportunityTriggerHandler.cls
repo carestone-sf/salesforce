@@ -456,7 +456,14 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     }
 
     public void trackMahnungSent(Opportunity opp) {
-        opp.LetzteMahnungAm__c = System.today();
+        if(opp.Mahnstufe__c == null || opp.Mahnstufe__c == 0) {
+            opp.LetzteMahnungAm__c = System.today();
+        } else if(opp.Mahnstufe__c == 1) {
+            opp.ZweiteMahnungVersendetAm__c = System.today();
+        } else if(opp.Mahnstufe__c == 2) {
+            opp.DritteMahnungVersendetAm__c = System.today();
+        }
+
         opp.Mahnstufe__c = opp.Mahnstufe__c != null ? (opp.Mahnstufe__c + 1) : 1;
         opp.MahnungZurGenehmigungSenden__c = false;
     }

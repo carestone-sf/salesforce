@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Appartment_reserviert</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+NOT(Isblank(Appartement__c)), 
+OR(IsNew(), IsChanged(Appartement__c)), 
+text(Appartement__r.Status__c) != &quot;Available&quot;,
+text(Appartement__r.Status__c) != &quot;Kontingent&quot; 
+)</errorConditionFormula>
+    <errorDisplayField>Appartement__c</errorDisplayField>
+    <errorMessage>Apartment ist nicht verfügbar</errorMessage>
+</ValidationRule>
