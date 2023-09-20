@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mahnstopp</fullName>
+    <active>true</active>
+    <errorConditionFormula>Mahnstopp__c &amp;&amp; MahnungZurGenehmigungSenden__c &amp;&amp; IsChanged(MahnungZurGenehmigungSenden__c)</errorConditionFormula>
+    <errorDisplayField>MahnungZurGenehmigungSenden__c</errorDisplayField>
+    <errorMessage>Für diese VKC / Immobilie liegt ein Mahnstopp vor</errorMessage>
+</ValidationRule>
