@@ -2,10 +2,26 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>54.0</apiVersion>
     <assignments>
+        <name>Assign_Zinsrecord</name>
+        <label>Assign Zinsrecord</label>
+        <locationX>50</locationX>
+        <locationY>1019</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.VerzugszinsDatensatz__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Verzugszinsen.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Mahnung_Approval_Started</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Clear_Mahnung_generieren</name>
         <label>Clear Mahnung generieren</label>
         <locationX>50</locationX>
-        <locationY>1223</locationY>
+        <locationY>1319</locationY>
         <assignmentItems>
             <assignToReference>$Record.MahnungGenerieren__c</assignToReference>
             <operator>Assign</operator>
@@ -21,7 +37,7 @@
         <name>Fill_data</name>
         <label>Fill data</label>
         <locationX>50</locationX>
-        <locationY>887</locationY>
+        <locationY>803</locationY>
         <assignmentItems>
             <assignToReference>$Record.AmtsgerichtUnternehmen__c</assignToReference>
             <operator>Assign</operator>
@@ -373,14 +389,14 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Mahnung_Approval_Started</targetReference>
+            <targetReference>Get_Verzugszinsen</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Increment_Dunning_Level_Reset_Approval_Trigger</name>
         <label>Increment Dunning Level &amp; Reset Approval Trigger</label>
         <locationX>50</locationX>
-        <locationY>1559</locationY>
+        <locationY>1619</locationY>
         <assignmentItems>
             <assignToReference>$Record.Mahnstufe__c</assignToReference>
             <operator>Assign</operator>
@@ -400,7 +416,7 @@
         <name>Rechnungsnummer_eintragen</name>
         <label>Rechnungsnummer eintragen</label>
         <locationX>50</locationX>
-        <locationY>551</locationY>
+        <locationY>503</locationY>
         <assignmentItems>
             <assignToReference>$Record.Name</assignToReference>
             <operator>Assign</operator>
@@ -416,7 +432,7 @@
         <name>Fill_in_data</name>
         <label>Fill in data?</label>
         <locationX>182</locationX>
-        <locationY>767</locationY>
+        <locationY>695</locationY>
         <defaultConnector>
             <targetReference>Mahnung_Approval_Started</targetReference>
         </defaultConnector>
@@ -462,7 +478,7 @@
         <name>Is_New</name>
         <label>Is New?</label>
         <locationX>182</locationX>
-        <locationY>431</locationY>
+        <locationY>395</locationY>
         <defaultConnector>
             <targetReference>Fill_in_data</targetReference>
         </defaultConnector>
@@ -487,7 +503,7 @@
         <name>Mahnung_Approval_Started</name>
         <label>Mahnung Approval Started?</label>
         <locationX>182</locationX>
-        <locationY>1103</locationY>
+        <locationY>1211</locationY>
         <defaultConnector>
             <targetReference>Mahnung_approved</targetReference>
         </defaultConnector>
@@ -513,7 +529,7 @@
         <name>Mahnung_approved</name>
         <label>Mahnung approved?</label>
         <locationX>182</locationX>
-        <locationY>1439</locationY>
+        <locationY>1511</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Approved</name>
@@ -535,8 +551,8 @@
     <decisions>
         <name>Run_Automations</name>
         <label>Run Automations?</label>
-        <locationX>336</locationX>
-        <locationY>311</locationY>
+        <locationX>380</locationX>
+        <locationY>287</locationY>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
             <name>Run_Automations2</name>
@@ -630,8 +646,36 @@ TEXT({!$Record.MaBVRechnungMaster__r.Opportunity__r.Kunde2__r.Salutation}) + &ap
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Verzugszinsen</name>
+        <label>Get Verzugszinsen</label>
+        <locationX>50</locationX>
+        <locationY>911</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Zinsrecord</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>GueltigVon__c</field>
+            <operator>LessThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Record.Rechnungsdatum__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>GueltigBis__c</field>
+            <operator>GreaterThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Record.Rechnungsdatum__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Verzugszins__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <start>
-        <locationX>210</locationX>
+        <locationX>254</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Run_Automations</targetReference>

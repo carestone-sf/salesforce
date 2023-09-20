@@ -346,22 +346,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Grundprovision_Immobilie__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Maklerprovision_nach_Nachtrag__c</field>
             <table>Opportunity</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Grundprovision_Provisionsverhandlung__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Grundprovision_Teilobjekt__c</field>
             <table>Opportunity</table>
         </columns>
         <columns>
@@ -916,22 +906,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Verkaufsprovision_Immobilie__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Verkaufsprovision_nach_Nachtrag__c</field>
             <table>Opportunity</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Verkaufsprovision_Provisionsverhandlung__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Verkaufsprovision_Teilobjekt__c</field>
             <table>Opportunity</table>
         </columns>
         <columns>
@@ -1127,6 +1107,56 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LetztePhasenaenderungFA__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Mahnstopp__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MahnstoppKommentar__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ZweiteMahnungVersendetAm__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DritteMahnungVersendetAm__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsDatensatz__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsInEuro__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsInProzent__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>OffenerBetragInklusiveVerzugszinsen__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsenProTag__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ZahlungszielDatum__c</field>
             <table>Opportunity</table>
         </columns>
         <masterLabel>Opportunities</masterLabel>
@@ -1628,6 +1658,41 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LostInterest__c</field>
+            <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ZweiteMahnungVersendetAm__c</field>
+            <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DritteMahnungVersendetAm__c</field>
+            <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsDatensatz__c</field>
+            <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsInEuro__c</field>
+            <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsInProzent__c</field>
+            <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>OffenerBetragInklusiveVerzugszinsen__c</field>
+            <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsenProTag__c</field>
             <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
         </columns>
         <masterLabel>MaBV Rechnungen</masterLabel>
