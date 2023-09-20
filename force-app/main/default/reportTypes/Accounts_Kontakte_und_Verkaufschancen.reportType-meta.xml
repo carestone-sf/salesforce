@@ -1740,6 +1740,56 @@
             <field>LetztePhasenaenderungFA__c</field>
             <table>Account.Contacts.Opportunities__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Mahnstopp__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MahnstoppKommentar__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ZweiteMahnungVersendetAm__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DritteMahnungVersendetAm__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsDatensatz__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsInEuro__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsInProzent__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>OffenerBetragInklusiveVerzugszinsen__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsenProTag__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ZahlungszielDatum__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
     <sections>

@@ -2,10 +2,33 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>57.0</apiVersion>
     <assignments>
+        <name>Set_Mahnstopp_values</name>
+        <label>Set Mahnstopp values</label>
+        <locationX>50</locationX>
+        <locationY>503</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Mahnstopp__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Immobilie__r.Mahnstopp__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.MahnstoppKommentar__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Immobilie__r.MahnstoppKommentar__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Set_Opportunity_values</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_Opportunity_values</name>
         <label>Set Opportunity values</label>
-        <locationX>50</locationX>
-        <locationY>431</locationY>
+        <locationX>182</locationX>
+        <locationY>695</locationY>
         <assignmentItems>
             <assignToReference>$Record.ForecastCurrentYear__c</assignToReference>
             <operator>Assign</operator>
@@ -17,8 +40,8 @@
     <assignments>
         <name>Set_Opportunity_values2</name>
         <label>Set Opportunity values</label>
-        <locationX>314</locationX>
-        <locationY>551</locationY>
+        <locationX>490</locationX>
+        <locationY>911</locationY>
         <assignmentItems>
             <assignToReference>$Record.ForecastCurrentYear__c</assignToReference>
             <operator>Assign</operator>
@@ -27,13 +50,80 @@
             </value>
         </assignmentItems>
     </assignments>
+    <assignments>
+        <name>Set_Zins_record</name>
+        <label>Set Zins record</label>
+        <locationX>490</locationX>
+        <locationY>611</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.VerzugszinsDatensatz__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Verzugszins.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Notary_date_is_current_year</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Immobilie_Mahnstopp</name>
+        <label>Immobilie Mahnstopp?</label>
+        <locationX>182</locationX>
+        <locationY>395</locationY>
+        <defaultConnector>
+            <targetReference>Set_Opportunity_values</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Immobilie_Mahnstopp2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Immobilie__r.Mahnstopp__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Mahnstopp_values</targetReference>
+            </connector>
+            <label>Immobilie Mahnstopp?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Invoice_due_is_set</name>
+        <label>Invoice due is set?</label>
+        <locationX>622</locationX>
+        <locationY>395</locationY>
+        <defaultConnector>
+            <targetReference>Notary_date_is_current_year</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Invoice_due_is_set2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Datum_Kaufpreisf_lligkeitsschreiben__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Verzugszins</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Invoice due is set?</label>
+        </rules>
+    </decisions>
     <decisions>
         <name>Is_New</name>
         <label>Is New?</label>
-        <locationX>248</locationX>
-        <locationY>311</locationY>
+        <locationX>402</locationX>
+        <locationY>287</locationY>
         <defaultConnector>
-            <targetReference>Notary_date_is_current_year</targetReference>
+            <targetReference>Invoice_due_is_set</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
@@ -47,7 +137,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Set_Opportunity_values</targetReference>
+                <targetReference>Immobilie_Mahnstopp</targetReference>
             </connector>
             <label>Is New?</label>
         </rules>
@@ -55,8 +145,8 @@
     <decisions>
         <name>Notary_date_is_current_year</name>
         <label>Notary date is current year</label>
-        <locationX>446</locationX>
-        <locationY>431</locationY>
+        <locationX>622</locationX>
+        <locationY>803</locationY>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
             <name>Notary_date_is_current_year2</name>
@@ -119,8 +209,36 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Verzugszins</name>
+        <label>Get Verzugszins</label>
+        <locationX>490</locationX>
+        <locationY>503</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Set_Zins_record</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>GueltigVon__c</field>
+            <operator>LessThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Record.Datum_Kaufpreisf_lligkeitsschreiben__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>GueltigBis__c</field>
+            <operator>GreaterThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Record.Datum_Kaufpreisf_lligkeitsschreiben__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Verzugszins__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <start>
-        <locationX>122</locationX>
+        <locationX>276</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Is_New</targetReference>
