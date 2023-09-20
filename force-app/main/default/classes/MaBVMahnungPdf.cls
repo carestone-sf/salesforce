@@ -9,7 +9,7 @@ public without sharing class MaBVMahnungPdf {
         String reminderFileName = 'Zahlungserinnerung ';
         String emailTemplateName = 'MaBVMahnungPDF';
 
-        List<MaBVRechnung__c> maBVRechnungen = [SELECT Id, Name, IDKunde__c FROM MaBVRechnung__c WHERE Id IN :maBVRechnungenIds];
+        List<MaBVRechnung__c> maBVRechnungen = [SELECT Id, Name, IDKunde__c, Mahnstufe__c FROM MaBVRechnung__c WHERE Id IN :maBVRechnungenIds];
         Id templateId = [SELECT Id, Name FROM EmailTemplate WHERE developername = :emailTemplateName].id;
         List<OrgWideEmailAddress> oweas = new List<OrgWideEmailAddress>([SELECT Id, DisplayName FROM OrgWideEmailAddress WHERE Address = 'support@carestone.com']);
         Messaging.Email[] messages = new Messaging.Email[0];
@@ -61,7 +61,13 @@ public without sharing class MaBVMahnungPdf {
             file.Typ__c = 'Mahnung';
             file.RecordTypeId = mabvRecordTypeId;
             maBVRechnungIdToFile.put(maBVRechnung.Id, file);
-            maBVRechnung.MahnungVersendetAm__c = Date.today();
+            if(maBVRechnung.Mahnstufe__c == null || maBVRechnung.Mahnstufe__c == 1) {
+                maBVRechnung.MahnungVersendetAm__c = Date.today();
+            } else if(maBVRechnung.Mahnstufe__c == 2) {
+                maBVRechnung.ZweiteMahnungVersendetAm__c = Date.today();
+            } else if(maBVRechnung.Mahnstufe__c == 3) {
+                maBVRechnung.DritteMahnungVersendetAm__c = Date.today();
+            }
         }
         // Sends the email
         Messaging.SendEmailResult [] r = Messaging.sendEmail(messages, false);

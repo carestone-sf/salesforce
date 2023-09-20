@@ -24,8 +24,8 @@
             body {
                 font-family: 'sans-serif';
                 color: #1f1f1f;
-                font-size: 12px;
-                line-height: 16px;
+                font-size: 11px;
+                line-height: 14px;
             }
 
             h1, h2, h3, h4, h5, h6 {
@@ -49,7 +49,7 @@
         </style>
     </head>
     <div style="width: 100%; text-align: center; margin-bottom: 1.25cm; margin-top: 1.25cm;">
-        <apex:image style="{!IF(!IsBlank(MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Unternehmen__r.LogoUrl__c), 'display:inline-block;', 'display:none;')} height: 1.5cm" url="{!MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Unternehmen__r.LogoUrl__c}" width="auto"/>
+        <apex:image style="{!IF(!IsBlank(MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Unternehmen__r.LogoUrl__c), 'display:inline-block;', 'display:none;')} height: 1.2cm" url="{!MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Unternehmen__r.LogoUrl__c}" width="auto"/>
         <apex:image style="{!IF(IsBlank(MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Unternehmen__r.LogoUrl__c), 'display:inline-block', 'display:none')}; height: 1.5cm" url="{!$Resource.Carestone_Logo}" width="auto"/>
     </div>
 
@@ -89,17 +89,68 @@
         <div style="clear:both;"></div>
     </div>
 
-    <div style="margin-top: 3cm;">
-    <h3>
-        Zahlungserinnerung
+    <div style="margin-top: 2cm;">
+    <h3 style="{!IF(MaBVRechnung__c.Mahnstufe__c == 1, 'display:block', 'display:none')}">
+        1. Zahlungserinnerung
+    </h3>
+    <h3 style="{!IF(MaBVRechnung__c.Mahnstufe__c == 2, 'display:block', 'display:none')}">
+        2. Zahlungserinnerung
+    </h3>
+    <h3 style="{!IF(MaBVRechnung__c.Mahnstufe__c == 3, 'display:block', 'display:none')}">
+        Letzte Mahnung
     </h3>
     <br/>
-    <p>
+
+    <div class="zahlungserinnerung-1" style="{!IF(MaBVRechnung__c.Mahnstufe__c == 1, 'display:block', 'display:none')}">
         Sehr geehrte/r {!MaBVRechnung__c.AnredeErsterKaeufer__c}, <span style="{!IF(MaBVRechnung__c.AnredeZweiterKaeufer__c != null, 'display:inline', 'display:none')}">
-                <br/>sehr geehrte/r {!MaBVRechnung__c.AnredeZweiterKaeufer__c},
-                </span> <br/><br/>
-        nach Durchsicht unserer Unterlagen haben wir festgestellt, dass folgende Rechnungen noch zur Zahlung offen stehen. Wir bitten Sie, die Außenstände zu begleichen und bedanken uns hierfür schon im Voraus.
-    </p>
+            <br/>sehr geehrte/r {!MaBVRechnung__c.AnredeZweiterKaeufer__c},
+            </span> <br/><br/>
+ 
+        wir freuen uns über Ihr Vertrauen in unsere nachhaltigen Kapitalanlageprodukte und gratulieren Ihnen herzlich zum Kauf des {!MaBVRechnung__c.Apartment__c} in {!MaBVRechnung__c.Immobilie__c}.
+        <br/><br/>
+        Es ist uns bewusst, dass es manchmal zu Verzögerungen bei finanziellen Angelegenheiten kommen kann. Daher möchten wir Sie freundlich daran erinnern, dass die MaBV-Rate für die erworbene Pflegeimmobilie noch aussteht. Gemäß den getroffenen Vereinbarungen war die Zahlung bereits am&nbsp;<apex:outputField value="{!MaBVRechnung__c.ZahlungszielDatum__c}"/> fällig.
+        <br/><br/>
+        Unser Ziel ist es, eine reibungslose und angenehme Zusammenarbeit zu gewährleisten. Sollten Sie Schwierigkeiten oder Fragen bezüglich der Zahlung haben, zögern Sie bitte nicht, uns zu kontaktieren. Wir helfen gern bei der Lösung etwaiger Probleme.
+        <br/><br/>
+        Wir sind zuversichtlich, dass diese Angelegenheit bald geklärt sein wird und freuen uns darauf, weiterhin mit Ihnen in Kontakt zu bleiben.
+        
+    </div>
+
+    <div class="zahlungserinnerung-2" style="{!IF(MaBVRechnung__c.Mahnstufe__c == 2, 'display:block', 'display:none')}">
+        Sehr geehrte/r {!MaBVRechnung__c.AnredeErsterKaeufer__c}, <span style="{!IF(MaBVRechnung__c.AnredeZweiterKaeufer__c != null, 'display:inline', 'display:none')}">
+            <br/>sehr geehrte/r {!MaBVRechnung__c.AnredeZweiterKaeufer__c},
+            </span> <br/><br/>
+ 
+        im Zusammenhang mit dem Erwerb des {!MaBVRechnung__c.Apartment__c} in {!MaBVRechnung__c.Immobilie__c} möchten wir Sie erneut daran erinnern, dass die Rechnung, datiert&nbsp;<apex:outputField value="{!MaBVRechnung__c.Rechnungsdatum__c}"/>, mit noch ausstehenden Beträgen in Höhe von&nbsp;<apex:outputField value="{!MaBVRechnung__c.OffenerBetragNeu__c}"/>, trotz unserer ersten Erinnerung vom&nbsp;<apex:outputField value="{!MaBVRechnung__c.MahnungVersendetAm__c}"/> nach wie vor unbezahlt ist.
+        <br/><br/>
+        Wir verstehen, dass es zuweilen Verzögerungen geben kann und möchten Ihnen daher Gelegenheit geben, die ausstehende Zahlung zu begleichen. Eine fristgerechte Bezahlung unterstützt nicht nur einen reibungslosen Ablauf, sondern gewährleistet auch die Fortführung unserer kooperativen Geschäftsbeziehung.
+        <br/><br/>
+        Bitte überweisen Sie den ausstehenden Betrag bis spätestens zum&nbsp;{!LPAD(TEXT(DAY(TODAY()+7)), 2, '0') + '.' + LPAD(TEXT(MONTH(TODAY()+7)), 2, '0') + '.' + TEXT(YEAR(TODAY()+7))} auf das in der Rechnung angegebene Konto. Sollten Sie die Zahlung zwischenzeitlich bereits veranlasst haben, betrachten Sie dieses Schreiben bitte als gegenstandslos.
+        <br/><br/>
+        Wir möchten Sie darauf hinweisen, dass gemäß unseren Vereinbarungen im Falle einer nicht fristgerechten Zahlung Verzugszinsen in gesetzlicher Höhe (§ 288 I BGB) berechnet werden können. Um Unannehmlichkeiten zu vermeiden, empfehlen wir Ihnen dringend, die Zahlung bis spätestens zu o.g. Termin zu veranlassen.
+        <br/><br/>
+        Wir schätzen Ihr Vertrauen in unsere Dienstleistungen und hoffen auf eine zügige Klärung. Bei Fragen oder Unklarheiten stehen wir Ihnen gerne zur Verfügung.
+        <br/><br/>
+        Vielen Dank für Ihr Verständnis.
+    </div>
+
+    <div class="zahlungserinnerung-3" style="{!IF(MaBVRechnung__c.Mahnstufe__c == 3, 'display:block', 'display:none')}">
+        Sehr geehrte/r {!MaBVRechnung__c.AnredeErsterKaeufer__c}, <span style="{!IF(MaBVRechnung__c.AnredeZweiterKaeufer__c != null, 'display:inline', 'display:none')}">
+            <br/>sehr geehrte/r {!MaBVRechnung__c.AnredeZweiterKaeufer__c},
+            </span> <br/><br/>
+ 
+        leider haben Sie bislang weder auf unsere Zahlungserinnerungen vom &nbsp;<apex:outputField value="{!MaBVRechnung__c.MahnungVersendetAm__c}"/> und&nbsp;<apex:outputField value="{!MaBVRechnung__c.ZweiteMahnungVersendetAm__c}"/> reagiert, noch können wir einen Ausgleich der offenen Rechnung für die erworbene Pflegeimmobilie feststellen.
+        <br/><br/>
+        Wir möchten nochmals betonen, wie wichtig es uns ist, gemeinsam mit Ihnen eine zufriedenstellende Lösung zu finden. In unserer vorherigen Zahlungserinnerung haben wir bereits auf die Berechnung von Verzugszinsen hingewiesen, die nun gemäß den geltenden Vertragsbedingungen berechnet werden. Die ausstehende Zahlung hieraus beträgt per heute&nbsp;<apex:outputField value="{!MaBVRechnung__c.OffenerBetragInklusiveVerzugszinsen__c}"/>. Hinzu kommen weitere laufende Verzugszinsen in Höhe von derzeit täglich&nbsp;<apex:outputField value="{!MaBVRechnung__c.VerzugszinsenProTag__c}"/>.
+        <br/><br/>
+        Bitte zahlen Sie den ausstehenden Betrag inkl. Verzugszinsen bis zum Zahltag nunmehr bis spätestens zum&nbsp;{!LPAD(TEXT(DAY(TODAY()+7)), 2, '0') + '.' + LPAD(TEXT(MONTH(TODAY()+7)), 2, '0') + '.' + TEXT(YEAR(TODAY()+7))}.
+        <br/><br/>
+        Diese Mahnung stellt unsere letzte außergerichtliche Zahlungsaufforderung dar. Wir verstehen, dass unvorhergesehene Umstände auftreten können, die eine rechtzeitige Bezahlung beeinflussen könnten. Falls Sie Schwierigkeiten bei der Begleichung der Rechnung haben, bitten wir Sie dringend, sich umgehend mit uns in Verbindung zu setzen. Wir sind nach wie vor bereit, Sie bei einer Lösung der Zahlungsschwierigkeiten zu unterstützen.
+        <br/><br/>
+        Es ist uns ein Anliegen, diese Angelegenheit so schnell wie möglich zu klären und eine für beide Seiten zufriedenstellende Lösung zu finden. Bitte kontaktieren Sie uns bis spätestens&nbsp;{!LPAD(TEXT(DAY(TODAY()+7)), 2, '0') + '.' + LPAD(TEXT(MONTH(TODAY()+7)), 2, '0') + '.' + TEXT(YEAR(TODAY()+7))}, um mögliche weitere Schritte zu besprechen.
+        <br/><br/>
+        Sollten wir auch innerhalb der o. g. Frist weder von Ihnen hören noch einen Zahlungseingang feststellen können, sehen wir uns gehalten, alle notwendigen rechtlichen Schritte zur Durchsetzung des fälligen Zahlungsanspruchs in die Wege zu leiten. Die dadurch entstehenden weitergehenden Kosten hätten Sie dann ebenfalls zu tragen. Wir bitten Sie daher dringend, um die Fristeinhaltung dieser Mahnung.
+    </div>
 
     <br/>
 
@@ -132,12 +183,19 @@
                 <td style="text-align: right;"><b>- <apex:outputField value="{!zahlung.Betrag__c}"/></b></td>
             </tr>
         </apex:repeat>
+        <tr style="{!IF(MaBVRechnung__c.Mahnstufe__c == 3, 'display:table-row', 'display:none')}">
+            <td>{!MaBVRechnung__c.Name}</td>
+            <td></td>
+            <td>Verzugszinsen</td>
+            <td style="text-align: right;"><b><apex:outputField value="{!MaBVRechnung__c.VerzugszinsInEuro__c}"/></b></td>
+        </tr>
         <tr><td colspan="4"><br /><hr /><br/></td></tr>
          <tr>
             <td></td>
             <td></td>
             <td><b>Zu zahlen</b></td>
-            <td style="text-align: right;"><b><apex:outputField value="{!MaBVRechnung__c.OffenerBetragNeu__c}"/></b></td>
+            <td style="text-align: right; {!IF(MaBVRechnung__c.Mahnstufe__c != 3, 'display:table-cell', 'display:none')}"><b><apex:outputField value="{!MaBVRechnung__c.OffenerBetragNeu__c}"/></b></td>
+            <td style="text-align: right; {!IF(MaBVRechnung__c.Mahnstufe__c == 3, 'display:table-cell', 'display:none')}"><b><apex:outputField value="{!MaBVRechnung__c.OffenerBetragInklusiveVerzugszinsen__c}"/></b></td>
         </tr>
     </table>
    
