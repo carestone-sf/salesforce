@@ -14,10 +14,8 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>Opportunity.Erinnerungsemail_Kaufvertragsangebot_ohne_Annahme</nameSegment>
-        <versionSegment>1</versionSegment>
     </actionCalls>
-    <apiVersion>58.0</apiVersion>
+    <apiVersion>57.0</apiVersion>
     <environments>Default</environments>
     <interviewLabel>Opportunity - Erinnerungsemail Kaufvertragsangebot ohne Annahme {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Opportunity - Erinnerungsemail Kaufvertragsangebot ohne Annahme</label>
