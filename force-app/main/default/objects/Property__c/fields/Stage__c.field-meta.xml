@@ -22,9 +22,9 @@
                 <label>Entwicklung</label>
             </value>
             <value>
-                <fullName>Vertiebsvorbereitung</fullName>
+                <fullName>Vertriebsvorbereitung</fullName>
                 <default>false</default>
-                <label>Vertiebsvorbereitung</label>
+                <label>Vertriebsvorbereitung</label>
             </value>
             <value>
                 <fullName>Vertrieb</fullName>

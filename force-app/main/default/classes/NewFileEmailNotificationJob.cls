@@ -16,7 +16,7 @@ public without sharing class NewFileEmailNotificationJob implements Database.Bat
         return Database.getQueryLocator([
             SELECT Id FROM Contact 
             WHERE Email != null 
-            AND Id IN (SELECT ContactId FROM User WHERE IsPortalEnabled = true AND IsActive = true)]);
+            AND Id IN (SELECT ContactId FROM User WHERE IsPortalEnabled = true AND IsActive = true AND Contact.VPDateiUebersichtAbbestellen__c	= false)]);
     }
 
     public void execute(Database.BatchableContext bc, List<SObject> scope) {

@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>NewFileEmailNotificationJob</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Opportunity.CarestoneFinancingRecommended__c</field>
+        <field>Appartment__c.Mindestkaufpreis__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Opportunity.CommentCarestoneFinancing__c</field>
+        <field>Contact.VPDateiUebersichtAbbestellen__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.InterestedInCarestoneFinancing__c</field>
+        <editable>false</editable>
+        <field>Property__c.Stage__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Opportunity-Opportunitylayout</layout>
+        <layout>Appartment__c-Appartment Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Contact-Kontaktlayout</layout>
     </layoutAssignments>
     <userLicense>Salesforce</userLicense>
     <userPermissions>

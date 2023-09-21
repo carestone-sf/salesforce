@@ -221,6 +221,10 @@
                 <field>DeviatingPurchasePrice__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Mindestkaufpreis__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Gesamtkosten__c</field>
             </layoutItems>
