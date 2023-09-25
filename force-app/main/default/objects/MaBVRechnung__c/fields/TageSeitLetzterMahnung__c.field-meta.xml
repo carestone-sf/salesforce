@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TageSeitLetzterMahnung__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK(MahnungVersendetAm__c), null, TODAY() - IF( !IsBlank(DritteMahnungVersendetAm__c), DritteMahnungVersendetAm__c, IF(!IsBlank(ZweiteMahnungVersendetAm__c), ZweiteMahnungVersendetAm__c, MahnungVersendetAm__c)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Tage seit letzter Mahnung</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>
