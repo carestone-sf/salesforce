@@ -471,6 +471,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c.MaBVRate__c.Immobilie__c.Mahnstopp__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>MaBVRechnungMaster__c.MaBVRate__c.Immobilie__c.Reservierte_Appartements__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
@@ -482,6 +487,16 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>MaBVRechnungMaster__c.MaBVRate__c.Immobilie__c.Freie_Appartments__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c.MaBVRate__c.Immobilie__c.VerzugszinsGemKaufvertrag__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c.MaBVRate__c.Immobilie__c.MahnstoppKommentar__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <masterLabel>Immobilie</masterLabel>
@@ -550,6 +565,16 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>MaBVRechnungMaster__c.Opportunity__c.Finanzierung__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c.Opportunity__c.Mahnstopp__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBVRechnungMaster__c.Opportunity__c.MahnstoppKommentar__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
         <masterLabel>Verkaufschance</masterLabel>
