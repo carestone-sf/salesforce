@@ -2996,6 +2996,36 @@
             <field>BeurkundungMoeglich__c</field>
             <table>Property__c.Opportunities__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ClosingBonusInProzent__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BeratungsprovisionMitPVInProzent__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProvisionsverzichtInProzent__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BeratungsprovisionMitPVInEuro__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ClosingBonusInEuro__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProvisionsverzichtInEuro__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
         <masterLabel>Verkaufschancen</masterLabel>
     </sections>
 </ReportType>

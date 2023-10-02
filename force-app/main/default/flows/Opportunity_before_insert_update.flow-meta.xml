@@ -2,33 +2,10 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>57.0</apiVersion>
     <assignments>
-        <name>Set_Mahnstopp_values</name>
-        <label>Set Mahnstopp values</label>
-        <locationX>50</locationX>
-        <locationY>503</locationY>
-        <assignmentItems>
-            <assignToReference>$Record.Mahnstopp__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>$Record.Immobilie__r.Mahnstopp__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>$Record.MahnstoppKommentar__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>$Record.Immobilie__r.MahnstoppKommentar__c</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Set_Opportunity_values</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
         <name>Set_Opportunity_values</name>
         <label>Set Opportunity values</label>
-        <locationX>182</locationX>
-        <locationY>695</locationY>
+        <locationX>50</locationX>
+        <locationY>395</locationY>
         <assignmentItems>
             <assignToReference>$Record.ForecastCurrentYear__c</assignToReference>
             <operator>Assign</operator>
@@ -36,11 +13,18 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.ClosingBonusInProzent__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Immobilie__r.ClosingBonusInPercent__c</elementReference>
+            </value>
+        </assignmentItems>
     </assignments>
     <assignments>
         <name>Set_Opportunity_values2</name>
         <label>Set Opportunity values</label>
-        <locationX>490</locationX>
+        <locationX>314</locationX>
         <locationY>911</locationY>
         <assignmentItems>
             <assignToReference>$Record.ForecastCurrentYear__c</assignToReference>
@@ -53,7 +37,7 @@
     <assignments>
         <name>Set_Zins_record</name>
         <label>Set Zins record</label>
-        <locationX>490</locationX>
+        <locationX>314</locationX>
         <locationY>611</locationY>
         <assignmentItems>
             <assignToReference>$Record.VerzugszinsDatensatz__c</assignToReference>
@@ -67,34 +51,9 @@
         </connector>
     </assignments>
     <decisions>
-        <name>Immobilie_Mahnstopp</name>
-        <label>Immobilie Mahnstopp?</label>
-        <locationX>182</locationX>
-        <locationY>395</locationY>
-        <defaultConnector>
-            <targetReference>Set_Opportunity_values</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Immobilie_Mahnstopp2</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Immobilie__r.Mahnstopp__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Set_Mahnstopp_values</targetReference>
-            </connector>
-            <label>Immobilie Mahnstopp?</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>Invoice_due_is_set</name>
         <label>Invoice due is set?</label>
-        <locationX>622</locationX>
+        <locationX>446</locationX>
         <locationY>395</locationY>
         <defaultConnector>
             <targetReference>Notary_date_is_current_year</targetReference>
@@ -120,7 +79,7 @@
     <decisions>
         <name>Is_New</name>
         <label>Is New?</label>
-        <locationX>402</locationX>
+        <locationX>248</locationX>
         <locationY>287</locationY>
         <defaultConnector>
             <targetReference>Invoice_due_is_set</targetReference>
@@ -137,7 +96,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Immobilie_Mahnstopp</targetReference>
+                <targetReference>Set_Opportunity_values</targetReference>
             </connector>
             <label>Is New?</label>
         </rules>
@@ -145,7 +104,7 @@
     <decisions>
         <name>Notary_date_is_current_year</name>
         <label>Notary date is current year</label>
-        <locationX>622</locationX>
+        <locationX>446</locationX>
         <locationY>803</locationY>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
@@ -212,7 +171,7 @@
     <recordLookups>
         <name>Get_Verzugszins</name>
         <label>Get Verzugszins</label>
-        <locationX>490</locationX>
+        <locationX>314</locationX>
         <locationY>503</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -238,7 +197,7 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <start>
-        <locationX>276</locationX>
+        <locationX>122</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Is_New</targetReference>
