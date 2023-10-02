@@ -31,6 +31,10 @@
                 <field>PriceAdjustment__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>PurchasePrice__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>GrunderwerbsteuerInPercent__c</field>
             </layoutItems>
