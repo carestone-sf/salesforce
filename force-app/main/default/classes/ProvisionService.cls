@@ -141,6 +141,8 @@ public without sharing class ProvisionService {
             prov.ClosingBonusInProzent__c = opp.ClosingBonusInProzent__c; 
             prov.BeratungsprovisionMitPVInEuro__c = opp.BeratungsprovisionMitPVInEuro__c;
             prov.BeratungsprovisionMitPVInProzent__c = opp.BeratungsprovisionMitPVInProzent__c; 
+            prov.ProvisionsverzichtInProzent__c = opp.ProvisionsverzichtInProzent__c;
+            prov.ProvisionsverzichtInEuro__c = opp.ProvisionsverzichtInEuro__c; 
         }
 
         if(opp.Makler__c == con.Id && opp.Abrechnung_ber__c == null) {
