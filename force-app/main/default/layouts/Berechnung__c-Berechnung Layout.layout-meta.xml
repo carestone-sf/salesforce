@@ -37,6 +37,10 @@
                 <behavior>Readonly</behavior>
                 <field>ListenpreisGesamt__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>SumPriceAdjustment__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
