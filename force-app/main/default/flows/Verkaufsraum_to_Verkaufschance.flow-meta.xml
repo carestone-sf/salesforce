@@ -524,6 +524,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>PriceAdjustment__c</field>
+            <value>
+                <elementReference>Berechnungs_Apartment.PriceAdjustment__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>StageName</field>
             <value>
                 <stringValue>Reservierung angefragt</stringValue>
@@ -726,6 +732,7 @@
             <dataType>String</dataType>
             <fieldText>Apartments auswählen</fieldText>
             <fieldType>MultiSelectCheckboxes</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -737,6 +744,7 @@
             <defaultSelectedChoiceReference>Keine_Auswahl</defaultSelectedChoiceReference>
             <fieldText>Unterlagen zur Unterschrift an Kunden senden</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
         </fields>
         <showFooter>true</showFooter>
@@ -764,6 +772,7 @@
             <dataType>String</dataType>
             <fieldText>Berechnung auswählen</fieldText>
             <fieldType>RadioButtons</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
@@ -788,6 +797,7 @@
             </defaultValue>
             <fieldText>E-Mail Betreff</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -797,6 +807,7 @@
             </defaultValue>
             <fieldText>E-Mail Inhalt</fieldText>
             <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
@@ -828,6 +839,7 @@
             </defaultValue>
             <fieldText>Anrede</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -885,6 +897,7 @@
             </defaultValue>
             <fieldText>Anrede</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
