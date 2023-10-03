@@ -12,6 +12,9 @@
         <label>myDecision</label>
         <locationX>50</locationX>
         <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision14</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>default</defaultConnectorLabel>
         <rules>
             <name>myRule_1</name>
@@ -29,64 +32,252 @@
             <label>Erstellt</label>
         </rules>
     </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision14</name>
+        <label>myDecision14</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_15</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_15</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_15_A1</targetReference>
+            </connector>
+            <label>Kaufpreisanpassung vorgenommen</label>
+        </rules>
+    </decisions>
     <formulas>
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>[BerechnungsApartment__c].Apartment__r.WertAussenanlagenInEuro__c / 100</stringValue>
+                <stringValue>[BerechnungsApartment__c].Immobilie__r.Building_Share_Value__c *
+
+IF([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c != 0 &amp;&amp; !IsBlank([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c),
+[BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c + [BerechnungsApartment__c].PriceAdjustment__c ,
+[BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c )</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_10_myRule_1_A1_6779176190</name>
+        <name>formula_10_myRule_1_A1_6702078782</name>
         <dataType>Currency</dataType>
-        <expression>{!myVariable_current.Apartment__r.WertAussenanlagenInEuro__c} / 100</expression>
+        <expression>{!myVariable_current.Immobilie__r.Building_Share_Value__c} *
+
+IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; !IsBlank({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c}),
+{!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} + {!myVariable_current.PriceAdjustment__c} ,
+{!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c} )</expression>
         <scale>18</scale>
     </formulas>
     <formulas>
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>[BerechnungsApartment__c].Apartment__r.WertGrundstueckInEuro__c / 100</stringValue>
+                <stringValue>[BerechnungsApartment__c].Apartment__r.Property__r.Manager_Cost_p_a__c / 12</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_11_myRule_1_A1_5149635351</name>
+        <name>formula_11_myRule_1_A1_6577360766</name>
         <dataType>Currency</dataType>
-        <expression>{!myVariable_current.Apartment__r.WertGrundstueckInEuro__c} / 100</expression>
+        <expression>{!myVariable_current.Apartment__r.Property__r.Manager_Cost_p_a__c} / 12</expression>
         <scale>18</scale>
     </formulas>
     <formulas>
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>[BerechnungsApartment__c].Apartment__r.Purchase_Price__c * [BerechnungsApartment__c].Apartment__r.Property__r.Value_Plot__c *[BerechnungsApartment__c].Apartment__r.Outdoor_AFA__c </stringValue>
+                <stringValue>[BerechnungsApartment__c].Immobilie__r.Value_Of_Outdoor__c *
+
+IF([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c != 0 &amp;&amp; !IsBlank([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c),
+[BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c + [BerechnungsApartment__c].PriceAdjustment__c ,
+[BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c )</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_12_myRule_1_A1_2765790462</name>
+        <name>formula_12_myRule_1_A1_9956111361</name>
         <dataType>Currency</dataType>
-        <expression>{!myVariable_current.Apartment__r.Purchase_Price__c} * {!myVariable_current.Apartment__r.Property__r.Value_Plot__c} *{!myVariable_current.Apartment__r.Outdoor_AFA__c}</expression>
+        <expression>{!myVariable_current.Immobilie__r.Value_Of_Outdoor__c} *
+
+IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; !IsBlank({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c}),
+{!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} + {!myVariable_current.PriceAdjustment__c} ,
+{!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c} )</expression>
         <scale>18</scale>
     </formulas>
     <formulas>
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>[BerechnungsApartment__c].Apartment__r.Purchase_Price__c * [BerechnungsApartment__c].Apartment__r.Property__r.Building_Share_Value__c * [BerechnungsApartment__c].Apartment__r.Net_Asset_Value_AFA__c </stringValue>
+                <stringValue>[BerechnungsApartment__c].Immobilie__r.Value_Plot__c *
+
+IF([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c != 0 &amp;&amp; !IsBlank([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c),
+[BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c + [BerechnungsApartment__c].PriceAdjustment__c ,
+[BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c )</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_13_myRule_1_A1_5227969201</name>
+        <name>formula_13_myRule_1_A1_6034928484</name>
         <dataType>Currency</dataType>
-        <expression>{!myVariable_current.Apartment__r.Purchase_Price__c} * {!myVariable_current.Apartment__r.Property__r.Building_Share_Value__c} * {!myVariable_current.Apartment__r.Net_Asset_Value_AFA__c}</expression>
+        <expression>{!myVariable_current.Immobilie__r.Value_Plot__c} *
+
+IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; !IsBlank({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c}),
+{!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} + {!myVariable_current.PriceAdjustment__c} ,
+{!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c} )</expression>
         <scale>18</scale>
     </formulas>
     <formulas>
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>[BerechnungsApartment__c].Apartment__r.AfaProJahrInEuro__c / 10000</stringValue>
+                <stringValue>([BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c)  * [BerechnungsApartment__c].Apartment__r.Property__r.Value_Plot__c *[BerechnungsApartment__c].Apartment__r.Outdoor_AFA__c </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_2_myRule_1_A1_0838733943</name>
+        <name>formula_16_myRule_15_A1_3374506511</name>
         <dataType>Currency</dataType>
-        <expression>{!myVariable_current.Apartment__r.AfaProJahrInEuro__c} / 10000</expression>
+        <expression>({!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c})  * {!myVariable_current.Apartment__r.Property__r.Value_Plot__c} *{!myVariable_current.Apartment__r.Outdoor_AFA__c}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>([BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c) * [BerechnungsApartment__c].Apartment__r.Property__r.Building_Share_Value__c * [BerechnungsApartment__c].Apartment__r.Net_Asset_Value_AFA__c </stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_17_myRule_15_A1_2761916831</name>
+        <dataType>Currency</dataType>
+        <expression>({!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c}) * {!myVariable_current.Apartment__r.Property__r.Building_Share_Value__c} * {!myVariable_current.Apartment__r.Net_Asset_Value_AFA__c}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>([BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c) * [BerechnungsApartment__c].Immobilie__r.Building_Share_Value__c *
+[BerechnungsApartment__c].Immobilie__r.Afa_Building_Shares__c
++
+([BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c) * [BerechnungsApartment__c].Apartment__r.Property__r.Value_Plot__c *
+[BerechnungsApartment__c].Immobilie__r.Afa_Plot__c</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_18_myRule_15_A1_1852690971</name>
+        <dataType>Currency</dataType>
+        <expression>({!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c}) * {!myVariable_current.Immobilie__r.Building_Share_Value__c} *
+{!myVariable_current.Immobilie__r.Afa_Building_Shares__c}
++
+({!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c}) * {!myVariable_current.Apartment__r.Property__r.Value_Plot__c} *
+{!myVariable_current.Immobilie__r.Afa_Plot__c}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>[BerechnungsApartment__c].Immobilie__r.Building_Share_Value__c *
+
+IF([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c != 0 &amp;&amp; !IsBlank([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c),
+[BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c + [BerechnungsApartment__c].PriceAdjustment__c ,
+[BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c )</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_19_myRule_15_A1_7025346912</name>
+        <dataType>Currency</dataType>
+        <expression>{!myVariable_current.Immobilie__r.Building_Share_Value__c} *
+
+IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; !IsBlank({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c}),
+{!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} + {!myVariable_current.PriceAdjustment__c} ,
+{!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c} )</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>[BerechnungsApartment__c].Immobilie__r.Value_Of_Outdoor__c *
+
+IF([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c != 0 &amp;&amp; !IsBlank([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c),
+[BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c + [BerechnungsApartment__c].PriceAdjustment__c ,
+[BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c )</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_20_myRule_15_A1_7895187124</name>
+        <dataType>Currency</dataType>
+        <expression>{!myVariable_current.Immobilie__r.Value_Of_Outdoor__c} *
+
+IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; !IsBlank({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c}),
+{!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} + {!myVariable_current.PriceAdjustment__c} ,
+{!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c} )</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>[BerechnungsApartment__c].Immobilie__r.Value_Plot__c *
+
+IF([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c != 0 &amp;&amp; !IsBlank([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c),
+[BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c + [BerechnungsApartment__c].PriceAdjustment__c ,
+[BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c )</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_21_myRule_15_A1_3683883772</name>
+        <dataType>Currency</dataType>
+        <expression>{!myVariable_current.Immobilie__r.Value_Plot__c} *
+
+IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; !IsBlank({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c}),
+{!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} + {!myVariable_current.PriceAdjustment__c} ,
+{!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c} )</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>([BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c)  * [BerechnungsApartment__c].Apartment__r.Property__r.Value_Plot__c *[BerechnungsApartment__c].Apartment__r.Outdoor_AFA__c </stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_2_myRule_1_A1_5316933274</name>
+        <dataType>Currency</dataType>
+        <expression>({!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c})  * {!myVariable_current.Apartment__r.Property__r.Value_Plot__c} *{!myVariable_current.Apartment__r.Outdoor_AFA__c}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>([BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c) * [BerechnungsApartment__c].Apartment__r.Property__r.Building_Share_Value__c * [BerechnungsApartment__c].Apartment__r.Net_Asset_Value_AFA__c </stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_3_myRule_1_A1_1829601345</name>
+        <dataType>Currency</dataType>
+        <expression>({!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c}) * {!myVariable_current.Apartment__r.Property__r.Building_Share_Value__c} * {!myVariable_current.Apartment__r.Net_Asset_Value_AFA__c}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>([BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c) * [BerechnungsApartment__c].Immobilie__r.Building_Share_Value__c *
+[BerechnungsApartment__c].Immobilie__r.Afa_Building_Shares__c
++
+([BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c) * [BerechnungsApartment__c].Apartment__r.Property__r.Value_Plot__c *
+[BerechnungsApartment__c].Immobilie__r.Afa_Plot__c</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_4_myRule_1_A1_7667831896</name>
+        <dataType>Currency</dataType>
+        <expression>({!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c}) * {!myVariable_current.Immobilie__r.Building_Share_Value__c} *
+{!myVariable_current.Immobilie__r.Afa_Building_Shares__c}
++
+({!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c}) * {!myVariable_current.Apartment__r.Property__r.Value_Plot__c} *
+{!myVariable_current.Immobilie__r.Afa_Plot__c}</expression>
         <scale>18</scale>
     </formulas>
     <formulas>
@@ -96,7 +287,7 @@
                 <stringValue>[BerechnungsApartment__c].Apartment__r.Property__r.Real_Estate_Transfer_Tax__c * 10000</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_3_myRule_1_A1_8366037922</name>
+        <name>formula_5_myRule_1_A1_1172525848</name>
         <dataType>Number</dataType>
         <expression>{!myVariable_current.Apartment__r.Property__r.Real_Estate_Transfer_Tax__c} * 10000</expression>
         <scale>18</scale>
@@ -108,7 +299,7 @@
                 <stringValue>[BerechnungsApartment__c].Apartment__r.Property__r.maintenance_sqm_p_a__c * [BerechnungsApartment__c].Apartment__r.Area_sq_m__c / 12</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_4_myRule_1_A1_7887919496</name>
+        <name>formula_6_myRule_1_A1_6003854832</name>
         <dataType>Currency</dataType>
         <expression>{!myVariable_current.Apartment__r.Property__r.maintenance_sqm_p_a__c} * {!myVariable_current.Apartment__r.Area_sq_m__c} / 12</expression>
         <scale>18</scale>
@@ -120,7 +311,7 @@
                 <stringValue>IF( [BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c != 0 &amp;&amp; !IsBlank([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c), [BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c, [BerechnungsApartment__c].Apartment__r.Purchase_Price__c)</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_5_myRule_1_A1_8290082724</name>
+        <name>formula_7_myRule_1_A1_5829576110</name>
         <dataType>Currency</dataType>
         <expression>IF( {!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; !IsBlank({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c}), {!myVariable_current.Apartment__r.DeviatingPurchasePrice__c}, {!myVariable_current.Apartment__r.Purchase_Price__c})</expression>
         <scale>18</scale>
@@ -132,7 +323,7 @@
                 <stringValue>[BerechnungsApartment__c].Apartment__r.Monthly_Rent__c </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_6_myRule_1_A1_0630818221</name>
+        <name>formula_8_myRule_1_A1_7560880345</name>
         <dataType>Currency</dataType>
         <expression>{!myVariable_current.Apartment__r.Monthly_Rent__c}</expression>
         <scale>18</scale>
@@ -144,33 +335,9 @@
                 <stringValue>[BerechnungsApartment__c].Immobilie__r.Name + &apos; - &apos; + [BerechnungsApartment__c].Apartment__r.Name </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_7_myRule_1_A1_9915590416</name>
+        <name>formula_9_myRule_1_A1_0339462923</name>
         <dataType>String</dataType>
         <expression>{!myVariable_current.Immobilie__r.Name} + &apos; - &apos; + {!myVariable_current.Apartment__r.Name}</expression>
-    </formulas>
-    <formulas>
-        <processMetadataValues>
-            <name>originalFormula</name>
-            <value>
-                <stringValue>[BerechnungsApartment__c].Apartment__r.SubstanzwertInEuro__c / 100</stringValue>
-            </value>
-        </processMetadataValues>
-        <name>formula_8_myRule_1_A1_6502158002</name>
-        <dataType>Currency</dataType>
-        <expression>{!myVariable_current.Apartment__r.SubstanzwertInEuro__c} / 100</expression>
-        <scale>18</scale>
-    </formulas>
-    <formulas>
-        <processMetadataValues>
-            <name>originalFormula</name>
-            <value>
-                <stringValue>[BerechnungsApartment__c].Apartment__r.Property__r.Manager_Cost_p_a__c / 12</stringValue>
-            </value>
-        </processMetadataValues>
-        <name>formula_9_myRule_1_A1_4048908585</name>
-        <dataType>Currency</dataType>
-        <expression>{!myVariable_current.Apartment__r.Property__r.Manager_Cost_p_a__c} / 12</expression>
-        <scale>18</scale>
     </formulas>
     <formulas>
         <processMetadataValues>
@@ -183,7 +350,18 @@
         <dataType>Boolean</dataType>
         <expression>IsNew()</expression>
     </formulas>
-    <interviewLabel>Berechnungs_Apartments-7_InterviewLabel</interviewLabel>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>ISCHANGED([BerechnungsApartment__c].PriceAdjustment__c) &amp;&amp; NOT(ISNEW()) </stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_15</name>
+        <dataType>Boolean</dataType>
+        <expression>ISCHANGED({!myVariable_current.PriceAdjustment__c}) &amp;&amp; NOT(ISNEW())</expression>
+    </formulas>
+    <interviewLabel>Berechnungs_Apartments-8_InterviewLabel</interviewLabel>
     <label>Berechnungs-Apartments</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -210,6 +388,267 @@
         </value>
     </processMetadataValues>
     <processType>Workflow</processType>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>extraTypeInfo</name>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[BerechnungsApartment__c]</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>referenceTargetField</name>
+        </processMetadataValues>
+        <name>myRule_15_A1</name>
+        <label>Werte updaten</label>
+        <locationX>1500</locationX>
+        <locationY>200</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Currency</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>AfA Außenanlagen pro Jahr in Euro</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>AfAAussenanlagenProJahrInEuro__c</field>
+            <value>
+                <elementReference>formula_16_myRule_15_A1_3374506511</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Currency</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>AfA Substanz pro Jahr in Euro</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>AfASubstanzProJahrInEuro__c</field>
+            <value>
+                <elementReference>formula_17_myRule_15_A1_2761916831</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Currency</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>AfA pro Jahr in Euro</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>AfaProJahrInEuro__c</field>
+            <value>
+                <elementReference>formula_18_myRule_15_A1_1852690971</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Currency</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Substanzwert in Euro</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>SubstanzwertInEuro__c</field>
+            <value>
+                <elementReference>formula_19_myRule_15_A1_7025346912</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Currency</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Wert Außenanlagen in Euro</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>WertAussenanlagenInEuro__c</field>
+            <value>
+                <elementReference>formula_20_myRule_15_A1_7895187124</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Currency</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Wert Grundstück in Euro</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>WertGrundstueckInEuro__c</field>
+            <value>
+                <elementReference>formula_21_myRule_15_A1_3683883772</elementReference>
+            </value>
+        </inputAssignments>
+        <object>BerechnungsApartment__c</object>
+    </recordUpdates>
     <recordUpdates>
         <processMetadataValues>
             <name>evaluationType</name>
@@ -289,7 +728,7 @@
             </processMetadataValues>
             <field>AfAAussenanlagenProJahrInEuro__c</field>
             <value>
-                <elementReference>formula_12_myRule_1_A1_2765790462</elementReference>
+                <elementReference>formula_2_myRule_1_A1_5316933274</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -361,7 +800,7 @@
             </processMetadataValues>
             <field>AfASubstanzProJahrInEuro__c</field>
             <value>
-                <elementReference>formula_13_myRule_1_A1_5227969201</elementReference>
+                <elementReference>formula_3_myRule_1_A1_1829601345</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -433,7 +872,7 @@
             </processMetadataValues>
             <field>AfaProJahrInEuro__c</field>
             <value>
-                <elementReference>formula_2_myRule_1_A1_0838733943</elementReference>
+                <elementReference>formula_4_myRule_1_A1_7667831896</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -541,7 +980,7 @@
             </processMetadataValues>
             <field>GrunderwerbsteuerInPercent__c</field>
             <value>
-                <elementReference>formula_3_myRule_1_A1_8366037922</elementReference>
+                <elementReference>formula_5_myRule_1_A1_1172525848</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -577,7 +1016,7 @@
             </processMetadataValues>
             <field>InstandhaltungProMonatInEuro__c</field>
             <value>
-                <elementReference>formula_4_myRule_1_A1_7887919496</elementReference>
+                <elementReference>formula_6_myRule_1_A1_6003854832</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -613,7 +1052,7 @@
             </processMetadataValues>
             <field>Listenpreis__c</field>
             <value>
-                <elementReference>formula_5_myRule_1_A1_8290082724</elementReference>
+                <elementReference>formula_7_myRule_1_A1_5829576110</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -649,7 +1088,7 @@
             </processMetadataValues>
             <field>MieteProMonatInEuro__c</field>
             <value>
-                <elementReference>formula_6_myRule_1_A1_0630818221</elementReference>
+                <elementReference>formula_8_myRule_1_A1_7560880345</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -685,7 +1124,7 @@
             </processMetadataValues>
             <field>Name</field>
             <value>
-                <elementReference>formula_7_myRule_1_A1_9915590416</elementReference>
+                <elementReference>formula_9_myRule_1_A1_0339462923</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -757,7 +1196,7 @@
             </processMetadataValues>
             <field>SubstanzwertInEuro__c</field>
             <value>
-                <elementReference>formula_8_myRule_1_A1_6502158002</elementReference>
+                <elementReference>formula_10_myRule_1_A1_6702078782</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -793,7 +1232,7 @@
             </processMetadataValues>
             <field>VerwaltungProMonatInEuro__c</field>
             <value>
-                <elementReference>formula_9_myRule_1_A1_4048908585</elementReference>
+                <elementReference>formula_11_myRule_1_A1_6577360766</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -829,7 +1268,7 @@
             </processMetadataValues>
             <field>WertAussenanlagenInEuro__c</field>
             <value>
-                <elementReference>formula_10_myRule_1_A1_6779176190</elementReference>
+                <elementReference>formula_12_myRule_1_A1_9956111361</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -865,7 +1304,7 @@
             </processMetadataValues>
             <field>WertGrundstueckInEuro__c</field>
             <value>
-                <elementReference>formula_11_myRule_1_A1_5149635351</elementReference>
+                <elementReference>formula_13_myRule_1_A1_6034928484</elementReference>
             </value>
         </inputAssignments>
         <object>BerechnungsApartment__c</object>
