@@ -82,6 +82,10 @@
                 <behavior>Edit</behavior>
                 <field>VPBenutzerLetzterLogin__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ErhaeltErfolgsabhaengigeProvision__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

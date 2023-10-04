@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Provisionssumme__c</fullName>
     <externalId>false</externalId>
-    <formula>Wert_Verk_ufer_Beratungsprovision_o_R__c +  Wert_Verk_ufer_Beratungsprovision_m_R__c +  Wert_Sonstige_2__c +  Wert_Sonstige_1__c +  Wert_Referentenverg_tung__c +  Wert_Differenzprovision__c +  Wert_Beteiligung_SMB_an_JMB__c +  TA_Beteiligung__c +  JMB_Beteiligung__c +  Erfolgsabh_ngige_Provision_direkt__c +  Erfolgsabh_ngige_Provision_indirekt__c +  Direktverkauf_Provision__c +  Wert_Tippprovision__c +  Wert_Overhead__c +  Wert_Maklerprovision__c +  WertMarketingzuschuss__c + AdditionalBrokerCommission__c</formula>
+    <formula>Wert_Verk_ufer_Beratungsprovision_o_R__c +  Wert_Verk_ufer_Beratungsprovision_m_R__c +  Wert_Sonstige_2__c +  Wert_Sonstige_1__c +  Wert_Referentenverg_tung__c +  Wert_Differenzprovision__c +  Wert_Beteiligung_SMB_an_JMB__c +  TA_Beteiligung__c +  JMB_Beteiligung__c +  Erfolgsabh_ngige_Provision_direkt__c +  Erfolgsabh_ngige_Provision_indirekt__c +  Direktverkauf_Provision__c +  Wert_Tippprovision__c +  Wert_Overhead__c +  Wert_Maklerprovision__c +  WertMarketingzuschuss__c + AdditionalBrokerCommission__c +  BeratungsprovisionMitPVInEuro__c +  ClosingBonusInEuro__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Provisionssumme</label>
     <precision>18</precision>

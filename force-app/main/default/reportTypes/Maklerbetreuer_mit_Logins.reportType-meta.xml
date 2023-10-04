@@ -2513,6 +2513,11 @@
             <field>VPDateiUebersichtAbbestellen__c</field>
             <table>Account.BetreuteAccounts__r.Contacts</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ErhaeltErfolgsabhaengigeProvision__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
         <masterLabel>Kontakte</masterLabel>
     </sections>
 </ReportType>
