@@ -1532,7 +1532,6 @@
             <dataType>String</dataType>
             <fieldText>Berechnung Name</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <validationRule>
                 <errorMessage>&lt;p&gt;Der Name darf nicht länger als 80 Zeichen sein.&lt;/p&gt;</errorMessage>
@@ -1545,7 +1544,6 @@
             <dataType>String</dataType>
             <fieldText>Immobilie</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -1614,7 +1612,6 @@
             <dataType>Boolean</dataType>
             <fieldText>Neuen Verkaufsraum erstellen</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -1628,7 +1625,6 @@
                     <dataType>String</dataType>
                     <fieldText>Verkaufsraum Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -1709,7 +1705,6 @@
             <dataType>Boolean</dataType>
             <fieldText>1. Käufer anlegen</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -1848,7 +1843,6 @@
             <dataType>Boolean</dataType>
             <fieldText>2. Käufer anlegen</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -1944,7 +1938,6 @@
             </defaultValue>
             <fieldText>Kaufpreise anpassen?</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
@@ -2140,7 +2133,6 @@
             </defaultValue>
             <fieldText>Mietsteigerung</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -2151,7 +2143,6 @@
             </defaultValue>
             <fieldText>Steigerung Verwaltungskosten</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -2162,7 +2153,6 @@
             </defaultValue>
             <fieldText>Steigerung Instandhaltungskosten</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -2173,7 +2163,6 @@
             </defaultValue>
             <fieldText>Kirchensteuer</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -2189,7 +2178,6 @@
             </defaultValue>
             <fieldText>Zu versteuerndes Einkommen</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <scale>2</scale>
         </fields>
@@ -2201,7 +2189,6 @@
             </defaultValue>
             <fieldText>Zu versteuerndes Einkommen Rente</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <scale>2</scale>
         </fields>
@@ -2213,7 +2200,6 @@
             </defaultValue>
             <fieldText>Geburtsdatum erster Käufer</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
@@ -2238,7 +2224,6 @@
             </defaultValue>
             <fieldText>Mietsteigerung</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -2249,7 +2234,6 @@
             </defaultValue>
             <fieldText>Steigerung Verwaltungskosten</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -2260,7 +2244,6 @@
             </defaultValue>
             <fieldText>Steigerung Instandhaltungskosten</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -2268,7 +2251,6 @@
             <dataType>Boolean</dataType>
             <fieldText>Kirchensteuer</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -2281,7 +2263,6 @@
             <dataType>Currency</dataType>
             <fieldText>Zu versteuerndes Einkommen</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <scale>2</scale>
         </fields>
@@ -2290,7 +2271,6 @@
             <dataType>Currency</dataType>
             <fieldText>Zu versteuerndes Einkommen Rente</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <scale>2</scale>
         </fields>
@@ -2302,7 +2282,6 @@
             </defaultValue>
             <fieldText>Geburtsdatum erster Käufer</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
