@@ -524,6 +524,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>PriceAdjustment__c</field>
+            <value>
+                <elementReference>Berechnungs_Apartment.PriceAdjustment__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>StageName</field>
             <value>
                 <stringValue>Reservierung angefragt</stringValue>
