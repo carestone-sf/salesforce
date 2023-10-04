@@ -35,8 +35,6 @@
                 <elementReference>Verkaufschance_erstellen</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>DocuSignHandler</nameSegment>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>BerechnungsApartmentIds</name>
@@ -55,9 +53,7 @@
                 <elementReference>Apartments</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>MultiSelectFlowValues</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>51.0</apiVersion>
     <assignments>

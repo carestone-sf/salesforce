@@ -1755,6 +1755,26 @@
             <field>PriceAdjustment__c</field>
             <table>Account.Contacts.Opportunities__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Mahnstopp__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MahnstoppKommentar__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ZweiteMahnungVersendetAm__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DritteMahnungVersendetAm__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
     <sections>
@@ -1816,6 +1836,36 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>BeurkundungMoeglich__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ClosingBonusInProzent__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BeratungsprovisionMitPVInProzent__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProvisionsverzichtInProzent__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BeratungsprovisionMitPVInEuro__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ClosingBonusInEuro__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProvisionsverzichtInEuro__c</field>
             <table>Account.Contacts.Opportunities__r</table>
         </columns>
         <columns>
