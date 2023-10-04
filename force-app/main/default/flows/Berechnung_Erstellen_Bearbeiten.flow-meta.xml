@@ -1466,7 +1466,6 @@
             </defaultValue>
             <fieldText>Berechnung Name</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <validationRule>
                 <errorMessage>&lt;p&gt;Der Name darf nicht länger als 80 Zeichen sein.&lt;/p&gt;</errorMessage>
