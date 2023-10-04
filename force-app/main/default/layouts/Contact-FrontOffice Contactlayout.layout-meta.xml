@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Duplikate_suchen</customButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
-    <excludeButtons>RequestUseSfdc</excludeButtons>
     <excludeButtons>SendEmail</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <excludeButtons>XClean</excludeButtons>
@@ -40,6 +38,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Ist_Maklerbetreuer_WH__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ErhaeltErfolgsabhaengigeProvision__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
