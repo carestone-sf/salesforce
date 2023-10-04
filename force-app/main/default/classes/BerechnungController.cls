@@ -30,7 +30,7 @@ public without sharing class BerechnungController {
 
     @AuraEnabled(cacheable=true)
     public static Berechnung__c getBerechnung(Id recordId) {
-        List<Berechnung__c> berechnungen = [SELECT Id, KreditSumme__c, Finanzierungsart__c, Hauptimmobilie__r.Repayment_Beginning__c, Hauptimmobilie__c, Hauptimmobilie__r.Name, Eigenkapital__c, Gesamtkosten__c, NebenkostenGesamt__c, ListenpreisGesamt__c, ErsterKaeufer__c, ZweiterKaeufer__c, Name, (SELECT Id, Name, Apartment__c, Apartment__r.Name, Listenpreis__c, Gesamtkosten__c, NebenkostenInEuro__c, Immobilie__c, Immobilie__r.Name FROM Berechnungs_Apartments__r ORDER BY Name ASC), (SELECT Id, Name, Art__c, Kreditsumme__c, TilgungInPercent__c, ZinsInPercent__c, TilgungProMonatInEuro__c, ZinsProMonatInEuro__c, IstEigenkapitalBaustein__c FROM Finanzierungsbausteine__r) FROM Berechnung__C WHERE Id =: recordId];
+        List<Berechnung__c> berechnungen = [SELECT Id, KreditSumme__c, Finanzierungsart__c, Hauptimmobilie__r.Repayment_Beginning__c, Hauptimmobilie__c, Hauptimmobilie__r.Name, Eigenkapital__c, Gesamtkosten__c, NebenkostenGesamt__c, ListenpreisGesamt__c, SumPurchasePrice__c, SumPriceAdjustment__c, ErsterKaeufer__c, ZweiterKaeufer__c, Name, (SELECT Id, Name, Apartment__c, Apartment__r.Name, Listenpreis__c, Gesamtkosten__c, NebenkostenInEuro__c, Immobilie__c, Immobilie__r.Name, PriceAdjustment__c, PurchasePrice__c FROM Berechnungs_Apartments__r ORDER BY Name ASC), (SELECT Id, Name, Art__c, Kreditsumme__c, TilgungInPercent__c, ZinsInPercent__c, TilgungProMonatInEuro__c, ZinsProMonatInEuro__c, IstEigenkapitalBaustein__c FROM Finanzierungsbausteine__r) FROM Berechnung__C WHERE Id =: recordId];
         if(berechnungen.size() == 1) {
             return berechnungen[0];
         }
