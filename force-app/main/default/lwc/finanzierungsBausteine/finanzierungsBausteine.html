@@ -13,6 +13,7 @@
                 <tr>
                     <th>{calculation.data.Hauptimmobilie__r.Name}</th>
                     <th class="slds-text-align_right">Kaufpreis</th>
+                    <th class="slds-text-align_right">Kaufpreisanpassung</th>
                     <th class="slds-text-align_right">Nebenkosten</th>
                     <th class="slds-text-align_right">Gesamt</th>
                 </tr>
@@ -23,6 +24,9 @@
                         <td>{apartment.Apartment__r.Name}</td>
                         <td class="slds-text-align_right">
                             <lightning-formatted-number value={apartment.Listenpreis__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                        </td>
+                        <td class="slds-text-align_right">
+                            <lightning-formatted-number value={apartment.PriceAdjustment__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
                         </td>
                         <td class="slds-text-align_right">
                             <lightning-formatted-number value={apartment.NebenkostenInEuro__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
@@ -39,6 +43,9 @@
                     <td>Gesamt</td>
                     <td class="slds-text-align_right">
                         <lightning-formatted-number value={calculation.data.ListenpreisGesamt__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
+                    </td>
+                    <td class="slds-text-align_right">
+                        <lightning-formatted-number value={calculation.data.SumPriceAdjustment__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
                     </td>
                     <td class="slds-text-align_right">
                         <lightning-formatted-number value={calculation.data.NebenkostenGesamt__c} format-style="currency" currency-code="EUR"></lightning-formatted-number>
