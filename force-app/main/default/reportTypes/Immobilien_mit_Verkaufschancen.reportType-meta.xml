@@ -2945,12 +2945,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>PriceAdjustment__c</field>
+            <field>VerzugszinsenProTag__c</field>
             <table>Property__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>PriceAdjustment__c</field>
+            <field>ZahlungszielDatum__c</field>
             <table>Property__c.Opportunities__r</table>
         </columns>
         <masterLabel>Opportunities</masterLabel>
