@@ -1158,6 +1158,11 @@
             <field>VPDateiUebersichtAbbestellen__c</field>
             <table>Account.Contacts</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ErhaeltErfolgsabhaengigeProvision__c</field>
+            <table>Account.Contacts</table>
+        </columns>
         <masterLabel>Kontakte</masterLabel>
     </sections>
     <sections>

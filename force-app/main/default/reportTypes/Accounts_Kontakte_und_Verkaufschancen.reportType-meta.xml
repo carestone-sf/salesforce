@@ -1077,6 +1077,16 @@
             <field>LongitudeRounded__c</field>
             <table>Account.Contacts</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VPDateiUebersichtAbbestellen__c</field>
+            <table>Account.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ErhaeltErfolgsabhaengigeProvision__c</field>
+            <table>Account.Contacts</table>
+        </columns>
         <masterLabel>Kontakte</masterLabel>
     </sections>
     <sections>
@@ -1806,6 +1816,36 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>BeurkundungMoeglich__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ClosingBonusInProzent__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BeratungsprovisionMitPVInProzent__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProvisionsverzichtInProzent__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BeratungsprovisionMitPVInEuro__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ClosingBonusInEuro__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProvisionsverzichtInEuro__c</field>
             <table>Account.Contacts.Opportunities__r</table>
         </columns>
         <masterLabel>Verkaufschancen</masterLabel>

@@ -819,6 +819,11 @@
             <field>VPDateiUebersichtAbbestellen__c</field>
             <table>Contact</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ErhaeltErfolgsabhaengigeProvision__c</field>
+            <table>Contact</table>
+        </columns>
         <masterLabel>Kontakte</masterLabel>
     </sections>
 </ReportType>

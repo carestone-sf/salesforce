@@ -213,7 +213,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                         opp.Marketingzuschuss__c = (opp.MarketingzuschussInEuro__c / opp.Provisionsbasis__c) * 100;
                     }
 
-                    if(opp.ErfolgsabhaengigeProvision__c != oldOpp.ErfolgsabhaengigeProvision__c || opp.Verkaufsprovision_nach_Nachtrag__c != oldOpp.Verkaufsprovision_nach_Nachtrag__c || opp.Wert_Maklerprovision__c != oldOpp.Wert_Maklerprovision__c || opp.Wert_Overhead__c != oldOpp.Wert_Overhead__c || opp.Wert_Tippprovision__c != oldOpp.Wert_Tippprovision__c || opp.Abrechnung_ber__c != oldOpp.Abrechnung_ber__c || opp.Makler__c != oldOpp.Makler__c || opp.Immobilienberater__c != oldOpp.Immobilienberater__c || opp.Maklerbetreuer_Wirtschaftshaus__c != oldOpp.Maklerbetreuer_Wirtschaftshaus__c || opp.Rabatt_in__c != oldOpp.Rabatt_in__c || opp.WH_Rabatt_in_P__c != oldOpp.WH_Rabatt_in_P__c || opp.Provision_Thoben__c != oldOpp.Provision_Thoben__c || opp.Marketingzuschuss__c != oldOpp.Marketingzuschuss__c) {
+                    if(opp.ErfolgsabhaengigeProvision__c != oldOpp.ErfolgsabhaengigeProvision__c || opp.Verkaufsprovision_nach_Nachtrag__c != oldOpp.Verkaufsprovision_nach_Nachtrag__c || opp.Wert_Maklerprovision__c != oldOpp.Wert_Maklerprovision__c || opp.Wert_Overhead__c != oldOpp.Wert_Overhead__c || opp.Wert_Tippprovision__c != oldOpp.Wert_Tippprovision__c || opp.Abrechnung_ber__c != oldOpp.Abrechnung_ber__c || opp.Makler__c != oldOpp.Makler__c || opp.Immobilienberater__c != oldOpp.Immobilienberater__c || opp.Maklerbetreuer_Wirtschaftshaus__c != oldOpp.Maklerbetreuer_Wirtschaftshaus__c || opp.Rabatt_in__c != oldOpp.Rabatt_in__c || opp.WH_Rabatt_in_P__c != oldOpp.WH_Rabatt_in_P__c || opp.Provision_Thoben__c != oldOpp.Provision_Thoben__c || opp.Marketingzuschuss__c != oldOpp.Marketingzuschuss__c || opp.BeratungsprovisionMitPVInProzent__c != oldOpp.BeratungsprovisionMitPVInProzent__c || opp.ClosingBonusInProzent__c != oldOpp.ClosingBonusInProzent__c || opp.ProvisionsverzichtInProzent__c != oldOpp.ProvisionsverzichtInProzent__c) {
                         provDataPercentageHasChanged = true;
                     }
                 }
@@ -249,16 +249,6 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                     }
                     opp.KumulierteProvisionExtern__c = provExtern;
 
-                    if (opp.KumulierteProvisionExtern__c <= 7) {
-                        opp.ErfolgsabhaengigeProvision__c = 0.5;
-                    } else if (opp.KumulierteProvisionExtern__c > 7 && opp.KumulierteProvisionExtern__c <= 8) {
-                        opp.ErfolgsabhaengigeProvision__c = 0.45;
-                    } else if (opp.KumulierteProvisionExtern__c > 8 && opp.KumulierteProvisionExtern__c <= 9) {
-                        opp.ErfolgsabhaengigeProvision__c = 0.35;
-                    } else if (opp.KumulierteProvisionExtern__c > 9) {
-                        opp.ErfolgsabhaengigeProvision__c = 0.25;
-                    }
-
                     // Interne Provision berechnen
                     Decimal provIntern = 0;
                     if(opp.ErfolgsabhaengigeProvision__c != null) {
@@ -266,6 +256,12 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                     }
                     if(oppWithFormulaFields.Verkaufsprovision_nach_Nachtrag__c != null && oppWithFormulaFields.Verkaufsprovision_intern__c != null) {
                         provIntern += oppWithFormulaFields.Verkaufsprovision_nach_Nachtrag__c/100;
+                    }
+                    if(opp.ClosingBonusInProzent__c != null) {
+                        provIntern += opp.ClosingBonusInProzent__c;
+                    }
+                    if(opp.BeratungsprovisionMitPVInProzent__c != null) {
+                        provIntern += opp.BeratungsprovisionMitPVInProzent__c;
                     }
 
                     // WH Provision
@@ -316,28 +312,6 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
             }
 
         }
-        
-        if(!AdminSettings__c.getInstance(UserInfo.getUserId()).DisableProvisionGenerationAutomatism__c) {
-            if(changedOppsIntern.size() > 0) {
-                GenerateProvision gPro = new GenerateProvision();
-                gPro.updateProvisionen(changedOppsIntern, changedOppsInternOldMap, 'intern');
-            }
-
-            if(changedOppsAll.size() > 0) {
-                GenerateProvision gPro = new GenerateProvision();
-                gPro.updateProvisionen(changedOppsAll, changedOppsAllOldMap, 'all');
-            }
-        }
-
-        if(changedOppsIntern.size() > 0) {
-            GenerateProvision gPro = new GenerateProvision();
-            gPro.updateProvisionen(changedOppsIntern, changedOppsInternOldMap, 'intern');
-        }
-
-        if(changedOppsAll.size() > 0) {
-            GenerateProvision gPro = new GenerateProvision();
-            gPro.updateProvisionen(changedOppsAll, changedOppsAllOldMap, 'all');
-        }
     }
 
     // After Trigger
@@ -381,7 +355,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
 
                     changedOppsIntern.put(opp.Id, opp);
                     changedOppsInternOldMap.put(opp.Id, Trigger.oldMap.get(opp.Id));
-                } else if (opp.ProvisionsvoraussetzungenErfuellt__c == true && opp.ExterneProvisionenGeneriert__c == true && (opp.ErfolgsabhaengigeProvision__c != oldOpp.ErfolgsabhaengigeProvision__c || opp.Wert_Verk_ufer_Beratungsprovision_m_R__c != oldOpp.Wert_Verk_ufer_Beratungsprovision_m_R__c || opp.KumulierteProvisionExtern__c != oldOpp.KumulierteProvisionExtern__c || opp.Abrechnung_ber__c != oldOpp.Abrechnung_ber__c || opp.Makler__c != oldOpp.Makler__c || opp.Immobilienberater__c != oldOpp.Immobilienberater__c || opp.Maklerbetreuer_WirtschaftsHaus__c != oldOpp.Maklerbetreuer_WirtschaftsHaus__c || opp.WH_Rabatt_in_P__c != oldOpp.WH_Rabatt_in_P__c || opp.Provision_Thoben__c != oldOpp.Provision_Thoben__c || opp.TippgeberProvisionEmpfaenger__c != oldOpp.TippgeberProvisionEmpfaenger__c || opp.Overhead_Empf_nger__c != oldOpp.Overhead_Empf_nger__c || opp.Marketingzuschuss__c != oldOpp.Marketingzuschuss__c || opp.AbrechnungUeberNurFuerGrundprovision__c != oldOpp.AbrechnungUeberNurFuerGrundprovision__c || opp.MarketingzuschussNichtAusweisen__c != oldOpp.MarketingzuschussNichtAusweisen__c || opp.AdditionalBrokerCommission__c != oldOpp.AdditionalBrokerCommission__c)) {
+                } else if (opp.ProvisionsvoraussetzungenErfuellt__c == true && opp.ExterneProvisionenGeneriert__c == true && (opp.ErfolgsabhaengigeProvision__c != oldOpp.ErfolgsabhaengigeProvision__c || opp.Wert_Verk_ufer_Beratungsprovision_m_R__c != oldOpp.Wert_Verk_ufer_Beratungsprovision_m_R__c || opp.KumulierteProvisionExtern__c != oldOpp.KumulierteProvisionExtern__c || opp.ClosingBonusInProzent__c != oldOpp.ClosingBonusInProzent__c || opp.BeratungsprovisionMitPVInProzent__c != oldOpp.BeratungsprovisionMitPVInProzent__c || opp.Abrechnung_ber__c != oldOpp.Abrechnung_ber__c || opp.Makler__c != oldOpp.Makler__c || opp.Immobilienberater__c != oldOpp.Immobilienberater__c || opp.Maklerbetreuer_WirtschaftsHaus__c != oldOpp.Maklerbetreuer_WirtschaftsHaus__c || opp.WH_Rabatt_in_P__c != oldOpp.WH_Rabatt_in_P__c || opp.Provision_Thoben__c != oldOpp.Provision_Thoben__c || opp.TippgeberProvisionEmpfaenger__c != oldOpp.TippgeberProvisionEmpfaenger__c || opp.Overhead_Empf_nger__c != oldOpp.Overhead_Empf_nger__c || opp.Marketingzuschuss__c != oldOpp.Marketingzuschuss__c || opp.AbrechnungUeberNurFuerGrundprovision__c != oldOpp.AbrechnungUeberNurFuerGrundprovision__c || opp.MarketingzuschussNichtAusweisen__c != oldOpp.MarketingzuschussNichtAusweisen__c || opp.AdditionalBrokerCommission__c != oldOpp.AdditionalBrokerCommission__c)) {
                     changedOppsAll.put(opp.Id, opp);
                     changedOppsAllOldMap.put(opp.Id, Trigger.oldMap.get(opp.Id));
                 }
@@ -511,7 +485,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
             //Übertragen in die Liste zum Updaten, wenn das Feld no update nicht gesetzt ist
             if (Trigger.IsUpdate) {
                 Opportunity oldOpp = Trigger.OldMap.get(opp.Id);
-                if (apps != null && opp.Appartement__c != null && (opp.StageName != Trigger.OldMap.get(opp.Id).StageName || opp.reserviert_bis__c != oldOpp.reserviert_bis__c || opp.Potenzieller_Kunde__c != oldOpp.Potenzieller_Kunde__c || opp.Makler__c != oldOpp.Makler__c || opp.Datum_Kaufpreis_bezahlt__c != oldOpp.Datum_Kaufpreis_bezahlt__c || opp.Notartermin__c != oldOpp.Notartermin__c || opp.Finanzierung__c != oldOpp.Finanzierung__c || opp.Maklerbetreuer_WirtschaftsHaus__c != oldOpp.Maklerbetreuer_WirtschaftsHaus__c || opp.StageName != oldOpp.StageName || opp.beurkundeter_Kaufpreis__c != oldOpp.beurkundeter_Kaufpreis__c || opp.Provisionsbasis__c != oldOpp.Provisionsbasis__c || opp.KumulierteProvisionExtern__c != oldOpp.KumulierteProvisionExtern__c || opp.Appartement__c != oldOpp.Appartement__c || opp.Kaufdatum__c != oldOpp.Kaufdatum__c)) {
+                if (apps != null && opp.Appartement__c != null && (opp.StageName != Trigger.OldMap.get(opp.Id).StageName || opp.reserviert_bis__c != oldOpp.reserviert_bis__c || opp.Potenzieller_Kunde__c != oldOpp.Potenzieller_Kunde__c || opp.Makler__c != oldOpp.Makler__c || opp.Datum_Kaufpreis_bezahlt__c != oldOpp.Datum_Kaufpreis_bezahlt__c || opp.Notartermin__c != oldOpp.Notartermin__c || opp.Finanzierung__c != oldOpp.Finanzierung__c || opp.Maklerbetreuer_WirtschaftsHaus__c != oldOpp.Maklerbetreuer_WirtschaftsHaus__c || opp.StageName != oldOpp.StageName || opp.beurkundeter_Kaufpreis__c != oldOpp.beurkundeter_Kaufpreis__c || opp.Provisionsbasis__c != oldOpp.Provisionsbasis__c || opp.KumulierteProvisionExtern__c != oldOpp.KumulierteProvisionExtern__c || opp.KumulierteProvision__c != oldOpp.KumulierteProvision__c || opp.Appartement__c != oldOpp.Appartement__c || opp.Kaufdatum__c != oldOpp.Kaufdatum__c)) {
                     
                     appToUpdate.add(apps);
                 } 
@@ -540,14 +514,9 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
             update appToUpdate;
         }
 
-        if(changedOppsIntern.size() > 0) {
-            GenerateProvision gPro = new GenerateProvision();
-            gPro.updateProvisionen(changedOppsIntern, changedOppsInternOldMap, 'intern');
-        }
-
         if(changedOppsAll.size() > 0) {
-            GenerateProvision gPro = new GenerateProvision();
-            gPro.updateProvisionen(changedOppsAll, changedOppsAllOldMap, 'all');
+            ProvisionService ps = new ProvisionService(Trigger.newMap, Trigger.oldMap, 'extern', null);
+            ps.upsertProvisionen();
         }
 
         if(oppsWonCustomersIds.size() > 0) {
