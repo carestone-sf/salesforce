@@ -475,7 +475,7 @@
                             <td>{!berechnungsApartment.Apartment__r.Name}</td>
                             <td><apex:outputField value="{!berechnungsApartment.FlaecheInQm__c}"></apex:outputField> m<sup>2</sup></td>
                             <td><apex:outputField value="{!berechnungsApartment.MieteProMonatInEuro__c}"></apex:outputField></td>
-                            <td align="right"><apex:outputField value="{!berechnungsApartment.Listenpreis__c}"></apex:outputField></td>
+                            <td align="right"><apex:outputField value="{!berechnungsApartment.PurchasePrice__c}"></apex:outputField></td>
                         </tr>
                     </apex:repeat>
                 </tbody>
@@ -514,7 +514,7 @@
                 <tbody>
                     <tr>
                         <td style="border-top: 0.5px solid #888888;"><b>Gesamtkaufpreis</b></td>
-                        <td align="right" style="border-top: 0.5px solid #888888;"><b>*<apex:outputField value="{!Berechnung__c.ListenpreisGesamt__c}"></apex:outputField></b></td>
+                        <td align="right" style="border-top: 0.5px solid #888888;"><b>*<apex:outputField value="{!Berechnung__c.SumPurchasePrice__c}"></apex:outputField></b></td>
                     </tr>
                     <tr>
                         <td>Grunderwerbsteuer (<apex:outputField value="{!Berechnung__c.Hauptimmobilie__r.Real_Estate_Transfer_Tax__c}"></apex:outputField>)</td>
@@ -598,7 +598,7 @@
                                     <td>{!berechnungsApartment.Apartment__r.Name}</td>
                                     <td><apex:outputField value="{!berechnungsApartment.FlaecheInQm__c}"></apex:outputField> m<sup>2</sup></td>
                                     <td><apex:outputField value="{!berechnungsApartment.MieteProMonatInEuro__c}"></apex:outputField></td>
-                                    <td align="right"><apex:outputField value="{!berechnungsApartment.Listenpreis__c}"></apex:outputField></td>
+                                    <td align="right"><apex:outputField value="{!berechnungsApartment.PurchasePrice__c}"></apex:outputField></td>
                                 </tr>
                         </tbody>
                     </table>
@@ -636,7 +636,7 @@
                         <tbody>
                             <tr>
                                 <td style="border-top: 0.5px solid #888888;"><b>Gesamtkaufpreis</b></td>
-                                <td align="right" style="border-top: 0.5px solid #888888;"><b>*<apex:outputField value="{!berechnungsApartment.Listenpreis__c}"></apex:outputField></b></td>
+                                <td align="right" style="border-top: 0.5px solid #888888;"><b>*<apex:outputField value="{!berechnungsApartment.PurchasePrice__c}"></apex:outputField></b></td>
                             </tr>
                             <tr>
                                 <td>Grunderwerbsteuer  (<apex:outputField value="{!Berechnung__c.Hauptimmobilie__r.Real_Estate_Transfer_Tax__c}"></apex:outputField>)</td>
