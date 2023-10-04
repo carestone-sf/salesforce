@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Gesamtkosten__c</fullName>
     <externalId>false</externalId>
-    <formula>Listenpreis__c + GrunderwerbsteuerInEuro__c  +  NotarUndGerichtskostenInEuro__c</formula>
+    <formula>Listenpreis__c +   PriceAdjustment__c + GrunderwerbsteuerInEuro__c  +  NotarUndGerichtskostenInEuro__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Gesamtkosten</label>
     <precision>18</precision>
