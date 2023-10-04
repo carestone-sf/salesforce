@@ -1615,6 +1615,41 @@
             <field>LostInterest__c</field>
             <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ZweiteMahnungVersendetAm__c</field>
+            <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DritteMahnungVersendetAm__c</field>
+            <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsDatensatz__c</field>
+            <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsInEuro__c</field>
+            <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsInProzent__c</field>
+            <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>OffenerBetragInklusiveVerzugszinsen__c</field>
+            <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VerzugszinsenProTag__c</field>
+            <table>Opportunity.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
         <masterLabel>MaBV Rechnungen</masterLabel>
     </sections>
     <sections>
