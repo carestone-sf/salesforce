@@ -1800,9 +1800,13 @@
             <field>ZahlungszielDatum__c</field>
             <table>Account.Contacts.Opportunities__r</table>
         </columns>
+        <masterLabel>Opportunities</masterLabel>
+    </sections>
+    <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>IncentivierungGesamt__c</field>
+            <field>MobiltelefonErsterKaeufer__c</field>
             <table>Account.Contacts.Opportunities__r</table>
         </columns>
         <masterLabel>Opportunities</masterLabel>
@@ -1811,51 +1815,61 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>MobiltelefonErsterKaeufer__c</field>
-            <table>Account.Contacts.Opportunities__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>MarketingzuschussInEuro__c</field>
             <table>Account.Contacts.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>MarketingzuschussInEuro__c</field>
             <field>ForecastCurrentYear__c</field>
             <table>Account.Contacts.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>ForecastCurrentYear__c</field>
             <field>PaymentReminderAutomaticDate__c</field>
             <table>Account.Contacts.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>PaymentReminderAutomaticDate__c</field>
             <field>CarestoneFinancingRecommended__c</field>
             <table>Account.Contacts.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>CarestoneFinancingRecommended__c</field>
             <field>InterestedInCarestoneFinancing__c</field>
             <table>Account.Contacts.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>InterestedInCarestoneFinancing__c</field>
             <field>CommentCarestoneFinancing__c</field>
             <table>Account.Contacts.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>CommentCarestoneFinancing__c</field>
             <field>CustomerIncentiveWasPaid__c</field>
             <table>Account.Contacts.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>CustomerIncentiveWasPaid__c</field>
             <field>TageUeberfaellig__c</field>
             <table>Account.Contacts.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>TageUeberfaellig__c</field>
             <field>CommentOPOS__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CommentOPOS__c</field>
+            <field>LostInterest__c</field>
             <table>Account.Contacts.Opportunities__r</table>
         </columns>
         <columns>
