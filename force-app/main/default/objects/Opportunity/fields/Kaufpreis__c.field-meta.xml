@@ -3,8 +3,8 @@
     <fullName>Kaufpreis__c</fullName>
     <externalId>false</externalId>
     <formula>IF( Appartement__r.DeviatingPurchasePrice__c != 0 &amp;&amp; !IsBlank(Appartement__r.DeviatingPurchasePrice__c),
-			Appartement__r.DeviatingPurchasePrice__c + PriceAdjustment__c,
-			Appartement__r.Purchase_Price__c + PriceAdjustment__c)</formula>
+			Appartement__r.DeviatingPurchasePrice__c,
+			Appartement__r.Purchase_Price__c)</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Listenpreis</label>
     <precision>18</precision>
