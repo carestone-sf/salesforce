@@ -4,7 +4,7 @@
         <name>Benachrichtigung_ber_interne_Provision_an_MB</name>
         <label>Benachrichtigung über interne Provision an MB</label>
         <locationX>50</locationX>
-        <locationY>695</locationY>
+        <locationY>647</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -26,13 +26,15 @@
                 <elementReference>newInternalProvisionEmailText</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>54.0</apiVersion>
     <decisions>
         <name>Interne_Provision</name>
         <label>Interne Provision?</label>
         <locationX>182</locationX>
-        <locationY>575</locationY>
+        <locationY>539</locationY>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
             <name>Interne_Provision2</name>
@@ -51,6 +53,13 @@
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.Provisionssumme__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Benachrichtigung_ber_interne_Provision_an_MB</targetReference>
             </connector>
@@ -61,7 +70,7 @@
         <name>Is_New</name>
         <label>Is New?</label>
         <locationX>380</locationX>
-        <locationY>455</locationY>
+        <locationY>431</locationY>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
             <name>Is_New2</name>
@@ -83,7 +92,7 @@
         <name>Run_Automations</name>
         <label>Run Automations?</label>
         <locationX>611</locationX>
-        <locationY>335</locationY>
+        <locationY>323</locationY>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
             <name>Run_Automations2</name>
