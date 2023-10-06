@@ -2966,7 +2966,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>IncentivierungGesamt__c</field>
-            <field>ZahlungszielDatum__c</field>
             <table>Property__c.Opportunities__r</table>
         </columns>
         <masterLabel>Opportunities</masterLabel>
