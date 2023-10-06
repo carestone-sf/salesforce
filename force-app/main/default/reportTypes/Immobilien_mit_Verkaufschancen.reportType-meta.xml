@@ -1770,6 +1770,16 @@
             <field>ImVertriebsportalSichtbar__c</field>
             <table>Property__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>IncentivierungIST__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>IncentivierungPlan__c</field>
+            <table>Property__c</table>
+        </columns>
         <masterLabel>Immobilien</masterLabel>
     </sections>
     <sections>
@@ -2951,6 +2961,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ZahlungszielDatum__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>IncentivierungGesamt__c</field>
             <table>Property__c.Opportunities__r</table>
         </columns>
         <masterLabel>Opportunities</masterLabel>
