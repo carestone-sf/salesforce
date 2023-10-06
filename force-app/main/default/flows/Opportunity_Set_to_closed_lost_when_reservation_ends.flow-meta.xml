@@ -1,51 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionCalls>
-        <name>Submit_for_approval</name>
-        <label>Submit for approval</label>
-        <locationX>308</locationX>
-        <locationY>288</locationY>
-        <actionName>submit</actionName>
-        <actionType>submit</actionType>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>processDefinitionNameOrId</name>
-            <value>
-                <stringValue>ReservationIsEnding</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>objectId</name>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>skipEntryCriteria</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>comment</name>
-            <value>
-                <stringValue>Durchs System automatisiert eingereicht</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>submitterId</name>
-            <value>
-                <stringValue>005b0000001V30PAAS</stringValue>
-            </value>
-        </inputParameters>
-        <nameSegment>submit</nameSegment>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
-    </actionCalls>
     <apiVersion>57.0</apiVersion>
     <environments>Default</environments>
-    <interviewLabel>Opportunity: Submit reservation for approval {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Opportunity: Submit expiring reservation for approval</label>
+    <interviewLabel>Opportunity: Set to closed lost when reservation ends {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity: Set to closed lost when reservation ends</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -65,6 +23,25 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Opportunity</name>
+        <label>Update Opportunity</label>
+        <locationX>308</locationX>
+        <locationY>276</locationY>
+        <inputAssignments>
+            <field>Grund_VKC_verloren__c</field>
+            <value>
+                <stringValue>VKC ausgelaufen</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>StageName</field>
+            <value>
+                <stringValue>VKC ausgelaufen</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
     <start>
         <locationX>50</locationX>
         <locationY>0</locationY>
@@ -89,7 +66,7 @@
         <scheduledPaths>
             <name>One_hour_before_reservation_end</name>
             <connector>
-                <targetReference>Submit_for_approval</targetReference>
+                <targetReference>Update_Opportunity</targetReference>
             </connector>
             <label>One hour before reservation end</label>
             <offsetNumber>-1</offsetNumber>
@@ -99,5 +76,5 @@
         </scheduledPaths>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Obsolete</status>
+    <status>Active</status>
 </Flow>
