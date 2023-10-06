@@ -33,46 +33,71 @@ public without sharing class ProvisionService {
                 mbIds.add(con.Id);
             }
         }
-        List<Opportunity> allOpps = [SELECT Notartermin__c, Maklerbetreuer_WirtschaftsHaus__c FROM Opportunity WHERE StageName = 'Geschlossene und gewonnene' AND Maklerbetreuer_WirtschaftsHaus__c IN :mbIds AND Notartermin__c != null AND Notartermin__c = THIS_YEAR];
-        for(Opportunity opp:allOpps) {
-            Integer monthOpp = opp.Notartermin__c.month();
-            Map<Integer, Integer> monthOpps = mbToMonthOpps.get(opp.Maklerbetreuer_WirtschaftsHaus__c);
-            if(monthOpps == null) {
-                monthOpps = new Map<Integer, Integer>();
+        if(this.mode == 'intern') {
+            Date todaysDate = Date.today();
+            Integer thisMonth = todaysDate.month();
+            Integer lastMonth = todaysDate.month() - 1;
+            Integer thisYear = todaysDate.year();
+            Integer lastYearOrThisYear = todaysDate.year();
+            if(thisMonth == 1 && todaysDate.day() <= 10) {
+                lastMonth = 12;
+                lastYearOrThisYear -= 1;
             }
-            Integer countMonthOpps = monthOpps.get(monthOpp);
-            if(countMonthOpps == null) {
-                countMonthOpps = 0;
+            Integer lastQuarter = getQuarterByMonth(lastMonth);
+            String query = 'SELECT Id, Notartermin__c, Maklerbetreuer_WirtschaftsHaus__c FROM Opportunity';
+            if(this.schedule == 'month') {
+                if(todaysDate.day() <= 10) {
+                    query += ' WHERE CALENDAR_MONTH(Notartermin__c) >= :lastMonth AND (CALENDAR_YEAR(Notartermin__c) = :thisYear OR CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear)';
+                } else if(todaysDate.day() > 10) {
+                    query += ' WHERE CALENDAR_MONTH(Notartermin__c) = :thisMonth AND (CALENDAR_YEAR(Notartermin__c) = :thisYear OR CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear)';
+                }
+            } else if(this.schedule == 'quarter') {
+                query += ' WHERE CALENDAR_QUARTER(Notartermin__c) = :lastQuarter AND (CALENDAR_YEAR(Notartermin__c) = :thisYear OR CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear)';
+            } else if(this.schedule == 'year') {
+                query += ' WHERE CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear';
             }
-            countMonthOpps++;
-            monthOpps.put(monthOpp, countMonthOpps);
-            mbToMonthOpps.put(opp.Maklerbetreuer_WirtschaftsHaus__c, monthOpps);
             
-            Integer quarterOpp = getQuarterByMonth(monthOpp);
-            Map<Integer, Integer> quarterOpps = mbToQuarterOpps.get(opp.Maklerbetreuer_WirtschaftsHaus__c);
-            if(quarterOpps == null) {
-                quarterOpps = new Map<Integer, Integer>();
-            }
-            Integer countQuarterOpps = quarterOpps.get(quarterOpp);
-            if(countQuarterOpps == null) {
-                countQuarterOpps = 0;
-            }
-            countQuarterOpps++;
-            quarterOpps.put(quarterOpp, countQuarterOpps);
-            mbToQuarterOpps.put(opp.Maklerbetreuer_WirtschaftsHaus__c, quarterOpps);
+            List<Opportunity> allOpps = (List<Opportunity>)Database.query(query);
+            for(Opportunity opp:allOpps) {
+                Integer monthOpp = opp.Notartermin__c.month();
+                Map<Integer, Integer> monthOpps = mbToMonthOpps.get(opp.Maklerbetreuer_WirtschaftsHaus__c);
+                if(monthOpps == null) {
+                    monthOpps = new Map<Integer, Integer>();
+                }
+                Integer countMonthOpps = monthOpps.get(monthOpp);
+                if(countMonthOpps == null) {
+                    countMonthOpps = 0;
+                }
+                countMonthOpps++;
+                monthOpps.put(monthOpp, countMonthOpps);
+                mbToMonthOpps.put(opp.Maklerbetreuer_WirtschaftsHaus__c, monthOpps);
+                
+                Integer quarterOpp = getQuarterByMonth(monthOpp);
+                Map<Integer, Integer> quarterOpps = mbToQuarterOpps.get(opp.Maklerbetreuer_WirtschaftsHaus__c);
+                if(quarterOpps == null) {
+                    quarterOpps = new Map<Integer, Integer>();
+                }
+                Integer countQuarterOpps = quarterOpps.get(quarterOpp);
+                if(countQuarterOpps == null) {
+                    countQuarterOpps = 0;
+                }
+                countQuarterOpps++;
+                quarterOpps.put(quarterOpp, countQuarterOpps);
+                mbToQuarterOpps.put(opp.Maklerbetreuer_WirtschaftsHaus__c, quarterOpps);
 
-            Integer yearOpp = opp.Notartermin__c.year();
-            Map<Integer, Integer> yearOpps = mbToYearOpps.get(opp.Maklerbetreuer_WirtschaftsHaus__c);
-            if(yearOpps == null) {
-                yearOpps = new Map<Integer, Integer>();
+                Integer yearOpp = opp.Notartermin__c.year();
+                Map<Integer, Integer> yearOpps = mbToYearOpps.get(opp.Maklerbetreuer_WirtschaftsHaus__c);
+                if(yearOpps == null) {
+                    yearOpps = new Map<Integer, Integer>();
+                }
+                Integer countYearOpps = yearOpps.get(yearOpp);
+                if(countYearOpps == null) {
+                    countYearOpps = 0;
+                }
+                countYearOpps++;
+                yearOpps.put(yearOpp, countYearOpps);
+                mbToYearOpps.put(opp.Maklerbetreuer_WirtschaftsHaus__c, yearOpps);
             }
-            Integer countYearOpps = yearOpps.get(yearOpp);
-            if(countYearOpps == null) {
-                countYearOpps = 0;
-            }
-            countYearOpps++;
-            yearOpps.put(yearOpp, countYearOpps);
-            mbToYearOpps.put(opp.Maklerbetreuer_WirtschaftsHaus__c, yearOpps);
         }
         for(Opportunity opp: opps.values()) {
             //String maklerprovision = opp.Maklerprovision__c;
@@ -115,6 +140,7 @@ public without sharing class ProvisionService {
         prov.Kaufpreis__c = opp.Provisionsbasis__c;
         prov.Maklerbetreuer__c = opp.OwnerId;
         prov.MarketingzuschussNichtAusweisen__c = opp.MarketingzuschussNichtAusweisen__c;
+        prov.ProvisionsvoraussetzungenErfuelltAm__c = Date.today();
 
         if(con.Gesch_ftsbeziehung__c != null) {
             if((con.Maklerauftrag__c == 'Maklerauftrag beidseitig unterzeichnet' || con.Maklerauftrag__c == 'Makler mit altem Vertrag') && !con.Ist_Maklerbetreuer_WH__c && !con.Gesch_ftsbeziehung__c.contains('Interessent') && !con.Gesch_ftsbeziehung__c.contains('Kunde')) {
@@ -190,10 +216,17 @@ public without sharing class ProvisionService {
         prov.Kaufpreis__c = opp.Provisionsbasis__c;
         prov.Maklerbetreuer__c = opp.OwnerId;
         prov.MarketingzuschussNichtAusweisen__c = opp.MarketingzuschussNichtAusweisen__c;
-        
         Integer monthOpp = opp.Notartermin__c.month();
-        Integer quarterOpp = getQuarterByMonth(monthOpp);
         Integer yearOpp = opp.Notartermin__c.year();
+        Integer quarterOpp = getQuarterByMonth(monthOpp);
+        if(this.schedule == 'month') {
+            prov.ProvisionsvoraussetzungenErfuelltAm__c = opp.Notartermin__c;
+        } else if(this.schedule == 'quarter') {
+            prov.ProvisionsvoraussetzungenErfuelltAm__c = Date.newInstance(yearOpp, quarterOpp*3, 30);
+        } else if(this.schedule == 'year') {
+            prov.ProvisionsvoraussetzungenErfuelltAm__c = Date.newInstance(yearOpp, 12, 30);
+        }
+        
         prov.AnzahlEinheitenMonat__c = mbToMonthOpps.get(opp.Maklerbetreuer_WirtschaftsHaus__c)?.get(monthOpp);
         prov.Provisionszeitraum__c = 'Monat';
         if(schedule == 'quarter' || schedule == 'year') { 

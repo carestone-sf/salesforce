@@ -64,7 +64,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 Boolean rabattHasChanged = true;
                 if (Trigger.isUpdate) {
                     Opportunity oldOpp = Trigger.oldMap.get(opp.Id);
-                    if (opp.WH_Rabatt_in__c == oldOpp.WH_Rabatt_in__c && opp.WH_Rabatt_in_P__c == oldOpp.WH_Rabatt_in_P__c && opp.Maklerrabatt_in__c == oldOpp.Maklerrabatt_in__c && opp.Rabatt_in__c == oldOpp.Rabatt_in__c && opp.KfW__c == oldOpp.KfW__c) {
+                    if (opp.WH_Rabatt_in__c == oldOpp.WH_Rabatt_in__c && opp.WH_Rabatt_in_P__c == oldOpp.WH_Rabatt_in_P__c && opp.Maklerrabatt_in__c == oldOpp.Maklerrabatt_in__c && opp.Rabatt_in__c == oldOpp.Rabatt_in__c && opp.KfW__c == oldOpp.KfW__c && opp.Appartement__c == oldOpp.Appartement__c) {
                         rabattHasChanged = false;
                     }
                 }
@@ -155,9 +155,6 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 } else if (opp.StageName == 'Geschlossene und gewonnene' && stageOrAppHasChanged) {
                     if (opp.Grundprovision_Provisionsverhandlung__c == null && !opp.MaklerIstIntern__c) {
                         opp.Grundprovision_Provisionsverhandlung__c.addError('Für diesen Makler fehlt eine verhandelte Grundprovision für das Objekt. Bitte erstelle eine Provisionsverhandlung für das Objekt und versuche es erneut.');
-                    }
-                    if (opp.Verkaufsprovision_Provisionsverhandlung__c == null && !opp.ImmobilienberaterIstIntern__c) {
-                        opp.Verkaufsprovision_Provisionsverhandlung__c.addError('Für diesen Makler fehlt eine verhandelte Verkaufsprovision für das Objekt. Bitte erstelle eine Provisionsverhandlung für das Objekt und versuche es erneut.');
                     }
                     opp.reserviert_bis__c = null;
                     if (opp.CloseDate > date.today()) {

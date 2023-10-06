@@ -1805,6 +1805,11 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>IncentivierungGesamt__c</field>
+            <table>Account.Contacts.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>MobiltelefonErsterKaeufer__c</field>
             <table>Account.Contacts.Opportunities__r</table>
         </columns>
