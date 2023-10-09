@@ -290,6 +290,26 @@
             <field>BeurkundungMoeglich__c</field>
             <table>Finanzierungsanfrage__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FinanzierungsbestaetigungAusgestellt__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FinanzierungsbestaetigungAusgestelltAm__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>UnterlagenAngefordertAm__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Erwerbstaetigkeit__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
         <masterLabel>Finanzierungsanfragen</masterLabel>
     </sections>
     <sections>
