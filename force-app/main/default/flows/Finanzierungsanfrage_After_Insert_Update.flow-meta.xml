@@ -34,7 +34,7 @@
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>FA_Daten_ge_ndert2</name>
-            <conditionLogic>(1 OR 2 OR 3 OR 4 OR 5 OR 8) AND (6 AND 7)</conditionLogic>
+            <conditionLogic>(1 OR 2 OR 3 OR 4 OR 5 OR 8 OR 9) AND (6 AND 7)</conditionLogic>
             <conditions>
                 <leftValueReference>isNew</leftValueReference>
                 <operator>EqualTo</operator>
@@ -86,6 +86,13 @@
             </conditions>
             <conditions>
                 <leftValueReference>$Record.Opportunity__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.FinanzierungsbestaetigungAusgestellt__c</leftValueReference>
                 <operator>IsChanged</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
@@ -519,6 +526,12 @@
             <field>BewertungFinanzierungsanfrage__c</field>
             <value>
                 <elementReference>$Record.AmpelIntern__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Finanzierung_oder_Eigenkapitalnachweis__c</field>
+            <value>
+                <elementReference>$Record.FinanzierungsbestaetigungAusgestellt__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
