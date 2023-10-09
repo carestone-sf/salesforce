@@ -30,6 +30,8 @@ global without sharing class GenerateInternalCommissionBatch implements Database
         } else if(this.schedule == 'year') {
             query += ' WHERE CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear';
         }
+
+        query += ' AND StageName = \'Geschlossene und gewonnene\'';
         
         return Database.getQueryLocator(query);
     }
