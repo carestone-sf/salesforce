@@ -56,6 +56,8 @@ public without sharing class ProvisionService {
             } else if(this.schedule == 'year') {
                 query += ' WHERE CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear';
             }
+
+            query += ' AND StageName = \'Geschlossene und gewonnene\'';
             
             List<Opportunity> allOpps = (List<Opportunity>)Database.query(query);
             for(Opportunity opp:allOpps) {
@@ -202,9 +204,9 @@ public without sharing class ProvisionService {
 
     public Provision__c getProvisionIntern(Opportunity opp, Contact con) {
         Provision__c prov = new Provision__c();
-        prov.UniqueId__C = opp.Id + '-' + con.Id;
+        prov.UniqueId__c = opp.Id + '-' + con.Id;
         if(this.schedule != null) {
-            prov.UniqueId__C += '-' + this.schedule;
+            prov.UniqueId__c += '-' + this.schedule;
         }
         prov.Verkaufschance__c = opp.Id;
         prov.Makler__c = con.Id;

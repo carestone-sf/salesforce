@@ -308,6 +308,11 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 }
             }
 
+            if(changedOppsAll.size() > 0) {
+                ProvisionService ps = new ProvisionService(Trigger.newMap, Trigger.oldMap, 'extern', null);
+                ps.upsertProvisionen();
+            }
+
         }
     }
 
