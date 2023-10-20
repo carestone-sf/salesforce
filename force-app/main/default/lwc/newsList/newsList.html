@@ -1,40 +1,17 @@
 <template>
-    <lightning-card title="News">
-        <div class="slds-p-horizontal_small">
-            <div class="carousel-wrapper">
-                <div class="carousel">
-                    <lightning-spinner alternative-text="Loading" size="large" if:true={isLoading}></lightning-spinner>
-                    <template iterator:singlenews={news}>
-                        <div class="carousel__photo initial" if:true={singlenews.first} key={singlenews.value.date}>
-                            <img src={singlenews.value.image}/>
-                            <h3 class="slds-m-top_small slds-m-bottom_small">{singlenews.value.title}</h3>
-                            <lightning-formatted-rich-text value={singlenews.value.content}></lightning-formatted-rich-text>
-                        </div>
-                        <div class="carousel__photo" if:false={singlenews.first} key={singlenews.value.date}>
-                            <img src={singlenews.value.image}/>
-                            <h3 class="slds-m-top_small slds-m-bottom_small">{singlenews.value.title}</h3>
-                            <lightning-formatted-rich-text value={singlenews.value.content}></lightning-formatted-rich-text>
-                        </div>
-                    </template>
-
-                    <div onclick={moveNext} class="carousel__button--next"></div>
-                    <div onclick={movePrev} class="carousel__button--prev"></div>
-
+    <h2>News</h2>
+    <template iterator:singlenews={news}>
+        <div  key={singlenews.value.date} class="slds-var-m-top_medium">
+            <lightning-card title={singlenews.value.title}>
+                <div class="slds-p-horizontal_small">
+                <lightning-spinner alternative-text="Loading" size="large" if:true={isLoading}></lightning-spinner>
+                    <img src={singlenews.value.image}/>
+                    <div class="slds-var-m-top_small">
+                        <!-- <sub>{singlenews.value.date}</sub> -->
+                        <lightning-formatted-rich-text value={singlenews.value.content}></lightning-formatted-rich-text>
+                    </div>
                 </div>
-              </div>
-            <!-- <template for:each={news} for:item="singleNews">
-                <div key={singleNews.date}>{singleNews.title}</div>
-            </template> -->
-            <!-- <lightning-carousel>
-            <template for:each={news} for:item="singleNews">
-                <lightning-carousel-image 
-                key={singleNews.date}
-                src={singleNews.image}
-                header={singleNews.title}
-                description={singleNews.content}
-                ></lightning-carousel-image>
-            </template>
-        </lightning-carousel> -->
+            </lightning-card>
         </div>
-    </lightning-card>
+    </template>
 </template>
