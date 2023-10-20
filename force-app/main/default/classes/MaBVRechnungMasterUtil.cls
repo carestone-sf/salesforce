@@ -27,7 +27,7 @@ MaBVRechnungMasterUtil {
             propertyIdsSet.add(maBVRate.Immobilie__c);
         }
         List<Id> propertyIds = new List<Id>(propertyIdsSet);
-        List<Opportunity> opps = [SELECT Id, Immobilie__c, Abnahmeprotokoll__c, OwnerId FROM Opportunity WHERE Kaufpreis_f_llig__c = TRUE AND Immobilie__c IN :propertyIds AND KeineMaBVRechnungGenerieren__c = FALSE];
+        List<Opportunity> opps = [SELECT Id, Immobilie__c, Abnahmeprotokoll__c, OwnerId FROM Opportunity WHERE Kaufpreis_f_llig__c = TRUE AND Immobilie__c IN :propertyIds AND KeineMaBVRechnungGenerieren__c = FALSE AND StageName = 'Geschlossene und gewonnene'];
         createMaBVRechnung(opps, maBVRaten);
     }
 
