@@ -2056,6 +2056,11 @@
             <field>IncentivierungGesamt__c</field>
             <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>IncentivierungKundeGezahltAm__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
     <sections>

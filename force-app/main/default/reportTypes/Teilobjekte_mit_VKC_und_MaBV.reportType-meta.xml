@@ -2047,6 +2047,11 @@
             <field>IncentivierungGesamt__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>IncentivierungKundeGezahltAm__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
     <sections>

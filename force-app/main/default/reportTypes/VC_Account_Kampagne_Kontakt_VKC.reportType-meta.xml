@@ -2187,6 +2187,11 @@
             <field>IncentivierungGesamt__c</field>
             <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>IncentivierungKundeGezahltAm__c</field>
+            <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
+        </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
     <sections>
