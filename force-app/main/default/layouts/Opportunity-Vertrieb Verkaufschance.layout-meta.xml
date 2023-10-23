@@ -346,10 +346,6 @@
                 <field>AdditionalCosts__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CustomerIncentiveWasPaid__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>AdditionalBrokerCommission__c</field>
             </layoutItems>
@@ -572,6 +568,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>IncentivierungKundeGezahltAm__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Abnahmeprotokoll__c</field>
             </layoutItems>
             <layoutItems>
@@ -635,6 +635,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Datum_1_MaBV_Rate_gezahlt__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CustomerIncentiveWasPaid__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

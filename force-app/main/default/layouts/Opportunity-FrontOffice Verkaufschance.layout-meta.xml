@@ -358,10 +358,6 @@
                 <field>AdditionalCosts__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CustomerIncentiveWasPaid__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>AdditionalBrokerCommission__c</field>
             </layoutItems>
@@ -584,6 +580,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>IncentivierungKundeGezahltAm__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Abnahmeprotokoll__c</field>
             </layoutItems>
             <layoutItems>
@@ -647,6 +647,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Datum_1_MaBV_Rate_gezahlt__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CustomerIncentiveWasPaid__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -811,6 +815,11 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
+            <actionName>Opportunity.Neue_Finanzierungsanfrage</actionName>
+            <actionType>QuickAction</actionType>
+            <sortOrder>0</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
             <actionName>Opportunity.VKC_schlie_en</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>1</sortOrder>
@@ -819,11 +828,6 @@
             <actionName>FeedItem.TextPost</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>2</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>Opportunity.Neue_Finanzierungsanfrage</actionName>
-            <actionType>QuickAction</actionType>
-            <sortOrder>0</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
             <actionName>FeedItem.ContentPost</actionName>
