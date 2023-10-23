@@ -2835,6 +2835,11 @@
             <field>IncentivierungGesamt__c</field>
             <table>Account.BetreuteAccounts__r.Opportunities</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>IncentivierungKundeGezahltAm__c</field>
+            <table>Account.BetreuteAccounts__r.Opportunities</table>
+        </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
     <sections>
