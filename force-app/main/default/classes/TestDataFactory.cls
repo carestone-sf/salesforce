@@ -260,7 +260,9 @@ public with sharing class TestDataFactory {
         }
 
         if(doInsert) {
-            insert acc;
+            Database.DMLOptions dmlo = new Database.DMLOptions();
+            dmlo.DuplicateRuleHeader.AllowSave = true;
+            Database.insert(acc, dmlo);
         }
 
         return acc;
@@ -306,7 +308,9 @@ public with sharing class TestDataFactory {
         bautraeger.Dauerhaft_gesch_tzt__c = true;
         
         if(doInsert) {
-            insert bautraeger;
+            Database.DMLOptions dmlo = new Database.DMLOptions();
+            dmlo.DuplicateRuleHeader.AllowSave = true;
+            Database.insert(bautraeger, dmlo);
         }
         return bautraeger;
     }
@@ -438,6 +442,19 @@ public with sharing class TestDataFactory {
 
 
     // Opportunity
+
+    public static Opportunity createOpportunity(Boolean doInsert) {
+
+        Account acc = createAccount(true, 'Account'+System.currentTimeMillis());
+        Id interessentId = createInteressent(true, acc.Id).Id;
+        Id maklerId = createMakler(true, acc.Id).Id;
+
+        Account bautraeger = createBautraeger(true);
+        Id propertyId = createProperty(true, bautraeger.Id).Id;
+        Id appartmentId = createAppartment(true, propertyId).Id;
+
+        return createOpportunity(doInsert, interessentId, maklerId, propertyId, appartmentId);
+    }
 
     public static Opportunity createOpportunity(Boolean doInsert, Id interessentId, Id maklerId, Id propertyId, Id appartmentId) {
         return createOpportunity(doInsert, interessentId, maklerId, propertyId, appartmentId, 'Reserviert');
@@ -755,11 +772,21 @@ public with sharing class TestDataFactory {
 
     // Provision__c
 
+    public static Provision__c createProvision(Boolean doInsert) {
+
+        Opportunity opp = createOpportunity(true);
+        User user = createStandardUser(true, 'MB');
+
+        return createProvision(doInsert, opp.Id, user.Id, opp.Makler__c);
+    }
+
     public static Provision__c createProvision(Boolean doInsert, Id opportunityId, Id maklerBetreuerUserId, Id empfaengerId) {
+
         Provision__c provi = new Provision__c(
             Verkaufschance__c = opportunityId,
             Maklerbetreuer__c = maklerBetreuerUserId,
-            Makler__c = empfaengerId
+            Makler__c = empfaengerId,
+            Wert_Verk_ufer_Beratungsprovision_m_R__c = 20
         );
 
         if(doInsert) {
