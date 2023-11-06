@@ -14,7 +14,7 @@
         <inputParameters>
             <name>emailAddresses</name>
             <value>
-                <elementReference>$Record.Opportunity__r.OwnerId</elementReference>
+                <elementReference>$Record.Opportunity__r.Owner.Email</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
