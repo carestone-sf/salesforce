@@ -306,6 +306,31 @@
             <field>Erwerbstaetigkeit__c</field>
             <table>Finanzierungsanfrage__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TageInVSAVorhanden__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TageInUnterlagenAngefordert__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TageInBankantrag__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PhasendauerInTagen__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AngeforderteUnterlagen__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
         <masterLabel>Finanzierungsanfragen</masterLabel>
     </sections>
     <sections>
