@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_email_to_MB</name>
+        <label>Send email to MB</label>
+        <locationX>182</locationX>
+        <locationY>1331</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>FA_Daten_ge_ndert</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Opportunity__r.Owner.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>beurkundungMoeglichEmailSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>beurkundungMoeglichEmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
     <apiVersion>53.0</apiVersion>
     <decisions>
         <name>Automation_Switch</name>
@@ -24,10 +62,36 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Beurkundung_m_glich</name>
+        <label>Beurkundung möglich?</label>
+        <locationX>314</locationX>
+        <locationY>1223</locationY>
+        <defaultConnector>
+            <targetReference>FA_Daten_ge_ndert</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Beurkundung_m_glich2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.BeurkundungMoeglich__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_email_to_MB</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Beurkundung möglich?</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>FA_Daten_ge_ndert</name>
         <label>FA Daten geändert?</label>
         <locationX>314</locationX>
-        <locationY>1223</locationY>
+        <locationY>1523</locationY>
         <defaultConnector>
             <targetReference>Opportunity_was_changed</targetReference>
         </defaultConnector>
@@ -133,7 +197,7 @@
         <locationX>468</locationX>
         <locationY>839</locationY>
         <defaultConnector>
-            <targetReference>FA_Daten_ge_ndert</targetReference>
+            <targetReference>Beurkundung_m_glich</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -173,7 +237,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>FA_Daten_ge_ndert</targetReference>
+                <targetReference>Beurkundung_m_glich</targetReference>
             </connector>
             <label>Neu?</label>
         </rules>
@@ -182,7 +246,7 @@
         <name>Opportunity_was_changed</name>
         <label>Opportunity was changed?</label>
         <locationX>314</locationX>
-        <locationY>1523</locationY>
+        <locationY>1823</locationY>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
             <name>Opportunity_was_changed2</name>
@@ -250,6 +314,11 @@
         <name>AmpelInternChanges</name>
         <dataType>String</dataType>
         <expression>IF(TEXT({!$Record__Prior.AmpelIntern__c}) != TEXT({!$Record.AmpelIntern__c}), &apos;Ampel intern: &apos; + TEXT({!$Record__Prior.AmpelIntern__c}) + &apos; -&gt; &apos; + TEXT({!$Record.AmpelIntern__c}), &apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>beurkundungMoeglichEmailSubject</name>
+        <dataType>String</dataType>
+        <expression>&apos;Beurkundung möglich: &apos; + {!$Record.Opportunity__r.Name}</expression>
     </formulas>
     <formulas>
         <name>DetailLink</name>
@@ -337,6 +406,11 @@
         <expression>&apos;&apos;</expression>
     </formulas>
     <formulas>
+        <name>vkcLink</name>
+        <dataType>String</dataType>
+        <expression>LEFT($Api.Enterprise_Server_URL_510, FIND( &apos;/services&apos;, $Api.Enterprise_Server_URL_510)) + {!$Record.Opportunity__c}</expression>
+    </formulas>
+    <formulas>
         <name>VsaVorhandenChanges</name>
         <dataType>String</dataType>
         <expression>IF({!$Record__Prior.VsaVorhanden__c} != {!$Record.VsaVorhanden__c}, &apos;VSA vorhanden: &apos; + if({!$Record__Prior.VsaVorhanden__c}, &apos;Angehakt&apos;, &apos;Nicht angehakt&apos;)  + &apos; -&gt; &apos; + if({!$Record.VsaVorhanden__c}, &apos;Angehakt&apos;, &apos;Nicht angehakt&apos;), &apos;&apos;)</expression>
@@ -381,7 +455,7 @@
         <name>Update_old_Opportunity</name>
         <label>Update old Opportunity</label>
         <locationX>182</locationX>
-        <locationY>1631</locationY>
+        <locationY>1931</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -441,7 +515,7 @@
         <name>Update_Opportunity2</name>
         <label>Update Opportunity</label>
         <locationX>314</locationX>
-        <locationY>1331</locationY>
+        <locationY>1631</locationY>
         <connector>
             <targetReference>Opportunity_was_changed</targetReference>
         </connector>
@@ -482,7 +556,7 @@
         <locationX>336</locationX>
         <locationY>947</locationY>
         <connector>
-            <targetReference>FA_Daten_ge_ndert</targetReference>
+            <targetReference>Beurkundung_m_glich</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -504,7 +578,7 @@
         <name>Update_Opportunity_3</name>
         <label>Update Opportunity 3</label>
         <locationX>50</locationX>
-        <locationY>1331</locationY>
+        <locationY>1631</locationY>
         <connector>
             <targetReference>Opportunity_was_changed</targetReference>
         </connector>
@@ -565,6 +639,11 @@
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>
+    <textTemplates>
+        <name>beurkundungMoeglichEmailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Die Beurkundung für die folgende VKC ist jetzt möglich:&lt;/p&gt;&lt;p&gt;{!$Record.Opportunity__r.Name}&lt;/p&gt;&lt;p&gt;{!$Record.Opportunity__r.Immobilie__r.Name} - {!$Record.Opportunity__r.Appartement__r.Name}&lt;/p&gt;&lt;p&gt;Link:&amp;nbsp;&lt;a href=&quot;{!vkcLink}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!vkcLink}&lt;/a&gt;&lt;/p&gt;</text>
+    </textTemplates>
     <textTemplates>
         <name>RalfGrellNotificationEmailTemplate</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
