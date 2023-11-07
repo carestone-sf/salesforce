@@ -2,6 +2,51 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>54.0</apiVersion>
     <assignments>
+        <name>Assign_last_stage_change_date</name>
+        <label>Assign last stage change date</label>
+        <locationX>314</locationX>
+        <locationY>611</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.LetztePhasenaenderung__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Stage_is_changed_and_was_VSA_vorhanden</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Tage_in_Bankantrag</name>
+        <label>Assign &quot;Tage in Bankantrag&quot;</label>
+        <locationX>314</locationX>
+        <locationY>1511</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.TageInBankantrag__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>daysInStage</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_Tage_in_Unterlagen_angefordert</name>
+        <label>Assign &quot;Tage in Unterlagen angefordert&quot;</label>
+        <locationX>314</locationX>
+        <locationY>1211</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.TageInUnterlagenAngefordert__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>daysInStage</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Stage_is_changed_and_was_Bankantrag</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Assign_values</name>
         <label>Assign values</label>
         <locationX>50</locationX>
@@ -13,11 +58,34 @@
                 <elementReference>recordName</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.LetztePhasenaenderung__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assigns_Tage_in_VSA_vorhanden</name>
+        <label>Assigns &quot;Tage in VSA vorhanden&quot;</label>
+        <locationX>314</locationX>
+        <locationY>911</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.TageInVSAVorhanden__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>daysInStage</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Stage_is_changed_and_was_Unterlagen_angefordert</targetReference>
+        </connector>
     </assignments>
     <decisions>
         <name>Automation_Switch</name>
         <label>Automation Switch</label>
-        <locationX>380</locationX>
+        <locationX>501</locationX>
         <locationY>287</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -39,8 +107,11 @@
     <decisions>
         <name>Neu</name>
         <label>Neu?</label>
-        <locationX>182</locationX>
+        <locationX>248</locationX>
         <locationY>395</locationY>
+        <defaultConnector>
+            <targetReference>Stage_changed</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Neu2</name>
@@ -58,7 +129,131 @@
             <label>Neu?</label>
         </rules>
     </decisions>
+    <decisions>
+        <name>Stage_changed</name>
+        <label>Stage changed?</label>
+        <locationX>446</locationX>
+        <locationY>503</locationY>
+        <defaultConnector>
+            <targetReference>Stage_is_changed_and_was_VSA_vorhanden</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Stage_changed2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Phase__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_last_stage_change_date</targetReference>
+            </connector>
+            <label>Stage changed?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Stage_is_changed_and_was_Bankantrag</name>
+        <label>Stage is changed and was Bankantrag</label>
+        <locationX>446</locationX>
+        <locationY>1403</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Stage_is_changed_and_was_Bankantrag2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Phase__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Bankantrag</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Phase__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Tage_in_Bankantrag</targetReference>
+            </connector>
+            <label>Stage is changed and was Bankantrag</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Stage_is_changed_and_was_Unterlagen_angefordert</name>
+        <label>Stage is changed and was Unterlagen angefordert</label>
+        <locationX>446</locationX>
+        <locationY>1103</locationY>
+        <defaultConnector>
+            <targetReference>Stage_is_changed_and_was_Bankantrag</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Stage_is_changed_and_was_Unterlagen_angefordert2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Phase__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Unterlagen angefordert</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Phase__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Tage_in_Unterlagen_angefordert</targetReference>
+            </connector>
+            <label>Stage is changed and was Unterlagen angefordert</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Stage_is_changed_and_was_VSA_vorhanden</name>
+        <label>Stage is changed and was VSA vorhanden</label>
+        <locationX>446</locationX>
+        <locationY>803</locationY>
+        <defaultConnector>
+            <targetReference>Stage_is_changed_and_was_Unterlagen_angefordert</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Stage_is_changed_and_was_VSA_vorhanden2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Phase__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>VSA vorhanden</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Phase__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assigns_Tage_in_VSA_vorhanden</targetReference>
+            </connector>
+            <label>Stage is changed and was VSA vorhanden</label>
+        </rules>
+    </decisions>
     <environments>Default</environments>
+    <formulas>
+        <name>daysInStage</name>
+        <dataType>Number</dataType>
+        <expression>NOW()-{!$Record.LetztePhasenaenderung__c}</expression>
+        <scale>0</scale>
+    </formulas>
     <formulas>
         <name>recordName</name>
         <dataType>String</dataType>
@@ -86,7 +281,7 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <start>
-        <locationX>254</locationX>
+        <locationX>375</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Automation_Switch</targetReference>
