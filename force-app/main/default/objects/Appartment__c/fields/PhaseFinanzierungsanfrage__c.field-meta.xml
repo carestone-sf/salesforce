@@ -41,6 +41,11 @@
                 <default>false</default>
                 <label>Finanzierung verloren</label>
             </value>
+            <value>
+                <fullName>Finanzierung pausiert</fullName>
+                <default>false</default>
+                <label>Finanzierung pausiert</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>
