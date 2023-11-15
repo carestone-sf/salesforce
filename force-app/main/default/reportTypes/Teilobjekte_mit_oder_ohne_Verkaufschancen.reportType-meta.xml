@@ -712,7 +712,57 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Mindestkaufpreis__c</field>
+            <field>Mindestabgabepreis__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>KaufpreisIst__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>IncentivierungMaklerUSt__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>IncentivierungMaklerBrutto__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MarketingzuschussNetto__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MarketingzuschussUSt__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MarketingzuschussBrutto__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaklerprovisionNetto__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaklerprovisionUSt__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaklerprovisionBrutto__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>EndkundenrenditeIst__c</field>
             <table>Appartment__c</table>
         </columns>
         <masterLabel>Teilobjekte</masterLabel>
