@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KaufpreisIst__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(!IsBlank(beurkundeter_Kaufpreis__c) &amp;&amp; TEXT(Status__c) = &apos;Sold&apos;,  beurkundeter_Kaufpreis__c,  Purchase_Price__c)</formula>
+    <label>Kaufpreis Ist</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>
