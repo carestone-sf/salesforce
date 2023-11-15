@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>IncentivierungGesamt__c</fullName>
     <externalId>false</externalId>
-    <formula>AdditionalBrokerCommission__c + AdditionalCosts__c</formula>
+    <formula>AdditionalBrokerCommission__c*1.19 + AdditionalCosts__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Incentivierung gesamt</label>
     <precision>18</precision>

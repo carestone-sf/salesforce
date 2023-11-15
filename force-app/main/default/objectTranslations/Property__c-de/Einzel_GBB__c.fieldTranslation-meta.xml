@@ -3,19 +3,7 @@
     <label></label>
     <name>Einzel_GBB__c</name>
     <picklistValues>
-        <masterLabel>In Beantragung</masterLabel>
-        <translation></translation>
-    </picklistValues>
-    <picklistValues>
-        <masterLabel>Kann beantragt werden</masterLabel>
-        <translation></translation>
-    </picklistValues>
-    <picklistValues>
         <masterLabel>Nicht vorhanden</masterLabel>
-        <translation></translation>
-    </picklistValues>
-    <picklistValues>
-        <masterLabel>Noch nicht beantragt</masterLabel>
         <translation></translation>
     </picklistValues>
     <picklistValues>

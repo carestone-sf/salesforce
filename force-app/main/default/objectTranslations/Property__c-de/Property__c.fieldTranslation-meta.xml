@@ -22,4 +22,8 @@
         <masterLabel>Pflegeimmobilie</masterLabel>
         <translation></translation>
     </picklistValues>
+    <picklistValues>
+        <masterLabel>Wohnimmobilie</masterLabel>
+        <translation></translation>
+    </picklistValues>
 </CustomFieldTranslation>

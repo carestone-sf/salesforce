@@ -3,11 +3,11 @@
     <label></label>
     <name>Finanzierung__c</name>
     <picklistValues>
-        <masterLabel>Barzahler</masterLabel>
+        <masterLabel>CS fremd</masterLabel>
         <translation></translation>
     </picklistValues>
     <picklistValues>
-        <masterLabel>CS fremd</masterLabel>
+        <masterLabel>Eigenkapitalzahlung</masterLabel>
         <translation></translation>
     </picklistValues>
     <picklistValues>

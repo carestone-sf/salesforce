@@ -68,7 +68,7 @@
         </sections>
         <sections>
             <label></label>
-            <section>Hilfsfelder</section>
+            <section>Mahnung</section>
         </sections>
         <sections>
             <label></label>
@@ -103,7 +103,7 @@
         </sections>
         <sections>
             <label></label>
-            <section>Hilfsfelder</section>
+            <section>Mahnung</section>
         </sections>
         <sections>
             <label></label>
@@ -120,10 +120,6 @@
         <sections>
             <label></label>
             <section>TeamProQ Informationen</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Verlängerung</section>
         </sections>
         <sections>
             <label></label>
@@ -142,7 +138,7 @@
         </sections>
         <sections>
             <label></label>
-            <section>Hilfsfelder</section>
+            <section>Mahnung</section>
         </sections>
         <sections>
             <label></label>
@@ -159,10 +155,6 @@
         <sections>
             <label></label>
             <section>TeamProQ Informationen</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Verlängerung</section>
         </sections>
         <sections>
             <label></label>
@@ -181,7 +173,7 @@
         </sections>
         <sections>
             <label></label>
-            <section>Hilfsfelder</section>
+            <section>Mahnung</section>
         </sections>
         <sections>
             <label></label>
@@ -198,10 +190,6 @@
         <sections>
             <label></label>
             <section>TeamProQ Informationen</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Verlängerung</section>
         </sections>
         <sections>
             <label></label>
@@ -258,6 +246,10 @@
     </validationRules>
     <validationRules>
         <errorMessage></errorMessage>
+        <name>Mahnstopp</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
         <name>Notartermin</name>
     </validationRules>
     <validationRules>
@@ -271,6 +263,10 @@
     <validationRules>
         <errorMessage></errorMessage>
         <name>ProvisionsdatenNichtAenderbar</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>PurchasePriceCantBeChangedWithoutRF</name>
     </validationRules>
     <validationRules>
         <errorMessage></errorMessage>

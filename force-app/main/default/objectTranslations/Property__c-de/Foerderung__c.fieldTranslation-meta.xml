@@ -3,6 +3,14 @@
     <label></label>
     <name>Foerderung__c</name>
     <picklistValues>
+        <masterLabel>KFN-WG-Q</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>KFWG</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
         <masterLabel>KfW-40</masterLabel>
         <translation></translation>
     </picklistValues>
@@ -16,6 +24,10 @@
     </picklistValues>
     <picklistValues>
         <masterLabel>KfW-55 (EE)</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>KfWG-Q</masterLabel>
         <translation></translation>
     </picklistValues>
 </CustomFieldTranslation>

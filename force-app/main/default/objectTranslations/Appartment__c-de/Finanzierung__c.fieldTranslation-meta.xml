@@ -3,15 +3,23 @@
     <label></label>
     <name>Finanzierung__c</name>
     <picklistValues>
-        <masterLabel>Barzahler</masterLabel>
+        <masterLabel>CS fremd</masterLabel>
         <translation></translation>
     </picklistValues>
     <picklistValues>
-        <masterLabel>Finanzierung WH</masterLabel>
+        <masterLabel>Eigenkapitalzahlung</masterLabel>
         <translation></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Fremdfinanzierung</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>HypoCare</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Noch ungeklärt</masterLabel>
         <translation></translation>
     </picklistValues>
 </CustomFieldTranslation>
