@@ -274,6 +274,16 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.beurkundeter_Kaufpreis__c</fieldItem>
+                <identifier>Recordbeurkundeter_Kaufpreis_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.DeviatingPurchasePrice__c</fieldItem>
                 <identifier>RecordDeviatingPurchasePrice_cField</identifier>
             </fieldInstance>
@@ -284,7 +294,7 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Mindestkaufpreis__c</fieldItem>
+                <fieldItem>Record.Mindestabgabepreis__c</fieldItem>
                 <identifier>RecordMindestkaufpreis_cField</identifier>
             </fieldInstance>
         </itemInstances>
@@ -294,8 +304,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Bezahlt__c</fieldItem>
-                <identifier>RecordBezahlt_cField</identifier>
+                <fieldItem>Record.EndkundenrenditeIst__c</fieldItem>
+                <identifier>RecordEndkundenrenditeIst_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -304,18 +314,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Additional_Costs__c</fieldItem>
-                <identifier>RecordAdditional_Costs_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.AdditionalBrokerCommission__c</fieldItem>
-                <identifier>RecordAdditionalBrokerCommission_cField</identifier>
+                <fieldItem>Record.Rental_return__c</fieldItem>
+                <identifier>RecordRental_return_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-e8dbabc7-af0d-4773-a736-14df3605cfd9</name>
@@ -372,6 +372,16 @@
                 <identifier>RecordMaBVAbgerechnet_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Bezahlt__c</fieldItem>
+                <identifier>RecordBezahlt_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-06c98337-fea9-4f35-8903-5e9ab1a9bf41</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -397,6 +407,138 @@
             </componentInstance>
         </itemInstances>
         <name>Facet-18e69142-d79f-432a-b8df-0917327641df</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Additional_Costs__c</fieldItem>
+                <identifier>RecordAdditional_Costs_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.AdditionalBrokerCommission__c</fieldItem>
+                <identifier>RecordAdditionalBrokerCommission_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.IncentivierungMaklerUSt__c</fieldItem>
+                <identifier>RecordIncentivierungMaklerUSt_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.IncentivierungMaklerBrutto__c</fieldItem>
+                <identifier>RecordIncentivierungMaklerBrutto_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-5091e432-3d4f-472a-a408-8efcdfba3977</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.MaklerprovisionNetto__c</fieldItem>
+                <identifier>RecordMaklerprovisionNetto_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.MaklerprovisionUSt__c</fieldItem>
+                <identifier>RecordMaklerprovisionUSt_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.MaklerprovisionBrutto__c</fieldItem>
+                <identifier>RecordMaklerprovisionBrutto_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.MarketingzuschussNetto__c</fieldItem>
+                <identifier>RecordMarketingzuschussNetto_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.MarketingzuschussUSt__c</fieldItem>
+                <identifier>RecordMarketingzuschussUSt_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.MarketingzuschussBrutto__c</fieldItem>
+                <identifier>RecordMarketingzuschussBrutto_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-65bde94f-b5cc-4de4-9175-f913dbebaf04</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-5091e432-3d4f-472a-a408-8efcdfba3977</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+                <identifier>flexipage_column24</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-65bde94f-b5cc-4de4-9175-f913dbebaf04</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+                <identifier>flexipage_column25</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-d0170dfa-1922-4700-966d-4e5e084ea45a</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -618,16 +760,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Monthly_rent_sq_m__c</fieldItem>
                 <identifier>RecordMonthly_rent_sq_m_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Rental_return_old__c</fieldItem>
-                <identifier>RecordRental_return_old_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -1300,6 +1432,24 @@
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
                 <identifier>flexipage_fieldSection2</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>columns</name>
+                    <value>Facet-d0170dfa-1922-4700-966d-4e5e084ea45a</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>horizontalAlignment</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>Kosten</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:fieldSection</componentName>
+                <identifier>flexipage_fieldSection14</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
