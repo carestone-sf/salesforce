@@ -4,7 +4,7 @@
     <externalId>false</externalId>
     <formula>if(Erbbauzins__c == NULL , Monthly_Rent__c *12 / Purchase_Price__c, (Monthly_Rent__c *12-Erbauzins_Monat__c*12) / Purchase_Price__c)</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-    <label>Mietrendite %</label>
+    <label>Endkundenrendite Plan</label>
     <precision>18</precision>
     <required>false</required>
     <scale>2</scale>
