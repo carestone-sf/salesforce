@@ -576,6 +576,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>ProvisionsverhandlungVorhanden__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>ProvisionsvoraussetzungenErfuellt__c</field>
             </layoutItems>
             <layoutItems>

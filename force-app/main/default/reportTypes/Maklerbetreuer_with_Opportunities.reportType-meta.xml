@@ -2144,6 +2144,11 @@
             <field>ProvisionsverzichtInEuro__c</field>
             <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProvisionsverhandlungVorhanden__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
         <masterLabel>Verkaufschancen</masterLabel>
     </sections>
     <sections>
