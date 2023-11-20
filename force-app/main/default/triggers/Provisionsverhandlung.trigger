@@ -27,6 +27,8 @@ trigger Provisionsverhandlung on Provisionsverhandlung__c (after insert, after u
         Map<Id, Opportunity> updateOpps = new Map<Id, Opportunity>();
         for(Opportunity opp:opps) {
             for(Provisionsverhandlung__c provisionsverhandlung:Trigger.new) {
+                String a;
+                String b;
                 if(opp.Abrechnung_ber__c != null && opp.AccountIdAbrechnungUeber__c == provisionsverhandlung.Account__c && opp.Immobilie__c == provisionsverhandlung.Immobilie__c) {
                     opp.Grundprovision_Provisionsverhandlung__c = provisionsverhandlung.Grundprovision__c;
                     opp.ProvisionsverhandlungVorhanden__c = true;
