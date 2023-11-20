@@ -9,6 +9,7 @@ const columns = [
     { label: 'Preis m²', fieldName: 'Purchase_Price_sq_m__c', hideDefaultActions:"true", sortable: "true", type: 'currency', cellAttributes: { alignment: 'left' }},
     { label: 'Miete pa', fieldName: 'Jahresmiete__c', hideDefaultActions:"true", sortable: "true", type: 'currency', cellAttributes: { alignment: 'left' }},
     { label: 'Rendite', fieldName: 'RentalReturnFormulaVP__c', hideDefaultActions:"true", sortable: "true", type: 'percent',typeAttributes: { minimumFractionDigits: 2 }, cellAttributes: { alignment: 'left' }},
+    // { label: 'Überschuss/Aufwand p.m.', fieldName: 'UeberschussProMonat', hideDefaultActions:"true", sortable: "true", type: 'percent',typeAttributes: { minimumFractionDigits: 2 }, cellAttributes: { alignment: 'left' }},
     { label: 'Status', fieldName: 'OeffentlicherStatus__c', type:'text', hideDefaultActions:"true", sortable: "true", cellAttributes: { alignment: 'left', class: {fieldName:'statusColorClass'} }},
 ];
 
@@ -18,6 +19,15 @@ export default class ImmoListCard extends LightningElement {
 
     @track 
     hideCheckbox = false;
+
+    financingValue = '';
+
+    get financingOptions() {
+        return [
+            { label: 'Eigenkapitalzahler', value: 'eigenkapitalzahler' },
+            { label: 'Finanzierer', value: 'finanzierer' },
+        ];
+    }
 
     @api 
     get immobilie() {

@@ -2923,6 +2923,11 @@
             <field>ProvisionsverzichtInEuro__c</field>
             <table>Account.BetreuteAccounts__r.Opportunities</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProvisionsverhandlungVorhanden__c</field>
+            <table>Account.BetreuteAccounts__r.Opportunities</table>
+        </columns>
         <masterLabel>Verkaufschancen</masterLabel>
     </sections>
 </ReportType>

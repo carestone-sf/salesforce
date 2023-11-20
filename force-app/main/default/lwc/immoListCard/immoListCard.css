@@ -29,7 +29,7 @@
   gap: 10px;
 }
 .teaserHighlightContainer > div {
-  background-color: var(--lwc-brandNavigationBarBackgroundColor);
+  /* background-color: var(--lwc-brandNavigationBarBackgroundColor); */
   text-align: center;
   color: #fff;
   flex: 1;
@@ -37,3 +37,7 @@
 /* .teaserHighlightContainer > div:not(:last-child) {
   margin-right: 10px;
 } */
+
+.sold {
+  background-color: light-grey !important;
+}
