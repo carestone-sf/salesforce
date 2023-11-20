@@ -844,6 +844,11 @@
             <field>ProvisionsverzichtInEuro__c</field>
             <table>Opportunity</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProvisionsverhandlungVorhanden__c</field>
+            <table>Opportunity</table>
+        </columns>
         <masterLabel>Verkaufschancen</masterLabel>
     </sections>
 </ReportType>
