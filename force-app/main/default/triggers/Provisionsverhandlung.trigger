@@ -19,7 +19,8 @@ trigger Provisionsverhandlung on Provisionsverhandlung__c (after insert, after u
         List<Opportunity> opps = [SELECT Abrechnung_ber__c, Makler__c,Immobilienberater__c, AccountIdAbrechnungUeber__c, Grundprovision_Provisionsverhandlung__c, Verkaufsprovision_Provisionsverhandlung__c, Immobilie__c, AccountId, AccountIdImmobilienberater__c
                                     FROM Opportunity
                                     WHERE (AccountId IN :maklerAccountIds OR AccountIdImmobilienberater__c IN :maklerAccountIds OR AccountIdAbrechnungUeber__c IN :maklerAccountIds)
-                                        AND StageName != 'Geschlossene und gewonnene'
+                                    AND ((ProvisionsverhandlungVorhanden__c = false AND ProvisionsvoraussetzungenErfuellt__c = false AND Notartermin__c >= LAST_YEAR AND IsWon = true)
+                                        OR IsClosed = false)
                                         AND StageName != 'Geschlossen und verloren'
                                         AND StageName != 'VKC ausgelaufen'
                                         AND StageName != 'Reservierung abgelehnt'];
@@ -28,9 +29,11 @@ trigger Provisionsverhandlung on Provisionsverhandlung__c (after insert, after u
             for(Provisionsverhandlung__c provisionsverhandlung:Trigger.new) {
                 if(opp.Abrechnung_ber__c != null && opp.AccountIdAbrechnungUeber__c == provisionsverhandlung.Account__c && opp.Immobilie__c == provisionsverhandlung.Immobilie__c) {
                     opp.Grundprovision_Provisionsverhandlung__c = provisionsverhandlung.Grundprovision__c;
+                    opp.ProvisionsverhandlungVorhanden__c = true;
                     updateOpps.put(opp.Id, opp);
                 } else if(opp.AccountId == provisionsverhandlung.Account__c && opp.Immobilie__c == provisionsverhandlung.Immobilie__c) {
                     opp.Grundprovision_Provisionsverhandlung__c = provisionsverhandlung.Grundprovision__c;
+                    opp.ProvisionsverhandlungVorhanden__c = true;
                     updateOpps.put(opp.Id, opp);
                 }
                 if(opp.Abrechnung_ber__c != null && opp.Makler__c == opp.Immobilienberater__c && opp.AccountIdAbrechnungUeber__c == provisionsverhandlung.Account__c && opp.Immobilie__c == provisionsverhandlung.Immobilie__c) {

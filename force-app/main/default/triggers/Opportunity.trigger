@@ -153,9 +153,9 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                         opp.reserviert_bis__c = null;
                     }
                 } else if (opp.StageName == 'Geschlossene und gewonnene' && stageOrAppHasChanged) {
-                    if (opp.Grundprovision_Provisionsverhandlung__c == null && !opp.MaklerIstIntern__c) {
-                        opp.Grundprovision_Provisionsverhandlung__c.addError('Für diesen Makler fehlt eine verhandelte Grundprovision für das Objekt. Bitte erstelle eine Provisionsverhandlung für das Objekt und versuche es erneut.');
-                    }
+                    // if (opp.Grundprovision_Provisionsverhandlung__c == null && !opp.MaklerIstIntern__c) {
+                    //     opp.Grundprovision_Provisionsverhandlung__c.addError('Für diesen Makler fehlt eine verhandelte Grundprovision für das Objekt. Bitte erstelle eine Provisionsverhandlung für das Objekt und versuche es erneut.');
+                    // }
                     opp.reserviert_bis__c = null;
                     if (opp.CloseDate > date.today()) {
                         opp.CloseDate = date.today();
@@ -288,10 +288,11 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 Boolean pvKaufpreiszahlung = opp.PVKaufpreiszahlung__c ? opp.Kaufpreis_bezahlt__c : true;
                 Boolean pvOriginalKV = opp.PVOriginalKV__c ? opp.KV_eingegangen__c : true;
                 Boolean pvRisikobelehrung = opp.PVRisikobelehrung__c ? opp.Risikobelehrung__c : true;
+                Boolean provisionsverhandlungVorhanden = opp.ProvisionsverhandlungVorhanden__c;
                 Boolean kaufdatumEingetragen = opp.Kaufdatum__c != null;
                 Boolean vkcGewonnen = opp.StageName == 'Geschlossene und gewonnene';
 
-                if(pvNotarTermin && pvMaBV && pvBeratungsprotokoll && pvFbEkUrkundeMitFinanzierung && pvKaufpreiszahlung && pvOriginalKV && pvRisikobelehrung && kaufdatumEingetragen && !opp.ProvisionsvoraussetzungenErfuellt__c && vkcGewonnen) {
+                if(pvNotarTermin && pvMaBV && pvBeratungsprotokoll && pvFbEkUrkundeMitFinanzierung && pvKaufpreiszahlung && pvOriginalKV && pvRisikobelehrung && kaufdatumEingetragen && provisionsverhandlungVorhanden && !opp.ProvisionsvoraussetzungenErfuellt__c && vkcGewonnen) {
                     opp.ProvisionsvoraussetzungenErfuellt__c = true;
                 }
 

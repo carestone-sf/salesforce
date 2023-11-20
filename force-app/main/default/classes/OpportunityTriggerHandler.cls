@@ -179,6 +179,8 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
             if(opp.Abrechnung_ber__c != null && opp.Makler__c == opp.Immobilienberater__c) {
                 opp.Verkaufsprovision_Provisionsverhandlung__c = proviV.Verkaufsprovision__c;
             }
+
+            opp.ProvisionsverhandlungVorhanden__c = true;
         }
 
         if(opp.Verkaufsprovision_Provisionsverhandlung__c == null && !opp.ImmobilienberaterIstIntern__c) {
