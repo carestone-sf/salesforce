@@ -13,6 +13,7 @@ public without sharing class GutschriftApprovalController {
 
         
         if (accepted != null && prov.size() > 0) {
+            GutschriftApproval__e event = new GutschriftApproval__e();
 
             //Check if Provision has been already approved
             if (prov[0].GutschriftBestaetigt__c == true || prov[0].GutschriftAbgelehnt__c == true) {
@@ -22,23 +23,30 @@ public without sharing class GutschriftApprovalController {
             
             //Approve Provision
             if (accepted == 'true') {
-                prov[0].GutschriftBestaetigt__c = true;
-                status = 'Gutschrift erfolgreich bestätigt!';
+                event.ProvisionId__c = prov[0].Id;
+                event.Approved__c = true;
+                Database.SaveResult sr = EventBus.publish(event);
+                if(sr.isSuccess()) {
+                    status = 'Gutschrift erfolgreich bestätigt!';
+                }
+                else {
+                    status = 'Fehler! Bitte versuchen Sie es erneut. <br/> (Fehlercode e1)';
+                }
             }
             //Reject Provision
             else if (accepted == 'false') {
-                prov[0].GutschriftAbgelehnt__c = true;
-                status = 'Gutschrift erfolgreich abgelehnt!';
+                event.ProvisionId__c = prov[0].Id;
+                event.Rejected__c = true;
+                Database.SaveResult sr = EventBus.publish(event);
+                if(sr.isSuccess()) {
+                    status = 'Gutschrift erfolgreich abgelehnt!';
+                }
+                else {
+                    status = 'Fehler! Bitte versuchen Sie es erneut. <br/> (Fehlercode e1)';
+                }
             }
             //Parameter 'accepted' is not true or false
             else {
-                status = 'Fehler! Bitte wenden Sie sich an Ihren Maklerbetreuer. <br/>(Fehlercode e1)';
-            }
-
-            try {
-                update prov;
-            } catch (Exception e) {
-                System.debug('EXCEPTION: ' + e);
                 status = 'Fehler! Bitte wenden Sie sich an Ihren Maklerbetreuer. <br/>(Fehlercode e2)';
             }
         }
