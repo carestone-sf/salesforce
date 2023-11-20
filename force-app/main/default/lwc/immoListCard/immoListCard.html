@@ -58,6 +58,31 @@
 			<div class="slds-col slds-size_2-of-2">
 				<lightning-tabset>
 					<lightning-tab label="Apartments">
+						<!-- <div class="apartments">
+							<lightning-layout>
+								<lightning-layout-item padding="horizontal-medium" size="12" large-device-size="4">
+									<lightning-radio-group name="radioGroup"
+										label="Schnellberechnung"
+										options={financingOptions}
+										variant="label-inline"
+										value={value}
+										type="button"></lightning-radio-group>
+								</lightning-layout-item>
+								<lightning-layout-item padding="horizontal-medium" size="12" large-device-size="2">
+									<lightning-input type="number" variant="label-hidden" name="input7" placeholder="Eigenkapital" formatter="currency" step="0.01"></lightning-input>
+								</lightning-layout-item>
+								<lightning-layout-item  padding="horizontal-medium" size="12" large-device-size="2">
+									<lightning-input type="number" variant="label-hidden" name="input8" placeholder="Zinsen" formatter="percent" step="0.01"></lightning-input>
+								</lightning-layout-item>
+								<lightning-layout-item  padding="horizontal-medium" size="12" large-device-size="2">
+									<lightning-input type="number" variant="label-hidden" name="input9" placeholder="Tilgung" formatter="percent" step="0.01"></lightning-input>
+								</lightning-layout-item>
+								<lightning-layout-item  padding="horizontal-medium" size="12" large-device-size="2">
+									<lightning-input type="number" variant="label-hidden" name="input10" placeholder="Laufzeit Tilgung" step="1"></lightning-input>
+								</lightning-layout-item>
+							</lightning-layout>
+							<p style="text-align:center;" class="slds-var-m-bottom_medium">Grobe Berechnung. Bitte verwenden Sie für einen höheren Detailierungsgrad den Rechner direkt am Apartment</p>
+						</div> -->
 						<lightning-datatable key-field="id" id="apartmenttable" data={transferedApartments}
 							columns={columns} hide-checkbox-column={hideCheckbox} onrowselection={getSelectedID}
 							onsort={updateColumnSorting} sorted-by={sortBy} sorted-direction={sortDirection}>
