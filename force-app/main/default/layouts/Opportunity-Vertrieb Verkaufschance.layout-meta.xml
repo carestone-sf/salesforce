@@ -576,6 +576,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>ProvisionsverhandlungVorhanden__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>ProvisionsvoraussetzungenErfuellt__c</field>
             </layoutItems>
             <layoutItems>
@@ -879,6 +883,7 @@
         <fields>NAME</fields>
         <fields>AmpelInternImg__c</fields>
         <fields>Phase__c</fields>
+        <fields>PhasendauerInTagen__c</fields>
         <relatedList>Finanzierungsanfrage__c.Opportunity__c</relatedList>
     </relatedLists>
     <relatedLists>

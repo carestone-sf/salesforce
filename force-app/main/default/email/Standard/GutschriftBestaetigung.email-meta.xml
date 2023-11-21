@@ -9,6 +9,7 @@
     <textOnly>{!Provision__c.Anrede_Formel_Makler__c} {!Provision__c.Makler__c},
 
 wir freuen uns Ihnen mitteilen zu können, dass die Provisionsvoraussetzungen für den Verkauf des Apartments {!Provision__c.Wohneinheit__c} im Objekt {!Provision__c.Objekt__c} erfüllt worden sind.
+
 Für die Erstellung Ihrer Gutschrift und der damit folgenden Provisionszahlung haben wir folgende Daten hinterlegt:
 
 Objekt: {!Provision__c.Objekt__c}
@@ -36,6 +37,7 @@ Ablehnen:
 https://carestone.my.salesforce-sites.com/gutschrift?gutschriftId={!Provision__c.Id}&amp;accepted=false
 
 Mit freundlichen Grüßen
+
 Ihre Carestone Service GmbH</textOnly>
     <type>html</type>
     <uiType>Aloha</uiType>

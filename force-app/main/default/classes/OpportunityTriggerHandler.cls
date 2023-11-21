@@ -179,6 +179,8 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
             if(opp.Abrechnung_ber__c != null && opp.Makler__c == opp.Immobilienberater__c) {
                 opp.Verkaufsprovision_Provisionsverhandlung__c = proviV.Verkaufsprovision__c;
             }
+
+            opp.ProvisionsverhandlungVorhanden__c = true;
         }
 
         if(opp.Verkaufsprovision_Provisionsverhandlung__c == null && !opp.ImmobilienberaterIstIntern__c) {
@@ -265,6 +267,8 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         apartment.LetztePhasenaenderungFA__c = null;
         apartment.BewertungFinanzierungsanfrage__c = null;
         apartment.BeurkundungMoeglich__c = false;
+        apartment.MaklerprovisionNetto__c = null;
+        apartment.MarketingzuschussNetto__c = null;
     }
 
     public Boolean stageSetToReserved(Opportunity opp, Opportunity oldOpp) {
@@ -637,6 +641,8 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                 apartment.LetztePhasenaenderungFA__c = opp.LetztePhasenaenderungFA__c;
                 apartment.BewertungFinanzierungsanfrage__c = opp.BewertungFinanzierungsanfrage__c;
                 apartment.BeurkundungMoeglich__c = opp.BeurkundungMoeglich__c;
+                apartment.MaklerprovisionNetto__c = opp.Wert_Maklerprovision__c;
+                apartment.MarketingzuschussNetto__c = opp.WertMarketingzuschuss__c;
                 if(opp.Bezahlt__c != 0) {
                     apartment.Bezahlt__c = opp.Bezahlt__c;
                 }
@@ -668,6 +674,8 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                 oldApartment.LetztePhasenaenderungFA__c = null;
                 oldApartment.BewertungFinanzierungsanfrage__c = null;
                 oldApartment.BeurkundungMoeglich__c = false;
+                oldApartment.MaklerprovisionNetto__c = null;
+                oldApartment.MarketingzuschussNetto__c = null;
                 updateMap.put(oldApartment.Id, oldApartment);
             } 
         }

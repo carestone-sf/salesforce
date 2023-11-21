@@ -4068,8 +4068,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Verkaufsvolumen__c</fieldItem>
-                <identifier>RecordVerkaufsvolumen_cField2</identifier>
+                <fieldItem>Record.Property_Price__c</fieldItem>
+                <identifier>RecordProperty_Price_cField3</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>

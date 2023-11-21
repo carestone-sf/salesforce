@@ -1,0 +1,33 @@
+<apex:page controller="GutschriftApprovalController" action="{!approveGutschrift}" showHeader="false" standardStylesheets="false">
+<html>
+    <head>
+        <style type="text/css">
+            .logo {
+                display: block;
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .text {
+                font-family: sans-serif;
+                font-size: 11pt;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+
+    <body>
+                <div class="logo">
+                    <apex:image url="{!$Resource.Carestone_Logo}" width="250px" height="50px"/>
+                    <br/><br/><br/>
+
+                    <apex:outputText value="{!status}" styleClass="text" escape="false"/>
+                </div>
+
+                <div>
+
+                </div>
+
+    </body>
+</html>
+</apex:page>

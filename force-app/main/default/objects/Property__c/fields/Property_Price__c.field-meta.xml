@@ -3,7 +3,7 @@
     <fullName>Property_Price__c</fullName>
     <defaultValue>0</defaultValue>
     <externalId>false</externalId>
-    <label>Property Price</label>
+    <label>Verkaufsvolumen Plan</label>
     <precision>8</precision>
     <required>false</required>
     <scale>0</scale>

@@ -1453,6 +1453,31 @@
             <field>Erwerbstaetigkeit__c</field>
             <table>Opportunity.Finanzierungsanfragen__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TageInVSAVorhanden__c</field>
+            <table>Opportunity.Finanzierungsanfragen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TageInUnterlagenAngefordert__c</field>
+            <table>Opportunity.Finanzierungsanfragen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TageInBankantrag__c</field>
+            <table>Opportunity.Finanzierungsanfragen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PhasendauerInTagen__c</field>
+            <table>Opportunity.Finanzierungsanfragen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AngeforderteUnterlagen__c</field>
+            <table>Opportunity.Finanzierungsanfragen__r</table>
+        </columns>
         <masterLabel>Finanzierungsanfragen</masterLabel>
     </sections>
     <sections>
@@ -1539,6 +1564,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ProvisionsverzichtInEuro__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProvisionsverhandlungVorhanden__c</field>
             <table>Opportunity</table>
         </columns>
         <masterLabel>Verkaufschancen</masterLabel>
