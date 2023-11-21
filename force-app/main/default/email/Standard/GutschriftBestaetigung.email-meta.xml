@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>WH_Service</letterhead>
+    <name>Gutschrift Bestätigung</name>
+    <style>freeForm</style>
+    <subject>Gutschrift bestätigen</subject>
+    <textOnly>{!Provision__c.Anrede_Formel_Makler__c} {!Provision__c.Makler__c},
+
+wir freuen uns Ihnen mitteilen zu können, dass die Provisionsvoraussetzungen für den Verkauf des Apartments {!Provision__c.Wohneinheit__c} im Objekt {!Provision__c.Objekt__c} erfüllt worden sind.
+Für die Erstellung Ihrer Gutschrift und der damit folgenden Provisionszahlung haben wir folgende Daten hinterlegt:
+
+Objekt: {!Provision__c.Objekt__c}
+Apartment: {!Provision__c.Wohneinheit__c}
+Kunde: {!Provision__c.Vollst_ndiger_Name_Kunde__c}
+beurkundeter Kaufpreis: {!Provision__c.Kaufpreis__c}
+Für den Verkauf vereinbarte Provision: {!Provision__c.ProvisionInProzentOhneMZ__c} %
+Resultierender Betrag der Gutschrift (netto): {!Provision__c.ProvisionssummeOhneMarketingzuschuss__c}
+Daraus resultierende gesetz. MwSt.: {!Provision__c.UStProvisionssummeOhneMZ__c}
+Auszuzahlender Gesamtbetrag: {!Provision__c.ProvisionssummeOhneMZInklUSt__c}
+Gutschriftempfänger: {!Provision__c.Vollst_ndiger_Gutschrift_Empf_nger__c}
+Adresse: {!Provision__c.Vollst_ndige_Adresse_Makler__c}
+IBAN: {!Provision__c.IBAN_Makler__c}
+BIC: {!Provision__c.BIC_Makler__c}
+Steuernummer/USt.Id: {!Provision__c.Steuernummer_UStId_Makler__c}
+
+Bitte beachten Sie, dass ohne Ihre Zustimmung eine Auszahlung nicht stattfinden kann.
+
+Sollten Sie beim Genehmigen oder Ablehnen ein Problem haben, kopieren Sie einen der folgenden Links in den Browser:
+
+Genehmigen:
+https://carestone.my.salesforce-sites.com/gutschrift?gutschriftId={!Provision__c.Id}&amp;accepted=true
+
+Ablehnen:
+https://carestone.my.salesforce-sites.com/gutschrift?gutschriftId={!Provision__c.Id}&amp;accepted=false
+
+Mit freundlichen Grüßen
+Ihre Carestone Service GmbH</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
