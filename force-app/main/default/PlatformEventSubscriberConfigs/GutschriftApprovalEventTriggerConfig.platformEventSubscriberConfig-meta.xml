@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<PlatformEventSubscriberConfig xmlns="http://soap.sforce.com/2006/04/metadata">
-    <batchSize>200</batchSize>
-    <masterLabel>GutschriftApprovalEventTriggerConfig</masterLabel>
-    <platformEventConsumer>GutschriftApprovalEvent</platformEventConsumer>
-    <user>support@carestone.com.tg1</user>
-</PlatformEventSubscriberConfig>
