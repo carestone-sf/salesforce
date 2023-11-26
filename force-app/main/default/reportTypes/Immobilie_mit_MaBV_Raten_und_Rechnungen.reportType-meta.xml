@@ -1823,6 +1823,11 @@
             <field>IncentivierungKundeGezahlt__c</field>
             <table>Property__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>IncentivierungMaklerGezahltBrutto__c</field>
+            <table>Property__c</table>
+        </columns>
         <masterLabel>Immobilien</masterLabel>
     </sections>
     <sections>
