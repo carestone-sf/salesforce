@@ -2,6 +2,7 @@
 private class BatchAggregateImmosTest {
     @testSetup static void test_setup() {
         Contact mb = new Contact();
+        mb.Salutation = 'Herr';
         mb.FirstNAme = 'Frank';
         mb.LastName = 'Köpsell';
         mb.Email = 'witte@amstammtisch.de';
@@ -17,20 +18,32 @@ private class BatchAggregateImmosTest {
         insert mb;
         Account acc3 = new Account();
         acc3.Name = 'WH Maklerbetreuer - Frank Köpsell';
-        acc3.Email__c = 'witte@amstammtisch.de';
+        acc3.Gesch_ftsbeziehung__c = 'Bauträger';
         acc3.Maklerbetreuer_Wirtschaftshaus__c = 'Frank Köpsell';
         acc3.Maklerbetreuer_Wirtschaftshaus_2__c = mb.Id;
-        acc3.BIC__c  = '1';
-        acc3.Geschueftsfuehrer__c = mb.id;
-        acc3.Gesetzliche_MwSt_auf_Provisionszahlung__c = 0.4;
-        acc3.IBAN__c = 'DE43250501801900212158';
+        acc3.BillingCity = 'Test Stadt';
+        acc3.BillingStreet = 'Test Str. 12';
+        acc3.BillingPostalCode = '30159';
+        acc3.Email__c = 'f.witte@wirtschaftshaus.de';
+        acc3.Phone = '113';
+        acc3.Fax = '113';
+        acc3.Website = 'https://carestone.com';
+        acc3.UStd_Id__c = 'DE12345';
+        acc3.Steuernummer__c = '24/231/113';
+        acc3.GeschaeftsfuehrerNeu__c = 'Sandro Pawils';
         acc3.Rechtsform__c = 'GbR';
+        acc3.Amtsgericht_bei_Kapitalgesellschaften__c = 'Amtsgericht Hannover';
+        acc3.HRB_bei_Kapitalgesellschaften__c = 'HRB 210203';
+        acc3.Datev_Mandantennummer__c = 113;
         acc3.Unternehmensname__c = 'CareStone';
+        acc3.IBAN__c = 'DE43250501801900212158';
+        acc3.BIC__c = 'SPKHDE2HXXX';
         insert acc3;
         mb.AccountId = acc3.Id;
         update mb;
 
         Contact potKun = new Contact();
+        potKun.Salutation = 'Frau';
         potKun.FirstName = 'Tvvsta';
         potKun.LastName = 'Tekoeeric';
         potKun.Email = 'test@tester.de';
@@ -131,6 +144,7 @@ private class BatchAggregateImmosTest {
         prov.Wohneinheit__c = opp2.Appartement__c;
         prov.Kunde__c = opp2.Potenzieller_Kunde__c;
         prov.Kaufpreis__c = opp2.Provisionsbasis__c;
+        prov.Wert_Maklerprovision__c = 5000;
         insert prov;
         opp2.StageName = 'Geschlossene und gewonnene';
         opp2.Notartermin__c = Date.today();
@@ -143,6 +157,11 @@ private class BatchAggregateImmosTest {
         update newOpp;
 
         Test.startTest();
+        prov.GutschriftBestaetigt__c = true;
+        prov.Genehmigung__c = true;
+        update prov;
+        Gutschrift__c g = [SELECT Bezahlt__c FROM Gutschrift__c LIMIT 1];
+        g.Bezahlt__c = true;
         GenerateInternalCommissionSchedulable gcs = new GenerateInternalCommissionSchedulable('month');
         gcs.scheduleMe();
         String jobId = System.schedule('testBasicScheduledApex',

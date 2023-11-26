@@ -55,6 +55,11 @@ public with sharing class BatchAggregateImmos implements Database.Batchable<SObj
             }
             properties.put(propertyId, property);
         }
+        String c1;
+        String c2;
+        String c3;
+        String c4;
+        String c5;
 
         update properties.values();
     }
