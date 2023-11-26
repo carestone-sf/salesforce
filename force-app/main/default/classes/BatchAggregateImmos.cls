@@ -38,6 +38,17 @@ public with sharing class BatchAggregateImmos implements Database.Batchable<SObj
             properties.put(propertyId, property);
         }
 
+        for(AggregateResult agRes : [SELECT SUM(Wert_Maklerprovision__c) maklerprovisionNetto, SUM(WertMarketingzuschuss__c) marketingzuschussNetto, Provision__r.Objekt__c propertyId FROM Gutschrift__c WHERE GutschriftStorniert__c = false AND Bezahlt__c = true AND Provision__r.Objekt__c = :propertyId GROUP BY Provision__r.Objekt__c]) {
+            Property__c property = properties.get(propertyId);
+
+            if(property == null) {
+                property = new Property__c(Id = propertyId);
+            }
+            property.MarketingzuschussGezahltBrutto__c = ((Decimal)agRes.get('marketingzuschussNetto'))*1.19;
+            property.MaklerprovisionGezahltBrutto__c = ((Decimal)agRes.get('maklerprovisionNetto'))*1.19;
+            properties.put(propertyId, property);
+        }
+
         update properties.values();
     }
 
