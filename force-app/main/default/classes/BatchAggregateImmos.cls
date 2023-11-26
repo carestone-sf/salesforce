@@ -44,11 +44,22 @@ public with sharing class BatchAggregateImmos implements Database.Batchable<SObj
             if(property == null) {
                 property = new Property__c(Id = propertyId);
             }
-            property.MarketingzuschussGezahltBrutto__c = ((Decimal)agRes.get('marketingzuschussNetto'))*1.19;
-            property.MaklerprovisionGezahltBrutto__c = ((Decimal)agRes.get('maklerprovisionNetto'))*1.19;
-            property.IncentivierungMaklerGezahltBrutto__c = ((Decimal)agRes.get('incentivierungMaklerNetto'))*1.19;
+            if(agRes.get('marketingzuschussNetto') != null) {
+                property.MarketingzuschussGezahltBrutto__c = ((Decimal)agRes.get('marketingzuschussNetto'))*1.19;
+            }
+            if(agRes.get('maklerprovisionNetto') != null) {
+                property.MaklerprovisionGezahltBrutto__c = ((Decimal)agRes.get('maklerprovisionNetto'))*1.19;
+            }
+            if(agRes.get('incentivierungMaklerNetto') != null) {
+                property.IncentivierungMaklerGezahltBrutto__c = ((Decimal)agRes.get('incentivierungMaklerNetto'))*1.19;
+            }
             properties.put(propertyId, property);
         }
+        String c1;
+        String c2;
+        String c3;
+        String c4;
+        String c5;
 
         update properties.values();
     }
