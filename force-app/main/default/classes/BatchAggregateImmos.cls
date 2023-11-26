@@ -38,7 +38,7 @@ public with sharing class BatchAggregateImmos implements Database.Batchable<SObj
             properties.put(propertyId, property);
         }
 
-        for(AggregateResult agRes : [SELECT SUM(Wert_Maklerprovision__c) maklerprovisionNetto, SUM(WertMarketingzuschuss__c) marketingzuschussNetto, Provision__r.Objekt__c propertyId FROM Gutschrift__c WHERE GutschriftStorniert__c = false AND Bezahlt__c = true AND Provision__r.Objekt__c = :propertyId GROUP BY Provision__r.Objekt__c]) {
+        for(AggregateResult agRes : [SELECT SUM(Wert_Maklerprovision__c) maklerprovisionNetto, SUM(AdditionalBrokerCommission__c) incentivierungMaklerNetto, SUM(WertMarketingzuschuss__c) marketingzuschussNetto, Provision__r.Objekt__c propertyId FROM Gutschrift__c WHERE GutschriftStorniert__c = false AND Bezahlt__c = true AND Provision__r.Objekt__c = :propertyId GROUP BY Provision__r.Objekt__c]) {
             Property__c property = properties.get(propertyId);
 
             if(property == null) {
@@ -46,6 +46,7 @@ public with sharing class BatchAggregateImmos implements Database.Batchable<SObj
             }
             property.MarketingzuschussGezahltBrutto__c = ((Decimal)agRes.get('marketingzuschussNetto'))*1.19;
             property.MaklerprovisionGezahltBrutto__c = ((Decimal)agRes.get('maklerprovisionNetto'))*1.19;
+            property.IncentivierungMaklerGezahltBrutto__c = ((Decimal)agRes.get('incentivierungMaklerNetto'))*1.19;
             properties.put(propertyId, property);
         }
 
