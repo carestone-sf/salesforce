@@ -134,21 +134,21 @@ public without sharing class ImmobilienController {
                         metadata.put('thumbnailUrl', immobilienDatei.ThumbnailUrl__c);
                         i.bilder.add(metadata);
                         i.highlightBilder.add(metadata);
-                    } else if(immobilienDatei.DateiTyp__c == 'Grundrisse') {
-                        Map<String, String> metadata = new Map<String, String>();
-                        metadata.put('previewUrl', immobilienDatei.PreviewUrl__c);
-                        metadata.put('downloadUrl', immobilienDatei.DateiUrl__c);
-                        metadata.put('thumbnailUrl', immobilienDatei.ThumbnailUrl__c);
-                        i.bilder.add(metadata);
-                    } else if(immobilienDatei.DateiTyp__c == 'Baufortschritt') {
-                        Map<String, String> metadata = new Map<String, String>();
-                        metadata.put('previewUrl', immobilienDatei.PreviewUrl__c);
-                        metadata.put('downloadUrl', immobilienDatei.DateiUrl__c);
-                        metadata.put('thumbnailUrl', immobilienDatei.ThumbnailUrl__c);
-                        i.constructionBilder.add(metadata);
                     } else if(immobilienDatei.Name.contains('logo')) {
                         i.logo = immobilienDatei.ThumbnailUrl__c;
                     }
+                } else if(immobilienDatei.DateiTyp__c == 'Grundrisse') {
+                    Map<String, String> metadata = new Map<String, String>();
+                    metadata.put('previewUrl', immobilienDatei.PreviewUrl__c);
+                    metadata.put('downloadUrl', immobilienDatei.DateiUrl__c);
+                    metadata.put('thumbnailUrl', immobilienDatei.ThumbnailUrl__c);
+                    i.bilder.add(metadata);
+                } else if(immobilienDatei.DateiTyp__c == 'Baufortschritt') {
+                    Map<String, String> metadata = new Map<String, String>();
+                    metadata.put('previewUrl', immobilienDatei.PreviewUrl__c);
+                    metadata.put('downloadUrl', immobilienDatei.DateiUrl__c);
+                    metadata.put('thumbnailUrl', immobilienDatei.ThumbnailUrl__c);
+                    i.constructionBilder.add(metadata);
                 } else {
                     Map<String, String> metadata = new Map<String, String>();
                     metadata.put('id', immobilienDatei.Id);
