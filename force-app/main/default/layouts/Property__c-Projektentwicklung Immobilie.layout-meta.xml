@@ -60,6 +60,10 @@
                 <behavior>Readonly</behavior>
                 <field>EndkundenrenditeIst__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>KfWFoerderungInfoImImmoframeAnzeigen__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

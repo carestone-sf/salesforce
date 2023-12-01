@@ -14,6 +14,7 @@ public with sharing class ImmoframeProperty {
     public boolean showOnWebsite;
     public boolean showOnImmoframe;
     public boolean inspectionByDekra;
+    public boolean showKfwInfo;
     public String immoframeHeadline;
     public String description;
     public String locationDescription;
@@ -54,12 +55,14 @@ public with sharing class ImmoframeProperty {
     public List<ImmoframeDocument> documents;
     public List<ImmoframeImage> images;
     public List<ImmoframeImage> floorPlans;
+    public List<ImmoframeImage> constructionProgressPhotos;
     public List<ImmoframeApartment> apartments;
 
     public ImmoframeProperty() {
         this.documents = new List<ImmoframeDocument>();
         this.images = new List<ImmoframeImage>();
         this.floorPlans = new List<ImmoframeImage>();
+        this.constructionProgressPhotos = new List<ImmoframeImage>();
         this.apartments = new List<ImmoframeApartment>();
     }
 
