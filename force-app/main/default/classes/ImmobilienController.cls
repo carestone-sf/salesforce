@@ -126,13 +126,26 @@ public without sharing class ImmobilienController {
             Immobilie i = new Immobilie();
             i.immobilie = property;
             for(ImmobilienDmsDatei__c immobilienDatei:property.ImmobilienDmsDateien__r) {
-                if(immobilienDatei.DateiTyp__c == 'Bilder' || immobilienDatei.DateiTyp__c == 'Grundrisse' || immobilienDatei.DateiTyp__c == 'Highlights') { 
+                if(immobilienDatei.DateiTyp__c == 'Bilder' || immobilienDatei.DateiTyp__c == 'Highlights') { 
                     if(!immobilienDatei.Name.contains('logo') && !immobilienDatei.Name.contains('berechnung')) {
                         Map<String, String> metadata = new Map<String, String>();
                         metadata.put('previewUrl', immobilienDatei.PreviewUrl__c);
                         metadata.put('downloadUrl', immobilienDatei.DateiUrl__c);
                         metadata.put('thumbnailUrl', immobilienDatei.ThumbnailUrl__c);
                         i.bilder.add(metadata);
+                        i.highlightBilder.add(metadata);
+                    } else if(immobilienDatei.DateiTyp__c == 'Grundrisse') {
+                        Map<String, String> metadata = new Map<String, String>();
+                        metadata.put('previewUrl', immobilienDatei.PreviewUrl__c);
+                        metadata.put('downloadUrl', immobilienDatei.DateiUrl__c);
+                        metadata.put('thumbnailUrl', immobilienDatei.ThumbnailUrl__c);
+                        i.bilder.add(metadata);
+                    } else if(immobilienDatei.DateiTyp__c == 'Baufortschritt') {
+                        Map<String, String> metadata = new Map<String, String>();
+                        metadata.put('previewUrl', immobilienDatei.PreviewUrl__c);
+                        metadata.put('downloadUrl', immobilienDatei.DateiUrl__c);
+                        metadata.put('thumbnailUrl', immobilienDatei.ThumbnailUrl__c);
+                        i.constructionBilder.add(metadata);
                     } else if(immobilienDatei.Name.contains('logo')) {
                         i.logo = immobilienDatei.ThumbnailUrl__c;
                     }
@@ -164,6 +177,12 @@ public without sharing class ImmobilienController {
         public List<Map<String, String>> bilder{get;set;}
 
         @AuraEnabled
+        public List<Map<String, String>> highlightBilder{get;set;}
+
+        @AuraEnabled
+        public List<Map<String, String>> constructionBilder{get;set;}
+
+        @AuraEnabled
         public List<Map<String, String>> dokumente{get;set;}
 
         @AuraEnabled
@@ -174,6 +193,8 @@ public without sharing class ImmobilienController {
 
         public Immobilie() {
             this.bilder = new List<Map<String,String>>();
+            this.highlightBilder = new List<Map<String,String>>();
+            this.constructionBilder = new List<Map<String,String>>();
             this.dokumente = new List<Map<String,String>>();
             this.teilobjekte = new List<Appartment__c>();
         }
