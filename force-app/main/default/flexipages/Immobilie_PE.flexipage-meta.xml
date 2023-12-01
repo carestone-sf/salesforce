@@ -1608,6 +1608,16 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.KfWFoerderungInfoImImmoframeAnzeigen__c</fieldItem>
+                <identifier>RecordKfWFoerderungInfoImImmoframeAnzeigen_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Street__c</fieldItem>
                 <identifier>RecordStreet_cField</identifier>
             </fieldInstance>
@@ -5977,6 +5987,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.MaBV__c</fieldItem>
                 <identifier>RecordMaBV_cField4</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.KfWFoerderungInfoImImmoframeAnzeigen__c</fieldItem>
+                <identifier>RecordKfWFoerderungInfoImImmoframeAnzeigen_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>

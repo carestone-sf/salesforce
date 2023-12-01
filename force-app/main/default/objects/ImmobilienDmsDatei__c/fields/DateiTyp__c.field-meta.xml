@@ -30,6 +30,11 @@
                 <default>false</default>
                 <label>Grundrisse</label>
             </value>
+            <value>
+                <fullName>Baufortschritt</fullName>
+                <default>false</default>
+                <label>Baufortschritt</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>
