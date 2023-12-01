@@ -138,6 +138,22 @@ global class SchedulableImmobilienFiles implements Schedulable, Database.AllowsC
         new ImmobilienBilder__c();
         new ImmobilienBilder__c();
         new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
+        new ImmobilienBilder__c();
 
         for(Id propertyId:propertyIds) {
             getDocuments(propertyId);
@@ -188,6 +204,8 @@ global class SchedulableImmobilienFiles implements Schedulable, Database.AllowsC
                             immobilienDatei.DateiTyp__c = 'Highlights';
                         } else if(child.getTitle() == 'Grundrisse') {
                             immobilienDatei.DateiTyp__c = 'Grundrisse';
+                        } else if(child.getTitle() == 'Baufortschritt') {
+                            immobilienDatei.DateiTyp__c = 'Baufortschritt';
                         }
                         immobilienDatei.DateiUrl__c = innerChild.getWebContentLink();
                         immobilienDatei.Immobilie__c = propertyId;
