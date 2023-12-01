@@ -1,6 +1,6 @@
 <template>
   <div class="slideshow-container">
-    <template for:each={immobilie.bilder} for:item="bild">
+    <template for:each={immobilie.highlightBilder} for:item="bild">
       <div class="slide fade" key={bild.thumbnailUrl} data-key={bild.thumbnailUrl}>
         <img src={bild.thumbnailUrl} style="height:192px;max-width:100%">
       </div>
@@ -9,7 +9,7 @@
 
     <!-- The dots/circles -->
     <div style="text-align:center">
-      <template for:each={immobilie.bilder} for:item="bild">
+      <template for:each={immobilie.highlightBilder} for:item="bild">
         <span class="dot" onclick={selectSlide} key={bild.thumbnailUrl} data-key={bild.thumbnailUrl}></span>
       </template>
     </div>
