@@ -209,8 +209,19 @@
 					</lightning-tab>
 					<lightning-tab label="Baufortschritt" if:true={showBaufortschrittTab}>
 						<div class="slds-text-align_left slds-var-m-top_medium">
-							<image src={privateImmobilie.immobilie.BuildingProgressWebcam__c}
-								alt=" Property actual image"></image>
+							<!-- <c-document-list record-id={privateImmobilie.immobilie.Id} folder-suffix="_dokumente" hide-upload-button="true"></c-document-list> -->
+							<div class="slds-var-m-top_medium">
+								<lightning-layout multiple-rows="true">
+									<template for:each={immobilie.constructionBilder} for:item="bild">
+										<lightning-layout-item size="12" small-device-size="6" medium-device-size="4"
+											large-device-size="2" padding="around-small" key={bild.thumbnailUrl}>
+											<c-download-element download-url={bild.downloadUrl}
+												preview-url={bild.previewUrl} thumbnail-url={bild.thumbnailUrl}
+												file-type="Bild" file-name=""></c-download-element>
+										</lightning-layout-item>
+									</template>
+								</lightning-layout>
+							</div>
 						</div>
 					</lightning-tab>
 					<template if:true={privateImmobilie.immobilie.FAQ__c}>
@@ -240,14 +251,14 @@
 			<div class="slds-col slds-size_11-of-12 slds-medium-size_2-of-12">
 				<div class="logo-wrapper">
 					<div class="disruptor-wrapper">
-						<template if:true={privateImmobilie.DisruptorLogoOne__c}> 
+						<template if:true={privateImmobilie.immobilie.DisruptorLogoOne__c}> 
 							<div class="disruptor-one">
-								{privateImmobilie.DisruptorLogoOne__c}
+								{privateImmobilie.immobilie.DisruptorLogoOne__c}
 							</div>
 						</template>
-						<template if:true={privateImmobilie.DisruptorLogoTwo__c}> 
+						<template if:true={privateImmobilie.immobilie.DisruptorLogoTwo__c}> 
 							<div class="disruptor-two">
-								{privateImmobilie.DisruptorLogoTwo__c}
+								{privateImmobilie.immobilie.DisruptorLogoTwo__c}
 							</div>
 						</template>
 					</div>
