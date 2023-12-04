@@ -11,34 +11,24 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Pflegeimmobilie</fullName>
+                <fullName>Pflegeapartments</fullName>
                 <default>false</default>
-                <label>Pflegeimmobilie</label>
+                <label>Pflegeapartments</label>
             </value>
             <value>
-                <fullName>Denkmalgeschützte Immobilie</fullName>
+                <fullName>Service-Wohnungen</fullName>
                 <default>false</default>
-                <label>Denkmalgeschützte Immobilie</label>
+                <label>Service-Wohnungen</label>
             </value>
             <value>
-                <fullName>Kapitalanlage Immobilie</fullName>
+                <fullName>Wohnimmobilien</fullName>
                 <default>false</default>
-                <label>Kapitalanlage Immobilie</label>
+                <label>Wohnimmobilien</label>
             </value>
             <value>
-                <fullName>Ferienimmobilie</fullName>
+                <fullName>Mikroapartments</fullName>
                 <default>false</default>
-                <label>Ferienimmobilie</label>
-            </value>
-            <value>
-                <fullName>Betreutes Wohnen</fullName>
-                <default>false</default>
-                <label>Betreutes Wohnen</label>
-            </value>
-            <value>
-                <fullName>Wohnimmobilie</fullName>
-                <default>false</default>
-                <label>Wohnimmobilie</label>
+                <label>Mikroapartments</label>
             </value>
         </valueSetDefinition>
     </valueSet>
