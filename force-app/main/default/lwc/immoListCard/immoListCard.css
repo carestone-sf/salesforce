@@ -29,7 +29,7 @@
   gap: 10px;
 }
 .teaserHighlightContainer > div {
-  /* background-color: var(--lwc-brandNavigationBarBackgroundColor); */
+  background-color: var(--lwc-brandNavigationBarBackgroundColor);
   text-align: center;
   color: #fff;
   flex: 1;
@@ -38,6 +38,43 @@
   margin-right: 10px;
 } */
 
-.sold {
-  background-color: light-grey !important;
+.logo-wrapper {
+  position: relative;
+}
+
+.disruptor-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  padding: var(--cs-immo-item2-p);
+  gap: 6px;
+}
+
+.disruptor-one, .disruptor-two {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 3px 6px;
+  text-transform: uppercase;
+  background: rgba(0,75,65,.8);
+  border: 2px solid #004b41;
+  color: #fff;
+}
+
+.disruptor-two {
+  background: rgba(243,192,92,.8);
+  border-color: #f3c05c;
+  color: #004b41;
 }
