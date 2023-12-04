@@ -238,8 +238,21 @@
 		</div>
 		<div class="slds-grid slds-wrap slds-gutters_x-small" data-id={privateImmobilie.immobilie.Id}>
 			<div class="slds-col slds-size_11-of-12 slds-medium-size_2-of-12">
-				<p><img src={privateImmobilie.logo} width="250px" height="192px" referrerpolicy="no-referrer">
-				</p>
+				<div class="logo-wrapper">
+					<div class="disruptor-wrapper">
+						<template if:true={privateImmobilie.DisruptorLogoOne__c}> 
+							<div class="disruptor-one">
+								{privateImmobilie.DisruptorLogoOne__c}
+							</div>
+						</template>
+						<template if:true={privateImmobilie.DisruptorLogoTwo__c}> 
+							<div class="disruptor-two">
+								{privateImmobilie.DisruptorLogoTwo__c}
+							</div>
+						</template>
+					</div>
+					<img src={privateImmobilie.logo} referrerpolicy="no-referrer">
+				</div>
 			</div>
 			<div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12">
 				<p style="font-size: 13px; line-height : 13px;">Adresse<br></p>
@@ -269,31 +282,26 @@
 				</template>
 			</div>
 			<div class="slds-col slds-size_11-of-12 slds-medium-size_5-of-12">
-				<p style="font-size: 0.8125rem;line-height : 13px; padding-bottom: 5px;">
-					<template if:true={renditeMinIsSameAsRenditeMax}>
-						<lightning-formatted-number
-							value={privateImmobilie.immobilie.Max_Rendite__c}></lightning-formatted-number>% Rendite
-					</template>
-					<template if:true={renditeMinIsDifferentAsRenditeMax}>
-						<lightning-formatted-number
-							value={privateImmobilie.immobilie.Min_Rendite__c}></lightning-formatted-number>% -
-						<lightning-formatted-number
-							value={privateImmobilie.immobilie.Max_Rendite__c}></lightning-formatted-number>% Rendite
-					</template>
-					<template if:true={privateImmobilie.immobilie.MaBV__c}>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{privateImmobilie.immobilie.MaBV__c}
-					</template>
-					<template if:true={compareVar}>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fertigstellung: {completedDate}
-					</template>
-				</p>
 				<c-progress-bar immobilie={privateImmobilie.immobilie}></c-progress-bar>
 				<p style="font-size: 0.8125rem; padding-top: 5px;">
 					Kaufpreis pro Apartment:&nbsp;
 					<lightning-formatted-number value={privateImmobilie.immobilie.Preis_ab__c} format-style="currency"
-						currency-code="EUR"></lightning-formatted-number> - <lightning-formatted-number
+						currency-code="EUR"></lightning-formatted-number>&nbsp;-&nbsp;<lightning-formatted-number
 						value={privateImmobilie.immobilie.Preis_bis__c} format-style="currency"
 						currency-code="EUR"></lightning-formatted-number>
+				</p>
+				<p style="font-size: 0.8125rem;">
+					Rendite:&nbsp;
+					<template if:true={renditeMinIsSameAsRenditeMax}>
+						<lightning-formatted-number
+							value={privateImmobilie.immobilie.Max_Rendite__c}></lightning-formatted-number>%
+					</template>
+					<template if:true={renditeMinIsDifferentAsRenditeMax}>
+						<lightning-formatted-number
+							value={privateImmobilie.immobilie.Min_Rendite__c}></lightning-formatted-number>%&nbsp;-&nbsp;
+						<lightning-formatted-number
+							value={privateImmobilie.immobilie.Max_Rendite__c}></lightning-formatted-number>%
+					</template>
 				</p>
 				<template if:false={isWohnimmobilie}>
 					<p style="font-size: 0.8125rem;">
