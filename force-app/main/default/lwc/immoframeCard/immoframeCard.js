@@ -92,34 +92,34 @@ export default class ImmoframeCard extends LightningElement {
      */
     get Immobilienkategorien() {
         return [{
-                label: 'Pflegeimmobilien',
-                value: 'Pflegeimmobilie__c',
-                name: "Pflegeimmobilie__c",
-                initiallyChecked: this.immoframeConfiguration?.data?.Pflegeimmobilie__c ?? true,
-                id: "Pflegeimmobilien_id"
-            },
-            {
-                label: 'Betreutes Wohnen',
-                value: 'Betreuteswohnen__c',
-                name: "Betreuteswohnen__c",
-                initiallyChecked: this.immoframeConfiguration?.data?.Betreuteswohnen__c ?? true,
-                id: "Betreuteswohnen_id"
-            },
-            {
-                label: 'Kapitalanlange',
-                value: 'Kapitalanlage__c',
-                name: "Kapitalanlage__c",
-                initiallyChecked: this.immoframeConfiguration?.data?.Kapitalanlage__c ?? true,
-                id: "Kapitalanlange_id"
-            },
-            {
-                label: 'Ferienimmobilie',
-                value: 'Ferienimmobilie__c',
-                name: "Ferienimmobilie__c",
-                initiallyChecked: this.immoframeConfiguration?.data?.Ferienimmobilie__c ?? true,
-                id: "Ferienimmobilie_id"
-            },
-        ];
+            label: 'Pflegeapartments',
+            value: 'Pflegeapartments__c',
+            name: "Pflegeapartments__c",
+            initiallyChecked: this.immoframeConfiguration?.data?.Pflegeapartments__c ?? true,
+            id: "Pflegeimmobilien_id"
+        },
+        {
+            label: 'Service-Wohnungen',
+            value: 'ServiceWohnungen__c',
+            name: "ServiceWohnungen__c",
+            initiallyChecked: this.immoframeConfiguration?.data?.ServiceWohnungen__c ?? true,
+            id: "Betreuteswohnen_id"
+        },
+        {
+            label: 'Wohnimmobilien',
+            value: 'Wohnimmobilien__c',
+            name: "Wohnimmobilien__c",
+            initiallyChecked: this.immoframeConfiguration?.data?.Wohnimmobilien__c ?? true,
+            id: "Kapitalanlange_id"
+        },
+        {
+            label: 'Mikroapartments',
+            value: 'Mikroapartments__c',
+            name: "Mikroapartments__c",
+            initiallyChecked: this.immoframeConfiguration?.data?.Mikroapartments__c ?? true,
+            id: "Ferienimmobilie_id"
+        },
+    ];
     }
 
     /**
@@ -254,17 +254,17 @@ export default class ImmoframeCard extends LightningElement {
          * First check what value was clicked
          * Then update corresponding field in @param {*} this.updateImmoframeConfigurationObject
          */
-        if (e.target.value == "Pflegeimmobilie__c") {
-            this.updateImmoframeConfigurationObject.Pflegeimmobilie__c = e.target.checked;
-        } else if (e.target.value == "Kapitalanlage__c") {
-            this.updateImmoframeConfigurationObject.Kapitalanlage__c = e.target.checked;
-        } else if (e.target.value == "Ferienimmobilie__c") {
-            // then update our updateImmoframeConfigurationObject.Ferienimmobilie__c to the value of the checkbox (true | false)
-            this.updateImmoframeConfigurationObject.Ferienimmobilie__c = e.target.checked;
+        if (e.target.value == "Pflegeapartments__c") {
+            this.updateImmoframeConfigurationObject.Pflegeapartments__c = e.target.checked;
+        } else if (e.target.value == "Wohnimmobilien__c") {
+            this.updateImmoframeConfigurationObject.Wohnimmobilien__c = e.target.checked;
+        } else if (e.target.value == "Mikroapartments__c") {
+            // then update our updateImmoframeConfigurationObject.Mikroapartments__c to the value of the checkbox (true | false)
+            this.updateImmoframeConfigurationObject.Mikroapartments__c = e.target.checked;
             // then update our updateImmoframeConfigurationObject.Betreuteswohnen__c to the value of the checkbox (true | false)
-        } else if (e.target.value == "Betreuteswohnen__c") {
-            // then update our updateImmoframeConfigurationObject.Betreuteswohnen__c to the value of the checkbox (true | false)
-            this.updateImmoframeConfigurationObject.Betreuteswohnen__c = e.target.checked;
+        } else if (e.target.value == "ServiceWohnungen__c") {
+            // then update our updateImmoframeConfigurationObject.ServiceWohnungen__c to the value of the checkbox (true | false)
+            this.updateImmoframeConfigurationObject.ServiceWohnungen__c = e.target.checked;
         }
     }
 

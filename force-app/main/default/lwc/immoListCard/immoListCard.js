@@ -9,32 +9,36 @@ const columns = [
     { label: 'Preis m²', fieldName: 'Purchase_Price_sq_m__c', hideDefaultActions:"true", sortable: "true", type: 'currency', cellAttributes: { alignment: 'left' }},
     { label: 'Miete pa', fieldName: 'Jahresmiete__c', hideDefaultActions:"true", sortable: "true", type: 'currency', cellAttributes: { alignment: 'left' }},
     { label: 'Rendite', fieldName: 'RentalReturnFormulaVP__c', hideDefaultActions:"true", sortable: "true", type: 'percent',typeAttributes: { minimumFractionDigits: 2 }, cellAttributes: { alignment: 'left' }},
-    // { label: 'Überschuss/Aufwand p.m.', fieldName: 'UeberschussProMonat', hideDefaultActions:"true", sortable: "true", type: 'percent',typeAttributes: { minimumFractionDigits: 2 }, cellAttributes: { alignment: 'left' }},
+    { label: 'Überschuss/Aufwand p.m.', fieldName: 'costPerMonth', hideDefaultActions:"true", sortable: "true", type: 'currency',typeAttributes: { minimumFractionDigits: 2 }, cellAttributes: { alignment: 'left', class: {fieldName:'costColorClass'} }},
     { label: 'Status', fieldName: 'OeffentlicherStatus__c', type:'text', hideDefaultActions:"true", sortable: "true", cellAttributes: { alignment: 'left', class: {fieldName:'statusColorClass'} }},
 ];
 
 export default class ImmoListCard extends LightningElement {
     columns = columns;
     privateImmobilie;
+    eigenkapital;
+    zinsen;
+    @track
+    tilgung;
+    @track
+    laufzeit;
 
     @track 
     hideCheckbox = false;
 
-    financingValue = '';
+    financingOptionsValue = 'finanzierer';
 
-    get financingOptions() {
-        return [
+    financingOptions = [
             { label: 'Eigenkapitalzahler', value: 'eigenkapitalzahler' },
             { label: 'Finanzierer', value: 'finanzierer' },
         ];
-    }
 
     @api 
     get immobilie() {
         return this.privateImmobilie;
     }
     get showBaufortschrittTab (){
-        if(this.privateImmobilie.immobilie.BuildingProgressWebcam__c){
+        if(this.privateImmobilie.constructionBilder && this.privateImmobilie.constructionBilder.length > 0){
             if( Date.parse(this.privateImmobilie.immobilie.Completion__c)>=Date.now() || (!this.privateImmobilie.immobilie.Completion__c && Date.parse(this.privateImmobilie.immobilie.Arrival__c)>=Date.now())){
                 return true;
             }
@@ -161,7 +165,7 @@ export default class ImmoListCard extends LightningElement {
       }
 
     handleImmobilienChange() {
-        this.transferedApartments = this.privateImmobilie.teilobjekte;
+        this.transferedApartments = this.deepCopyFunction(this.privateImmobilie.teilobjekte);
 
         // Sets the data for the google map call
         this.mapMarkers[0].location.Street = this.privateImmobilie.immobilie.Street__c;
@@ -183,6 +187,91 @@ export default class ImmoListCard extends LightningElement {
 
         if(this.privateImmobilie.immobilie.PreSale__c) {
             this.hideCheckbox = true;
+        }
+    }
+
+    handleFinancingOptionsChange(event) {
+        this.financingOptionsValue = event.detail.value;
+        if(this.financingOptionsValue == 'eigenkapitalzahler') {
+            this.calculateEigenkapitalzahler();
+        } else {
+            this.calculateFinanzierer();
+        }
+    }
+
+    calculateEigenkapitalzahler() {
+        console.log('is here');
+        const newarr = [];
+        this.transferedApartments.forEach(function(item, idx) {
+            console.log('is here 2');
+            item.costPerMonth = item.Monthly_Rent__c - item.Cost_Admin__c/12 - item.Maintenance_sqm__c*item.Area_sq_m__c/12;
+            newarr.push(item);
+            console.log('cost per month', item.costPerMonth);
+        });
+        this.transferedApartments = newarr;
+        console.log(this.transferedApartments);
+    }
+
+    calculateFinanzierer() {
+        //(915.82-2*65.37/12-360/12)-(333024.90)*0.05/12
+        const newarr = [];
+        console.log('is here');
+        const outerThis = this;
+        this.transferedApartments.forEach(function(item, idx) {
+            console.log('is here 2');
+            if(outerThis.eigenkapital && outerThis.zinsen && outerThis.tilgung) {
+                item.costPerMonth = item.Monthly_Rent__c - item.Cost_Admin__c/12 - item.Maintenance_sqm__c*item.Area_sq_m__c/12 - (item.Purchase_Price__c-outerThis.eigenkapital)*(1+outerThis.zinsen/100)*(outerThis.zinsen/100+outerThis.tilgung/100)/12;
+            } else {
+                item.costPerMonth = null;
+            }
+            if(item.costPerMonth != null && item.costPerMonth > 0) {
+                item.costColorClass = 'slds-text-color_success';
+            } else {
+                item.costColorClass = 'slds-text-color_error';
+            }
+            newarr.push(item);
+        });
+        this.transferedApartments = newarr;
+    }
+
+    handleEigenkapitalChange(event) {
+        this.eigenkapital = event.detail.value;
+        this.calculateFinanzierer();
+    }
+
+    handleZinsenChange(event) {
+        this.zinsen = event.detail.value;
+        this.calculateFinanzierer();
+    }
+
+    handleTilgungChange(event) {
+        this.tilgung = event.detail.value;
+        this.calculateLaufzeit();
+    }
+
+    handleLaufzeitChange(event) {
+        this.laufzeit = event.detail.value;
+        this.calculateTilgung();
+    }
+
+    calculateTilgung() {
+        if(this.zinsen && this.laufzeit) {
+            const annuityZinsValue = this.zinsen/100+1;
+            const annuityRate = 100000 * Math.pow(annuityZinsValue, this.laufzeit) * ((annuityZinsValue-1) / (Math.pow(annuityZinsValue, this.laufzeit)-1));
+            const tilgungInPercent = (annuityRate - (100000 * this.zinsen / 100) ) / 100000 * 100;
+            this.tilgung = Math.round(tilgungInPercent * 100) / 100;
+            this.calculateFinanzierer();
+        }
+    }
+
+    calculateLaufzeit() {
+        if (this.zinsen && this.tilgung) {
+            const zinsPercent = this.zinsen/100;
+            const tilgungPercent = this.tilgung/100;
+            //Formula from https://de.wikipedia.org/wiki/Annuit%C3%A4tendarlehen#Bestimmung_der_Laufzeit
+            const laufzeitInJahren = Math.log(1+(zinsPercent)/tilgungPercent)/Math.log(zinsPercent+1);
+            this.laufzeit = Math.round(laufzeitInJahren);
+            this.calculateFinanzierer();
         }
     }
 
