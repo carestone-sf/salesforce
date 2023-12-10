@@ -270,7 +270,3 @@ force-list-view-manager-button-bar, force-list-view-manager-status-info, force-l
 .cs-text-color-red {
     color: rgb(174, 37, 21);
 }
-
-.apartments label {
-    display: none !important;
-}
