@@ -1726,6 +1726,16 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.FertigstellungWebsite__c</fieldItem>
+                <identifier>RecordFertigstellungWebsite_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.UebergabeBetreiberAm__c</fieldItem>
                 <identifier>RecordUebergabeBetreiberAm_cField</identifier>
             </fieldInstance>
@@ -6105,6 +6115,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Completion__c</fieldItem>
                 <identifier>RecordCompletion_cField3</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.FertigstellungWebsite__c</fieldItem>
+                <identifier>RecordFertigstellungWebsite_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
