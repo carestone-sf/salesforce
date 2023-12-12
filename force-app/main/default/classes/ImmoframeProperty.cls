@@ -44,7 +44,7 @@ public with sharing class ImmoframeProperty {
     public Decimal apartmentsMaxPriceInEuro;
     public Decimal apartmentsMinAreaInSqm;
     public Decimal apartmentsMaxAreaInSqm;
-    public Date constructionDate;
+    public String constructionDate;
     public String energyStandard;
     public String constructionProgressUrl;
     public String threeSixtyDegreeTourUrl;
