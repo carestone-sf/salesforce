@@ -857,9 +857,9 @@ public with sharing class TestDataFactory {
         );
 
         if(doInsert) {
-            insert digitaleVsa;
             digitaleVsa.Finanzierungsanfrage__c = finanzierungsanfrage.Id;
-            update digitaleVsa;
+
+            upsert digitaleVsa;
         }
 
         return digitaleVsa;

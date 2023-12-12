@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>PDFGenerationErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PDFGenerationErrorMessage</shortDescription>
+        <value>Sorry, PDF file has NOT been created</value>
+    </labels>
+    <labels>
+        <fullName>PDFGenerationSuccessMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PDFGenerationSuccessMessage</shortDescription>
+        <value>PDF file has been created and saved</value>
+    </labels>
+</CustomLabels>
