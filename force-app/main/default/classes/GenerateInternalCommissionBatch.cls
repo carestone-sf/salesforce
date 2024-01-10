@@ -21,7 +21,7 @@ global without sharing class GenerateInternalCommissionBatch implements Database
         String query = 'SELECT Id, Notartermin__c, Provision_Thoben__c, Makler__c, WertErfolgsabhaengigeProvision__c, Maklerbetreuer_WirtschaftsHaus__c, Immobilie__c, Appartement__c, Potenzieller_Kunde__c, Provisionsbasis__c, OwnerId, MarketingzuschussNichtAusweisen__c, Immobilienberater__c, Abrechnung_ber__c, AbrechnungUeberNurFuerGrundprovision__c, Wert_Verk_ufer_Beratungsprovision_m_R__c, Wert_Maklerprovision__c, WertMarketingzuschuss__c, AdditionalBrokerCommission__c, Verkaufsprovision_intern__c, TippgeberProvisionEmpfaenger__c, Wert_Tippprovision__c, Overhead_Empf_nger__c, Wert_Overhead__c, Wert_Provision_Thoben__c FROM Opportunity';
         if(this.schedule == 'month') {
             if(todaysDate.day() <= 10) {
-                query += ' WHERE (CALENDAR_MONTH(Notartermin__c) = :lastMonth AND CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear) OR (CALENDAR_YEAR(Notartermin__c) = :thisYear AND CALENDAR_MONTH(Notartermin__c) = :thisMonth )';
+                query += ' WHERE ((CALENDAR_MONTH(Notartermin__c) = :lastMonth AND CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear) OR (CALENDAR_YEAR(Notartermin__c) = :thisYear AND CALENDAR_MONTH(Notartermin__c) = :thisMonth))';
             } else if(todaysDate.day() > 10) {
                 query += ' WHERE CALENDAR_MONTH(Notartermin__c) = :thisMonth AND CALENDAR_YEAR(Notartermin__c) = :thisYear';
             }
