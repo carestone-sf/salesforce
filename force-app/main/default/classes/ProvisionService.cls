@@ -47,9 +47,9 @@ public without sharing class ProvisionService {
             String query = 'SELECT Id, Notartermin__c, Maklerbetreuer_WirtschaftsHaus__c FROM Opportunity';
             if(this.schedule == 'month') {
                 if(todaysDate.day() <= 10) {
-                    query += ' WHERE CALENDAR_MONTH(Notartermin__c) >= :lastMonth AND (CALENDAR_YEAR(Notartermin__c) = :thisYear OR CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear)';
+                    query += ' WHERE (CALENDAR_MONTH(Notartermin__c) = :lastMonth AND CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear) OR (CALENDAR_YEAR(Notartermin__c) = :thisYear AND CALENDAR_MONTH(Notartermin__c) = :thisMonth )';
                 } else if(todaysDate.day() > 10) {
-                    query += ' WHERE CALENDAR_MONTH(Notartermin__c) = :thisMonth AND (CALENDAR_YEAR(Notartermin__c) = :thisYear OR CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear)';
+                    query += ' WHERE CALENDAR_MONTH(Notartermin__c) = :thisMonth AND CALENDAR_YEAR(Notartermin__c) = :thisYear';
                 }
             } else if(this.schedule == 'quarter') {
                 query += ' WHERE CALENDAR_QUARTER(Notartermin__c) = :lastQuarter AND (CALENDAR_YEAR(Notartermin__c) = :thisYear OR CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear)';
