@@ -303,6 +303,27 @@
                 <elementReference>Zu_versteuerndes_Einkommen_Rente_0</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>berechnung.AFA__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AFA</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>berechnung.BetrachtungszeitraumInJahren__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Betrachtungszeitraum_in_Jahren</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>berechnung.BauzeitzinsenAnzeigen__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Bauzeitzinsen_berechnen2</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Update_erster_K_ufer_Contact</targetReference>
         </connector>
@@ -352,6 +373,27 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>Zu_versteuerndes_Einkommen_Rente_0_0</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>berechnung.AFA__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AFA2</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>berechnung.BetrachtungszeitraumInJahren__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Betrachtungszeitraum_in_Jahren2</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>berechnung.BauzeitzinsenAnzeigen__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Bauzeitzinsen_berechnen</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -555,6 +597,22 @@
             <targetReference>Apartments_already_selected</targetReference>
         </connector>
     </assignments>
+    <choices>
+        <name>DegressiveAFA</name>
+        <choiceText>Degressive AFA</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <elementReference>berechnung.Hauptimmobilie__r.AlternativeAFAAnschaffungskosten__c</elementReference>
+        </value>
+    </choices>
+    <choices>
+        <name>LineareAFA</name>
+        <choiceText>Lineare AFA</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <elementReference>berechnung.Hauptimmobilie__r.AFAAnschaffungskosten__c</elementReference>
+        </value>
+    </choices>
     <decisions>
         <name>Apartment_already_in_collection</name>
         <label>Apartment already in collection</label>
@@ -1150,6 +1208,8 @@
         <queriedFields>ZuVersteuerndesEinkommen__c</queriedFields>
         <queriedFields>TaxableIncomePension__c</queriedFields>
         <queriedFields>ErsterKaeufer__c</queriedFields>
+        <queriedFields>BauzeitzinsenAnzeigen__c</queriedFields>
+        <queriedFields>AFA__c</queriedFields>
     </recordLookups>
     <recordLookups>
         <name>Get_Erster_K_ufer_Record</name>
@@ -1466,6 +1526,7 @@
             </defaultValue>
             <fieldText>Berechnung Name</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <validationRule>
                 <errorMessage>&lt;p&gt;Der Name darf nicht länger als 80 Zeichen sein.&lt;/p&gt;</errorMessage>
@@ -1532,6 +1593,7 @@
             <dataType>String</dataType>
             <fieldText>Berechnung Name</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <validationRule>
                 <errorMessage>&lt;p&gt;Der Name darf nicht länger als 80 Zeichen sein.&lt;/p&gt;</errorMessage>
@@ -1544,6 +1606,7 @@
             <dataType>String</dataType>
             <fieldText>Immobilie</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -1612,6 +1675,7 @@
             <dataType>Boolean</dataType>
             <fieldText>Neuen Verkaufsraum erstellen</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -1625,6 +1689,7 @@
                     <dataType>String</dataType>
                     <fieldText>Verkaufsraum Name</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -1705,6 +1770,7 @@
             <dataType>Boolean</dataType>
             <fieldText>1. Käufer anlegen</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -1843,6 +1909,7 @@
             <dataType>Boolean</dataType>
             <fieldText>2. Käufer anlegen</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -1938,6 +2005,7 @@
             </defaultValue>
             <fieldText>Kaufpreise anpassen?</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
@@ -2133,6 +2201,7 @@
             </defaultValue>
             <fieldText>Mietsteigerung</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -2143,6 +2212,7 @@
             </defaultValue>
             <fieldText>Steigerung Verwaltungskosten</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -2153,6 +2223,7 @@
             </defaultValue>
             <fieldText>Steigerung Instandhaltungskosten</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -2163,7 +2234,54 @@
             </defaultValue>
             <fieldText>Kirchensteuer</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Bauzeitzinsen_berechnen2</name>
+            <dataType>Boolean</dataType>
+            <defaultValue>
+                <elementReference>berechnung.BauzeitzinsenAnzeigen__c</elementReference>
+            </defaultValue>
+            <fieldText>Bauzeitzinsen berechnen?</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>AFA</name>
+            <choiceReferences>LineareAFA</choiceReferences>
+            <choiceReferences>DegressiveAFA</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>berechnung.AFA__c</elementReference>
+            </defaultValue>
+            <fieldText>AFA</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>berechnung.Hauptimmobilie__r.AlternativeAFAAnschaffungskosten__c</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>Betrachtungszeitraum_in_Jahren</name>
+            <dataType>Number</dataType>
+            <defaultValue>
+                <numberValue>20.0</numberValue>
+            </defaultValue>
+            <fieldText>Betrachtungszeitraum in Jahren</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <scale>0</scale>
         </fields>
         <fields>
             <name>TaxInformationText_0</name>
@@ -2178,6 +2296,7 @@
             </defaultValue>
             <fieldText>Zu versteuerndes Einkommen</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <scale>2</scale>
         </fields>
@@ -2189,6 +2308,7 @@
             </defaultValue>
             <fieldText>Zu versteuerndes Einkommen Rente</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <scale>2</scale>
         </fields>
@@ -2200,6 +2320,7 @@
             </defaultValue>
             <fieldText>Geburtsdatum erster Käufer</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
@@ -2224,6 +2345,7 @@
             </defaultValue>
             <fieldText>Mietsteigerung</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -2234,6 +2356,7 @@
             </defaultValue>
             <fieldText>Steigerung Verwaltungskosten</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -2244,6 +2367,7 @@
             </defaultValue>
             <fieldText>Steigerung Instandhaltungskosten</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -2251,7 +2375,52 @@
             <dataType>Boolean</dataType>
             <fieldText>Kirchensteuer</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Bauzeitzinsen_berechnen</name>
+            <dataType>Boolean</dataType>
+            <defaultValue>
+                <booleanValue>true</booleanValue>
+            </defaultValue>
+            <fieldText>Bauzeitzinsen berechnen?</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>AFA2</name>
+            <choiceReferences>LineareAFA</choiceReferences>
+            <choiceReferences>DegressiveAFA</choiceReferences>
+            <dataType>String</dataType>
+            <defaultSelectedChoiceReference>LineareAFA</defaultSelectedChoiceReference>
+            <fieldText>AFA</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>berechnung.Hauptimmobilie__r.AlternativeAFAAnschaffungskosten__c</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>Betrachtungszeitraum_in_Jahren2</name>
+            <dataType>Number</dataType>
+            <defaultValue>
+                <numberValue>20.0</numberValue>
+            </defaultValue>
+            <fieldText>Betrachtungszeitraum in Jahren</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <scale>0</scale>
         </fields>
         <fields>
             <name>TaxInformationText</name>
@@ -2263,6 +2432,7 @@
             <dataType>Currency</dataType>
             <fieldText>Zu versteuerndes Einkommen</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <scale>2</scale>
         </fields>
@@ -2271,6 +2441,7 @@
             <dataType>Currency</dataType>
             <fieldText>Zu versteuerndes Einkommen Rente</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <scale>2</scale>
         </fields>
@@ -2282,6 +2453,7 @@
             </defaultValue>
             <fieldText>Geburtsdatum erster Käufer</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>

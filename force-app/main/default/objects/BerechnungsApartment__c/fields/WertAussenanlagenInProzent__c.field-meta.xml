@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WertAussenanlagenInProzent__c</fullName>
+    <externalId>false</externalId>
+    <formula>SUBSTITUTE(TEXT(ROUND(WertAussenanlagenInEuro__c / Listenpreis__c, 4) * 100), &apos;.&apos;, &apos;,&apos;) +
+IF(NOT(CONTAINS(RIGHT(SUBSTITUTE(TEXT(ROUND(WertAussenanlagenInEuro__c / Listenpreis__c, 4) * 100), &apos;.&apos;, &apos;,&apos;), 3), &apos;,&apos;)), &apos;,00&apos;, IF(CONTAINS(RIGHT(SUBSTITUTE(TEXT(ROUND(WertAussenanlagenInEuro__c / Listenpreis__c, 4) * 100), &apos;.&apos;, &apos;,&apos;), 2), &apos;,&apos;), &apos;0&apos;, &apos;&apos;)) + &apos; %&apos;</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Wert Außenanlagen in Prozent</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,9 +1,14 @@
-<apex:page standardController="Berechnung__c" extensions="CalculationQuoteController" renderAs="pdf" showHeader="false" applyHtmlTag="false">
+<apex:page standardController="Berechnung__c" extensions="CalculationQuoteController" renderAs="pdf" showHeader="false" applyHtmlTag="false" applyBodyTag="false">
     <head>
         <style>
             * {
                 padding: 0;
                 margin: 0;
+            }
+
+            @font-face {
+                font-family: sans-serif;
+                src: url('{!URLFOR($Resource.IbmPlexSans, 'IBMPlexSans-Regular.ttf')}') format('truetype');
             }
 
             @page {
@@ -36,23 +41,15 @@
                 margin-bottom: 0;
             }
 
-            .pie {
-            width: 300px;
-            background: #f06;
-            border-radius: 50%;
+            @page land { 
+                size:landscape; 
+                @top-right {
+                    content: none;
+                }
             }
-
-            text {
-            font-size: 4px;
-            fill: white;
-            }
-
-            .pie circle {
-            fill: none;
-            stroke: gold;
-            stroke-width: 32;
-            animation: rotate 1.5s ease-in;
-            }
+            @page port { size:portrait; }
+            .landscapePage { page:land; }
+            .portraitPage { page:port; }
 
             .c-clearfix:after {
                 visibility: hidden;
@@ -60,6 +57,10 @@
                 content: "";
                 clear: both;
                 height: 0;
+            }
+
+            .no-visibility {
+                visibility: hidden;
             }
 
             .main-content {
@@ -72,13 +73,24 @@
                 margin-top: 4.5cm;
             }
 
+            sup {
+                font-size: 7pt;
+            }
+
+            .main-content.landscape {
+                width: 25.7cm;
+                margin-top: 1cm;
+                margin-left: 1cm;
+                margin-right: 1cm
+            }
+
             .page-1 {
                 margin-bottom: 0cm;
             }
 
             body {
-                font-family: serif;
-                color: #1f1f1f;
+                font-family: sans-serif;
+                color: #000;
                 font-size: 9pt;
                 line-height: 13.3pt;
             }
@@ -89,61 +101,64 @@
             
             .highlight-text {
                 font-family: sans-serif;
-                color: rgb({!$User.BackgroundColor__c});
-                font-size: 11pt;
-                font-style: italic;
-                font-weight: bold;
-                line-height: 15.3pt;
-            }
-
-            .disclaimer-text {
-                font-family: sans-serif;
-                font-size: 7pt;
-                line-height: 10pt;
+                font-size: 12pt;
+                line-height: 16pt;
             }
 
             h1, h2, h3, h4, h5, h6 {
                 font-family: sans-serif;
                 display: block;
             }
+            
+            .main-headline {
+                margin-bottom: 8px;
+            }
+
+            .main-headline-big {
+                margin-bottom: 20px;
+            }
 
             h1 {
-                font-weight: bold;
+                font-weight: 600;
                 font-size: 24pt;
                 line-height: 30.8pt;
                 color: rgb({!$User.BackgroundColor__c});
             }
 
             h2 {
-                font-weight: normal;
+                font-weight: 600;
+                font-size: 15pt;
+                line-height: 20pt;
+            }
+
+            h3 {
+                font-weight: 600;
+                font-size: 12pt;
+                line-height: 16pt;
+            }
+
+            .highlight {
+                margin-top: 8px;
+                font-size: 20pt;
+                font-weight: 600;
+            }
+
+            .smallheadline {
+                font-size: 12pt;
                 font-style: italic;
-                font-size: 14pt;
-                line-height: 19pt;
+                font-weight: 600;
             }
 
-            table.plain th {
-                font-family: serif;
-                color: rgb({!$User.BackgroundColor__c});
-                font-size: 11pt;
-                font-weight: normal;
-                line-height: 15.3pt;
-                border-bottom: 2px solid rgb({!$User.BackgroundColor__c});
-            }
-
-            table.plain td {
-                border-bottom: 0.5px solid #888888;
-            }
-
-            table.overview thead {
-                background-color: rgb({!$User.BackgroundColor__c});
-            }
-
-            table.overview th {
-                font-family: serif;
+            .positive-bar {
+                width: {!SUBSTITUTE(firstYearAfterPaymentValues[firstYearAfterPayment]['percentageTenant'], ',', '.')}%;
+                background-color: #00A86B;
                 color: white;
-                font-weight: bold;
-                font-size: 8pt;
-                line-height: 12.8pt;
+            }
+
+            .negative-bar {
+                width: {!SUBSTITUTE(firstYearAfterPaymentValues[firstYearAfterPayment]['percentageSelf'], ',', '.')}%;
+                background-color: #eb2d3a;
+                color: white;
             }
 
             table.overview td {
@@ -166,13 +181,17 @@
                 text-align: right;
             }
 
-            .other-div{
+            .other-div {
                 position: absolute;
                 top: 21.7cm;
                 right: 0;
                 left: 0;
                 height: 8cm;
                 background-color: rgb({!$User.BackgroundColor__c});
+            }
+
+            .negative-value {
+                color: #EA504C;
             }
 
             table {
@@ -182,16 +201,8 @@
                 table-layout: fixed;
             }
 
-            table.plain.summary th:last-child, table.plain.summary td:last-child {
-                text-align: right;
-            }
-
             td {
                 vertical-align: baseline;
-            }
-
-            td {
-                padding-top: 4px;
             }
             
             .top-right-header {
@@ -212,6 +223,62 @@
                 text-align: right;
             }
 
+            table.data {
+                border-spacing: 2px;
+                border-collapse: separate;
+            }
+
+            table.data.vertical-headers td:first-child {
+                width: 35%;
+                font-weight: bold;
+            }
+
+            table.data.vertical-headers.wide td:first-child {
+                width: 45%;
+                font-weight: bold;
+            }
+
+            table.data.vertical-headers.medium-wide td:first-child {
+                width: 40%;
+                font-weight: bold;
+            }
+
+            table.data.vertical-headers.wide-reverse td:first-child {
+                width: 55%;
+                font-weight: bold;
+            }
+
+            .data .data-theader {
+                font-weight: bold;
+            }
+
+            .data thead th {
+                background-color: rgb({!$User.BackgroundColor__c});
+                color: white;
+            }
+
+            .data thead .light-background {
+                background-color: #f7f8fa;
+                color: #000;
+            }
+
+            .data td, .data th {
+                background-color: #f7f8fa;
+                padding: 2px 4px;
+            }
+
+            td.no-background {
+                background-color: transparent !important;
+            }
+
+            table.data td.summary {
+                border-top: solid 1px #000;
+            }
+
+            tr.data-repeat:last-child td.summary-bottom {
+                border-bottom: solid 1px #000;
+            }
+
             .center {
                 text-align: center;
             }
@@ -224,26 +291,8 @@
                 content: counter(pages);
             }
 
-            .green-text {
-                color: #004b42;
-            }
-
-            .red-text {
-                color: #EA504C;
-            }
-
-            .black-text {
-                color: black;
-            }
-
-            .grey-container {
-                background-color: #F6F6F6;
-                padding-top: 16px;
-                padding-bottom: 16px;
-            }
-
-
             .logo {
+                margin-right: 0.5cm;
                 width: 200px;
                 height: auto;
             }
@@ -258,9 +307,18 @@
                 bottom: 0;
             }
 
-            .footer {
-                margin-left: 2.5cm;
-                margin-right: 2cm;
+            .disclaimer-text {
+                font-family: sans-serif;
+                font-size: 7pt;
+                line-height: 10pt;
+            }
+
+            .page-1 h1 {
+                font-size: 30pt;
+            }
+
+            .page-1 h2 {
+                font-size: 15pt;
             }
         </style>
     </head>
@@ -280,44 +338,46 @@
             <h1>Unverbindliches Angebot</h1>
             <h2>Für den Kauf von einem Apartment in {!Berechnung__c.Hauptimmobilie__r.Name}</h2>
             <br/><br/>
-            <p><b>Für:</b></p>
-            <p class="highlight-text">
-                <span>{!Berechnung__c.ErsterKaeufer__r.Name}</span>
-                <span style="{!IF(Berechnung__c.ZweiterKaeufer__c != null, 'display:inline', 'display:none')}"><br/>{!Berechnung__c.ZweiterKaeufer__r.Name}</span>
-            </p>
-            <br/><br/>
-            <p><b>Erstellungsdatum:</b></p>
-            <p>
-                <apex:outputText value="{0, date, d'.'MM'.'yyyy}">
-                    <apex:param value="{!TODAY()}" /> 
-                </apex:outputText>
-            </p>
-            <br/><br/>
-            <div class="c-clearfix">
-                <!-- Start Table Käufer 1 -->
-                <div style="width: 49%; display: block; float: left;">
-                    <p><b>Erstellt durch:</b></p>
-                    <p>
-                        {!Berechnung__c.Makler__r.Name}<br/>
-                        {!Berechnung__c.Makler__r.Gesch_ftsbeziehung__c}
-                    </p>
-                    <br/>
-                    <p>{!Berechnung__c.Makler__r.Account.Name}</p>
-                    <p>{!Berechnung__c.Makler__r.Account.BillingStreet}, {!Berechnung__c.Makler__r.Account.BillingPostalCode} {!Berechnung__c.Makler__r.Account.BillingCity}</p>
-                    <br/>        
-                    <p>
-                        <span>Tel: {!Berechnung__c.Makler__r.Account.Phone}</span>
-                        <span style="{!IF(Berechnung__c.Makler__r.Account.Fax != null, 'display:inline', 'display:none')}"><br/>Fax: {!Berechnung__c.Makler__r.Account.Fax}</span>
-                        <span style="{!IF(Berechnung__c.Makler__r.MobilePhone != null, 'display:inline', 'display:none')}"><br/>Mobil: {!Berechnung__c.Makler__r.MobilePhone}</span>
-                    </p>
-                    <br/>
-                    <p>
-                        <span>E-Mail: {!Berechnung__c.Makler__r.Email}</span>
-                        <span style="{!IF(Berechnung__c.Makler__r.Account.Website != null, 'display:inline', 'display:none')}"><br/>{!Berechnung__c.Makler__r.Account.Website}</span>
-                    </p>
-                </div>
-                <div class="c-clearfix" style="width: 49%; display: block; float:right;text-align: center;">
-                    <img style="height: 6cm; max-width: 100%; {!IF($User.ImgUrl__c != null, 'display:inline-block', 'display:none')}" src="{!$User.ImgUrl__c}"/>
+            <div class="highlight-text">
+                <p><b>Für:</b></p>
+                <p>
+                    <span>{!Berechnung__c.ErsterKaeufer__r.Name}</span>
+                    <span style="{!IF(Berechnung__c.ZweiterKaeufer__c != null, 'display:inline', 'display:none')}"><br/>{!Berechnung__c.ZweiterKaeufer__r.Name}</span>
+                </p>
+                <br/><br/>
+                <p><b>Erstellungsdatum:</b></p>
+                <p>
+                    <apex:outputText value="{0, date, d'.'MM'.'yyyy}">
+                        <apex:param value="{!TODAY()}" /> 
+                    </apex:outputText>
+                </p>
+                <br/><br/>
+                <div class="c-clearfix">
+                    <!-- Start Table Käufer 1 -->
+                    <div style="width: 49%; display: block; float: left;">
+                        <p><b>Erstellt durch:</b></p>
+                        <p>
+                            {!Berechnung__c.Makler__r.Name}<br/>
+                            {!Berechnung__c.Makler__r.Gesch_ftsbeziehung__c}
+                        </p>
+                        <br/>
+                        <p>{!Berechnung__c.Makler__r.Account.Name}</p>
+                        <p>{!Berechnung__c.Makler__r.Account.BillingStreet}, {!Berechnung__c.Makler__r.Account.BillingPostalCode} {!Berechnung__c.Makler__r.Account.BillingCity}</p>
+                        <br/>        
+                        <p>
+                            <span>Tel: {!Berechnung__c.Makler__r.Account.Phone}</span>
+                            <span style="{!IF(Berechnung__c.Makler__r.Account.Fax != null, 'display:inline', 'display:none')}"><br/>Fax: {!Berechnung__c.Makler__r.Account.Fax}</span>
+                            <span style="{!IF(Berechnung__c.Makler__r.MobilePhone != null, 'display:inline', 'display:none')}"><br/>Mobil: {!Berechnung__c.Makler__r.MobilePhone}</span>
+                        </p>
+                        <br/>
+                        <p>
+                            <span>E-Mail: {!Berechnung__c.Makler__r.Email}</span>
+                            <span style="{!IF(Berechnung__c.Makler__r.Account.Website != null, 'display:inline', 'display:none')}"><br/>{!Berechnung__c.Makler__r.Account.Website}</span>
+                        </p>
+                    </div>
+                    <div class="c-clearfix center" style="width: 49%; display: block; float:right;">
+                        <img style="height: 6cm; max-width: 100%; {!IF($User.ImgUrl__c != null, 'display:inline-block', 'display:none')}" src="{!$User.ImgUrl__c}"/>
+                    </div>
                 </div>
             </div>
             <!-- End of main content -->
@@ -327,216 +387,170 @@
 
     <div class="page page-2" style="page-break-before: always;">
         <div class="main-content">
-            <h1>Kaufangebot</h1>
-            <h2>Für den Kauf von einem Apartment in {!Berechnung__c.Hauptimmobilie__r.Name}</h2>
-            <br/><br/>
-
             <div class="c-clearfix">
-                <!-- Start Table Käufer 1 -->
-                <div style="{!IF(Berechnung__c.ZweiterKaeufer__c != null, 'width: 49%; display: block; float: left;', 'width: 100%;')}">
-                    <table class="plain">
-                        <thead>
-                            <th colspan="2">Persönliche Daten – Erwerber</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Anrede</td>
-                                <td>{!Berechnung__c.ErsterKaeufer__r.Salutation}</td>
-                            </tr>
-                            <tr>
-                                <td>Titel</td>
-                                <td>{!Berechnung__c.ErsterKaeufer__r.Titel__c}</td>
-                            </tr>
-                            <tr>
-                                <td>Vorname</td>
-                                <td>{!Berechnung__c.ErsterKaeufer__r.FirstName}</td>
-                            </tr>
-                            <tr>
-                                <td>Nachname</td>
-                                <td>{!Berechnung__c.ErsterKaeufer__r.LastName}</td>
-                            </tr>
-                            <tr>
-                                <td>Geburtsname</td>
-                                <td>{!Berechnung__c.ErsterKaeufer__r.Geburtsname__c}</td>
-                            </tr>
-                            <tr>
-                                <td>Geburtsdatum</td>
-                                <td><apex:outputField value="{!Berechnung__c.ErsterKaeufer__r.Birthdate}"></apex:outputField></td>
-                            </tr>
-                            <tr>
-                                <td>Familienstand</td>
-                                <td>{!Berechnung__c.ErsterKaeufer__r.Familienstand__c}</td>
-                            </tr>
-                            <tr>
-                                <td>Straße/H.Nr.</td>
-                                <td>{!Berechnung__c.ErsterKaeufer__r.MailingStreet}</td>
-                            </tr>
-                            <tr>
-                                <td>Plz/Ort</td>
-                                <td>{!Berechnung__c.ErsterKaeufer__r.MailingPostalCode} {!Berechnung__c.ErsterKaeufer__r.MailingCity}</td>
-                            </tr>
-                            <tr>
-                                <td>Bundesland</td>
-                                <td>{!Berechnung__c.ErsterKaeufer__r.MailingState}</td>
-                            </tr>
-                            <tr>
-                                <td>Telefon</td>
-                                <td>{!Berechnung__c.ErsterKaeufer__r.Phone}</td>
-                            </tr>
-                            <tr>
-                                <td>Mobil</td>
-                                <td>{!Berechnung__c.ErsterKaeufer__r.MobilePhone}</td>
-                            </tr>
-                            <tr>
-                                <td>E-Mail</td>
-                                <td>{!Berechnung__c.ErsterKaeufer__r.Email}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- Ende Table Käufer 1 -->
-                <!-- Start Table Käufer 2 -->
-                <div class="c-clearfix" style="{!IF(Berechnung__c.ZweiterKaeufer__c != null, 'width: 49%; display: block; float:right;', 'display: none;')}">
-                    <table class="plain">
-                        <thead>
-                            <th colspan="2">Persönliche Daten – Miterwerber</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Anrede</td>
-                                <td>{!Berechnung__c.ZweiterKaeufer__r.Salutation}</td>
-                            </tr>
-                            <tr>
-                                <td>Titel</td>
-                                <td>{!Berechnung__c.ZweiterKaeufer__r.Titel__c}</td>
-                            </tr>
-                            <tr>
-                                <td>Vorname</td>
-                                <td>{!Berechnung__c.ZweiterKaeufer__r.FirstName}</td>
-                            </tr>
-                            <tr>
-                                <td>Nachname</td>
-                                <td>{!Berechnung__c.ZweiterKaeufer__r.LastName}</td>
-                            </tr>
-                            <tr>
-                                <td>Geburtsname</td>
-                                <td>{!Berechnung__c.ZweiterKaeufer__r.Geburtsname__c}</td>
-                            </tr>
-                            <tr>
-                                <td>Geburtsdatum</td>
-                                <td><apex:outputField value="{!Berechnung__c.ZweiterKaeufer__r.Birthdate}"></apex:outputField></td>
-                            </tr>
-                            <tr>
-                                <td>Familienstand</td>
-                                <td>{!Berechnung__c.ZweiterKaeufer__r.Familienstand__c}</td>
-                            </tr>
-                            <tr>
-                                <td>Straße/H.Nr.</td>
-                                <td>{!Berechnung__c.ZweiterKaeufer__r.MailingStreet}</td>
-                            </tr>
-                            <tr>
-                                <td>Plz/Ort</td>
-                                <td>{!Berechnung__c.ZweiterKaeufer__r.MailingPostalCode} {!Berechnung__c.ZweiterKaeufer__r.MailingCity}</td>
-                            </tr>
-                            <tr>
-                                <td>Bundesland</td>
-                                <td>{!Berechnung__c.ZweiterKaeufer__r.MailingState}</td>
-                            </tr>
-                            <tr>
-                                <td>Telefon</td>
-                                <td>{!Berechnung__c.ZweiterKaeufer__r.Phone}</td>
-                            </tr>
-                            <tr>
-                                <td>Mobil</td>
-                                <td>{!Berechnung__c.ZweiterKaeufer__r.MobilePhone}</td>
-                            </tr>
-                            <tr>
-                                <td>E-Mail</td>
-                                <td>{!Berechnung__c.ZweiterKaeufer__r.Email}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- Ende Table Käufer 2 -->
-            </div>
-            <br/> <br/>
-            <table class="plain">
-                <thead>
-                    <th>Immobilie</th>
-                    <th>Apartment</th>
-                    <th>Mietfläche</th>
-                    <th>Miete p.m.</th>
-                    <th align="right">Kaufpreis</th>
-                </thead>
-                <tbody>
-                    <apex:repeat value="{!Berechnung__c.Berechnungs_Apartments__r}" var="berechnungsApartment">
+                <h2 class="main-headline">PERSÖNLICHE DATEN - ERWERBER</h2>
+                <div style="width: 49%; display: inline; float: left;">
+                    <table class="data vertical-headers">
                         <tr>
+                            <td class="data-theader">Anrede</td>
+                            <td>{!Berechnung__c.ErsterKaeufer__r.Salutation}</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader">Titel</td>
+                            <td>{!Berechnung__c.ErsterKaeufer__r.Titel__c}</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader">Vorname</td>
+                            <td>{!Berechnung__c.ErsterKaeufer__r.FirstName}</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader">Nachname</td>
+                            <td>{!Berechnung__c.ErsterKaeufer__r.LastName}</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader">Geburtsdatum</td>
+                            <td><apex:outputField value="{!Berechnung__c.ErsterKaeufer__r.Birthdate}"></apex:outputField></td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader">Familienstand</td>
+                            <td>{!Berechnung__c.ErsterKaeufer__r.Familienstand__c}</td>
+                        </tr>
+                    </table>
+                </div>
+    
+                <div style="width: 49%; display: block; float: right;">
+                    <table class="data vertical-headers">
+                        <tr>
+                            <td class="data-theader">Straße H.Nr.</td>
+                            <td>{!Berechnung__c.ErsterKaeufer__r.MailingStreet}</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader">PLZ, Ort</td>
+                            <td>{!Berechnung__c.ErsterKaeufer__r.MailingPostalCode} {!Berechnung__c.ErsterKaeufer__r.MailingCity}</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader">Bundesland</td>
+                            <td>{!Berechnung__c.ErsterKaeufer__r.MailingState}</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader">Telefon</td>
+                            <td>{!Berechnung__c.ErsterKaeufer__r.Phone}</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader">Mobil</td>
+                            <td>{!Berechnung__c.ErsterKaeufer__r.MobilePhone}</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader">E-Mail</td>
+                            <td>{!Berechnung__c.ErsterKaeufer__r.Email}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <br/><br/>
+            <div>
+                <h2 class="main-headline">IMMOBILIE/N</h2>
+                <!-- Start Table Immobilien -->
+                <table class="data">
+                    <tr>
+                        <td class="data-theader">Immobilie</td>
+                        <td class="data-theader">Apartment</td>
+                        <td align="right" class="data-theader">Mietfläche</td>
+                        <td align="right" class="data-theader">Miete p.a.</td>
+                        <td align="right" class="data-theader">Kaufpreis</td>
+                    </tr>
+                    <apex:repeat value="{!Berechnung__c.Berechnungs_Apartments__r}" var="berechnungsApartment">
+                        <tr class="data-repeat">
                             <td>{!berechnungsApartment.Immobilie__r.Name}</td>
                             <td>{!berechnungsApartment.Apartment__r.Name}</td>
-                            <td><apex:outputField value="{!berechnungsApartment.FlaecheInQm__c}"></apex:outputField> m<sup>2</sup></td>
-                            <td><apex:outputField value="{!berechnungsApartment.MieteProMonatInEuro__c}"></apex:outputField></td>
-                            <td align="right"><apex:outputField value="{!berechnungsApartment.PurchasePrice__c}"></apex:outputField></td>
+                            <td align="right"><apex:outputField value="{!berechnungsApartment.FlaecheInQm__c}"></apex:outputField> m<sup>2</sup></td>
+                            <td class="summary-bottom" align="right"><apex:outputField value="{!berechnungsApartment.MieteProJahrInEuro__c}"></apex:outputField></td>
+                            <td class="summary-bottom" align="right"><apex:outputField value="{!berechnungsApartment.Listenpreis__c}"></apex:outputField></td>
                         </tr>
                     </apex:repeat>
-                </tbody>
-            </table>
+                    <tr>
+                        <td class="no-background"></td>
+                        <td class="no-background"></td>
+                        <td class="no-background"></td>
+                        <td class="summary data-theader" align="right"><apex:outputField value="{!Berechnung__c.MieteProJahrGesamt__c}"></apex:outputField></td>
+                        <td class="summary data-theader" align="right"><apex:outputField value="{!Berechnung__c.SumPurchasePrice__c}"></apex:outputField></td>
+                    </tr>
+                </table>
+                <!-- Ende Table Immobilien -->
+            </div>
             <br/> <br/>
-            <table class="plain">
-                <tbody>
+            <div>
+                <h2 class="main-headline">GESAMTAUFWAND</h2>
+                <!-- Start Table Aufwand -->
+                <table class="data">
                     <tr>
-                        <td style="border-top: 0.5px solid #888888;">Grundstückswert (3,00 %)</td>
-                        <td align="right" style="border-top: 0.5px solid #888888;"><apex:outputField value="{!Berechnung__c.WertGrundstueckGesamt__c}"></apex:outputField></td>
+                        <td class="data-theader">Immobilie</td>
+                        <td class="data-theader">Apartment</td>
+                        <td align="right" class="data-theader">Kaufpreis</td>
+                        <td align="right" class="data-theader">GrESt</td>
+                        <td align="right" class="data-theader">Notar/Gericht</td>
+                        <td align="right" class="data-theader">Gesamtaufwand</td>
                     </tr>
+                    <apex:repeat value="{!Berechnung__c.Berechnungs_Apartments__r}" var="berechnungsApartment">
+                        <tr class="data-repeat">
+                            <td>{!berechnungsApartment.Immobilie__r.Name}</td>
+                            <td>{!berechnungsApartment.Apartment__r.Name}</td>
+                            <td align="right"><apex:outputField value="{!berechnungsApartment.Listenpreis__c}"></apex:outputField></td>
+                            <td align="right"><apex:outputField value="{!berechnungsApartment.GrunderwerbsteuerInEuro__c}"></apex:outputField></td>
+                            <td class="summary-bottom" align="right"><apex:outputField value="{!berechnungsApartment.NotarUndGerichtskostenInEuro__c}"></apex:outputField></td>
+                            <td class="summary-bottom" align="right"><apex:outputField value="{!berechnungsApartment.Gesamtkosten__c}"></apex:outputField></td>
+                        </tr>
+                    </apex:repeat>
                     <tr>
-                        <td style="border-top: 0.5px solid #888888;">Außenanlagenwert (4,00 %)</td>
-                        <td align="right" style="border-top: 0.5px solid #888888;"><apex:outputField value="{!Berechnung__c.WertAussenanlagenGesamt__c}"></apex:outputField></td>
+                        <td class="no-background"></td>
+                        <td class="no-background"></td>
+                        <td class="no-background"></td>
+                        <td class="no-background"></td>
+                        <td class="no-background"></td>
+                        <td class="summary data-theader" align="right"><apex:outputField value="{!Berechnung__c.Gesamtkosten__c}"></apex:outputField></td>
                     </tr>
-                    <tr>
-                        <td style="border-top: 0.5px solid #888888;">Substanzwert (93,00 %)</td>
-                        <td align="right" style="border-top: 0.5px solid #888888;"><apex:outputField value="{!Berechnung__c.SubstanzwertGesamt__c}"></apex:outputField></td>
-                    </tr>
-                    <tr>
-                        <td style="border-top: 0.5px solid #888888;">Jährliche Verwaltungskosten</td>
-                        <td align="right" style="border-top: 0.5px solid #888888;"><apex:outputField value="{!Berechnung__c.VerwaltungProJahrGesamt__c}"></apex:outputField></td>
-                    </tr>
-                    <tr>
-                        <td style="border-top: 0.5px solid #888888;">Jährliche Instandhaltungskosten</td>
-                        <td align="right" style="border-top: 0.5px solid #888888;"><apex:outputField value="{!Berechnung__c.InstandhaltungProJahrGesamt__c}"></apex:outputField></td>
-                    </tr>
-                    <tr>
-                        <td style="border-top: 0.5px solid #888888;">Jährlicher Erbbauzins</td>
-                        <td align="right" style="border-top: 0.5px solid #888888;"><apex:outputField value="{!Berechnung__c.ErbbauzinsProJahrGesamt__c}"></apex:outputField></td>
-                    </tr>
-                </tbody>
-            </table>
+                </table>
+                <!-- Ende Table Aufwand -->
+            </div>
             <br/> <br/>
-            <table class="plain">
-                <tbody>
-                    <tr>
-                        <td style="border-top: 0.5px solid #888888;"><b>Gesamtkaufpreis</b></td>
-                        <td align="right" style="border-top: 0.5px solid #888888;"><b>*<apex:outputField value="{!Berechnung__c.SumPurchasePrice__c}"></apex:outputField></b></td>
-                    </tr>
-                    <tr>
-                        <td>Grunderwerbsteuer (<apex:outputField value="{!Berechnung__c.Hauptimmobilie__r.Real_Estate_Transfer_Tax__c}"></apex:outputField>)</td>
-                        <td align="right"><apex:outputField value="{!Berechnung__c.GrunderwerbsteuerGesamt__c}"></apex:outputField></td>
-                    </tr>
-                    <tr>
-                        <td>Notar u. Gericht (2,5 %)</td>
-                        <td align="right"><apex:outputField value="{!Berechnung__c.NotarUndGerichtskostenGesamt__c}"></apex:outputField></td>
-                    </tr>
-                </tbody>
-            </table>
-            <br/>
-            <div class="conclusion">
-                <div class="left">
-                    <p class="highlight-text">
-                        Gesamtaufwand
-                    </p>
+            <div class="c-clearfix">
+                <h2 class="main-headline-big">ZAHLUNGSART: {!UPPER(Berechnung__c.Finanzierungsart__c)}</h2>
+                <div style="width: 49%; display: inline; float: left;">
+                    <table class="data vertical-headers">
+                        <tr>
+                            <td class="data-theader">Gesamtaufwand</td>
+                            <td align="right"><apex:outputField value="{!Berechnung__c.Gesamtkosten__c}"></apex:outputField></td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader">Eigenkapital</td>
+                            <td align="right"><apex:outputField value="{!Berechnung__c.Eigenkapital__c}"></apex:outputField></td>
+                        </tr>
+                        <apex:repeat value="{!financeModules}" var="financeModule">
+                            <tr>
+                                <td class="data-theader">{!financeModule.f.Name}</td>
+                                <td align="right"><apex:outputField value="{!financeModule.f.Kreditsumme__c}"></apex:outputField></td>
+                            </tr>
+                        </apex:repeat>
+                    </table>
                 </div>
-                <div class="right">
-                    <p class="highlight-text">
-                        <apex:outputField value="{!Berechnung__c.Gesamtkosten__c}"></apex:outputField>
-                    </p>
+    
+                <div style="width: 49%; float: right; {!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: block;', 'display: none;')}">
+                    <table class="data">
+                        <tr><td class="no-background no-visibility">a</td></tr>
+                        <tr>
+                            <td class="data-theader no-background" align="right">Zins</td>
+                            <td class="data-theader no-background" align="right">Tilgung</td>
+                            <td class="no-background" align="right">Annuität p.a.</td>
+                        </tr>
+                        <apex:repeat value="{!financeModules}" var="financeModule">
+                            <tr>
+                                <td align="right" class="data-theader"><apex:outputField value="{!financeModule.f.ZinsInPercentText__c}"></apex:outputField></td>
+                                <td align="right" class="data-theader"><apex:outputField value="{!financeModule.f.TilgungInPercentText__c}"></apex:outputField></td>
+                                <td align="right"><apex:outputField value="{!financeModule.f.AunnitaetInEuro__c}"></apex:outputField></td>
+                            </tr>
+                        </apex:repeat>
+                    </table>
                 </div>
             </div>
             <!-- End of main content -->
@@ -544,429 +558,281 @@
         <!-- End of page 2 -->
     </div>  
 
-    
-    <div class="page page-3" style="page-break-before: always;">
+    <div class="page page-2" style="page-break-before: always;">
         <div class="main-content">
-            <h1>Kaufangebot</h1>
-            <!-- TODO: richtigen Immobiliennamen rein nehmen -->
-            <h2>Für den Kauf von einem Apartment in {!Berechnung__c.Hauptimmobilie__r.Name}</h2>
-            <br/><br/>
             <div class="c-clearfix">
-                <div style="width:49%">
-                    <table class="plain">
+                <div style="width: 49%; display: inline; float: left;">
+                    <h3 class="main-headline">FAZIT 1. VOLLES WIRTSCHAFTSJAHR</h3>
+                    <table class="data vertical-headers wide">
+                        <tr>
+                            <td class="data-theader" align="left">Mieteinnahmen</td>
+                            <td align="right">{!cumulatedYearlyValues[firstFullYear]['rentInEuro']} &euro;</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader" align="left">Zinsen</td>
+                            <td class="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'negative-value', '')}" align="right">{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', '-', '')}&nbsp;{!cumulatedYearlyValues[firstFullYear]['interestInEuro']} &euro;</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader" align="left">Tilgung</td>
+                            <td class="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'negative-value', '')}" align="right">{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', '-', '')}&nbsp;{!cumulatedYearlyValues[firstFullYear]['repaymentInEuro']} &euro;</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader" align="left">Verwaltung</td>
+                            <td class="negative-value" align="right">- {!cumulatedYearlyValues[firstFullYear]['verwaltungGesamtInEuro']} &euro;</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader" align="left">Instandhaltung</td>
+                            <td class="negative-value" align="right">- {!cumulatedYearlyValues[firstFullYear]['instandhaltungGesamtInEuro']} &euro;</td>
+                        </tr>
+                        <tr style="{!IF(cumulatedYearlyValues[firstFullYear]['taxes'] < 0, 'display: table-row;', 'display: none;')}">
+                            <td class="data-theader" align="left">Steuerbelastung<sup>*</sup></td>
+                            <td class="negative-value" align="right">
+                                - {!SUBSTITUTE(cumulatedYearlyValues[firstFullYear]['taxesInEuro'], '-', '')} &euro;
+                            </td>
+                        </tr>
+                        <tr style="{!IF(cumulatedYearlyValues[firstFullYear]['taxes'] > 0, 'display: table-row;', 'display: none;')}">
+                            <td class="data-theader" align="left">Steuererstattung<sup>*</sup></td>
+                            <td align="right">
+                                {!SUBSTITUTE(cumulatedYearlyValues[firstFullYear]['taxesInEuro'], '-', '')} &euro;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader summary" align="left">Rechn. Ergebnis p.a.</td>
+                            <td class="summary {!IF(CONTAINS(cumulatedYearlyValues[firstFullYear]['yearlyOverageInEuro'], '-'), 'negative-value', '')}" align="right">{!IF(CONTAINS(cumulatedYearlyValues[firstFullYear]['yearlyOverageInEuro'], '-'), '- ', '')} {!SUBSTITUTE(cumulatedYearlyValues[firstFullYear]['yearlyOverageInEuro'], '-', '')} &euro;</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader" align="left">Rechn. Ergebnis p.m.</td>
+                            <td class="{!IF(CONTAINS(cumulatedYearlyValues[firstFullYear]['monthlyOverageInEuro'], '-'), 'negative-value', '')}" align="right">{!IF(CONTAINS(cumulatedYearlyValues[firstFullYear]['monthlyOverageInEuro'], '-'), '- ', '')} {!SUBSTITUTE(cumulatedYearlyValues[firstFullYear]['monthlyOverageInEuro'], '-', '')} &euro;</td>
+                        </tr>
+                    </table>
+                </div>
+    
+                <div style="width: 49%; display: block; float: right;">
+                    <h3 class="main-headline">FAZIT BEZUGSPHASE {!firstYearAfterPayment}</h3>
+                    <table class="data vertical-headers wide">
+                        <tr>
+                            <td class="data-theader" align="left">Mieteinnahmen</td>
+                            <td align="right">{!firstYearAfterPaymentValues[firstYearAfterPayment]['rentInEuro']} &euro;</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader" align="left">Zinsen</td>
+                            <td align="right">0,00 &euro;</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader" align="left">Tilgung</td>
+                            <td align="right">0,00 &euro;</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader" align="left">Verwaltung</td>
+                            <td class="negative-value" align="right">- {!firstYearAfterPaymentValues[firstYearAfterPayment]['verwaltungGesamtInEuro']} &euro;</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader" align="left">Instandhaltung</td>
+                            <td class="negative-value" align="right">- {!firstYearAfterPaymentValues[firstYearAfterPayment]['instandhaltungGesamtInEuro']} &euro;</td>
+                        </tr>
+                        <tr style="{!IF(firstYearAfterPaymentValues[firstYearAfterPayment]['taxes'] < 0, 'display: table-row;', 'display: none;')}">
+                            <td class="data-theader" align="left">Steuerbelastung<sup>*</sup></td>
+                            <td class="negative-value" align="right">
+                                - {!SUBSTITUTE(firstYearAfterPaymentValues[firstYearAfterPayment]['taxesInEuro'], '-', '')} &euro;
+                            </td>
+                        </tr>
+                        <tr style="{!IF(firstYearAfterPaymentValues[firstYearAfterPayment]['taxes'] > 0, 'display: table-row;', 'display: none;')}">
+                            <td class="data-theader" align="left">Steuererstattung<sup>*</sup></td>
+                            <td align="right">
+                                {!SUBSTITUTE(firstYearAfterPaymentValues[firstYearAfterPayment]['taxesInEuro'], '-', '')} &euro;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader summary" align="left">Rechn. Ergebnis p.a.</td>
+                            <td class="summary {!IF(CONTAINS(firstYearAfterPaymentValues[firstYearAfterPayment]['yearlyOverageInEuro'], '-'), 'negative-value', '')}" align="right">{!IF(CONTAINS(firstYearAfterPaymentValues[firstYearAfterPayment]['yearlyOverageInEuro'], '-'), '- ', '')} {!SUBSTITUTE(firstYearAfterPaymentValues[firstYearAfterPayment]['yearlyOverageInEuro'], '-', '')} &euro;</td>
+                        </tr>
+                        <tr>
+                            <td class="data-theader" align="left">Rechn. Ergebnis p.m.</td>
+                            <td class="{!IF(CONTAINS(firstYearAfterPaymentValues[firstYearAfterPayment]['monthlyOverageInEuro'], '-'), 'negative-value', '')}" align="right">{!IF(CONTAINS(firstYearAfterPaymentValues[firstYearAfterPayment]['monthlyOverageInEuro'], '-'), '- ', '')} {!SUBSTITUTE(firstYearAfterPaymentValues[firstYearAfterPayment]['monthlyOverageInEuro'], '-', '')} &euro;</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <br/><br/>
+            <div>
+                Die Kosten Ihrer Finanzierung verteilen sich zu {!firstYearAfterPaymentValues[firstYearAfterPayment]['percentageSelf']} % auf Sie selbst und zu {!firstYearAfterPaymentValues[firstYearAfterPayment]['percentageTenant']} % auf den Mieter.
+                <br/><br/>
+                <div class="c-clearfix">
+                    <div class="negative-bar" style="float:left"><p style="padding: 5px 10px; font-weight: bold">{!firstYearAfterPaymentValues[firstYearAfterPayment]['percentageSelf']} % Eigen</p></div>
+                    <div class="positive-bar" style="float:right;"><p style="padding: 5px 10px; font-weight: bold">{!firstYearAfterPaymentValues[firstYearAfterPayment]['percentageTenant']} % Mieter</p></div>
+                </div>
+            </div>
+            <br/> <br/>
+            <div>
+                <apex:outputText value="{!Berechnung__c.BetrachtungszeitraumInJahren__c}" rendered="false"/>
+               <h3 class="main-headline-big">VERGLEICH ZU ALTERNATIVER ANSPARLÖSUNG NACH {!Berechnung__c.BetrachtungszeitraumInJahren__c} JAHREN</h3>
+                <div class="c-clearfix">
+                    <div style="width: 49%; display: inline; float: left;">
+                        <table class="data vertical-headers wide-reverse">
+                            <tr>
+                                <td class="data-theader" align="left">Verkaufswert Immobilien</td>
+                                <td align="right">{!sumsForLiquidity['totalSalesValue']} &euro;</td>
+                            </tr>
+                            <tr>
+                                <td class="data-theader" align="left">Eingebrachtes Eigenkapital</td>
+                                <td class="negative-value" align="right">-&nbsp;<apex:outputField value="{!Berechnung__c.Eigenkapital__c}"></apex:outputField></td>
+                            </tr>
+                            <tr style="{!IF(sumsForLiquidity['yearlyOverageInEuroClass'] = 'negative-value', 'display:table-row;', 'display:none;')}">
+                                <td class="data-theader" style="" align="left">kumulierte Zuzahlung</td>
+                                <td class="negative-value" align="right">- {!sumsForLiquidity['yearlyOverageInEuroTotal']} &euro;</td>
+                            </tr>
+                            <tr style="{!IF(sumsForLiquidity['yearlyOverageInEuroClass'] = 'negative-value', 'display: none;', 'display:table-row;')}">
+                                <td class="data-theader" align="left">kumulierte Entnahme</td>
+                                <td align="right">{!sumsForLiquidity['yearlyOverageInEuroTotal']} &euro;</td>
+                            </tr>
+                            <tr>
+                                <td class="data-theader" align="left">Restschuld Darlehen</td>
+                                <td class="negative-value" align="right">- {!sumsForLiquidity['creditSumEndInEuro']} &euro;</td>
+                            </tr>
+                            <tr>
+                                <td class="data-theader summary" align="left">Vermögensaufbau</td>
+                                <td class="summary" align="right">{!sumsForLiquidity['networthEndInEuro']} &euro;</td>
+                            </tr>
+                        </table>
+                    </div>
+        
+                    <div style="width: 49%; display: block; float: right;">
+                        Ein alternatives Sparprodukt muss folgende Verzinsung
+                        aufweisen, um das gleiche Ergebnis zu erzielen:
+                        <p class="highlight">{!sumsForLiquidity['interestInPercentTotal']} %</p>
+                    </div>
+                </div>
+            </div>
+            <br/> <br/>
+            <div class="c-clearfix">
+                <p class="smallheadline">Mit diesem Angebot beläuft sich die Eigenkapitalrendite auf:</p>
+            <p class="highlight">{!sumsForLiquidity['selfPercentTotal']} %</p>
+            </div>
+            <br/> <br/> <br/><br/> <br/> <br/>
+        <div class="disclaimer-text footer">
+            <p>
+                <sup>*</sup> Disclaimer: Bei den Pachteinnahmen wurde davon ausgegangen, dass die indexierte Pachtpreisanpassung alle 5 Jahre mit 5,00 % erfolgt. Wir übernehmen keine Garantie für zukünftige Erträge, die Prognoserechnung basiert auf Annahmen, die in der Zukunft wegfallen oder sich ändern können.
+                Bei der steuerl. Betrachtung wird mit einer Annäherung gerechnet. Zinsangaben sind freibleibend und lediglich kalkulatorisch.
+                Berechnungsbeispiel nach den aktuellen deutschen Gesetzen. Für Besonderheiten bitte Ihren Steuerberater fragen (zB Kauf aus dem Ausland).
+            </p>
+        </div>
+            <!-- End of main content -->
+        </div>
+        <!-- End of page 2 -->
+    </div>  
+
+    <div class="page page-3" style="page-break-before: always; {!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: block;', 'display: none;')}">
+        <!-- Start of page 3 -->
+        <div class="main-content">
+            <h2>KUMULIERTE FINANZIERUNGSÜBERSICHT</h2>
+            <br/> <br/>
+            <table class="data vertical-headers" style="width:50%">
+                <tbody>
+                    <tr>
+                        <td>Darlehensart</td>
+                        <td align="right">Annuitätendarlehen</td>
+                    </tr>
+                    <tr>
+                        <td>Investitionssumme</td>
+                        <td align="right"><apex:outputField value="{!Berechnung__c.Gesamtkosten__c}"></apex:outputField></td>
+                    </tr>
+                    <apex:repeat value="{!financeModules}" var="financeModule">
+                        <tr>
+                            <td>{!financeModule.f.Name}</td>
+                            <td align="right"><apex:outputField value="{!financeModule.f.ZinsInPercentText__c}"></apex:outputField> Zins /&nbsp;<apex:outputField value="{!financeModule.f.TilgungInPercentText__c}"></apex:outputField> Tilgung</td>
+                        </tr>
+                    </apex:repeat>
+                    <tr style="{!IF(creditInformation['showMixedInterestRate'] = 'true', 'display: table-row;', 'display: none;')}">
+                        <td>Mischzins</td>
+                        <td align="right">{!creditInformation['interestInPercentTotal']} %</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br/> <br/>
+            <div class="pagination">
+                <apex:variable value="{!0}" var="financeModuleOverviewPage"/>
+                <apex:repeat value="{!paginatedYearlyValues}" var="cumulatedYearlyValues">
+                    <table class="data" style="{!IF(financeModuleOverviewPage != pages, 'page-break-after:always;','')}">
                         <thead>
-                            <th colspan="2" align="left">Zahlungsart: {!Berechnung__c.Finanzierungsart__c}</th>
-                            <th align="right"></th>
+                            <th>Jahr</th>
+                            <th align="right">Darlehensstand</th>
+                            <th align="right">Zinsen</th>
+                            <th align="right">Tilgung</th>
+                            <th align="right">Rate</th>
+                            <th align="right">Darlehensstand</th>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td align="left">Eigenkapital</td>
-                                <td align="center">sofort</td>
-                                <td align="right"><apex:outputField value="{!Berechnung__c.Eigenkapital__c}"></apex:outputField></td>
-                            </tr>
-                            <tr>
-                                <td align="left">Finanzierungskapital</td>
-                                <td align="center">gesamt</td>
-                                <td align="right"><apex:outputField value="{!Berechnung__c.Kreditsumme__c}"></apex:outputField></td>
-                            </tr>
-                            <apex:repeat value="{!financeModules}" var="financeModule">
-                                <tr >
-                                    <td align="left">{!financeModule.f.Name}</td>
-                                    <td align="center"></td>
-                                    <td align="right"><apex:outputField value="{!financeModule.f.Kreditsumme__c}"></apex:outputField></td>
+                            <apex:repeat value="{!cumulatedYearlyValues}" var="cumulatedYearlyValuesKey">
+                                <tr>
+                                    <td>{!cumulatedYearlyValuesKey}</td>
+                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['creditSumStartInEuro']} &euro;</td>
+                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['interestInEuro']} &euro;</td>
+                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['repaymentInEuro']} &euro;</td>
+                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['rateInEuro']} &euro;</td>
+                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['creditSumEndInEuro']} &euro;</td>
                                 </tr>
                             </apex:repeat>
                         </tbody>
                     </table>
-                </div>
+                    <apex:variable value="{!financeModuleOverviewPage+1}" var="financeModuleOverviewPage" />
+                </apex:repeat>
             </div>
-            <apex:variable value="{!0}" var="i"/>
-            <apex:repeat value="{!Berechnung__c.Berechnungs_Apartments__r}" var="berechnungsApartment">
-                <div style="{!IF(i > 0 && mod(i,2)== 1, 'margin-top: 3.5cm;', 'margin-top: 1cm;')} {!IF(mod(i,2)==0 || i == 0, 'page-break-after: always;', '')}" class="main-div">
-                    <br/> <br/>
-                    <table class="plain">
-                        <thead>
-                            <th>Immobilie</th>
-                            <th>Apartment</th>
-                            <th>Mietfläche</th>
-                            <th>Miete p.m.</th>
-                            <th align="right">Kaufpreis</th>
-                        </thead>
-                        <tbody>
-                                <tr>
-                                    <td>{!berechnungsApartment.Immobilie__r.Name}</td>
-                                    <td>{!berechnungsApartment.Apartment__r.Name}</td>
-                                    <td><apex:outputField value="{!berechnungsApartment.FlaecheInQm__c}"></apex:outputField> m<sup>2</sup></td>
-                                    <td><apex:outputField value="{!berechnungsApartment.MieteProMonatInEuro__c}"></apex:outputField></td>
-                                    <td align="right"><apex:outputField value="{!berechnungsApartment.PurchasePrice__c}"></apex:outputField></td>
-                                </tr>
-                        </tbody>
-                    </table>
-                    <br/> <br/>
-                    <table class="plain">
-                        <tbody>
-                            <tr>
-                                <td style="border-top: 0.5px solid #888888;">Grundstückswert (3,00 %)</td>
-                                <td align="right" style="border-top: 0.5px solid #888888;"><apex:outputField value="{!berechnungsApartment.WertGrundstueckInEuro__c}"></apex:outputField></td>
-                            </tr>
-                            <tr>
-                                <td style="border-top: 0.5px solid #888888;">Außenanlagenwert (4,00 %)</td>
-                                <td align="right" style="border-top: 0.5px solid #888888;"><apex:outputField value="{!berechnungsApartment.WertAussenanlagenInEuro__c}"></apex:outputField></td>
-                            </tr>
-                            <tr>
-                                <td style="border-top: 0.5px solid #888888;">Substanzwert (93,00 %)</td>
-                                <td align="right" style="border-top: 0.5px solid #888888;"><apex:outputField value="{!berechnungsApartment.SubstanzwertInEuro__c}"></apex:outputField></td>
-                            </tr>
-                            <tr>
-                                <td style="border-top: 0.5px solid #888888;">Jährliche Verwaltungskosten</td>
-                                <td align="right" style="border-top: 0.5px solid #888888;"><apex:outputField value="{!berechnungsApartment.VerwaltungProJahrInEuro__c}"></apex:outputField></td>
-                            </tr>
-                            <tr>
-                                <td style="border-top: 0.5px solid #888888;">Jährliche Instandhaltungskosten</td>
-                                <td align="right" style="border-top: 0.5px solid #888888;"><apex:outputField value="{!berechnungsApartment.InstandhaltungProJahrInEuro__c}"></apex:outputField></td>
-                            </tr>
-                            <tr>
-                                <td style="border-top: 0.5px solid #888888;">Jährlicher Erbbauzins</td>
-                                <td align="right" style="border-top: 0.5px solid #888888;"><apex:outputField value="{!berechnungsApartment.ErbbauzinsProJahrInEuro__c}"></apex:outputField></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <br/> <br/>
-                    <table class="plain">
-                        <tbody>
-                            <tr>
-                                <td style="border-top: 0.5px solid #888888;"><b>Gesamtkaufpreis</b></td>
-                                <td align="right" style="border-top: 0.5px solid #888888;"><b>*<apex:outputField value="{!berechnungsApartment.PurchasePrice__c}"></apex:outputField></b></td>
-                            </tr>
-                            <tr>
-                                <td>Grunderwerbsteuer  (<apex:outputField value="{!Berechnung__c.Hauptimmobilie__r.Real_Estate_Transfer_Tax__c}"></apex:outputField>)</td>
-                                <td align="right"><apex:outputField value="{!berechnungsApartment.GrunderwerbsteuerInEuro__c}"></apex:outputField></td>
-                            </tr>
-                            <tr>
-                                <td>Notar u. Gericht (2,5 %)</td>
-                                <td align="right"><apex:outputField value="{!berechnungsApartment.NotarUndGerichtskostenInEuro__c}"></apex:outputField></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <br/>
-                    <div class="conclusion">
-                        <div class="left">
-                            <p class="highlight-text">
-                                Gesamtaufwand
-                            </p>
-                        </div>
-                        <div class="right">
-                            <p class="highlight-text">
-                                <apex:outputField value="{!berechnungsApartment.Gesamtkosten__c}"></apex:outputField>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <apex:variable value="{!i+1}" var="i" />
-            </apex:repeat>
             <!-- End of main content -->
         </div>
         <!-- End of page 3 -->
     </div>
 
-    <div class="page page-5" style="page-break-before: always;">
-        <div class="main-content">
-            <h1>Fazit</h1>
-            <div style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: block;', 'display: none;')}">
-                <h2>Betrachtung 1. volles Wirtschaftsjahr</h2>
-                <h2>({!firstFullYear}, 100% Mieteinnahmen, 100% Tilgung)</h2>
-                <br/><br/>
-
-                <div class="c-clearfix">
-                    <div style="width: 49%; display: block; float: left;">
-                        <table class="plain">
-                            <thead>
-                                <th colspan="2">
-                                    <p>Einnahmen/Ausgaben 1. volles Wirtschaftsjahr</p>
-                                </th>
-                            </thead>
-                            <tbody>
-                                <apex:repeat value="{!cumulatedYearlyValues[firstFullYear]['apartments']}" var="apartmentKey">
-                                    <tr>
-                                        <td align="left">Miete für {!apartmentKey}</td>
-                                        <td align="right">{!cumulatedYearlyValues[firstFullYear]['apartments'][apartmentKey]} &euro;</td>
-                                    </tr>
-                                </apex:repeat>
-                                <tr style="{!IF(cumulatedYearlyValues[firstFullYear]['taxes'] > 0, 'display: table-row;', 'display: none;')}">
-                                    <td align="left">Steuererstattung</td>
-                                    <td align="right">
-                                        {!cumulatedYearlyValues[firstFullYear]['taxesInEuro']} &euro;
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="c-clearfix" style="width: 49%; display: block; float:right;">
-                        <table class="plain">
-                            <thead>
-                                <th colspan="2">
-                                    <span class="left">Ausgaben</span>
-                                    <span class="right">p.a.</span>
-                                </th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td align="left">Verwaltung</td>
-                                    <td align="right">{!cumulatedYearlyValues[firstFullYear]['verwaltungGesamtInEuro']} &euro;</td>
-                                </tr>
-                                <tr>
-                                    <td align="left">Instandhaltung</td>
-                                    <td align="right">{!cumulatedYearlyValues[firstFullYear]['instandhaltungGesamtInEuro']} &euro;</td>
-
-                                </tr>
-                                <tr>
-                                    <td align="left">Zinsen</td>
-                                    <td align="right">{!cumulatedYearlyValues[firstFullYear]['interestInEuro']} &euro;</td>
-                                </tr>
-                                <tr>
-                                    <td align="left">Tilgung</td>
-                                    <td align="right">{!cumulatedYearlyValues[firstFullYear]['repaymentInEuro']} &euro;</td>
-                                </tr>
-                                <tr style="{!IF(cumulatedYearlyValues[firstFullYear]['taxes'] < 0, 'display: table-row;', 'display: none;')}">
-                                    <td align="left">Steuerbelastung</td>
-                                    <td align="right">
-                                        {!SUBSTITUTE(cumulatedYearlyValues[firstFullYear]['taxesInEuro'], '-', '')} &euro;
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <br/>
-
-                <div class="c-clearfix">
-                    <div style="width: 49%; display: inline; float: left;">
-                        <span class="left highlight-text green-text">Einnahmen gesamt</span>
-                        <span class="right highlight-text green-text">+{!cumulatedYearlyValues[firstFullYear]['incomeInEuro']} &euro;</span>
-                    </div>
-        
-                    <div style="width: 49%; display: block; float: right;">
-                        <span class="left highlight-text red-text">Ausgaben gesamt</span>
-                        <span class="right highlight-text red-text">{!cumulatedYearlyValues[firstFullYear]['expenditureInEuro']} &euro;</span>
-                    </div>
-                </div>
-
-                <br/><br/>
-
-                <div class="c-clearfix grey-container center highlight-text black-text">
-                    <div style="width: 49%; display: block; float: left;">
-                        <p style="font-size: 9pt;">Rechn. Ergebnis p.a.</p>
-                        <p style="font-size: 11pt;">{!IF(CONTAINS(cumulatedYearlyValues[firstFullYear]['yearlyOverageInEuro'], '-'), '', '+ ')} {!cumulatedYearlyValues[firstFullYear]['yearlyOverageInEuro']} &euro;</p>
-                    </div>
-
-                    <div style="width: 49%; display: block; float: right;">
-                        <p style="font-size: 9pt;">Rechn. Ergebnis p.m.</p>
-                        <p style="font-size: 11pt;">{!IF(CONTAINS(cumulatedYearlyValues[firstFullYear]['monthlyOverageInEuro'], '-'), '', '+ ')} {!cumulatedYearlyValues[firstFullYear]['monthlyOverageInEuro']} &euro;</p>
-                    </div>
-                </div>
-            </div>
-
-            <br/> <br/>
-            <h2>Betrachtung {!firstYearAfterPayment}</h2>
-            <br/><br/>
-
-            <div class="c-clearfix">
-                <div style="width: 49%; display: block; float: left;">
-                    <table class="plain">
-                        <thead>
-                            <th colspan="2">
-                                <span class="left">Einnahmen</span>
-                                <span class="right">p.a.</span>
-                            </th>
-                        </thead>
-                        <tbody>
-                            <apex:repeat value="{!firstYearAfterPaymentValues[firstYearAfterPayment]['apartments']}" var="apartmentKey">
-                                <tr>
-                                    <td align="left">Miete für {!apartmentKey}</td>
-                                    <td align="right">{!firstYearAfterPaymentValues[firstYearAfterPayment]['apartments'][apartmentKey]} &euro;</td>
-                                </tr>
-                            </apex:repeat>
-                            <tr style="{!IF(firstYearAfterPaymentValues[firstYearAfterPayment]['taxes'] > 0, 'display: table-row;', 'display: none;')}">
-                                <td align="left">Steuererstattung</td>
-                                <td align="right">
-                                    {!firstYearAfterPaymentValues[firstYearAfterPayment]['taxesInEuro']} &euro;
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="c-clearfix" style="width: 49%; display: block; float:right;">
-                    <table class="plain">
-                        <thead>
-                            <th colspan="2">
-                                <span class="left">Ausgaben</span>
-                                <span class="right">p.a.</span>
-                            </th>
-                        </thead>
-                        <tbody>
-                            <tbody>
-                                <tr>
-                                    <td align="left">Verwaltung</td>
-                                    <td align="right">{!firstYearAfterPaymentValues[firstYearAfterPayment]['verwaltungGesamtInEuro']} &euro;</td>
-                                </tr>
-                                <tr>
-                                    <td align="left">Instandhaltung</td>
-                                    <td align="right">{!firstYearAfterPaymentValues[firstYearAfterPayment]['instandhaltungGesamtInEuro']} &euro;</td>
-    
-                                </tr>
-                                <tr style="{!IF(firstYearAfterPaymentValues[firstYearAfterPayment]['taxes'] < 0, 'display: table-row;', 'display: none;')}">
-                                    <td align="left">Steuerbelastung</td>
-                                    <td align="right">
-                                        {!SUBSTITUTE(firstYearAfterPaymentValues[firstYearAfterPayment]['taxesInEuro'], '-', '')} &euro;
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <br/>
-
-            <div class="c-clearfix">
-                <div style="width: 49%; display: inline; float: left;">
-                    <span class="left highlight-text green-text">Einnahmen gesamt</span>
-                    <span class="right highlight-text green-text">+{!firstYearAfterPaymentValues[firstYearAfterPayment]['incomeInEuro']} &euro;</span>
-                </div>
-    
-                <div style="width: 49%; display: block; float: right;">
-                    <span class="left highlight-text red-text">Ausgaben gesamt</span>
-                    <span class="right highlight-text red-text">{!firstYearAfterPaymentValues[firstYearAfterPayment]['expenditureInEuro']} &euro;</span>
-                </div>
-            </div>
-
-            <br/><br/>
-
-            <div class="c-clearfix grey-container center highlight-text black-text">
-                <div style="width: 49%; display: block; float: left;">
-                    <p style="font-size: 9pt;">Rechn. Ergebnis </p>
-                    <p style="font-size: 11pt;">{!IF(CONTAINS(firstYearAfterPaymentValues[firstYearAfterPayment]['yearlyOverageInEuro'], '-'), '', '+ ')}{!firstYearAfterPaymentValues[firstYearAfterPayment]['yearlyOverageInEuro']} &euro; p.a.</p>
-                    <p style="font-size: 11pt;">{!IF(CONTAINS(firstYearAfterPaymentValues[firstYearAfterPayment]['monthlyOverageInEuro'], '-'), '', '+ ')}{!firstYearAfterPaymentValues[firstYearAfterPayment]['monthlyOverageInEuro']} &euro; p.m.</p>
-                    <!-- <p style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: block;', 'display: none;')} font-size: 11pt;">Eigenkapitalrendite: {!firstYearAfterPaymentValues[firstYearAfterPayment]['eigenkapitalRendite']} %</p> -->
-                </div>
-
-                <div style="width: 49%; display: block; float: right;">
-                    <!-- <svg viewBox="0 0 64 64" class="pie">
-                        <g id="UrTavla">
-                        <circle r="25%" cx="50%" cy="50%" style="stroke-dasharray: 75 100; stroke: #8B0000;">
-                        </circle>
-                          <text x="50%" y="50%" text-anchor="middle" dy=".3em">
-                            <tspan x="25%" dy="-1.2em">Selbst</tspan>
-                            <tspan x="25%" dy="-1.2em">{!firstYearAfterPaymentValues[firstYearAfterPayment]['percentageSelf']}%</tspan>
-                          </text>
-                          </g>
-                        <g>
-                        <circle r="25%" cx="50%" cy="50%" style="stroke-dasharray:75 100; stroke: green; stroke-dashoffset: -75; animation-delay: 0.5s">
-                        </circle>
-                        <text x="50%" y="50%" text-anchor="middle" dy=".3em">
-                            <tspan x="75%" dy="-1.2em">Mieter</tspan>
-                            <tspan x="75%" dy="-1.2em">{!firstYearAfterPaymentValues[firstYearAfterPayment]['percentageTenant']}%</tspan>
-                          </text>
-                        </g>
-                      </svg> -->
-                      <p style="font-size: 9pt;">So verteilen sich die Kosten Ihrer Finanzierung:</p>
-                      <p style="font-size: 11pt;">Selbst: {!firstYearAfterPaymentValues[firstYearAfterPayment]['percentageSelf']}%</p>
-                      <p style="font-size: 11pt;">Mieter: {!firstYearAfterPaymentValues[firstYearAfterPayment]['percentageTenant']}%</p>
-                </div>
-            </div>
-            <!-- End of main content -->
-        </div>
-        <!-- Line break goes <br/> <br/>-->
-        <br/> <br/> <br/>
-        <div class="disclaimer-text footer">
-            <p>
-                Disclaimer: Bei den Pachteinnahmen wurde davon ausgegangen, dass die indexierte Pachtpreisanpassung alle 5 Jahre mit 5,00 % erfolgt. Wir übernehmen keine Garantie für zukünftige Erträge, die Prognoserechnung basiert auf Annahmen, die in der Zukunft wegfallen oder sich ändern können.
-                Bei der steuerl. Betrachtung wird mit einer Annäherung gerechnet. Zinsangaben sind freibleibend und lediglich kalkulatorisch.
-                Berechnungsbeispiel nach den aktuellen deutschen Gesetzen. Für Besonderheiten bitte Ihren Steuerberater fragen (zB Kauf aus dem Ausland).
-            </p>
-        </div>
-        <!-- End of page 5 -->
-    </div>
-
     <apex:repeat value="{!financeModules}" var="financeModule">
         <div class="page page-6" style="page-break-before: always;">
             <div class="main-content">
-                <h1>{!financeModule.f.Name}</h1>
-                <br/>
-                <br/>
-                <table class="plain">
-                    <thead>
-                        <th>Darlehensart</th>
-                        <th align="right">Darlehenssumme</th>
-                        <th align="right">Zinssatz</th>
-                        <th align="right">Tilgungssatz</th>
-                    </thead>
-                    <tbody>
-                        <tr >
-                            <td>{!financeModule.f.Art__c}</td>
-                            <td align="right"><apex:outputField value="{!financeModule.f.Kreditsumme__c}"></apex:outputField></td>
-                            <td align="right"><apex:outputField value="{!financeModule.f.ZinsInPercent__c}"></apex:outputField></td>
-                            <td align="right"><apex:outputField value="{!financeModule.f.TilgungInPercent__c}"></apex:outputField></td>
-                        </tr>
-                    </tbody>
+                <h2 style="text-transform: uppercase">Finanzierung {!financeModule.f.Name}</h2>
+                <br/> <br/>
+                <table class="data vertical-headers" style="width:50%">
+                    <tr>
+                        <td>Darlehensart</td>
+                        <td align="right">{!financeModule.f.Art__c}</td>
+                    </tr>
+                    <tr>
+                        <td>Darlehenssumme</td>
+                        <td align="right"><apex:outputField value="{!financeModule.f.Kreditsumme__c}"></apex:outputField></td>
+                    </tr>
+                    <tr>
+                        <td>Zinssatz</td>
+                        <td align="right"><apex:outputField value="{!financeModule.f.ZinsInPercentText__c}"></apex:outputField></td>
+                    </tr>
+                    <tr>
+                        <td>Tilgungssatz</td>
+                        <td align="right"><apex:outputField value="{!financeModule.f.TilgungInPercentText__c}"></apex:outputField></td>
+                    </tr>
                 </table>
                 <br/> <br/>
                 <div class="pagination">
                     <apex:variable value="{!0}" var="financeModulePage"/>
-                    <apex:repeat value="{!financeModule.paginatedYearlyValues}" var="yearlyValues" rendered="{!NOT(ISNULL(calcSonder))}">
-                        <table class="plain overview" style="{!IF(financeModulePage != financeModule.pages, 'page-break-after:always;','')}">
+                    <apex:repeat value="{!financeModule.paginatedYearlyValues}" var="yearlyValues">
+                        <table class="data" style="{!IF(financeModulePage != financeModule.pages, 'page-break-after:always;','')}">
                             <thead>
                                 <th>Jahr</th>
                                 <th align="right">Darlehensstand</th>
-                                <th align="right">Raten</th>
                                 <th align="right">Zinsen</th>
                                 <th align="right">Tilgung</th>
+                                <th align="right">Rate</th>
                                 <th align="right">Darlehensstand</th>
-                                <th align="right">Sondertilgung</th>
+                                <th align="right" style="{!IF(NOT(ISNULL(calcSonder)), 'display: table-cell', 'display:none')}">Sondertilgung</th>
                             </thead>
                             <tbody>
                                 <apex:repeat value="{!yearlyValues}" var="yearlyValuesKey">
                                     <tr>
                                         <td>{!yearlyValuesKey}</td>
                                         <td align="right">{!yearlyValues[yearlyValuesKey]['creditSumStartInEuro']} &euro;</td>
-                                        <td align="right">{!yearlyValues[yearlyValuesKey]['rateInEuro']} &euro;</td>
                                         <td align="right">{!yearlyValues[yearlyValuesKey]['interestInEuro']} &euro;</td>
                                         <td align="right">{!yearlyValues[yearlyValuesKey]['repaymentInEuro']} &euro;</td>
+                                        <td align="right">{!yearlyValues[yearlyValuesKey]['rateInEuro']} &euro;</td>
                                         <td align="right">{!yearlyValues[yearlyValuesKey]['creditSumEndInEuro']} &euro;</td>
-
-
-                                        <td align="right">
+                                        <td align="right" style="{!IF(NOT(ISNULL(calcSonder)), 'display: table-cell', 'display:none')}">
                                             <apex:outputText value="{!calcSonder[yearlyValuesKey]}" />
                                             &euro;</td>
-
-                                    </tr>
-                                </apex:repeat>
-                            </tbody>
-                        </table>
-                        <apex:variable value="{!financeModulePage+1}" var="financeModulePage" />
-                    </apex:repeat>
-                    <apex:repeat value="{!financeModule.paginatedYearlyValues}" var="yearlyValues" rendered="{!ISNULL(calcSonder)}">
-                        <table class="plain overview" style="{!IF(financeModulePage != financeModule.pages, 'page-break-after:always;','')}">
-                            <thead>
-                                <th>Jahr</th>
-                                <th align="right">Darlehensstand</th>
-                                <th align="right">Raten</th>
-                                <th align="right">Zinsen</th>
-                                <th align="right">Tilgung</th>
-                                <th align="right">Darlehensstand</th>
-
-                            </thead>
-                            <tbody>
-                                <apex:repeat value="{!yearlyValues}" var="yearlyValuesKey" >
-                                    <tr>
-                                        <td>{!yearlyValuesKey}</td>
-                                        <td align="right">{!yearlyValues[yearlyValuesKey]['creditSumStartInEuro']} &euro;</td>
-                                        <td align="right">{!yearlyValues[yearlyValuesKey]['rateInEuro']} &euro;</td>
-                                        <td align="right">{!yearlyValues[yearlyValuesKey]['interestInEuro']} &euro;</td>
-                                        <td align="right">{!yearlyValues[yearlyValuesKey]['repaymentInEuro']} &euro;</td>
-                                        <td align="right">{!yearlyValues[yearlyValuesKey]['creditSumEndInEuro']} &euro;</td>
-                                    </tr>
+                                        </tr>
                                 </apex:repeat>
                             </tbody>
                         </table>
@@ -979,170 +845,209 @@
         </div>
     </apex:repeat>
 
-    <div class="page page-7" style="page-break-before: always; {!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: block;', 'display: none;')}">
-        <div class="main-content">
-            <h1>Finanzierungsübersicht</h1>
-            <br/> <br/> <br/>
-            <table class="plain" style="width:50%">
-                <tbody>
-                    <tr>
-                        <td><b>Investitionssumme</b></td>
-                        <td align="right"><b><apex:outputField value="{!Berechnung__c.Gesamtkosten__c}"></apex:outputField></b></td>
-                    </tr>
-                    <tr>
-                        <td><b>Eigenkapital</b></td>
-                        <td align="right"><b><apex:outputField value="{!Berechnung__c.Eigenkapital__c}"></apex:outputField></b></td>
-                    </tr>
-                    <tr>
-                        <td><b>Benötigte Fremdmittel </b></td>
-                        <td align="right"><b><apex:outputField value="{!Berechnung__c.Kreditsumme__c}"></apex:outputField></b></td>
-                    </tr>
-                </tbody>
-            </table>
-            <br/> <br/>
-            <table class="plain">
-                <thead>
-                    <th>Darlehensart</th>
-                    <th align="right">Darlehenssumme</th>
-                    <th align="right">Zinssatz</th>
-                    <th align="right">Tilgungssatz</th>
-                </thead>
-                <tbody>
-                    <apex:repeat value="{!financeModules}" var="financeModule">
-                        <tr >
-                            <td>{!financeModule.f.Art__c}</td>
-                            <td align="right"><apex:outputField value="{!financeModule.f.Kreditsumme__c}"></apex:outputField></td>
-                            <td align="right"><apex:outputField value="{!financeModule.f.ZinsInPercent__c}"></apex:outputField></td>
-                            <td align="right"><apex:outputField value="{!financeModule.f.TilgungInPercent__c}"></apex:outputField></td>
-                        </tr>
-                    </apex:repeat>
-                </tbody>
-            </table>
-            <br/> <br/>
-            <div class="pagination">
-                <apex:variable value="{!0}" var="financeModuleOverviewPage"/>
-                <apex:repeat value="{!paginatedYearlyValues}" var="cumulatedYearlyValues">
-                    <table class="plain overview" style="{!IF(financeModuleOverviewPage != pages, 'page-break-after:always;','')}">
-                        <thead>
-                            <th>Jahr</th>
-                            <th align="right">Darlehensstand</th>
-                            <th align="right">Raten</th>
-                            <th align="right">Zinsen</th>
-                            <th align="right">Tilgung</th>
-                            <th align="right">Darlehensstand</th>
-                        </thead>
-                        <tbody>
-                            <apex:repeat value="{!cumulatedYearlyValues}" var="cumulatedYearlyValuesKey">
-                                <tr>
-                                    <td>{!cumulatedYearlyValuesKey}</td>
-                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['creditSumStartInEuro']} &euro;</td>
-                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['rateInEuro']} &euro;</td>
-                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['interestInEuro']} &euro;</td>
-                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['repaymentInEuro']} &euro;</td>
-                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['creditSumEndInEuro']} &euro;</td>
-                                </tr>
-                            </apex:repeat>
-                        </tbody>
-                    </table>
-                    <apex:variable value="{!financeModuleOverviewPage+1}" var="financeModuleOverviewPage" />
-                </apex:repeat>
-            </div>
-            <!-- End of main content -->
-        </div>
-    </div>
-    <!-- End of page 7 -->
-    <div class="page page-8" style="page-break-before: always; {!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: block;', 'display: none;')}">
-        <div class="main-content">
-            <h1>Liquiditätsbetrachtung</h1>
-            <br/> <br/> <br/>
-            <div class="pagination">
-                <apex:variable value="{!0}" var="liquidityOverviewPage"/>
-            <apex:repeat value="{!paginatedYearlyValues}" var="cumulatedYearlyValues">
-                    <table class="plain overview" style="{!IF(liquidityOverviewPage != pages, 'page-break-after:always;','')}">
+    <div class="landscapePage" style="page-break-before: always;">
+        <div class="main-content landscape">
+            <div class="c-clearfix">
+                <h2>LIQUIDITÄTSBETRACHTUNG</h2>
+                <table class="data">
+                    <thead>
+                        <th colspan="2" width="14.5%">Immobilie</th>
+                        <th colspan="2" width="10.5%">Apartment</th>
+                        <th colspan="2" width="17%" align="right">Wert Grundstück</th>
+                        <th colspan="2" width="17%" align="right">Wert Außenanlagen</th>
+                        <th colspan="2" width="17%" align="right">Substanzwert</th>
+                        <th colspan="2" width="11%" align="right">Verwaltung p.a.</th>
+                        <th colspan="2" width="13%" align="right">Instandhaltung p.a.</th>
+                    </thead>
+                    <tbody>
+                        <apex:repeat value="{!Berechnung__c.Berechnungs_Apartments__r}" var="berechnungsApartment">
+                            <tr class="data-repeat">
+                                <td colspan="2">{!berechnungsApartment.Immobilie__r.Name}</td>
+                                <td colspan="2">{!berechnungsApartment.Apartment__r.Name}</td>
+                                <td colspan="1" align="right"><apex:outputField value="{!berechnungsApartment.WertGrundstueckInProzent__c}"></apex:outputField></td>
+                                <td colspan="1" align="right"><apex:outputField value="{!berechnungsApartment.WertGrundstueckInEuro__c}"></apex:outputField></td>
+                                <td colspan="1" align="right"><apex:outputField value="{!berechnungsApartment.WertAussenanlagenInProzent__c}"></apex:outputField></td>
+                                <td colspan="1" align="right"><apex:outputField value="{!berechnungsApartment.WertAussenanlagenInEuro__c}"></apex:outputField></td>
+                                <td colspan="1" align="right"><apex:outputField value="{!berechnungsApartment.SubstanzwertInProzent__c}"></apex:outputField></td>
+                                <td colspan="1" align="right"><apex:outputField value="{!berechnungsApartment.SubstanzwertInEuro__c}"></apex:outputField></td>
+                                <td colspan="2" align="right"><apex:outputField value="{!berechnungsApartment.VerwaltungProJahrInEuro__c}"></apex:outputField></td>
+                                <td colspan="2" align="right"><apex:outputField value="{!berechnungsApartment.InstandhaltungProJahrInEuro__c}"></apex:outputField></td>
+                            </tr>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+                <br/>
+                <div class="pagination">
+                    <apex:variable value="{!0}" var="liquidityOverviewPage"/>
+                    <apex:repeat value="{!paginatedYearlyValuesForLiquidity}" var="cumulatedYearlyValues">
+                    <table class="data" style="{!IF(AND(liquidityOverviewPage != liquidityPages, liquidityPages != 1), 'page-break-after:always;','')}">
                         <thead>
                             <th>Jahr</th>
                             <th align="right">Miete</th>
-                            <th align="right">AfA</th>
                             <th style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: table-cell;', 'display: none;')}" align="right">Zinsen</th>
+                            <th style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: table-cell;', 'display: none;')}" align="right">Tilgung</th>
                             <th align="right">Verwalt.</th>
-                            <th align="right">V+V</th>
+                            <th align="right">Instand.</th>
+                            <th class="light-background" align="right">AfA</th>
+                            <th class="light-background" align="right">V+V</th>
                             <th style="{!IF(AND(Berechnung__c.ZuVersteuerndesEinkommen__c != null, Berechnung__c.ZuVersteuerndesEinkommen__c != 0, firstYearAfterPaymentValues[firstYearAfterPayment]['taxes'] > 0), 'display: table-cell;', 'display: none;')}" align="right">Steuer</th>
                             <th style="{!IF(AND(Berechnung__c.ZuVersteuerndesEinkommen__c != null, Berechnung__c.ZuVersteuerndesEinkommen__c != 0, firstYearAfterPaymentValues[firstYearAfterPayment]['taxes'] < 0), 'display: table-cell;', 'display: none;')}" align="right">Steuer</th>
-                            <th style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: table-cell;', 'display: none;')}" align="right">Tilgung</th>
-                            <th align="right">Instand.</th>
-                            <th align="right">Liquid. p.a.</th>
-                            <th align="right">Liquid. mtl.</th>
+                            <th class="light-background" align="right">Liquid. p.a.</th>
+                            <th class="light-background" align="right">Liquid. mtl.</th>
                         </thead>
                         <tbody>
                             <apex:repeat value="{!cumulatedYearlyValues}" var="cumulatedYearlyValuesKey">
                                 <tr>
                                     <td>{!cumulatedYearlyValuesKey}</td>
                                     <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['rentInEuro']} &euro;</td>
-                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['afaGesamtInEuro']} &euro;</td>
-                                    <td style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: table-cell;', 'display: none;')} padding-top: 0px;" align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['interestInEuro']} &euro;</td>
-                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['verwaltungGesamtInEuro']} &euro;</td>
-                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['vUndVGesamtInEuro']} &euro;</td>
-                                    <td style="{!IF(AND(Berechnung__c.ZuVersteuerndesEinkommen__c != null, Berechnung__c.ZuVersteuerndesEinkommen__c != 0), 'display: table-cell;', 'display: none;')} padding-top: 0px;" align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['taxesInEuro']} &euro;</td>
-                                    <td style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: table-cell;', 'display: none;')} padding-top: 0px;" align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['repaymentInEuro']} &euro;</td>
-                                    <!-- <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['rateInEuro']} &euro;</td> -->
-                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['instandhaltungGesamtInEuro']} &euro;</td>
-                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['yearlyOverageInEuro']} &euro;</td>
-                                    <td align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['monthlyOverageInEuro']} &euro;</td>
+                                    <td class="negative-value" style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: table-cell;', 'display: none;')} padding-top: 0px;" align="right">- {!cumulatedYearlyValues[cumulatedYearlyValuesKey]['interestInEuro']} &euro;</td>
+                                    <td class="negative-value" style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: table-cell;', 'display: none;')} padding-top: 0px;" align="right">- {!cumulatedYearlyValues[cumulatedYearlyValuesKey]['repaymentInEuro']} &euro;</td>
+                                    <td class="negative-value" align="right">- {!cumulatedYearlyValues[cumulatedYearlyValuesKey]['verwaltungGesamtInEuro']} &euro;</td>
+                                    <td class="negative-value" align="right">- {!cumulatedYearlyValues[cumulatedYearlyValuesKey]['instandhaltungGesamtInEuro']} &euro;</td>
+                                    <td class="no-background" align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['afaGesamtInEuro']} &euro;</td>
+                                    <td class="{!IF(CONTAINS(cumulatedYearlyValues[cumulatedYearlyValuesKey]['vUndVGesamtInEuro'], '-'), 'negative-value', '')} no-background" align="right">{!IF(CONTAINS(cumulatedYearlyValues[cumulatedYearlyValuesKey]['vUndVGesamtInEuro'], '-'), '- ', '')}{!SUBSTITUTE(cumulatedYearlyValues[cumulatedYearlyValuesKey]['vUndVGesamtInEuro'], '-', '')} &euro;</td>
+                                    <td class="{!IF(CONTAINS(cumulatedYearlyValues[cumulatedYearlyValuesKey]['taxesInEuro'], '-'), 'negative-value', '')}" style="{!IF(AND(Berechnung__c.ZuVersteuerndesEinkommen__c != null, Berechnung__c.ZuVersteuerndesEinkommen__c != 0), 'display: table-cell;', 'display: none;')} padding-top: 0px;" align="right">{!IF(CONTAINS(cumulatedYearlyValues[cumulatedYearlyValuesKey]['taxesInEuro'], '-'), '- ', '')}{!SUBSTITUTE(cumulatedYearlyValues[cumulatedYearlyValuesKey]['taxesInEuro'], '-', '')} &euro;</td>
+                                    <td class="{!IF(CONTAINS(cumulatedYearlyValues[cumulatedYearlyValuesKey]['yearlyOverageInEuro'], '-'), 'negative-value', '')} no-background" align="right">{!IF(CONTAINS(cumulatedYearlyValues[cumulatedYearlyValuesKey]['yearlyOverageInEuro'], '-'), '- ', '')}{!SUBSTITUTE(cumulatedYearlyValues[cumulatedYearlyValuesKey]['yearlyOverageInEuro'], '-', '')} &euro;</td>
+                                    <td class="{!IF(CONTAINS(cumulatedYearlyValues[cumulatedYearlyValuesKey]['monthlyOverageInEuro'], '-'), 'negative-value', '')} no-background" align="right">{!IF(CONTAINS(cumulatedYearlyValues[cumulatedYearlyValuesKey]['monthlyOverageInEuro'], '-'), '- ', '')}{!SUBSTITUTE(cumulatedYearlyValues[cumulatedYearlyValuesKey]['monthlyOverageInEuro'], '-', '')} &euro;</td>
                                 </tr>
                             </apex:repeat>
+                            <tr>
+                                <td class="data-theader">Summe</td>
+                                <td class="data-theader" align="right">{!sumsForLiquidity['rentInEuro']} &euro;</td>
+                                <td class="negative-value data-theader" style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: table-cell;', 'display: none;')} padding-top: 0px;" align="right">{!sumsForLiquidity['interestInEuro']} &euro;</td>
+                                <td class="negative-value data-theader" style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: table-cell;', 'display: none;')} padding-top: 0px;" align="right">{!sumsForLiquidity['repaymentInEuro']} &euro;</td>
+                                <td class="negative-value data-theader" align="right">{!sumsForLiquidity['verwaltungGesamtInEuro']} &euro;</td>
+                                <td class="negative-value data-theader" align="right">{!sumsForLiquidity['instandhaltungGesamtInEuro']} &euro;</td>
+                                <td class="no-background data-theader" align="right"></td>
+                                <td class="no-background data-theader" align="right"></td>
+                                <td class="{!sumsForLiquidity['taxesInEuroClass']} data-theader" style="{!IF(AND(Berechnung__c.ZuVersteuerndesEinkommen__c != null, Berechnung__c.ZuVersteuerndesEinkommen__c != 0), 'display: table-cell;', 'display: none;')} padding-top: 0px;" align="right">{!sumsForLiquidity['taxesInEuro']} &euro;</td>
+                                <td class="{!sumsForLiquidity['yearlyOverageInEuroClass']} no-background data-theader" align="right">{!sumsForLiquidity['yearlyOverageInEuro']} &euro;</td>
+                                <td class="{!sumsForLiquidity['monthlyOverageInEuroClass']} no-background data-theader" align="right">{!sumsForLiquidity['monthlyOverageInEuro']} &euro;</td>
+                            </tr>
                         </tbody>
                     </table>
                     <apex:variable value="{!liquidityOverviewPage+1}" var="liquidityOverviewPage" />
                 </apex:repeat>
+                </div>
+                <apex:outputText value="{!Berechnung__c.ZuVersteuerndesEinkommen__c}" rendered="false"/>
             </div>
-            <apex:outputText value="{!Berechnung__c.ZuVersteuerndesEinkommen__c}" rendered="false"/>
-            <!-- End of main content -->
         </div>
     </div>
 
-    <div class="page page-9" style="page-break-before: always;">
+    <div class="page page-3" style="page-break-before: always; {!IF(AND(Berechnung__c.Finanzierungsart__c != 'Bar', Berechnung__c.BauzeitzinsenAnzeigen__c = true), 'display: block;', 'display: none;')}">
+        <!-- Start of page 3 -->
         <div class="main-content">
-            <h1>Bezugsphase</h1>
-            <br/> <br/> <br/>
-            <div class="pagination">
-                    <table class="plain overview">
-                        <thead>
-                            <th>Jahr</th>
-                            <th align="right">Miete</th>
-                            <th align="right">AfA</th>
-                            <th align="right">Verwalt.</th>
-                            <th align="right">V+V</th>
-                            <th style="{!IF(AND(Berechnung__c.ZuVersteuerndesEinkommen__c != null, Berechnung__c.ZuVersteuerndesEinkommen__c != 0, firstYearAfterPaymentValues[firstYearAfterPayment]['taxes'] > 0), 'display: table-cell;', 'display: none;')}" align="right">Steuer</th>
-                            <th style="{!IF(AND(Berechnung__c.ZuVersteuerndesEinkommen__c != null, Berechnung__c.ZuVersteuerndesEinkommen__c != 0, firstYearAfterPaymentValues[firstYearAfterPayment]['taxes'] < 0), 'display: table-cell;', 'display: none;')}" align="right">Steuer</th>
-                            <th align="right">Instand.</th>
-                            <th align="right">Liquid. p.a.</th>
-                            <th align="right">Liquid. mtl.</th>
-                        </thead>
-                        <tbody>
-                            <apex:repeat value="{!cumulatedYearlyValuesBezugsphase}" var="yearlyValuesBezugsphase">
-                            <apex:repeat value="{!yearlyValuesBezugsphase}" var="yearlyValuesBezugsphaseKey">
-                                <tr>
-                                    <td>{!yearlyValuesBezugsphaseKey}</td>
-                                    <td align="right">{!cumulatedYearlyValuesBezugsphase[yearlyValuesBezugsphaseKey]['rentInEuro']} &euro;</td>
-                                    <td align="right">{!cumulatedYearlyValuesBezugsphase[yearlyValuesBezugsphaseKey]['afaGesamtInEuro']} &euro;</td>
-                                    <td align="right">{!cumulatedYearlyValuesBezugsphase[yearlyValuesBezugsphaseKey]['verwaltungGesamtInEuro']} &euro;</td>
-                                    <td align="right">{!cumulatedYearlyValuesBezugsphase[yearlyValuesBezugsphaseKey]['vUndVGesamtInEuro']} &euro;</td>
-                                    <td style="{!IF(AND(Berechnung__c.ZuVersteuerndesEinkommen__c != null, Berechnung__c.ZuVersteuerndesEinkommen__c != 0), 'display: table-cell;', 'display: none;')} padding-top: 0px;" align="right">{!cumulatedYearlyValuesBezugsphase[yearlyValuesBezugsphaseKey]['taxesInEuro']} &euro;</td>
-                                    <!-- <td align="right">{!cumulatedYearlyValuesBezugsphase[yearlyValuesBezugsphaseKey]['rateInEuro']} &euro;</td> -->
-                                    <td align="right">{!cumulatedYearlyValuesBezugsphase[yearlyValuesBezugsphaseKey]['instandhaltungGesamtInEuro']} &euro;</td>
-                                    <td align="right">{!cumulatedYearlyValuesBezugsphase[yearlyValuesBezugsphaseKey]['yearlyOverageInEuro']} &euro;</td>
-                                    <td align="right">{!cumulatedYearlyValuesBezugsphase[yearlyValuesBezugsphaseKey]['monthlyOverageInEuro']} &euro;</td>
-                                </tr>
-                            </apex:repeat>
-                        </apex:repeat>
-                        </tbody>
-                    </table>
-                
-            </div>
-            <apex:outputText value="{!Berechnung__c.ZuVersteuerndesEinkommen__c}" rendered="false"/>
+            <h2>ÜBERSCHLÄGIGE BAUZEITZINSBERECHNUNG</h2>
+            <br/> <br/>
+            <table class="data vertical-headers medium-wide" style="width:50%">
+                <tbody>
+                    <tr>
+                        <td>Kaufpreis gesamt</td>
+                        <td align="right"><apex:outputField value="{!Berechnung__c.Gesamtkosten__c}"></apex:outputField></td>
+                    </tr>
+                    <tr>
+                        <td>Eigenkapital</td>
+                        <td align="right"><apex:outputField value="{!Berechnung__c.Eigenkapital__c}"></apex:outputField></td>
+                    </tr>
+                    <tr style="{!IF(creditInformation['kfwExists'] = 'true', 'display:table-row;', 'display:none;')}">
+                        <td>KfW</td>
+                        <td align="right">{!creditInformation['kfwInEuro']} &euro;&nbsp; - {!creditInformation['kfwInterest']} % Zins</td>
+                    </tr>
+                    <tr>
+                        <td>Bank</td>
+                        <td align="right">{!creditInformation['bankInEuro']} &euro;&nbsp; - {!creditInformation['interestInPercentBankTotal']} % Zins</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br/> <br/>
+            <table class="data">
+                <thead>
+                    <th>Rate</th>
+                    <th align="right">%</th>
+                    <th align="right">Abrechnung</th>
+                    <th align="right">EK</th>
+                    <th align="right" style="{!IF(creditInformation['kfwExists'] = 'true', 'display:table-cell;', 'display:none;')}">KfW</th>
+                    <th align="right">Bank</th>
+                    <th align="right">Monate</th>
+                    <th align="right">Zinsen</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td align="right">25,00 %</td>
+                        <td align="right">{!creditInformation['costSumInEuro1']} &euro;</td>
+                        <td align="right">{!creditInformation['ekInEuro1']} &euro;</td>
+                        <td align="right" style="{!IF(creditInformation['kfwExists'] = 'true', 'display:table-cell;', 'display:none;')}">{!creditInformation['kfwInEuro1']} &euro;</td>
+                        <td align="right">{!creditInformation['bankInEuro1']} &euro;</td>
+                        <td align="right">10</td>
+                        <td align="right">{!creditInformation['interestInEuro1']} &euro;</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td align="right">28,00 %</td>
+                        <td align="right">{!creditInformation['costSumInEuro2']} &euro;</td>
+                        <td align="right">{!creditInformation['ekInEuro2']} &euro;</td>
+                        <td align="right" style="{!IF(creditInformation['kfwExists'] = 'true', 'display:table-cell;', 'display:none;')}">{!creditInformation['kfwInEuro2']} &euro;</td>
+                        <td align="right">{!creditInformation['bankInEuro2']} &euro;</td>
+                        <td align="right">3</td>
+                        <td align="right">{!creditInformation['interestInEuro2']} &euro;</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td align="right">12,60 %</td>
+                        <td align="right">{!creditInformation['costSumInEuro3']} &euro;</td>
+                        <td align="right">{!creditInformation['ekInEuro3']} &euro;</td>
+                        <td align="right" style="{!IF(creditInformation['kfwExists'] = 'true', 'display:table-cell;', 'display:none;')}">{!creditInformation['kfwInEuro3']} &euro;</td>
+                        <td align="right">{!creditInformation['bankInEuro3']} &euro;</td>
+                        <td align="right">4</td>
+                        <td align="right">{!creditInformation['interestInEuro3']} &euro;</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td align="right">6,30 %</td>
+                        <td align="right">{!creditInformation['costSumInEuro4']} &euro;</td>
+                        <td align="right">{!creditInformation['ekInEuro4']} &euro;</td>
+                        <td align="right" style="{!IF(creditInformation['kfwExists'] = 'true', 'display:table-cell;', 'display:none;')}">{!creditInformation['kfwInEuro4']} &euro;</td>
+                        <td align="right">{!creditInformation['bankInEuro4']} &euro;</td>
+                        <td align="right">1</td>
+                        <td align="right">{!creditInformation['interestInEuro4']} &euro;</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td align="right">11,20 %</td>
+                        <td align="right">{!creditInformation['costSumInEuro5']} &euro;</td>
+                        <td align="right">{!creditInformation['ekInEuro5']} &euro;</td>
+                        <td align="right" style="{!IF(creditInformation['kfwExists'] = 'true', 'display:table-cell;', 'display:none;')}">{!creditInformation['kfwInEuro5']} &euro;</td>
+                        <td align="right">{!creditInformation['bankInEuro5']} &euro;</td>
+                        <td align="right">5</td>
+                        <td align="right">{!creditInformation['interestInEuro5']} &euro;</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td align="right">8,40 %</td>
+                        <td align="right">{!creditInformation['costSumInEuro6']} &euro;</td>
+                        <td align="right">{!creditInformation['ekInEuro6']} &euro;</td>
+                        <td align="right" style="{!IF(creditInformation['kfwExists'] = 'true', 'display:table-cell;', 'display:none;')}">{!creditInformation['kfwInEuro6']} &euro;</td>
+                        <td align="right">{!creditInformation['bankInEuro6']} &euro;</td>
+                        <td align="right">1</td>
+                        <td align="right">{!creditInformation['interestInEuro6']} &euro;</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td align="right">8,50 %</td>
+                        <td align="right">{!creditInformation['costSumInEuro7']} &euro;</td>
+                        <td align="right">{!creditInformation['ekInEuro7']} &euro;</td>
+                        <td align="right" style="{!IF(creditInformation['kfwExists'] = 'true', 'display:table-cell;', 'display:none;')}">{!creditInformation['kfwInEuro7']} &euro;</td>
+                        <td align="right">{!creditInformation['bankInEuro7']} &euro;</td>
+                        <td align="right">3</td>
+                        <td align="right">{!creditInformation['interestInEuro7']} &euro;</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br/>
+            <p class="smallheadline">Ihre überschlägigen Bauzeitzinsen betragen: {!creditInformation['interestBauzeitInEuroTotal']} &euro;</p>
             <!-- End of main content -->
         </div>
+        <!-- End of page 3 -->
     </div>
-
-    
 </apex:page>
