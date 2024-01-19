@@ -49,7 +49,7 @@
         </style>
     </head>
     <div style="width: 100%; text-align: center; margin-bottom: 1.25cm; margin-top: 1.25cm;">
-        <apex:image style="{!IF(!IsBlank(MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Unternehmen__r.LogoUrl__c), 'display:inline-block;', 'display:none;')} height: 1.5cm" url="{!MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Unternehmen__r.LogoUrl__c}" width="auto"/>
+        <apex:image style="{!IF(!IsBlank(MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Unternehmen__r.LogoUrl__c), 'display:inline-block;', 'display:none;')} height: 1.2cm" url="{!MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Unternehmen__r.LogoUrl__c}" width="auto"/>
         <apex:image style="{!IF(IsBlank(MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Unternehmen__r.LogoUrl__c), 'display:inline-block', 'display:none')}; height: 1.5cm" url="{!$Resource.Carestone_Logo}" width="auto"/>
     </div>
 
@@ -101,9 +101,6 @@
     <br/>
     <p>
         <b>Kaufpreisberechnung gem. Kaufvertrag/Vertragsannahme</b><br/>
-        <span style="{!IF(MaBVRechnung__c.UrkundennummerKaufvertrag__c == null, 'display:inline', 'display:none')}">
-        <b>Kaufvertragsangebot vom&nbsp;<apex:outputField value="{!MaBVRechnung__c.Kaufdatum__c}"/> UR-Nr. {!MaBVRechnung__c.UrkundennummerKaufvertragsangebot__c}</b><br/>
-        </span>
         <span  style="{!IF(MaBVRechnung__c.UrkundennummerKaufvertrag__c == null, 'display:inline', 'display:none')}">
         <b>Kaufvertragsannahme vom&nbsp;<apex:outputField value="{!MaBVRechnung__c.Kaufdatum__c}"/> UR-Nr. {!MaBVRechnung__c.UrkundennummerKaufvertragsannahme__c}</b><br/>
         </span>

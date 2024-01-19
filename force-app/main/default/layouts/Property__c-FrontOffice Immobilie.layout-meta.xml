@@ -636,7 +636,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Afa_Building_Shares__c</field>
+                <field>AFAAnschaffungskosten__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AlternativeAFAAnschaffungskosten__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
