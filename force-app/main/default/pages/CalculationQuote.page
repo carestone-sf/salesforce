@@ -818,7 +818,7 @@
                                 <th align="right">Tilgung</th>
                                 <th align="right">Rate</th>
                                 <th align="right">Darlehensstand</th>
-                                <th align="right" style="{!IF(calcSonder != null && calcSonder[financeModule.f.Id] != null, 'display: table-cell', 'display:none')}">Sondertilgung</th>
+                                <th align="right" style="{!IF(calcSonder != null && calcSonder[financeModule.f.Id] != null && calcSonder[financeModule.f.Id][0] = 'true', 'display: table-cell', 'display:none')}">Sondertilgung</th>
                             </thead>
                             <tbody>
                                 <apex:repeat value="{!yearlyValues}" var="yearlyValuesKey">
@@ -829,7 +829,7 @@
                                         <td align="right">{!yearlyValues[yearlyValuesKey]['repaymentInEuro']} &euro;</td>
                                         <td align="right">{!yearlyValues[yearlyValuesKey]['rateInEuro']} &euro;</td>
                                         <td align="right">{!yearlyValues[yearlyValuesKey]['creditSumEndInEuro']} &euro;</td>
-                                        <td align="right" style="{!IF(calcSonder != null && calcSonder[financeModule.f.Id] != null, 'display: table-cell', 'display:none')}">
+                                        <td align="right" style="{!IF(calcSonder != null && calcSonder[financeModule.f.Id] != null && calcSonder[financeModule.f.Id][0] = 'true', 'display: table-cell', 'display:none')}">
                                             <apex:outputText value="{!calcSonder[financeModule.f.Id][yearlyValuesKey]}" />
                                             &euro;</td>
                                         </tr>

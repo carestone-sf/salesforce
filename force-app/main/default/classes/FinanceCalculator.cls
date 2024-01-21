@@ -63,6 +63,7 @@ public without sharing class FinanceCalculator {
                         if (pagYearlyValue.get(Integer.valueOf(s.JahrDerAuszahlung__c)) != null && year == Integer.valueOf(s.JahrDerAuszahlung__c) && fm.f.Id == s.Finanzierungsbaustein__c) {
                             Decimal sum = s.Betrag__c;
                             currMap.put(Integer.valueOf(s.JahrDerAuszahlung__c), getFormattedNumber(sum));
+                            currMap.put(0, 'true');
                             res.put(fm.f.Id, currMap);
                         }
                         else {
@@ -70,6 +71,15 @@ public without sharing class FinanceCalculator {
                             res.put(fm.f.Id, currMap);
                         }
                     }
+                }
+
+                if(res.get(fm.f.Id)?.get(0) == null) {
+                    Map<Integer, String> currMap = res.get(fm.f.Id);
+                    if(currMap == null) {
+                        currMap = new Map<Integer, String>();
+                    }
+                    currMap.put(0, 'false');
+                    res.put(fm.f.Id, currMap);
                 }
             }
         }
