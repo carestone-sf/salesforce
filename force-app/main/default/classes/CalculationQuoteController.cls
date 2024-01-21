@@ -1,7 +1,7 @@
 public without sharing class CalculationQuoteController {
     public final Berechnung__c calculation;
     public FinanceCalculator fc;
-    public Map<Integer, String> calcSonder {get;set;}
+    public Map<String, Map<Integer, String>> calcSonder {get;set;}
     // The extension constructor initializes the private member
     // variable acct by using the getRecord method from the standard
     // controller.
@@ -13,7 +13,7 @@ public without sharing class CalculationQuoteController {
         this.fc.calculateLiquiditySums();
         this.fc.calculateCreditInformation();
         this.fc.formatValues();
-        this.calcSonder = this.fc.calcSondertilgung(this.calculation.Id, getPaginatedYearlyValues());
+        this.calcSonder = this.fc.calcSondertilgung();
     }
  
     public List<FinanceCalculator.FinanceModule> getFinanceModules() {
