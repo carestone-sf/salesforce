@@ -1210,6 +1210,7 @@
         <queriedFields>ErsterKaeufer__c</queriedFields>
         <queriedFields>BauzeitzinsenAnzeigen__c</queriedFields>
         <queriedFields>AFA__c</queriedFields>
+        <queriedFields>BetrachtungszeitraumInJahren__c</queriedFields>
     </recordLookups>
     <recordLookups>
         <name>Get_Erster_K_ufer_Record</name>
@@ -2275,7 +2276,7 @@
             <name>Betrachtungszeitraum_in_Jahren</name>
             <dataType>Number</dataType>
             <defaultValue>
-                <numberValue>20.0</numberValue>
+                <elementReference>berechnung.BetrachtungszeitraumInJahren__c</elementReference>
             </defaultValue>
             <fieldText>Betrachtungszeitraum in Jahren</fieldText>
             <fieldType>InputField</fieldType>

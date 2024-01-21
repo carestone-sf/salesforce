@@ -41,8 +41,8 @@ public without sharing class FinanceCalculator {
         return firstMapDeepCopy;
     }
 
-    public Map<Integer, String> calcSondertilgung(Id calculationId, List<Map<Integer, Map<String, Object>>> pagYearlyValues){
-        List<Finanzierungsbaustein__c> fbs = [SELECT Id, Name, Art__c, Finanzierungsbeginn__c, Kreditsumme__c, LaufzeitInJahren__c, TilgungInPercent__c, Tilgungsbeginn__c, ZinsInPercent__c, ZinsbindungBis__c, (SELECT Name, JahrDerAuszahlung__c, Betrag__c FROM Sondertilgungen__r) FROM Finanzierungsbaustein__c WHERE Berechnung__c = :calculationId];
+    public Map<String, Map<Integer,String>> calcSondertilgung(){
+        List<Finanzierungsbaustein__c> fbs = [SELECT Id, Name, Art__c, Finanzierungsbeginn__c, Kreditsumme__c, LaufzeitInJahren__c, TilgungInPercent__c, Tilgungsbeginn__c, ZinsInPercent__c, ZinsbindungBis__c, (SELECT Name, JahrDerAuszahlung__c, Betrag__c FROM Sondertilgungen__r) FROM Finanzierungsbaustein__c WHERE Berechnung__c = :this.c.Id];
         List<Id> sonderId = new List<Id>();
         for (Finanzierungsbaustein__c f : fbs) {
             sonderId.add(f.id);
@@ -51,31 +51,41 @@ public without sharing class FinanceCalculator {
         if (sondertilgungRelated.size() == 0 || sondertilgungRelated == null) {
             return null;
         }
-        Map<Integer,String> res = new Map<Integer,String>();
+        Map<String, Map<Integer,String>> res = new Map<String, Map<Integer,String>>();
         for (Sondertilgung__c s : sondertilgungRelated) {
-            for (Map<Integer, Map<String, Object>> pagYearlyValue : pagYearlyValues) {
-
-
-                for (Integer year : pagYearlyValue.keySet()) {
-                    if (pagYearlyValue.get(Integer.valueOf(s.JahrDerAuszahlung__c)) != null && year == Integer.valueOf(s.JahrDerAuszahlung__c)) {
-
-                        String creditSumStr = (String)pagYearlyValue.get(Integer.valueOf(s.JahrDerAuszahlung__c)).get('creditSumStartInEuro');
-                        creditSumStr = creditSumStr.replace('.', '');
-                        creditSumStr = creditSumStr.replace(',', '.');
-                        Decimal sum = s.Betrag__c;
-                        res.put(Integer.valueOf(s.JahrDerAuszahlung__c), sum.format());
-                    }
-                    else {
-                        if (!res.containsKey(year)) {
-                            res.put(year, '0');
+            for(FinanceModule fm:this.financeModules) {
+                for(Map<Integer, Map<String, Object>> pagYearlyValue:fm.paginatedYearlyValues) {
+                    for (Integer year : pagYearlyValue.keySet()) {
+                        Map<Integer, String> currMap = res.get(fm.f.Id);
+                        if(currMap == null) {
+                            currMap = new Map<Integer, String>();
+                        }
+                        if (pagYearlyValue.get(Integer.valueOf(s.JahrDerAuszahlung__c)) != null && year == Integer.valueOf(s.JahrDerAuszahlung__c) && fm.f.Id == s.Finanzierungsbaustein__c) {
+                            Decimal sum = s.Betrag__c;
+                            currMap.put(Integer.valueOf(s.JahrDerAuszahlung__c), getFormattedNumber(sum));
+                            currMap.put(0, 'true');
+                            res.put(fm.f.Id, currMap);
+                        }
+                        else {
+                            currMap.put(year, '0,00');
+                            res.put(fm.f.Id, currMap);
                         }
                     }
                 }
 
+                if(res.get(fm.f.Id)?.get(0) == null) {
+                    Map<Integer, String> currMap = res.get(fm.f.Id);
+                    if(currMap == null) {
+                        currMap = new Map<Integer, String>();
+                    }
+                    currMap.put(0, 'false');
+                    res.put(fm.f.Id, currMap);
+                }
             }
         }
         return res;
     }
+
     public void initFinanceModules(Id calculationId) {
         this.c = [SELECT Id, Hauptimmobilie__r.Arrival__c, Afa__c, Finanzierung__c, TaxableIncomePension__c, BetrachtungszeitraumInJahren__c, ErsterKaeufer__c, ErsterKaeufer__r.BirthDate, ZweiterKaeufer__c, ZweiterKaeufer__r.BirthDate, Gesamtkosten__c, GrunderwerbsteuerGesamt__c, ZuVersteuerndesEinkommen__c, Kirchensteuer__c, Eigenkapital__c, Finanzierungsart__c, InstandhaltungProJahrGesamt__c, VerwaltungProJahrGesamt__c, Mietsteigerung__c, SteigerungInstandhaltung__c, SteigerungVerwaltung__c, SumPurchasePrice__c, (SELECT Apartment__r.Name, MieteProMonatInEuro__c, MieteProJahrInEuro__c, AfAAussenanlagenProJahrInProzent__c, AfAAussenanlagenProJahrInEuro__c, AfASubstanzProJahrInProzent__c, AfASubstanzProJahrInEuro__c, Gesamtkosten__c FROM Berechnungs_Apartments__r) FROM Berechnung__c WHERE Id = :calculationId];
         List<Afa__c> afas = [SELECT Id, (SELECT JahrVon__c, JahrBis__c, AFAInProzent__c, Berechnung__c FROM AfaWerte__r) FROM Afa__c WHERE Id = :this.c.Afa__c];
@@ -1143,17 +1153,17 @@ public without sharing class FinanceCalculator {
         }
         this.pages = (Integer) Math.ceil(totalYears / pagebreak);
 
-        Integer pagebreakLiquidity = 20;
+        Integer pagebreakLiquidity = 22;
         counter = 0;   
         Map<Integer, Map<String, Object>> currentYearlyValuesLiqiduity = new Map<Integer, Map<String, Object>>();
         Map<Integer, Map<String,Object>> cumulatedYearlyValuesForLiquidityCopy = deepCopyExistingStructure(cumulatedYearlyValues);
-        Decimal maxYears = this.c.BetrachtungszeitraumInJahren__c != null ? this.c.BetrachtungszeitraumInJahren__c : 13;
+        Decimal maxYears = this.c.BetrachtungszeitraumInJahren__c != null ? this.c.BetrachtungszeitraumInJahren__c : 20;
         for(Integer year:cumulatedYearlyValuesForLiquidityCopy.keySet()) {
             Integer currentPage = (Integer)Math.floor(counter/pagebreakLiquidity);
             Map<String,Object> yearlyValue = cumulatedYearlyValuesForLiquidityCopy.get(year);
             currentYearlyValuesLiqiduity.put(year, yearlyValue);
             counter++;
-            if(Math.mod(counter, pagebreakLiquidity) == 0 || counter == totalYears) {
+            if(Math.mod(counter, pagebreakLiquidity) == 0 || counter == maxYears) {
                 this.paginatedYearlyValuesForLiquidity.add(currentYearlyValuesLiqiduity);         
                 currentYearlyValuesLiqiduity = new Map<Integer, Map<String, Object>>();
             }

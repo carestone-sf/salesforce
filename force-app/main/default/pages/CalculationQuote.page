@@ -485,7 +485,7 @@
                 <!-- Start Table Aufwand -->
                 <table class="data">
                     <tr>
-                        <td class="data-theader">Immobilie</td>
+                        <td width="20%" class="data-theader">Immobilie</td>
                         <td class="data-theader">Apartment</td>
                         <td align="right" class="data-theader">Kaufpreis</td>
                         <td align="right" class="data-theader">GrESt</td>
@@ -494,7 +494,7 @@
                     </tr>
                     <apex:repeat value="{!Berechnung__c.Berechnungs_Apartments__r}" var="berechnungsApartment">
                         <tr class="data-repeat">
-                            <td>{!berechnungsApartment.Immobilie__r.Name}</td>
+                            <td width="20%">{!berechnungsApartment.Immobilie__r.Name}</td>
                             <td>{!berechnungsApartment.Apartment__r.Name}</td>
                             <td align="right"><apex:outputField value="{!berechnungsApartment.Listenpreis__c}"></apex:outputField></td>
                             <td align="right"><apex:outputField value="{!berechnungsApartment.GrunderwerbsteuerInEuro__c}"></apex:outputField></td>
@@ -818,7 +818,7 @@
                                 <th align="right">Tilgung</th>
                                 <th align="right">Rate</th>
                                 <th align="right">Darlehensstand</th>
-                                <th align="right" style="{!IF(NOT(ISNULL(calcSonder)), 'display: table-cell', 'display:none')}">Sondertilgung</th>
+                                <th align="right" style="{!IF(calcSonder != null && calcSonder[financeModule.f.Id] != null && calcSonder[financeModule.f.Id][0] = 'true', 'display: table-cell', 'display:none')}">Sondertilgung</th>
                             </thead>
                             <tbody>
                                 <apex:repeat value="{!yearlyValues}" var="yearlyValuesKey">
@@ -829,8 +829,8 @@
                                         <td align="right">{!yearlyValues[yearlyValuesKey]['repaymentInEuro']} &euro;</td>
                                         <td align="right">{!yearlyValues[yearlyValuesKey]['rateInEuro']} &euro;</td>
                                         <td align="right">{!yearlyValues[yearlyValuesKey]['creditSumEndInEuro']} &euro;</td>
-                                        <td align="right" style="{!IF(NOT(ISNULL(calcSonder)), 'display: table-cell', 'display:none')}">
-                                            <apex:outputText value="{!calcSonder[yearlyValuesKey]}" />
+                                        <td align="right" style="{!IF(calcSonder != null && calcSonder[financeModule.f.Id] != null && calcSonder[financeModule.f.Id][0] = 'true', 'display: table-cell', 'display:none')}">
+                                            <apex:outputText value="{!calcSonder[financeModule.f.Id][yearlyValuesKey]}" />
                                             &euro;</td>
                                         </tr>
                                 </apex:repeat>
@@ -878,9 +878,9 @@
                 </table>
                 <br/>
                 <div class="pagination">
-                    <apex:variable value="{!0}" var="liquidityOverviewPage"/>
+                    <apex:variable value="{!1}" var="liquidityOverviewPage"/>
                     <apex:repeat value="{!paginatedYearlyValuesForLiquidity}" var="cumulatedYearlyValues">
-                    <table class="data" style="{!IF(AND(liquidityOverviewPage != liquidityPages, liquidityPages != 1), 'page-break-after:always;','')}">
+                    <table class="data" style="{!IF(AND(liquidityOverviewPage != liquidityPages), 'page-break-after:always;','')}">
                         <thead>
                             <th>Jahr</th>
                             <th align="right">Miete</th>
@@ -911,7 +911,7 @@
                                     <td class="{!IF(CONTAINS(cumulatedYearlyValues[cumulatedYearlyValuesKey]['monthlyOverageInEuro'], '-'), 'negative-value', '')} no-background" align="right">{!IF(CONTAINS(cumulatedYearlyValues[cumulatedYearlyValuesKey]['monthlyOverageInEuro'], '-'), '- ', '')}{!SUBSTITUTE(cumulatedYearlyValues[cumulatedYearlyValuesKey]['monthlyOverageInEuro'], '-', '')} &euro;</td>
                                 </tr>
                             </apex:repeat>
-                            <tr>
+                            <tr style="{!IF(AND(liquidityOverviewPage != liquidityPages), 'display:table-row;','display:none;')}">
                                 <td class="data-theader">Summe</td>
                                 <td class="data-theader" align="right">{!sumsForLiquidity['rentInEuro']} &euro;</td>
                                 <td class="negative-value data-theader" style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: table-cell;', 'display: none;')} padding-top: 0px;" align="right">{!sumsForLiquidity['interestInEuro']} &euro;</td>
