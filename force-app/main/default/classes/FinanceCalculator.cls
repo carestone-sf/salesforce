@@ -1081,28 +1081,33 @@ public without sharing class FinanceCalculator {
         sumsForLiquidity.put('yearlyOverageInEuroTotal', liquidityYearlyTotal);
         sumsForLiquidity.put('yearlyOverageInEuroTotalClass', liquidityYearlyTotal < 0 ? 'negative-value' : '');
         // Verkaufswert Immobilie
-        Decimal totalSalesValue = this.c.SumPurchasePrice__c * Math.pow((Double)1.05, (Double)Math.floor(this.c.BetrachtungszeitraumInJahren__c / 5));
+        Decimal totalSalesValue = this.c.SumPurchasePrice__c * Math.pow((Double)1.05, (Double)Math.floor(getMaxYears() / 5));
         sumsForLiquidity.put('totalSalesValue', totalSalesValue);
         // Restschuld Darlehen 
-        Decimal creditSumEndInEuro = (Decimal)this.cumulatedYearlyValues.get(this.firstYear+Integer.valueOf(this.c.BetrachtungszeitraumInJahren__c)).get('creditSumEndInEuro');
+        Decimal creditSumEndInEuro = (Decimal)this.cumulatedYearlyValues.get(this.firstYear+getMaxYears()-1).get('creditSumEndInEuro');
         sumsForLiquidity.put('creditSumEndInEuro', creditSumEndInEuro);
         Decimal networthEndInEuro = totalSalesValue - creditSumEndInEuro - this.c.Eigenkapital__c + liquidityYearlyTotal;
         sumsForLiquidity.put('networthEndInEuro', networthEndInEuro);
-        Decimal interestInPercentTotal = calculateInterestForSavingComparison(networthEndInEuro+this.c.Eigenkapital__c, this.c.Eigenkapital__c, liquidityMonthlyAverage*-1, this.c.BetrachtungszeitraumInJahren__c);
+        Decimal interestInPercentTotal = calculateInterestForSavingComparison(networthEndInEuro+this.c.Eigenkapital__c, this.c.Eigenkapital__c, liquidityMonthlyAverage*-1, getMaxYears());
         sumsForLiquidity.put('interestInPercentTotal', interestInPercentTotal);
+        sumsForLiquidity.put('maxYears', getMaxYears());
         // EK Rendite
         //Mietertrag – (Zinszahlungen + Verwaltungskosten) = Jahresreinertrag
         //(Jahresreinertrag / Eigenkapital) * 100 = Eigenkapitalrendite in Prozent
         Decimal selfPercentTotal = 0;
         if(this.c.Eigenkapital__c != null && this.c.Eigenkapital__c != 0) {
-            selfPercentTotal = ((Decimal)this.cumulatedYearlyValues.get(this.firstYear+Integer.valueOf(this.c.BetrachtungszeitraumInJahren__c)).get('rentInEuro') - (Decimal)this.cumulatedYearlyValues.get(this.firstYear+Integer.valueOf(this.c.BetrachtungszeitraumInJahren__c)).get('interestInEuro') + (Decimal)this.cumulatedYearlyValues.get(this.firstYear+Integer.valueOf(this.c.BetrachtungszeitraumInJahren__c)).get('verwaltungGesamtInEuro')) / this.c.Eigenkapital__c * 100;
+            selfPercentTotal = ((Decimal)this.cumulatedYearlyValues.get(this.firstYear+getMaxYears()-1).get('rentInEuro') - (Decimal)this.cumulatedYearlyValues.get(this.firstYear+getMaxYears()-1).get('interestInEuro') + (Decimal)this.cumulatedYearlyValues.get(this.firstYear+getMaxYears()-1).get('verwaltungGesamtInEuro')) / this.c.Eigenkapital__c * 100;
         }
         sumsForLiquidity.put('selfPercentTotal', selfPercentTotal);
     }   
 
-    public Decimal calculateInterestForSavingComparison(Decimal networthEnd, Decimal networthStart, Decimal savingsRate, Decimal timeInYears) {
-        Integer timeInMonths = (Integer)timeInYears * 12;
-        Decimal q = 1.020000000000000000000000000000000000000000;
+    public Integer getMaxYears() {
+        return (Integer)this.c.BetrachtungszeitraumInJahren__c > this.cumulatedYearlyValues.size() ? this.cumulatedYearlyValues.size() : (Integer)this.c.BetrachtungszeitraumInJahren__c;
+    }
+
+    public Decimal calculateInterestForSavingComparison(Decimal networthEnd, Decimal networthStart, Decimal savingsRate, Integer timeInYears) {
+        Integer timeInMonths = timeInYears * 12;
+        Decimal q = 1.0200000000000000000000000000;
         for(Integer i = 0; i < 15; i++) { 
             q = approximateNumber(q, networthStart, networthEnd, savingsRate, timeInMonths);
             System.debug(q);
@@ -1157,7 +1162,7 @@ public without sharing class FinanceCalculator {
         counter = 0;   
         Map<Integer, Map<String, Object>> currentYearlyValuesLiqiduity = new Map<Integer, Map<String, Object>>();
         Map<Integer, Map<String,Object>> cumulatedYearlyValuesForLiquidityCopy = deepCopyExistingStructure(cumulatedYearlyValues);
-        Decimal maxYears = this.c.BetrachtungszeitraumInJahren__c != null ? this.c.BetrachtungszeitraumInJahren__c : 20;
+        Decimal maxYears = this.c.BetrachtungszeitraumInJahren__c != null ? getMaxYears() : 20;
         for(Integer year:cumulatedYearlyValuesForLiquidityCopy.keySet()) {
             Integer currentPage = (Integer)Math.floor(counter/pagebreakLiquidity);
             Map<String,Object> yearlyValue = cumulatedYearlyValuesForLiquidityCopy.get(year);
