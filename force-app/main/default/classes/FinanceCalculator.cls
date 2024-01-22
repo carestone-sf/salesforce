@@ -1088,7 +1088,7 @@ public without sharing class FinanceCalculator {
         sumsForLiquidity.put('creditSumEndInEuro', creditSumEndInEuro);
         Decimal networthEndInEuro = totalSalesValue - creditSumEndInEuro - this.c.Eigenkapital__c + liquidityYearlyTotal;
         sumsForLiquidity.put('networthEndInEuro', networthEndInEuro);
-        Decimal interestInPercentTotal = calculateInterestForSavingComparison(networthEndInEuro+this.c.Eigenkapital__c, this.c.Eigenkapital__c, liquidityMonthlyAverage*-1, getMaxYears());
+        Decimal interestInPercentTotal = calculateInterestForSavingComparison(networthEndInEuro+this.c.Eigenkapital__c+Math.abs(liquidityYearlyTotal), this.c.Eigenkapital__c, liquidityMonthlyAverage*-1, getMaxYears());
         sumsForLiquidity.put('interestInPercentTotal', interestInPercentTotal);
         sumsForLiquidity.put('maxYears', getMaxYears());
         // EK Rendite
