@@ -1096,7 +1096,7 @@ public without sharing class FinanceCalculator {
         //(Jahresreinertrag / Eigenkapital) * 100 = Eigenkapitalrendite in Prozent
         Decimal selfPercentTotal = 0;
         if(this.c.Eigenkapital__c != null && this.c.Eigenkapital__c != 0) {
-            selfPercentTotal = ((Decimal)this.cumulatedYearlyValues.get(this.firstYear+getMaxYears()-1).get('rentInEuro') - (Decimal)this.cumulatedYearlyValues.get(this.firstYear+getMaxYears()-1).get('interestInEuro') + (Decimal)this.cumulatedYearlyValues.get(this.firstYear+getMaxYears()-1).get('verwaltungGesamtInEuro')) / this.c.Eigenkapital__c * 100;
+            selfPercentTotal = ((Decimal)this.cumulatedYearlyValues.get(this.firstYear+getMaxYears()-1).get('rentInEuro') - ((Decimal)this.cumulatedYearlyValues.get(this.firstYear+getMaxYears()-1).get('interestInEuro') + (Decimal)this.cumulatedYearlyValues.get(this.firstYear+getMaxYears()-1).get('verwaltungGesamtInEuro'))) / this.c.Eigenkapital__c * 100;
         }
         sumsForLiquidity.put('selfPercentTotal', selfPercentTotal);
     }   
