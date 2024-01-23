@@ -8,6 +8,7 @@ public with sharing class BatchAggregateImmoPayment implements Database.Batchabl
     public void execute(Database.BatchableContext bc, List<SObject> scope) {
         Map<Id,SObject> scopeMap = new Map<Id, SObject>(scope);
         AggregateVkcZahlungPaymentDataQueueable.updateImmobilien(scopeMap.keySet());
+        AggregateVkcZahlungPaymentDataQueueable.updateImmobilien2(scopeMap.keySet());
     }
 
     public void finish(Database.BatchableContext bc) {
