@@ -324,6 +324,20 @@
                 <elementReference>Bauzeitzinsen_berechnen2</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>berechnung.EigenkapitalrenditeAnzeigen__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Eigenkapitalrendite_anzeigen</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>berechnung.AlternativenSparplanAnzeigen__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Alternativen_Sparplan_anzeigen</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Update_erster_K_ufer_Contact</targetReference>
         </connector>
@@ -394,6 +408,20 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>Bauzeitzinsen_berechnen</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>berechnung.AlternativenSparplanAnzeigen__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Alternativen_Sparplan_anzeigen2</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>berechnung.EigenkapitalrenditeAnzeigen__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Eigenkapitalrendite_anzeigen2</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -1211,6 +1239,8 @@
         <queriedFields>BauzeitzinsenAnzeigen__c</queriedFields>
         <queriedFields>AFA__c</queriedFields>
         <queriedFields>BetrachtungszeitraumInJahren__c</queriedFields>
+        <queriedFields>EigenkapitalrenditeAnzeigen__c</queriedFields>
+        <queriedFields>AlternativenSparplanAnzeigen__c</queriedFields>
     </recordLookups>
     <recordLookups>
         <name>Get_Erster_K_ufer_Record</name>
@@ -2250,6 +2280,28 @@
             <isRequired>true</isRequired>
         </fields>
         <fields>
+            <name>Alternativen_Sparplan_anzeigen</name>
+            <dataType>Boolean</dataType>
+            <defaultValue>
+                <elementReference>berechnung.AlternativenSparplanAnzeigen__c</elementReference>
+            </defaultValue>
+            <fieldText>Alternativen Sparplan anzeigen?</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Eigenkapitalrendite_anzeigen</name>
+            <dataType>Boolean</dataType>
+            <defaultValue>
+                <elementReference>berechnung.EigenkapitalrenditeAnzeigen__c</elementReference>
+            </defaultValue>
+            <fieldText>Eigenkapitalrendite anzeigen?</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
             <name>AFA</name>
             <choiceReferences>LineareAFA</choiceReferences>
             <choiceReferences>DegressiveAFA</choiceReferences>
@@ -2386,6 +2438,28 @@
                 <booleanValue>true</booleanValue>
             </defaultValue>
             <fieldText>Bauzeitzinsen berechnen?</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Alternativen_Sparplan_anzeigen2</name>
+            <dataType>Boolean</dataType>
+            <defaultValue>
+                <booleanValue>true</booleanValue>
+            </defaultValue>
+            <fieldText>Alternativen Sparplan anzeigen?</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Eigenkapitalrendite_anzeigen2</name>
+            <dataType>Boolean</dataType>
+            <defaultValue>
+                <booleanValue>true</booleanValue>
+            </defaultValue>
+            <fieldText>Eigenkapitalrendite anzeigen?</fieldText>
             <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>

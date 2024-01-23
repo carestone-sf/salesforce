@@ -11,6 +11,7 @@ public without sharing class AggregateVkcZahlungPaymentDataQueueable implements 
         Map<Id,Appartment__c> mapTeilobjekteByIds = new Map<Id,Appartment__c>([SELECT Id FROM Appartment__c WHERE Id IN (SELECT Appartement__c FROM Opportunity WHERE Id IN :this.opportunityIds)]);
 
         updateImmobilien(mapImmobilienByIds.keySet());
+        updateImmobilien2(mapImmobilienByIds.keySet());
 
         List<Appartment__c> teilobjekte = new List<Appartment__c>();
         for(AggregateResult agRes : [SELECT SUM(Bezahlt__c) bezahlt, Appartement__c teilobjektId FROM Opportunity WHERE Appartement__c IN :mapTeilobjekteByIds.keySet() AND HatVKCZahlungen__c = true AND IsWon = true GROUP BY Appartement__c]) {
@@ -34,6 +35,19 @@ public without sharing class AggregateVkcZahlungPaymentDataQueueable implements 
             Property__c immo = new Property__c(Id = immoId);
             immo.OffenerBetragEinmalzahlungen__c = offen;
             immo.AbgerechneteEinmalzahlungen__c = abgerechnet;
+            immobilien.add(immo);
+        }
+        update immobilien;
+    }
+
+    public static void updateImmobilien2(Set<Id> immoIds) {
+        List<Property__c> immobilien = new List<Property__c>();
+        for(AggregateResult agRes : [SELECT Immobilie__c immoId, SUM(IncentivierungGesamt__c) incentivierungGesamt FROM Opportunity WHERE incentivierunggesamt__c != 0 AND IsWon = true GROUP BY Immobilie__c]) {
+            Id immoId = (Id) agRes.get('immoId');
+            Double incentivierungGesamt = (Double) agRes.get('incentivierungGesamt');
+
+            Property__c immo = new Property__c(Id = immoId);
+            immo.IncentivierungIST__c = incentivierungGesamt;
             immobilien.add(immo);
         }
         update immobilien;

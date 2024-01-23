@@ -149,6 +149,11 @@
                 font-weight: 600;
             }
 
+            .small {
+                font-size: 7pt;
+                line-height: 10pt;
+            }
+
             .positive-bar {
                 width: {!SUBSTITUTE(firstYearAfterPaymentValues[firstYearAfterPayment]['percentageTenant'], ',', '.')}%;
                 background-color: #00A86B;
@@ -466,7 +471,7 @@
                             <td>{!berechnungsApartment.Apartment__r.Name}</td>
                             <td align="right"><apex:outputField value="{!berechnungsApartment.FlaecheInQm__c}"></apex:outputField> m<sup>2</sup></td>
                             <td class="summary-bottom" align="right"><apex:outputField value="{!berechnungsApartment.MieteProJahrInEuro__c}"></apex:outputField></td>
-                            <td class="summary-bottom" align="right"><apex:outputField value="{!berechnungsApartment.Listenpreis__c}"></apex:outputField></td>
+                            <td class="summary-bottom" align="right"><apex:outputField value="{!berechnungsApartment.PurchasePrice__c}"></apex:outputField></td>
                         </tr>
                     </apex:repeat>
                     <tr>
@@ -496,7 +501,7 @@
                         <tr class="data-repeat">
                             <td width="20%">{!berechnungsApartment.Immobilie__r.Name}</td>
                             <td>{!berechnungsApartment.Apartment__r.Name}</td>
-                            <td align="right"><apex:outputField value="{!berechnungsApartment.Listenpreis__c}"></apex:outputField></td>
+                            <td align="right"><apex:outputField value="{!berechnungsApartment.PurchasePrice__c}"></apex:outputField></td>
                             <td align="right"><apex:outputField value="{!berechnungsApartment.GrunderwerbsteuerInEuro__c}"></apex:outputField></td>
                             <td class="summary-bottom" align="right"><apex:outputField value="{!berechnungsApartment.NotarUndGerichtskostenInEuro__c}"></apex:outputField></td>
                             <td class="summary-bottom" align="right"><apex:outputField value="{!berechnungsApartment.Gesamtkosten__c}"></apex:outputField></td>
@@ -664,7 +669,7 @@
                 </div>
             </div>
             <br/> <br/>
-            <div>
+            <div  style="{!IF(Berechnung__c.AlternativenSparplanAnzeigen__c, 'display: block;', 'display:none;')}">
                <h3 class="main-headline-big">VERGLEICH ZU ALTERNATIVER ANSPARLÖSUNG NACH {!sumsForLiquidity['maxYears']} JAHREN</h3>
                 <div class="c-clearfix">
                     <div style="width: 49%; display: inline; float: left;">
@@ -704,9 +709,9 @@
                 </div>
             </div>
             <br/> <br/>
-            <div class="c-clearfix">
+            <div class="c-clearfix" style="{!IF(Berechnung__c.EigenkapitalrenditeAnzeigen__c, 'display: block;', 'display:none;')}">
                 <p class="smallheadline">Mit diesem Angebot beläuft sich die Eigenkapitalrendite auf:</p>
-            <p class="highlight">{!sumsForLiquidity['selfPercentTotal']} %</p>
+                <p class="highlight">{!sumsForLiquidity['selfPercentTotal']} %</p>
             </div>
             <br/> <br/> <br/><br/> <br/> <br/>
         <div class="disclaimer-text footer">
@@ -929,7 +934,53 @@
                 </apex:repeat>
                 </div>
                 <apex:outputText value="{!Berechnung__c.ZuVersteuerndesEinkommen__c}" rendered="false"/>
+                <apex:outputText value="{!Berechnung__c.AlternativenSparplanAnzeigen__c}" rendered="false"/>
+                <apex:outputText value="{!Berechnung__c.EigenkapitalrenditeAnzeigen__c}" rendered="false"/>
             </div>
+        </div>
+    </div>
+
+    <div class="page page-9" style="page-break-before: always;">
+        <div class="main-content">
+            <h2>BEZUGSPHASE</h2>
+            <br/> <br/>
+            <div class="pagination">
+                    <table class="data small">
+                        <thead>
+                            <th>Jahr</th>
+                            <th align="right">Miete</th>
+                            <th align="right">AfA</th>
+                            <th align="right">Verwalt.</th>
+                            <th align="right">V+V</th>
+                            <th style="{!IF(AND(Berechnung__c.ZuVersteuerndesEinkommen__c != null, Berechnung__c.ZuVersteuerndesEinkommen__c != 0, firstYearAfterPaymentValues[firstYearAfterPayment]['taxes'] > 0), 'display: table-cell;', 'display: none;')}" align="right">Steuer</th>
+                            <th style="{!IF(AND(Berechnung__c.ZuVersteuerndesEinkommen__c != null, Berechnung__c.ZuVersteuerndesEinkommen__c != 0, firstYearAfterPaymentValues[firstYearAfterPayment]['taxes'] < 0), 'display: table-cell;', 'display: none;')}" align="right">Steuer</th>
+                            <th align="right">Instand.</th>
+                            <th align="right">Liquid. p.a.</th>
+                            <th align="right">Liquid. mtl.</th>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!cumulatedYearlyValuesBezugsphase}" var="yearlyValuesBezugsphase">
+                            <apex:repeat value="{!yearlyValuesBezugsphase}" var="yearlyValuesBezugsphaseKey">
+                                <tr>
+                                    <td>{!yearlyValuesBezugsphaseKey}</td>
+                                    <td align="right">{!cumulatedYearlyValuesBezugsphase[yearlyValuesBezugsphaseKey]['rentInEuro']} &euro;</td>
+                                    <td align="right">{!cumulatedYearlyValuesBezugsphase[yearlyValuesBezugsphaseKey]['afaGesamtInEuro']} &euro;</td>
+                                    <td align="right">{!cumulatedYearlyValuesBezugsphase[yearlyValuesBezugsphaseKey]['verwaltungGesamtInEuro']} &euro;</td>
+                                    <td align="right">{!cumulatedYearlyValuesBezugsphase[yearlyValuesBezugsphaseKey]['vUndVGesamtInEuro']} &euro;</td>
+                                    <td style="{!IF(AND(Berechnung__c.ZuVersteuerndesEinkommen__c != null, Berechnung__c.ZuVersteuerndesEinkommen__c != 0), 'display: table-cell;', 'display: none;')} padding-top: 0px;" align="right">{!cumulatedYearlyValuesBezugsphase[yearlyValuesBezugsphaseKey]['taxesInEuro']} &euro;</td>
+                                    <!-- <td align="right">{!cumulatedYearlyValuesBezugsphase[yearlyValuesBezugsphaseKey]['rateInEuro']} &euro;</td> -->
+                                    <td align="right">{!cumulatedYearlyValuesBezugsphase[yearlyValuesBezugsphaseKey]['instandhaltungGesamtInEuro']} &euro;</td>
+                                    <td align="right">{!cumulatedYearlyValuesBezugsphase[yearlyValuesBezugsphaseKey]['yearlyOverageInEuro']} &euro;</td>
+                                    <td align="right">{!cumulatedYearlyValuesBezugsphase[yearlyValuesBezugsphaseKey]['monthlyOverageInEuro']} &euro;</td>
+                                </tr>
+                            </apex:repeat>
+                        </apex:repeat>
+                        </tbody>
+                    </table>
+                
+            </div>
+            <apex:outputText value="{!Berechnung__c.ZuVersteuerndesEinkommen__c}" rendered="false"/>
+            <!-- End of main content -->
         </div>
     </div>
 
@@ -1049,4 +1100,5 @@
         </div>
         <!-- End of page 3 -->
     </div>
+
 </apex:page>
