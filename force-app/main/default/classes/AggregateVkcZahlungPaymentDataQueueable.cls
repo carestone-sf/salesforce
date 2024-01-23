@@ -42,7 +42,7 @@ public without sharing class AggregateVkcZahlungPaymentDataQueueable implements 
 
     public static void updateImmobilien2(Set<Id> immoIds) {
         List<Property__c> immobilien = new List<Property__c>();
-        for(AggregateResult agRes : [SELECT SUM(IncentivierungGesamt__c) incentivierungGesamt FROM Opportunity WHERE incentivierunggesamt__c != 0 AND IsWon = true AND Notartermin__c >= 2023-07-01 GROUP BY Immobilie__c]) {
+        for(AggregateResult agRes : [SELECT Immobilie__c immoId, SUM(IncentivierungGesamt__c) incentivierungGesamt FROM Opportunity WHERE incentivierunggesamt__c != 0 AND IsWon = true GROUP BY Immobilie__c]) {
             Id immoId = (Id) agRes.get('immoId');
             Double incentivierungGesamt = (Double) agRes.get('incentivierungGesamt');
 

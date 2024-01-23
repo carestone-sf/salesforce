@@ -22,6 +22,7 @@ private class BatchAggregateImmoPaymentTest {
         opp.Abrechnung_ber__c = makler.Id;
         opp.Immobilienberater__c = makler.Id;
         opp.Datum_Kaufpreisf_lligkeitsschreiben__c = Date.today().addDays(-10);
+        opp.Notartermin__c = Date.today().addDays(-10);
         insert opp;
     }
     
