@@ -8,7 +8,9 @@ private class BatchAggregateImmoPaymentTest {
         Property__c immobilie = TestDataFactory.createProperty(false, TestDataFactory.createBautraeger(true).Id);
         immobilie.Kaufpreiszahlung__c = 'Endfällig';
         insert immobilie;
-        Appartment__c appartment = TestDataFactory.createAppartment(true, immobilie.Id);
+        Appartment__c appartment = TestDataFactory.createAppartment(false, immobilie.Id);
+        appartment.Additional_Costs__c = 10000;
+        insert appartment;
 
         TestDataFactory.createProvisionsverhandlung(true, acc.Id, immobilie.Id);
 
