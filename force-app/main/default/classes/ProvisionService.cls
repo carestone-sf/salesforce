@@ -43,6 +43,8 @@ public without sharing class ProvisionService {
                 lastMonth = 12;
                 lastYearOrThisYear -= 1;
             }
+            lastMonth = 12;
+                lastYearOrThisYear -= 1;
             Integer lastQuarter = getQuarterByMonth(lastMonth);
             String query = 'SELECT Id, Notartermin__c, Maklerbetreuer_WirtschaftsHaus__c FROM Opportunity';
             if(this.schedule == 'month') {
@@ -343,13 +345,13 @@ public without sharing class ProvisionService {
             erfolgsabhaengigeProvisionQuartal = 0.5 - erfolgsabhaengigeProvisionMonat;
         }
 
-        if(anzahlEinheitenJahr >= 0 && anzahlEinheitenJahr <= 47) {
+        if(anzahlEinheitenJahr >= 0 && anzahlEinheitenJahr <= 35) {
             erfolgsabhaengigeProvisionJahr = 0.25 - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
-        } else if(anzahlEinheitenJahr >= 48 && anzahlEinheitenJahr <= 83) {
+        } else if(anzahlEinheitenJahr >= 36 && anzahlEinheitenJahr <= 62) {
             erfolgsabhaengigeProvisionJahr = 0.35 - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
-        } else if(anzahlEinheitenJahr >= 84 && anzahlEinheitenJahr <= 107) {
+        } else if(anzahlEinheitenJahr >= 63 && anzahlEinheitenJahr <= 80) {
             erfolgsabhaengigeProvisionJahr = 0.45 - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
-        } else if(anzahlEinheitenJahr >= 108) {
+        } else if(anzahlEinheitenJahr >= 81) {
             erfolgsabhaengigeProvisionJahr = 0.5 - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
         }
          
