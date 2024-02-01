@@ -611,7 +611,7 @@ public without sharing class FinanceCalculator {
             this.cumulatedYearlyValuesBezugsphase.put(this.firstFullYear + i, liquidityCurrentYearValues);
             this.cumulatedYearlyValues = deepCopyExistingStructure(this.cumulatedYearlyValuesBezugsphase);
         }
-        this.yearsPassed = 1;
+        this.yearsPassed = 0;
         calculateLiquidity(this.cumulatedYearlyValuesBezugsphase);
         this.yearsPassed = 0;
         this.factor = 1;
