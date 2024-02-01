@@ -87,7 +87,7 @@ public without sharing class FinanceCalculator {
     }
 
     public void initFinanceModules(Id calculationId) {
-        this.c = [SELECT Id, Hauptimmobilie__r.Arrival__c, Afa__c, Finanzierung__c, TaxableIncomePension__c, BetrachtungszeitraumInJahren__c, ErsterKaeufer__c, ErsterKaeufer__r.BirthDate, ZweiterKaeufer__c, ZweiterKaeufer__r.BirthDate, Gesamtkosten__c, GrunderwerbsteuerGesamt__c, ZuVersteuerndesEinkommen__c, Kirchensteuer__c, Eigenkapital__c, Finanzierungsart__c, InstandhaltungProJahrGesamt__c, VerwaltungProJahrGesamt__c, Mietsteigerung__c, SteigerungInstandhaltung__c, SteigerungVerwaltung__c, SumPurchasePrice__c, SumPriceAdjustment__c, (SELECT Apartment__r.Name, MieteProMonatInEuro__c, MieteProJahrInEuro__c, AfAAussenanlagenProJahrInProzent__c, AfAAussenanlagenProJahrInEuro__c, AfASubstanzProJahrInProzent__c, AfASubstanzProJahrInEuro__c, Gesamtkosten__c FROM Berechnungs_Apartments__r) FROM Berechnung__c WHERE Id = :calculationId];
+        this.c = [SELECT Id, Hauptimmobilie__r.Arrival__c, Afa__c, Finanzierung__c, TaxableIncomePension__c, BetrachtungszeitraumInJahren__c, ErsterKaeufer__c, ErsterKaeufer__r.BirthDate, ZweiterKaeufer__c, ZweiterKaeufer__r.BirthDate, Gesamtkosten__c, GrunderwerbsteuerGesamt__c, ZuVersteuerndesEinkommen__c, Kirchensteuer__c, Eigenkapital__c, Finanzierungsart__c, InstandhaltungProJahrGesamt__c, VerwaltungProJahrGesamt__c, Mietsteigerung__c, SteigerungInstandhaltung__c, SteigerungVerwaltung__c, SumPurchasePrice__c, SumPriceAdjustment__c, (SELECT Apartment__r.Name, MieteProMonatInEuro__c, MieteProJahrInEuro__c, AfAAussenanlagenProJahrInProzent__c, AfAAussenanlagenProJahrInEuro__c, AfASubstanzProJahrInProzent__c, AfASubstanzProJahrInEuro__c, Gesamtkosten__c, AFAGrundlage__c FROM Berechnungs_Apartments__r) FROM Berechnung__c WHERE Id = :calculationId];
         List<Afa__c> afas = [SELECT Id, (SELECT JahrVon__c, JahrBis__c, AFAInProzent__c, Berechnung__c FROM AfaWerte__r) FROM Afa__c WHERE Id = :this.c.Afa__c];
         if(afas.size() > 0) {
             this.afa = afas[0];
@@ -166,7 +166,7 @@ public without sharing class FinanceCalculator {
         Decimal taxableIncome = this.c.ZuVersteuerndesEinkommen__c;
         Decimal totalIncome = taxableIncome + vUndVInEuro;
         if(age >= 67) {
-            Decimal pensionTaxableIncomePercentage = TaxService.getPensionTaxPercentage(year);
+            Decimal pensionTaxableIncomePercentage = TaxService.getPensionTaxPercentage(this.c.ErsterKaeufer__r.BirthDate.year()+67);
             taxableIncome = this.c.TaxableIncomePension__c * pensionTaxableIncomePercentage;
             totalIncome = (this.c.TaxableIncomePension__c + vUndVInEuro) * pensionTaxableIncomePercentage;
         }
@@ -1190,14 +1190,14 @@ public without sharing class FinanceCalculator {
                 if((this.yearsPassed+1) <= afaWert.JahrBis__c && (this.yearsPassed+1) >= afaWert.JahrVon__c) {
                     Decimal restwert = this.berechnungsApartmentToRestwert.get(ba.Id);
                     if(restwert == null) {
-                        restwert = ba.Gesamtkosten__c;
+                        restwert = ba.AFAGrundlage__c;
                     }
                     if(afaWert.Berechnung__c == 'Restwert') {
                         afaInEuro += afaWert.AfaInProzent__c * restwert / 100;
                         restwert -= afaWert.AfaInProzent__c * restwert / 100 * privateFactor;
                     } else {
-                        afaInEuro += afaWert.AfaInProzent__c * ba.Gesamtkosten__c / 100;
-                        restwert -= afaWert.AfaInProzent__c * ba.Gesamtkosten__c / 100 * privateFactor;
+                        afaInEuro += afaWert.AfaInProzent__c * ba.AFAGrundlage__c / 100;
+                        restwert -= afaWert.AfaInProzent__c * ba.AFAGrundlage__c / 100 * privateFactor;
                     }
                     this.berechnungsApartmentToRestwert.put(ba.Id, restwert);
                 }

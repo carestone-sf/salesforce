@@ -247,6 +247,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>BerechnungsApartment__c.AFAGrundlage__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>BerechnungsApartment__c.ErbbauzinsProJahrInEuro__c</field>
         <readable>true</readable>
     </fieldPermissions>
