@@ -118,6 +118,10 @@
                 <behavior>Readonly</behavior>
                 <field>WertGrundstueckInProzent__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>AFAGrundlage__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
