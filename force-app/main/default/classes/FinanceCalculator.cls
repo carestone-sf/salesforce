@@ -98,7 +98,7 @@ public without sharing class FinanceCalculator {
             this.finanzierungsbeginn = today;
         }
         this.firstYear = this.finanzierungsbeginn.year();
-        if(this.finanzierungsbeginn.day() == 1 && this.finanzierungsbeginn.month() == 1) {
+        if((this.finanzierungsbeginn.day() == 1 && this.finanzierungsbeginn.month() == 1) || this.c.Finanzierungsart__c == 'Bar') {
             this.firstFullYear = this.finanzierungsbeginn.year();
             this.firstYearAfterPayment = this.firstFullYear;
         } else {
