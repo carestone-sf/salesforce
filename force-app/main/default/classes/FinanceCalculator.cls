@@ -98,7 +98,7 @@ public without sharing class FinanceCalculator {
             this.finanzierungsbeginn = today;
         }
         this.firstYear = this.finanzierungsbeginn.year();
-        if((this.finanzierungsbeginn.day() == 1 && this.finanzierungsbeginn.month() == 1) || this.c.Finanzierungsart__c == 'Bar') {
+        if((this.finanzierungsbeginn.day() == 1 && this.finanzierungsbeginn.month() == 1)) {
             this.firstFullYear = this.finanzierungsbeginn.year();
             this.firstYearAfterPayment = this.firstFullYear;
         } else {
@@ -608,7 +608,7 @@ public without sharing class FinanceCalculator {
             liquidityCurrentYearValues.put('creditSumEndInEuro', 0);
             liquidityCurrentYearValues.put('rateInEuro', 0);
             liquidityCurrentYearValues.put('eigenkapitalRendite', 0);
-            this.cumulatedYearlyValuesBezugsphase.put(this.firstFullYear + i, liquidityCurrentYearValues);
+            this.cumulatedYearlyValuesBezugsphase.put(this.finanzierungsbeginn.year() + i, liquidityCurrentYearValues);
             this.cumulatedYearlyValues = deepCopyExistingStructure(this.cumulatedYearlyValuesBezugsphase);
         }
         this.yearsPassed = 0;
