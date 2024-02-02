@@ -20,6 +20,8 @@ public without sharing class FinanceCalculator {
     public Integer firstFullYear = 0;
     public Integer pages = 0;
     Decimal factor = 1.0;
+    Decimal appreciationFactor;
+    Decimal appreciationAfterYears;
     Decimal cumulatedCost = 0;
     Integer yearsPassed = 0;
     public Decimal sumSBetragplusFKreditsumme {get;set;}
@@ -41,7 +43,7 @@ public without sharing class FinanceCalculator {
         return firstMapDeepCopy;
     }
 
-    public Map<String, Map<Integer,String>> calcSondertilgung(){
+    public Map<String, Map<Integer,String>> calcSondertilgung() {
         List<Finanzierungsbaustein__c> fbs = [SELECT Id, Name, Art__c, Finanzierungsbeginn__c, Kreditsumme__c, LaufzeitInJahren__c, TilgungInPercent__c, Tilgungsbeginn__c, ZinsInPercent__c, ZinsbindungBis__c, (SELECT Name, JahrDerAuszahlung__c, Betrag__c FROM Sondertilgungen__r) FROM Finanzierungsbaustein__c WHERE Berechnung__c = :this.c.Id];
         List<Id> sonderId = new List<Id>();
         for (Finanzierungsbaustein__c f : fbs) {
@@ -87,13 +89,15 @@ public without sharing class FinanceCalculator {
     }
 
     public void initFinanceModules(Id calculationId) {
-        this.c = [SELECT Id, Hauptimmobilie__r.Arrival__c, Afa__c, Finanzierung__c, TaxableIncomePension__c, BetrachtungszeitraumInJahren__c, ErsterKaeufer__c, ErsterKaeufer__r.BirthDate, ZweiterKaeufer__c, ZweiterKaeufer__r.BirthDate, Gesamtkosten__c, GrunderwerbsteuerGesamt__c, ZuVersteuerndesEinkommen__c, Kirchensteuer__c, Eigenkapital__c, Finanzierungsart__c, InstandhaltungProJahrGesamt__c, VerwaltungProJahrGesamt__c, Mietsteigerung__c, SteigerungInstandhaltung__c, SteigerungVerwaltung__c, SumPurchasePrice__c, SumPriceAdjustment__c, (SELECT Apartment__r.Name, MieteProMonatInEuro__c, MieteProJahrInEuro__c, AfAAussenanlagenProJahrInProzent__c, AfAAussenanlagenProJahrInEuro__c, AfASubstanzProJahrInProzent__c, AfASubstanzProJahrInEuro__c, Gesamtkosten__c, AFAGrundlage__c FROM Berechnungs_Apartments__r) FROM Berechnung__c WHERE Id = :calculationId];
+        this.c = [SELECT Id, Hauptimmobilie__r.Arrival__c, Wertsteigerung__c, Hauptimmobilie__r.Appreciation_After_Years__c, Hauptimmobilie__r.Percent_Appreciation_Value__c, Afa__c, Finanzierung__c, TaxableIncomePension__c, BetrachtungszeitraumInJahren__c, ErsterKaeufer__c, ErsterKaeufer__r.BirthDate, ZweiterKaeufer__c, ZweiterKaeufer__r.BirthDate, Gesamtkosten__c, GrunderwerbsteuerGesamt__c, ZuVersteuerndesEinkommen__c, Kirchensteuer__c, Eigenkapital__c, Finanzierungsart__c, InstandhaltungProJahrGesamt__c, VerwaltungProJahrGesamt__c, Mietsteigerung__c, SteigerungInstandhaltung__c, SteigerungVerwaltung__c, SumPurchasePrice__c, SumPriceAdjustment__c, (SELECT Apartment__r.Name, MieteProMonatInEuro__c, MieteProJahrInEuro__c, AfAAussenanlagenProJahrInProzent__c, AfAAussenanlagenProJahrInEuro__c, AfASubstanzProJahrInProzent__c, AfASubstanzProJahrInEuro__c, Gesamtkosten__c, AFAGrundlage__c FROM Berechnungs_Apartments__r) FROM Berechnung__c WHERE Id = :calculationId];
         List<Afa__c> afas = [SELECT Id, (SELECT JahrVon__c, JahrBis__c, AFAInProzent__c, Berechnung__c FROM AfaWerte__r) FROM Afa__c WHERE Id = :this.c.Afa__c];
         if(afas.size() > 0) {
             this.afa = afas[0];
         }
         Date today = Date.today();
         this.finanzierungsbeginn = this.c.Hauptimmobilie__r.Arrival__c;
+        this.appreciationFactor = 1;
+        this.appreciationAfterYears = this.c.Hauptimmobilie__r.Appreciation_After_Years__c != null ? this.c.Hauptimmobilie__r.Appreciation_After_Years__c : 5;
         if(today > this.c.Hauptimmobilie__r.Arrival__c) {
             this.finanzierungsbeginn = today;
         }
@@ -615,6 +619,7 @@ public without sharing class FinanceCalculator {
         calculateLiquidity(this.cumulatedYearlyValuesBezugsphase);
         this.yearsPassed = 0;
         this.factor = 1;
+        this.appreciationFactor = 1;
         this.cumulatedCost = 0;
         this.berechnungsApartmentToRestwert = new Map<Id, Decimal>();
         calculateLiquidity(this.cumulatedYearlyValues);
@@ -628,9 +633,14 @@ public without sharing class FinanceCalculator {
             Decimal expenditureInEuro = 0;
             Decimal overageInEuro = 0;
             Integer daysWithRent = 360;
+            
 
             if(yearsPassed > 0 && Math.mod(yearsPassed, 5) == 0) {
                 this.factor *= 1.05;
+            }
+
+            if(yearsPassed > 0 && Math.mod(yearsPassed, (Integer)this.appreciationAfterYears) == 0) {
+                this.appreciationFactor *= this.c.Hauptimmobilie__r.Percent_Appreciation_Value__c != null ? 1+(this.c.Hauptimmobilie__r.Percent_Appreciation_Value__c/100) : 1.05;
             }
 
             if(yearsPassed == 0) {
@@ -663,6 +673,12 @@ public without sharing class FinanceCalculator {
             verwaltungInEuro = verwaltungInEuro * daysWithRent/360;
             expenditureInEuro -= verwaltungInEuro;
             currentYearCumulatedValues.put('verwaltungGesamtInEuro', verwaltungInEuro);
+
+            Decimal kaufpreis = this.c.SumPurchasePrice__c;
+            if(this.c.WertSteigerung__c) {
+                kaufpreis *= this.appreciationFactor;
+            }
+            currentYearCumulatedValues.put('kaufpreis', kaufpreis);
 
             // Instandhaltung gesamt
             Decimal instandHaltungInEuro = this.c.InstandhaltungProJahrGesamt__c;
@@ -960,6 +976,10 @@ public without sharing class FinanceCalculator {
             Decimal interestInEuro = (Decimal)currentYearCumulatedValues.get('interestInEuro');
             currentYearCumulatedValues.put('interestInEuro', getFormattedNumber(interestInEuro));
 
+            // Kaufpreis
+            Decimal kaufpreis = (Decimal)currentYearCumulatedValues.get('kaufpreis');
+            currentYearCumulatedValues.put('kaufpreis', getFormattedNumber(kaufpreis));
+
             // Tilgung gesamt
             Decimal repaymentInEuro = (Decimal)currentYearCumulatedValues.get('repaymentInEuro');
             currentYearCumulatedValues.put('repaymentInEuro', getFormattedNumber(repaymentInEuro));
@@ -1081,7 +1101,10 @@ public without sharing class FinanceCalculator {
         sumsForLiquidity.put('yearlyOverageInEuroTotal', liquidityYearlyTotal);
         sumsForLiquidity.put('yearlyOverageInEuroTotalClass', liquidityYearlyTotal < 0 ? 'negative-value' : '');
         // Verkaufswert Immobilie
-        Decimal totalSalesValue = this.c.SumPurchasePrice__c * Math.pow((Double)1.05, (Double)Math.floor(getMaxYears() / 5));
+        Decimal totalSalesValue = this.c.SumPurchasePrice__c;
+        if(this.c.WertSteigerung__c) {
+            totalSalesValue *= Math.pow((Double)(this.c.Hauptimmobilie__r.Percent_Appreciation_Value__c != null ? 1+(this.c.Hauptimmobilie__r.Percent_Appreciation_Value__c/100) : 1.05), (Double)Math.floor(getMaxYears() / this.appreciationAfterYears));
+        }
         sumsForLiquidity.put('totalSalesValue', totalSalesValue);
         // Restschuld Darlehen 
         Decimal creditSumEndInEuro = (Decimal)this.cumulatedYearlyValues.get(this.firstYear+getMaxYears()-1).get('creditSumEndInEuro');
