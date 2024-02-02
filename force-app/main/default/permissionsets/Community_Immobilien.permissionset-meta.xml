@@ -51,6 +51,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Berechnung__c.AlternativenSparplanAnzeigen__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Berechnung__c.AnzahlFinanzierungsbausteine__c</field>
         <readable>true</readable>
@@ -63,6 +68,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Berechnung__c.Eigenkapital__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Berechnung__c.EigenkapitalrenditeAnzeigen__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -151,6 +161,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Berechnung__c.MieterEigenaufteilungAnzeigen__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Berechnung__c.Mietsteigerung__c</field>
         <readable>true</readable>
@@ -228,6 +243,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Berechnung__c.WertGrundstueckGesamt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Berechnung__c.Wertsteigerung__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -668,6 +688,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Finanzierungsbaustein__c.Art__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Finanzierungsbaustein__c.AunnitaetInEuro__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

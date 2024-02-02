@@ -3,7 +3,7 @@
     <actionCalls>
         <name>Angebot_als_PDF_an_Berechnung_anh_ngen</name>
         <label>Angebot als PDF an Berechnung anhängen</label>
-        <locationX>336</locationX>
+        <locationX>402</locationX>
         <locationY>7778</locationY>
         <actionName>RestQuote</actionName>
         <actionType>apex</actionType>
@@ -23,7 +23,7 @@
     <actionCalls>
         <name>Apartments_f_r_Immobilie_0</name>
         <label>Apartments für Immobilie</label>
-        <locationX>424</locationX>
+        <locationX>490</locationX>
         <locationY>3014</locationY>
         <actionName>ExecuteSOQL</actionName>
         <actionType>apex</actionType>
@@ -51,7 +51,7 @@
     <actionCalls>
         <name>Commit_Transaction</name>
         <label>Commit Transaction</label>
-        <locationX>336</locationX>
+        <locationX>402</locationX>
         <locationY>7670</locationY>
         <actionName>c:CommitTransaction</actionName>
         <actionType>component</actionType>
@@ -65,7 +65,7 @@
     <actionCalls>
         <name>Get_Existing_Apartments</name>
         <label>Get Existing Apartments</label>
-        <locationX>138</locationX>
+        <locationX>182</locationX>
         <locationY>674</locationY>
         <actionName>ExecuteSOQL</actionName>
         <actionType>apex</actionType>
@@ -93,7 +93,7 @@
     <actionCalls>
         <name>Navigate_to_Berechnung</name>
         <label>Navigate to Berechnung</label>
-        <locationX>336</locationX>
+        <locationX>402</locationX>
         <locationY>7886</locationY>
         <actionName>c:navigateToRecord</actionName>
         <actionType>component</actionType>
@@ -124,7 +124,7 @@
     <assignments>
         <name>Add_apartment_to_addBerechnungsApartments</name>
         <label>Add apartment to addBerechnungsApartments</label>
-        <locationX>644</locationX>
+        <locationX>710</locationX>
         <locationY>4130</locationY>
         <assignmentItems>
             <assignToReference>addBerechnungsApartments</assignToReference>
@@ -140,7 +140,7 @@
     <assignments>
         <name>Assign_ErsterKaufer_Id</name>
         <label>Assign ErsterKaufer Id</label>
-        <locationX>666</locationX>
+        <locationX>754</locationX>
         <locationY>866</locationY>
         <assignmentItems>
             <assignToReference>ErsterKaeuferContact.Id</assignToReference>
@@ -156,7 +156,7 @@
     <assignments>
         <name>Assign_ErsterKaufer_Id_2</name>
         <label>Assign ErsterKaufer Id</label>
-        <locationX>138</locationX>
+        <locationX>182</locationX>
         <locationY>782</locationY>
         <assignmentItems>
             <assignToReference>ErsterKaeuferContact.Id</assignToReference>
@@ -166,13 +166,13 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Create_new_Verkaufsraum</targetReference>
+            <targetReference>immobilieId_not_set6</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Assign_ErsterKaufer_Id_3</name>
         <label>Assign ErsterKaufer Id</label>
-        <locationX>468</locationX>
+        <locationX>534</locationX>
         <locationY>2090</locationY>
         <assignmentItems>
             <assignToReference>ErsterKaeuferContact.Id</assignToReference>
@@ -188,7 +188,7 @@
     <assignments>
         <name>Assign_remaining_ErsterKaeufer_values</name>
         <label>Assign remaining ErsterKaeufer values</label>
-        <locationX>402</locationX>
+        <locationX>490</locationX>
         <locationY>866</locationY>
         <assignmentItems>
             <assignToReference>ErsterKaeuferContact.AccountId</assignToReference>
@@ -204,7 +204,7 @@
     <assignments>
         <name>Assign_remaining_values</name>
         <label>Assign remaining values</label>
-        <locationX>204</locationX>
+        <locationX>270</locationX>
         <locationY>2498</locationY>
         <assignmentItems>
             <assignToReference>berechnung.Hauptimmobilie__c</assignToReference>
@@ -227,7 +227,7 @@
     <assignments>
         <name>Assign_remaining_Verkaufsraum_values</name>
         <label>Assign remaining Verkaufsraum values</label>
-        <locationX>204</locationX>
+        <locationX>270</locationX>
         <locationY>1982</locationY>
         <assignmentItems>
             <assignToReference>verkaufsraum.Name</assignToReference>
@@ -243,7 +243,7 @@
     <assignments>
         <name>Assign_remaining_ZweiterKaeufer_values</name>
         <label>Assign remaining ZweiterKaeufer values</label>
-        <locationX>402</locationX>
+        <locationX>490</locationX>
         <locationY>1382</locationY>
         <assignmentItems>
             <assignToReference>ZweiterKaeuferContact.AccountId</assignToReference>
@@ -259,7 +259,7 @@
     <assignments>
         <name>Assign_Steigerung_Values_0</name>
         <label>Assign Steigerung Values</label>
-        <locationX>204</locationX>
+        <locationX>270</locationX>
         <locationY>7262</locationY>
         <assignmentItems>
             <assignToReference>berechnung.Mietsteigerung__c</assignToReference>
@@ -338,6 +338,20 @@
                 <elementReference>Alternativen_Sparplan_anzeigen</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>berechnung.Wertsteigerung__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Wertsteigerung</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>berechnung.MieterEigenaufteilungAnzeigen__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Mieter_Eigenaufteilung_anzeigen</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Update_erster_K_ufer_Contact</targetReference>
         </connector>
@@ -345,7 +359,7 @@
     <assignments>
         <name>Assign_Steigerung_Values_0_0</name>
         <label>Assign Steigerung Values</label>
-        <locationX>468</locationX>
+        <locationX>534</locationX>
         <locationY>7262</locationY>
         <assignmentItems>
             <assignToReference>berechnung.Mietsteigerung__c</assignToReference>
@@ -424,6 +438,20 @@
                 <elementReference>Eigenkapitalrendite_anzeigen2</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>berechnung.Wertsteigerung__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Wertsteigerung2</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>berechnung.MieterEigenaufteilungAnzeigen__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Mieter_Eigenaufteilung_anzeigen2</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Update_erster_K_ufer_Contact_2</targetReference>
         </connector>
@@ -431,7 +459,7 @@
     <assignments>
         <name>Assign_values_to_Berechnung</name>
         <label>Assign values to Berechnung</label>
-        <locationX>204</locationX>
+        <locationX>270</locationX>
         <locationY>2198</locationY>
         <assignmentItems>
             <assignToReference>berechnung.Verkaufsraum__c</assignToReference>
@@ -447,7 +475,7 @@
     <assignments>
         <name>Assign_values_to_berechnung2</name>
         <label>Assign values to berechnung</label>
-        <locationX>336</locationX>
+        <locationX>402</locationX>
         <locationY>6230</locationY>
         <assignmentItems>
             <assignToReference>berechnung.Eigenkapital__c</assignToReference>
@@ -463,7 +491,7 @@
     <assignments>
         <name>Assign_values_to_Verkaufsraum</name>
         <label>Assign values to Verkaufsraum</label>
-        <locationX>402</locationX>
+        <locationX>490</locationX>
         <locationY>1082</locationY>
         <assignmentItems>
             <assignToReference>verkaufsraum.ErsterKaeufer__c</assignToReference>
@@ -479,7 +507,7 @@
     <assignments>
         <name>Assign_values_to_Verkaufsraum2</name>
         <label>Assign values to Verkaufsraum</label>
-        <locationX>402</locationX>
+        <locationX>490</locationX>
         <locationY>1598</locationY>
         <assignmentItems>
             <assignToReference>verkaufsraum.ZweiterKaeufer__c</assignToReference>
@@ -495,7 +523,7 @@
     <assignments>
         <name>Berechnung_Name_zuweisenn</name>
         <label>Berechnung Name zuweisenn</label>
-        <locationX>138</locationX>
+        <locationX>182</locationX>
         <locationY>566</locationY>
         <assignmentItems>
             <assignToReference>berechnung.Name</assignToReference>
@@ -511,7 +539,7 @@
     <assignments>
         <name>Set_createApartment_to_false</name>
         <label>Set createApartment to false</label>
-        <locationX>864</locationX>
+        <locationX>930</locationX>
         <locationY>3746</locationY>
         <assignmentItems>
             <assignToReference>createApartment</assignToReference>
@@ -527,7 +555,7 @@
     <assignments>
         <name>Set_createApartment_to_true</name>
         <label>Set createApartment to true</label>
-        <locationX>776</locationX>
+        <locationX>842</locationX>
         <locationY>3422</locationY>
         <assignmentItems>
             <assignToReference>createApartment</assignToReference>
@@ -564,7 +592,7 @@
     <assignments>
         <name>Set_deleteApartment_to_true</name>
         <label>Set deleteApartment to true</label>
-        <locationX>776</locationX>
+        <locationX>842</locationX>
         <locationY>4514</locationY>
         <assignmentItems>
             <assignToReference>deleteApartment</assignToReference>
@@ -580,7 +608,7 @@
     <assignments>
         <name>Set_deleteBerechnungsApartment_to_false</name>
         <label>Set deleteBerechnungsApartment to false</label>
-        <locationX>864</locationX>
+        <locationX>930</locationX>
         <locationY>4838</locationY>
         <assignmentItems>
             <assignToReference>deleteApartment</assignToReference>
@@ -596,7 +624,7 @@
     <assignments>
         <name>Set_immobilieId</name>
         <label>Set immobilieId</label>
-        <locationX>402</locationX>
+        <locationX>490</locationX>
         <locationY>566</locationY>
         <assignmentItems>
             <assignToReference>immobilieId</assignToReference>
@@ -610,9 +638,25 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Set_immobilieId2</name>
+        <label>Set immobilieId</label>
+        <locationX>50</locationX>
+        <locationY>998</locationY>
+        <assignmentItems>
+            <assignToReference>immobilieId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>berechnung.Hauptimmobilie__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_new_Verkaufsraum</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_recordId</name>
         <label>Set recordId</label>
-        <locationX>204</locationX>
+        <locationX>270</locationX>
         <locationY>2714</locationY>
         <assignmentItems>
             <assignToReference>recordId</assignToReference>
@@ -644,7 +688,7 @@
     <decisions>
         <name>Apartment_already_in_collection</name>
         <label>Apartment already in collection</label>
-        <locationX>996</locationX>
+        <locationX>1062</locationX>
         <locationY>3638</locationY>
         <defaultConnector>
             <targetReference>Loop_Existing_Apartments</targetReference>
@@ -669,7 +713,7 @@
     <decisions>
         <name>Apartments_already_selected</name>
         <label>Apartments already selected?</label>
-        <locationX>336</locationX>
+        <locationX>402</locationX>
         <locationY>2906</locationY>
         <defaultConnector>
             <targetReference>Apartments_f_r_Immobilie_0</targetReference>
@@ -694,7 +738,7 @@
     <decisions>
         <name>Berechnungs_Apartment_still_in_list</name>
         <label>Berechnungs Apartment still in list</label>
-        <locationX>996</locationX>
+        <locationX>1062</locationX>
         <locationY>4730</locationY>
         <defaultConnector>
             <targetReference>Loop_selected_apartments_2</targetReference>
@@ -720,7 +764,7 @@
         <description>Check if prices should be adjusted</description>
         <name>CheckKauspreisanpassung</name>
         <label>Kauspreisanpassung?</label>
-        <locationX>336</locationX>
+        <locationX>402</locationX>
         <locationY>5606</locationY>
         <defaultConnector>
             <targetReference>Finanzierung</targetReference>
@@ -745,7 +789,7 @@
     <decisions>
         <name>Create_apartment</name>
         <label>Create apartment?</label>
-        <locationX>776</locationX>
+        <locationX>842</locationX>
         <locationY>4022</locationY>
         <defaultConnector>
             <targetReference>Loop_all_selected_Apartments</targetReference>
@@ -770,7 +814,7 @@
     <decisions>
         <name>Create_ErsterKaeufer</name>
         <label>Create ErsterKaeufer?</label>
-        <locationX>534</locationX>
+        <locationX>622</locationX>
         <locationY>758</locationY>
         <defaultConnector>
             <targetReference>Assign_ErsterKaufer_Id</targetReference>
@@ -795,7 +839,7 @@
     <decisions>
         <name>Create_new_Berechnung</name>
         <label>Create new Berechnung?</label>
-        <locationX>336</locationX>
+        <locationX>402</locationX>
         <locationY>2390</locationY>
         <defaultConnector>
             <targetReference>Apartments_already_selected</targetReference>
@@ -820,7 +864,7 @@
     <decisions>
         <name>Create_new_Verkaufsraum</name>
         <label>Create new Verkaufsraum?</label>
-        <locationX>336</locationX>
+        <locationX>402</locationX>
         <locationY>1874</locationY>
         <defaultConnector>
             <targetReference>Get_Verkaufsraum</targetReference>
@@ -845,7 +889,7 @@
     <decisions>
         <name>Create_ZweiterKaeufer</name>
         <label>Create ZweiterKaeufer?</label>
-        <locationX>534</locationX>
+        <locationX>622</locationX>
         <locationY>1274</locationY>
         <defaultConnector>
             <targetReference>Create_new_Verkaufsraum</targetReference>
@@ -870,7 +914,7 @@
     <decisions>
         <name>deleteBerechnungsApartment_is_true</name>
         <label>deleteBerechnungsApartment is true?</label>
-        <locationX>776</locationX>
+        <locationX>842</locationX>
         <locationY>5114</locationY>
         <defaultConnector>
             <targetReference>Loop_existing_apartments_2</targetReference>
@@ -895,7 +939,7 @@
     <decisions>
         <name>Finanzierungsart_bar</name>
         <label>Finanzierungsart = bar?</label>
-        <locationX>336</locationX>
+        <locationX>402</locationX>
         <locationY>6338</locationY>
         <defaultConnector>
             <targetReference>Get_Erster_K_ufer_Record</targetReference>
@@ -920,7 +964,7 @@
     <decisions>
         <name>Get_Finanzierungsbausteine_not_null</name>
         <label>Get Finanzierungsbausteine not null</label>
-        <locationX>182</locationX>
+        <locationX>248</locationX>
         <locationY>6554</locationY>
         <defaultConnector>
             <targetReference>Get_Erster_K_ufer_Record</targetReference>
@@ -945,7 +989,7 @@
     <decisions>
         <name>immobilieId_not_set</name>
         <label>immobilieId not set?</label>
-        <locationX>534</locationX>
+        <locationX>622</locationX>
         <locationY>458</locationY>
         <defaultConnector>
             <targetReference>Create_ErsterKaeufer</targetReference>
@@ -968,9 +1012,34 @@
         </rules>
     </decisions>
     <decisions>
+        <name>immobilieId_not_set6</name>
+        <label>immobilieId not set?</label>
+        <locationX>182</locationX>
+        <locationY>890</locationY>
+        <defaultConnector>
+            <targetReference>Create_new_Verkaufsraum</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>immobilieId_not_set7</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>immobilieId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_immobilieId2</targetReference>
+            </connector>
+            <label>immobilieId not set?</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Record_id_is_set</name>
         <label>Record id is set</label>
-        <locationX>336</locationX>
+        <locationX>402</locationX>
         <locationY>242</locationY>
         <defaultConnector>
             <targetReference>Neue_Berechnung_0</targetReference>
@@ -995,7 +1064,7 @@
     <decisions>
         <name>Record_id_was_set_at_start</name>
         <label>Record id was set at start?</label>
-        <locationX>336</locationX>
+        <locationX>402</locationX>
         <locationY>7046</locationY>
         <defaultConnector>
             <targetReference>Sonstige_Informationen_0_0</targetReference>
@@ -1049,7 +1118,7 @@
     <loops>
         <name>Loop_all_selected_Apartments</name>
         <label>Loop all selected Apartments</label>
-        <locationX>336</locationX>
+        <locationX>402</locationX>
         <locationY>3314</locationY>
         <collectionReference>allSelectedApartments</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -1063,7 +1132,7 @@
     <loops>
         <name>Loop_Existing_Apartments</name>
         <label>Loop Existing Apartments</label>
-        <locationX>776</locationX>
+        <locationX>842</locationX>
         <locationY>3530</locationY>
         <collectionReference>ExistingApartments</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -1077,7 +1146,7 @@
     <loops>
         <name>Loop_existing_apartments_2</name>
         <label>Loop existing apartments 2</label>
-        <locationX>336</locationX>
+        <locationX>402</locationX>
         <locationY>4406</locationY>
         <collectionReference>ExistingApartments</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -1091,7 +1160,7 @@
     <loops>
         <name>Loop_selected_apartments_2</name>
         <label>Loop selected apartments 2</label>
-        <locationX>776</locationX>
+        <locationX>842</locationX>
         <locationY>4622</locationY>
         <collectionReference>allSelectedApartments</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -1124,7 +1193,7 @@
     <recordCreates>
         <name>Create_Berechnung</name>
         <label>Create Berechnung</label>
-        <locationX>204</locationX>
+        <locationX>270</locationX>
         <locationY>2606</locationY>
         <connector>
             <targetReference>Set_recordId</targetReference>
@@ -1134,7 +1203,7 @@
     <recordCreates>
         <name>Create_ErsterKaeufer_Contact</name>
         <label>Create ErsterKaeufer Contact</label>
-        <locationX>402</locationX>
+        <locationX>490</locationX>
         <locationY>974</locationY>
         <connector>
             <targetReference>Assign_values_to_Verkaufsraum</targetReference>
@@ -1144,7 +1213,7 @@
     <recordCreates>
         <name>Create_Verkaufsraum</name>
         <label>Create Verkaufsraum</label>
-        <locationX>204</locationX>
+        <locationX>270</locationX>
         <locationY>2090</locationY>
         <connector>
             <targetReference>Assign_values_to_Berechnung</targetReference>
@@ -1154,7 +1223,7 @@
     <recordCreates>
         <name>Create_ZweiterKaeufer_Contact</name>
         <label>Create ZweiterKaeufer Contact</label>
-        <locationX>402</locationX>
+        <locationX>490</locationX>
         <locationY>1490</locationY>
         <connector>
             <targetReference>Assign_values_to_Verkaufsraum2</targetReference>
@@ -1164,7 +1233,7 @@
     <recordCreates>
         <name>Insert_Berechnungsapartments</name>
         <label>Insert Berechnungsapartments</label>
-        <locationX>336</locationX>
+        <locationX>402</locationX>
         <locationY>5498</locationY>
         <connector>
             <targetReference>CheckKauspreisanpassung</targetReference>
@@ -1174,7 +1243,7 @@
     <recordDeletes>
         <name>Delete_BerechnungsApartments</name>
         <label>Delete BerechnungsApartments</label>
-        <locationX>644</locationX>
+        <locationX>710</locationX>
         <locationY>5222</locationY>
         <connector>
             <targetReference>Loop_existing_apartments_2</targetReference>
@@ -1199,7 +1268,7 @@
     <recordDeletes>
         <name>Delete_Finanzierungsbausteine_0</name>
         <label>Delete Finanzierungsbausteine</label>
-        <locationX>50</locationX>
+        <locationX>116</locationX>
         <locationY>6662</locationY>
         <connector>
             <targetReference>Get_Erster_K_ufer_Record</targetReference>
@@ -1209,7 +1278,7 @@
     <recordLookups>
         <name>Get_Berechnung</name>
         <label>Get Berechnung</label>
-        <locationX>138</locationX>
+        <locationX>182</locationX>
         <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1241,11 +1310,13 @@
         <queriedFields>BetrachtungszeitraumInJahren__c</queriedFields>
         <queriedFields>EigenkapitalrenditeAnzeigen__c</queriedFields>
         <queriedFields>AlternativenSparplanAnzeigen__c</queriedFields>
+        <queriedFields>Wertsteigerung__c</queriedFields>
+        <queriedFields>MieterEigenaufteilungAnzeigen__c</queriedFields>
     </recordLookups>
     <recordLookups>
         <name>Get_Erster_K_ufer_Record</name>
         <label>Get Erster Käufer Record</label>
-        <locationX>336</locationX>
+        <locationX>402</locationX>
         <locationY>6938</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1266,7 +1337,7 @@
     <recordLookups>
         <name>Get_Finanzierungsbausteine</name>
         <label>Get Finanzierungsbausteine</label>
-        <locationX>182</locationX>
+        <locationX>248</locationX>
         <locationY>6446</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1294,7 +1365,7 @@
     <recordLookups>
         <name>Get_LoggedIn_User</name>
         <label>Get LoggedIn User</label>
-        <locationX>336</locationX>
+        <locationX>402</locationX>
         <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1315,7 +1386,7 @@
     <recordLookups>
         <name>Get_Verkaufsraum</name>
         <label>Get Verkaufsraum</label>
-        <locationX>468</locationX>
+        <locationX>534</locationX>
         <locationY>1982</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1337,7 +1408,7 @@
         <description>Get all related Berechnungs-Apartments</description>
         <name>GetAllBerechnungsApartments</name>
         <label>Get all Berechnungs-Apartments</label>
-        <locationX>204</locationX>
+        <locationX>270</locationX>
         <locationY>5714</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1360,7 +1431,7 @@
     <recordUpdates>
         <name>Update_Berechnung</name>
         <label>Update Berechnung</label>
-        <locationX>336</locationX>
+        <locationX>402</locationX>
         <locationY>7562</locationY>
         <connector>
             <targetReference>Commit_Transaction</targetReference>
@@ -1370,7 +1441,7 @@
     <recordUpdates>
         <name>Update_erster_K_ufer_Contact</name>
         <label>Update erster Käufer Contact</label>
-        <locationX>204</locationX>
+        <locationX>270</locationX>
         <locationY>7370</locationY>
         <connector>
             <targetReference>Update_Berechnung</targetReference>
@@ -1394,7 +1465,7 @@
     <recordUpdates>
         <name>Update_erster_K_ufer_Contact_2</name>
         <label>Update erster Käufer Contact</label>
-        <locationX>468</locationX>
+        <locationX>534</locationX>
         <locationY>7370</locationY>
         <connector>
             <targetReference>Update_Berechnung</targetReference>
@@ -1418,7 +1489,7 @@
     <recordUpdates>
         <name>UpdateBerechnungsApartments</name>
         <label>Update Berechnungs-Apartments</label>
-        <locationX>204</locationX>
+        <locationX>270</locationX>
         <locationY>5930</locationY>
         <connector>
             <targetReference>Finanzierung</targetReference>
@@ -1429,7 +1500,7 @@
     <screens>
         <name>Apartments_ausw_hlen_0</name>
         <label>Apartments auswählen</label>
-        <locationX>424</locationX>
+        <locationX>490</locationX>
         <locationY>3122</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -1541,7 +1612,7 @@
     <screens>
         <name>Berechnung_bearbeiten</name>
         <label>Berechnung bearbeiten</label>
-        <locationX>138</locationX>
+        <locationX>182</locationX>
         <locationY>458</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -1570,7 +1641,7 @@
     <screens>
         <name>Finanzierung</name>
         <label>Finanzierung</label>
-        <locationX>336</locationX>
+        <locationX>402</locationX>
         <locationY>6122</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -1611,7 +1682,7 @@
     <screens>
         <name>Neue_Berechnung_0</name>
         <label>Neue Berechnung</label>
-        <locationX>534</locationX>
+        <locationX>622</locationX>
         <locationY>350</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -2046,7 +2117,7 @@
         <description>Overview of selected Appartments with possibility to adjust data.</description>
         <name>PriceAdjustment</name>
         <label>Kaufpreisanpassung</label>
-        <locationX>204</locationX>
+        <locationX>270</locationX>
         <locationY>5822</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -2216,7 +2287,7 @@
     <screens>
         <name>Sonstige_Informationen_0</name>
         <label>Sonstige Informationen</label>
-        <locationX>204</locationX>
+        <locationX>270</locationX>
         <locationY>7154</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -2224,6 +2295,17 @@
         <connector>
             <targetReference>Assign_Steigerung_Values_0</targetReference>
         </connector>
+        <fields>
+            <name>Wertsteigerung</name>
+            <dataType>Boolean</dataType>
+            <defaultValue>
+                <elementReference>berechnung.Wertsteigerung__c</elementReference>
+            </defaultValue>
+            <fieldText>Wertsteigerung</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
         <fields>
             <name>Mietsteigerung_0</name>
             <dataType>Boolean</dataType>
@@ -2275,6 +2357,17 @@
                 <elementReference>berechnung.BauzeitzinsenAnzeigen__c</elementReference>
             </defaultValue>
             <fieldText>Bauzeitzinsen berechnen?</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Mieter_Eigenaufteilung_anzeigen</name>
+            <dataType>Boolean</dataType>
+            <defaultValue>
+                <elementReference>berechnung.MieterEigenaufteilungAnzeigen__c</elementReference>
+            </defaultValue>
+            <fieldText>Mieter- / Eigenaufteilung anzeigen?</fieldText>
             <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
@@ -2382,7 +2475,7 @@
     <screens>
         <name>Sonstige_Informationen_0_0</name>
         <label>Sonstige Informationen</label>
-        <locationX>468</locationX>
+        <locationX>534</locationX>
         <locationY>7154</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -2390,6 +2483,17 @@
         <connector>
             <targetReference>Assign_Steigerung_Values_0_0</targetReference>
         </connector>
+        <fields>
+            <name>Wertsteigerung2</name>
+            <dataType>Boolean</dataType>
+            <defaultValue>
+                <booleanValue>true</booleanValue>
+            </defaultValue>
+            <fieldText>Wertsteigerung</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
         <fields>
             <name>Mietsteigerung_0_0</name>
             <dataType>Boolean</dataType>
@@ -2438,6 +2542,17 @@
                 <booleanValue>true</booleanValue>
             </defaultValue>
             <fieldText>Bauzeitzinsen berechnen?</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Mieter_Eigenaufteilung_anzeigen2</name>
+            <dataType>Boolean</dataType>
+            <defaultValue>
+                <booleanValue>true</booleanValue>
+            </defaultValue>
+            <fieldText>Mieter- / Eigenaufteilung anzeigen?</fieldText>
             <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
@@ -2535,7 +2650,7 @@
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>210</locationX>
+        <locationX>276</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_LoggedIn_User</targetReference>
