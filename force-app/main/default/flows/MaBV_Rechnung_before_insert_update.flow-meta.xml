@@ -674,14 +674,14 @@ TEXT({!$Record.MaBVRechnungMaster__r.Opportunity__r.Kunde2__r.Salutation}) + &ap
             <field>GueltigVon__c</field>
             <operator>LessThanOrEqualTo</operator>
             <value>
-                <elementReference>$Record.Rechnungsdatum__c</elementReference>
+                <elementReference>$Flow.CurrentDate</elementReference>
             </value>
         </filters>
         <filters>
             <field>GueltigBis__c</field>
             <operator>GreaterThanOrEqualTo</operator>
             <value>
-                <elementReference>$Record.Rechnungsdatum__c</elementReference>
+                <elementReference>$Flow.CurrentDate</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
