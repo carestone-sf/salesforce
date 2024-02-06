@@ -776,16 +776,6 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Building_Share_Value__c</fieldItem>
-                <identifier>RecordBuilding_Share_Value_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
                 <fieldItem>Record.Value_Plot__c</fieldItem>
                 <identifier>RecordValue_Plot_cField</identifier>
             </fieldInstance>
@@ -810,20 +800,20 @@
                 <identifier>RecordWert_Einrichtung_cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-7073e3ef-be06-4a0f-8208-2ed70744a3b0</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Afa_Building_Shares__c</fieldItem>
-                <identifier>RecordAfa_Building_Shares_cField</identifier>
+                <fieldItem>Record.Building_Share_Value__c</fieldItem>
+                <identifier>RecordBuilding_Share_Value_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <name>Facet-7073e3ef-be06-4a0f-8208-2ed70744a3b0</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
@@ -852,6 +842,26 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Afa_Facility__c</fieldItem>
                 <identifier>RecordAfa_Facility_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.AFAAnschaffungskosten__c</fieldItem>
+                <identifier>RecordAFAAnschaffungskosten_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.AlternativeAFAAnschaffungskosten__c</fieldItem>
+                <identifier>RecordAlternativeAFAAnschaffungskosten_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-dcca610c-405b-438b-8424-5784c6f1f685</name>
@@ -5173,16 +5183,6 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Building_Share_Value__c</fieldItem>
-                <identifier>RecordBuilding_Share_Value_cField2</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
                 <fieldItem>Record.Value_Plot__c</fieldItem>
                 <identifier>RecordValue_Plot_cField2</identifier>
             </fieldInstance>
@@ -5207,20 +5207,20 @@
                 <identifier>RecordWert_Einrichtung_cField2</identifier>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-6b99mb7v1z5</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Afa_Building_Shares__c</fieldItem>
-                <identifier>RecordAfa_Building_Shares_cField2</identifier>
+                <fieldItem>Record.Building_Share_Value__c</fieldItem>
+                <identifier>RecordBuilding_Share_Value_cField2</identifier>
             </fieldInstance>
         </itemInstances>
+        <name>Facet-6b99mb7v1z5</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
@@ -5249,6 +5249,26 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Afa_Facility__c</fieldItem>
                 <identifier>RecordAfa_Facility_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.AFAAnschaffungskosten__c</fieldItem>
+                <identifier>RecordAFAAnschaffungskosten_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.AlternativeAFAAnschaffungskosten__c</fieldItem>
+                <identifier>RecordAlternativeAFAAnschaffungskosten_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-ckojwlpqv9</name>
