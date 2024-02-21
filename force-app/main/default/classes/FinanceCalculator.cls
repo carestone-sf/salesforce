@@ -573,9 +573,7 @@ public without sharing class FinanceCalculator {
 
         // Steuern
         if(this.c.ZuVersteuerndesEinkommen__c != null) {
-            Decimal taxableIncome = this.c.ZuVersteuerndesEinkommen__c;
-            Decimal totalIncome = taxableIncome + vUndVInEuro;
-            Decimal taxDifference = this.calculateTaxesForCurrentYear(taxableIncome, firstYearAfterPayment) - this.calculateTaxesForCurrentYear(totalIncome, firstYearAfterPayment);
+            Decimal taxDifference = calculateTaxDifferenceForCurrentYear(vUndVInEuro, this.firstYearAfterPayment);
             currentYearCumulatedValues.put('taxesInEuro', taxDifference);
             currentYearCumulatedValues.put('taxes', taxDifference);
             if(taxDifference < 0) {
