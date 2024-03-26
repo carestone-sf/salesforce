@@ -9,6 +9,7 @@ public without sharing class FinanceCalculator {
     public List<Map<Integer, Map<String, Object>>> paginatedYearlyValues;
     public List<Map<Integer, Map<String, Object>>> paginatedYearlyValuesForLiquidity;
     Map<Id, Decimal> berechnungsApartmentToRestwert;
+    Map<Id, Decimal> berechnungsApartmentToAfaInProzent;
     public Map<String, Object> sumsForLiquidity;
     public Map<String, Object> creditInformation;
     public Integer liquidityPages = 0;
@@ -89,7 +90,7 @@ public without sharing class FinanceCalculator {
     }
 
     public void initFinanceModules(Id calculationId) {
-        this.c = [SELECT Id, Hauptimmobilie__r.Arrival__c, Wertsteigerung__c, Hauptimmobilie__r.Appreciation_After_Years__c, Hauptimmobilie__r.Percent_Appreciation_Value__c, Afa__c, Finanzierung__c, TaxableIncomePension__c, BetrachtungszeitraumInJahren__c, ErsterKaeufer__c, ErsterKaeufer__r.BirthDate, ZweiterKaeufer__c, ZweiterKaeufer__r.BirthDate, Gesamtkosten__c, GrunderwerbsteuerGesamt__c, ZuVersteuerndesEinkommen__c, Kirchensteuer__c, Eigenkapital__c, Finanzierungsart__c, InstandhaltungProJahrGesamt__c, VerwaltungProJahrGesamt__c, Mietsteigerung__c, SteigerungInstandhaltung__c, SteigerungVerwaltung__c, SumPurchasePrice__c, SumPriceAdjustment__c, (SELECT Apartment__r.Name, MieteProMonatInEuro__c, MieteProJahrInEuro__c, AfAAussenanlagenProJahrInProzent__c, AfAAussenanlagenProJahrInEuro__c, AfASubstanzProJahrInProzent__c, AfASubstanzProJahrInEuro__c, Gesamtkosten__c, AFAGrundlage__c FROM Berechnungs_Apartments__r) FROM Berechnung__c WHERE Id = :calculationId];
+        this.c = [SELECT Id, Hauptimmobilie__r.Arrival__c, Wertsteigerung__c, SonderAfaBerechnen__c, WechselAufLineareAfaNachJahren__c, Hauptimmobilie__r.Appreciation_After_Years__c, Hauptimmobilie__r.Percent_Appreciation_Value__c, Hauptimmobilie__r.AfaAnschaffungskosten__c, Afa__c, Finanzierung__c, TaxableIncomePension__c, BetrachtungszeitraumInJahren__c, ErsterKaeufer__c, ErsterKaeufer__r.BirthDate, ZweiterKaeufer__c, ZweiterKaeufer__r.BirthDate, Gesamtkosten__c, GrunderwerbsteuerGesamt__c, ZuVersteuerndesEinkommen__c, Kirchensteuer__c, Eigenkapital__c, Finanzierungsart__c, InstandhaltungProJahrGesamt__c, VerwaltungProJahrGesamt__c, Mietsteigerung__c, SteigerungInstandhaltung__c, SteigerungVerwaltung__c, SumPurchasePrice__c, SumPriceAdjustment__c, (SELECT Apartment__r.Name, MieteProMonatInEuro__c, MieteProJahrInEuro__c, AfAAussenanlagenProJahrInProzent__c, AfAAussenanlagenProJahrInEuro__c, AfASubstanzProJahrInProzent__c, AfASubstanzProJahrInEuro__c, Gesamtkosten__c, AFAGrundlage__c FROM Berechnungs_Apartments__r) FROM Berechnung__c WHERE Id = :calculationId];
         List<Afa__c> afas = [SELECT Id, (SELECT JahrVon__c, JahrBis__c, AFAInProzent__c, Berechnung__c FROM AfaWerte__r) FROM Afa__c WHERE Id = :this.c.Afa__c];
         if(afas.size() > 0) {
             this.afa = afas[0];
@@ -119,6 +120,7 @@ public without sharing class FinanceCalculator {
         this.paginatedYearlyValues = new List<Map<Integer, Map<String, Object>>>();
         this.paginatedYearlyValuesForLiquidity = new List<Map<Integer, Map<String, Object>>>();
         this.berechnungsApartmentToRestwert = new Map<Id, Decimal>();
+        this.berechnungsApartmentToAfaInProzent = new Map<Id, Decimal>();
 
         if(this.c.Finanzierungsart__c == 'Bar') {
             this.cumulateYearsCashPayment();
@@ -456,16 +458,22 @@ public without sharing class FinanceCalculator {
                 interestInEuro *= 10;
             } else if(i == 1) {
                 interestInEuro *= 3;
+                interestInEuro += (Decimal)this.creditInformation.get('interestInEuro' + (i))/10*3;
             } else if(i == 2) {
                 interestInEuro *= 4;
+                interestInEuro += (Decimal)this.creditInformation.get('interestInEuro' + (i))/3*4;
             } else if(i == 3) {
                 interestInEuro *= 1;
+                interestInEuro += (Decimal)this.creditInformation.get('interestInEuro' + (i))/4*1;
             } else if(i == 4) {
                 interestInEuro *= 5;
+                interestInEuro += (Decimal)this.creditInformation.get('interestInEuro' + (i))/1*5;
             } else if(i == 5) {
                 interestInEuro *= 1;
+                interestInEuro += (Decimal)this.creditInformation.get('interestInEuro' + (i))/5*1;
             } else if(i == 6) {
                 interestInEuro *= 3;
+                interestInEuro += (Decimal)this.creditInformation.get('interestInEuro' + (i))/1*3;
             }
 
             this.creditInformation.put('interestInEuro' + (i+1), interestInEuro);
@@ -620,6 +628,7 @@ public without sharing class FinanceCalculator {
         this.appreciationFactor = 1;
         this.cumulatedCost = 0;
         this.berechnungsApartmentToRestwert = new Map<Id, Decimal>();
+        this.berechnungsApartmentToAfaInProzent = new Map<Id, Decimal>();
         calculateLiquidity(this.cumulatedYearlyValues);
     }
 
@@ -1206,23 +1215,45 @@ public without sharing class FinanceCalculator {
             if(this.yearsPassed <= Math.round(100/ba.AfAAussenanlagenProJahrInProzent__c)) {
                 afaInEuro += ba.AfAAussenanlagenProJahrInEuro__c;
             }
+            Decimal restwert = this.berechnungsApartmentToRestwert.get(ba.Id);
+            if(restwert == null) {
+                restwert = ba.AFAGrundlage__c;
+            }
+            if(this.c.SonderAfaBerechnen__c == true && this.yearsPassed <= 4) {
+                afaInEuro += 0.05 * ba.AFAGrundlage__c;
+            }
 
-            for(AfaWert__c afaWert:afa.AfaWerte__r) {
-                if((this.yearsPassed+1) <= afaWert.JahrBis__c && (this.yearsPassed+1) >= afaWert.JahrVon__c) {
-                    Decimal restwert = this.berechnungsApartmentToRestwert.get(ba.Id);
-                    if(restwert == null) {
-                        restwert = ba.AFAGrundlage__c;
+            if(this.c.WechselAufLineareAfaNachJahren__c != null && (this.yearsPassed+1) > this.c.WechselAufLineareAfaNachJahren__c) {
+                Decimal afaInProzent = this.berechnungsApartmentToAfaInProzent.get(ba.Id);
+                if(afaInProzent == null) {
+                    try {
+                        afaInProzent = 100/(this.cumulatedYearlyValues.size()-this.yearsPassed+1);
+                    } catch(Exception e) {
+                        afaInProzent = 0;
                     }
-                    if(afaWert.Berechnung__c == 'Restwert') {
-                        afaInEuro += afaWert.AfaInProzent__c * restwert / 100;
-                        restwert -= afaWert.AfaInProzent__c * restwert / 100 * privateFactor;
-                    } else {
-                        afaInEuro += afaWert.AfaInProzent__c * ba.AFAGrundlage__c / 100;
-                        restwert -= afaWert.AfaInProzent__c * ba.AFAGrundlage__c / 100 * privateFactor;
+                }
+                this.berechnungsApartmentToAfaInProzent.put(ba.Id, afaInProzent);
+                afaInEuro += afaInProzent * restwert / 100;
+            } else {
+                for(AfaWert__c afaWert:afa.AfaWerte__r) {
+                    if((this.yearsPassed+1) <= afaWert.JahrBis__c && (this.yearsPassed+1) >= afaWert.JahrVon__c) {
+                        if(afaWert.Berechnung__c == 'Restwert') {
+                            afaInEuro += afaWert.AfaInProzent__c * restwert / 100;
+                            restwert -= afaWert.AfaInProzent__c * restwert / 100 * privateFactor;
+                            if(this.c.SonderAfaBerechnen__c == true && this.yearsPassed <= 4) {
+                                restwert -= 0.05 * ba.AFAGrundlage__c * privateFactor;
+                            }
+                        } else {
+                            afaInEuro += afaWert.AfaInProzent__c * ba.AFAGrundlage__c / 100;
+                            restwert -= afaWert.AfaInProzent__c * ba.AFAGrundlage__c / 100 * privateFactor;
+                            if(this.c.SonderAfaBerechnen__c == true && this.yearsPassed <= 4) {
+                                restwert -= 0.05 * ba.AFAGrundlage__c * privateFactor;
+                            }
+                        }
                     }
-                    this.berechnungsApartmentToRestwert.put(ba.Id, restwert);
                 }
             }
+            this.berechnungsApartmentToRestwert.put(ba.Id, restwert);
         }
         return afaInEuro*privateFactor;   
     }
