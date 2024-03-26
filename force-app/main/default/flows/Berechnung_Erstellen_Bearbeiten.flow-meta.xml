@@ -352,6 +352,20 @@
                 <elementReference>Mieter_Eigenaufteilung_anzeigen</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>berechnung.SonderAFABerechnen__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Sonder_AFA_berechnen</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>berechnung.WechselAufLineareAfaNachJahren__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Wechsel_auf_lineare_AFA_nach_x_Jahren</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Update_erster_K_ufer_Contact</targetReference>
         </connector>
@@ -450,6 +464,20 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>Mieter_Eigenaufteilung_anzeigen2</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>berechnung.SonderAFABerechnen__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Sonder_AFA_berechnen2</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>berechnung.WechselAufLineareAfaNachJahren__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Wechsel_auf_lineare_AFA_nach_x_Jahren2</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -1312,6 +1340,8 @@
         <queriedFields>AlternativenSparplanAnzeigen__c</queriedFields>
         <queriedFields>Wertsteigerung__c</queriedFields>
         <queriedFields>MieterEigenaufteilungAnzeigen__c</queriedFields>
+        <queriedFields>SonderAFABerechnen__c</queriedFields>
+        <queriedFields>WechselAufLineareAfaNachJahren__c</queriedFields>
     </recordLookups>
     <recordLookups>
         <name>Get_Erster_K_ufer_Record</name>
@@ -2418,6 +2448,46 @@
             </visibilityRule>
         </fields>
         <fields>
+            <name>Wechsel_auf_lineare_AFA_nach_x_Jahren</name>
+            <dataType>Number</dataType>
+            <defaultValue>
+                <elementReference>berechnung.WechselAufLineareAfaNachJahren__c</elementReference>
+            </defaultValue>
+            <fieldText>Wechsel auf lineare AFA nach x Jahren</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <scale>0</scale>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>AFA</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>DegressiveAFA</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>berechnung.Hauptimmobilie__r.AlternativeAFAAnschaffungskosten__c</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>Sonder_AFA_berechnen</name>
+            <dataType>Boolean</dataType>
+            <defaultValue>
+                <elementReference>berechnung.SonderAFABerechnen__c</elementReference>
+            </defaultValue>
+            <fieldText>Sonderabschreibung 7B?</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
             <name>Betrachtungszeitraum_in_Jahren</name>
             <dataType>Number</dataType>
             <defaultValue>
@@ -2599,6 +2669,40 @@
                     </rightValue>
                 </conditions>
             </visibilityRule>
+        </fields>
+        <fields>
+            <name>Wechsel_auf_lineare_AFA_nach_x_Jahren2</name>
+            <dataType>Number</dataType>
+            <fieldText>Wechsel auf lineare AFA nach x Jahren</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <scale>0</scale>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>AFA2</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>DegressiveAFA</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>berechnung.Hauptimmobilie__r.AlternativeAFAAnschaffungskosten__c</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>Sonder_AFA_berechnen2</name>
+            <dataType>Boolean</dataType>
+            <fieldText>Sonderabschreibung 7B?</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
         </fields>
         <fields>
             <name>Betrachtungszeitraum_in_Jahren2</name>
