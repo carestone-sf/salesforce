@@ -276,7 +276,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         if(UserInfo.getUserId() == '005b0000001V30P') {
             return false;
         }
-        return opp.StageName == 'Reserviert' && (Trigger.isInsert || (Trigger.isUpdate && oldOpp != null && opp.StageName != oldOpp.StageName));
+        return (opp.StageName == 'Reserviert' || opp.StageName == 'Reservierungsvorbereitung') && (Trigger.isInsert || (Trigger.isUpdate && oldOpp != null && opp.StageName != oldOpp.StageName));
     }
 
 
@@ -339,7 +339,8 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     }
 
     public void setReservationDate(Opportunity opp) {
-        opp.reserviert_bis__c = DateTimeHelper.checkAndSetDateTimeIfWeekend(System.today().addDays(DEFAULT_RESERVATION_DURATION));
+        DateTime reservationTime = opp.StageName == 'Reserviert' ? DateTimeHelper.checkAndSetDateTimeIfWeekend(DateTime.now().addDays(14)) : DateTime.now().addDays(3);
+        opp.reserviert_bis__c = reservationTime;
     }
 
     public Boolean maklerSetOrChanged(Opportunity opp, Opportunity oldOpp) {

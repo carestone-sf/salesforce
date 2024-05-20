@@ -198,6 +198,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>HeissePhase__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Provisionsbedingung_Check__c</field>
             </layoutItems>
             <layoutItems>
@@ -694,7 +698,8 @@
                 <field>AlternativeAFAAnschaffungskosten__c</field>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Edit</behavior>
+                <field>Sonderabschreibung7B__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

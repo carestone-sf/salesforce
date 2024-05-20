@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReserviertBisMussLeerSein</fullName>
+    <active>true</active>
+    <errorConditionFormula>IsChanged( reserviert_bis__c ) &amp;&amp;
+!IsBlank(reserviert_bis__c) &amp;&amp; 
+TEXT(StageName) != &apos;Beratung&apos; &amp;&amp;
+TEXT(StageName) != &apos;Reservierungsvorbereitung&apos; &amp;&amp; 
+TEXT(StageName) != &apos;Reserviert&apos; &amp;&amp; 
+TEXT(StageName) != &apos;Auftrag zur Beurkundung vorhanden&apos;</errorConditionFormula>
+    <errorDisplayField>reserviert_bis__c</errorDisplayField>
+    <errorMessage>Reserviert bis muss bei dieser Phase leer sein</errorMessage>
+</ValidationRule>

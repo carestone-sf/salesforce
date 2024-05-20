@@ -20,15 +20,6 @@
         <won>false</won>
     </standardValue>
     <standardValue>
-        <fullName>Reservierung angefragt</fullName>
-        <default>false</default>
-        <label>Reservierung angefragt</label>
-        <closed>false</closed>
-        <forecastCategory>Pipeline</forecastCategory>
-        <probability>40</probability>
-        <won>false</won>
-    </standardValue>
-    <standardValue>
         <fullName>Reserviert</fullName>
         <default>false</default>
         <label>Reserviert</label>
@@ -48,18 +39,18 @@
         <won>false</won>
     </standardValue>
     <standardValue>
-        <fullName>Kaufvertragsunterlagen verschickt</fullName>
+        <fullName>Auftrag zur Beurkundung verschickt</fullName>
         <default>false</default>
-        <label>Kaufvertragsunterlagen verschickt</label>
+        <label>Auftrag zur Beurkundung verschickt</label>
         <closed>false</closed>
         <forecastCategory>Pipeline</forecastCategory>
         <probability>95</probability>
         <won>false</won>
     </standardValue>
     <standardValue>
-        <fullName>Kaufvertragsangebot abgegeben</fullName>
+        <fullName>Kaufvertragsunterlagen verschickt</fullName>
         <default>false</default>
-        <label>Kaufvertragsangebot abgegeben</label>
+        <label>Kaufvertragsunterlagen verschickt</label>
         <closed>false</closed>
         <forecastCategory>Pipeline</forecastCategory>
         <probability>95</probability>
@@ -96,15 +87,6 @@
         <fullName>VKC ausgelaufen</fullName>
         <default>false</default>
         <label>VKC ausgelaufen</label>
-        <closed>true</closed>
-        <forecastCategory>Omitted</forecastCategory>
-        <probability>0</probability>
-        <won>false</won>
-    </standardValue>
-    <standardValue>
-        <fullName>Reservierung abgelehnt</fullName>
-        <default>false</default>
-        <label>Reservierung abgelehnt</label>
         <closed>true</closed>
         <forecastCategory>Omitted</forecastCategory>
         <probability>0</probability>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VKC Gewonnen</fullName>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Auftrag zur Beurkundung verschickt</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Geschlossene und gewonnene</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

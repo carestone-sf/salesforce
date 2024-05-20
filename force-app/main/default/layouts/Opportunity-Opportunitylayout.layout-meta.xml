@@ -48,6 +48,10 @@
                 <behavior>Edit</behavior>
                 <field>KontingentAn__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>FFireAbrechnung__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -88,6 +92,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Description</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>NotizenBackofficeLang__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -195,6 +203,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>NotaryDatePossibleFrom__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AZBVorhanden__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
