@@ -70,6 +70,10 @@
                 <behavior>Readonly</behavior>
                 <field>ZinsInPercentText__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ZinsInProzentNachZinsbindung__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
