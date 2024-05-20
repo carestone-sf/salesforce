@@ -155,6 +155,10 @@ export default class FinanzierungsBausteine extends LightningElement {
         }
     }
 
+    handleTilgungsbeginnChange(event) {
+        this.calculateTilgungInPercent();
+    }
+
     /**
      * Adds a finanzierungsbaustein to the list to be inserted
      */
@@ -377,14 +381,27 @@ export default class FinanzierungsBausteine extends LightningElement {
         const zinsInPercentField = this.template.querySelector('lightning-input-field[data-name="ZinsInPercent__c"]');
         const tilgungInPercentField = this.template.querySelector('lightning-input-field[data-name="TilgungInPercent__c"]');
         const festeLaufzeitField = this.template.querySelector('lightning-input-field[data-name="FesteLaufzeit__c"]');
+        const tilgungsbeginnField = this.template.querySelector('lightning-input-field[data-name="Tilgungsbeginn__c"]');
 
-        const laufzeitInJahrenValue = laufzeitInJahrenField?.value;
+        let laufzeitInJahrenValue = laufzeitInJahrenField?.value;
         const kreditsummeValue = kreditsummeField?.value;
         const zinsInPercentValue = zinsInPercentField?.value;
         const festeLaufzeitValue = festeLaufzeitField?.value;
 
         if(laufzeitInJahrenValue && kreditsummeValue && zinsInPercentValue && festeLaufzeitValue === true) {
             const annuityZinsValue = zinsInPercentValue/100+1;
+            const startDate = new Date();
+            const yearStartDate = startDate.getUTCFullYear();
+            const endDate = tilgungsbeginnField?.value != null ? new Date(tilgungsbeginnField?.value):startDate;
+            console.log('start', startDate);
+            console.log('end', endDate);
+            console.log('startYear', yearStartDate);
+            console.log('yearEnd', endDate.getUTCFullYear());
+            const numberOfYears = endDate.getUTCFullYear() - yearStartDate;
+            console.log('number', numberOfYears);
+            if(numberOfYears > 0) {
+                laufzeitInJahrenValue -= numberOfYears;
+            }
             const annuityRate = kreditsummeValue * Math.pow(annuityZinsValue, laufzeitInJahrenValue) * ((annuityZinsValue-1) / (Math.pow(annuityZinsValue, laufzeitInJahrenValue)-1));
             const tilgungInPercent = (annuityRate - (kreditsummeValue * zinsInPercentValue / 100) ) / kreditsummeValue * 100;
             tilgungInPercentField.value = tilgungInPercent.toFixed(2);
