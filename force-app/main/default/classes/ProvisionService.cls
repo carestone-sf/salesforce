@@ -43,8 +43,6 @@ public without sharing class ProvisionService {
                 lastMonth = 12;
                 lastYearOrThisYear -= 1;
             }
-            lastMonth = 12;
-                lastYearOrThisYear -= 1;
             Integer lastQuarter = getQuarterByMonth(lastMonth);
             String query = 'SELECT Id, Notartermin__c, Maklerbetreuer_WirtschaftsHaus__c FROM Opportunity';
             if(this.schedule == 'month') {
@@ -118,7 +116,12 @@ public without sharing class ProvisionService {
                     if(prov != null) {
                         provs.add(prov);
                     }
-                } else if(mode == 'extern') {
+                } else if(mode == 'extern' && !con.Ist_Maklerbetreuer_WH__c) {
+                    prov = this.getProvisionExtern(opp, con);
+                    if(prov != null) {
+                        provs.add(prov);
+                    }
+                } else if(mode == 'intern_after_sale' && con.Ist_Maklerbetreuer_WH__c == true) {
                     prov = this.getProvisionExtern(opp, con);
                     if(prov != null) {
                         provs.add(prov);
@@ -345,13 +348,13 @@ public without sharing class ProvisionService {
             erfolgsabhaengigeProvisionQuartal = 0.5 - erfolgsabhaengigeProvisionMonat;
         }
 
-        if(anzahlEinheitenJahr >= 0 && anzahlEinheitenJahr <= 35) {
+        if(anzahlEinheitenJahr >= 0 && anzahlEinheitenJahr <= 47) {
             erfolgsabhaengigeProvisionJahr = 0.25 - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
-        } else if(anzahlEinheitenJahr >= 36 && anzahlEinheitenJahr <= 62) {
+        } else if(anzahlEinheitenJahr >= 48 && anzahlEinheitenJahr <= 83) {
             erfolgsabhaengigeProvisionJahr = 0.35 - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
-        } else if(anzahlEinheitenJahr >= 63 && anzahlEinheitenJahr <= 80) {
+        } else if(anzahlEinheitenJahr >= 84 && anzahlEinheitenJahr <= 107) {
             erfolgsabhaengigeProvisionJahr = 0.45 - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
-        } else if(anzahlEinheitenJahr >= 81) {
+        } else if(anzahlEinheitenJahr >= 108) {
             erfolgsabhaengigeProvisionJahr = 0.5 - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
         }
          
