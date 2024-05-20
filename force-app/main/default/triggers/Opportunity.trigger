@@ -133,16 +133,15 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                     Approval.ProcessResult result = Approval.process(req1);
                 }
 
-                if (opp.StageName == 'Reservierung angefragt' && stageOrAppHasChanged) {
-                } else if (opp.StageName == 'Auftrag zur Beurkundung vorhanden' && stageOrAppHasChanged) {
+                if (opp.StageName == 'Auftrag zur Beurkundung vorhanden' && stageOrAppHasChanged) {
+                    if (opp.reserviert_bis__c != null) {
+                        opp.reserviert_bis__c = null;
+                    }
+                } else if (opp.StageName == 'Auftrag zur Beurkundung verschickt' && stageOrAppHasChanged) {
                     if (opp.reserviert_bis__c != null) {
                         opp.reserviert_bis__c = null;
                     }
                 } else if (opp.StageName == 'Reserviert' && stageOrAppHasChanged) {
-                } else if (opp.StageName == 'Kaufvertragsangebot abgegeben' && stageOrAppHasChanged) {
-                    if (opp.reserviert_bis__c != null) {
-                        opp.reserviert_bis__c = null;
-                    }
                 } else if (opp.StageName == 'Kaufvertragsunterlagen verschickt' && stageOrAppHasChanged) {
                     if (opp.reserviert_bis__c != null) {
                         opp.reserviert_bis__c = null;
@@ -167,19 +166,11 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 } else if (opp.StageName == 'Geschlossen und verloren') {
                     opp.reserviert_bis__c = null;
                 }
-                if (Trigger.isInsert) {
-                    if (opp.reserviert_bis__c != null) {
-                        opp.reserviert_bis__c = DateTimeHelper.checkAndSetDateTimeIfWeekend(opp.reserviert_bis__c);
-                    }
-                }
                 if (Trigger.isUpdate) {
                     if (opp.StageName != Trigger.OldMap.get(opp.Id).StageName && Trigger.OldMap.get(opp.Id).StageName == 'Reservierung angefragt' && opp.StageName == 'VKC ausgelaufen') {
                         opp.Grund_VKC_verloren__c = 'VKC ausgelaufen';
                     }
 
-                    if (opp.reserviert_bis__c != null && opp.reserviert_bis__c != Trigger.oldMap.get(opp.Id).reserviert_bis__c) {
-                        opp.reserviert_bis__c = DateTimeHelper.checkAndSetDateTimeIfWeekend(opp.reserviert_bis__c);
-                    }
                     Opportunity oldOpp = Trigger.oldMap.get(opp.Id);
                     if (opp.StageName == 'VKC ausgelaufen' || opp.StageName == 'Reservierung abgelehnt') {
                         opp.reserviert_bis__c = null;
@@ -296,7 +287,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                     opp.ProvisionsvoraussetzungenErfuellt__c = true;
                 }
 
-                if(opp.InterneProvisionenNeuGenerieren__c || (opp.InterneProvisionenGeneriert__c == false && opp.StageName == 'Geschlossene und gewonnene' && oldOpp.StageName != 'Geschlossene und gewonnene')) {
+                if((opp.Kaufpreis_bezahlt__c && !oldOpp.Kaufpreis_bezahlt__c) || (opp.X1_MaBV_Rate_gezahlt__c && !oldOpp.X1_MaBV_Rate_gezahlt__c)) {
                     opp.InterneProvisionenNeuGenerieren__c = false;
                     opp.InterneProvisionenGeneriert__c = true;
                     changedOppsIntern.put(opp.Id, opp);
@@ -310,7 +301,12 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
             }
 
             if(changedOppsAll.size() > 0) {
-                ProvisionService ps = new ProvisionService(Trigger.newMap, Trigger.oldMap, 'extern', null);
+                ProvisionService ps = new ProvisionService(changedOppsAll, changedOppsAllOldMap, 'extern', null);
+                ps.upsertProvisionen();
+            }
+
+            if(changedOppsIntern.size() > 0) {
+                ProvisionService ps = new ProvisionService(changedOppsIntern, changedOppsInternOldMap, 'intern_after_sale', null);
                 ps.upsertProvisionen();
             }
 
@@ -447,8 +443,6 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 apps.Status__c = 'Reservierung angefragt';
             } else if (opp.StageName == 'Reserviert' && stageOrAppHasChanged) {
                 apps.Status__c = 'Reserved';
-            } else if (opp.StageName == 'Kaufvertragsangebot abgegeben' && stageOrAppHasChanged) {
-                apps.Status__c = 'Kaufvertragsangebot abgegeben';
             } else if (opp.StageName == 'Kaufvertragsunterlagen verschickt' && stageOrAppHasChanged) {
 
                 apps.Status__c = 'Kaufvertragsunterlagen verschickt -zweiseitig-';
@@ -461,11 +455,13 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 apps.Status__c = 'Sold';
             } else if (opp.StageName == 'Auftrag zur Beurkundung vorhanden' && stageOrAppHasChanged) {
                 apps.Status__c = 'Auftrag zur Beurkundung vorhanden';
+            } else if (opp.StageName == 'Auftrag zur Beurkundung verschickt' && stageOrAppHasChanged) {
+                apps.Status__c = 'Auftrag zur Beurkundung verschickt';
             } else if (opp.StageName == 'Kontingent' && stageOrAppHasChanged) {
                 apps.Status__c = 'Kontingent';
             }
 
-            if ((opp.StageName == 'VKC ausgelaufen' || opp.StageName == 'Reservierung abgelehnt' || opp.StageName == 'Geschlossen und verloren') && stageOrAppHasChanged) {
+            if ((opp.StageName == 'VKC ausgelaufen' || opp.StageName == 'Geschlossen und verloren') && stageOrAppHasChanged) {
                 apps.Status__c = 'Available';
                 apps.Customer__c = null;
                 apps.Makler__c = null;
