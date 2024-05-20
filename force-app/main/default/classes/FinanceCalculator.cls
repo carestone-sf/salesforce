@@ -9,6 +9,7 @@ public without sharing class FinanceCalculator {
     public List<Map<Integer, Map<String, Object>>> paginatedYearlyValues;
     public List<Map<Integer, Map<String, Object>>> paginatedYearlyValuesForLiquidity;
     Map<Id, Decimal> berechnungsApartmentToRestwert;
+    Map<Id, Decimal> berechnungsApartmentToAfaInProzent;
     public Map<String, Object> sumsForLiquidity;
     public Map<String, Object> creditInformation;
     public Integer liquidityPages = 0;
@@ -25,6 +26,8 @@ public without sharing class FinanceCalculator {
     Decimal cumulatedCost = 0;
     Integer yearsPassed = 0;
     public Decimal sumSBetragplusFKreditsumme {get;set;}
+
+    public List<String> afaValues;
 
 
     public FinanceCalculator() {
@@ -44,7 +47,7 @@ public without sharing class FinanceCalculator {
     }
 
     public Map<String, Map<Integer,String>> calcSondertilgung() {
-        List<Finanzierungsbaustein__c> fbs = [SELECT Id, Name, Art__c, Finanzierungsbeginn__c, Kreditsumme__c, LaufzeitInJahren__c, TilgungInPercent__c, Tilgungsbeginn__c, ZinsInPercent__c, ZinsbindungBis__c, (SELECT Name, JahrDerAuszahlung__c, Betrag__c FROM Sondertilgungen__r) FROM Finanzierungsbaustein__c WHERE Berechnung__c = :this.c.Id];
+        List<Finanzierungsbaustein__c> fbs = [SELECT Id, Name, Art__c, Finanzierungsbeginn__c, Kreditsumme__c, LaufzeitInJahren__c, TilgungInPercent__c, Tilgungsbeginn__c, ZinsInPercent__c, ZinsbindungBis__c, ZinsInProzentNachZinsbindung__c, (SELECT Name, JahrDerAuszahlung__c, Betrag__c FROM Sondertilgungen__r) FROM Finanzierungsbaustein__c WHERE Berechnung__c = :this.c.Id];
         List<Id> sonderId = new List<Id>();
         for (Finanzierungsbaustein__c f : fbs) {
             sonderId.add(f.id);
@@ -89,7 +92,7 @@ public without sharing class FinanceCalculator {
     }
 
     public void initFinanceModules(Id calculationId) {
-        this.c = [SELECT Id, Hauptimmobilie__r.Arrival__c, Wertsteigerung__c, Hauptimmobilie__r.Appreciation_After_Years__c, Hauptimmobilie__r.Percent_Appreciation_Value__c, Afa__c, Finanzierung__c, TaxableIncomePension__c, BetrachtungszeitraumInJahren__c, ErsterKaeufer__c, ErsterKaeufer__r.BirthDate, ZweiterKaeufer__c, ZweiterKaeufer__r.BirthDate, Gesamtkosten__c, GrunderwerbsteuerGesamt__c, ZuVersteuerndesEinkommen__c, Kirchensteuer__c, Eigenkapital__c, Finanzierungsart__c, InstandhaltungProJahrGesamt__c, VerwaltungProJahrGesamt__c, Mietsteigerung__c, SteigerungInstandhaltung__c, SteigerungVerwaltung__c, SumPurchasePrice__c, SumPriceAdjustment__c, (SELECT Apartment__r.Name, MieteProMonatInEuro__c, MieteProJahrInEuro__c, AfAAussenanlagenProJahrInProzent__c, AfAAussenanlagenProJahrInEuro__c, AfASubstanzProJahrInProzent__c, AfASubstanzProJahrInEuro__c, Gesamtkosten__c, AFAGrundlage__c FROM Berechnungs_Apartments__r) FROM Berechnung__c WHERE Id = :calculationId];
+        this.c = [SELECT Id, Hauptimmobilie__r.Arrival__c, Wertsteigerung__c, SonderAfaBerechnen__c, WechselAufLineareAfaNachJahren__c, Hauptimmobilie__r.Appreciation_After_Years__c, Hauptimmobilie__r.Percent_Appreciation_Value__c, Hauptimmobilie__r.AfaAnschaffungskosten__c, Hauptimmobilie__r.AlternativeAFAAnschaffungskosten__c, Hauptimmobilie__r.BaugenehmigungVorhandenSeit__c, Afa__c, Finanzierung__c, TaxableIncomePension__c, BetrachtungszeitraumInJahren__c, ErsterKaeufer__c, ErsterKaeufer__r.BirthDate, ZweiterKaeufer__c, ZweiterKaeufer__r.BirthDate, Gesamtkosten__c, GrunderwerbsteuerGesamt__c, ZuVersteuerndesEinkommen__c, Kirchensteuer__c, Eigenkapital__c, Finanzierungsart__c, InstandhaltungProJahrGesamt__c, VerwaltungProJahrGesamt__c, Mietsteigerung__c, SteigerungInstandhaltung__c, SteigerungVerwaltung__c, SumPurchasePrice__c, SumPriceAdjustment__c, (SELECT Apartment__r.Name, MieteProMonatInEuro__c, FlaecheInQm__c, MieteProJahrInEuro__c, AfAAussenanlagenProJahrInProzent__c, AfAAussenanlagenProJahrInEuro__c, AfASubstanzProJahrInProzent__c, AfASubstanzProJahrInEuro__c, Gesamtkosten__c, AFAGrundlage__c FROM Berechnungs_Apartments__r) FROM Berechnung__c WHERE Id = :calculationId];
         List<Afa__c> afas = [SELECT Id, (SELECT JahrVon__c, JahrBis__c, AFAInProzent__c, Berechnung__c FROM AfaWerte__r) FROM Afa__c WHERE Id = :this.c.Afa__c];
         if(afas.size() > 0) {
             this.afa = afas[0];
@@ -110,7 +113,7 @@ public without sharing class FinanceCalculator {
             this.firstYearAfterPayment = this.firstFullYear;
         }
 
-        List<Finanzierungsbaustein__c> fbs = [SELECT Id, Name, Art__c, Finanzierungsbeginn__c, Kreditsumme__c, AunnitaetInEuro__C, LaufzeitInJahren__c, TilgungInPercent__c, TilgungInPercentText__c, Tilgungsbeginn__c, ZinsInPercent__c, ZinsInPercentText__c, ZinsbindungBis__c, (SELECT Name, JahrDerAuszahlung__c, Betrag__c FROM Sondertilgungen__r) FROM Finanzierungsbaustein__c WHERE Berechnung__c = :calculationId];
+        List<Finanzierungsbaustein__c> fbs = [SELECT Id, Name, Art__c, Finanzierungsbeginn__c, Kreditsumme__c, AunnitaetInEuro__C, LaufzeitInJahren__c, TilgungInPercent__c, TilgungInPercentText__c, Tilgungsbeginn__c, ZinsInPercent__c, ZinsInPercentText__c, ZinsbindungBis__c, ZinsInProzentNachZinsbindung__c, (SELECT Name, JahrDerAuszahlung__c, Betrag__c FROM Sondertilgungen__r) FROM Finanzierungsbaustein__c WHERE Berechnung__c = :calculationId];
 
         this.financeModules = new List<FinanceModule>();
         this.cumulatedYearlyValues = new Map<Integer, Map<String, Object>>();
@@ -119,6 +122,8 @@ public without sharing class FinanceCalculator {
         this.paginatedYearlyValues = new List<Map<Integer, Map<String, Object>>>();
         this.paginatedYearlyValuesForLiquidity = new List<Map<Integer, Map<String, Object>>>();
         this.berechnungsApartmentToRestwert = new Map<Id, Decimal>();
+        this.berechnungsApartmentToAfaInProzent = new Map<Id, Decimal>();
+        this.afaValues = new List<String>();
 
         if(this.c.Finanzierungsart__c == 'Bar') {
             this.cumulateYearsCashPayment();
@@ -131,6 +136,40 @@ public without sharing class FinanceCalculator {
             this.cumulateYearsFinancing();
         }
         
+    }
+
+    public void generateAfaValues() {
+        // Lineare AFA
+        if(this.c.Afa__c == this.c.Hauptimmobilie__r.AfaAnschaffungskosten__c) {
+            for(AfaWert__c afaWert:this.afa.AfaWerte__r) {
+                String lineareAfa = '';
+                String afaInProzent = getFormattedNumber(afaWert.AfaInProzent__c);
+                String afaInJahren = getFormattedNumber(100/afaWert.AfaInProzent__c);
+                lineareAfa = afaInJahren + ' Jahre lineare AfA auf 93% des Gebäudewerts, ' + afaInProzent + ' %';
+                this.afaValues.add(lineareAfa);
+            }
+        } else {
+            String degressiveAfa = '';
+            for(AfaWert__c afaWert:afa.AfaWerte__r) {
+                String afaInProzent = getFormattedNumber(afaWert.AfaInProzent__c);
+                String afaInJahren = getFormattedNumber(this.c.WechselAufLineareAfaNachJahren__c);
+                degressiveAfa = afaInJahren + ' Jahre degressive AfA auf 93% des Gebäudewerts, AfA in Prozent: ' + afaInProzent + ' %';
+            }
+            this.afaValues.add(degressiveAfa);
+            String lineareAfa = '';
+            String afaInProzent = getFormattedNumber(100/(33.3-this.c.WechselAufLineareAfaNachJahren__c));
+            String afaInJahren = getFormattedNumber(33.3-this.c.WechselAufLineareAfaNachJahren__c);
+            lineareAfa = 'Danach ' + afaInJahren + ' Jahre lineare AfA auf den Restwert, AfA in Prozent: ' + afaInProzent + ' %';
+            this.afaValues.add(lineareAfa);
+        }
+
+        String aussenanlageAfa = '15,00 Jahre AfA auf 4% der Außenanlagen, AfA in Prozent: 6,67 %';
+        this.afaValues.add(aussenanlageAfa);
+
+        if(this.c.SonderAfaBerechnen__c == true) {
+            String sonderAfa = '5,00 Jahre Sonder-AfA auf 93% des Gebäudewerts, 4.000 Euro pro qm, AfA in Prozent: 5 %';
+            this.afaValues.add(sonderAfa);
+        }
     }
 
     @future
@@ -456,16 +495,22 @@ public without sharing class FinanceCalculator {
                 interestInEuro *= 10;
             } else if(i == 1) {
                 interestInEuro *= 3;
+                interestInEuro += (Decimal)this.creditInformation.get('interestInEuro' + (i))/10*3;
             } else if(i == 2) {
                 interestInEuro *= 4;
+                interestInEuro += (Decimal)this.creditInformation.get('interestInEuro' + (i))/3*4;
             } else if(i == 3) {
                 interestInEuro *= 1;
+                interestInEuro += (Decimal)this.creditInformation.get('interestInEuro' + (i))/4*1;
             } else if(i == 4) {
                 interestInEuro *= 5;
+                interestInEuro += (Decimal)this.creditInformation.get('interestInEuro' + (i))/1*5;
             } else if(i == 5) {
                 interestInEuro *= 1;
+                interestInEuro += (Decimal)this.creditInformation.get('interestInEuro' + (i))/5*1;
             } else if(i == 6) {
                 interestInEuro *= 3;
+                interestInEuro += (Decimal)this.creditInformation.get('interestInEuro' + (i))/1*3;
             }
 
             this.creditInformation.put('interestInEuro' + (i+1), interestInEuro);
@@ -620,11 +665,11 @@ public without sharing class FinanceCalculator {
         this.appreciationFactor = 1;
         this.cumulatedCost = 0;
         this.berechnungsApartmentToRestwert = new Map<Id, Decimal>();
+        this.berechnungsApartmentToAfaInProzent = new Map<Id, Decimal>();
         calculateLiquidity(this.cumulatedYearlyValues);
     }
 
     public void calculateLiquidity(Map<Integer, Map<String, Object>> yearlyValuesMap) {
-        // Somehow get the "Bezugsphase" in here...
         for(Integer year:yearlyValuesMap.keySet()) {
             Map<String, Object> currentYearCumulatedValues = yearlyValuesMap.get(year);
             Decimal incomeInEuro = 0;
@@ -689,7 +734,7 @@ public without sharing class FinanceCalculator {
 
             // AfA in Euro gesamt
             Decimal privateFactor = (Decimal)daysWithRent/360;
-            Decimal afaInEuro = calculateAfa(privateFactor);
+            Decimal afaInEuro = calculateAfa(1);
             currentYearCumulatedValues.put('afaGesamtInEuro', afaInEuro);
 
             // vUndV in Euro gesamt
@@ -1206,25 +1251,50 @@ public without sharing class FinanceCalculator {
             if(this.yearsPassed <= Math.round(100/ba.AfAAussenanlagenProJahrInProzent__c)) {
                 afaInEuro += ba.AfAAussenanlagenProJahrInEuro__c;
             }
+            Decimal restwert = this.berechnungsApartmentToRestwert.get(ba.Id);
+            if(restwert == null) {
+                restwert = ba.AFAGrundlage__c;
+            }
+            Decimal foundationAfaPerSquareMeter = 4000; 
+            if(this.c.SonderAfaBerechnen__c == true && this.yearsPassed <= 3) {
+                afaInEuro += 0.05 * ba.FlaecheInQm__c * foundationAfaPerSquareMeter;
+            }
 
-            for(AfaWert__c afaWert:afa.AfaWerte__r) {
-                if((this.yearsPassed+1) <= afaWert.JahrBis__c && (this.yearsPassed+1) >= afaWert.JahrVon__c) {
-                    Decimal restwert = this.berechnungsApartmentToRestwert.get(ba.Id);
-                    if(restwert == null) {
-                        restwert = ba.AFAGrundlage__c;
+            if(this.c.WechselAufLineareAfaNachJahren__c != null && (this.yearsPassed+1) > this.c.WechselAufLineareAfaNachJahren__c) {
+                Decimal afaInProzent = this.berechnungsApartmentToAfaInProzent.get(ba.Id);
+                if(afaInProzent == null) {
+                    try {
+                        afaInProzent = 100/(33.3-this.c.WechselAufLineareAfaNachJahren__c);
+                    } catch(Exception e) {
+                        afaInProzent = 0;
                     }
-                    if(afaWert.Berechnung__c == 'Restwert') {
-                        afaInEuro += afaWert.AfaInProzent__c * restwert / 100;
-                        restwert -= afaWert.AfaInProzent__c * restwert / 100 * privateFactor;
-                    } else {
-                        afaInEuro += afaWert.AfaInProzent__c * ba.AFAGrundlage__c / 100;
-                        restwert -= afaWert.AfaInProzent__c * ba.AFAGrundlage__c / 100 * privateFactor;
+                }
+                if(33.3-this.yearsPassed > 0) {
+                    this.berechnungsApartmentToAfaInProzent.put(ba.Id, afaInProzent);
+                    afaInEuro += afaInProzent * restwert / 100;
+                }
+            } else {
+                for(AfaWert__c afaWert:afa.AfaWerte__r) {
+                    if((this.yearsPassed+1) <= afaWert.JahrBis__c && (this.yearsPassed+1) >= afaWert.JahrVon__c) {
+                        if(afaWert.Berechnung__c == 'Restwert') {
+                            afaInEuro += afaWert.AfaInProzent__c * restwert / 100;
+                            restwert -= afaWert.AfaInProzent__c * restwert / 100;
+                            if(this.c.SonderAfaBerechnen__c == true && this.yearsPassed <= 4) {
+                                restwert -= 0.05 * ba.FlaecheInQm__c * foundationAfaPerSquareMeter;
+                            }
+                        } else {
+                            afaInEuro += afaWert.AfaInProzent__c * ba.AFAGrundlage__c / 100;
+                            restwert -= afaWert.AfaInProzent__c * ba.AFAGrundlage__c / 100;
+                            if(this.c.SonderAfaBerechnen__c == true && this.yearsPassed <= 4) {
+                                restwert -= 0.05 * ba.FlaecheInQm__c * foundationAfaPerSquareMeter;
+                            }
+                        }
                     }
-                    this.berechnungsApartmentToRestwert.put(ba.Id, restwert);
                 }
             }
+            this.berechnungsApartmentToRestwert.put(ba.Id, restwert);
         }
-        return afaInEuro*privateFactor;   
+        return afaInEuro;   
     }
 
     public class FinanceModule {
@@ -1275,6 +1345,11 @@ public without sharing class FinanceCalculator {
 
             Integer currentYear = startOfInterestYear;
             while(remainingCreditSum > 0) {
+                Decimal zinsInPercent = f.ZinsInPercent__c;
+                if(f.ZinsBindungBis__c != null && f.ZinsInProzentNachZinsbindung__c != null && currentYear >= f.ZinsBindungBis__c.year()) {
+                    zinsInPercent = f.ZinsInProzentNachZinsbindung__c;
+                    annuityRate = (f.Kreditsumme__c * zinsInPercent / 100) + (f.Kreditsumme__c * f.TilgungInPercent__c / 100);
+                }
                 Map<String, Object> currentYearValues = new Map<String,Object>();
                 Decimal interestInEuro = 0;
                 Decimal repaymentInEuro = 0;
@@ -1302,7 +1377,7 @@ public without sharing class FinanceCalculator {
                 }
 
                 // Erstes oder irgendein Jahr
-                interestInEuro = remainingCreditSum * f.ZinsInPercent__c / 100 / 360 * daysInterest;
+                interestInEuro = remainingCreditSum * zinsInPercent / 100 / 360 * daysInterest;
                 if(currentYear >= startOfRepaymentYear) {
                     repaymentInEuro = annuityRate/360*daysRepayment-interestInEuro/daysInterest*daysRepayment;
                 } 
@@ -1315,7 +1390,7 @@ public without sharing class FinanceCalculator {
                     if(daysInterest > 360) {
                         daysInterest = 360;
                     }
-                    interestInEuro = remainingCreditSum * f.ZinsInPercent__c / 100 / 360 * daysInterest;
+                    interestInEuro = remainingCreditSum * zinsInPercent / 100 / 360 * daysInterest;
                     repaymentInEuro = remainingCreditSum;
                     remainingCreditSum = 0;
                 } else {
@@ -1354,6 +1429,10 @@ public without sharing class FinanceCalculator {
             Boolean isFirstFullYear = false;
 
             for(Integer currentYear = startOfInterestYear; currentYear < startOfInterestYear+years; currentYear++) {
+                Decimal zinsInPercent = f.ZinsInPercent__c;
+                if(f.ZinsBindungBis__c != null && f.ZinsInProzentNachZinsbindung__c != null && currentYear >= f.ZinsBindungBis__c.year()) {
+                    zinsInPercent = f.ZinsInProzentNachZinsbindung__c;
+                }
                 Map<String, Object> currentYearValues = new Map<String,Object>();
                 Decimal interestInEuro = 0;
                 Decimal repaymentInEuro = 0;
@@ -1371,7 +1450,7 @@ public without sharing class FinanceCalculator {
                 }
                 
                 // Erstes oder irgendein Jahr
-                interestInEuro = remainingCreditSum * f.ZinsInPercent__c / 100 / 360 * daysInterest;
+                interestInEuro = remainingCreditSum * zinsInPercent / 100 / 360 * daysInterest;
                 
                 if(currentYear == startOfInterestYear+years-1) {
                     repaymentInEuro = remainingCreditSum;
@@ -1385,7 +1464,7 @@ public without sharing class FinanceCalculator {
                     if(daysInterest > 360) {
                         daysInterest = 360;
                     }
-                    interestInEuro = remainingCreditSum * f.ZinsInPercent__c / 100 / 360 * daysInterest;
+                    interestInEuro = remainingCreditSum * zinsInPercent / 100 / 360 * daysInterest;
                     remainingCreditSum = 0;
                 }
 
