@@ -734,7 +734,7 @@ public without sharing class FinanceCalculator {
 
             // AfA in Euro gesamt
             Decimal privateFactor = (Decimal)daysWithRent/360;
-            Decimal afaInEuro = calculateAfa(1);
+            Decimal afaInEuro = calculateAfa(privateFactor);
             currentYearCumulatedValues.put('afaGesamtInEuro', afaInEuro);
 
             // vUndV in Euro gesamt
@@ -1249,7 +1249,7 @@ public without sharing class FinanceCalculator {
         Decimal afaInEuro = 0;
         for(BerechnungsApartment__c ba:this.c.Berechnungs_Apartments__r) {
             if(this.yearsPassed <= Math.round(100/ba.AfAAussenanlagenProJahrInProzent__c)) {
-                afaInEuro += ba.AfAAussenanlagenProJahrInEuro__c;
+                afaInEuro += ba.AfAAussenanlagenProJahrInEuro__c * privateFactor;
             }
             Decimal restwert = this.berechnungsApartmentToRestwert.get(ba.Id);
             if(restwert == null) {
@@ -1271,20 +1271,20 @@ public without sharing class FinanceCalculator {
                 }
                 if(33.3-this.yearsPassed > 0) {
                     this.berechnungsApartmentToAfaInProzent.put(ba.Id, afaInProzent);
-                    afaInEuro += afaInProzent * restwert / 100;
+                    afaInEuro += afaInProzent * restwert / 100 * privateFactor;
                 }
             } else {
                 for(AfaWert__c afaWert:afa.AfaWerte__r) {
                     if((this.yearsPassed+1) <= afaWert.JahrBis__c && (this.yearsPassed+1) >= afaWert.JahrVon__c) {
                         if(afaWert.Berechnung__c == 'Restwert') {
-                            afaInEuro += afaWert.AfaInProzent__c * restwert / 100;
-                            restwert -= afaWert.AfaInProzent__c * restwert / 100;
+                            afaInEuro += afaWert.AfaInProzent__c * restwert / 100 * privateFactor;
+                            restwert -= afaWert.AfaInProzent__c * restwert / 100 * privateFactor;
                             if(this.c.SonderAfaBerechnen__c == true && this.yearsPassed <= 4) {
                                 restwert -= 0.05 * ba.FlaecheInQm__c * foundationAfaPerSquareMeter;
                             }
                         } else {
-                            afaInEuro += afaWert.AfaInProzent__c * ba.AFAGrundlage__c / 100;
-                            restwert -= afaWert.AfaInProzent__c * ba.AFAGrundlage__c / 100;
+                            afaInEuro += afaWert.AfaInProzent__c * ba.AFAGrundlage__c / 100 * privateFactor;
+                            restwert -= afaWert.AfaInProzent__c * ba.AFAGrundlage__c / 100 * privateFactor;
                             if(this.c.SonderAfaBerechnen__c == true && this.yearsPassed <= 4) {
                                 restwert -= 0.05 * ba.FlaecheInQm__c * foundationAfaPerSquareMeter;
                             }

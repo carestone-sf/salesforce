@@ -573,6 +573,21 @@
             <field>Telefonkampagne__c</field>
             <table>Account</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Letzter_Notartermin_vor_2023__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FarbeText__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FarbeHintergrund__c</field>
+            <table>Account</table>
+        </columns>
         <masterLabel>Accounts</masterLabel>
     </sections>
     <sections>
@@ -2192,6 +2207,31 @@
             <field>IncentivierungKundeGezahltAm__c</field>
             <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>KundenappStatus__c</field>
+            <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>KundenappStatusKurz__c</field>
+            <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NotarterminUhrzeit__c</field>
+            <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AnnahmeBisSpaetestens__c</field>
+            <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>OpportunityStageDuration__c</field>
+            <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
+        </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
     <sections>
@@ -2288,6 +2328,46 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ProvisionsverhandlungVorhanden__c</field>
+            <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FFireAbrechnung__c</field>
+            <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>GrundschuldIstBestellt__c</field>
+            <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FinanzierungsvertragUnterzeichnet__c</field>
+            <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>StatusAmpel__c</field>
+            <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NaechsterSchrittExtern__c</field>
+            <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Vertriebskoordinator__c</field>
+            <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Finanzierungsberater__c</field>
+            <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProvisionVertriebskoordination__c</field>
             <table>Account.Kampagnen__r.ContactCampaignMembers.Opportunities__r</table>
         </columns>
         <masterLabel>Verkaufschancen</masterLabel>

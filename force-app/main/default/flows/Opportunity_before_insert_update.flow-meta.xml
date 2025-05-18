@@ -2,6 +2,42 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>57.0</apiVersion>
     <assignments>
+        <name>Assign_Assistance_and_Financing</name>
+        <label>Assign Assistance and Financing</label>
+        <locationX>50</locationX>
+        <locationY>719</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Vertriebskoordinator__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Sales_Team_Assistance.Kontakt__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Finanzierungsberater__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Immobilie__r.Finanzierungsberater__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_date</name>
+        <label>Assign date</label>
+        <locationX>314</locationX>
+        <locationY>503</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.AnnahmeBisSpaetestens__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>annahmefrist</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Invoice_due_is_set</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_Opportunity_values</name>
         <label>Set Opportunity values</label>
         <locationX>50</locationX>
@@ -20,12 +56,15 @@
                 <elementReference>$Record.Immobilie__r.ClosingBonusInPercent__c</elementReference>
             </value>
         </assignmentItems>
+        <connector>
+            <targetReference>Get_Sales_Team_Sales_Member</targetReference>
+        </connector>
     </assignments>
     <assignments>
         <name>Set_Opportunity_values2</name>
         <label>Set Opportunity values</label>
         <locationX>314</locationX>
-        <locationY>911</locationY>
+        <locationY>1211</locationY>
         <assignmentItems>
             <assignToReference>$Record.ForecastCurrentYear__c</assignToReference>
             <operator>Assign</operator>
@@ -38,7 +77,7 @@
         <name>Set_Zins_record</name>
         <label>Set Zins record</label>
         <locationX>314</locationX>
-        <locationY>611</locationY>
+        <locationY>911</locationY>
         <assignmentItems>
             <assignToReference>$Record.VerzugszinsDatensatz__c</assignToReference>
             <operator>Assign</operator>
@@ -54,7 +93,7 @@
         <name>Invoice_due_is_set</name>
         <label>Invoice due is set?</label>
         <locationX>446</locationX>
-        <locationY>395</locationY>
+        <locationY>695</locationY>
         <defaultConnector>
             <targetReference>Notary_date_is_current_year</targetReference>
         </defaultConnector>
@@ -82,7 +121,7 @@
         <locationX>248</locationX>
         <locationY>287</locationY>
         <defaultConnector>
-            <targetReference>Invoice_due_is_set</targetReference>
+            <targetReference>K_uferangebot_abgegeben</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
@@ -102,10 +141,56 @@
         </rules>
     </decisions>
     <decisions>
+        <name>K_uferangebot_abgegeben</name>
+        <label>Käuferangebot abgegeben</label>
+        <locationX>446</locationX>
+        <locationY>395</locationY>
+        <defaultConnector>
+            <targetReference>Invoice_due_is_set</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>K_uferangebot_abgegeben2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.K_uferangebot_abgegeben__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Beurkundung__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.K_uferangebot_abgegeben__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Beurkundung__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>2-seitig</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_date</targetReference>
+            </connector>
+            <label>Käuferangebot abgegeben</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Notary_date_is_current_year</name>
         <label>Notary date is current year</label>
         <locationX>446</locationX>
-        <locationY>803</locationY>
+        <locationY>1103</locationY>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
             <name>Notary_date_is_current_year2</name>
@@ -132,6 +217,11 @@
         </rules>
     </decisions>
     <environments>Default</environments>
+    <formulas>
+        <name>annahmefrist</name>
+        <dataType>Date</dataType>
+        <expression>IF(TEXT({!$Record.Beurkundung__c}) = &apos;Käuferangebot&apos;, {!$Record.K_uferangebot_abgegeben__c}+28, {!$Record.K_uferangebot_abgegeben__c}+35)</expression>
+    </formulas>
     <formulas>
         <name>endOfYear</name>
         <dataType>Date</dataType>
@@ -169,10 +259,59 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordLookups>
+        <name>Get_Sales_Team_Assistance</name>
+        <label>Get Sales Team Assistance</label>
+        <locationX>50</locationX>
+        <locationY>611</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Assistance_and_Financing</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SalesTeam__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Sales_Team_Sales_Member.SalesTeam__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Rolle__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Teamassistenz</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>SalesTeamMember__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Sales_Team_Sales_Member</name>
+        <label>Get Sales Team Sales Member</label>
+        <locationX>50</locationX>
+        <locationY>503</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Sales_Team_Assistance</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Kontakt__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Maklerbetreuer_WirtschaftsHaus__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>SalesTeamMember__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Verzugszins</name>
         <label>Get Verzugszins</label>
         <locationX>314</locationX>
-        <locationY>503</locationY>
+        <locationY>803</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_Zins_record</targetReference>

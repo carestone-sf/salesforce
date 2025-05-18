@@ -65,6 +65,20 @@
                 <elementReference>$Flow.CurrentDateTime</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Finanzierungsberater__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Opportunity__r.Finanzierungsberater__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Vertriebskoordinator__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Opportunity__r.Vertriebskoordinator__c</elementReference>
+            </value>
+        </assignmentItems>
     </assignments>
     <assignments>
         <name>Assigns_Tage_in_VSA_vorhanden</name>
@@ -85,7 +99,7 @@
     <decisions>
         <name>Automation_Switch</name>
         <label>Automation Switch</label>
-        <locationX>501</locationX>
+        <locationX>545</locationX>
         <locationY>287</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -281,7 +295,7 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <start>
-        <locationX>375</locationX>
+        <locationX>419</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Automation_Switch</targetReference>

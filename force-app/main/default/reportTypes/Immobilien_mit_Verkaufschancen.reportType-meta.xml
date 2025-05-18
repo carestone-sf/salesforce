@@ -62,11 +62,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Account_Number__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Account__c</field>
             <table>Property__c</table>
         </columns>
@@ -132,11 +127,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Building_Name_Del__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Building_Share_Value__c</field>
             <table>Property__c</table>
         </columns>
@@ -188,16 +178,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Steuernummer__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Geo_data__Latitude__s</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Geo_data__Longitude__s</field>
             <table>Property__c</table>
         </columns>
         <columns>
@@ -372,16 +352,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Total_Commission__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>User__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Value_Of_Outdoor__c</field>
             <table>Property__c</table>
         </columns>
@@ -412,11 +382,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>share_Old_buildings__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Erbbauzins__c</field>
             <table>Property__c</table>
         </columns>
@@ -433,11 +398,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ZahlungszielinTagen__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Provisionsver_nderung__c</field>
             <table>Property__c</table>
         </columns>
         <columns>
@@ -1232,11 +1192,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Grundprovision__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Verkaufsprovision__c</field>
             <table>Property__c</table>
         </columns>
@@ -1873,6 +1828,106 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>IncentivierungMaklerGezahltBrutto__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Sonderabschreibung7B__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>GutschriftenUeber__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MindestabgabepreisInProzent__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Vermoegen__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AlterDesKundenVon__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AlterDesKundenBis__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaximaleAbschreibungsmoeglichkeiten__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SteuernSparenImAktJahr__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Mietzahlung__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Bezahlung__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>X100FinanzierungMoeglich__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>KeineBauzeitzinsen__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>KfWMittelVerfuegbar__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SoldFor__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PaidAmount__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BilledNotPaid__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SoldNotBilled__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Subheadline__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ObjektvideoZweiYoutubeId__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Finanzierungsberater__c</field>
             <table>Property__c</table>
         </columns>
         <masterLabel>Immobilien</masterLabel>
@@ -3068,6 +3123,31 @@
             <field>IncentivierungKundeGezahltAm__c</field>
             <table>Property__c.Opportunities__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>KundenappStatus__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>KundenappStatusKurz__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NotarterminUhrzeit__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AnnahmeBisSpaetestens__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>OpportunityStageDuration__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
     <sections>
@@ -3144,6 +3224,46 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ProvisionsverhandlungVorhanden__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FFireAbrechnung__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>GrundschuldIstBestellt__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FinanzierungsvertragUnterzeichnet__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>StatusAmpel__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NaechsterSchrittExtern__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Vertriebskoordinator__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Finanzierungsberater__c</field>
+            <table>Property__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProvisionVertriebskoordination__c</field>
             <table>Property__c.Opportunities__r</table>
         </columns>
         <masterLabel>Verkaufschancen</masterLabel>

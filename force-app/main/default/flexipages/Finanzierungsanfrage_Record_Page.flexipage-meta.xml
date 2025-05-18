@@ -90,6 +90,36 @@
                 <identifier>RecordWelcheUnterlagenWerdenGefordert_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.StatusAmpel__c</fieldItem>
+                <identifier>RecordPhaseAmpel__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.FinanzierungsvertragUnterzeichnet__c</fieldItem>
+                <identifier>RecordFinanzierungsvertragUnterzeichnet__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.SharepointLink__c</fieldItem>
+                <identifier>RecordSharepointLink__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Vertriebskoordinator__c</fieldItem>
+                <identifier>RecordVertriebskoordinator__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Finanzierungsberater__c</fieldItem>
+                <identifier>RecordFinanzierungsberater__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-59524a7d-4212-4e95-b1f5-717dedbbdad8</name>
         <type>Facet</type>
     </flexiPageRegions>

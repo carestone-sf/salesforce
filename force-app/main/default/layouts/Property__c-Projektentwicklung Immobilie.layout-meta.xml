@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Email_f_r_neue_Immobilie</customButtons>
+    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -11,6 +12,10 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Name</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Subheadline__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -60,6 +65,10 @@
                 <behavior>Readonly</behavior>
                 <field>EndkundenrenditeIst__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>GutschriftenUeber__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -88,6 +97,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Finanzierungsberater__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>ResponsiblePE__c</field>
             </layoutItems>
             <layoutItems>
@@ -113,6 +126,61 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>KfWGenehmigt__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MindestabgabepreisInProzent__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Immofinder</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Vermoegen__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AlterDesKundenVon__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AlterDesKundenBis__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MaximaleAbschreibungsmoeglichkeiten__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SteuernSparenImAktJahr__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Mietzahlung__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Bezahlung__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>X100FinanzierungMoeglich__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>KeineBauzeitzinsen__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>KfWMittelVerfuegbar__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -513,15 +581,15 @@
     </platformActionList>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Kaufpreis_gezahlt_am__c</fields>
         <fields>Purchase_Price__c</fields>
         <fields>Status__c</fields>
-        <fields>Kumulierte_Provision_extern__c</fields>
-        <fields>Nachname_Makler__c</fields>
         <fields>Nachname_Kunde__c</fields>
-        <fields>Reserviert_bis__c</fields>
         <fields>Notartermin__c</fields>
         <fields>Finanzierung__c</fields>
         <fields>Maklerbetreuer_WirtschaftsHaus_lookup__c</fields>
+        <fields>StatusAmpel__c</fields>
+        <fields>GrundschuldIstBestellt__c</fields>
         <relatedList>Appartment__c.Property__c</relatedList>
         <sortField>NAME</sortField>
         <sortOrder>Asc</sortOrder>
@@ -620,6 +688,10 @@
         <fields>Account.NAME</fields>
         <fields>CreditAmount__c</fields>
         <relatedList>ProjectFinancing__c.Property__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>PushNotification__c.Property__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>

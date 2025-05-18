@@ -747,11 +747,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Property__c.Account_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Property__c.Account__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -953,11 +948,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Property__c.Builders__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Property__c.Building_Name_Del__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1237,11 +1227,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Property__c.Geo_data__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Property__c.Geoportanalyse__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1268,11 +1253,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Property__c.GezahlteRechnungenAktuellerRate__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Property__c.Grundprovision__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1747,11 +1727,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Property__c.Provisionsver_nderung__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Property__c.Public__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1992,11 +1967,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Property__c.SummeUnverkaufterEinheiten__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Property__c.SummeWertKumulierteProvisionExtern__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2132,11 +2102,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Property__c.Total_Commission__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Property__c.UebergabeBetreiberAm__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2157,11 +2122,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Property__c.User__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Property__c.Value_Of_Outdoor__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2173,16 +2133,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Property__c.Value_Preservation__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Property__c.VerantwortlichPE__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Property__c.VerantwortlichPM__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2300,11 +2250,6 @@
         <field>Property__c.maintenance_sqm_p_a__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Property__c.share_Old_buildings__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>TeamProQ Integration</label>
     <objectPermissions>
@@ -2351,6 +2296,15 @@
         <modifyAllRecords>false</modifyAllRecords>
         <object>Property__c</object>
         <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Verzugszins__c</object>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <userPermissions>
         <enabled>true</enabled>

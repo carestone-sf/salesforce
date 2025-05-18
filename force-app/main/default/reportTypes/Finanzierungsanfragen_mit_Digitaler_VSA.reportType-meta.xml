@@ -335,6 +335,41 @@
             <field>AngeforderteUnterlagen__c</field>
             <table>Finanzierungsanfrage__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Notartermin__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NotarterminMoeglichAb__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>StatusAmpel__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FinanzierungsvertragUnterzeichnet__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SharepointLink__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Vertriebskoordinator__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Finanzierungsberater__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
         <masterLabel>Finanzierungsanfragen</masterLabel>
     </sections>
     <sections>
