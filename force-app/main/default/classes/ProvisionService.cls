@@ -26,7 +26,7 @@ public without sharing class ProvisionService {
 
     public void upsertProvisionen() {
         getRecipientsIds();
-        Map<Id,Contact> allRecipients = new Map<Id, Contact>([SELECT Id, Gesch_ftsbeziehung__c, ErhaeltErfolgsabhaengigeProvision__c, Ist_Maklerbetreuer_WH__c, Email, Maklerauftrag__c FROM Contact WHERE Id IN : this.recipientsIds]);
+        Map<Id,Contact> allRecipients = new Map<Id, Contact>([SELECT Id, Gesch_ftsbeziehung__c, ErfolgsabhaengigeMaxInProzent__c, ErfolgsabhaengigeProvisionInEuro__c, ErhaeltErfolgsabhaengigeProvision__c, Ist_Maklerbetreuer_WH__c, Email, Maklerauftrag__c FROM Contact WHERE Id IN : this.recipientsIds]);
         List<Id> mbIds = new List<Id>();
         for(Contact con:allRecipients.values()) {
             if(con.Ist_Maklerbetreuer_WH__c == true) {
@@ -44,7 +44,7 @@ public without sharing class ProvisionService {
                 lastYearOrThisYear -= 1;
             }
             Integer lastQuarter = getQuarterByMonth(lastMonth);
-            String query = 'SELECT Id, Notartermin__c, Maklerbetreuer_WirtschaftsHaus__c FROM Opportunity';
+            String query = 'SELECT Id, Notartermin__c, Vertriebskoordinator__c, Maklerbetreuer_WirtschaftsHaus__c, Maklerbetreuer_WirtschaftsHaus__r.ErfolgsabhaengigeMaxInProzent__c FROM Opportunity';
             if(this.schedule == 'month') {
                 if(todaysDate.day() <= 10) {
                     query += ' WHERE ((CALENDAR_MONTH(Notartermin__c) = :lastMonth AND CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear) OR (CALENDAR_YEAR(Notartermin__c) = :thisYear AND CALENDAR_MONTH(Notartermin__c) = :thisMonth))';
@@ -113,6 +113,11 @@ public without sharing class ProvisionService {
                 Provision__c prov = new Provision__c();
                 if(mode == 'intern' && con.ErhaeltErfolgsabhaengigeProvision__c == true ) {
                     prov = this.getProvisionIntern(opp, con);
+                    if(prov != null) {
+                        provs.add(prov);
+                    }
+                } else if(mode == 'intern' && con.Id == opp.Vertriebskoordinator__c) {
+                    prov = this.getProvisionInternVertriebskoordinator(opp, con);
                     if(prov != null) {
                         provs.add(prov);
                     }
@@ -246,7 +251,7 @@ public without sharing class ProvisionService {
         }
 
         if(opp.Maklerbetreuer_WirtschaftsHaus__c == con.Id) {
-            Decimal erfolgsabhaengigeProvision = getErfolgsabhaengigeProvision(prov);
+            Decimal erfolgsabhaengigeProvision = getErfolgsabhaengigeProvision(prov, con);
             if(erfolgsabhaengigeProvision == null) {
                 return null;
             }
@@ -255,6 +260,109 @@ public without sharing class ProvisionService {
         }
         
         return prov;
+    }
+
+    public Provision__c getProvisionInternVertriebskoordinator(Opportunity opp, Contact con) {
+        Provision__c prov = new Provision__c();
+        prov.UniqueId__c = opp.Id + '-' + con.Id;
+        prov.Verkaufschance__c = opp.Id;
+        prov.Makler__c = con.Id;
+        prov.Objekt__c = opp.Immobilie__c;
+        prov.Wohneinheit__c = opp.Appartement__c;
+        prov.Kunde__c = opp.Potenzieller_Kunde__c;
+        prov.Ausl_ser__c = con.Id;
+        prov.E_Mail__c = con.Email;
+        prov.Kaufpreis__c = opp.Provisionsbasis__c;
+        prov.Maklerbetreuer__c = opp.OwnerId;
+        prov.MarketingzuschussNichtAusweisen__c = opp.MarketingzuschussNichtAusweisen__c;
+        prov.ProvisionsvoraussetzungenErfuelltAm__c = opp.Notartermin__c;
+        
+        prov.ProvisionVertriebskoordination__c = opp.ProvisionVertriebskoordination__c;
+        if(prov.ProvisionVertriebskoordination__c == null || prov.ProvisionVertriebskoordination__c == 0) {
+            return null;
+        }
+        return prov;
+    }
+
+    public void checkForCorrections(List<Opportunity> opps) {
+        List<Id> oppIds = new List<Id>();
+        for(Opportunity opp:opps) {
+            oppIds.add(opp.Id);
+        }
+        List<Provision__c> provs = [SELECT Id, ClosingBonusInEuro__c, ClosingBonusInProzent__c, BeratungsprovisionMitPVInEuro__c, BeratungsprovisionMitPVInProzent__c, ProvisionsverzichtInProzent__c, ProvisionsverzichtInEuro__c, ErfolgsabhaengigeProvisionInProzent__c, Erfolgsabh_ngige_Provision_direkt__c, Provisionszeitraum__c, UniqueId__c, Verkaufschance__c, Makler__c, Objekt__c, Wohneinheit__c, Kunde__c, Ausl_ser__c, E_Mail__c, Kaufpreis__c, Maklerbetreuer__c, MarketingzuschussNichtAusweisen__c, ProvisionsvoraussetzungenErfuelltAm__c FROM Provision__c WHERE Makler__r.Ist_Maklerbetreuer_WH__c = true AND Verkaufschance__c IN :oppIds];
+        List<Provision__c> deleteProvs = new List<Provision__c>();
+        List<Provision__c> insertProvs = new List<Provision__c>();
+
+        for(Provision__c prov:provs) {
+            Date today = Date.today();
+            Date firstDayOfThisMonth = today.toStartOfMonth();
+            Date firstDayOfLastMonth = firstDayOfThisMonth.addMonths(-1);
+
+            // Check if prov.ProvisionsvoraussetzungenErfuelltAm__c is in last month AND today is before the 10th of the month
+            // OR if ProvisionsvoraussetzungenErfuelltAm__c is this month
+            if ((prov.ProvisionsvoraussetzungenErfuelltAm__c >= firstDayOfLastMonth && prov.ProvisionsvoraussetzungenErfuelltAm__c < firstDayOfThisMonth && today.day() < 10)  || prov.ProvisionsvoraussetzungenErfuelltAm__c >= firstDayOfThisMonth) {
+                deleteProvs.add(prov);
+            }
+            // Check if prov.ProvisionsvoraussetzungenErfuelltAm__c is before last month
+            else if (prov.ProvisionsvoraussetzungenErfuelltAm__c < firstDayOfLastMonth) {
+                Provision__c newProv = new Provision__c();
+                newProv.Provisionszeitraum__c = prov.Provisionszeitraum__c;
+                newProv.UniqueId__c = prov.UniqueId__c + '-correction';
+                newProv.Verkaufschance__c = prov.Verkaufschance__c;
+                newProv.Makler__c = prov.Makler__c;
+                newProv.Objekt__c = prov.Objekt__c;
+                newProv.Wohneinheit__c = prov.Wohneinheit__c;
+                newProv.Kunde__c = prov.Kunde__c;
+                newProv.Ausl_ser__c = prov.Ausl_ser__c;
+                newProv.E_Mail__c = prov.E_Mail__c;
+                newProv.Kaufpreis__c = prov.Kaufpreis__c;
+                newProv.Maklerbetreuer__c = prov.Maklerbetreuer__c;
+                newProv.MarketingzuschussNichtAusweisen__c = prov.MarketingzuschussNichtAusweisen__c;
+                newProv.ProvisionsvoraussetzungenErfuelltAm__c = Date.today();
+
+                if(prov.ClosingBonusInEuro__c != null && prov.ClosingBonusInEuro__c != 0) {
+                    newProv.ClosingBonusInEuro__c = -prov.ClosingBonusInEuro__c;
+                }
+
+                if(prov.ClosingBonusInProzent__c != null && prov.ClosingBonusInProzent__c != 0) {
+                    newProv.ClosingBonusInProzent__c = -prov.ClosingBonusInProzent__c;
+                }
+
+                if(prov.BeratungsprovisionMitPVInEuro__c != null && prov.BeratungsprovisionMitPVInEuro__c != 0) {
+                    newProv.BeratungsprovisionMitPVInEuro__c = -prov.BeratungsprovisionMitPVInEuro__c;
+                }
+
+                if(prov.BeratungsprovisionMitPVInProzent__c != null && prov.BeratungsprovisionMitPVInProzent__c != 0) {
+                    newProv.BeratungsprovisionMitPVInProzent__c = -prov.BeratungsprovisionMitPVInProzent__c;
+                }
+
+                if(prov.ProvisionsverzichtInProzent__c != null && prov.ProvisionsverzichtInProzent__c != 0) {
+                    newProv.ProvisionsverzichtInProzent__c = -prov.ProvisionsverzichtInProzent__c;
+                }
+
+                if(prov.ProvisionsverzichtInEuro__c != null && prov.ProvisionsverzichtInEuro__c != 0) {
+                    newProv.ProvisionsverzichtInEuro__c = -prov.ProvisionsverzichtInEuro__c;
+                }
+
+                if(prov.ErfolgsabhaengigeProvisionInProzent__c != null && prov.ErfolgsabhaengigeProvisionInProzent__c != 0) {
+                    newProv.ErfolgsabhaengigeProvisionInProzent__c = -prov.ErfolgsabhaengigeProvisionInProzent__c;
+                }
+
+                if(prov.Erfolgsabh_ngige_Provision_direkt__c != null && prov.Erfolgsabh_ngige_Provision_direkt__c != 0) {
+                    newProv.Erfolgsabh_ngige_Provision_direkt__c = -prov.Erfolgsabh_ngige_Provision_direkt__c;
+                }
+                
+                insertProvs.add(newProv);
+            }
+        }
+
+        if(!deleteProvs.isEmpty()) {
+            delete deleteProvs;
+        }
+
+        if(!insertProvs.isEmpty()) {
+            insert insertProvs;
+        }
     }
 
     public void getRecipientsIds() {
@@ -285,6 +393,9 @@ public without sharing class ProvisionService {
             }
             if(opp.TippgeberProvisionEmpfaenger__c != null) {
                 currentRecipientsIds.add(opp.TippgeberProvisionEmpfaenger__c);
+            }
+            if(opp.Vertriebskoordinator__c != null) {
+                currentRecipientsIds.add(opp.Vertriebskoordinator__c);
             }
             if(opp.Provision_Thoben__c != '0' && opp.Provision_Thoben__c != null) {
                 currentRecipientsIds.add('003b0000002p3N5');
@@ -319,7 +430,7 @@ public without sharing class ProvisionService {
         return math.round((month+1)/3.0);
     }
 
-    public Decimal getErfolgsabhaengigeProvision(Provision__c prov) {
+    public Decimal getErfolgsabhaengigeProvision(Provision__c prov, Contact con) {
         Decimal erfolgsabhaengigeProvision;
         Decimal erfolgsabhaengigeProvisionMonat = 0;
         Decimal erfolgsabhaengigeProvisionQuartal = 0;
@@ -347,6 +458,10 @@ public without sharing class ProvisionService {
         } else if(anzahlEinheitenQuartal >= 27) {
             erfolgsabhaengigeProvisionQuartal = 0.5 - erfolgsabhaengigeProvisionMonat;
         }
+        
+        if(erfolgsabhaengigeProvisionQuartal < 0) {
+            erfolgsabhaengigeProvisionQuartal = 0;
+        }
 
         if(anzahlEinheitenJahr >= 0 && anzahlEinheitenJahr <= 47) {
             erfolgsabhaengigeProvisionJahr = 0.25 - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
@@ -357,14 +472,31 @@ public without sharing class ProvisionService {
         } else if(anzahlEinheitenJahr >= 108) {
             erfolgsabhaengigeProvisionJahr = 0.5 - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
         }
+
+        if(erfolgsabhaengigeProvisionJahr < 0) {
+            erfolgsabhaengigeProvisionJahr = 0;
+        }
+
+        if(con.ErfolgsabhaengigeMaxInProzent__c != null && (erfolgsabhaengigeProvisionMonat >= con.ErfolgsabhaengigeMaxInProzent__c)) {
+            erfolgsabhaengigeProvisionMonat = con.ErfolgsabhaengigeMaxInProzent__c;
+        }
+
+        if(con.ErfolgsabhaengigeProvisionInEuro__c != null) {
+            erfolgsabhaengigeProvisionMonat = con.ErfolgsabhaengigeProvisionInEuro__c / prov.Kaufpreis__c * 100;
+        }
+
+        if((con.ErfolgsabhaengigeMaxInProzent__c != null || con.ErfolgsabhaengigeProvisionInEuro__c != null) && (this.schedule == 'quarter' || this.schedule == 'year')) {
+            return null;
+        }
          
         if(this.schedule == 'month') {
             erfolgsabhaengigeProvision = erfolgsabhaengigeProvisionMonat / 100;
         } else if(this.schedule == 'quarter' && erfolgsabhaengigeProvisionQuartal > 0) {
             erfolgsabhaengigeProvision = erfolgsabhaengigeProvisionQuartal / 100;
-         } else if(this.schedule == 'year' && erfolgsabhaengigeProvisionJahr > 0) {
+        } else if(this.schedule == 'year' && erfolgsabhaengigeProvisionJahr > 0) {
             erfolgsabhaengigeProvision = erfolgsabhaengigeProvisionJahr / 100;
-           }
+        }
+
         return erfolgsabhaengigeProvision;
     }
 }

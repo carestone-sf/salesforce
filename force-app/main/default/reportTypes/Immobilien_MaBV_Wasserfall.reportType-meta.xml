@@ -8,11 +8,6 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Total_Commission__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Rate1__c</field>
             <table>Property__c</table>
         </columns>
@@ -198,11 +193,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>share_Old_buildings__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Share_Redevelopment_Substance__c</field>
             <table>Property__c</table>
         </columns>
@@ -351,11 +341,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Description__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>User__c</field>
             <table>Property__c</table>
         </columns>
         <columns>
@@ -761,16 +746,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Geo_data__Latitude__s</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Geo_data__Longitude__s</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Geoportanalyse__c</field>
             <table>Property__c</table>
         </columns>
@@ -817,11 +792,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Real_Estate_Transfer_Tax__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Grundprovision__c</field>
             <table>Property__c</table>
         </columns>
         <columns>
@@ -1081,11 +1051,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Account_Number__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Manager_Cost_p_a__c</field>
             <table>Property__c</table>
         </columns>
@@ -1187,11 +1152,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Arrival__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Mietbeginn__c</field>
             <table>Property__c</table>
         </columns>
         <columns>
@@ -1322,11 +1282,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ObjektartProjektentwicklung__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Building_Name_Del__c</field>
             <table>Property__c</table>
         </columns>
         <columns>
@@ -1479,11 +1434,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Provision_WH__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Provisionsver_nderung__c</field>
             <table>Property__c</table>
         </columns>
         <columns>
@@ -2316,6 +2266,106 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>IncentivierungMaklerGezahltBrutto__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Sonderabschreibung7B__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>GutschriftenUeber__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MindestabgabepreisInProzent__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Vermoegen__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AlterDesKundenVon__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AlterDesKundenBis__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaximaleAbschreibungsmoeglichkeiten__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SteuernSparenImAktJahr__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Mietzahlung__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Bezahlung__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>X100FinanzierungMoeglich__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>KeineBauzeitzinsen__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>KfWMittelVerfuegbar__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SoldFor__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PaidAmount__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BilledNotPaid__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SoldNotBilled__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Subheadline__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ObjektvideoZweiYoutubeId__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Finanzierungsberater__c</field>
             <table>Property__c</table>
         </columns>
         <masterLabel>Immobilien</masterLabel>

@@ -151,6 +151,22 @@
                 <identifier>RecordGeneralunternehmer_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.MindestabgabepreisInProzent__c</fieldItem>
+                <identifier>RecordMindestabgabepreisInProzent__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Finanzierungsberater__c</fieldItem>
+                <identifier>RecordFinanzierungsberater__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-f554152d-d682-45bf-8ea9-cf2fec6bd258</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -243,6 +259,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Purchase_Price_sqm__c</fieldItem>
                 <identifier>RecordPurchase_Price_sqm_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Betreiber__c</fieldItem>
+                <identifier>RecordBetreiber_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-464fe08d-7cf6-46e8-b04f-b7205a0020ed</name>

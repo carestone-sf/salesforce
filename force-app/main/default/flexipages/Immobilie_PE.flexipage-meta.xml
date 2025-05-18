@@ -376,6 +376,122 @@
                 <identifier>RecordGeneralunternehmer_cField2</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.GutschriftenUeber__c</fieldItem>
+                <identifier>RecordGutschriftenUeber__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.MindestabgabepreisInProzent__c</fieldItem>
+                <identifier>RecordMindestabgabepreisInProzent__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Vermoegen__c</fieldItem>
+                <identifier>RecordVermoegen__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.AlterDesKundenBis__c</fieldItem>
+                <identifier>RecordAlterDesKundenBis__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.MaximaleAbschreibungsmoeglichkeiten__c</fieldItem>
+                <identifier>RecordMaximaleAbschreibungsmoeglichkeiten__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.SteuernSparenImAktJahr__c</fieldItem>
+                <identifier>RecordSteuernSparenImAktJahr__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Mietzahlung__c</fieldItem>
+                <identifier>RecordMietzahlung__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Bezahlung__c</fieldItem>
+                <identifier>RecordBezahlung__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.X100FinanzierungMoeglich__c</fieldItem>
+                <identifier>RecordX100FinanzierungMoeglich__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.KfWMittelVerfuegbar__c</fieldItem>
+                <identifier>RecordKfWMittelVerfuegbar__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ObjektvideoZweiYoutubeId__c</fieldItem>
+                <identifier>RecordObjektvideoZweiYoutubeId__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Finanzierungsberater__c</fieldItem>
+                <identifier>RecordFinanzierungsberater__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-69xcjtcielk</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -1568,6 +1684,36 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.Foerderung__c</fieldItem>
+                <identifier>RecordFoerderung_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Verwaltung_durch_WH_Verwaltung__c</fieldItem>
+                <identifier>RecordVerwaltung_durch_WH_Verwaltung_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Vorbelegungsrecht__c</fieldItem>
+                <identifier>RecordVorbelegungsrecht_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.InspectionByDekra__c</fieldItem>
                 <identifier>RecordInspectionByDekra_cField</identifier>
             </fieldInstance>
@@ -1770,6 +1916,16 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.Beurkundbar_ab__c</fieldItem>
+                <identifier>RecordBeurkundbar_ab_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Beurkundungsstart__c</fieldItem>
                 <identifier>RecordBeurkundungsstart_cField</identifier>
             </fieldInstance>
@@ -1898,6 +2054,16 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.ObjektvideoZweiYoutubeId__c</fieldItem>
+                <identifier>RecordObjektvideoZweiYoutubeId_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Url360DegreeTour__c</fieldItem>
                 <identifier>RecordUrl360DegreeTour_cField</identifier>
             </fieldInstance>
@@ -1960,6 +2126,16 @@
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Subheadline__c</fieldItem>
+                <identifier>RecordSubheadline_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
@@ -2099,6 +2275,68 @@
             </componentInstance>
         </itemInstances>
         <name>Facet-16d38251-9abe-47d4-9080-7229d8db84b4</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.AFAAnschaffungskosten__c</fieldItem>
+                <identifier>RecordAFAAnschaffungskosten_cField4</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.AlternativeAFAAnschaffungskosten__c</fieldItem>
+                <identifier>RecordAlternativeAFAAnschaffungskosten_cField4</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-d4a3bbd4-32b5-43f1-8caa-2ada8d1f0785</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Sonderabschreibung7B__c</fieldItem>
+                <identifier>RecordSonderabschreibung7B_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-199d057c-e642-49f5-bae1-c6dc396494b1</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-d4a3bbd4-32b5-43f1-8caa-2ada8d1f0785</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+                <identifier>flexipage_column77</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-199d057c-e642-49f5-bae1-c6dc396494b1</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+                <identifier>flexipage_column78</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-19516f67-9069-4e57-be98-57d9e2579608</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -2254,6 +2492,24 @@
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
                 <identifier>flexipage_fieldSection28</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>columns</name>
+                    <value>Facet-19516f67-9069-4e57-be98-57d9e2579608</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>horizontalAlignment</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>AfA</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:fieldSection</componentName>
+                <identifier>flexipage_fieldSection42</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -5975,6 +6231,36 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.Foerderung__c</fieldItem>
+                <identifier>RecordFoerderung_cField4</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Verwaltung_durch_WH_Verwaltung__c</fieldItem>
+                <identifier>RecordVerwaltung_durch_WH_Verwaltung_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Vorbelegungsrecht__c</fieldItem>
+                <identifier>RecordVorbelegungsrecht_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.InspectionByDekra__c</fieldItem>
                 <identifier>RecordInspectionByDekra_cField2</identifier>
             </fieldInstance>
@@ -6177,6 +6463,16 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.Beurkundbar_ab__c</fieldItem>
+                <identifier>RecordBeurkundbar_ab_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Beurkundungsstart__c</fieldItem>
                 <identifier>RecordBeurkundungsstart_cField2</identifier>
             </fieldInstance>
@@ -6305,6 +6601,16 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.ObjektvideoZweiYoutubeId__c</fieldItem>
+                <identifier>RecordObjektvideoZweiYoutubeId_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Url360DegreeTour__c</fieldItem>
                 <identifier>RecordUrl360DegreeTour_cField3</identifier>
             </fieldInstance>
@@ -6367,6 +6673,16 @@
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Subheadline__c</fieldItem>
+                <identifier>RecordSubheadline_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
@@ -6506,6 +6822,68 @@
             </componentInstance>
         </itemInstances>
         <name>Facet-o2o5kse99h</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.AFAAnschaffungskosten__c</fieldItem>
+                <identifier>RecordAFAAnschaffungskosten_cField3</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.AlternativeAFAAnschaffungskosten__c</fieldItem>
+                <identifier>RecordAlternativeAFAAnschaffungskosten_cField3</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-41fc26aa-0378-40cf-b108-43161cda681e</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Sonderabschreibung7B__c</fieldItem>
+                <identifier>RecordSonderabschreibung7B_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-5b6c1a27-32fe-41a2-93d9-6cded94ad814</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-41fc26aa-0378-40cf-b108-43161cda681e</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+                <identifier>flexipage_column75</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-5b6c1a27-32fe-41a2-93d9-6cded94ad814</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+                <identifier>flexipage_column76</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-a2007440-6838-496e-8cb6-ae406a92d3fc</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -6661,6 +7039,24 @@
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
                 <identifier>flexipage_fieldSection33</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>columns</name>
+                    <value>Facet-a2007440-6838-496e-8cb6-ae406a92d3fc</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>horizontalAlignment</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>AfA</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:fieldSection</componentName>
+                <identifier>flexipage_fieldSection41</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>

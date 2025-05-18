@@ -1346,14 +1346,34 @@
             <field>IncentivierungKundeGezahltAm__c</field>
             <table>Opportunity</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>KundenappStatus__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>KundenappStatusKurz__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NotarterminUhrzeit__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AnnahmeBisSpaetestens__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>OpportunityStageDuration__c</field>
+            <table>Opportunity</table>
+        </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
     <sections>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Immobilie__c.Total_Commission__c</field>
-            <table>Opportunity</table>
-        </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Immobilie__c.Rate1__c</field>
@@ -1576,11 +1596,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Immobilie__c.share_Old_buildings__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Immobilie__c.Share_Redevelopment_Substance__c</field>
             <table>Opportunity</table>
         </columns>
@@ -1742,11 +1757,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Immobilie__c.Description__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Immobilie__c.User__c</field>
             <table>Opportunity</table>
         </columns>
         <columns>
@@ -2196,16 +2206,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Immobilie__c.Geo_data__Latitude__s</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Immobilie__c.Geo_data__Longitude__s</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Immobilie__c.Geolocation__Latitude__s</field>
             <table>Opportunity</table>
         </columns>
@@ -2262,11 +2262,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Immobilie__c.Real_Estate_Transfer_Tax__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Immobilie__c.Grundprovision__c</field>
             <table>Opportunity</table>
         </columns>
         <columns>
@@ -2561,11 +2556,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Immobilie__c.Account_Number__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Immobilie__c.Manager_Cost_p_a__c</field>
             <table>Opportunity</table>
         </columns>
@@ -2667,11 +2657,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Immobilie__c.Arrival__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Immobilie__c.Mietbeginn__c</field>
             <table>Opportunity</table>
         </columns>
         <columns>
@@ -2802,11 +2787,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Immobilie__c.ObjektartProjektentwicklung__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Immobilie__c.Building_Name_Del__c</field>
             <table>Opportunity</table>
         </columns>
         <columns>
@@ -2962,11 +2942,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Immobilie__c.Provision_WH__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Immobilie__c.Provisionsver_nderung__c</field>
             <table>Opportunity</table>
         </columns>
         <columns>
@@ -4438,6 +4413,46 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ProvisionsverhandlungVorhanden__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FFireAbrechnung__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>GrundschuldIstBestellt__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FinanzierungsvertragUnterzeichnet__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>StatusAmpel__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NaechsterSchrittExtern__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Vertriebskoordinator__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Finanzierungsberater__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProvisionVertriebskoordination__c</field>
             <table>Opportunity</table>
         </columns>
         <masterLabel>Verkaufschancen</masterLabel>

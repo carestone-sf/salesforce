@@ -315,4 +315,135 @@ private class GenerateInternalCommissionScheduleTest {
         System.debug(LoggingLevel.ERROR,[SELECT Id FROM Provision__c WHERE Verkaufschance__c =: opp2.Id].size());
 
     }
+
+    @isTest static void testProvisionDeletion() {
+        Account acc3 = [SELECT Id FROM Account];
+        Contact mb = [SELECT Id, OwnerId FROM Contact WHERE LastName = 'Köpsell'];
+        Contact potKun = [SELECT Id FROM Contact WHERE LastName != 'Köpsell'];
+        Property__c immobilie = [SELECT ID From Property__c];
+        Appartment__c app2 = [SELECT ID From Appartment__c];
+    
+        Opportunity opp2 = new Opportunity(
+            Name = 'Test VKC Delete',
+            AccountId = acc3.Id,
+            Potenzieller_Kunde__c = potKun.Id,
+            CloseDate = System.today().addDays(1),
+            StageName = 'Reservierung angefragt',
+            Immobilie__c = immobilie.Id,
+            Appartement__c = app2.Id,
+            Finanzierung__c = 'Finanzierung WH',
+            Kaufdatum__c = System.Today(),
+            Makler__c = mb.Id,
+            Immobilienberater__c = mb.Id,
+            Abrechnung_ber__c = mb.Id,
+            Maklerprovision__c = '4.5',
+            Finanzierung_oder_Eigenkapitalnachweis__c = true,
+            Nachweis_Barzahler__c = true,
+            KV_eingegangen__c = true,
+            Beratungsprotokoll__c = true,
+            Risikobelehrung__c = true,
+            Overhead_Empf_nger__c = mb.Id,
+            beurkundeter_Kaufpreis__c = 123123.23
+        );
+        insert opp2;
+    
+        opp2.StageName = 'Geschlossene und gewonnene';
+        opp2.Notartermin__c = Date.today();
+        update opp2;
+    
+        // Create provision manually
+        Provision__c prov = new Provision__c(
+            Verkaufschance__c = opp2.Id,
+            Makler__c = opp2.Makler__c,
+            Maklerbetreuer__c = mb.OwnerId,
+            Objekt__c = opp2.Immobilie__c,
+            Wohneinheit__c = opp2.Appartement__c,
+            Kunde__c = opp2.Potenzieller_Kunde__c,
+            Kaufpreis__c = opp2.beurkundeter_Kaufpreis__c,
+            ErfolgsabhaengigeProvisionInProzent__c = 3,
+            Erfolgsabh_ngige_Provision_direkt__c = 5000,
+            ProvisionsvoraussetzungenErfuelltAm__c = Date.today()
+        );
+        insert prov;
+    
+        Test.startTest();
+        opp2.StageName = 'Geschlossen und verloren';
+        opp2.Grund_VKC_verloren__c = 'Aus TeamProQ storniert';
+        update opp2;
+        Test.stopTest();
+    
+        List<Provision__c> provs = [SELECT Id FROM Provision__c WHERE Verkaufschance__c = :opp2.Id];
+        System.assertEquals(0, provs.size(), 'Provision should have been deleted.');
+    }
+    
+
+    @isTest static void testProvisionCorrectionInsert() {
+        Account acc3 = [SELECT Id FROM Account];
+        Contact mb = [SELECT Id, OwnerId FROM Contact WHERE LastName = 'Köpsell'];
+        Contact potKun = [SELECT Id FROM Contact WHERE LastName != 'Köpsell'];
+        Property__c immobilie = [SELECT ID From Property__c];
+        Appartment__c app2 = [SELECT ID From Appartment__c];
+    
+        Opportunity opp2 = new Opportunity(
+            Name = 'Test VKC Insert',
+            AccountId = acc3.Id,
+            Potenzieller_Kunde__c = potKun.Id,
+            CloseDate = System.today().addDays(1),
+            StageName = 'Reservierung angefragt',
+            Immobilie__c = immobilie.Id,
+            Appartement__c = app2.Id,
+            Finanzierung__c = 'Finanzierung WH',
+            Kaufdatum__c = System.Today(),
+            Makler__c = mb.Id,
+            Immobilienberater__c = mb.Id,
+            Abrechnung_ber__c = mb.Id,
+            Maklerprovision__c = '4.5',
+            Finanzierung_oder_Eigenkapitalnachweis__c = true,
+            Nachweis_Barzahler__c = true,
+            KV_eingegangen__c = true,
+            Beratungsprotokoll__c = true,
+            Risikobelehrung__c = true,
+            Overhead_Empf_nger__c = mb.Id,
+            beurkundeter_Kaufpreis__c = 123123.23
+        );
+        insert opp2;
+    
+        opp2.StageName = 'Geschlossene und gewonnene';
+        opp2.Notartermin__c = Date.today();
+        update opp2;
+    
+        // Create provision manually
+        Provision__c prov = new Provision__c(
+            Verkaufschance__c = opp2.Id,
+            Makler__c = opp2.Makler__c,
+            Maklerbetreuer__c = mb.OwnerId,
+            Objekt__c = opp2.Immobilie__c,
+            Wohneinheit__c = opp2.Appartement__c,
+            Kunde__c = opp2.Potenzieller_Kunde__c,
+            Kaufpreis__c = opp2.beurkundeter_Kaufpreis__c,
+            ErfolgsabhaengigeProvisionInProzent__c = 3,
+            Erfolgsabh_ngige_Provision_direkt__c = 5000,
+            ProvisionsvoraussetzungenErfuelltAm__c = Date.today().addMonths(-2)
+        );
+        insert prov;
+    
+        Test.startTest();
+        opp2.StageName = 'Geschlossen und verloren';
+        opp2.Grund_VKC_verloren__c = 'Aus TeamProQ storniert';
+        update opp2;
+        Test.stopTest();
+    
+        List<Provision__c> provs = [SELECT Id, UniqueId__c FROM Provision__c WHERE Verkaufschance__c = :opp2.Id];
+        System.assertEquals(2, provs.size(), 'There should be two provisions now: original and correction.');
+    
+        Boolean correctionExists = false;
+        for (Provision__c p : provs) {
+            if (p.UniqueId__c != null && p.UniqueId__c.contains('-correction')) {
+                correctionExists = true;
+            }
+        }
+        System.assert(correctionExists, 'Correction provision should exist.');
+    }
+    
+    
 }

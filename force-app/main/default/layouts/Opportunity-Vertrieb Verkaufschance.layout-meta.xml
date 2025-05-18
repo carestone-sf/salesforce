@@ -33,6 +33,14 @@
                 <field>Maklerbetreuer_WirtschaftsHaus__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Finanzierungsberater__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Vertriebskoordinator__c</field>
+            </layoutItems>
+            <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
@@ -46,6 +54,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>KontingentAn__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>FFireAbrechnung__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -111,6 +123,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>NotesBrokerSupervisor__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>NaechsterSchrittExtern__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -211,6 +227,10 @@
                 <behavior>Edit</behavior>
                 <field>K_uferangebot_abgegeben__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AnnahmeBisSpaetestens__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -242,6 +262,18 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>NotarterminUhrzeit__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Begleiter_Notar__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>PlannedCertification__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>BeurkundungMoeglich__c</field>
             </layoutItems>
             <layoutItems>
@@ -261,12 +293,24 @@
                 <field>PhaseFinanzierungsanfrage__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>StatusAmpel__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>LetztePhasenaenderungFA__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>BewertungAmpelFinanzierungsanfrage__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>GrundschuldIstBestellt__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>FinanzierungsvertragUnterzeichnet__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -474,6 +518,13 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ErfolgsabhaengigeProvision__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ProvisionVertriebskoordination__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>

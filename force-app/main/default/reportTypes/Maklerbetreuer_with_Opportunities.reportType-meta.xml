@@ -815,6 +815,51 @@
             <field>Account.Util_CurrentYearsProgress__c</field>
             <table>Contact</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>KundenappEinladungSenden__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Aktivierungscode__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FirebaseUserId__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PasswortZuruecksetzenCode__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ErfolgsabhaengigeMaxInProzent__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProfilfotoUrl__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LogoUrl__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ErfolgsabhaengigeProvisionInEuro__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BenutzerSimulieren__c</field>
+            <table>Contact</table>
+        </columns>
         <masterLabel>Contacts</masterLabel>
     </sections>
     <sections>
@@ -2061,6 +2106,31 @@
             <field>IncentivierungKundeGezahltAm__c</field>
             <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>KundenappStatus__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>KundenappStatusKurz__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NotarterminUhrzeit__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AnnahmeBisSpaetestens__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>OpportunityStageDuration__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
         <masterLabel>Opportunities</masterLabel>
     </sections>
     <sections>
@@ -2149,6 +2219,46 @@
             <field>ProvisionsverhandlungVorhanden__c</field>
             <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FFireAbrechnung__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>GrundschuldIstBestellt__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FinanzierungsvertragUnterzeichnet__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>StatusAmpel__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NaechsterSchrittExtern__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Vertriebskoordinator__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Finanzierungsberater__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProvisionVertriebskoordination__c</field>
+            <table>Contact.Maklerbetreuer_Wirtschaftshaus__r</table>
+        </columns>
         <masterLabel>Verkaufschancen</masterLabel>
     </sections>
     <sections>
@@ -2175,6 +2285,51 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ErhaeltErfolgsabhaengigeProvision__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NotarBewertung__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NotarBewertungAmpel__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>EinladungZumVPSenden__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VPBenutzerId__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>HatVPZugang__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VPRollen__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VPPasswortVergessenEmailSenden__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PasswortVergessenToken__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Kampagnen__c</field>
             <table>Contact</table>
         </columns>
         <masterLabel>Kontakte</masterLabel>

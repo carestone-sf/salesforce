@@ -12,757 +12,991 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Additional Costs</displayNameOverride>
             <field>Additional_Costs__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Admin Costs Increase After Years</displayNameOverride>
             <field>Admin_Costs_Increase_After_Years__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Admin Costs Increase In%</displayNameOverride>
             <field>Admin_Costs_Increase_In__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>AFA Amount</displayNameOverride>
             <field>AFA_Amount__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Afa Art</displayNameOverride>
             <field>Afa_Art__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>AFA Einrichtung €</displayNameOverride>
             <field>AFA_Einrichtung__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>AFA Photovoltaic</displayNameOverride>
             <field>AFA_Photovoltaic__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>AFA Total</displayNameOverride>
             <field>AFA_Total__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Ancillary Costs Monthly</displayNameOverride>
             <field>Ancillary_Costs_Monthly__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Appartment Name</displayNameOverride>
             <field>Name</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>AppartmntId</displayNameOverride>
             <field>AppartmntId__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Area (sq.m)</displayNameOverride>
             <field>Area_sq_m__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Art</displayNameOverride>
             <field>Art__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Art des Kontingents</displayNameOverride>
             <field>Art_des_Kontingents__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Bettenanzahl</displayNameOverride>
             <field>Bettenanzahl__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>beurkundeter Kaufpreis</displayNameOverride>
             <field>beurkundeter_Kaufpreis__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Beurkundung</displayNameOverride>
             <field>Beurkundung__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Comment</displayNameOverride>
             <field>Comment__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Commission Rate (%)</displayNameOverride>
             <field>Commission_Rate__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Cost Admin</displayNameOverride>
             <field>Cost_Admin__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created By</displayNameOverride>
             <field>CreatedBy</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created Date</displayNameOverride>
             <field>CreatedDate</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Customer</displayNameOverride>
             <field>Customer__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Date Of Purchase</displayNameOverride>
             <field>Date_Of_Purchase__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Date Of Transfer Of Ownership</displayNameOverride>
             <field>Date_Of_Transfer_Of_Ownership__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Depreciation Start</displayNameOverride>
             <field>Depreciation_Start__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Depreciation Value</displayNameOverride>
             <field>Depreciation_Value__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Description</displayNameOverride>
             <field>Description__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Device (% AFA)</displayNameOverride>
             <field>Device_AFA__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Erbauzins  Monat</displayNameOverride>
             <field>Erbauzins_Monat__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Erbbauzins</displayNameOverride>
             <field>Erbbauzins__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Erbbauzinssteigerung nach Jahren</displayNameOverride>
             <field>Erbbauzinssteigerung_nach_Jahren__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Erbbauzinssteigerung um %</displayNameOverride>
             <field>Erbbauzinssteigerung_um__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Ertrag CS</displayNameOverride>
             <field>Ertrag_WH__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>External ID</displayNameOverride>
             <field>External_ID__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Financing Costs (%)</displayNameOverride>
             <field>Financing_Costs__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Finanzierung</displayNameOverride>
             <field>Finanzierung__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Grundprovision</displayNameOverride>
             <field>Grundprovision__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Increase In Value</displayNameOverride>
             <field>Increase_In_Value__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Increase in Value For Years</displayNameOverride>
             <field>Increase_in_Value_For_Years__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Increase In Value In%</displayNameOverride>
             <field>Increase_In_Value_In__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Instandhaltungskostenst. (%)</displayNameOverride>
             <field>Instandhaltungskostenst_percent__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Instandhaltungskostenst. nach Jahren</displayNameOverride>
             <field>Instandhaltung__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kaufpreis gezahlt am</displayNameOverride>
             <field>Kaufpreis_gezahlt_am__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kosten Provision inkl Rabatt</displayNameOverride>
             <field>Kosten_Provision_inkl_Rabatt__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kumulierte Provision</displayNameOverride>
             <field>Kumulierte_Provision__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kumulierte Provision extern</displayNameOverride>
             <field>Kumulierte_Provision_extern__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kumulierte Provision intern</displayNameOverride>
             <field>Kumulierte_Provision_intern__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kumulierte Provision quasi extern</displayNameOverride>
             <field>Kumulierte_Provision_quasi_extern__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Land (% AFA)</displayNameOverride>
             <field>Land_AFA__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Land Value (%)</displayNameOverride>
             <field>Land_Value__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified By</displayNameOverride>
             <field>LastModifiedBy</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified Date</displayNameOverride>
             <field>LastModifiedDate</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Maintenance sqm</displayNameOverride>
             <field>Maintenance_sqm__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Makler</displayNameOverride>
             <field>Makler__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Maklerbetreuer Carestone</displayNameOverride>
             <field>Maklerbetreuer_Wirtschaftshaus__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Maklerbetreuer Carestone</displayNameOverride>
             <field>Maklerbetreuer_WirtschaftsHaus_lookup__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Maklercourtage</displayNameOverride>
             <field>Maklercourtage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>MarkedForReservation</displayNameOverride>
             <field>MarkedForReservation__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Miete Photovoltaik Anlage</displayNameOverride>
             <field>Miete_Photovoltaik_Anlage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Endkundenrendite Plan</displayNameOverride>
             <field>Rental_return__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Monatsbetrag Pro  qm</displayNameOverride>
             <field>Monatsbetrag_Pro_qm__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Monthly Rent</displayNameOverride>
             <field>Monthly_Rent__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Monthly rent (sq m)</displayNameOverride>
             <field>Monthly_rent_sq_m__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Nachname Kunde</displayNameOverride>
             <field>Nachname_Kunde__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Nachname Makler</displayNameOverride>
             <field>Nachname_Makler__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Net asset value (%)</displayNameOverride>
             <field>Net_asset_value__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Net Asset Value (% AFA)</displayNameOverride>
             <field>Net_Asset_Value_AFA__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Notartermin</displayNameOverride>
             <field>Notartermin__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Notar und Gerichtskosten (2,5%)</displayNameOverride>
             <field>Notary_And_Court_Costs_1_5__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opt. Zusatzkosten auf Kaufpreis addieren</displayNameOverride>
             <field>Opt_Zusatzkosten_auf_Kaufpreis_addieren__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Other Fees</displayNameOverride>
             <field>Other_Fees__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Outdoor (% AFA)</displayNameOverride>
             <field>Outdoor_AFA__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Payment Start</displayNameOverride>
             <field>Payment_Start__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Processing Fee</displayNameOverride>
             <field>Processing_Fee__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Property</displayNameOverride>
             <field>Property__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Provisionsbasis</displayNameOverride>
             <field>Provisionsbasis__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Provisionssumme</displayNameOverride>
             <field>Provisionssumme__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Purchase Price</displayNameOverride>
             <field>Purchase_Price__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Purchase Price (sq.m)</displayNameOverride>
             <field>Purchase_Price_sq_m__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rabatt</displayNameOverride>
             <field>Rabatt_in__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rabatt bis</displayNameOverride>
             <field>Rabatt_bis__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Real Estate Transfer Tax</displayNameOverride>
             <field>Real_Estate_Transfer_Tax__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rental return (%)</displayNameOverride>
             <field>Rental_return_old__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rental Share Introductory Phase (%)</displayNameOverride>
             <field>Rental_Share_Introductory_Phase__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rental Start</displayNameOverride>
             <field>Rental_Start__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rental Status</displayNameOverride>
             <field>Rental_Status__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rent Increase</displayNameOverride>
             <field>Rent_Increase__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rent Increase1</displayNameOverride>
             <field>Rent_Increase1__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rent Increase After Years</displayNameOverride>
             <field>Rent_Increase_After_Years__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rent Increase In%</displayNameOverride>
             <field>Rent_Increase_In__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rent Parking Space</displayNameOverride>
             <field>Rent_Parking_Space__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rent Per Month</displayNameOverride>
             <field>Rent_Per_Month__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Repayment Beginning</displayNameOverride>
             <field>Repayment_Beginning__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Reserviert bis</displayNameOverride>
             <field>Reserviert_bis__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Room No</displayNameOverride>
             <field>Room_No__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Start Of Rental</displayNameOverride>
             <field>Start_Of_Rental__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Status</displayNameOverride>
             <field>Status__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Status Reason</displayNameOverride>
             <field>Status_Reason__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Surcharges  Description</displayNameOverride>
             <field>Surcharges_Description__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt ID</displayNameOverride>
             <field>Id</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Updated</displayNameOverride>
             <field>Updated__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Value Furniture</displayNameOverride>
             <field>Value_Furniture__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Value of OIutdoor (%)</displayNameOverride>
             <field>Value_of_OIutdoor__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Value of Parking Space</displayNameOverride>
             <field>Value_of_Parking_Space__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Value Parking Space</displayNameOverride>
             <field>Value_Parking_Space__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Value Preservation (%)</displayNameOverride>
             <field>Value_Preservation__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Value Unit (%)</displayNameOverride>
             <field>Value_Unit__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Verkaufsprovision</displayNameOverride>
             <field>Verkaufsprovision__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Vorname Makler</displayNameOverride>
             <field>Vorname_makler__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Wert Einrichtung in €</displayNameOverride>
             <field>Wert_Einrichtung_in_Euro__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Wert Küche</displayNameOverride>
             <field>Wert_K_che__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Wert Photovoltaik Anlage</displayNameOverride>
             <field>Wert_Photovoltaik_Anlage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Zimmerart</displayNameOverride>
             <field>Zimmerart__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : Property : Immobiliennummer</displayNameOverride>
             <field>Property__c.Objektnummer__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : Property : VoBa Finanzierung</displayNameOverride>
             <field>Property__c.VoBaFinanzierung__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Apartment Nummer</displayNameOverride>
             <field>ApartmentNummer__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kaufpreis (Formel)</displayNameOverride>
             <field>KaufpreisFormel__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>MaBV abgerechnet</displayNameOverride>
             <field>MaBVAbgerechnet__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>MaBV Bezahlt</displayNameOverride>
             <field>MaBVBezahlt__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Offener Betrag</displayNameOverride>
             <field>OffenerBetrag__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Bezahlt</displayNameOverride>
             <field>Bezahlt__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>VKC-Phase</displayNameOverride>
             <field>VKC_Phase__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Additional Broker Commission</displayNameOverride>
             <field>AdditionalBrokerCommission__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Contingent Requester</displayNameOverride>
             <field>ContingentRequester__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>1. MaBV Rechnung</displayNameOverride>
             <field>FirstMabvInvoice__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>2. MaBV Rechnung</displayNameOverride>
             <field>SecondMabvInvoice__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>3. MaBV Rechnung</displayNameOverride>
             <field>ThirdMabvInvoice__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>4. MaBV Rechnung</displayNameOverride>
             <field>FourthMabvInvoice__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>5. MaBV Rechnung</displayNameOverride>
             <field>FifthMabvInvoice__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>6. MaBV Rechnung</displayNameOverride>
             <field>SixthMabvInvoice__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>7. MaBV Rechnung</displayNameOverride>
             <field>SeventhMabvInvoice__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 2. MaBV Rechnung : Zahlungsziel Datum</displayNameOverride>
             <field>SecondMabvInvoice__c.ZahlungszielDatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Bewertung Finanzierungsanfrage</displayNameOverride>
             <field>BewertungFinanzierungsanfrage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Bewertung FA (Ampel)</displayNameOverride>
             <field>BewertungAmpelFinanzierungsanfrage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Phase Finanzierungsanfrage</displayNameOverride>
             <field>PhaseFinanzierungsanfrage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Letzte Phasenänderung FA</displayNameOverride>
             <field>LetztePhasenaenderungFA__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rendite Formel VP</displayNameOverride>
             <field>RentalReturnFormulaVP__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Beurkundung möglich</displayNameOverride>
             <field>BeurkundungMoeglich__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>BZA vorhanden</displayNameOverride>
             <field>BZAVorhanden__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Mindestabgabepreis in Euro</displayNameOverride>
             <field>Mindestabgabepreis__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kaufpreis Ist</displayNameOverride>
             <field>KaufpreisIst__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Incentivierung Makler USt</displayNameOverride>
             <field>IncentivierungMaklerUSt__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Incentivierung Makler Brutto</displayNameOverride>
             <field>IncentivierungMaklerBrutto__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Marketingzuschuss Netto</displayNameOverride>
             <field>MarketingzuschussNetto__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Marketingzuschuss USt</displayNameOverride>
             <field>MarketingzuschussUSt__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Marketingzuschuss Brutto</displayNameOverride>
             <field>MarketingzuschussBrutto__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Maklerprovision Netto</displayNameOverride>
             <field>MaklerprovisionNetto__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Maklerprovision USt</displayNameOverride>
             <field>MaklerprovisionUSt__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Maklerprovision Brutto</displayNameOverride>
             <field>MaklerprovisionBrutto__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Endkundenrendite Ist</displayNameOverride>
             <field>EndkundenrenditeIst__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Extern nicht anzeigen</displayNameOverride>
+            <field>ExternNichtAnzeigen__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Gesicherte KfW-Mittel</displayNameOverride>
+            <field>GesicherteKfWMittel__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Accountname</displayNameOverride>
+            <field>Accountname__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Mindestabgabepreis in %</displayNameOverride>
+            <field>MindestabgabepreisInProzent__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : Property : Geplanter Vertriebsstart am</displayNameOverride>
+            <field>Property__c.GeplanterVertriebsstartAm__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : Property : Vertriebsstart</displayNameOverride>
+            <field>Property__c.Beurkundbar_ab__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Grundschuld ist bestellt</displayNameOverride>
+            <field>GrundschuldIstBestellt__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Finanzierungsvertrag unterzeichnet</displayNameOverride>
+            <field>FinanzierungsvertragUnterzeichnet__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Status FA</displayNameOverride>
+            <field>StatusAmpel__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Davon verkauft (€)</displayNameOverride>
+            <field>SoldFor__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Davon bezahlt (€)</displayNameOverride>
+            <field>PaidAmount__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Abgerechnet, nicht Bezahlt (€)</displayNameOverride>
+            <field>BilledNotPaid__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Verkauft, nicht abgerechnet (€)</displayNameOverride>
+            <field>SoldNotBilled__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CurrentMaBVRate__c</field>
             <table>Appartment__c</table>
         </columns>
         <masterLabel>Teilobjekte</masterLabel>
@@ -770,382 +1004,542 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 1. MaBV Rechnung : Bezahlt</displayNameOverride>
             <field>FirstMabvInvoice__c.Bezahlt__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 1. MaBV Rechnung : Offener Betrag (neu)</displayNameOverride>
             <field>FirstMabvInvoice__c.OffenerBetragNeu__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 2. MaBV Rechnung : Bezahlt</displayNameOverride>
             <field>SecondMabvInvoice__c.Bezahlt__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 2. MaBV Rechnung : Offener Betrag (neu)</displayNameOverride>
             <field>SecondMabvInvoice__c.OffenerBetragNeu__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 3. MaBV Rechnung : Bezahlt</displayNameOverride>
             <field>ThirdMabvInvoice__c.Bezahlt__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 3. MaBV Rechnung : Offener Betrag (neu)</displayNameOverride>
             <field>ThirdMabvInvoice__c.OffenerBetragNeu__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 4. MaBV Rechnung : Bezahlt</displayNameOverride>
             <field>FourthMabvInvoice__c.Bezahlt__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 4. MaBV Rechnung : Offener Betrag (neu)</displayNameOverride>
             <field>FourthMabvInvoice__c.OffenerBetragNeu__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 5. MaBV Rechnung : Bezahlt</displayNameOverride>
             <field>FifthMabvInvoice__c.Bezahlt__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 5. MaBV Rechnung : Offener Betrag (neu)</displayNameOverride>
             <field>FifthMabvInvoice__c.OffenerBetragNeu__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 6. MaBV Rechnung : Bezahlt</displayNameOverride>
             <field>SixthMabvInvoice__c.Bezahlt__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 6. MaBV Rechnung : Offener Betrag (neu)</displayNameOverride>
             <field>SixthMabvInvoice__c.OffenerBetragNeu__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 7. MaBV Rechnung : Bezahlt</displayNameOverride>
             <field>SeventhMabvInvoice__c.Bezahlt__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 7. MaBV Rechnung : Offener Betrag (neu)</displayNameOverride>
             <field>SeventhMabvInvoice__c.OffenerBetragNeu__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 7. MaBV Rechnung : Zahldatum</displayNameOverride>
             <field>SeventhMabvInvoice__c.Zahldatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 1. MaBV Rechnung : Rechnungsdatum</displayNameOverride>
             <field>FirstMabvInvoice__c.Rechnungsdatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 1. MaBV Rechnung : Sicherheit (plus) in %</displayNameOverride>
             <field>FirstMabvInvoice__c.SicherheitPlusInPercentage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 1. MaBV Rechnung : Sicherheitseinbehalt in %</displayNameOverride>
             <field>FirstMabvInvoice__c.SicherheitseinbehaltInPercentage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 1. MaBV Rechnung : Leistung</displayNameOverride>
             <field>FirstMabvInvoice__c.Leistung__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 1. MaBV Rechnung : Rate gesamt in Euro</displayNameOverride>
             <field>FirstMabvInvoice__c.RateGesamtInEuro__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 1. MaBV Rechnung : Anzahl Zahlungen</displayNameOverride>
             <field>FirstMabvInvoice__c.AnzahlZahlungen__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 2. MaBV Rechnung : Anzahl Zahlungen</displayNameOverride>
             <field>SecondMabvInvoice__c.AnzahlZahlungen__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 2. MaBV Rechnung : Sicherheit (plus) in %</displayNameOverride>
             <field>SecondMabvInvoice__c.SicherheitPlusInPercentage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 2. MaBV Rechnung : Sicherheitseinbehalt in %</displayNameOverride>
             <field>SecondMabvInvoice__c.SicherheitseinbehaltInPercentage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 2. MaBV Rechnung : Leistung</displayNameOverride>
             <field>SecondMabvInvoice__c.Leistung__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 2. MaBV Rechnung : MaBV Rechnung-Name</displayNameOverride>
             <field>SecondMabvInvoice__c.Name</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 2. MaBV Rechnung : Rate gesamt in Euro</displayNameOverride>
             <field>SecondMabvInvoice__c.RateGesamtInEuro__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 2. MaBV Rechnung : Rechnungsdatum</displayNameOverride>
             <field>SecondMabvInvoice__c.Rechnungsdatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 2. MaBV Rechnung : Zahldatum</displayNameOverride>
             <field>SecondMabvInvoice__c.Zahldatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 1. MaBV Rechnung : Zahldatum</displayNameOverride>
             <field>FirstMabvInvoice__c.Zahldatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 1. MaBV Rechnung : Zahlungsziel Datum</displayNameOverride>
             <field>FirstMabvInvoice__c.ZahlungszielDatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 1. MaBV Rechnung : MaBV Rechnung-Name</displayNameOverride>
             <field>FirstMabvInvoice__c.Name</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 3. MaBV Rechnung : Leistung</displayNameOverride>
             <field>ThirdMabvInvoice__c.Leistung__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 3. MaBV Rechnung : MaBV Rechnung-Name</displayNameOverride>
             <field>ThirdMabvInvoice__c.Name</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 3. MaBV Rechnung : Rate gesamt in Euro</displayNameOverride>
             <field>ThirdMabvInvoice__c.RateGesamtInEuro__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 3. MaBV Rechnung : Rechnungsdatum</displayNameOverride>
             <field>ThirdMabvInvoice__c.Rechnungsdatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 3. MaBV Rechnung : Sicherheit (plus) in %</displayNameOverride>
             <field>ThirdMabvInvoice__c.SicherheitPlusInPercentage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 3. MaBV Rechnung : Sicherheitseinbehalt in %</displayNameOverride>
             <field>ThirdMabvInvoice__c.SicherheitseinbehaltInPercentage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 3. MaBV Rechnung : Zahldatum</displayNameOverride>
             <field>ThirdMabvInvoice__c.Zahldatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 3. MaBV Rechnung : Zahlungsziel Datum</displayNameOverride>
             <field>ThirdMabvInvoice__c.ZahlungszielDatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 4. MaBV Rechnung : Zahlungsziel Datum</displayNameOverride>
             <field>FourthMabvInvoice__c.ZahlungszielDatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 4. MaBV Rechnung : Zahldatum</displayNameOverride>
             <field>FourthMabvInvoice__c.Zahldatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 4. MaBV Rechnung : Sicherheitseinbehalt in %</displayNameOverride>
             <field>FourthMabvInvoice__c.SicherheitseinbehaltInPercentage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 4. MaBV Rechnung : Sicherheit (plus) in %</displayNameOverride>
             <field>FourthMabvInvoice__c.SicherheitPlusInPercentage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 4. MaBV Rechnung : Rechnungsdatum</displayNameOverride>
             <field>FourthMabvInvoice__c.Rechnungsdatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 4. MaBV Rechnung : Rate gesamt in Euro</displayNameOverride>
             <field>FourthMabvInvoice__c.RateGesamtInEuro__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 4. MaBV Rechnung : MaBV Rechnung-Name</displayNameOverride>
             <field>FourthMabvInvoice__c.Name</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 4. MaBV Rechnung : Leistung</displayNameOverride>
             <field>FourthMabvInvoice__c.Leistung__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 5. MaBV Rechnung : Zahlungsziel Datum</displayNameOverride>
             <field>FifthMabvInvoice__c.ZahlungszielDatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 5. MaBV Rechnung : Zahldatum</displayNameOverride>
             <field>FifthMabvInvoice__c.Zahldatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 5. MaBV Rechnung : Sicherheitseinbehalt in %</displayNameOverride>
             <field>FifthMabvInvoice__c.SicherheitseinbehaltInPercentage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 5. MaBV Rechnung : Sicherheit (plus) in %</displayNameOverride>
             <field>FifthMabvInvoice__c.SicherheitPlusInPercentage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 5. MaBV Rechnung : Rechnungsdatum</displayNameOverride>
             <field>FifthMabvInvoice__c.Rechnungsdatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 5. MaBV Rechnung : Rate gesamt in Euro</displayNameOverride>
             <field>FifthMabvInvoice__c.RateGesamtInEuro__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 5. MaBV Rechnung : MaBV Rechnung-Name</displayNameOverride>
             <field>FifthMabvInvoice__c.Name</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 5. MaBV Rechnung : Leistung</displayNameOverride>
             <field>FifthMabvInvoice__c.Leistung__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 5. MaBV Rechnung : Anzahl Zahlungen</displayNameOverride>
             <field>FifthMabvInvoice__c.AnzahlZahlungen__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 3. MaBV Rechnung : Anzahl Zahlungen</displayNameOverride>
             <field>ThirdMabvInvoice__c.AnzahlZahlungen__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 4. MaBV Rechnung : Anzahl Zahlungen</displayNameOverride>
             <field>FourthMabvInvoice__c.AnzahlZahlungen__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 6. MaBV Rechnung : Anzahl Zahlungen</displayNameOverride>
             <field>SixthMabvInvoice__c.AnzahlZahlungen__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 6. MaBV Rechnung : Zahlungsziel Datum</displayNameOverride>
             <field>SixthMabvInvoice__c.ZahlungszielDatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 6. MaBV Rechnung : Zahldatum</displayNameOverride>
             <field>SixthMabvInvoice__c.Zahldatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 6. MaBV Rechnung : Sicherheitseinbehalt in %</displayNameOverride>
             <field>SixthMabvInvoice__c.SicherheitseinbehaltInPercentage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 6. MaBV Rechnung : Sicherheit (plus) in %</displayNameOverride>
             <field>SixthMabvInvoice__c.SicherheitPlusInPercentage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 6. MaBV Rechnung : Rechnungsdatum</displayNameOverride>
             <field>SixthMabvInvoice__c.Rechnungsdatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 6. MaBV Rechnung : Rate gesamt in Euro</displayNameOverride>
             <field>SixthMabvInvoice__c.RateGesamtInEuro__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 6. MaBV Rechnung : MaBV Rechnung-Name</displayNameOverride>
             <field>SixthMabvInvoice__c.Name</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 6. MaBV Rechnung : Leistung</displayNameOverride>
             <field>SixthMabvInvoice__c.Leistung__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 7. MaBV Rechnung : Anzahl Zahlungen</displayNameOverride>
             <field>SeventhMabvInvoice__c.AnzahlZahlungen__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 7. MaBV Rechnung : Zahlungsziel Datum</displayNameOverride>
             <field>SeventhMabvInvoice__c.ZahlungszielDatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 7. MaBV Rechnung : Sicherheitseinbehalt in %</displayNameOverride>
             <field>SeventhMabvInvoice__c.SicherheitseinbehaltInPercentage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 7. MaBV Rechnung : Sicherheit (plus) in %</displayNameOverride>
             <field>SeventhMabvInvoice__c.SicherheitPlusInPercentage__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 7. MaBV Rechnung : Rechnungsdatum</displayNameOverride>
             <field>SeventhMabvInvoice__c.Rechnungsdatum__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 7. MaBV Rechnung : Rate gesamt in Euro</displayNameOverride>
             <field>SeventhMabvInvoice__c.RateGesamtInEuro__c</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 7. MaBV Rechnung : MaBV Rechnung-Name</displayNameOverride>
             <field>SeventhMabvInvoice__c.Name</field>
             <table>Appartment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teilobjekt : 7. MaBV Rechnung : Leistung</displayNameOverride>
             <field>SeventhMabvInvoice__c.Leistung__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>1. MaBV Rechnung : Storniert</displayNameOverride>
+            <field>FirstMabvInvoice__c.Storniert__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>2. MaBV Rechnung : Storniert</displayNameOverride>
+            <field>SecondMabvInvoice__c.Storniert__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>3. MaBV Rechnung : Storniert</displayNameOverride>
+            <field>ThirdMabvInvoice__c.Storniert__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>4. MaBV Rechnung : Storniert</displayNameOverride>
+            <field>FourthMabvInvoice__c.Storniert__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>5. MaBV Rechnung : Storniert</displayNameOverride>
+            <field>FifthMabvInvoice__c.Storniert__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>6. MaBV Rechnung : Storniert</displayNameOverride>
+            <field>SixthMabvInvoice__c.Storniert__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>7. MaBV Rechnung : Storniert</displayNameOverride>
+            <field>SeventhMabvInvoice__c.Storniert__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>1. MaBV Rechnung : Offener Betrag (Report)</displayNameOverride>
+            <field>FirstMabvInvoice__c.OpenSum__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>2. MaBV Rechnung : Offener Betrag (Report)</displayNameOverride>
+            <field>SecondMabvInvoice__c.OpenSum__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>3. MaBV Rechnung : Offener Betrag (Report)</displayNameOverride>
+            <field>ThirdMabvInvoice__c.OpenSum__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>4. MaBV Rechnung : Offener Betrag (Report)</displayNameOverride>
+            <field>FourthMabvInvoice__c.OpenSum__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>5. MaBV Rechnung : Offener Betrag (Report)</displayNameOverride>
+            <field>FifthMabvInvoice__c.OpenSum__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>6. MaBV Rechnung : Offener Betrag (Report)</displayNameOverride>
+            <field>SixthMabvInvoice__c.OpenSum__c</field>
+            <table>Appartment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>7. MaBV Rechnung : Offener Betrag (Report)</displayNameOverride>
+            <field>SeventhMabvInvoice__c.OpenSum__c</field>
             <table>Appartment__c</table>
         </columns>
         <masterLabel>MaBV Rechnungen</masterLabel>
@@ -1153,1097 +1547,1346 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>1. MaBV Rate gezahlt</displayNameOverride>
             <field>X1_MaBV_Rate_gezahlt__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>2. Käufer</displayNameOverride>
             <field>Kunde2__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Abgebender Notar</displayNameOverride>
             <field>Abgebender_Notar__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Abrechnung über</displayNameOverride>
             <field>Abrechnung_ber__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Abrechnung über ID</displayNameOverride>
             <field>Abrechnung_ber_ID__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Abrechnung über nur für Grundprovision</displayNameOverride>
             <field>AbrechnungUeberNurFuerGrundprovision__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Abweichende Grundprovision</displayNameOverride>
             <field>Abweichende_Grundprovision__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Abweichender Käufer laut Vertrag</displayNameOverride>
             <field>K_ufer__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Beratungsprovision</displayNameOverride>
             <field>Abweichende_Verkaufsprovision__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>AccountId Abrechnung über</displayNameOverride>
             <field>AccountIdAbrechnungUeber__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>AccountId Immobilienberater</displayNameOverride>
             <field>AccountIdImmobilienberater__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Account Name</displayNameOverride>
             <field>Account</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Adresse des Kunden</displayNameOverride>
             <field>Adresse_des_Kunden__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Adresse des Maklers</displayNameOverride>
             <field>Adresse_des_Maklers__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Alle Unterlagen vorhanden</displayNameOverride>
             <field>Alle_Unterlagen_vorhanden__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Amount</displayNameOverride>
             <field>Amount</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Angebotsabgabe</displayNameOverride>
             <field>Angebotsabgabe__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Ansprechpartner</displayNameOverride>
             <field>Ansprechpartner_del__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Begleiter Notar</displayNameOverride>
             <field>Begleiter_Notar__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Belastung pro Monat</displayNameOverride>
             <field>Belastung_pro_Monat__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Bemerkung intern</displayNameOverride>
             <field>Bemerkung_intern__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Bemerkung Provision</displayNameOverride>
             <field>Bemerkung_Provision__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Berater text</displayNameOverride>
             <field>Berater_text__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Beratung durch intern</displayNameOverride>
             <field>Verkaufsprovision_intern__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Beratung durch Makler</displayNameOverride>
             <field>Verkaufsprovision_Makler__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Beratungsprotokoll</displayNameOverride>
             <field>Beratungsprotokoll__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Beratungstermin</displayNameOverride>
             <field>Beratungstermin__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Besichtigungstermin</displayNameOverride>
             <field>Besichtigungstermin__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Beurkundbar ab</displayNameOverride>
             <field>Beurkundbar_ab__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>beurkundeter Kaufpreis</displayNameOverride>
             <field>beurkundeter_Kaufpreis__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Beurkundung</displayNameOverride>
             <field>Beurkundung__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Closed</displayNameOverride>
             <field>IsClosed</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Close Date</displayNameOverride>
             <field>CloseDate</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Contact</displayNameOverride>
             <field>Contact</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Contract</displayNameOverride>
             <field>Contract</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created By</displayNameOverride>
             <field>CreatedBy</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created Date</displayNameOverride>
             <field>CreatedDate</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>CS Rabatt in €</displayNameOverride>
             <field>WH_Rabatt_in__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>CS Rabatt in %</displayNameOverride>
             <field>WH_Rabatt_in_P__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Datum 1. MaBV Rate gezahlt</displayNameOverride>
             <field>Datum_1_MaBV_Rate_gezahlt__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Datum Beratungsprotokoll</displayNameOverride>
             <field>Datum_Beratungsprotokoll__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Datum Eingang EK-Nachweis</displayNameOverride>
             <field>Datum_Eingang_EK_Nachweis__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Datum Finanzierung oder Eigenkapitalnach</displayNameOverride>
             <field>Datum_Finanzierung_oder_Eigenkapitalnach__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Datum Kaufpreis bezahlt</displayNameOverride>
             <field>Datum_Kaufpreis_bezahlt__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Datum Kaufpreisfälligkeitsschreiben</displayNameOverride>
             <field>Datum_Kaufpreisf_lligkeitsschreiben__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Datum KP-Fälligkeit gem. KV</displayNameOverride>
             <field>Datum_KP_F_lligkeit_gem_KV__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Datum Risikobelehrung</displayNameOverride>
             <field>Datum_Risikobelehrung__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Datum Status Finanzierung</displayNameOverride>
             <field>Datum_Status_Finanzierung__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Datum Urkunde mit Finanzierung</displayNameOverride>
             <field>DatumUrkundeMitFinanzierung__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Description</displayNameOverride>
             <field>Description</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>EK-Nachweis liegt vor</displayNameOverride>
             <field>Nachweis_Barzahler__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Erfolgsabhängige Provision</displayNameOverride>
             <field>ErfolgsabhaengigeProvision__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Expected Revenue</displayNameOverride>
             <field>ExpectedRevenue</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Externe Provisionen generiert</displayNameOverride>
             <field>ExterneProvisionenGeneriert__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>FB Bank liegt vor</displayNameOverride>
             <field>Finanzierung_oder_Eigenkapitalnachweis__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>FB CS liegt vor</displayNameOverride>
             <field>FiBe_CS__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Finanzierer</displayNameOverride>
             <field>Finanzierer__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Finanzierung</displayNameOverride>
             <field>Finanzierung__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Finanzierungsnachweis</displayNameOverride>
             <field>Finanzierungsnachweis__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Forecast Category</displayNameOverride>
             <field>ForecastCategoryName</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Grundprovision</displayNameOverride>
             <field>Maklerprovision__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Grundprovision nach Nachtrag</displayNameOverride>
             <field>Maklerprovision_nach_Nachtrag__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Grundprovision Provisionsverhandlung</displayNameOverride>
             <field>Grundprovision_Provisionsverhandlung__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Grund Verlängerung</displayNameOverride>
             <field>Grund_Verl_ngerung__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Grund VKC verloren</displayNameOverride>
             <field>Grund_VKC_verloren__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>GS bestellt</displayNameOverride>
             <field>GS_bestellt__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Has Line Item</displayNameOverride>
             <field>HasOpportunityLineItem</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Immobilie (alt)</displayNameOverride>
             <field>Immobilie_makler__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Immobilie</displayNameOverride>
             <field>Immobilie__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Immobilienberater</displayNameOverride>
             <field>Immobilienberater__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Immobilienberater ist intern</displayNameOverride>
             <field>ImmobilienberaterIstIntern__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Interne Provisionen generiert</displayNameOverride>
             <field>InterneProvisionenGeneriert__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Interne Provisionen neu generieren</displayNameOverride>
             <field>InterneProvisionenNeuGenerieren__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Split</displayNameOverride>
             <field>IsSplit</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Ist öffentlich</displayNameOverride>
             <field>Ist_ffentlich__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kaufdatum</displayNameOverride>
             <field>Kaufdatum__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Käufer</displayNameOverride>
             <field>Potenzieller_Kunde__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Käuferangebot abgegeben</displayNameOverride>
             <field>K_uferangebot_abgegeben__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kaufpreis bezahlt</displayNameOverride>
             <field>Kaufpreis_bezahlt__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kaufpreis fällig</displayNameOverride>
             <field>Kaufpreis_f_llig__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kaufpreis hälftig bezahlt</displayNameOverride>
             <field>Kaufpreis_h_lftig_bezahlt__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kaufpreis Kunde</displayNameOverride>
             <field>Kaufpreis_Kunde__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kaufvertragsangebot abgegeben</displayNameOverride>
             <field>Kaufvertrag_abgegeben__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kaufvertragsangebot abgegeben Controll</displayNameOverride>
             <field>Kaufvertragsangebot_abgegeben_Controll__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kaufvertragsangebot angenommen</displayNameOverride>
             <field>Kaufvertrag_angenommen__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kaufvertragsunterlagen verschickt</displayNameOverride>
             <field>Kaufvertragsangebot_verschickt__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kaufvertragsunterlagen verschickt Contro</displayNameOverride>
             <field>VKC_Kaufvertragsunterlagen_verschickt_Co__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kaufvertragsunterlagen v Notar versendet</displayNameOverride>
             <field>Kaufvertragsunterlagen_v_Notar_versendet__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Keine MaBV Rechnung generieren</displayNameOverride>
             <field>KeineMaBVRechnungGenerieren__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>KfW</displayNameOverride>
             <field>KfW__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kontingent an:</displayNameOverride>
             <field>KontingentAn__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kumulierte Provision</displayNameOverride>
             <field>KumulierteProvision__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kumulierte Provision extern</displayNameOverride>
             <field>KumulierteProvisionExtern__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>KV eingegangen</displayNameOverride>
             <field>KV_eingegangen__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>KV eingegangen Datum</displayNameOverride>
             <field>KV_eingegangen_Datum__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Activity</displayNameOverride>
             <field>LastActivityDate</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified By</displayNameOverride>
             <field>LastModifiedBy</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified Date</displayNameOverride>
             <field>LastModifiedDate</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Stage Change Date</displayNameOverride>
             <field>LastStageChangeDate</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Lead Source</displayNameOverride>
             <field>LeadSource</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Letztes Phasenupdate am</displayNameOverride>
             <field>Letztes_Phasenupdate_am__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Listenpreis</displayNameOverride>
             <field>Kaufpreis__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>MaBV</displayNameOverride>
             <field>MaBV__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Makler</displayNameOverride>
             <field>Makler__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Maklerbetreuer Carestone</displayNameOverride>
             <field>Maklerbetreuer_WirtschaftsHaus__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>MaklerBetreuer E-Mail</displayNameOverride>
             <field>MaklerBetreuer_E_Mail__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Makler E-Mail</displayNameOverride>
             <field>Makler_E_Mail__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Makler ist intern</displayNameOverride>
             <field>MaklerIstIntern__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Maklerrabatt in €</displayNameOverride>
             <field>Maklerrabatt_in__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Maklerrabatt in %</displayNameOverride>
             <field>Rabatt_in__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Marketingzuschuss</displayNameOverride>
             <field>Marketingzuschuss__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Next Step</displayNameOverride>
             <field>NextStep</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Notar Formel</displayNameOverride>
             <field>Notar_Formel__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Notartermin</displayNameOverride>
             <field>Notartermin__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Notizen</displayNameOverride>
             <field>Notizen__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Objektart</displayNameOverride>
             <field>Objektart__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Online Reservierung</displayNameOverride>
             <field>Online_Reservierung__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity ID</displayNameOverride>
             <field>Id</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Opportunity Name</displayNameOverride>
             <field>Name</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity Owner</displayNameOverride>
             <field>Owner</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Overhead</displayNameOverride>
             <field>Overhead__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Overhead Empfänger</displayNameOverride>
             <field>Overhead_Empf_nger__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Partner Account</displayNameOverride>
             <field>PartnerAccount</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Phase Formel</displayNameOverride>
             <field>PhaseFormel__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Phase Genau</displayNameOverride>
             <field>Phase_Genau__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Phasendauer</displayNameOverride>
             <field>Phasendauer__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Price Book</displayNameOverride>
             <field>Pricebook2</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Primary Campaign Source</displayNameOverride>
             <field>Campaign</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Primary Partner Account</displayNameOverride>
             <field>PrimaryPartnerAccount</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Private</displayNameOverride>
             <field>IsPrivate</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Probability (%)</displayNameOverride>
             <field>Probability</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Projektbeauftragte</displayNameOverride>
             <field>Projektbeauftragte__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Provision</displayNameOverride>
             <field>Provision__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Provision Finanzierung</displayNameOverride>
             <field>Provision_Thoben__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Provision inkl. Rabatt auf Listenpreis</displayNameOverride>
             <field>Kumulierte_Provision_neu__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Provisionsbasis</displayNameOverride>
             <field>Provisionsbasis__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Provisionssumme</displayNameOverride>
             <field>Provisionssumme__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Provisionsvoraussetzungen erfüllt</displayNameOverride>
             <field>ProvisionsvoraussetzungenErfuellt__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>PV - 1. MaBV Rate</displayNameOverride>
             <field>PV1MaBVRate__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>PV - Beratungsprotokoll</displayNameOverride>
             <field>PVBeratungsprotokoll__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>PV - FB / EK / Urkunde mit Finanzierung</displayNameOverride>
             <field>PVFbEkUrkundeMitFinanzierung__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>PV - Kaufpreiszahlung</displayNameOverride>
             <field>PVKaufpreiszahlung__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>PV - Notartermin stattgefunden</displayNameOverride>
             <field>PVNotarterminStattgefunden__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>PV - Original KV</displayNameOverride>
             <field>PVOriginalKV__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>PV - Risikobelehrung</displayNameOverride>
             <field>PVRisikobelehrung__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Quantity</displayNameOverride>
             <field>TotalOpportunityQuantity</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rabattiert</displayNameOverride>
             <field>Rabattiert__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rabatt in Euro</displayNameOverride>
             <field>Rabatt_in_Euro__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>reserviert bis</displayNameOverride>
             <field>reserviert_bis__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Reservierung läuft aus in</displayNameOverride>
             <field>Reservierung_l_uft_aus_in__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Reservierungsschein vorhanden</displayNameOverride>
             <field>Reservierungsschein_vorhanden__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Risikobelehrung</displayNameOverride>
             <field>Risikobelehrung__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Stage</displayNameOverride>
             <field>StageName</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Stage Sort Order</displayNameOverride>
             <field>StageSortOrder</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Status Finanzierung</displayNameOverride>
             <field>Status_Finanzierung__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Termin Angebotsabgabe</displayNameOverride>
             <field>Termin_Angebotsabgabe__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Tippgeber Provision Empfänger</displayNameOverride>
             <field>TippgeberProvisionEmpfaenger__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Tippprovision</displayNameOverride>
             <field>Tippprovision__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Type</displayNameOverride>
             <field>Type</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Urkunde mit Finanzierung liegt vor</displayNameOverride>
             <field>UrkundeMitFinanzierungLiegtVor__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Urkundennummer Kaufvertrag</displayNameOverride>
             <field>UrkundennummerKaufvertrag__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Urkundennummer Kaufvertragsangebot</displayNameOverride>
             <field>UrkundennummerKaufvertragsangebot__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Urkundennummer Kaufvertragsannahme</displayNameOverride>
             <field>UrkundennummerKaufvertragsannahme__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Verkauf CS</displayNameOverride>
             <field>Verkauf_WH__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Verkäufer-/Beratungsprovision</displayNameOverride>
             <field>Verk_ufer_Beratungsprovision__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Verkäufer-/Beratungsprovision Empfänger</displayNameOverride>
             <field>Verk_ufer_Beratungsprovision_Empf_nger__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>KV von Angebotsnotar verschickt</displayNameOverride>
             <field>Verk_uferangebot_abgegeben__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Verkaufspreis ungleich Teilobjekt</displayNameOverride>
             <field>Verkaufspreis_ungleich_Teilobjekt__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Verkaufsprovision nach Nachtrag</displayNameOverride>
             <field>Verkaufsprovision_nach_Nachtrag__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Verkaufsprovision Provisionsverhandlung</displayNameOverride>
             <field>Verkaufsprovision_Provisionsverhandlung__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Verlängerung beantragen</displayNameOverride>
             <field>Verl_ngerung_beantragen__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Verlängerungsanfrage</displayNameOverride>
             <field>Verl_ngerungsanfrage__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Verlängerungszeitraum in Wochen</displayNameOverride>
             <field>Verl_ngerungszeitraum_in_Wochen__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>VKC gewonnen</displayNameOverride>
             <field>VKC_gewonnen__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>VKC Status</displayNameOverride>
             <field>VKC_status__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>VKC verloren</displayNameOverride>
             <field>VKC_verloren__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>VSA / EK vorhanden</displayNameOverride>
             <field>VSA_EK_vorhanden__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Wert erfolgsabhängige Provision</displayNameOverride>
             <field>WertErfolgsabhaengigeProvision__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Wert Kumulierte Provision</displayNameOverride>
             <field>WertKumulierteProvision__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Wert Kumulierte Provision Extern</displayNameOverride>
             <field>WertKumulierteProvisionExtern__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Wert Maklerprovision</displayNameOverride>
             <field>Wert_Maklerprovision__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Wert Marketingzuschuss</displayNameOverride>
             <field>WertMarketingzuschuss__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Wert Overhead</displayNameOverride>
             <field>Wert_Overhead__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Wert Provision Thoben</displayNameOverride>
             <field>Wert_Provision_Thoben__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Wert Tippprovision</displayNameOverride>
             <field>Wert_Tippprovision__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Wert Verkäufer-/Beratungsprovision</displayNameOverride>
             <field>Wert_Verk_ufer_Beratungsprovision_m_R__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Wert Verkäufer-/Beratungsprovision o.R.</displayNameOverride>
             <field>Wert_Verk_ufer_Beratungsprovision_oR__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Won</displayNameOverride>
             <field>IsWon</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Wunsch Apartment</displayNameOverride>
             <field>Wunsch_Apartment__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Wunsch Kaufpreis</displayNameOverride>
             <field>Wunsch_Kaufpreis__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Zeichnungsschein an Notar verschickt</displayNameOverride>
             <field>Zeichnungsschein_an_Notar_verschickt__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Gesamtkosten</displayNameOverride>
             <field>Gesamtkosten__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Käufer weicht von Teilobjekt ab</displayNameOverride>
             <field>K_ufer_weicht_von_Teilobjekt_ab__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rechnung per Mail</displayNameOverride>
             <field>RechnungPerMail__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kommentare Abrechnung</displayNameOverride>
             <field>KommentareAbrechnung__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Anzahl VKC-Zahlungen</displayNameOverride>
             <field>AnzahlVKCZahlungen__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Hat VKC Zahlungen</displayNameOverride>
             <field>HatVKCZahlungen__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Planned Certification</displayNameOverride>
             <field>PlannedCertification__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Additional Costs</displayNameOverride>
             <field>AdditionalCosts__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Current Status VKC</displayNameOverride>
             <field>CurrentStatusVkc__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Additional Broker Commission</displayNameOverride>
             <field>AdditionalBrokerCommission__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Notizen FiBu</displayNameOverride>
             <field>NotesFinancialAccounting__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Datum Abnahmeprotokoll</displayNameOverride>
             <field>DatumAbnahmeprotokoll__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Phase Finanzierungsanfrage</displayNameOverride>
             <field>PhaseFinanzierungsanfrage__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Bewertung Finanzierungsanfrage</displayNameOverride>
             <field>BewertungFinanzierungsanfrage__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Bewertung FA (Ampel)</displayNameOverride>
             <field>BewertungAmpelFinanzierungsanfrage__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Letzte Phasenänderung FA</displayNameOverride>
             <field>LetztePhasenaenderungFA__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Mahnstopp</displayNameOverride>
             <field>Mahnstopp__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Mahnstopp Kommentar</displayNameOverride>
             <field>MahnstoppKommentar__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>2. Mahnung versendet am</displayNameOverride>
             <field>ZweiteMahnungVersendetAm__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>3. Mahnung versendet am</displayNameOverride>
             <field>DritteMahnungVersendetAm__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Verzugszins Datensatz</displayNameOverride>
             <field>VerzugszinsDatensatz__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Verzugszins in Euro</displayNameOverride>
             <field>VerzugszinsInEuro__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Verzugszins in Prozent</displayNameOverride>
             <field>VerzugszinsInProzent__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Offener Betrag inklusive Verzugszinsen</displayNameOverride>
             <field>OffenerBetragInklusiveVerzugszinsen__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Verzugszinsen pro Tag</displayNameOverride>
             <field>VerzugszinsenProTag__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Zahlungsziel Datum</displayNameOverride>
             <field>ZahlungszielDatum__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Incentivierung gesamt</displayNameOverride>
             <field>IncentivierungGesamt__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Incentivierung Kunde gezahlt am</displayNameOverride>
             <field>IncentivierungKundeGezahltAm__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kundenapp Status</displayNameOverride>
+            <field>KundenappStatus__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kundenapp Status kurz</displayNameOverride>
+            <field>KundenappStatusKurz__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Notartermin Uhrzeit</displayNameOverride>
+            <field>NotarterminUhrzeit__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Annahme bis spätestens</displayNameOverride>
+            <field>AnnahmeBisSpaetestens__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity Stage Duration</displayNameOverride>
+            <field>OpportunityStageDuration__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <masterLabel>Opportunities</masterLabel>
@@ -2251,51 +2894,61 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity : Käufer : Salutation</displayNameOverride>
             <field>Potenzieller_Kunde__c.Salutation</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity : Käufer : First Name</displayNameOverride>
             <field>Potenzieller_Kunde__c.FirstName</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity : Käufer : Last Name</displayNameOverride>
             <field>Potenzieller_Kunde__c.LastName</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity : Käufer : Mailing Street</displayNameOverride>
             <field>Potenzieller_Kunde__c.MailingStreet</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity : Käufer : Mailing City</displayNameOverride>
             <field>Potenzieller_Kunde__c.MailingCity</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity : Käufer : Mailing Zip/Postal Code</displayNameOverride>
             <field>Potenzieller_Kunde__c.MailingPostalCode</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity : Käufer : Datev Debitoren- / Kundennummer Käufer</displayNameOverride>
             <field>Potenzieller_Kunde__c.DatevDebitorenKundennummerKaeufer__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity : Käufer : Mailing Country</displayNameOverride>
             <field>Potenzieller_Kunde__c.MailingCountry</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity : 2. Käufer : Email</displayNameOverride>
             <field>Kunde2__c.Email</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity : Käufer : Email</displayNameOverride>
             <field>Potenzieller_Kunde__c.Email</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
@@ -2304,36 +2957,43 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity : Abgebender Notar : Salutation</displayNameOverride>
             <field>Abgebender_Notar__c.Salutation</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity : Abgebender Notar : First Name</displayNameOverride>
             <field>Abgebender_Notar__c.FirstName</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity : Abgebender Notar : Last Name</displayNameOverride>
             <field>Abgebender_Notar__c.LastName</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity : Abgebender Notar : Mailing Street</displayNameOverride>
             <field>Abgebender_Notar__c.MailingStreet</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity : Abgebender Notar : Mailing Zip/Postal Code</displayNameOverride>
             <field>Abgebender_Notar__c.MailingPostalCode</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity : Abgebender Notar : Mailing City</displayNameOverride>
             <field>Abgebender_Notar__c.MailingCity</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Opportunity : Abgebender Notar : Mailing Country</displayNameOverride>
             <field>Abgebender_Notar__c.MailingCountry</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
@@ -2342,92 +3002,155 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Mobiltelefon 1. Käufer</displayNameOverride>
             <field>MobiltelefonErsterKaeufer__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Marketingzuschuss in Euro</displayNameOverride>
             <field>MarketingzuschussInEuro__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Prognose aktuelles Jahr</displayNameOverride>
             <field>ForecastCurrentYear__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Zahlungserinnerung Datum automatisch</displayNameOverride>
             <field>PaymentReminderAutomaticDate__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>CS Finanzierung empfohlen</displayNameOverride>
             <field>CarestoneFinancingRecommended__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Interesse an CS Finanzierung besteht</displayNameOverride>
             <field>InterestedInCarestoneFinancing__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kommentar CS Finanzierung</displayNameOverride>
             <field>CommentCarestoneFinancing__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Incentivierung Kunde gezahlt</displayNameOverride>
             <field>CustomerIncentiveWasPaid__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Tage überfällig</displayNameOverride>
             <field>TageUeberfaellig__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Kommentar OPOS</displayNameOverride>
             <field>CommentOPOS__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Entgangene Zinsen</displayNameOverride>
             <field>LostInterest__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Beurkundung möglich</displayNameOverride>
             <field>BeurkundungMoeglich__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Closing Provision in %</displayNameOverride>
             <field>ClosingBonusInProzent__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Beratungsprovision mit PV in %</displayNameOverride>
             <field>BeratungsprovisionMitPVInProzent__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Provisionsverzicht in %</displayNameOverride>
             <field>ProvisionsverzichtInProzent__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Beratungsprovision mit PV in Euro</displayNameOverride>
             <field>BeratungsprovisionMitPVInEuro__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Closing Provision in Euro</displayNameOverride>
             <field>ClosingBonusInEuro__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Provisionsverzicht in Euro</displayNameOverride>
             <field>ProvisionsverzichtInEuro__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>FFire Abrechnung</displayNameOverride>
+            <field>FFireAbrechnung__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Grundschuld ist bestellt</displayNameOverride>
+            <field>GrundschuldIstBestellt__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Finanzierungsvertrag unterzeichnet</displayNameOverride>
+            <field>FinanzierungsvertragUnterzeichnet__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Status FA</displayNameOverride>
+            <field>StatusAmpel__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Nächster Schritt (extern)</displayNameOverride>
+            <field>NaechsterSchrittExtern__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Vertriebskoordinator__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Finanzierungsberater__c</field>
+            <table>Appartment__c.Opportunities__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProvisionVertriebskoordination__c</field>
             <table>Appartment__c.Opportunities__r</table>
         </columns>
         <masterLabel>Verkaufschancen</masterLabel>
