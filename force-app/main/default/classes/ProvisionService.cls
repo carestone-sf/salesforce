@@ -44,7 +44,7 @@ public without sharing class ProvisionService {
                 lastYearOrThisYear -= 1;
             }
             Integer lastQuarter = getQuarterByMonth(lastMonth);
-            String query = 'SELECT Id, Notartermin__c, Vertriebskoordinator__c, Maklerbetreuer_WirtschaftsHaus__c, Maklerbetreuer_WirtschaftsHaus__r.ErfolgsabhaengigeMaxInProzent__c FROM Opportunity';
+            String query = 'SELECT Id, Notartermin__c, Vertriebskoordinator__c, ProvisionVertriebskoordination__c, Maklerbetreuer_WirtschaftsHaus__c, Maklerbetreuer_WirtschaftsHaus__r.ErfolgsabhaengigeMaxInProzent__c FROM Opportunity';
             if(this.schedule == 'month') {
                 if(todaysDate.day() <= 10) {
                     query += ' WHERE ((CALENDAR_MONTH(Notartermin__c) = :lastMonth AND CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear) OR (CALENDAR_YEAR(Notartermin__c) = :thisYear AND CALENDAR_MONTH(Notartermin__c) = :thisMonth))';
