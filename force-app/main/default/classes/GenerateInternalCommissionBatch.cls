@@ -18,12 +18,23 @@ global without sharing class GenerateInternalCommissionBatch implements Database
             lastYearOrThisYear -= 1;
         }
         Integer lastQuarter = getQuarterByMonth(lastMonth);
-        String query = 'SELECT Id, Notartermin__c, Vertriebskoordinator__c, ProvisionVertriebskoordination__c, Provision_Thoben__c, Makler__c, WertErfolgsabhaengigeProvision__c, Maklerbetreuer_WirtschaftsHaus__c, Immobilie__c, Appartement__c, Potenzieller_Kunde__c, Provisionsbasis__c, OwnerId, MarketingzuschussNichtAusweisen__c, Immobilienberater__c, Abrechnung_ber__c, AbrechnungUeberNurFuerGrundprovision__c, Wert_Verk_ufer_Beratungsprovision_m_R__c, Wert_Maklerprovision__c, WertMarketingzuschuss__c, AdditionalBrokerCommission__c, Verkaufsprovision_intern__c, TippgeberProvisionEmpfaenger__c, Wert_Tippprovision__c, Overhead_Empf_nger__c, Wert_Overhead__c, Wert_Provision_Thoben__c FROM Opportunity';
-        if(this.schedule == 'month') {
-            if(todaysDate.day() <= 10) {
-                query += ' WHERE ((CALENDAR_MONTH(Notartermin__c) = :lastMonth AND CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear) OR (CALENDAR_YEAR(Notartermin__c) = :thisYear AND CALENDAR_MONTH(Notartermin__c) = :thisMonth))';
-            } else if(todaysDate.day() > 10) {
-                query += ' WHERE CALENDAR_MONTH(Notartermin__c) = :thisMonth AND CALENDAR_YEAR(Notartermin__c) = :thisYear';
+        String query = 'SELECT Id, Notartermin__c, Datum_Kaufpreis_bezahlt__c, Datum_1_MaBV_Rate_gezahlt__c, Vertriebskoordinator__c, ProvisionVertriebskoordination__c, Provision_Thoben__c, Makler__c, WertErfolgsabhaengigeProvision__c, Maklerbetreuer_WirtschaftsHaus__c, Immobilie__c, Appartement__c, Potenzieller_Kunde__c, Provisionsbasis__c, OwnerId, MarketingzuschussNichtAusweisen__c, Immobilienberater__c, Abrechnung_ber__c, AbrechnungUeberNurFuerGrundprovision__c, Wert_Verk_ufer_Beratungsprovision_m_R__c, Wert_Maklerprovision__c, WertMarketingzuschuss__c, AdditionalBrokerCommission__c, Verkaufsprovision_intern__c, TippgeberProvisionEmpfaenger__c, Wert_Tippprovision__c, Overhead_Empf_nger__c, Wert_Overhead__c, Wert_Provision_Thoben__c FROM Opportunity';
+        if (this.schedule == 'month') {
+            if (todaysDate.day() <= 10) {
+                query += ' WHERE ('
+                    + '(CALENDAR_MONTH(Notartermin__c) = :lastMonth AND CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear)'
+                    + ' OR (CALENDAR_YEAR(Notartermin__c) = :thisYear AND CALENDAR_MONTH(Notartermin__c) = :thisMonth)'
+                    + ' OR (CALENDAR_MONTH(Datum_Kaufpreis_bezahlt__c) = :lastMonth AND CALENDAR_YEAR(Datum_Kaufpreis_bezahlt__c) = :lastYearOrThisYear)'
+                    + ' OR (CALENDAR_YEAR(Datum_Kaufpreis_bezahlt__c) = :thisYear AND CALENDAR_MONTH(Datum_Kaufpreis_bezahlt__c) = :thisMonth)'
+                    + ' OR (CALENDAR_MONTH(Datum_1_MaBV_Rate_gezahlt__c) = :lastMonth AND CALENDAR_YEAR(Datum_1_MaBV_Rate_gezahlt__c) = :lastYearOrThisYear)'
+                    + ' OR (CALENDAR_YEAR(Datum_1_MaBV_Rate_gezahlt__c) = :thisYear AND CALENDAR_MONTH(Datum_1_MaBV_Rate_gezahlt__c) = :thisMonth)'
+                    + ')';
+            } else if (todaysDate.day() > 10) {
+                query += ' WHERE ('
+                    + '(CALENDAR_MONTH(Notartermin__c) = :thisMonth AND CALENDAR_YEAR(Notartermin__c) = :thisYear)'
+                    + ' OR (CALENDAR_MONTH(Datum_Kaufpreis_bezahlt__c) = :thisMonth AND CALENDAR_YEAR(Datum_Kaufpreis_bezahlt__c) = :thisYear)'
+                    + ' OR (CALENDAR_MONTH(Datum_1_MaBV_Rate_gezahlt__c) = :thisMonth AND CALENDAR_YEAR(Datum_1_MaBV_Rate_gezahlt__c) = :thisYear)'
+                    + ')';
             }
         } else if(this.schedule == 'quarter') {
             query += ' WHERE CALENDAR_QUARTER(Notartermin__c) = :lastQuarter AND (CALENDAR_YEAR(Notartermin__c) = :thisYear OR CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear)';
@@ -31,7 +42,7 @@ global without sharing class GenerateInternalCommissionBatch implements Database
             query += ' WHERE CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear';
         }
 
-        query += ' AND StageName = \'Geschlossene und gewonnene\'';
+        query += ' AND (StageName = \'Geschlossene und gewonnene\' OR StageName = \'Notartermin hat stattgefunden\')';
         
         return Database.getQueryLocator(query);
     }

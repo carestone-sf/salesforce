@@ -145,8 +145,9 @@ private class BatchAggregateImmosTest {
         prov.Kunde__c = opp2.Potenzieller_Kunde__c;
         prov.Kaufpreis__c = opp2.Provisionsbasis__c;
         prov.Wert_Maklerprovision__c = 5000;
+        prov.Genehmigung__c = true;
         insert prov;
-        opp2.StageName = 'Geschlossene und gewonnene';
+        opp2.StageName = 'Notartermin hat stattgefunden';
         opp2.Notartermin__c = Date.today();
         update opp2;
         Opportunity newOpp = [SELECT Id, Maklerprovision__c, PRovisionsbasis__c, Makler__c FROM Opportunity WHERE Id =:opp2.Id];

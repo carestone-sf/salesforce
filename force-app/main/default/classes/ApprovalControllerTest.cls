@@ -147,7 +147,7 @@ public class ApprovalControllerTest {
 
         Test.startTest();
 
-        opp2.StageName = 'Geschlossene und gewonnene';
+        opp2.StageName = 'Notartermin hat stattgefunden';
         opp2.beurkundeter_Kaufpreis__c = 123123.23;
         update opp2;
 

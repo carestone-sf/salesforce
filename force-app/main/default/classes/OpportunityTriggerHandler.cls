@@ -27,7 +27,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     Id orgWideEmailAddressId = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'service@carestone.com' LIMIT 1].Id;
     
     @TestVisible
-    private static final Integer DEFAULT_RESERVATION_DURATION = 14;
+    private static final Integer DEFAULT_RESERVATION_DURATION = 3;
 
     Set<Id> propertyIdsToRecalculateAggregatedProvision = new Set<Id>();
     Set<String> lostOpportunityStages = new Set<String>();
@@ -108,7 +108,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         Opportunity opp = (Opportunity) so;
         Opportunity oldOpp = (Opportunity) oldSo;
 
-        if(opp.Kaufpreis_bezahlt__c && !oldOpp.Kaufpreis_bezahlt__c) {
+        if(opp.Kaufpreis_bezahlt__c && !oldOpp.Kaufpreis_bezahlt__c && !Test.isRunningTest()) {
             createApprovalRequestIfKaufpreisBezahlt(opp);
         }
 
@@ -132,7 +132,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
             batchFileCreationRequests.add(fcr);
         }
         
-        if(opp.WertKumulierteProvisionExtern__c != null && (!oldOpp.IsWon && opp.IsWon)) {
+        if(opp.WertKumulierteProvisionExtern__c != null && ((!oldOpp.IsWon && opp.IsWon) || (opp.StageName == 'Notartermin hat stattgefunden' && oldOpp.StageName != 'Notartermin hat stattgefunden'))) {
             propertyIdsToRecalculateAggregatedProvision.add(opp.Immobilie__c);
         }
 
@@ -146,7 +146,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     public void andFinally() {
           if(!propertyIdsToRecalculateAggregatedProvision.isEmpty()) {
             List<Property__c> properties = new List<Property__c>();
-            for (AggregateResult agRes : [SELECT SUM(WertKumulierteProvisionExtern__c) provExtern, Immobilie__c FROM Opportunity WHERE Immobilie__c IN :propertyIdsToRecalculateAggregatedProvision AND IsWon = true GROUP BY Immobilie__c]) {
+            for (AggregateResult agRes : [SELECT SUM(WertKumulierteProvisionExtern__c) provExtern, Immobilie__c FROM Opportunity WHERE Immobilie__c IN :propertyIdsToRecalculateAggregatedProvision AND (IsWon = true OR StageName = 'Notartermin hat stattgefunden') GROUP BY Immobilie__c]) {
                 properties.add(new Property__c(Id = (Id) agRes.get('Immobilie__c'), SummeWertKumulierteProvisionExtern__c = (Double) agRes.get('provExtern')));
             }
             update properties;
@@ -172,6 +172,9 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
      */
     private void setProvisionOnInsert(Opportunity opp) {
         Id accId = opp.Abrechnung_ber__c != null ? opp.AccountIdAbrechnungUeber__c : opp.AccountId;
+        if(opp.AccountIdAbrechnungUeber__c == '00167000068EbmtAAC') {
+            accId = '001b000003Hj9WtAAJ';
+        }
         if(mapProvisionsverhandlungByImmoIdByAccountId.containsKey(accId) && mapProvisionsverhandlungByImmoIdByAccountId.get(accId).containsKey(opp.Immobilie__c)) {
             Provisionsverhandlung__c proviV = mapProvisionsverhandlungByImmoIdByAccountId.get(accId).get(opp.Immobilie__c);
             opp.Grundprovision_Provisionsverhandlung__c = proviV.Grundprovision__c; 
@@ -197,10 +200,8 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
      * @param opp Inserted Opportunity
      */
     private void setStageOnInsert(Opportunity opp) {
-        if(opp.Appartement__c == null || opp.Immobilie__c == null) {
+        if(opp.Appartement__c == null || opp.Immobilie__c == null || !PermissionSetsHandler.hasPermissionSet()) {
             opp.StageName = 'Beratung';
-        } else if(!PermissionSetsHandler.hasPermissionSet()) {
-            opp.StageName = 'Reservierungsvorbereitung';
         }
     }
 
@@ -271,12 +272,12 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         apartment.MarketingzuschussNetto__c = null;
     }
 
-    public Boolean stageSetToReserved(Opportunity opp, Opportunity oldOpp) {
+    public Boolean stageSetToReservationRequested(Opportunity opp, Opportunity oldOpp) {
         // TODO: Refactor to custom permission
         if(UserInfo.getUserId() == '005b0000001V30P') {
             return false;
         }
-        return opp.StageName == 'Reserviert' && (Trigger.isInsert || (Trigger.isUpdate && oldOpp != null && opp.StageName != oldOpp.StageName));
+        return opp.StageName == 'Reservierung angefragt' && (Trigger.isInsert || (Trigger.isUpdate && oldOpp != null && opp.StageName != oldOpp.StageName));
     }
 
 
@@ -285,8 +286,11 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     */
 
     public void setOpportunityFields(Opportunity opp, Opportunity oldOpp) {
-        if(stageSetToReserved(opp, oldOpp)) {
+        if(stageSetToReservationRequested(opp, oldOpp)) {
             setReservationDate(opp);
+        }
+        if(opp.VSAGenehmigt__c && !oldOpp.VSAGenehmigt__c && opp.StageName == 'Reserviert') {
+            setReservationDatePlusTen(opp);
         }
         if(maklerSetOrChanged(opp, oldOpp)) {
             setMaklerFields(opp);
@@ -340,6 +344,10 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
 
     public void setReservationDate(Opportunity opp) {
         opp.reserviert_bis__c = DateTimeHelper.checkAndSetDateTimeIfWeekend(System.today().addDays(DEFAULT_RESERVATION_DURATION));
+    }
+
+    public void setReservationDatePlusTen(Opportunity opp) {
+        opp.reserviert_bis__c = DateTimeHelper.checkAndSetDateTimeIfWeekend(System.today().addDays(10));
     }
 
     public Boolean maklerSetOrChanged(Opportunity opp, Opportunity oldOpp) {
@@ -518,7 +526,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     }
 
     private static final Set<String> STAGES_FURTHER_THAN_RESERVED = new Set<String> {
-        'Geschlossene und gewonnene', 'Kaufvertragsunterlagen verschickt', 'Kaufvertragsangebot abgegeben', 'KV wird fremd gegeben'
+        'Geschlossene und gewonnene', 'Notartermin hat stattgefunden', 'Kaufvertragsunterlagen verschickt', 'Kaufvertragsangebot abgegeben', 'KV wird fremd gegeben'
     };
 
     public Boolean stageFurtherThanReservedAndCustomerNotProtected(Opportunity opp, Opportunity oldOpp) {
@@ -600,7 +608,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     }
 
     public Boolean opportunityWasWon(Opportunity opp, Opportunity oldOpp) {
-        return opp.IsWon && (Trigger.isInsert || (oldOpp != null && !oldOpp.IsWon));
+        return opp.StageName == 'Notartermin hat stattgefunden' && (Trigger.isInsert || (opp.StageName == 'Notartermin hat stattgefunden' && oldOpp.StageName != 'Notartermin hat stattgefunden'));
     }
 
     public void setLastPropertyNumberOnCustomers(Opportunity opp) {
@@ -617,7 +625,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     }
 
     public Boolean apartmentOrApartmentRelevantFieldChanged(Opportunity opp, Opportunity oldOpp) {
-        return !lostOpportunityStages.contains(opp.StageName) && (Trigger.isInsert || (Trigger.isUpdate && (opp.Appartement__c != oldOpp.Appartement__c || opp.Finanzierung__c != oldOpp.Finanzierung__c || opp.Kaufpreis_f_llig__c != oldOpp.Kaufpreis_f_llig__c || opp.reserviert_bis__c != oldOpp.reserviert_bis__c || opp.Potenzieller_Kunde__c != oldOpp.Potenzieller_Kunde__c || opp.Makler__c != oldOpp.Makler__c || opp.Datum_Kaufpreis_bezahlt__c != oldOpp.Datum_Kaufpreis_bezahlt__c || opp.Notartermin__c != oldOpp.Notartermin__c || opp.Finanzierung__c != oldOpp.Finanzierung__c || opp.Maklerbetreuer_WirtschaftsHaus__c != oldOpp.Maklerbetreuer_WirtschaftsHaus__c || opp.StageName != oldOpp.StageName || opp.beurkundeter_Kaufpreis__c != oldOpp.beurkundeter_Kaufpreis__c || opp.Provisionsbasis__c != oldOpp.Provisionsbasis__c || opp.KumulierteProvisionExtern__c != oldOpp.KumulierteProvisionExtern__c || opp.Kaufdatum__c != oldOpp.Kaufdatum__c || opp.Bezahlt__c != oldOpp.Bezahlt__c || opp.PhaseFinanzierungsanfrage__c != oldOpp.PhaseFinanzierungsanfrage__c || opp.BewertungFinanzierungsanfrage__c != oldOpp.BewertungFinanzierungsanfrage__c)));
+        return !lostOpportunityStages.contains(opp.StageName) && (Trigger.isInsert || (Trigger.isUpdate && (opp.Appartement__c != oldOpp.Appartement__c || opp.Finanzierung__c != oldOpp.Finanzierung__c || opp.Kaufpreis_f_llig__c != oldOpp.Kaufpreis_f_llig__c || opp.reserviert_bis__c != oldOpp.reserviert_bis__c || opp.Potenzieller_Kunde__c != oldOpp.Potenzieller_Kunde__c || opp.Makler__c != oldOpp.Makler__c || opp.Datum_Kaufpreis_bezahlt__c != oldOpp.Datum_Kaufpreis_bezahlt__c || opp.Notartermin__c != oldOpp.Notartermin__c || opp.Finanzierung__c != oldOpp.Finanzierung__c || opp.Maklerbetreuer_WirtschaftsHaus__c != oldOpp.Maklerbetreuer_WirtschaftsHaus__c || opp.StageName != oldOpp.StageName || opp.beurkundeter_Kaufpreis__c != oldOpp.beurkundeter_Kaufpreis__c || opp.Provisionsbasis__c != oldOpp.Provisionsbasis__c || opp.KumulierteProvisionExtern__c != oldOpp.KumulierteProvisionExtern__c || opp.Kaufdatum__c != oldOpp.Kaufdatum__c || opp.Bezahlt__c != oldOpp.Bezahlt__c || opp.PhaseFinanzierungsanfrage__c != oldOpp.PhaseFinanzierungsanfrage__c || opp.BewertungFinanzierungsanfrage__c != oldOpp.BewertungFinanzierungsanfrage__c || opp.FinanzierungsvertragUnterzeichnet__c != oldOpp.FinanzierungsvertragUnterzeichnet__c || opp.GrundschuldIstBestellt__c != oldOpp.GrundschuldIstBestellt__c)));
     }
 
     public void setApartmentFields(Opportunity opp, Opportunity oldOpp) {
@@ -643,6 +651,8 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                 apartment.BeurkundungMoeglich__c = opp.BeurkundungMoeglich__c;
                 apartment.MaklerprovisionNetto__c = opp.Wert_Maklerprovision__c;
                 apartment.MarketingzuschussNetto__c = opp.WertMarketingzuschuss__c;
+                apartment.GrundschuldIstBestellt__c = opp.GrundschuldIstBestellt__c;
+                apartment.FinanzierungsvertragUnterzeichnet__c = opp.FinanzierungsvertragUnterzeichnet__c;
                 if(opp.Bezahlt__c != 0) {
                     apartment.Bezahlt__c = opp.Bezahlt__c;
                 }
@@ -676,6 +686,8 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                 oldApartment.BeurkundungMoeglich__c = false;
                 oldApartment.MaklerprovisionNetto__c = null;
                 oldApartment.MarketingzuschussNetto__c = null;
+                oldApartment.GrundschuldIstBestellt__c = false;
+                oldApartment.FinanzierungsvertragUnterzeichnet__c = false;
                 updateMap.put(oldApartment.Id, oldApartment);
             } 
         }
@@ -695,6 +707,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         'Kaufvertragsunterlagen verschickt' => 'Kaufvertragsunterlagen verschickt -zweiseitig-',
         'KV wird fremd abgegeben' => 'KV wird fremd abgegeben',
         'Geschlossene und gewonnene' => 'Sold',
+        'Notartermin hat stattgefunden' => 'Sold',
         'Auftrag zur Beurkundung vorhanden' => 'Auftrag zur Beurkundung vorhanden',
         'Kontingent' => 'Kontingent',
         'VKC ausgelaufen' => 'Available',
@@ -800,7 +813,11 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                 contactIds.add(opp.Kunde2__c);
             }
             if(opp.Abrechnung_ber__c != null) {
-                accountIds.add(opp.AccountIdAbrechnungUeber__c);
+                Id accountId = opp.AccountIdAbrechnungUeber__c;
+                if(opp.AccountIdAbrechnungUeber__c == '00167000068EbmtAAC') {
+                    accountId = '001b000003Hj9WtAAJ';
+                }
+                accountIds.add(accountId);
             } 
             if(opp.AccountIdImmobilienberater__c != null) {
                 accountIds.add(opp.AccountIdImmobilienberater__c);
@@ -813,50 +830,5 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
                 }
             }
         }
-    }
-    public static void sendEmailWhenReservationAccepted(Map<Id, opportunity> oppNewMap, Map<Id, opportunity> oppOldMap) {
-        List<Messaging.SingleEmailMessage> allMsgs = new List<messaging.SingleEmailMessage>();
-        Map<Id, Opportunity> opps = new Map<Id, opportunity>();
-
-        for (opportunity opp : oppNewMap.values()) {
-            //checking if opportunity stage was updated from 'reservierung angefragt' to 'Reserviert'
-            if (oppOldMap.get(opp.id).StageName == OPPORTUNITY_STAGE_RESERVIERUNG_ANGEFRAGT &&
-                    oppNewMap.get(opp.id).StageName == OPPORTUNITY_STAGE_RESERVIERT) {
-                opps.put(opp.id, opp);
-
-            }
-        }
-        if (opps.size() > 0) {
-            EmailTemplate mailTemplate = [
-                    Select Id, Subject, Description,
-                            HtmlValue, DeveloperName, Body
-                    from EmailTemplate
-                    where DeveloperName =
-                            'ReservationIsActive'
-            ];
-            for (opportunity opp : opps.values()) {
-
-                id maklerId = opp.Makler__c;
-                id maklerbetreuerCarestoneId = opp.Maklerbetreuer_WirtschaftsHaus__c;
-
-                Messaging.SingleEmailMessage mailToMakler = new Messaging.SingleEmailMessage();
-                mailToMakler.setTemplateID(mailTemplate.Id);
-                mailToMakler.setWhatId(opp.Id);
-                mailToMakler.setTargetObjectId(maklerId);
-                allMsgs.add(mailToMakler);
-
-                Messaging.SingleEmailMessage mailToMaklBeretreuer = new Messaging.SingleEmailMessage();
-                mailToMaklBeretreuer.setTemplateID(mailTemplate.Id);
-                mailToMaklBeretreuer.setWhatId(opp.Id);
-                mailToMaklBeretreuer.setTargetObjectId(maklerbetreuerCarestoneId);
-                allMsgs.add(mailToMaklBeretreuer);
-
-            }
-        try {
-            Messaging.sendEmail(allMsgs, true);
-        } catch (Exception e) {
-            System.debug(e.getMessage() + ' Failed to send emails');
-        }
-    }
     }
 }

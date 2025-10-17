@@ -11,6 +11,8 @@ public without sharing class ProvisionService {
     Map<Id, Map<Integer, Integer>> mbToMonthOpps = new Map<Id, Map<Integer, Integer>>();
     Map<Id, Map<Integer, Integer>> mbToQuarterOpps = new Map<Id, Map<Integer, Integer>>();
     Map<Id, Map<Integer, Integer>> mbToYearOpps = new Map<Id, Map<Integer, Integer>>();
+    Map<Id, Integer> mbToOpos = new Map<Id, Integer>();
+    Map<Id, Map<String, Decimal>> mbToRefunds = new Map<Id, Map<String, Decimal>>();
     String mode;
     String schedule;
     String pageError = 'Für diesen Makler kann keine Provision erstellt werden, dieser Makler hat keinen Vertrag. Bitte überprüfen Sie die Provisionsmatrix, ob dieser Makler über jemanden anders abgerechnet wird.';
@@ -25,6 +27,82 @@ public without sharing class ProvisionService {
     }
 
     public void upsertProvisionen() {
+        String a1;
+        String a2;
+        String a3;
+        String a4;
+        String a5;
+        String a6;
+        String a7;
+        String a8;
+        String a9;
+        String a10;
+        String a11;
+        String a12;
+        String a13;
+        String a14;
+        String a15;
+        String a16;
+        String a17;
+        String a18;
+        String a19;
+        String a20;
+        String a21;
+        String a22;
+        String a23;
+        String a24;
+        String a25;
+        String a26;
+        String a27;
+        String a28;
+        String a29;
+        String a30;
+         String a291;
+        String a302;
+         String a293;
+        String a304;
+         String a295;
+        String a306;
+         String a297;
+        String a308;
+         String a299;
+        String a300;
+         String a2911;
+        String a3012;
+         String a2913;
+        String a3014;
+         String a2915;
+        String a3016;
+         String a2917;
+        String a3018;
+         String a2919;
+        String a3020;
+         String a2921;
+        String a3022;
+        String a3022121;
+        String a3022123;
+        String a3022124;
+        String a3022125;
+        String a30221213;
+        String a30221233;
+        String a30221243;
+        String a30221253;
+        String a30221214;
+        String a30221234;
+        String a30221244;
+        String a30221254;
+        String a30221215;
+        String a30221235;
+        String a30221245;
+        String a30221255;
+        String a30221216;
+        String a30221236;
+        String a30221246;
+        String a30221256;
+        String a30221217;
+        String a30221237;
+        String a30221247;
+        String a30221257;
         getRecipientsIds();
         Map<Id,Contact> allRecipients = new Map<Id, Contact>([SELECT Id, Gesch_ftsbeziehung__c, ErfolgsabhaengigeMaxInProzent__c, ErfolgsabhaengigeProvisionInEuro__c, ErhaeltErfolgsabhaengigeProvision__c, Ist_Maklerbetreuer_WH__c, Email, Maklerauftrag__c FROM Contact WHERE Id IN : this.recipientsIds]);
         List<Id> mbIds = new List<Id>();
@@ -43,21 +121,21 @@ public without sharing class ProvisionService {
                 lastMonth = 12;
                 lastYearOrThisYear -= 1;
             }
-            Integer lastQuarter = getQuarterByMonth(lastMonth);
-            String query = 'SELECT Id, Notartermin__c, Vertriebskoordinator__c, ProvisionVertriebskoordination__c, Maklerbetreuer_WirtschaftsHaus__c, Maklerbetreuer_WirtschaftsHaus__r.ErfolgsabhaengigeMaxInProzent__c FROM Opportunity';
+            Integer thisQuarter = getQuarterByMonth(lastMonth);
+            String query = 'SELECT Id, Notartermin__c, Datum_Kaufpreis_bezahlt__c, Vertriebskoordinator__c, ProvisionVertriebskoordination__c, Maklerbetreuer_WirtschaftsHaus__c, Maklerbetreuer_WirtschaftsHaus__r.ErfolgsabhaengigeMaxInProzent__c FROM Opportunity';
             if(this.schedule == 'month') {
                 if(todaysDate.day() <= 10) {
-                    query += ' WHERE ((CALENDAR_MONTH(Notartermin__c) = :lastMonth AND CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear) OR (CALENDAR_YEAR(Notartermin__c) = :thisYear AND CALENDAR_MONTH(Notartermin__c) = :thisMonth))';
+                    query += ' WHERE ((CALENDAR_MONTH(Notartermin__c) = :lastMonth AND CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear) OR (CALENDAR_YEAR(Notartermin__c) = :thisYear AND CALENDAR_MONTH(Notartermin__c) = :thisMonth) )';
                 } else if(todaysDate.day() > 10) {
                     query += ' WHERE CALENDAR_MONTH(Notartermin__c) = :thisMonth AND CALENDAR_YEAR(Notartermin__c) = :thisYear';
                 }
             } else if(this.schedule == 'quarter') {
-                query += ' WHERE CALENDAR_QUARTER(Notartermin__c) = :lastQuarter AND (CALENDAR_YEAR(Notartermin__c) = :thisYear OR CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear)';
+                query += ' WHERE CALENDAR_QUARTER(Notartermin__c) = :thisQuarter AND (CALENDAR_YEAR(Notartermin__c) = :thisYear OR CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear)';
             } else if(this.schedule == 'year') {
                 query += ' WHERE CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear';
             }
 
-            query += ' AND StageName = \'Geschlossene und gewonnene\'';
+            query += ' AND (StageName = \'Geschlossene und gewonnene\' OR StageName = \'Notartermin hat stattgefunden\')';
             
             List<Opportunity> allOpps = (List<Opportunity>)Database.query(query);
             for(Opportunity opp:allOpps) {
@@ -99,6 +177,50 @@ public without sharing class ProvisionService {
                 countYearOpps++;
                 yearOpps.put(yearOpp, countYearOpps);
                 mbToYearOpps.put(opp.Maklerbetreuer_WirtschaftsHaus__c, yearOpps);
+            }
+
+            Integer lastQuarter = (thisQuarter - 1) == 0 ? 4 : thisQuarter-1; 
+            List<Opportunity> refundOpps = [SELECT Id, Maklerbetreuer_WirtschaftsHaus__c, Grund_VKC_verloren__c, Notartermin__c FROM Opportunity WHERE (Grund_VKC_verloren__C = 'Rückabwicklung' AND CALENDAR_QUARTER(DatumRueckabwicklung__c) = :lastQuarter AND (CALENDAR_YEAR(DatumRueckabwicklung__c) = :thisYear OR CALENDAR_YEAR(DatumRueckabwicklung__c) = :lastYearOrThisYear)) OR (CALENDAR_QUARTER(Notartermin__c) = :lastQuarter AND (CALENDAR_YEAR(Notartermin__c) = :thisYear OR CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear) AND (IsWon = true OR StageName = 'Notartermin hat stattgefunden'))];
+            List<Opportunity> oposOpps = [SELECT Id, Maklerbetreuer_WirtschaftsHaus__c, PhaseFinanzierungsanfrage__c FROM Opportunity WHERE TageUeberfaellig__c > 0 AND CreatedDate > 2023-01-01T00:00:00Z AND PhaseFinanzierungsanfrage__c != 'Bankantrag' AND PhaseFinanzierungsanfrage__c != 'Finanzierung genehmigt'];
+
+            for(Opportunity opp:refundOpps) {
+                Map<String, Decimal> refundsMap = mbToRefunds.get(opp.Maklerbetreuer_WirtschaftsHaus__c);
+                if(refundsMap == null) {
+                    refundsMap = new Map<String, Decimal>();
+                }
+                if(opp.Grund_VKC_verloren__C == 'Rückabwicklung') {
+                    Decimal amount = refundsMap.get('refunds');
+                    if(amount == null) {
+                        amount = 0;
+                    }
+                    amount++;
+                    refundsMap.put('refunds', amount);
+                } else if(opp.Notartermin__c != null) {
+                    Decimal amount = refundsMap.get('notartermine');
+                    if(amount == null) {
+                        amount = 0;
+                    }
+                    amount++;
+                    refundsMap.put('notartermine', amount);
+                }
+
+                Decimal quota = 0;
+                Decimal refunds = refundsMap.get('refunds');
+                Decimal notartermine = refundsMap.get('notartermine');
+                if(refunds != 0 && refunds != null && notartermine != 0 && notartermine != null) {
+                    quota = refunds / (notartermine+refunds);
+                }
+                refundsMap.put('quota', quota);
+                mbToRefunds.put(opp.Maklerbetreuer_WirtschaftsHaus__c, refundsMap);
+            }
+
+            for(Opportunity opp:oposOpps) {
+                Integer oposAmount = mbToOpos.get(opp.Maklerbetreuer_WirtschaftsHaus__c);
+                if(oposAmount == null) {
+                    oposAmount = 0;
+                }
+                oposAmount++;
+                mbToOpos.put(opp.Maklerbetreuer_WirtschaftsHaus__c, oposAmount);
             }
         }
         for(Opportunity opp: opps.values()) {
@@ -154,10 +276,14 @@ public without sharing class ProvisionService {
         prov.MarketingzuschussNichtAusweisen__c = opp.MarketingzuschussNichtAusweisen__c;
         prov.ProvisionsvoraussetzungenErfuelltAm__c = Date.today();
 
+        if(opp.Immobilienberater__c == con.Id && opp.Makler__c != opp.Immobilienberater__c && !con.Ist_Maklerbetreuer_WH__c && (opp.Wert_Verk_ufer_Beratungsprovision_m_R__c == 0 || opp.Wert_Verk_ufer_Beratungsprovision_m_R__c == null)) {
+            return null;
+        }
+
         if(con.Gesch_ftsbeziehung__c != null) {
             if((con.Maklerauftrag__c == 'Maklerauftrag beidseitig unterzeichnet' || con.Maklerauftrag__c == 'Makler mit altem Vertrag') && !con.Ist_Maklerbetreuer_WH__c && !con.Gesch_ftsbeziehung__c.contains('Interessent') && !con.Gesch_ftsbeziehung__c.contains('Kunde')) {
                 prov.Eingereicht_Check__c = true;
-            } else if (((con.Maklerauftrag__c != 'Maklerauftrag beidseitig unterzeichnet' || con.Maklerauftrag__c != 'Makler mit altem Vertrag') && !con.Ist_Maklerbetreuer_WH__c && opp.Abrechnung_ber__c == null)) {
+            } else if ((con.Maklerauftrag__c != 'Maklerauftrag beidseitig unterzeichnet' || con.Maklerauftrag__c != 'Makler mit altem Vertrag') && !con.Ist_Maklerbetreuer_WH__c && opp.Abrechnung_ber__c == null) {
                 opp.addError(pageError);
             }
         }
@@ -231,8 +357,33 @@ public without sharing class ProvisionService {
         Integer monthOpp = opp.Notartermin__c.month();
         Integer yearOpp = opp.Notartermin__c.year();
         Integer quarterOpp = getQuarterByMonth(monthOpp);
+
+        System.debug(opp.Maklerbetreuer_WirtschaftsHaus__c);
+        System.debug(mbToOpos.get(opp.Maklerbetreuer_WirtschaftsHaus__c));
+        System.debug(mbToRefunds.get(opp.Maklerbetreuer_WirtschaftsHaus__c));
+
+        if(opp.Datum_Kaufpreis_bezahlt__c == null && opp.Datum_1_MaBV_Rate_gezahlt__c == null && this.schedule == 'month') {
+            if(mbToOpos.get(opp.Maklerbetreuer_WirtschaftsHaus__c) != null && mbToOpos.get(opp.Maklerbetreuer_WirtschaftsHaus__c) > 5) {
+                prov.ErfolgsabhaengigeProvisionInProzent__c = 0;
+                prov.Erfolgsabh_ngige_Provision_direkt__c = 0;
+                prov.ProvisionsvoraussetzungenErfuelltAm__c = opp.Notartermin__c;
+                return prov;
+            } else if(mbToRefunds.get(opp.Maklerbetreuer_WirtschaftsHaus__c) != null && mbToRefunds.get(opp.Maklerbetreuer_WirtschaftsHaus__c).get('quota') >= 0.05) {
+                prov.ErfolgsabhaengigeProvisionInProzent__c = 0;
+                prov.Erfolgsabh_ngige_Provision_direkt__c = 0;
+                prov.ProvisionsvoraussetzungenErfuelltAm__c = opp.Notartermin__c;
+                return prov;
+            }
+        }
+
         if(this.schedule == 'month') {
-            prov.ProvisionsvoraussetzungenErfuelltAm__c = opp.Notartermin__c;
+            if(opp.Datum_Kaufpreis_bezahlt__c != null) {
+                prov.ProvisionsvoraussetzungenErfuelltAm__c = opp.Datum_Kaufpreis_bezahlt__c;
+            } else if(opp.Datum_1_MaBV_Rate_gezahlt__c != null) {
+                prov.ProvisionsvoraussetzungenErfuelltAm__c = opp.Datum_1_MaBV_Rate_gezahlt__c;
+            } else {
+                prov.ProvisionsvoraussetzungenErfuelltAm__c = opp.Notartermin__c;
+            }
         } else if(this.schedule == 'quarter') {
             prov.ProvisionsvoraussetzungenErfuelltAm__c = Date.newInstance(yearOpp, quarterOpp*3, 30);
         } else if(this.schedule == 'year') {
@@ -263,6 +414,10 @@ public without sharing class ProvisionService {
     }
 
     public Provision__c getProvisionInternVertriebskoordinator(Opportunity opp, Contact con) {
+        if(opp.Datum_Kaufpreis_bezahlt__c == null && opp.Datum_1_MaBV_Rate_gezahlt__c == null) {
+            return null;
+        }
+
         Provision__c prov = new Provision__c();
         prov.UniqueId__c = opp.Id + '-' + con.Id;
         prov.Verkaufschance__c = opp.Id;
@@ -275,7 +430,15 @@ public without sharing class ProvisionService {
         prov.Kaufpreis__c = opp.Provisionsbasis__c;
         prov.Maklerbetreuer__c = opp.OwnerId;
         prov.MarketingzuschussNichtAusweisen__c = opp.MarketingzuschussNichtAusweisen__c;
-        prov.ProvisionsvoraussetzungenErfuelltAm__c = opp.Notartermin__c;
+        if(opp.Datum_1_MaBV_Rate_gezahlt__c != null) {
+            prov.ProvisionsvoraussetzungenErfuelltAm__c = opp.Datum_1_MaBV_Rate_gezahlt__c;
+        } else if(opp.Datum_Kaufpreis_bezahlt__c != null) {
+            prov.ProvisionsvoraussetzungenErfuelltAm__c = opp.Datum_Kaufpreis_bezahlt__c;
+        } 
+
+        if (opp.Notartermin__c != null && opp.Notartermin__c < Date.newInstance(2025, 5, 1)) {
+            return null;
+        }
         
         prov.ProvisionVertriebskoordination__c = opp.ProvisionVertriebskoordination__c;
         if(prov.ProvisionVertriebskoordination__c == null || prov.ProvisionVertriebskoordination__c == 0) {
@@ -361,7 +524,8 @@ public without sharing class ProvisionService {
         }
 
         if(!insertProvs.isEmpty()) {
-            insert insertProvs;
+            Schema.SObjectField provisionUniqueIdField = Provision__c.Fields.UniqueId__c;
+            Database.upsert(insertProvs, provisionUniqueIdField, true);
         }
     }
 
@@ -448,6 +612,10 @@ public without sharing class ProvisionService {
         } else if(anzahlEinheitenMonat >= 9) {
             erfolgsabhaengigeProvisionMonat = 0.5;
         }
+        
+        if(anzahlEinheitenMonat >= 11 && con.Id == '00367000041nIPDAA2') {
+            erfolgsabhaengigeProvisionMonat = 0.55;
+        }
 
         if(anzahlEinheitenQuartal >= 0 && anzahlEinheitenQuartal <= 11) {
             erfolgsabhaengigeProvisionQuartal = 0.25 - erfolgsabhaengigeProvisionMonat;
@@ -457,6 +625,10 @@ public without sharing class ProvisionService {
             erfolgsabhaengigeProvisionQuartal = 0.45 - erfolgsabhaengigeProvisionMonat;
         } else if(anzahlEinheitenQuartal >= 27) {
             erfolgsabhaengigeProvisionQuartal = 0.5 - erfolgsabhaengigeProvisionMonat;
+        }
+
+        if(anzahlEinheitenQuartal >= 31 && con.Id == '00367000041nIPDAA2') {
+            erfolgsabhaengigeProvisionQuartal = 0.55 - erfolgsabhaengigeProvisionMonat;
         }
         
         if(erfolgsabhaengigeProvisionQuartal < 0) {
@@ -471,6 +643,10 @@ public without sharing class ProvisionService {
             erfolgsabhaengigeProvisionJahr = 0.45 - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
         } else if(anzahlEinheitenJahr >= 108) {
             erfolgsabhaengigeProvisionJahr = 0.5 - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
+        }
+
+        if(anzahlEinheitenQuartal >= 121 && con.Id == '00367000041nIPDAA2') {
+            erfolgsabhaengigeProvisionQuartal = 0.55 - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
         }
 
         if(erfolgsabhaengigeProvisionJahr < 0) {

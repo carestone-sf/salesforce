@@ -18,7 +18,7 @@ private class BatchAggregateImmoPaymentTest {
         Contact interessent = TestDataFactory.createInteressent(false, acc.Id);
         insert new List<Contact> {makler, interessent};
 
-        Opportunity opp = TestDataFactory.createOpportunity(false, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Geschlossene und gewonnene', 100000);
+        Opportunity opp = TestDataFactory.createOpportunity(false, interessent.Id, makler.Id, immobilie.Id, appartment.Id, 'Notartermin hat stattgefunden', 100000);
         opp.Abrechnung_ber__c = makler.Id;
         opp.Immobilienberater__c = makler.Id;
         opp.Datum_Kaufpreisf_lligkeitsschreiben__c = Date.today().addDays(-10);
