@@ -284,7 +284,7 @@ global class Sandbox implements SandboxPostCopy {
             opp.Immobilienberater__c = makler.Id;
             opp.Potenzieller_Kunde__c = interessent.Id;
             opp.CloseDate = System.today().addDays(31);
-            opp.StageName = 'Geschlossene und gewonnene';
+            opp.StageName = 'Notartermin hat stattgefunden';
             opp.Kaufdatum__c = System.Today();
             opp.UrkundennummerKaufvertrag__c = 'abc';
             opp.Immobilie__c = apps[i].Property__c;

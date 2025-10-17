@@ -105,7 +105,7 @@ public with sharing class TestMaBVRechnungen {
     }
 
     public static testMethod void testMissingOpportunityData() {
-        Opportunity opp = [SELECT Id, Immobilie__c FROM Opportunity WHERE StageName = 'Geschlossene und gewonnene' LIMIT 1];
+        Opportunity opp = [SELECT Id, Immobilie__c FROM Opportunity WHERE StageName = 'Notartermin hat stattgefunden' LIMIT 1];
         Property__c immobilie = [SELECT Id FROM Property__c WHERE Id = :opp.Immobilie__c];
         immobilie.MaBVRechnungenUeberSalesforce__c = true;
         update immobilie;
@@ -124,7 +124,7 @@ public with sharing class TestMaBVRechnungen {
     }
 
     public static testMethod void testMaBVRechnungCreation() {
-        Opportunity opp = [SELECT Id, Immobilie__c, Immobilie__r.Objektnummer__c, Appartement__r.ApartmentNummer__c FROM Opportunity WHERE StageName = 'Geschlossene und gewonnene' LIMIT 1];
+        Opportunity opp = [SELECT Id, Immobilie__c, Immobilie__r.Objektnummer__c, Appartement__r.ApartmentNummer__c FROM Opportunity WHERE StageName = 'Notartermin hat stattgefunden' LIMIT 1];
         String rechnungsNummer = opp.Immobilie__r.Objektnummer__c + '-' + opp.Appartement__r.ApartmentNummer__c;
         Property__c immobilie = [SELECT Id FROM Property__c WHERE Id = :opp.Immobilie__c];
         immobilie.MaBVRechnungenUeberSalesforce__c = true;

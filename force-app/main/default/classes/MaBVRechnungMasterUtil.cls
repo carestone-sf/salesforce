@@ -27,7 +27,7 @@ MaBVRechnungMasterUtil {
             propertyIdsSet.add(maBVRate.Immobilie__c);
         }
         List<Id> propertyIds = new List<Id>(propertyIdsSet);
-        List<Opportunity> opps = [SELECT Id, Immobilie__c, Abnahmeprotokoll__c, OwnerId FROM Opportunity WHERE Kaufpreis_f_llig__c = TRUE AND Immobilie__c IN :propertyIds AND KeineMaBVRechnungGenerieren__c = FALSE AND StageName = 'Geschlossene und gewonnene'];
+        List<Opportunity> opps = [SELECT Id, Immobilie__c, Abnahmeprotokoll__c, OwnerId FROM Opportunity WHERE Kaufpreis_f_llig__c = TRUE AND Immobilie__c IN :propertyIds AND KeineMaBVRechnungGenerieren__c = FALSE AND (StageName = 'Notartermin hat stattgefunden' OR IsWon = true)];
         createMaBVRechnung(opps, maBVRaten);
     }
 
@@ -40,7 +40,7 @@ MaBVRechnungMasterUtil {
                 if(maBVRate.Immobilie__c != opp.Immobilie__c) {
                     continue;
                 }
-                if(maBVRate.RateNummer__c == '7' && opp.Abnahmeprotokoll__c == false) {
+                if((maBVRate.RateNummer__c == '7' || (maBVRate.Immobilie__c == 'a0L6700000QQExjEAH' && (maBVRate.RateNummer__c == '6' || maBVRate.RateNummer__c == '5' || maBVRate.RateNummer__c == '4' || maBVRate.RateNummer__c == '3' || maBVRate.RateNummer__c == '2'))) && opp.Abnahmeprotokoll__c == false) {
                     continue;
                 }
                 MaBVRechnungMaster__c maBVRechnungMaster;

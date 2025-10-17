@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VKCGewonnenOhneKaufpreisBezahlt</fullName>
+    <active>true</active>
+    <errorConditionFormula>!Priorvalue(IsWon) &amp;&amp; IsWon &amp;&amp; !Kaufpreis_bezahlt__c</errorConditionFormula>
+    <errorDisplayField>Kaufpreis_bezahlt__c</errorDisplayField>
+    <errorMessage>Der Kaufpreis muss vollständig bezahlt sein, bevor die VKC geschlossen werden kann.</errorMessage>
+</ValidationRule>

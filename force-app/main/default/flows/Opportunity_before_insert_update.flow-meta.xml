@@ -2,30 +2,10 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>57.0</apiVersion>
     <assignments>
-        <name>Assign_Assistance_and_Financing</name>
-        <label>Assign Assistance and Financing</label>
-        <locationX>50</locationX>
-        <locationY>719</locationY>
-        <assignmentItems>
-            <assignToReference>$Record.Vertriebskoordinator__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Sales_Team_Assistance.Kontakt__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>$Record.Finanzierungsberater__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>$Record.Immobilie__r.Finanzierungsberater__c</elementReference>
-            </value>
-        </assignmentItems>
-    </assignments>
-    <assignments>
         <name>Assign_date</name>
         <label>Assign date</label>
         <locationX>314</locationX>
-        <locationY>503</locationY>
+        <locationY>1703</locationY>
         <assignmentItems>
             <assignToReference>$Record.AnnahmeBisSpaetestens__c</assignToReference>
             <operator>Assign</operator>
@@ -38,10 +18,58 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Assign_Financing</name>
+        <label>Assign Financing</label>
+        <locationX>116</locationX>
+        <locationY>1295</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Finanzierungsberater__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Immobilie__r.Finanzierungsberater__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_New</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Closing_Bonus</name>
+        <label>Set Closing Bonus</label>
+        <locationX>116</locationX>
+        <locationY>995</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.ClosingBonusInProzent__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Immobilie__r.ClosingBonusInPercent__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Immobilie_eingetragen_oder_ge_ndert</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_LeadSource</name>
+        <label>Set LeadSource</label>
+        <locationX>116</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.LeadSource</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Potenzieller_Kunde__r.LeadSource</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Bankantrag_gestellt_VKO_nicht_leer</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_Opportunity_values</name>
         <label>Set Opportunity values</label>
         <locationX>50</locationX>
-        <locationY>395</locationY>
+        <locationY>1595</locationY>
         <assignmentItems>
             <assignToReference>$Record.ForecastCurrentYear__c</assignToReference>
             <operator>Assign</operator>
@@ -56,15 +84,12 @@
                 <elementReference>$Record.Immobilie__r.ClosingBonusInPercent__c</elementReference>
             </value>
         </assignmentItems>
-        <connector>
-            <targetReference>Get_Sales_Team_Sales_Member</targetReference>
-        </connector>
     </assignments>
     <assignments>
         <name>Set_Opportunity_values2</name>
         <label>Set Opportunity values</label>
         <locationX>314</locationX>
-        <locationY>1211</locationY>
+        <locationY>2411</locationY>
         <assignmentItems>
             <assignToReference>$Record.ForecastCurrentYear__c</assignToReference>
             <operator>Assign</operator>
@@ -77,7 +102,7 @@
         <name>Set_Zins_record</name>
         <label>Set Zins record</label>
         <locationX>314</locationX>
-        <locationY>911</locationY>
+        <locationY>2111</locationY>
         <assignmentItems>
             <assignToReference>$Record.VerzugszinsDatensatz__c</assignToReference>
             <operator>Assign</operator>
@@ -89,11 +114,132 @@
             <targetReference>Notary_date_is_current_year</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>VKO_Provision</name>
+        <label>VKO Provision</label>
+        <locationX>116</locationX>
+        <locationY>695</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.ProvisionVertriebskoordination__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>provisionVertriebskoordination</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_won</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Bankantrag_gestellt_VKO_nicht_leer</name>
+        <label>Bankantrag gestellt + VKO nicht leer?</label>
+        <locationX>248</locationX>
+        <locationY>587</locationY>
+        <defaultConnector>
+            <targetReference>Is_won</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>Bankantrag_gestellt_VKO_nicht_leer2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.BankantragGestellt__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Vertriebskoordinator__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Finanzierung__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Eigenkapitalzahlung</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>VKO_Provision</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Bankantrag gestellt + VKO nicht leer?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Contact_LeadSource_not_null</name>
+        <label>Contact LeadSource not null?</label>
+        <locationX>248</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>Bankantrag_gestellt_VKO_nicht_leer</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>Contact_LeadSource_not_null2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Potenzieller_Kunde__r.LeadSource</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_LeadSource</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Contact LeadSource not null?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Immobilie_eingetragen_oder_ge_ndert</name>
+        <label>Immobilie eingetragen oder geändert?</label>
+        <locationX>248</locationX>
+        <locationY>1187</locationY>
+        <defaultConnector>
+            <targetReference>Is_New</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>Immobilie_eingetragen_oder_ge_ndert2</name>
+            <conditionLogic>(1 AND 2) OR (2 AND 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>isNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Immobilie__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Immobilie__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Financing</targetReference>
+            </connector>
+            <label>Immobilie eingetragen oder geändert?</label>
+        </rules>
+    </decisions>
     <decisions>
         <name>Invoice_due_is_set</name>
         <label>Invoice due is set?</label>
         <locationX>446</locationX>
-        <locationY>695</locationY>
+        <locationY>1895</locationY>
         <defaultConnector>
             <targetReference>Notary_date_is_current_year</targetReference>
         </defaultConnector>
@@ -119,7 +265,7 @@
         <name>Is_New</name>
         <label>Is New?</label>
         <locationX>248</locationX>
-        <locationY>287</locationY>
+        <locationY>1487</locationY>
         <defaultConnector>
             <targetReference>K_uferangebot_abgegeben</targetReference>
         </defaultConnector>
@@ -141,10 +287,57 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Is_won</name>
+        <label>Is won?</label>
+        <locationX>248</locationX>
+        <locationY>887</locationY>
+        <defaultConnector>
+            <targetReference>Immobilie_eingetragen_oder_ge_ndert</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>Is_won2</name>
+            <conditionLogic>(1 OR 4) AND 2 AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Notartermin hat stattgefunden</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ClosingBonusInProzent__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Immobilie__r.ClosingBonusInPercent__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.IsWon</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Closing_Bonus</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Is won?</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>K_uferangebot_abgegeben</name>
         <label>Käuferangebot abgegeben</label>
         <locationX>446</locationX>
-        <locationY>395</locationY>
+        <locationY>1595</locationY>
         <defaultConnector>
             <targetReference>Invoice_due_is_set</targetReference>
         </defaultConnector>
@@ -190,7 +383,7 @@
         <name>Notary_date_is_current_year</name>
         <label>Notary date is current year</label>
         <locationX>446</locationX>
-        <locationY>1103</locationY>
+        <locationY>2303</locationY>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
             <name>Notary_date_is_current_year2</name>
@@ -233,6 +426,12 @@
         <expression>isNew()</expression>
     </formulas>
     <formulas>
+        <name>provisionVertriebskoordination</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.Vertriebskoordinator__r.ProvisionVertriebskoordination__c} * IF(({!$Record.DatumBankantragGestellt__c} - {!$Record.Notartermin__c}) &gt; 30, 0.5, 1)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
         <name>startOfYear</name>
         <dataType>Date</dataType>
         <expression>DATE(YEAR(TODAY()),1,1)</expression>
@@ -259,59 +458,10 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordLookups>
-        <name>Get_Sales_Team_Assistance</name>
-        <label>Get Sales Team Assistance</label>
-        <locationX>50</locationX>
-        <locationY>611</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Assign_Assistance_and_Financing</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>SalesTeam__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>Get_Sales_Team_Sales_Member.SalesTeam__c</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>Rolle__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Teamassistenz</stringValue>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>SalesTeamMember__c</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
-        <name>Get_Sales_Team_Sales_Member</name>
-        <label>Get Sales Team Sales Member</label>
-        <locationX>50</locationX>
-        <locationY>503</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Get_Sales_Team_Assistance</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Kontakt__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.Maklerbetreuer_WirtschaftsHaus__c</elementReference>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>SalesTeamMember__c</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
         <name>Get_Verzugszins</name>
         <label>Get Verzugszins</label>
         <locationX>314</locationX>
-        <locationY>803</locationY>
+        <locationY>2003</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_Zins_record</targetReference>
@@ -339,7 +489,7 @@
         <locationX>122</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Is_New</targetReference>
+            <targetReference>Contact_LeadSource_not_null</targetReference>
         </connector>
         <object>Opportunity</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>

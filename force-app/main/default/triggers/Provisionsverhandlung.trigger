@@ -19,7 +19,7 @@ trigger Provisionsverhandlung on Provisionsverhandlung__c (after insert, after u
         List<Opportunity> opps = [SELECT Abrechnung_ber__c, Makler__c,Immobilienberater__c, AccountIdAbrechnungUeber__c, Grundprovision_Provisionsverhandlung__c, Verkaufsprovision_Provisionsverhandlung__c, Immobilie__c, AccountId, AccountIdImmobilienberater__c
                                     FROM Opportunity
                                     WHERE (AccountId IN :maklerAccountIds OR AccountIdImmobilienberater__c IN :maklerAccountIds OR AccountIdAbrechnungUeber__c IN :maklerAccountIds)
-                                    AND ((ProvisionsverhandlungVorhanden__c = false AND ProvisionsvoraussetzungenErfuellt__c = false AND Notartermin__c >= LAST_YEAR AND IsWon = true)
+                                    AND ((ProvisionsverhandlungVorhanden__c = false AND ProvisionsvoraussetzungenErfuellt__c = false AND Notartermin__c >= LAST_YEAR AND (IsWon = true OR StageName = 'Notartermin hat stattgefunden'))
                                         OR IsClosed = false)
                                         AND StageName != 'Geschlossen und verloren'
                                         AND StageName != 'VKC ausgelaufen'

@@ -132,7 +132,7 @@ private class GenerateProvisionTest {
         prov.Kunde__c = opp2.Potenzieller_Kunde__c;
         prov.Kaufpreis__c = opp2.Provisionsbasis__c;
         insert prov;
-        opp2.StageName = 'Geschlossene und gewonnene';
+        opp2.StageName = 'Notartermin hat stattgefunden';
         opp2.Notartermin__c = Date.today();
         update opp2;
         Test.stopTest();
@@ -189,7 +189,7 @@ private class GenerateProvisionTest {
         prov.Kunde__c = opp2.Potenzieller_Kunde__c;
         prov.Kaufpreis__c = opp2.Provisionsbasis__c;
         insert prov;
-        opp2.StageName = 'Geschlossene und gewonnene';
+        opp2.StageName = 'Notartermin hat stattgefunden';
         update opp2;
         Test.stopTest();
         Opportunity newOpp = [SELECT Id, Maklerprovision__c, PRovisionsbasis__c, Makler__c FROM Opportunity WHERE Id =:opp2.Id];
