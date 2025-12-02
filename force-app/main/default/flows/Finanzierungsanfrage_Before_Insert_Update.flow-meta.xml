@@ -2,10 +2,26 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>54.0</apiVersion>
     <assignments>
+        <name>Assign_FB_ausgestellt_am</name>
+        <label>Assign FB ausgestellt am</label>
+        <locationX>182</locationX>
+        <locationY>503</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.FinanzierungsbestaetigungAusgestelltAm__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Einer_der_ersten_vier_Phasen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Assign_last_stage_change_date</name>
         <label>Assign last stage change date</label>
-        <locationX>314</locationX>
-        <locationY>611</locationY>
+        <locationX>380</locationX>
+        <locationY>1211</locationY>
         <assignmentItems>
             <assignToReference>$Record.LetztePhasenaenderung__c</assignToReference>
             <operator>Assign</operator>
@@ -14,14 +30,14 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Stage_is_changed_and_was_VSA_vorhanden</targetReference>
+            <targetReference>Stage_Bankantrag</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Assign_Tage_in_Bankantrag</name>
         <label>Assign &quot;Tage in Bankantrag&quot;</label>
-        <locationX>314</locationX>
-        <locationY>1511</locationY>
+        <locationX>380</locationX>
+        <locationY>2411</locationY>
         <assignmentItems>
             <assignToReference>$Record.TageInBankantrag__c</assignToReference>
             <operator>Assign</operator>
@@ -33,8 +49,8 @@
     <assignments>
         <name>Assign_Tage_in_Unterlagen_angefordert</name>
         <label>Assign &quot;Tage in Unterlagen angefordert&quot;</label>
-        <locationX>314</locationX>
-        <locationY>1211</locationY>
+        <locationX>380</locationX>
+        <locationY>2111</locationY>
         <assignmentItems>
             <assignToReference>$Record.TageInUnterlagenAngefordert__c</assignToReference>
             <operator>Assign</operator>
@@ -49,8 +65,8 @@
     <assignments>
         <name>Assign_values</name>
         <label>Assign values</label>
-        <locationX>50</locationX>
-        <locationY>503</locationY>
+        <locationX>116</locationX>
+        <locationY>1103</locationY>
         <assignmentItems>
             <assignToReference>$Record.Name</assignToReference>
             <operator>Assign</operator>
@@ -79,12 +95,19 @@
                 <elementReference>$Record.Opportunity__r.Vertriebskoordinator__c</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.NaechsteErinnerungsEmailAm__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>nowPlusThreeDays</elementReference>
+            </value>
+        </assignmentItems>
     </assignments>
     <assignments>
         <name>Assigns_Tage_in_VSA_vorhanden</name>
         <label>Assigns &quot;Tage in VSA vorhanden&quot;</label>
-        <locationX>314</locationX>
-        <locationY>911</locationY>
+        <locationX>380</locationX>
+        <locationY>1811</locationY>
         <assignmentItems>
             <assignToReference>$Record.TageInVSAVorhanden__c</assignToReference>
             <operator>Assign</operator>
@@ -96,10 +119,55 @@
             <targetReference>Stage_is_changed_and_was_Unterlagen_angefordert</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Datum_Erinnerungs_E_Mail_leeren</name>
+        <label>Datum Erinnerungs-E-Mail leeren</label>
+        <locationX>314</locationX>
+        <locationY>803</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.NaechsteErinnerungsEmailAm__c</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
+        <connector>
+            <targetReference>Neu</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Datum_Erinnerungs_E_Mail_setzen</name>
+        <label>Datum Erinnerungs-E-Mail setzen</label>
+        <locationX>50</locationX>
+        <locationY>803</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.NaechsteErinnerungsEmailAm__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>nowPlusThreeDays</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Neu</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Bankantrag_to_today</name>
+        <label>Set Bankantrag to today</label>
+        <locationX>380</locationX>
+        <locationY>1511</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.DatumBankantragGestellt__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Stage_is_changed_and_was_VSA_vorhanden</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>Automation_Switch</name>
         <label>Automation Switch</label>
-        <locationX>545</locationX>
+        <locationX>611</locationX>
         <locationY>287</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -113,16 +181,146 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Neu</targetReference>
+                <targetReference>FB_via_E_Mail_senden</targetReference>
             </connector>
             <label>Automation Switch</label>
         </rules>
     </decisions>
     <decisions>
+        <name>Einer_der_ersten_vier_Phasen</name>
+        <label>Einer der ersten vier Phasen?</label>
+        <locationX>314</locationX>
+        <locationY>695</locationY>
+        <defaultConnector>
+            <targetReference>Neu</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Einer_der_ersten_vier_Phasen2</name>
+            <conditionLogic>(1 AND 5) OR (1 AND 6) OR (5 AND 2) OR (6 AND 2) OR (5 AND 3) OR (6 AND 3) OR (5 AND 4) OR (6 AND 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Phase__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Finanzierungsanfrage gestellt</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Phase__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>VSA vorhanden</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Phase__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rückfragen gestellt</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Phase__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Unterlagen angefordert</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Phase__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>isNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Datum_Erinnerungs_E_Mail_setzen</targetReference>
+            </connector>
+            <label>Einer der ersten vier Phasen?</label>
+        </rules>
+        <rules>
+            <name>Phase_in_einen_der_anderen_Werte_ge_ndert</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Phase__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Bankantrag</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Phase__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Finanzierung pausiert</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Phase__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Finanzierung genehmigt</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Phase__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Finanzierung verloren</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Datum_Erinnerungs_E_Mail_leeren</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Phase in einen der anderen Werte geändert?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>FB_via_E_Mail_senden</name>
+        <label>FB via E-Mail senden?</label>
+        <locationX>314</locationX>
+        <locationY>395</locationY>
+        <defaultConnector>
+            <targetReference>Einer_der_ersten_vier_Phasen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>FB_via_E_Mail_senden2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.FBViaEmailVersenden__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.FinanzierungsbestaetigungAusgestelltAm__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_FB_ausgestellt_am</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>FB via E-Mail senden?</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Neu</name>
         <label>Neu?</label>
-        <locationX>248</locationX>
-        <locationY>395</locationY>
+        <locationX>314</locationX>
+        <locationY>995</locationY>
         <defaultConnector>
             <targetReference>Stage_changed</targetReference>
         </defaultConnector>
@@ -144,12 +342,38 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Stage_changed</name>
-        <label>Stage changed?</label>
-        <locationX>446</locationX>
-        <locationY>503</locationY>
+        <name>Stage_Bankantrag</name>
+        <label>Stage = Bankantrag?</label>
+        <locationX>512</locationX>
+        <locationY>1403</locationY>
         <defaultConnector>
             <targetReference>Stage_is_changed_and_was_VSA_vorhanden</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Stage_Bankantrag2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Phase__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Bankantrag</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Bankantrag_to_today</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Stage = Bankantrag?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Stage_changed</name>
+        <label>Stage changed?</label>
+        <locationX>512</locationX>
+        <locationY>1103</locationY>
+        <defaultConnector>
+            <targetReference>Stage_Bankantrag</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -171,8 +395,8 @@
     <decisions>
         <name>Stage_is_changed_and_was_Bankantrag</name>
         <label>Stage is changed and was Bankantrag</label>
-        <locationX>446</locationX>
-        <locationY>1403</locationY>
+        <locationX>512</locationX>
+        <locationY>2303</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Stage_is_changed_and_was_Bankantrag2</name>
@@ -200,8 +424,8 @@
     <decisions>
         <name>Stage_is_changed_and_was_Unterlagen_angefordert</name>
         <label>Stage is changed and was Unterlagen angefordert</label>
-        <locationX>446</locationX>
-        <locationY>1103</locationY>
+        <locationX>512</locationX>
+        <locationY>2003</locationY>
         <defaultConnector>
             <targetReference>Stage_is_changed_and_was_Bankantrag</targetReference>
         </defaultConnector>
@@ -232,8 +456,8 @@
     <decisions>
         <name>Stage_is_changed_and_was_VSA_vorhanden</name>
         <label>Stage is changed and was VSA vorhanden</label>
-        <locationX>446</locationX>
-        <locationY>803</locationY>
+        <locationX>512</locationX>
+        <locationY>1703</locationY>
         <defaultConnector>
             <targetReference>Stage_is_changed_and_was_Unterlagen_angefordert</targetReference>
         </defaultConnector>
@@ -269,6 +493,16 @@
         <scale>0</scale>
     </formulas>
     <formulas>
+        <name>isNew</name>
+        <dataType>Boolean</dataType>
+        <expression>isNew()</expression>
+    </formulas>
+    <formulas>
+        <name>nowPlusThreeDays</name>
+        <dataType>DateTime</dataType>
+        <expression>DATETIMEVALUE(NOW()+3)</expression>
+    </formulas>
+    <formulas>
         <name>recordName</name>
         <dataType>String</dataType>
         <expression>{!$Record.ErsterKaeufer__r.LastName} + &apos;, &apos; + {!$Record.ErsterKaeufer__r.FirstName} + IF(!IsBlank({!$Record.Opportunity__c}), &apos; - &apos; + {!$Record.Opportunity__r.Immobilie__r.Name} + IF(!IsBlank({!$Record.Opportunity__r.Appartement__c}), &apos; - &apos; +{!$Record.Opportunity__r.Appartement__r.Name}, &apos;&apos;), &apos;&apos;)</expression>
@@ -295,7 +529,7 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <start>
-        <locationX>419</locationX>
+        <locationX>485</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Automation_Switch</targetReference>

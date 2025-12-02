@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>WH_Service</letterhead>
+    <name>Reservierungsschein in Ordnung</name>
+    <style>freeForm</style>
+    <subject>Reservierungsschein für {!Opportunity.Potenzieller_Kunde__c} akzeptiert</subject>
+    <textOnly>Sehr geehrte/r {!Opportunity.Makler__c},
+
+der Reservierungsschein für:
+
+Interessent: {!Opportunity.Potenzieller_Kunde__c}
+Objekt: {!Opportunity.Immobilie__c}
+Teilobjekt: {!Opportunity.Appartement__c}
+Reserviert bis: {!Opportunity.reserviert_bis__c}
+
+wurde überprüft und akzeptiert. Sie haben nun 3 Tage Zeit um uns die unterschriebene VSA zu senden.
+
+Bei Fragen zu diesem Prozess steht Ihnen Ihr Maklerbetreuer gern zur Verfügung.
+
+Mit freundlichen Grüßen
+
+Ihr Carestone Team</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

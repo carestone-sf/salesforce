@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ApprovalRequiredFields</fullName>
+    <active>true</active>
+    <errorConditionFormula>GenehmigtVonFinanzierungsberater__c &amp;&amp; (IsBlank(MaximaleFinanzierungssumme__c) || IsBlank(ErsterKaeufer__c) || IsBlank(Finanzierungsbedarf__c) || IsBlank(Opportunity__r.Appartement__c))</errorConditionFormula>
+    <errorMessage>Die folgenden Felder müssen zur Genehmigung ausgefüllt sein: Maximale Finanzierungssumme, Erster Käufer, Finanzierungsbedarf und das Apartment in der VKC.</errorMessage>
+</ValidationRule>

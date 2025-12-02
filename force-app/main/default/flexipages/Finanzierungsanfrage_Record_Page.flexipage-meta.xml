@@ -120,6 +120,42 @@
                 <identifier>RecordFinanzierungsberater__cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.DatumDarlehensvertragLiegtVor__c</fieldItem>
+                <identifier>RecordDatumDarlehensvertragLiegtVor__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.DatumBankantragGestellt__c</fieldItem>
+                <identifier>RecordDatumBankantragGestellt__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Finanzierungssumme_Baustein1__c</fieldItem>
+                <identifier>RecordFinanzierungssumme__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Finanzierungssumme_Baustein2__c</fieldItem>
+                <identifier>RecordFinanzierungssumme_Baustein2__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.FBViaEmailVersenden__c</fieldItem>
+                <identifier>RecordFBViaEmailVersenden__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.FinanzierungsbestaetigungSenden__c</fieldItem>
+                <identifier>RecordFinanzierungsbestaetigungSenden__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-59524a7d-4212-4e95-b1f5-717dedbbdad8</name>
         <type>Facet</type>
     </flexiPageRegions>

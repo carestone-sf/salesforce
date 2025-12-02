@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>WH_Service</letterhead>
+    <name>VSA genehmigt</name>
+    <style>freeForm</style>
+    <subject>VSA für {!Opportunity.Potenzieller_Kunde__c} überprüft</subject>
+    <textOnly>Sehr geehrte/r {!Opportunity.Makler__c},
+
+vielen Dank für die Einreichung der VSA. Diese wurde nach interner Prüfung genehmigt und im Anhang finden Sie die Finanzierungsbestätigung von uns. Nutzen Sie unsere Finanzierungsbestätigung um in den nächsten 10 Tagen den Notarauftrag mit Ihrem Kunden aufzunehmen und reichen Sie diesen bei uns ein. Die Wohneinheit bleibt für diesen Zeitraum für Ihren Kunden reserviert.
+
+Immobilie: {!Opportunity.Immobilie__c}
+Teilobjekt: {!Opportunity.Appartement__c}
+
+Bei Fragen zu diesem Prozess steht Ihnen Ihr Maklerbetreuer gern zur Verfügung. Zusätzlich können Sie Kontakt zum Finanzierungsberater aufnehmen:
+
+
+Name: {!Opportunity.Finanzierungsberater__c}
+E-Mail: {!Opportunity.EmailFinanzierungsberater__c}
+Telefon: {!Opportunity.TelefonFinanzierungsberater__c}
+
+Mit freundlichen Grüßen
+
+Ihr Carestone Team</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
