@@ -85,7 +85,14 @@
         <tr>
             <td></td>
             <td style="text-align:right;">
-                <apex:outputField value="{!Finanzierungsanfrage__c.FinanzierungsbestaetigungAusgestelltAm__c}"/>
+                <apex:outputText value="{0,date,dd.MM.yyyy}">
+                    <apex:param value="{!IF(
+                            ISBLANK(Finanzierungsanfrage__c.FinanzierungsbestaetigungAusgestelltAm__c),
+                            TODAY(),
+                            Finanzierungsanfrage__c.FinanzierungsbestaetigungAusgestelltAm__c
+                        )}" 
+                    />
+                </apex:outputText>
             </td>
         </tr>
     </table>
