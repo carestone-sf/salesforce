@@ -200,7 +200,7 @@
             </value>
         </inputParameters>
     </actionCalls>
-    <apiVersion>55.0</apiVersion>
+    <apiVersion>61.0</apiVersion>
     <assignments>
         <name>Add_secondBuyer_to_roles</name>
         <label>Add secondBuyer to roles</label>
@@ -1405,9 +1405,6 @@
         <connector>
             <targetReference>Darlehensvertrag_liegt_vor</targetReference>
         </connector>
-        <faultConnector>
-            <targetReference>Genehmigung_Fehler</targetReference>
-        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Opportunity__c</field>
@@ -1586,7 +1583,7 @@
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Obsolete</status>
+    <status>Active</status>
     <textTemplates>
         <name>notarterminChangedTemplate</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
