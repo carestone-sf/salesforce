@@ -12,8 +12,10 @@
         </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
-            <name>recipientAddresses</name>
-            <value/>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>emailRecipients</elementReference>
+            </value>
         </inputParameters>
         <inputParameters>
             <name>composeEmailContent</name>
@@ -45,9 +47,17 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </inputParameters>
+        <inputParameters>
+            <name>addThreadingTokenToSubject</name>
+        </inputParameters>
     </actionCalls>
     <apiVersion>65.0</apiVersion>
     <environments>Default</environments>
+    <formulas>
+        <name>emailRecipients</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Finanzierungsberater__r.Email} + &apos;,g.zimmer@carestone.com&apos;</expression>
+    </formulas>
     <formulas>
         <name>emailSubject</name>
         <dataType>String</dataType>

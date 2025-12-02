@@ -9,8 +9,10 @@
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
-            <name>recipientAddresses</name>
-            <value/>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>emailRecipients</elementReference>
+            </value>
         </inputParameters>
         <inputParameters>
             <name>composeEmailContent</name>
@@ -45,6 +47,11 @@
     </actionCalls>
     <apiVersion>65.0</apiVersion>
     <environments>Default</environments>
+    <formulas>
+        <name>emailRecipients</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Finanzierungsberater__r.Email} + &apos;,g.zimmer@carestone.com&apos;</expression>
+    </formulas>
     <formulas>
         <name>recordLink</name>
         <dataType>String</dataType>

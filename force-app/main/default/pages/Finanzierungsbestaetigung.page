@@ -85,9 +85,7 @@
         <tr>
             <td></td>
             <td style="text-align:right;">
-                {!DAY(Finanzierungsanfrage__c.FinanzierungsbestaetigungAusgestelltAm__c)}.
-                {!MONTH(Finanzierungsanfrage__c.FinanzierungsbestaetigungAusgestelltAm__c)}.
-                {!YEAR(Finanzierungsanfrage__c.FinanzierungsbestaetigungAusgestelltAm__c)}
+                <apex:outputField value="{!Finanzierungsanfrage__c.FinanzierungsbestaetigungAusgestelltAm__c}"/>
             </td>
         </tr>
     </table>

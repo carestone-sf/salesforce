@@ -9,8 +9,10 @@
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
-            <name>recipientAddresses</name>
-            <value/>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>s.pawils@carestone.com</stringValue>
+            </value>
         </inputParameters>
         <inputParameters>
             <name>composeEmailContent</name>
@@ -52,8 +54,10 @@
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
-            <name>recipientAddresses</name>
-            <value/>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>g.zimmer@carestone.com</stringValue>
+            </value>
         </inputParameters>
         <inputParameters>
             <name>composeEmailContent</name>
