@@ -61,6 +61,20 @@
                 <booleanValue>false</booleanValue>
             </value>
         </filters>
+        <filters>
+            <field>VSAInGenehmigung__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Notartermin hat stattgefunden</stringValue>
+            </value>
+        </filters>
         <object>Opportunity</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <scheduledPaths>
@@ -76,5 +90,5 @@
         </scheduledPaths>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
 </Flow>

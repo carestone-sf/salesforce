@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Finanzierungsanfragen</fullName>
+    <active>true</active>
+    <label>Finanzierungsanfragen</label>
+    <picklistValues>
+        <picklist>Typ__c</picklist>
+        <values>
+            <fullName>3 Monate durchgehende Kontoauszüge aller privaten Girokonten</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6 Wochen durchgehende Kontoauszüge aller privaten Girokonten</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aufstellung der geplanten Modernisierungskosten %28bei geplanter Modernisierung %2F Sanierung%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BWA inkl%2E Summen- und Saldenliste per letzten Jahresende %28wenn kein JA bzw%2E EÜR vorliegt%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bausparvertrag%3A letzter Jahreskontoauszug</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Berechnung zum KfW-Antrag im Original gem%2E Online-Bestätigung %28bei KfW-Anträgen%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Darlehensvertrag%3A Kopien sämtlicher Darlehensverträge %28Ersten vier Seiten%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EK Nachweise mit persönlichen Angaben %28Name%2C Konto-%2FDepot Nr%2E%2C Datum%2C Betrag%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EÜ-Rechnung%2Fvollständiger Jahresabschluss der letzten 2 Jahre</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finanzierungsbestätigung %28FB%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Immobilienaufstellung mit Mieterliste bzw%2E Mietverträge und Kontoauszug des Mieteingangs fu%CC%88r weitere Immobilien %28bei Vermietungsobjekt%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Individuelle Unterlage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Individuelle Unterlagen 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Individuelle Unterlagen 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Individuelle Unterlagen 3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jahreslohnsteuerbescheinigung des vergangenen Jahres</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KfW-Antrag oder KfW-Einwilligungserklärung%2FVollmacht vollständig ausgefu%CC%88llt und unterschrieben %28bei KfW-Anträgen Kopie Darlehensvertrag des abzulösenden Darlehens%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kontoauszüge des Gehaltskontos %28letzte 3 Monate%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lebens-%26 Rentenversicherung%3A letzter Nachtrag</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Letzter Nachtrag der privaten Krankenversicherung%2FPflegeversicherung als Beitragsnachweis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lohn- und Gehaltsnachweis der letzten drei Monate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lohn- und Gehaltsnachweis der letzten drei Monate %28bei Geschäftsfu%CC%88hr%2E Gesellschafter%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mietnachweise der letzten drei Monate bei vermietetem Wohneigentum</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nachweis Beitrag private Krankenversicherung</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nachweis der letzten drei Unterhaltszahlungen oder Beschluss%2FVertrag%2FUrteil über die Unterhaltsverpflichtungen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nachweis u%CC%88ber weitere Fremdmittel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nachweis%2FAufstellung der Eigenleistungen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Personalausweis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renteninformation%2FRentenbescheid bzw%2E Vertragskopie oder Police bei privater Rentenvorsorge des Darlehensnehmers %28bei Kreditlaufzeit bis in die Rentenphase%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scheidungsurteil</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vermögens-%2FVerbindlichkeiten-%2FEigenkapitalnachweise %28Darlehensstand%2C-rate%2E Kopie Guthaben%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zuschussformular %28NK oder MK%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>aktuelle BWA inkl%2E Summen- und Saldenliste</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>aktueller Rentenbescheid %28bei Rentner%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>bei abzulösenden Darlehen die Kopie vom Jahreskontoauszug vom letzten Jahr %28alternativ%3A Nachweis aktueller Darlehensstand%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>fu%CC%88r Nicht-EU-Bu%CC%88rger ist eine unbefristete Aufenthaltsgenehmigung erforderlich</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>letzte Bezu%CC%88gemitteilung zzg%2E ggf%2E Kontoauszug als Nachweis der Aktualität %28nur bei Beamten%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>letzte Einkommensteuererklärung %28bei Bedarf%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>letzte Einkommensteuererklärung %28nur bei Bedarf%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>letzter Einkommensteuerbescheid %28bei Bedarf%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>letzter Einkommensteuerbescheid %28nur bei Bedarf%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>vollständige und unterzeichnete Selbstauskunft inkl%2E SCHUFA-Einverständniserklärung</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>dfsle__GeneratedFileFormat__c</picklist>
+        <values>
+            <fullName>PDF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Word</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>dfsle__GeneratedFileSuffix__c</picklist>
+        <values>
+            <fullName>date</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>name</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>name_date</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

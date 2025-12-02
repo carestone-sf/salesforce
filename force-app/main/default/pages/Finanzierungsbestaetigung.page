@@ -1,0 +1,162 @@
+<apex:page standardController="Finanzierungsanfrage__c"
+           showHeader="false"
+           applyHtmlTag="false"
+           renderAs="pdf">
+
+    <head>
+        <style>
+            @page {
+                size: 21.0cm 29.7cm;
+                margin-bottom: 1.69cm;
+                margin-left: 2.5cm;
+                margin-right: 2cm;
+                margin-top: 0.5cm;
+                padding: 0;
+
+                @bottom-center {
+                    content: element(bottom-center-div);
+                }
+            }
+
+            .disclaimer {
+                font-size: 10px;
+            }
+
+            body {
+                font-family: 'sans-serif';
+                color: #1f1f1f;
+                font-size: 12px;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                display: block;
+            }
+
+            .bottom-center-div {
+                position: running(bottom-center-div);
+                text-align: center;
+            }
+
+            .main-content {
+                margin-top: 1cm;
+            }
+
+            .address {
+                margin-top: 2cm;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                border: none;
+            }
+        </style>
+    </head>
+
+    <body>
+    <!-- Header with logo -->
+    <div style="width: 100%; text-align: center; margin-bottom: 20px">
+        <!-- adjust resource name if needed -->
+        <apex:image url="{!$Resource.Carestone_Logo}" width="200px" height="auto"/>
+    </div>
+
+    <div class="address">
+    <!-- Company line (header address) -->
+    <p style="font-size: 8px; color: #004B41;">
+        Carestone Service GmbH &#183; An der Börse 3 &#183; 30159 Hannover
+    </p>
+
+    <!-- Recipient address block -->
+    <p>
+        <!-- Contact address: assumes standard Contact mailing fields -->
+        {!Finanzierungsanfrage__c.ErsterKaeufer__r.Salutation}
+        {!Finanzierungsanfrage__c.ErsterKaeufer__r.FirstName}
+        {!Finanzierungsanfrage__c.ErsterKaeufer__r.LastName}<br/>
+        {!Finanzierungsanfrage__c.ErsterKaeufer__r.MailingStreet}<br/>
+        {!Finanzierungsanfrage__c.ErsterKaeufer__r.MailingPostalCode}
+        {!Finanzierungsanfrage__c.ErsterKaeufer__r.MailingCity}
+    </p>
+    </div>
+
+    <br/>
+
+    <!-- Date row -->
+    <table style="border:none;">
+        <tr>
+            <td></td>
+            <td style="text-align:right;">
+                <apex:outputText value="{0,date,dd.MM.yyyy}">
+                    <apex:param value="{!IF(
+                            ISBLANK(Finanzierungsanfrage__c.FinanzierungsbestaetigungAusgestelltAm__c),
+                            TODAY(),
+                            Finanzierungsanfrage__c.FinanzierungsbestaetigungAusgestelltAm__c
+                        )}" 
+                    />
+                </apex:outputText>
+            </td>
+        </tr>
+    </table>
+
+    <br/>
+
+    <div class="main-content">
+    <!-- Subject line -->
+    <p>
+        <strong>
+            Finanzierungsbestätigung für den Erwerb des Pflegeappartements Nr. {!Finanzierungsanfrage__c.Opportunity__r.Appartement__r.ApartmentNummer__c} in {!Finanzierungsanfrage__c.Opportunity__r.Immobilie__r.Name}
+            zu einem Kaufpreis in Höhe von&nbsp;<apex:outputField value="{!Finanzierungsanfrage__c.Finanzierungsbedarf__c}"/>
+        </strong>
+    </p>
+
+    <!-- Letter body -->
+    <p>
+        Sehr geehrte
+        {!Finanzierungsanfrage__c.ErsterKaeufer__r.Salutation}
+        {!Finanzierungsanfrage__c.ErsterKaeufer__r.LastName},
+    </p>
+
+    <p>
+        auf Basis der Angaben in Ihrer Selbstauskunft, deren Nachweisbarkeit und Richtigkeit wir
+        unterstellen, schätzen wir eine Bankfinanzierung für ein Appartement in Höhe von<br/><br/>
+        <b><apex:outputField value="{!Finanzierungsanfrage__c.MaximaleFinanzierungssumme__c}"/></b>
+        <br/><br/>
+        unter banküblichen Kriterien als realistisch ein.
+    </p>
+
+    <p>
+        Sollte die Vermittlung der erforderlichen Darlehen – auch mit Ihrer Mithilfe – nicht gelingen,
+        so werden wir die bis dahin entstandenen und von Ihnen bezahlten Kaufnebenkosten erstatten,
+        wenn es zur Rückabwicklung des Kaufvertrages kommt.
+    </p>
+
+    <p>
+        Diese Vereinbarung gilt unter der Annahme, dass der Notartermin innerhalb der nächsten
+        6&nbsp;Wochen stattfindet. Die Finanzierungsunterlagen müssen bis spätestens 14&nbsp;Tage nach Ihrem
+        Notartermin vollständig bei uns vorliegen.
+    </p>
+
+    <br/>
+
+    <p>Mit freundlichen Grüßen</p>
+    <p>
+        Ihr Harald Senftleben<br/>
+        Geschäftsführer der Carestone Service GmbH
+    </p>
+
+    <p class="disclaimer">
+        Dieses Schreiben wurde maschinell erstellt und ist ohne Unterschrift gültig. Die Echtheit und der Inhalt können jederzeit über die Carestone Service GmbH verifiziert werden.
+    </p>
+    </div>
+
+    <!-- Footer (same style as reference, Service GmbH variant) -->
+    <div class="bottom-center-div"
+         style="font-size: 8px; line-height: 12px;">
+        Carestone Service GmbH &#183; An der Börse 3 &#183; 30159 Hannover &#183;
+        Tel. 0511 26152-0 &#183; Fax: 0511 26152-299 &#183; www.carestone.com &#183; info@carestone.com<br/>
+        Geschäftsführer: Sandro Pawils, Harald Senftleben<br/>
+        Amtsgericht Hannover HRB 218680 | St.Nr. 25/205/10530<br/>
+        Sparkasse Hildesheim Goslar Peine &#183; IBAN DE58 2595 0130 0056 3808 97 &#183; BIC NOLADE21HIK
+    </div>
+
+    </body>
+</apex:page>
