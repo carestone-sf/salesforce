@@ -145,8 +145,7 @@ private class GenerateInternalCommissionScheduleTest {
         update newOpp;
 
         Test.startTest();
-        GenerateInternalCommissionSchedulable gcs = new GenerateInternalCommissionSchedulable('month');
-        gcs.scheduleMe();
+        Database.executeBatch(new GenerateInternalCommissionBatch('month'), 10);
         Test.stopTest();
     }
 
@@ -201,8 +200,7 @@ private class GenerateInternalCommissionScheduleTest {
         update newOpp;
 
         Test.startTest();
-        GenerateInternalCommissionSchedulable gcs = new GenerateInternalCommissionSchedulable('year');
-        gcs.scheduleMe();
+        Database.executeBatch(new GenerateInternalCommissionBatch('year'), 10);
         Test.stopTest();
     }
 
@@ -257,9 +255,75 @@ private class GenerateInternalCommissionScheduleTest {
         update newOpp;
 
         Test.startTest();
-        GenerateInternalCommissionSchedulable gcs = new GenerateInternalCommissionSchedulable('quarter');
-        gcs.scheduleMe();
+        Database.executeBatch(new GenerateInternalCommissionBatch('quarter'), 10);
         Test.stopTest();
+    }
+
+    @isTest static void testBatchCreatesInternalProvisionRecord_month() {
+        Account acc3 = [SELECT Id FROM Account LIMIT 1];
+        Contact mb = [SELECT Id, OwnerId FROM Contact WHERE LastName = 'Köpsell' LIMIT 1];
+        Contact potKun = [SELECT Id FROM Contact WHERE LastName != 'Köpsell' LIMIT 1];
+        Property__c immobilie = [SELECT Id FROM Property__c LIMIT 1];
+        Appartment__c app2 = [SELECT Id FROM Appartment__c LIMIT 1];
+
+        Opportunity opp = new Opportunity(
+            Name = 'Test VKC Batch Month',
+            AccountId = acc3.Id,
+            Potenzieller_Kunde__c = potKun.Id,
+            CloseDate = System.today().addDays(1),
+            StageName = 'Reservierung angefragt',
+            Immobilie__c = immobilie.Id,
+            Appartement__c = app2.Id,
+            Finanzierung__c = 'Finanzierung WH',
+            Kaufdatum__c = System.today(),
+            Makler__c = mb.Id,
+            Immobilienberater__c = mb.Id,
+            Abrechnung_ber__c = mb.Id,
+            Maklerbetreuer_WirtschaftsHaus__c = mb.Id,
+            Maklerprovision__c = '4.5',
+            Finanzierung_oder_Eigenkapitalnachweis__c = true,
+            Nachweis_Barzahler__c = true,
+            KV_eingegangen__c = true,
+            Beratungsprotokoll__c = true,
+            Risikobelehrung__c = true,
+            Overhead_Empf_nger__c = mb.Id,
+            beurkundeter_Kaufpreis__c = 123123.23,
+            Provisionsbasis__c = 123123.23
+        );
+        insert opp;
+
+        opp.StageName = 'Notartermin hat stattgefunden';
+        opp.Notartermin__c = Date.today();
+        update opp;
+
+        Provisionsmodell__c model = new Provisionsmodell__c(
+            Name = 'Batch Test Default',
+            GueltigVon__c = Date.today().addYears(-1)
+        );
+        insert model;
+
+        insert new Provisionsstaffel__c(
+            Provisionsmodell__c = model.Id,
+            Abrechnungsperiode__c = 'Monat',
+            StaffelVon__c = 0,
+            StaffelBis__c = 999999,
+            ProvisionInProzent__c = 0.25
+        );
+
+        Test.startTest();
+        Database.executeBatch(new GenerateInternalCommissionBatch('month'), 10);
+        Test.stopTest();
+
+        String expectedUniqueId = opp.Id + '-' + mb.Id + '-month';
+        List<Provision__c> created = [
+            SELECT Id, UniqueId__c, Verkaufschance__c, Makler__c, Provisionszeitraum__c, ErfolgsabhaengigeProvisionInProzent__c
+            FROM Provision__c
+            WHERE UniqueId__c = :expectedUniqueId
+        ];
+
+        System.assertEquals(1, created.size(), 'Batch month should create exactly one internal provision for the MB.');
+        System.assertEquals('Monat', created[0].Provisionszeitraum__c, 'Provision period should be Monat.');
+        System.assert(created[0].ErfolgsabhaengigeProvisionInProzent__c > 0, 'Erfolgsabhängige Provision should be > 0.');
     }
 
     @isTest static void test_update_prov2() {

@@ -2,8 +2,9 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>EinzelGbbBeantragtAm__c</fullName>
     <externalId>false</externalId>
-    <label>Einzel GBB beantragt am</label>
+    <label>Einzel GBB beantragt</label>
     <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Date</type>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Detailed call type --></label>
+    <name>aircall__Detailed_call_type__c</name>
+    <picklistValues>
+        <masterLabel>Inbound answered</masterLabel>
+        <translation><!-- Inbound answered --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Missed call</masterLabel>
+        <translation><!-- Missed call --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Outbound answered</masterLabel>
+        <translation><!-- Outbound answered --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Outbound unanswered</masterLabel>
+        <translation><!-- Outbound unanswered --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Voicemail</masterLabel>
+        <translation><!-- Voicemail --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

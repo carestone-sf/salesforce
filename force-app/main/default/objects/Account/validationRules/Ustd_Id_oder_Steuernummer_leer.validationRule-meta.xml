@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ustd_Id_oder_Steuernummer_leer</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND(ISNEW(),
+$User.ProfileId != &apos;00eb0000000VEnA&apos;,
+OR(
+ISBLANK(UStd_Id__c),
+ISBLANK(Steuernummer__c)
+)
+)</errorConditionFormula>
+    <errorDisplayField>UStd_Id__c</errorDisplayField>
+    <errorMessage>Bitte tragen Sie eine Umsatzsteuer ID oder eine Steuernummer ein</errorMessage>
+</ValidationRule>

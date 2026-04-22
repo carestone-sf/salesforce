@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Telefonkampagne_Ergebnis__c</fullName>
+    <externalId>false</externalId>
+    <label>Telefonkampagne Ergebnis</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Interesse</fullName>
+                <default>false</default>
+                <label>Interesse</label>
+            </value>
+            <value>
+                <fullName>Kein Interesse</fullName>
+                <default>false</default>
+                <label>Kein Interesse</label>
+            </value>
+            <value>
+                <fullName>Interesse / Keine Zeit</fullName>
+                <default>false</default>
+                <label>Interesse / Keine Zeit</label>
+            </value>
+            <value>
+                <fullName>Interesse / Unterlagen verschickt</fullName>
+                <default>false</default>
+                <label>Interesse / Unterlagen verschickt</label>
+            </value>
+            <value>
+                <fullName>Termin vereinbart</fullName>
+                <default>false</default>
+                <label>Termin vereinbart</label>
+            </value>
+            <value>
+                <fullName>Termin bestätigt</fullName>
+                <default>false</default>
+                <label>Termin bestätigt</label>
+            </value>
+            <value>
+                <fullName>Termin wahrgenommen</fullName>
+                <default>false</default>
+                <label>Termin wahrgenommen</label>
+            </value>
+            <value>
+                <fullName>Termin nicht wahrgenommen</fullName>
+                <default>false</default>
+                <label>Termin nicht wahrgenommen</label>
+            </value>
+            <value>
+                <fullName>Erneut Termin vereinbart</fullName>
+                <default>false</default>
+                <label>Erneut Termin vereinbart</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

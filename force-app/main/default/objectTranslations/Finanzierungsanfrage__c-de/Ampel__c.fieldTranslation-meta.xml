@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Bewertung extern --></label>
+    <name>Ampel__c</name>
+    <picklistValues>
+        <masterLabel>Finanzierung darstellbar</masterLabel>
+        <translation><!-- Finanzierung darstellbar --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Finanzierung eventuell darstellbar</masterLabel>
+        <translation><!-- Finanzierung eventuell darstellbar --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Finanzierung nicht darstellbar</masterLabel>
+        <translation><!-- Finanzierung nicht darstellbar --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VSA fehlerhaft</masterLabel>
+        <translation><!-- VSA fehlerhaft --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

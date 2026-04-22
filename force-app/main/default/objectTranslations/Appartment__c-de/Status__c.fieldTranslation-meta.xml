@@ -4,7 +4,7 @@
     <name>Status__c</name>
     <picklistValues>
         <masterLabel>Auftrag zur Beurkundung vorhanden</masterLabel>
-        <translation></translation>
+        <translation><!-- Auftrag zur Beurkundung vorhanden --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Available</masterLabel>
@@ -12,19 +12,19 @@
     </picklistValues>
     <picklistValues>
         <masterLabel>KV wird fremd abgegeben</masterLabel>
-        <translation></translation>
+        <translation><!-- KV wird fremd abgegeben --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Kaufvertragsangebot abgegeben</masterLabel>
-        <translation></translation>
+        <translation><!-- Kaufvertragsangebot abgegeben --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Kaufvertragsunterlagen verschickt -zweiseitig-</masterLabel>
-        <translation></translation>
+        <translation><!-- Kaufvertragsunterlagen verschickt -zweiseitig- --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Kontingent</masterLabel>
-        <translation></translation>
+        <translation><!-- Kontingent --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Reserved</masterLabel>
@@ -32,11 +32,11 @@
     </picklistValues>
     <picklistValues>
         <masterLabel>Reservierung angefragt</masterLabel>
-        <translation></translation>
+        <translation><!-- Reservierung angefragt --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Reservierungsvorbereitung</masterLabel>
-        <translation></translation>
+        <translation><!-- Reservierungsvorbereitung --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Sold</masterLabel>

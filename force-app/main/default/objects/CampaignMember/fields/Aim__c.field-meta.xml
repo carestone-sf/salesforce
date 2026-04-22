@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Aim__c</fullName>
+    <externalId>false</externalId>
+    <label>Ergebnis</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <controllingField>Type__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Hat Interesse</fullName>
+                <default>false</default>
+                <label>Hat Interesse</label>
+            </value>
+            <value>
+                <fullName>Interesse an Beratungstermin</fullName>
+                <default>false</default>
+                <label>Interesse an Beratungstermin</label>
+            </value>
+            <value>
+                <fullName>Interesse an Termin mit MB</fullName>
+                <default>false</default>
+                <label>Interesse an Termin mit MB</label>
+            </value>
+            <value>
+                <fullName>Reserviert</fullName>
+                <default>false</default>
+                <label>Reserviert</label>
+            </value>
+            <value>
+                <fullName>Unterlagen zuschicken</fullName>
+                <default>false</default>
+                <label>Unterlagen zuschicken</label>
+            </value>
+            <value>
+                <fullName>Gezeichnet</fullName>
+                <default>false</default>
+                <label>Gezeichnet</label>
+            </value>
+            <value>
+                <fullName>Hat kein Interesse</fullName>
+                <default>false</default>
+                <label>Hat kein Interesse</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Bannerwerbung</controllingFieldValue>
+            <controllingFieldValue>PR Aktion</controllingFieldValue>
+            <controllingFieldValue>Partner</controllingFieldValue>
+            <controllingFieldValue>Weiterempfehlungsprogramm</controllingFieldValue>
+            <controllingFieldValue>Andere</controllingFieldValue>
+            <controllingFieldValue>Werbung</controllingFieldValue>
+            <controllingFieldValue>E-Mailing</controllingFieldValue>
+            <controllingFieldValue>Post-Mailing</controllingFieldValue>
+            <controllingFieldValue>Telemarketing</controllingFieldValue>
+            <valueName>Hat Interesse</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bannerwerbung</controllingFieldValue>
+            <controllingFieldValue>PR Aktion</controllingFieldValue>
+            <controllingFieldValue>Partner</controllingFieldValue>
+            <controllingFieldValue>Weiterempfehlungsprogramm</controllingFieldValue>
+            <controllingFieldValue>Andere</controllingFieldValue>
+            <controllingFieldValue>Marketing-Event</controllingFieldValue>
+            <controllingFieldValue>Vertriebs-Event/Aktionstag</controllingFieldValue>
+            <controllingFieldValue>Kundenveranstaltung</controllingFieldValue>
+            <controllingFieldValue>Seminar</controllingFieldValue>
+            <controllingFieldValue>Online-Seminar</controllingFieldValue>
+            <controllingFieldValue>Besichtigung</controllingFieldValue>
+            <controllingFieldValue>Abnahme</controllingFieldValue>
+            <controllingFieldValue>Messe</controllingFieldValue>
+            <controllingFieldValue>Roadshow</controllingFieldValue>
+            <controllingFieldValue>Konferenz</controllingFieldValue>
+            <controllingFieldValue>Werbung</controllingFieldValue>
+            <controllingFieldValue>E-Mailing</controllingFieldValue>
+            <controllingFieldValue>Post-Mailing</controllingFieldValue>
+            <controllingFieldValue>Sachwertveranstaltung</controllingFieldValue>
+            <controllingFieldValue>Mediterraner Abend</controllingFieldValue>
+            <controllingFieldValue>Ostseeabend</controllingFieldValue>
+            <controllingFieldValue>Maklerzirkel</controllingFieldValue>
+            <controllingFieldValue>Fest/Feier</controllingFieldValue>
+            <controllingFieldValue>Telemarketing</controllingFieldValue>
+            <valueName>Unterlagen zuschicken</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bannerwerbung</controllingFieldValue>
+            <controllingFieldValue>PR Aktion</controllingFieldValue>
+            <controllingFieldValue>Partner</controllingFieldValue>
+            <controllingFieldValue>Weiterempfehlungsprogramm</controllingFieldValue>
+            <controllingFieldValue>Andere</controllingFieldValue>
+            <controllingFieldValue>Marketing-Event</controllingFieldValue>
+            <controllingFieldValue>Vertriebs-Event/Aktionstag</controllingFieldValue>
+            <controllingFieldValue>Kundenveranstaltung</controllingFieldValue>
+            <controllingFieldValue>Seminar</controllingFieldValue>
+            <controllingFieldValue>Online-Seminar</controllingFieldValue>
+            <controllingFieldValue>Besichtigung</controllingFieldValue>
+            <controllingFieldValue>Abnahme</controllingFieldValue>
+            <controllingFieldValue>Messe</controllingFieldValue>
+            <controllingFieldValue>Roadshow</controllingFieldValue>
+            <controllingFieldValue>Konferenz</controllingFieldValue>
+            <controllingFieldValue>Werbung</controllingFieldValue>
+            <controllingFieldValue>E-Mailing</controllingFieldValue>
+            <controllingFieldValue>Post-Mailing</controllingFieldValue>
+            <controllingFieldValue>Sachwertveranstaltung</controllingFieldValue>
+            <controllingFieldValue>Beratungstage</controllingFieldValue>
+            <controllingFieldValue>Mediterraner Abend</controllingFieldValue>
+            <controllingFieldValue>Ostseeabend</controllingFieldValue>
+            <controllingFieldValue>Maklerzirkel</controllingFieldValue>
+            <controllingFieldValue>Fest/Feier</controllingFieldValue>
+            <controllingFieldValue>Telemarketing</controllingFieldValue>
+            <valueName>Hat kein Interesse</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing-Event</controllingFieldValue>
+            <controllingFieldValue>Kundenveranstaltung</controllingFieldValue>
+            <controllingFieldValue>Seminar</controllingFieldValue>
+            <controllingFieldValue>Online-Seminar</controllingFieldValue>
+            <controllingFieldValue>Besichtigung</controllingFieldValue>
+            <controllingFieldValue>Abnahme</controllingFieldValue>
+            <controllingFieldValue>Messe</controllingFieldValue>
+            <controllingFieldValue>Roadshow</controllingFieldValue>
+            <controllingFieldValue>Konferenz</controllingFieldValue>
+            <controllingFieldValue>Sachwertveranstaltung</controllingFieldValue>
+            <controllingFieldValue>Mediterraner Abend</controllingFieldValue>
+            <controllingFieldValue>Ostseeabend</controllingFieldValue>
+            <controllingFieldValue>Fest/Feier</controllingFieldValue>
+            <valueName>Interesse an Beratungstermin</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vertriebs-Event/Aktionstag</controllingFieldValue>
+            <controllingFieldValue>Maklerzirkel</controllingFieldValue>
+            <valueName>Interesse an Termin mit MB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Beratungstage</controllingFieldValue>
+            <valueName>Reserviert</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Beratungstage</controllingFieldValue>
+            <valueName>Gezeichnet</valueName>
+        </valueSettings>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VKC_s_gewonnen_TEAM_HS_25</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Maklerbetreuer_WirtschaftsHaus__c</columns>
+    <columns>Immobilie__c</columns>
+    <columns>Appartement__c</columns>
+    <columns>Notartermin__c</columns>
+    <columns>KV_eingegangen_Datum__c</columns>
+    <columns>Finanzierung__c</columns>
+    <columns>Beratungsprotokoll__c</columns>
+    <columns>Risikobelehrung__c</columns>
+    <columns>Finanzierung_oder_Eigenkapitalnachweis__c</columns>
+    <columns>Kaufpreis_bezahlt__c</columns>
+    <columns>X1_MaBV_Rate_gezahlt__c</columns>
+    <columns>VSA_EK_vorhanden__c</columns>
+    <columns>StatusAmpel__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Notartermin__c</field>
+        <operation>greaterThan</operation>
+        <value>1/1/2025</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Geschlossene und gewonnene</value>
+    </filters>
+    <filters>
+        <field>Maklerbetreuer_WirtschaftsHaus__c</field>
+        <operation>equals</operation>
+        <value>Sven Schulz,Vincent Ostrowsky,Robin Joel Simon,Marcel Lindenblatt,Harald Senftleben</value>
+    </filters>
+    <filters>
+        <field>Notartermin__c</field>
+        <operation>lessThan</operation>
+        <value>1/1/2026</value>
+    </filters>
+    <label>VKC´s gewonnen TEAM HS 25</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Team_Sven</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>Teamleiter_Team_Sven</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

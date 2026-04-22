@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <help></help>
-    <label></label>
+    <help><!-- Bis wann erhält der im Feld &quot;Tippgeber&quot; angegebene Makler seine Provision? --></help>
+    <label><!-- Tippgeber Provision bis --></label>
     <name>TippgeberProvisionBis__c</name>
 </CustomFieldTranslation>

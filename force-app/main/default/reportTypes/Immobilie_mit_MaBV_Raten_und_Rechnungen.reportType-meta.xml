@@ -1105,11 +1105,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Test__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Text_Nachtrag_Provision__c</field>
             <table>Property__c</table>
         </columns>
@@ -1151,11 +1146,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Unternehmensnummer__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Verkaufsprovision__c</field>
             <table>Property__c</table>
         </columns>
         <columns>
@@ -1883,6 +1873,16 @@
             <field>Finanzierungsberater__c</field>
             <table>Property__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ExklusivVertrieben__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ClosingBonusAb__c</field>
+            <table>Property__c</table>
+        </columns>
         <masterLabel>Immobilien</masterLabel>
     </sections>
     <sections>
@@ -2515,6 +2515,21 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>OpenSum__c</field>
+            <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VKC_OP_Kommentar__c</field>
+            <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBV_Grundschuld_ist_bestellt__c</field>
+            <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VKC_Bank__c</field>
             <table>Property__c.MaBV_Raten__r.MaBV_Rechnungen__r.MaBV_Rechnungen__r</table>
         </columns>
         <masterLabel>MaBV Rechnungen</masterLabel>

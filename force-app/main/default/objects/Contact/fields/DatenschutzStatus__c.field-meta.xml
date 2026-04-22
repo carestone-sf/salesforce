@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DatenschutzStatus__c</fullName>
+    <externalId>false</externalId>
+    <label>Datenschutz Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Per Docusign Versendet</fullName>
+                <default>false</default>
+                <label>Per Docusign Versendet</label>
+            </value>
+            <value>
+                <fullName>Docusign unterschrieben</fullName>
+                <default>false</default>
+                <label>Docusign unterschrieben</label>
+            </value>
+            <value>
+                <fullName>Liegt bei Vertriebspartner vor</fullName>
+                <default>false</default>
+                <label>Liegt bei Vertriebspartner vor</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

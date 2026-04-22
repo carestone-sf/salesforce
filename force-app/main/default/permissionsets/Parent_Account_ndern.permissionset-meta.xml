@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission für Setter, um Accounts/Makler Leads vorzuqualifizieren und dann dem MB zuweisen zu können.</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.ParentId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Parent-Account ändern</label>
+    <license>Salesforce</license>
+</PermissionSet>

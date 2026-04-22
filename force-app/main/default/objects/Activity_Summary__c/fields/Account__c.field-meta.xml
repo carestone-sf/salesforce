@@ -5,7 +5,6 @@
     <externalId>false</externalId>
     <label>Account</label>
     <referenceTo>Account</referenceTo>
-    <relationshipLabel>Activity Summaries</relationshipLabel>
     <relationshipName>ActivitySummaries</relationshipName>
     <required>false</required>
     <trackTrending>false</trackTrending>

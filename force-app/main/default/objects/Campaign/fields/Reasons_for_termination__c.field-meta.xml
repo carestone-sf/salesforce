@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reasons_for_termination__c</fullName>
+    <externalId>false</externalId>
+    <label>Gründe für Abbruch</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Krankheit WH</fullName>
+                <default>false</default>
+                <label>Krankheit WH</label>
+            </value>
+            <value>
+                <fullName>Absage WH</fullName>
+                <default>false</default>
+                <label>Absage WH</label>
+            </value>
+            <value>
+                <fullName>Krankheit Makler</fullName>
+                <default>false</default>
+                <label>Krankheit Makler</label>
+            </value>
+            <value>
+                <fullName>Absage Makler</fullName>
+                <default>false</default>
+                <label>Absage Makler</label>
+            </value>
+            <value>
+                <fullName>Zu wenig Teilnehmer</fullName>
+                <default>false</default>
+                <label>Zu wenig Teilnehmer</label>
+            </value>
+            <value>
+                <fullName>Witterungsbedingt</fullName>
+                <default>false</default>
+                <label>Witterungsbedingt</label>
+            </value>
+            <value>
+                <fullName>Sonstige</fullName>
+                <default>false</default>
+                <label>Sonstige</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

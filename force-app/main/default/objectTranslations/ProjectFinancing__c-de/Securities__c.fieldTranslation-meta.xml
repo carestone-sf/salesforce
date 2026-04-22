@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Sicherheiten --></label>
+    <name>Securities__c</name>
+    <picklistValues>
+        <masterLabel>Abtretung GU Ansprüche</masterLabel>
+        <translation><!-- Abtretung GU Ansprüche --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Abtretung Kaufpreisansprüche</masterLabel>
+        <translation><!-- Abtretung Kaufpreisansprüche --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Abtretung Pachtansprüche</masterLabel>
+        <translation><!-- Abtretung Pachtansprüche --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bürgschaft</masterLabel>
+        <translation><!-- Bürgschaft --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Grundschulden</masterLabel>
+        <translation><!-- Grundschulden --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Patronatserklärung</masterLabel>
+        <translation><!-- Patronatserklärung --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rangrücktritt</masterLabel>
+        <translation><!-- Rangrücktritt --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

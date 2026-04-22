@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FFIRE</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>FFireAbrechnung__c</columns>
+    <columns>Notartermin__c</columns>
+    <columns>Appartement__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Immobilie__c</field>
+        <operation>equals</operation>
+        <value>Frankfurt (Oder)</value>
+    </filters>
+    <filters>
+        <field>Notartermin__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>FFireAbrechnung__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>FFIRE</label>
+</ListView>

@@ -146,6 +146,36 @@
                 <identifier>RecordOeffentlicherStatus_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.GrundschuldIstBestellt__c</fieldItem>
+                <identifier>RecordGrundschuldIstBestellt__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.FinanzierungsvertragUnterzeichnet__c</fieldItem>
+                <identifier>RecordFinanzierungsvertragUnterzeichnet__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.StatusAmpel__c</fieldItem>
+                <identifier>RecordStatusAmpel__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-9af49ec5-dd66-4ae3-b670-db1e0681c0c6</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -218,6 +248,26 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.BZAVorhanden__c</fieldItem>
                 <identifier>RecordBZAVorhanden_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ExternNichtAnzeigen__c</fieldItem>
+                <identifier>RecordExternNichtAnzeigen_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.GesicherteKfWMittel__c</fieldItem>
+                <identifier>RecordGesicherteKfWMittel_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-d4b4d927-b373-4e02-8bd8-60509e1762da</name>
@@ -296,6 +346,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Mindestabgabepreis__c</fieldItem>
                 <identifier>RecordMindestkaufpreis_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.MindestabgabepreisInProzent__c</fieldItem>
+                <identifier>RecordMindestabgabepreisInProzent__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -598,12 +658,12 @@
                     <criteria>
                         <leftValue>{!Record.Status__c}</leftValue>
                         <operator>EQUAL</operator>
-                        <rightValue>Kontingent</rightValue>
+                        <rightValue>Reserved</rightValue>
                     </criteria>
                     <criteria>
                         <leftValue>{!Record.Status__c}</leftValue>
                         <operator>EQUAL</operator>
-                        <rightValue>Reserved</rightValue>
+                        <rightValue>Kontingent</rightValue>
                     </criteria>
                 </visibilityRule>
             </fieldInstance>

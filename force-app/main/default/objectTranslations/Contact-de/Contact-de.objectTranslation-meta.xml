@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Community Layout</layout>
+        <sections>
+            <label><!-- Bankverbindung --></label>
+            <section>Bankverbindung</section>
+        </sections>
+        <sections>
+            <label><!-- Beruf --></label>
+            <section>Beruf</section>
+        </sections>
+        <sections>
+            <label><!-- Geschäftsbeziehung --></label>
+            <section>Geschäftsbeziehung</section>
+        </sections>
+        <sections>
+            <label><!-- Kinder --></label>
+            <section>Kinder</section>
+        </sections>
+        <sections>
+            <label><!-- Kontaktinformationen --></label>
+            <section>Kontaktinformationen</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FrontOffice Contactlayout</layout>
+        <sections>
+            <label><!-- Beruf --></label>
+            <section>Beruf</section>
+        </sections>
+        <sections>
+            <label><!-- Kinder --></label>
+            <section>Kinder</section>
+        </sections>
+        <sections>
+            <label><!-- Kontodaten --></label>
+            <section>Kontodaten</section>
+        </sections>
+        <sections>
+            <label><!-- Kundenapp --></label>
+            <section>Kundenapp</section>
+        </sections>
+        <sections>
+            <label><!-- Schutz Info --></label>
+            <section>Schutz Info</section>
+        </sections>
+        <sections>
+            <label><!-- Vertriebsportal --></label>
+            <section>Vertriebsportal</section>
+        </sections>
+        <sections>
+            <label><!-- Vertriebsportal intern --></label>
+            <section>Vertriebsportal intern</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Kontaktlayout</layout>
+        <sections>
+            <label><!-- Beruf --></label>
+            <section>Beruf</section>
+        </sections>
+        <sections>
+            <label><!-- Hilfsfelder --></label>
+            <section>Hilfsfelder</section>
+        </sections>
+        <sections>
+            <label><!-- Kinder --></label>
+            <section>Kinder</section>
+        </sections>
+        <sections>
+            <label><!-- Kontaktinformationen --></label>
+            <section>Kontaktinformationen</section>
+        </sections>
+        <sections>
+            <label><!-- Kontodaten --></label>
+            <section>Kontodaten</section>
+        </sections>
+        <sections>
+            <label><!-- Kundenapp --></label>
+            <section>Kundenapp</section>
+        </sections>
+        <sections>
+            <label><!-- Schutz Info --></label>
+            <section>Schutz Info</section>
+        </sections>
+        <sections>
+            <label><!-- Vertriebsportal --></label>
+            <section>Vertriebsportal</section>
+        </sections>
+        <sections>
+            <label><!-- Vertriebsportal intern --></label>
+            <section>Vertriebsportal intern</section>
+        </sections>
+        <sections>
+            <label><!-- Zusätzliche Kontakt Details --></label>
+            <section>Zusätzliche Kontakt Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Marketing Contactlayout</layout>
+        <sections>
+            <label><!-- Beruf --></label>
+            <section>Beruf</section>
+        </sections>
+        <sections>
+            <label><!-- Kinder --></label>
+            <section>Kinder</section>
+        </sections>
+        <sections>
+            <label><!-- Kontodaten --></label>
+            <section>Kontodaten</section>
+        </sections>
+        <sections>
+            <label><!-- Kundenapp --></label>
+            <section>Kundenapp</section>
+        </sections>
+        <sections>
+            <label><!-- Vertriebsportal --></label>
+            <section>Vertriebsportal</section>
+        </sections>
+        <sections>
+            <label><!-- Vertriebsportal intern --></label>
+            <section>Vertriebsportal intern</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Vertrieb Contaktlayout</layout>
+        <sections>
+            <label><!-- Beruf --></label>
+            <section>Beruf</section>
+        </sections>
+        <sections>
+            <label><!-- Kinder --></label>
+            <section>Kinder</section>
+        </sections>
+        <sections>
+            <label><!-- Kontodaten --></label>
+            <section>Kontodaten</section>
+        </sections>
+        <sections>
+            <label><!-- Kundenapp --></label>
+            <section>Kundenapp</section>
+        </sections>
+        <sections>
+            <label><!-- Schutz Info --></label>
+            <section>Schutz Info</section>
+        </sections>
+        <sections>
+            <label><!-- Vertriebsportal --></label>
+            <section>Vertriebsportal</section>
+        </sections>
+        <sections>
+            <label><!-- Vertriebsportal intern --></label>
+            <section>Vertriebsportal intern</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Maklerakte --></label>
+        <name>Maklerakte</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Neue Finanzierungsanfrage --></label>
+        <name>Neue_Finanzierungsanfrage</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Vertriebsportal Nutzer anlegen --></label>
+        <name>Vertriebsportal_Nutzer_anlegen</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Interessent --></label>
+        <name>Interessent</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Kunde --></label>
+        <name>Kunde</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Ansicht wenn der Kontakt ein Makler ist --></description>
+        <label><!-- Mitarbeiter --></label>
+        <name>Makler</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Nur bestimmte Benutzer sind hierzu befugt. Bitte melden Sie sich bei Ihrem Vertriebsmanager. --></errorMessage>
+        <name>Account_geaendert</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Bitte fülle die Postanschrift aus. --></errorMessage>
+        <name>Maklerbetreuer_Adresse_Pflicht</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Nur Maklerbetreuer können Benutzer simulieren --></errorMessage>
+        <name>NurMaklerbetreuerKoennenSimulieren</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Duplikate_suchen --></label>
+        <name>Duplikate_suchen</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Neuer_Inhaber --></label>
+        <name>Neuer_Inhaber</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Neuer_StandardNutzer_Inhaber --></label>
+        <name>Neuer_StandardNutzer_Inhaber</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SendGmail --></label>
+        <name>SendGmail</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Vertriebsvereinbahrung_anfordern --></label>
+        <name>Vertriebsvereinbahrung_anfordern</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- YahooMaps --></label>
+        <name>YahooMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- YahooWeather --></label>
+        <name>YahooWeather</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- updateUser --></label>
+        <name>updateUser</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Add_to_Webinar_Contact --></label>
+        <name>zoom_app__Add_to_Webinar_Contact</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Add_to_Webinar_Contacts --></label>
+        <name>zoom_app__Add_to_Webinar_Contacts</name>
+    </webLinks>
+    <webLinks>
+        <label>Zoom Meeting starten</label>
+        <name>zoom_app__Start_Zoom_Meeting</name>
+    </webLinks>
+</CustomObjectTranslation>

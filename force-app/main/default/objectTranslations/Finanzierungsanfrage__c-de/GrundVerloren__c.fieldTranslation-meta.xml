@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Grund verloren --></label>
+    <name>GrundVerloren__c</name>
+    <picklistValues>
+        <masterLabel>Finanzierung von Bank abgelehnt</masterLabel>
+        <translation><!-- Finanzierung von Bank abgelehnt --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Finanzierung von Carestone abgelehnt</masterLabel>
+        <translation><!-- Finanzierung von Carestone abgelehnt --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kunde hat sich für andere Finanzierung entschieden</masterLabel>
+        <translation><!-- Kunde hat sich für andere Finanzierung entschieden --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VKC verloren</masterLabel>
+        <translation><!-- VKC verloren --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

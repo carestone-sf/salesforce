@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <label></label>
+    <label><!-- Zimmerart --></label>
     <name>Zimmerart__c</name>
     <picklistValues>
         <masterLabel>Doppelzimmer</masterLabel>
-        <translation></translation>
+        <translation><!-- Doppelzimmer --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Einzelzimmer</masterLabel>
-        <translation></translation>
+        <translation><!-- Einzelzimmer --></translation>
     </picklistValues>
 </CustomFieldTranslation>

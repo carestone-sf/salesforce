@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Termin_Angebotsabgabe__c</fullName>
+    <description>Termin, an dem das Angebot erstellt und vom Anbieter unterzeichnet wird (anschließend ist die Annahme, die dann zum Kaufvertragsschluss führt und deren Datum im Feld Notartermin einzutragen ist)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Hier den Termin eintragen, an dem der Anbieter die Kaufunterlagen unterzeichnet und dann an den weiteren Notar zur Annahme senden lässt (Termin für den Kaufabschluss ist dann unter Notartermin einzutragen)</inlineHelpText>
+    <label>Termin Angebotsabgabe</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

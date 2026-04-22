@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Wie viele Leads nimmt der Makler maximal pro Monat ab --></help>
+    <label><!-- Leadanzahl/Monat --></label>
+    <name>Leadanzahl_Monat__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Rolle Vertriebsportal --></label>
+    <name>RolleVertriebsportal__c</name>
+    <picklistValues>
+        <masterLabel>Finanzierungsberater</masterLabel>
+        <translation><!-- Finanzierungsberater --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Maklerbetreuer</masterLabel>
+        <translation><!-- Maklerbetreuer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Vertriebskoordinator</masterLabel>
+        <translation><!-- Vertriebskoordinator --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

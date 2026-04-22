@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maklerschutz_besteht__c</fullName>
+    <externalId>false</externalId>
+    <formula>if(INCLUDES(Gesch_ftsbeziehung__c, &quot;Versicherungsmakler&quot;) || INCLUDES(Gesch_ftsbeziehung__c, &quot;Immobilienmakler&quot;) || INCLUDES(Gesch_ftsbeziehung__c, &quot;Immobilien- oder Versicherungsmakler&quot;) || INCLUDES(Gesch_ftsbeziehung__c, &quot;Finanz- und Versicherungsmakler&quot;) || INCLUDES(Gesch_ftsbeziehung__c, &quot;Finanzmakler&quot;), Account.Maklerschutz_besteht__c, null)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Liegt auf der Accountebene</inlineHelpText>
+    <label>Maklerschutz besteht</label>
+    <type>Checkbox</type>
+</CustomField>

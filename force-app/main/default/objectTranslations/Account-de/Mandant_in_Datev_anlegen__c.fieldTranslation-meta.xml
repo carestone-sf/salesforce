@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Wenn angehakt, wird eine Mail ausgelöst, dass ein Mandant angelegt werden soll. Rückmeldung folgt per Mail. Dann muss die Mandantennummer etc. manuell eingeben werden. --></help>
+    <label><!-- Mandant in Datev anlegen --></label>
+    <name>Mandant_in_Datev_anlegen__c</name>
+</CustomFieldTranslation>

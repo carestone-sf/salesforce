@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Lead Status</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Darlehen beim WH - Mit späterem Erwerb</fullName>
+                <default>false</default>
+                <label>Darlehen beim WH - Mit späterem Erwerb</label>
+            </value>
+            <value>
+                <fullName>Erstinformation raus</fullName>
+                <default>false</default>
+                <label>Erstinformation raus</label>
+            </value>
+            <value>
+                <fullName>Halten</fullName>
+                <default>false</default>
+                <label>Halten</label>
+            </value>
+            <value>
+                <fullName>Hat an Veranstaltung teilgenommen</fullName>
+                <default>false</default>
+                <label>Hat an Veranstaltung teilgenommen</label>
+            </value>
+            <value>
+                <fullName>Hat nicht an Veranstaltung teilgenommen</fullName>
+                <default>false</default>
+                <label>Hat nicht an Veranstaltung teilgenommen</label>
+            </value>
+            <value>
+                <fullName>Keine Telefonnummer – Erst Info raus</fullName>
+                <default>false</default>
+                <label>Keine Telefonnummer – Erst Info raus</label>
+            </value>
+            <value>
+                <fullName>Lead hat gekauft</fullName>
+                <default>false</default>
+                <label>Lead hat gekauft</label>
+            </value>
+            <value>
+                <fullName>Lead interessiert sich für ein bestimmtes Gebiet</fullName>
+                <default>false</default>
+                <label>Lead interessiert sich für ein bestimmtes Gebiet</label>
+            </value>
+            <value>
+                <fullName>Lead verloren</fullName>
+                <default>false</default>
+                <label>Lead verloren</label>
+            </value>
+            <value>
+                <fullName>Meldet sich bei Interesse-Abgelegt</fullName>
+                <default>false</default>
+                <label>Meldet sich bei Interesse-Abgelegt</label>
+            </value>
+            <value>
+                <fullName>Möchte an Veranstaltung teilnehmen</fullName>
+                <default>false</default>
+                <label>Möchte an Veranstaltung teilnehmen</label>
+            </value>
+            <value>
+                <fullName>Neu – in Bearbeitung</fullName>
+                <default>false</default>
+                <label>Neu – in Bearbeitung</label>
+            </value>
+            <value>
+                <fullName>Persönlichen Termin durchgeführt</fullName>
+                <default>false</default>
+                <label>Persönlichen Termin durchgeführt</label>
+            </value>
+            <value>
+                <fullName>Persönlichen Termin vereinbart</fullName>
+                <default>false</default>
+                <label>Persönlichen Termin vereinbart</label>
+            </value>
+            <value>
+                <fullName>Reklamation</fullName>
+                <default>false</default>
+                <label>Reklamation</label>
+            </value>
+            <value>
+                <fullName>Telefonisch nie erreicht – Abgelegt</fullName>
+                <default>false</default>
+                <label>Telefonisch nie erreicht – Abgelegt</label>
+            </value>
+            <value>
+                <fullName>Telefontermin durchgeführt</fullName>
+                <default>false</default>
+                <label>Telefontermin durchgeführt</label>
+            </value>
+            <value>
+                <fullName>Telefontermin vereinbart</fullName>
+                <default>false</default>
+                <label>Telefontermin vereinbart</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

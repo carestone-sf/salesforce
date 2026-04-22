@@ -5,6 +5,7 @@
     <label>Provisionsvoraussetzungen erfüllt am</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Date</type>
 </CustomField>

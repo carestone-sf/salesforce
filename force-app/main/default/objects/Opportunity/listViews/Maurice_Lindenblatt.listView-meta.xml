@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maurice_Lindenblatt</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Immobilie__c</columns>
+    <columns>beurkundeter_Kaufpreis__c</columns>
+    <columns>OPPORTUNITY.LAST_STAGE_CHANGE</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Vertriebskoordinator__c</columns>
+    <columns>reserviert_bis__c</columns>
+    <columns>PlannedCertification__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Notartermin__c</columns>
+    <columns>NotaryDatePossibleFrom__c</columns>
+    <columns>NotesSalesControlling__c</columns>
+    <columns>StatusAmpel__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Maklerbetreuer_WirtschaftsHaus__c</field>
+        <operation>contains</operation>
+        <value>Maurice Lindenblatt</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Reserviert,Kaufvertragsunterlagen verschickt,KV wird fremd abgegeben,Reservierung angefragt</value>
+    </filters>
+    <filters>
+        <field>PlannedCertification__c</field>
+        <operation>equals</operation>
+        <value>Next Month</value>
+    </filters>
+    <label>Maurice Lindenblatt</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Vorstand</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

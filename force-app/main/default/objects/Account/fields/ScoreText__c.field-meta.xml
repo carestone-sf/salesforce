@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ScoreText__c</fullName>
+    <externalId>false</externalId>
+    <formula>If(Score__c &lt;= 30, &apos;Kalter Lead&apos;, IF(Score__c &lt;= 60, &apos;Warmer Lead&apos;, IF(Score__c &lt;= 80, &apos;Heißer Lead&apos;, &apos;Priority Lead&apos;)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Score Text</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

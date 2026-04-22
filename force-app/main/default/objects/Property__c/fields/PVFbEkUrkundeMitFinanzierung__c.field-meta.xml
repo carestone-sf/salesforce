@@ -6,6 +6,7 @@
     <externalId>false</externalId>
     <inlineHelpText>Ist dieses Feld angehakt, werden die externen Provisionen für die Verkaufschance erst dann generiert, wenn entweder die FB, die EK oder von der Bank eine Urkunde mit Finanzierung vorliegt</inlineHelpText>
     <label>PV - FB / EK / Urkunde mit Finanzierung</label>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Checkbox</type>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Referenzzinssatz --></label>
+    <name>ReferenceInterestRate__c</name>
+    <picklistValues>
+        <masterLabel>1-M-EURIBOR</masterLabel>
+        <translation><!-- 1-M-EURIBOR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>12-M-EURIBOR</masterLabel>
+        <translation><!-- 12-M-EURIBOR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>3-M-EURIBOR</masterLabel>
+        <translation><!-- 3-M-EURIBOR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>6-M-EURIBOR</masterLabel>
+        <translation><!-- 6-M-EURIBOR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sonstige</masterLabel>
+        <translation><!-- Sonstige --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VKC_Marcus_D_rge_Aktuell</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>beurkundeter_Kaufpreis__c</columns>
+    <columns>Immobilie__c</columns>
+    <columns>Appartement__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Immobilienberater__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>PlannedCertification__c</columns>
+    <columns>reserviert_bis__c</columns>
+    <columns>Kaufvertragsunterlagen_v_Notar_versendet__c</columns>
+    <columns>Notartermin__c</columns>
+    <columns>Finanzierung__c</columns>
+    <columns>NotesBrokerSupervisor__c</columns>
+    <columns>NotesBackoffice__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Beratung,Reservierung angefragt,Reserviert,Kaufvertragsunterlagen verschickt,KV wird fremd abgegeben</value>
+    </filters>
+    <filters>
+        <field>Maklerbetreuer_WirtschaftsHaus__c</field>
+        <operation>equals</operation>
+        <value>Marcus Dörge</value>
+    </filters>
+    <label>VKC Marcus Dörge Aktuell</label>
+    <sharedTo>
+        <portalRole>WHMaklerbetreuerSvenSchulzPartnerBenutzer</portalRole>
+    </sharedTo>
+</ListView>

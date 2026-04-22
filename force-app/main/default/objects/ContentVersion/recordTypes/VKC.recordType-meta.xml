@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VKC</fullName>
+    <active>true</active>
+    <label>VKC</label>
+    <picklistValues>
+        <picklist>Typ__c</picklist>
+        <values>
+            <fullName>Aufhebungsvertrag</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Belegungsrecht</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Beratungsprotokoll %28BP%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Darlehensvertrag %28DV%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eigenkapitalnachweis %28EK%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finanzierungsbestätigung %28FB%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fälligkeitsmitteilung</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Grundschuld %28GS%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KV-Entwurf</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kaufvertrag %28KV%29 bzw%2E Angebot %2F Annahme %2F Genehmigung</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KfW Onlinebestätigung %28BzA%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nebenkostenzuschuss</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Notar-Anschreiben</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Notarauftrag %28AZB%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reservierung %28RSV%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sonstige Schreiben</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zahlungserinnerung</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zuschussformular %28NK oder MK%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>vertrauliche Selbstauskunft %28VSA%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>dfsle__GeneratedFileFormat__c</picklist>
+        <values>
+            <fullName>PDF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Word</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>dfsle__GeneratedFileSuffix__c</picklist>
+        <values>
+            <fullName>date</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>name</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>name_date</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

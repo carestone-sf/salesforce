@@ -5,6 +5,7 @@
     <label>Steuernummer</label>
     <length>30</length>
     <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Text</type>

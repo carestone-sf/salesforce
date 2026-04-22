@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Missed Call Reason --></label>
+    <name>aircall__Missed_Call_Reason__c</name>
+    <picklistValues>
+        <masterLabel>Abandoned in Classic</masterLabel>
+        <translation><!-- Abandoned in Classic --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Abandoned in IVR</masterLabel>
+        <translation><!-- Abandoned in IVR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Agents did not answer</masterLabel>
+        <translation><!-- Agents did not answer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>No available agent</masterLabel>
+        <translation><!-- No available agent --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Out of opening hours</masterLabel>
+        <translation><!-- Out of opening hours --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Short abandoned</masterLabel>
+        <translation><!-- Short abandoned --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

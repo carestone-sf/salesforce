@@ -1,0 +1,1 @@
+delete [SELECT Id, Name FROM Berechnung__c WHERE CreatedDate = TODAY AND Hauptimmobilie__r.Name = 'Bad Salzuflen'];

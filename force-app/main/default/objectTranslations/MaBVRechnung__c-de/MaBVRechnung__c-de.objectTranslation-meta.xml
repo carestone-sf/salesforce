@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>MaBV Rechnung</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>MaBV Rechnungen</value>
+    </caseValues>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>MaBV Rechnung-Layout</layout>
+        <sections>
+            <label><!-- Benutzerdefinierte Links --></label>
+            <section>Benutzerdefinierte Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Mitarbeiter Layout</layout>
+        <sections>
+            <label><!-- Benutzerdefinierte Links --></label>
+            <section>Benutzerdefinierte Links</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- Für diese VKC / Immobilie liegt ein Mahnstopp vor --></errorMessage>
+        <name>Mahnstopp</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Rechnung_Storno_anzeigen --></label>
+        <name>Rechnung_Storno_anzeigen</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Zahlungserinnerung_anzeigen --></label>
+        <name>Zahlungserinnerung_anzeigen</name>
+    </webLinks>
+</CustomObjectTranslation>

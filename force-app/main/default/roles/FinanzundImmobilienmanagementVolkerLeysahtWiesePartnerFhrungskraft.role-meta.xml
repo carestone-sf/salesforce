@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>None</contactAccessLevel>
+    <description>Finanz- und Immobilienmanagement  - Volker Leysaht-Wiese Partner-Führungskraft</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Finanz- und Immobilienmanagement  - Volker Leysaht-Wiese Partner-Führungskraft</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>Teamleiter_Team_Sven</parentRole>
+</Role>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FrontOffice</fullName>
+    <fields>Name</fields>
+    <fields>Maklerbetreuer_Wirtschaftshaus_2__c</fields>
+    <fields>Ansprechpartner__c</fields>
+    <fields>Phone</fields>
+    <fields>Carestone_Vertriebsvereinbarung__c</fields>
+    <fields>Dauerhaft_gesch_tzt__c</fields>
+    <fields>WHS_Maklerprovision__c</fields>
+    <fields>Verkaufschancen__c</fields>
+    <label>FrontOffice</label>
+</CompactLayout>

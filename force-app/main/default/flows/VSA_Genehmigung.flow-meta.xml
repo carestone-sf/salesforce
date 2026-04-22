@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <constants>
+        <description>Speichert den Wert für den Status eines genehmigten Schritts. Der Wert der Konstante muss &quot;Genehmigen&quot; lauten.</description>
+        <name>Approved</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Approve</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <description>Bestimmt, ob die Einreichungen zur Genehmigung genehmigt oder abgelehnt wurde. Falls Sie letzte Aktionen abschließen müssen, wenn eine Einreichung genehmigt wird, fügen Sie der Phase &quot;Genehmigte Einreichung verarbeiten&quot; einen oder mehrere Hintergrundschritte hinzu. Falls Sie letzte Aktionen abschließen müssen, wenn eine Einreichung abgelehnt wird, fügen Sie der Phase &quot;Abgelehnte Einreichung verarbeiten&quot; einen oder mehrere Hintergrundschritte hinzu. Aktualisieren Sie abschließend diese Beschreibung, um anzugeben, was wegen dieser Entscheidung geschieht.</description>
+        <name>Is_Submission_Approved_or_Rejected</name>
+        <label>Wurde die Einreichung genehmigt oder abgelehnt?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Process_Rejected_Submission</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Abgelehnt (Standard)</defaultConnectorLabel>
+        <rules>
+            <name>Is_Approved</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Approval_Step_1_of_Approval_Stage_1.Outputs.approvalDecision</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Approved</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Process_Approved_Submission</targetReference>
+            </connector>
+            <label>Genehmigt</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>VSA Genehmigung {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>VSA Genehmigung</label>
+    <orchestratedStages>
+        <description>Falls Ihre Einreichung zur Genehmigung über Arbeitselemente zur Genehmigung verfügt, die gleichzeitig durch mehrere Genehmiger überprüft werden können, fügen Sie dieser Phase weitere Genehmigungsschritte hinzu. Falls Sie andere Verarbeitungen vornehmen müssen, fügen Sie Hintergrundschritte hinzu. Aktualisieren Sie abschließend die Bezeichnung, den API-Namen und die Beschreibung, um anzugeben, was in dieser Phase geschieht.</description>
+        <name>Approval_Stage_1</name>
+        <label>Genehmigungsphase 1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_Submission_Approved_or_Rejected</targetReference>
+        </connector>
+        <exitConditionLogic>and</exitConditionLogic>
+        <stageSteps>
+            <description>Wählen Sie einen Genehmiger zum Abschließen des Schritts aus. Falls Sie über einen benutzerdefinierten Bildschirm-Flow verfügen, der für diesen Genehmigungsschritt für Aktion aufgerufen wird, entfernen Sie &quot;Genehmigungs-Workflow: Genehmigungsanforderungen auswerten&quot; und wählen Sie Ihren benutzerdefinierten Bildschirm-Flow aus. Aktualisieren Sie abschließend die Bezeichnung, den API-Namen und die Beschreibung, um anzugeben, was bei diesem Schritt geschieht.</description>
+            <name>Approval_Step_1_of_Approval_Stage_1</name>
+            <actionName>standard_approvals__EvaluateApproval</actionName>
+            <actionType>stepApproval</actionType>
+            <assignees>
+                <assigneeType>User</assigneeType>
+            </assignees>
+            <entryConditionLogic>and</entryConditionLogic>
+            <inputParameters>
+                <name>ActionInput__CustomEmailSubject</name>
+            </inputParameters>
+            <inputParameters>
+                <name>ActionInput__CustomEmailBody</name>
+            </inputParameters>
+            <inputParameters>
+                <name>ActionInput__RecordId</name>
+                <value>
+                    <elementReference>recordId</elementReference>
+                </value>
+            </inputParameters>
+            <label>Genehmigungsschritt 1 von Genehmigungsphase 1</label>
+            <requiresAsyncProcessing>false</requiresAsyncProcessing>
+        </stageSteps>
+    </orchestratedStages>
+    <orchestratedStages>
+        <description>Enthält die letzten Aktionen, die ausgeführt werden sollen, wenn eine Einreichung zur Genehmigung genehmigt wird. Falls &quot;E-Mail-Benachrichtigungen zum Status von Einreichungen zur Genehmigung an Einreicher senden&quot; aktiviert ist, wird die Person, die die Genehmigung eingereicht hat, automatisch benachrichtigt, dass ihre Einreichung genehmigt wurde. Falls Sie Aktionen abschließen müssen, wenn diese Einreichung genehmigt wird, fügen Sie dieser Phase einen oder mehrere Hintergrundschritte hinzu. Aktualisieren Sie abschließend diese Beschreibung, um anzugeben, was in dieser Phase geschieht.</description>
+        <name>Process_Approved_Submission</name>
+        <label>Genehmigte Einreichung verarbeiten</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <exitConditionLogic>and</exitConditionLogic>
+    </orchestratedStages>
+    <orchestratedStages>
+        <description>Enthält die letzten Aktionen, die ausgeführt werden sollen, wenn eine Einreichung zur Genehmigung abgelehnt wird. Falls &quot;E-Mail-Benachrichtigungen zum Status von Einreichungen zur Genehmigung an Einreicher senden&quot; aktiviert ist, wird die Person, die die Genehmigung eingereicht hat, automatisch benachrichtigt, dass ihre Einreichung abgelehnt wurde. Falls Sie Aktionen abschließen müssen, wenn diese Einreichung abgelehnt wird, fügen Sie dieser Phase einen oder mehrere Hintergrundschritte hinzu. Aktualisieren Sie abschließend diese Beschreibung, um anzugeben, was in dieser Phase geschieht.</description>
+        <name>Process_Rejected_Submission</name>
+        <label>Abgelehnte Einreichung verarbeiten</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <exitConditionLogic>and</exitConditionLogic>
+    </orchestratedStages>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>ApprovalWorkflow</processType>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Approval_Stage_1</targetReference>
+        </connector>
+    </start>
+    <status>InvalidDraft</status>
+    <variables>
+        <description>Speichert die ID des zu genehmigenden Datensatzes und wird an den Flow-Genehmigungsprozess übergeben. Dies ist eine erforderliche Eingabevariable.</description>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Speichert Kommentare über die Genehmigung und wird an den Flow-Genehmigungsprozess übergeben. Dies ist eine erforderliche Eingabevariable.</description>
+        <name>submissionComments</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Speichert die ID des Benutzers, der die Genehmigung sendet, und wird an den Flow-Genehmigungsprozess übergeben. Dies ist eine erforderliche Eingabevariable.</description>
+        <name>submitter</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -3,7 +3,7 @@
     <fullName>JahrDerAuszahlungText__c</fullName>
     <externalId>false</externalId>
     <label>Jahr der Auszahlung</label>
-    <length>4</length>
+    <length>10</length>
     <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Text</type>

@@ -70,3 +70,5 @@ for(Opportunity opp : [
 System.debug(updateList.size());
 
 
+// Provisionen intern aktueller Monat
+SELECT Id, Name, UniqueId__c, Provisionssumme__c FROM Provision__c WHERE Makler__r.Ist_Maklerbetreuer_WH__c = true AND ProvisionsvoraussetzungenErfuelltAm__c = THIS_MONTH AND Erfolgsabh_ngige_Provision_direkt_o_LNK__c > 0

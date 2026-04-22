@@ -5,6 +5,10 @@
     <allowedSubmitters>
         <type>owner</type>
     </allowedSubmitters>
+    <allowedSubmitters>
+        <submitter>Vorstand</submitter>
+        <type>roleSubordinatesInternal</type>
+    </allowedSubmitters>
     <approvalPageFields>
         <field>Name</field>
         <field>Potenzieller_Kunde__c</field>
@@ -17,15 +21,11 @@
         <allowDelegate>false</allowDelegate>
         <assignedApprover>
             <approver>
+                <name>f.ersinger@carestone.com</name>
+                <type>user</type>
+            </approver>
+            <approver>
                 <name>k.melde@carestone.com</name>
-                <type>user</type>
-            </approver>
-            <approver>
-                <name>k.soosten@wh-pp.de</name>
-                <type>user</type>
-            </approver>
-            <approver>
-                <name>l.prinz@carestone.com</name>
                 <type>user</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -38,7 +38,7 @@
         <criteriaItems>
             <field>Opportunity.Kaufpreis_bezahlt__c</field>
             <operation>equals</operation>
-            <value>True</value>
+            <value>Wahr</value>
         </criteriaItems>
     </entryCriteria>
     <finalApprovalActions>
@@ -48,7 +48,7 @@
         </action>
     </finalApprovalActions>
     <finalApprovalRecordLock>false</finalApprovalRecordLock>
-    <finalRejectionRecordLock>true</finalRejectionRecordLock>
+    <finalRejectionRecordLock>false</finalRejectionRecordLock>
     <initialSubmissionActions>
         <action>
             <name>Zahlungseingang</name>

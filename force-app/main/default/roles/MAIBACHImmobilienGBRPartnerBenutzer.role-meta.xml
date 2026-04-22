@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>None</contactAccessLevel>
+    <description>MAIBACH Immobilien GBR Partner-Benutzer</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>MAIBACH Immobilien GBR Partner-Benutzer</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>MAIBACHImmobilienGBRPartnerManager</parentRole>
+</Role>

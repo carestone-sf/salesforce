@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ankaufsart__c</fullName>
+    <externalId>false</externalId>
+    <label>Ankaufsart</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Asset Deal</fullName>
+                <default>false</default>
+                <label>Asset Deal</label>
+            </value>
+            <value>
+                <fullName>Vertriebsprojekt</fullName>
+                <default>false</default>
+                <label>Vertriebsprojekt</label>
+            </value>
+            <value>
+                <fullName>Share Deal</fullName>
+                <default>false</default>
+                <label>Share Deal</label>
+            </value>
+            <value>
+                <fullName>Joint Venture</fullName>
+                <default>false</default>
+                <label>Joint Venture</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

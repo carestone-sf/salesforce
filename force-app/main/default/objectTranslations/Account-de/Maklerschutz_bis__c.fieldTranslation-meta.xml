@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <help></help>
-    <label></label>
+    <help><!-- Das Datum, bis zu welchem ein Makler geschützt ist --></help>
+    <label><!-- Maklerschutz bis --></label>
     <name>Maklerschutz_bis__c</name>
 </CustomFieldTranslation>

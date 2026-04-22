@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NotarBewertungAmpel__c</fullName>
+    <externalId>false</externalId>
+    <formula>IMAGE(
+CASE(NotarBewertung__c,
+&quot;Grün&quot;, &quot;/img/samples/light_green.gif&quot;,
+&quot;Gelb&quot;, &quot;/img/samples/light_yellow.gif&quot;,
+&quot;Rot&quot;, &quot;/img/samples/light_red.gif&quot;,
+&quot;/s.gif&quot;),
+&quot;Status Farbe&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Notar Bewertung (Ampel)</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

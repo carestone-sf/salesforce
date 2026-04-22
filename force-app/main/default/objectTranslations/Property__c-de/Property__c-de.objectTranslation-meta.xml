@@ -44,419 +44,478 @@
     <layouts>
         <layout>Community Layout</layout>
         <sections>
-            <label></label>
+            <label><!-- Allgemein --></label>
             <section>Allgemein</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
     </layouts>
     <layouts>
         <layout>FrontOffice Immobilie</layout>
         <sections>
-            <label></label>
+            <label><!-- Abrechnung --></label>
             <section>Abrechnung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Abschreibungen --></label>
             <section>Abschreibungen</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Allgemein --></label>
             <section>Allgemein</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Daten --></label>
             <section>Daten</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Finanzierung --></label>
             <section>Finanzierung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Immofinder --></label>
+            <section>Immofinder</section>
+        </sections>
+        <sections>
+            <label><!-- Kennziffern --></label>
             <section>Kennziffern</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kostensteigerung --></label>
             <section>Kostensteigerung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Mahnung --></label>
+            <section>Mahnung</section>
+        </sections>
+        <sections>
+            <label><!-- Marketing --></label>
             <section>Marketing</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Pflegeheimbetreiber --></label>
             <section>Pflegeheimbetreiber</section>
         </sections>
         <sections>
-            <label></label>
-            <section>Provisionsvoraussetzungen</section>
+            <label><!-- Provision --></label>
+            <section>Provision</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Status --></label>
             <section>Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- laufende Kosten --></label>
             <section>laufende Kosten</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Immobilie Vorlage</layout>
         <sections>
-            <label></label>
+            <label><!-- Abrechnung --></label>
             <section>Abrechnung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Abschreibungen --></label>
             <section>Abschreibungen</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Allgemein --></label>
             <section>Allgemein</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Anschaffungskosten --></label>
             <section>Anschaffungskosten</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Controlling --></label>
+            <section>Controlling</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Daten --></label>
             <section>Daten</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Finanzierung --></label>
             <section>Finanzierung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Immofinder --></label>
+            <section>Immofinder</section>
+        </sections>
+        <sections>
+            <label><!-- Kennziffern --></label>
             <section>Kennziffern</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kostensteigerung --></label>
             <section>Kostensteigerung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Mahnung --></label>
+            <section>Mahnung</section>
+        </sections>
+        <sections>
+            <label><!-- Marketing --></label>
             <section>Marketing</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Pflegeheimbetreiber --></label>
             <section>Pflegeheimbetreiber</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Projektentwicklung --></label>
             <section>Projektentwicklung</section>
         </sections>
         <sections>
-            <label></label>
-            <section>Provisionsvoraussetzungen</section>
+            <label><!-- Provision --></label>
+            <section>Provision</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Status --></label>
             <section>Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Status Vertrieb --></label>
             <section>Status Vertrieb</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- drive --></label>
             <section>drive</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- laufende Kosten --></label>
             <section>laufende Kosten</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Marketing Immobilie</layout>
         <sections>
-            <label></label>
+            <label><!-- Abrechnung --></label>
             <section>Abrechnung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Abschreibungen --></label>
             <section>Abschreibungen</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Allgemein --></label>
             <section>Allgemein</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Daten --></label>
             <section>Daten</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Finanzierung --></label>
             <section>Finanzierung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Immofinder --></label>
+            <section>Immofinder</section>
+        </sections>
+        <sections>
+            <label><!-- Kennziffern --></label>
             <section>Kennziffern</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kosten --></label>
             <section>Kosten</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kostensteigerung --></label>
             <section>Kostensteigerung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- MaBV-Raten --></label>
             <section>MaBV-Raten</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Marketing --></label>
             <section>Marketing</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Pflegeheimbetreiber --></label>
             <section>Pflegeheimbetreiber</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Status --></label>
             <section>Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- drive --></label>
             <section>drive</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Projektentwicklung Immobilie</layout>
         <sections>
-            <label></label>
+            <label><!-- Allgemein --></label>
             <section>Allgemein</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Daten --></label>
             <section>Daten</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Immofinder --></label>
+            <section>Immofinder</section>
+        </sections>
+        <sections>
+            <label><!-- Projektentwicklung --></label>
             <section>Projektentwicklung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Status --></label>
             <section>Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Status Vertrieb --></label>
             <section>Status Vertrieb</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Property Layout</layout>
         <sections>
-            <label></label>
+            <label><!-- Abrechnung --></label>
             <section>Abrechnung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Abschreibungen --></label>
             <section>Abschreibungen</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Adresse --></label>
             <section>Adresse</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Allgemein --></label>
             <section>Allgemein</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Anschaffungskosten --></label>
             <section>Anschaffungskosten</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Besonderheiten Denkmalgeschützer Immobilien --></label>
             <section>Besonderheiten Denkmalgeschützer Immobilien</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Controlling --></label>
             <section>Controlling</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Daten --></label>
             <section>Daten</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Ferienimmobilie --></label>
             <section>Ferienimmobilie</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Finanzierung --></label>
             <section>Finanzierung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Immofinder --></label>
+            <section>Immofinder</section>
+        </sections>
+        <sections>
+            <label><!-- Kostensteigerung --></label>
             <section>Kostensteigerung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Mahnung --></label>
+            <section>Mahnung</section>
+        </sections>
+        <sections>
+            <label><!-- Pflegeheimbetreiber --></label>
             <section>Pflegeheimbetreiber</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Projektentwicklung --></label>
             <section>Projektentwicklung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Provision --></label>
             <section>Provision</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Status Vertrieb --></label>
             <section>Status Vertrieb</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Vorgeschlagene Finanzierungskondition --></label>
             <section>Vorgeschlagene Finanzierungskondition</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- drive --></label>
             <section>drive</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- laufende Kosten --></label>
             <section>laufende Kosten</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Vertrieb Immobilie</layout>
         <sections>
-            <label></label>
+            <label><!-- Abrechnung --></label>
             <section>Abrechnung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Abschreibungen --></label>
             <section>Abschreibungen</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Allgemein --></label>
             <section>Allgemein</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Anschaffungskosten --></label>
             <section>Anschaffungskosten</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Daten --></label>
             <section>Daten</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Finanzierung --></label>
             <section>Finanzierung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Immofinder --></label>
+            <section>Immofinder</section>
+        </sections>
+        <sections>
+            <label><!-- Kennziffern --></label>
             <section>Kennziffern</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kostensteigerung --></label>
             <section>Kostensteigerung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Marketing --></label>
             <section>Marketing</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Pflegeheimbetreiber --></label>
             <section>Pflegeheimbetreiber</section>
         </sections>
         <sections>
-            <label></label>
-            <section>Provisionsvoraussetzungen</section>
+            <label><!-- Provision --></label>
+            <section>Provision</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Status --></label>
             <section>Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- drive --></label>
             <section>drive</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- laufende Kosten --></label>
             <section>laufende Kosten</section>
         </sections>
     </layouts>
     <nameFieldLabel>Immobilien Name</nameFieldLabel>
     <quickActions>
-        <label></label>
+        <label><!-- Google Drive synchronisieren --></label>
         <name>Google_Drive_synchronisieren</name>
     </quickActions>
+    <quickActions>
+        <label><!-- Not-Aus --></label>
+        <name>Not_Aus</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Teilobjekte löschen --></label>
+        <name>Teilobjekte_l_schen</name>
+    </quickActions>
     <validationRules>
-        <errorMessage></errorMessage>
-        <name>Aktenstatus_00_01</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Von dem Status &quot;Entwicklung (Akquise)&quot; können Sie nur in &quot;Entwicklung (Aktiv)&quot; und &quot;Archiviert&quot; wechseln --></errorMessage>
         <name>Aktenstatus_02</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Der Aktenstatus muss in &quot;Entwicklung (Akquise)&quot; bleiben, bis der DMS Ordner erstellt ist. --></errorMessage>
         <name>Aktenstatus_02_wenn_DMS_nicht_angelegt</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Von dem Status &quot;Entwicklung (Aktiv)&quot; können Sie nur in &quot;Entwicklung (Abgelehnt)&quot;, &quot;Durchführung (Aktiv)&quot; und &quot;Archiviert&quot; wechseln --></errorMessage>
         <name>Aktenstatus_03</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Von dem Status &quot;Entwicklung (Abgelehnt)&quot; können Sie nur in &quot;Entwicklung (Aktiv)&quot;, &quot;Durchführung (Aktiv)&quot; und &quot;Archiviert&quot; wechseln --></errorMessage>
         <name>Aktenstatus_04</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
-        <name>Aktenstatus_05</name>
+        <errorMessage><!-- Bitte gebe das Datum an, ab wann der Closing Bonus gilt. --></errorMessage>
+        <name>DateClosingBonusHasToBeSet</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
-        <name>Aktenstatus_06</name>
+        <errorMessage><!-- Bitte wähle aus, über wen die Gutschriften abgerechnet werden --></errorMessage>
+        <name>GutschriftenUeber</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
-        <name>Aktenstatus_07</name>
+        <errorMessage>
+            <!-- Damit das Objekt in den Vertrieb gehen kann, füllen Sie bitte folgende Felder aus: 
+
+- AFA Anschaffungskosten
+- Mietbeginn
+- Tilgungsbeginn
+- Gutschrift über
+- Bundesland
+
+Diese Felder sind kritisch für den Rechner und die Buchhaltung.
+Danke! -->
+        </errorMessage>
+        <name>PflichtfelderVorVeroeffentlichung</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
-        <name>Aktenstatus_08</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Der Objektpreis berechnet sich automatisch aus den Teilobjekten und kann nicht manuell gesetzt werden. --></errorMessage>
         <name>Property_price_calculated</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Die Provisionsvoraussetzungen können nur von bestimmten Personen geändert werden. Bitte wende dich bei Fragen an Anika Hein. --></errorMessage>
+        <name>ProvisionsvoraussetzungenPhase</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Bitte fülle alle Punkte unter &quot;MaBV Abrechnung&quot; aus --></errorMessage>
         <name>Veroeffentlichung_MaBV_Objekt</name>
     </validationRules>
     <webLinks>
-        <label></label>
+        <label><!-- Email_f_r_neue_Immobilie --></label>
         <name>Email_f_r_neue_Immobilie</name>
+    </webLinks>
+    <webLinks>
+        <label>Erzeuge PE PDF</label>
+        <name>Generate_PE_PDF</name>
     </webLinks>
 </CustomObjectTranslation>

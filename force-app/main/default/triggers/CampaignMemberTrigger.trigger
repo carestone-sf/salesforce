@@ -4,6 +4,7 @@ trigger CampaignMemberTrigger on CampaignMember (before insert) {
     	Map<ID, Set<Contact>> campaignToConMap = new Map<Id, Set<contact>>();
         for(CampaignMember cm:Trigger.new)
         {
+			if(cm.ContactId != null) {
             	Set<Contact> lmList = campaignToConMap.get(cm.CampaignId);
 	             if (lmList == null) lmList = new Set<Contact>();
 	             Contact con = new Contact();
@@ -11,6 +12,7 @@ trigger CampaignMemberTrigger on CampaignMember (before insert) {
 	             con.Kampagnenquelle__c = cm.CampaignId;
             	lmList.add(con);
             	campaignToConMap.put(cm.CampaignId, lmList);
+			}
         }
         List<Contact> consToUpdate = new List<Contact>();
         for(Set<Contact> cons:campaignToConMap.values()) {

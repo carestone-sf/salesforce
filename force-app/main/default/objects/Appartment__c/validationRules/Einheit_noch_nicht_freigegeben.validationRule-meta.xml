@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Einheit_noch_nicht_freigegeben</fullName>
+    <active>true</active>
+    <description>Einheit noch nicht für Vertrieb freigegeben.</description>
+    <errorConditionFormula>AND(
+    ISCHANGED(OeffentlicherStatus__c),
+    ExternNichtAnzeigen__c = true,
+    $Profile.Name != &apos;Systemadministrator&apos;
+)</errorConditionFormula>
+    <errorMessage>Das Teilobjekt ist noch nicht für den Vertrieb freigegeben. Bitte Rücksprache dazu halten und ggfs das Feld &quot;Extern Nicht Anzeigen&quot; ändern.</errorMessage>
+</ValidationRule>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <help></help>
-    <label></label>
+    <help>
+        <!-- Rabatt in Euro, der den Kaufpreis des Apartments reduziert.
+Dieser Wert kann nicht negativ sein. -->
+    </help>
+    <label><!-- Rabatt --></label>
     <name>Rabatt_in__c</name>
 </CustomFieldTranslation>

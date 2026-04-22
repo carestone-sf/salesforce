@@ -4,9 +4,10 @@
     <defaultValue>0</defaultValue>
     <externalId>false</externalId>
     <label>Verkaufsvolumen Plan</label>
-    <precision>8</precision>
+    <precision>10</precision>
     <required>false</required>
-    <scale>0</scale>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Currency</type>

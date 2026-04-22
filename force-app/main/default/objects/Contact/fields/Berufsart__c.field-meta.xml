@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Berufsart__c</fullName>
+    <externalId>false</externalId>
+    <label>Berufsart</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Selbstständig</fullName>
+                <default>false</default>
+                <label>Selbstständig</label>
+            </value>
+            <value>
+                <fullName>Angestellt</fullName>
+                <default>false</default>
+                <label>Angestellt</label>
+            </value>
+            <value>
+                <fullName>Beamter</fullName>
+                <default>false</default>
+                <label>Beamter</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

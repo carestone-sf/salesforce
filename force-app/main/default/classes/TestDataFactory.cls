@@ -471,6 +471,7 @@ public with sharing class TestDataFactory {
         opp.Name = 'Offene VKC';
         opp.AccountId = makler.AccountId;
         opp.Makler__c = makler.Id;
+        opp.Maklerbetreuer_WirtschaftsHaus__c = makler.Id;
         opp.Potenzieller_Kunde__c = interessentId;
         opp.CloseDate = System.today().addDays(31);
         opp.StageName = stageName;

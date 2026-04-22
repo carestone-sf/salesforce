@@ -4,7 +4,7 @@
         <name>BatchUpdateChildAccounts</name>
         <label>Update Child Accounts</label>
         <locationX>72</locationX>
-        <locationY>1631</locationY>
+        <locationY>2747</locationY>
         <actionName>BatchAccountUpdateChildAccounts</actionName>
         <actionType>apex</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -14,14 +14,12 @@
                 <elementReference>$Record</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>BatchAccountUpdateChildAccounts</nameSegment>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>BatchUpdateContacts</name>
         <label>Update Contacts</label>
         <locationX>204</locationX>
-        <locationY>1331</locationY>
+        <locationY>2447</locationY>
         <actionName>BatchAccountUpdateContacts</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -34,14 +32,12 @@
                 <elementReference>$Record</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>BatchAccountUpdateContacts</nameSegment>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>BatchUpdateStructure</name>
         <label>Update Structure</label>
         <locationX>336</locationX>
-        <locationY>1631</locationY>
+        <locationY>2747</locationY>
         <actionName>BatchAccountUpdateStructure</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -54,8 +50,6 @@
                 <elementReference>$Record</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>BatchAccountUpdateStructure</nameSegment>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>Check_IBAN</name>
@@ -74,20 +68,92 @@
                 <elementReference>$Record.IBAN__c</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>Iban</nameSegment>
         <outputParameters>
             <assignToReference>IbanValid</assignToReference>
             <name>ibanValid</name>
         </outputParameters>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>57.0</apiVersion>
+    <assignments>
+        <name>Add_to_team_members</name>
+        <label>Add to team members</label>
+        <locationX>292</locationX>
+        <locationY>1655</locationY>
+        <assignmentItems>
+            <assignToReference>accountTeamMembers</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>accountTeamMember</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_account_team_members</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_values_to_account_team_member</name>
+        <label>Assign values to account team member</label>
+        <locationX>292</locationX>
+        <locationY>1547</locationY>
+        <assignmentItems>
+            <assignToReference>accountTeamMember.AccountAccessLevel</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_account_team_members.AccountAccessLevel</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>accountTeamMember.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>accountTeamMember.CaseAccessLevel</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_account_team_members.CaseAccessLevel</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>accountTeamMember.ContactAccessLevel</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_account_team_members.ContactAccessLevel</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>accountTeamMember.OpportunityAccessLevel</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_account_team_members.OpportunityAccessLevel</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>accountTeamMember.TeamMemberRole</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_account_team_members.TeamMemberRole</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>accountTeamMember.UserId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_account_team_members.UserId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_to_team_members</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <description>Check if fields are changed which triggers child account updates.</description>
         <name>CheckChildAccountsUpdate</name>
         <label>Child Accounts Update?</label>
         <locationX>336</locationX>
-        <locationY>1523</locationY>
+        <locationY>2639</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>EmailChanged</name>
@@ -125,7 +191,7 @@
         <name>CheckContactUpdate</name>
         <label>Contacts update?</label>
         <locationX>336</locationX>
-        <locationY>1223</locationY>
+        <locationY>2339</locationY>
         <defaultConnector>
             <targetReference>CheckChildAccountsUpdate</targetReference>
         </defaultConnector>
@@ -159,7 +225,7 @@
         <locationX>336</locationX>
         <locationY>323</locationY>
         <defaultConnector>
-            <targetReference>Vertriebsvereinbarung_Telefonkampagne</targetReference>
+            <targetReference>VP_Freigabe</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -193,12 +259,37 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Is_new</name>
+        <label>Is new?</label>
+        <locationX>336</locationX>
+        <locationY>1223</locationY>
+        <defaultConnector>
+            <targetReference>Vertriebsvereinbarung_Telefonkampagne</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_new2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>isNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_parent_account_team</targetReference>
+            </connector>
+            <label>Is new?</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Ist_IBAN_ung_ltig</name>
         <label>Ist IBAN ungültig?</label>
         <locationX>182</locationX>
         <locationY>539</locationY>
         <defaultConnector>
-            <targetReference>Vertriebsvereinbarung_Telefonkampagne</targetReference>
+            <targetReference>VP_Freigabe</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -221,7 +312,7 @@
         <name>Vertriebsvereinbarung_Telefonkampagne</name>
         <label>Vertriebsvereinbarung + Telefonkampagne?</label>
         <locationX>336</locationX>
-        <locationY>923</locationY>
+        <locationY>2039</locationY>
         <defaultConnector>
             <targetReference>CheckContactUpdate</targetReference>
         </defaultConnector>
@@ -250,9 +341,76 @@
             <label>Vertriebsvereinbarung + Telefonkampagne?</label>
         </rules>
     </decisions>
+    <decisions>
+        <name>VP_Freigabe</name>
+        <label>VP Freigabe?</label>
+        <locationX>336</locationX>
+        <locationY>923</locationY>
+        <defaultConnector>
+            <targetReference>Is_new</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>VP_Freigabe2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.VPFreigabeZuUebergeordnetenAccounts__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_VP_share_record</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>VP Freigabe?</label>
+        </rules>
+        <rules>
+            <name>VP_Freigabe_gel_scht</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.VPFreigabeZuUebergeordnetenAccounts__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.VPFreigabeZuUebergeordnetenAccounts__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Delete_VP_share_record</targetReference>
+            </connector>
+            <label>VP Freigabe gelöscht?</label>
+        </rules>
+    </decisions>
     <environments>Default</environments>
+    <formulas>
+        <name>isNew</name>
+        <dataType>Boolean</dataType>
+        <expression>isNew()</expression>
+    </formulas>
     <interviewLabel>Account - After Insert - Create/Update {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Account - After Insert - Create/Update</label>
+    <loops>
+        <name>Loop_account_team_members</name>
+        <label>Loop account team members</label>
+        <locationX>204</locationX>
+        <locationY>1439</locationY>
+        <collectionReference>Get_parent_account_team</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_values_to_account_team_member</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Create_AccountTeamMembers</targetReference>
+        </noMoreValuesConnector>
+    </loops>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -272,11 +430,96 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_AccountTeamMembers</name>
+        <label>Create AccountTeamMembers</label>
+        <locationX>204</locationX>
+        <locationY>1847</locationY>
+        <connector>
+            <targetReference>Vertriebsvereinbarung_Telefonkampagne</targetReference>
+        </connector>
+        <inputReference>accountTeamMembers</inputReference>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_VP_share_record</name>
+        <label>Create VP share record</label>
+        <locationX>72</locationX>
+        <locationY>1031</locationY>
+        <connector>
+            <targetReference>Is_new</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>FreigabeFuer__c</field>
+            <value>
+                <elementReference>$Record.ParentId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>FreigabeVon__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>-</stringValue>
+            </value>
+        </inputAssignments>
+        <object>VertriebsportalFreigabe__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordDeletes>
+        <name>Delete_VP_share_record</name>
+        <label>Delete VP share record</label>
+        <locationX>336</locationX>
+        <locationY>1031</locationY>
+        <connector>
+            <targetReference>Is_new</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>FreigabeFuer__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ParentId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>FreigabeVon__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <object>VertriebsportalFreigabe__c</object>
+    </recordDeletes>
+    <recordLookups>
+        <name>Get_parent_account_team</name>
+        <label>Get parent account team</label>
+        <locationX>204</locationX>
+        <locationY>1331</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_account_team_members</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ParentId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>AccountTeamMember</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
         <name>DisableUpdateStructureField</name>
         <label>Disable Update Structure field</label>
         <locationX>336</locationX>
-        <locationY>1739</locationY>
+        <locationY>2855</locationY>
         <inputAssignments>
             <field>Struktur_aktualisieren__c</field>
             <value>
@@ -291,7 +534,7 @@
         <locationX>50</locationX>
         <locationY>647</locationY>
         <connector>
-            <targetReference>Vertriebsvereinbarung_Telefonkampagne</targetReference>
+            <targetReference>VP_Freigabe</targetReference>
         </connector>
         <inputAssignments>
             <field>IBANUngueltig__c</field>
@@ -305,7 +548,7 @@
         <name>Update_CampaignMember</name>
         <label>Update CampaignMember</label>
         <locationX>204</locationX>
-        <locationY>1031</locationY>
+        <locationY>2147</locationY>
         <connector>
             <targetReference>CheckContactUpdate</targetReference>
         </connector>
@@ -344,6 +587,22 @@
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>
+    <variables>
+        <name>accountTeamMember</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>AccountTeamMember</objectType>
+    </variables>
+    <variables>
+        <name>accountTeamMembers</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>AccountTeamMember</objectType>
+    </variables>
     <variables>
         <name>IbanValid</name>
         <dataType>Boolean</dataType>

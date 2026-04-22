@@ -4,6 +4,7 @@
     <externalId>false</externalId>
     <label>Energiestandard</label>
     <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
@@ -55,6 +56,12 @@
                 <fullName>KfW 85</fullName>
                 <default>false</default>
                 <label>KfW 85</label>
+            </value>
+            <value>
+                <fullName>KfW 95</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>KfW 95</label>
             </value>
             <value>
                 <fullName>KfW-40 (EE)</fullName>

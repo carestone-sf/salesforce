@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Hat der Kontakt eine negative Crefo? --></help>
+    <label><!-- Keine Vorabprovision --></label>
+    <name>Keine_Vorabprovision__c</name>
+</CustomFieldTranslation>

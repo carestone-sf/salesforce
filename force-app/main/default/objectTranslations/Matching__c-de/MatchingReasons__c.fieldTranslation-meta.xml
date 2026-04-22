@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Matching Gründe --></label>
+    <name>MatchingReasons__c</name>
+    <picklistValues>
+        <masterLabel>Baufortschritt</masterLabel>
+        <translation><!-- Baufortschritt --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Betreiber</masterLabel>
+        <translation><!-- Betreiber --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Geografisch</masterLabel>
+        <translation><!-- Geografisch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Zweiter Bauabschnitt</masterLabel>
+        <translation><!-- Zweiter Bauabschnitt --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

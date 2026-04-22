@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Beratungsprovision (o.R.) --></label>
+    <name>Wert_Verk_ufer_Beratungsprovision_o_R__c</name>
+</CustomFieldTranslation>

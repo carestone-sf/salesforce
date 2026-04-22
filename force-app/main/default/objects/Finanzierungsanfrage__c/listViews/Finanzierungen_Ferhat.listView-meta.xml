@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Finanzierungen_Ferhat</fullName>
+    <columns>NAME</columns>
+    <columns>AmpelInternImg__c</columns>
+    <columns>GrundBewertung__c</columns>
+    <columns>Phase__c</columns>
+    <columns>BeurkundungMoeglich__c</columns>
+    <columns>PhaseOpportunity__c</columns>
+    <columns>OWNER.FIRST_NAME</columns>
+    <columns>Info__c</columns>
+    <columns>WiedervorlageAm__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Finanzierung__c</columns>
+    <columns>Maklerbetreuer__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>7/1/2023 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>Phase__c</field>
+        <operation>notEqual</operation>
+        <value>Finanzierung verloren</value>
+    </filters>
+    <filters>
+        <field>OWNER.FIRST_NAME</field>
+        <operation>equals</operation>
+        <value>Ferhat</value>
+    </filters>
+    <label>Alle Finanzierungen Ferhat</label>
+</ListView>

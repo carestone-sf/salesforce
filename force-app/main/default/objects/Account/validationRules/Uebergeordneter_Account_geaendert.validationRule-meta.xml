@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Uebergeordneter_Account_geaendert</fullName>
+    <active>false</active>
+    <errorConditionFormula>ISCHANGED(bergeordneter_Account_Name__c) &amp;&amp;
+$User.Id != &apos;005b00000029D0o&apos; &amp;&amp;
+$User.Id != &apos;005b00000057w0J&apos; &amp;&amp;
+$User.Id != &apos;005b0000000YQy4&apos; &amp;&amp;
+$User.ProfileId != &apos;00eb00000015urz&apos; &amp;&amp;
+$User.Id != &apos;005b00000010njE&apos; &amp;&amp;
+$User.Id != &apos;005b0000001Rz1K&apos; &amp;&amp;
+$User.Id != &apos;005b0000001V30P&apos; &amp;&amp;
+$User.ProfileId != &apos;00e0X000001A72a&apos; &amp;&amp;
+$User.ProfileId != &apos;00e0X000000ds1P&apos; &amp;&amp;
+$User.Id != Owner.Id &amp;&amp;
+NOT($Permission.ReparentAccount)</errorConditionFormula>
+    <errorDisplayField>ParentId</errorDisplayField>
+    <errorMessage>Nur bestimmte Benutzer sind hierzu befugt. Bitte melden Sie sich bei Ihrem Vertriebsmanager.</errorMessage>
+</ValidationRule>

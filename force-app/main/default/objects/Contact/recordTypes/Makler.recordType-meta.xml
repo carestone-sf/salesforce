@@ -32,6 +32,21 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>DatenschutzStatus__c</picklist>
+        <values>
+            <fullName>Docusign unterschrieben</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Liegt bei Vertriebspartner vor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Per Docusign Versendet</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Familienstand__c</picklist>
         <values>
             <fullName>geschieden</fullName>
@@ -159,6 +174,37 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>Kampagnen__c</picklist>
+        <values>
+            <fullName>Incentive 2024</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Incentive 2025</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Incentive 2026</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Incentive 2027</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Incentive 2028</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Incentive 2029</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Incentive 2030</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Klassifizierung__c</picklist>
         <values>
             <fullName>A</fullName>
@@ -181,6 +227,30 @@
         <picklist>LeadSource</picklist>
         <values>
             <fullName>Bestandskunde</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gewinnspiel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LeadGroup</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MetaAdCampaign_MMG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Profino-Webinar 01%2E04%2E2025</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Profino-Webinar 11%2E12%2E2024</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Profino-Webinar 21%2E02%2E2025</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -210,6 +280,21 @@
         </values>
         <values>
             <fullName>Herr</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NotarBewertung__c</picklist>
+        <values>
+            <fullName>Gelb</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Grün</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rot</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -280,6 +365,21 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>RolleVertriebsportal__c</picklist>
+        <values>
+            <fullName>Finanzierungsberater</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maklerbetreuer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vertriebskoordinator</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Titel__c</picklist>
         <values>
             <fullName>Dr%2E</fullName>
@@ -295,13 +395,29 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>tdc_tsw__Phone_Verification_Status__c</picklist>
+        <picklist>VPRollen__c</picklist>
         <values>
-            <fullName>Invalid</fullName>
+            <fullName>Alle Provisionen</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Valid</fullName>
+            <fullName>Benutzer simulieren</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>News ausblenden</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Provision</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Struktur anzeigen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Verkaufte Einheiten berechnen</fullName>
             <default>false</default>
         </values>
     </picklistValues>

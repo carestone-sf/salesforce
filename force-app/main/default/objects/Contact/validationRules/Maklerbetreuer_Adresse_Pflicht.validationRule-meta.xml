@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maklerbetreuer_Adresse_Pflicht</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR(
+ISBLANK( MailingCity ) ,
+ISBLANK( MailingStreet ) ,
+ISBLANK( MailingPostalCode )
+) &amp;&amp;
+OR(
+$Profile.Id = &apos;00e0X000000ds1Y&apos;,
+$Profile.Id = &apos;00e0X000000ds1X&apos;)</errorConditionFormula>
+    <errorDisplayField>MailingStreet</errorDisplayField>
+    <errorMessage>Bitte fülle die Postanschrift aus.</errorMessage>
+</ValidationRule>

@@ -4,6 +4,7 @@
     <displayFormat>GS {YYYY} {0000}</displayFormat>
     <externalId>false</externalId>
     <label>Gutschrift Laufnummer alt</label>
+    <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>AutoNumber</type>
 </CustomField>

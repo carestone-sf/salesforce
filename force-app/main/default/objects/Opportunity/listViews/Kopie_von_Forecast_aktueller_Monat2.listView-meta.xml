@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Kopie_von_Forecast_aktueller_Monat2</fullName>
+    <booleanFilter>1 AND 2 AND 3</booleanFilter>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>Notartermin__c</columns>
+    <columns>NotaryDatePossibleFrom__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>BewertungAmpelFinanzierungsanfrage__c</columns>
+    <columns>Maklerbetreuer_WirtschaftsHaus__c</columns>
+    <columns>Immobilie__c</columns>
+    <columns>Appartement__c</columns>
+    <columns>Finanzierung__c</columns>
+    <columns>PlannedCertification__c</columns>
+    <columns>NotesSalesControlling__c</columns>
+    <columns>OPPORTUNITY.CREATED_DATE</columns>
+    <columns>beurkundeter_Kaufpreis__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>PlannedCertification__c</field>
+        <operation>equals</operation>
+        <value>Next Month</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Reserviert,Kaufvertragsunterlagen verschickt,KV wird fremd abgegeben</value>
+    </filters>
+    <filters>
+        <field>Immobilie__c</field>
+        <operation>notEqual</operation>
+        <value>Gunzenhausen (2)</value>
+    </filters>
+    <label>Forecast nächster Monat</label>
+</ListView>

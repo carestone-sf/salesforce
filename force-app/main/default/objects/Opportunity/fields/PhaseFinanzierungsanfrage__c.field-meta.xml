@@ -22,6 +22,11 @@
                 <label>VSA vorhanden</label>
             </value>
             <value>
+                <fullName>Rückfragen gestellt</fullName>
+                <default>false</default>
+                <label>Rückfragen gestellt</label>
+            </value>
+            <value>
                 <fullName>Unterlagen angefordert</fullName>
                 <default>false</default>
                 <label>Unterlagen angefordert</label>

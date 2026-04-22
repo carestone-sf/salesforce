@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Beratungsart__c</fullName>
+    <externalId>false</externalId>
+    <label>Beratungsart</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Eigenberatung</fullName>
+                <default>false</default>
+                <label>Eigenberatung</label>
+            </value>
+            <value>
+                <fullName>Beratung mit Carestone</fullName>
+                <default>false</default>
+                <label>Beratung mit Carestone</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

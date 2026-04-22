@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Kampagnen --></label>
+    <name>Kampagnen__c</name>
+    <picklistValues>
+        <masterLabel>Incentive 2024</masterLabel>
+        <translation><!-- Incentive 2024 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Incentive 2025</masterLabel>
+        <translation><!-- Incentive 2025 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Incentive 2026</masterLabel>
+        <translation><!-- Incentive 2026 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Incentive 2027</masterLabel>
+        <translation><!-- Incentive 2027 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Incentive 2028</masterLabel>
+        <translation><!-- Incentive 2028 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Incentive 2029</masterLabel>
+        <translation><!-- Incentive 2029 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Incentive 2030</masterLabel>
+        <translation><!-- Incentive 2030 --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

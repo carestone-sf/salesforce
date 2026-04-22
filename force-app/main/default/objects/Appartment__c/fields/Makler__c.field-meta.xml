@@ -9,6 +9,7 @@
     <relationshipName>Teilobjekte</relationshipName>
     <required>false</required>
     <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>
 </CustomField>

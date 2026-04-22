@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <help></help>
-    <label></label>
+    <help><!-- Wie viel Prozent erhält der Tippgeber? 0,5 für 1 Jahr oder 0,25 für 2 Jahre(ab Geltungsbeginn des Maklerauftrags) --></help>
+    <label><!-- Tippprovision in % --></label>
     <name>Tippgeber_in__c</name>
 </CustomFieldTranslation>

@@ -9,7 +9,7 @@ public without sharing class EventController {
         Id conId = usr.ContactId;
         Id accId = usr.AccountId;
         List<Campaign> cmsRegistered = [SELECT Id, Name, Url__c, StartDate, EndDate, DateTime__c FROM Campaign WHERE Id IN (SELECT CampaignId FROM CampaignMember WHERE ContactId = :conId) AND StartDate >= TODAY AND ShowInPartnerPortal__c = true];
-        List<Campaign> cmsNotRegistered = [SELECT Id, Name, Url__c, StartDate, EndDate, DateTime__c, Type FROM Campaign WHERE Type = 'Webinar' AND StartDate >= TODAY AND ID NOT IN (SELECT CampaignId FROM CampaignMember WHERE ContactId = :conId)];
+        List<Campaign> cmsNotRegistered = [SELECT Id, Name, Url__c, StartDate, EndDate, DateTime__c, Type FROM Campaign WHERE (Type = 'Webinar' OR Type = 'Roadshow' OR Type = 'Fest / Feier') AND StartDate >= TODAY AND ID NOT IN (SELECT CampaignId FROM CampaignMember WHERE ContactId = :conId)];
         //Type of shown items on in the LWC is set in EventController.cls in line 12. At the moment restricted to “Webinar”. Please add Type “Objektveranstaltung” in addition.
         List<Campaign> cmsNotRegisteredObjektveranstaltung = [SELECT Id, Name, Url__c, StartDate, EndDate, DateTime__c, Type FROM Campaign WHERE Type = 'Objektveranstaltung' AND StartDate >= TODAY AND ID NOT IN (SELECT CampaignId FROM CampaignMember WHERE ContactId = :conId)];
 
@@ -23,22 +23,22 @@ public without sharing class EventController {
 
         for (Event e : events) {
             String ownerFullName = e.Owner.FirstName + ' ' + e.Owner.LastName;
-            CustomEvent ce = new CustomEvent('event', e.Subject, null, e.StartDateTime, e.EndDateTime, null, null, e.Id, true, false, e.Description, e.Location, ownerFullName, e.Who.Name, e.DescriptionVp__c, e.SubjectVp__c);
+            CustomEvent ce = new CustomEvent('event', e.Subject, null, e.StartDateTime, e.EndDateTime, null, null, e.Id, true, false, e.Description, e.Location, ownerFullName, e.Who.Name, e.DescriptionVp__c, e.SubjectVp__c, false);
             customEvents.add(ce);
         }
 
         for(Campaign cm:cmsRegistered) {
-            CustomEvent ce = new CustomEvent('campaign', cm.Name, cm.Url__c, cm.DateTime__c, null, cm.StartDate, cm.EndDate, cm.Id, true, false, null, null, null, null, null, null);
+            CustomEvent ce = new CustomEvent('campaign', cm.Name, cm.Url__c, cm.DateTime__c, null, cm.StartDate, cm.EndDate, cm.Id, true, false, null, null, null, null, null, null, cm.Type == 'Roadshow');
             customEvents.add(ce);
         }
 
         for (Campaign cm : cmsNotRegistered) {
-            CustomEvent ce = new CustomEvent('campaign', cm.Name, cm.Url__c, cm.DateTime__c, null, cm.StartDate, cm.EndDate, cm.Id, false, true, null, null, null, null, null, null);
+            CustomEvent ce = new CustomEvent('campaign', cm.Name, cm.Url__c, cm.DateTime__c, null, cm.StartDate, cm.EndDate, cm.Id, false, true, null, null, null, null, null, null, cm.Type == 'Roadshow');
             customEvents.add(ce);
         }
 
         for (Campaign cm : cmsNotRegisteredObjektveranstaltung) {
-            CustomEvent ce = new CustomEvent('campaign', cm.Name, cm.Url__c, cm.DateTime__c, null, cm.StartDate, cm.EndDate, cm.Id, false, true, null, null, null, null, null, null);
+            CustomEvent ce = new CustomEvent('campaign', cm.Name, cm.Url__c, cm.DateTime__c, null, cm.StartDate, cm.EndDate, cm.Id, false, true, null, null, null, null, null, null, cm.Type == 'Roadshow');
             customEvents.add(ce);
         }
         
@@ -80,6 +80,8 @@ public without sharing class EventController {
         @AuraEnabled
         public Boolean unregistered{get;set;}
         @AuraEnabled
+        public Boolean isRoadshow{get;set;}
+        @AuraEnabled
         public String location{get;set;}
         @AuraEnabled
         public String description{get;set;}
@@ -99,7 +101,7 @@ public without sharing class EventController {
             return 0; 
         }
         
-        public CustomEvent(String type, String name, String url, DateTime startDateTime, DateTime endDateTime, Date startDate, Date endDate, Id recordId, Boolean registered, Boolean unregistered, String description, String location, String ownerName, String whoName, String descriptionVp, String subjectVp) {
+        public CustomEvent(String type, String name, String url, DateTime startDateTime, DateTime endDateTime, Date startDate, Date endDate, Id recordId, Boolean registered, Boolean unregistered, String description, String location, String ownerName, String whoName, String descriptionVp, String subjectVp, Boolean isRoadshow) {
             this.type = type;
             this.name =  subjectVp != null ? subjectVp:name;
             this.url = url;
@@ -115,6 +117,7 @@ public without sharing class EventController {
             this.hideDescription = (descriptionVp == null && description == null) || this.location == 'Microsoft Teams-Besprechung';
             this.ownerName = ownerName;
             this.whoName = whoName;
+            this.isRoadshow = isRoadshow;
         }
     }
 }

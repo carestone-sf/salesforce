@@ -206,6 +206,8 @@ global class SchedulableImmobilienFiles implements Schedulable, Database.AllowsC
                             immobilienDatei.DateiTyp__c = 'Grundrisse';
                         } else if(child.getTitle() == 'Baufortschritt') {
                             immobilienDatei.DateiTyp__c = 'Baufortschritt';
+                        } else if(child.getTitle() == 'Musterberechnungen') {
+                            immobilienDatei.DateiTyp__c = 'Musterberechnung';
                         }
                         immobilienDatei.DateiUrl__c = innerChild.getWebContentLink();
                         immobilienDatei.Immobilie__c = propertyId;

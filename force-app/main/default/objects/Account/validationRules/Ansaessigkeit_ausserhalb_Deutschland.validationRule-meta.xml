@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ansaessigkeit_ausserhalb_Deutschland</fullName>
+    <active>true</active>
+    <errorConditionFormula>AnsaessigAusserhalbVonDeutschland__c &amp;&amp;
+IsBlank( UStd_Id__c )</errorConditionFormula>
+    <errorDisplayField>UStd_Id__c</errorDisplayField>
+    <errorMessage>Bitte füllen Sie die USt. Id. aus</errorMessage>
+</ValidationRule>

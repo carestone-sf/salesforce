@@ -6,6 +6,7 @@
     <label>Klassifizierung</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
     <type>Picklist</type>
     <valueSet>
         <valueSetDefinition>
@@ -39,6 +40,11 @@
                 <fullName>Vertriebsverbot</fullName>
                 <default>false</default>
                 <label>Vertriebsverbot</label>
+            </value>
+            <value>
+                <fullName>Disqualifiziert</fullName>
+                <default>false</default>
+                <label>Disqualifiziert</label>
             </value>
         </valueSetDefinition>
     </valueSet>

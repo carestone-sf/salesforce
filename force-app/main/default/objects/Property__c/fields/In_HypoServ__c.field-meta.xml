@@ -6,6 +6,7 @@
     <externalId>false</externalId>
     <inlineHelpText>Legt fest, ob diese Immobilie als öffentliche Immobilie unter einem HypoServ-Benutzer im HypoServ-Maklerportal sichtbar ist.</inlineHelpText>
     <label>In HypoServ</label>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Checkbox</type>

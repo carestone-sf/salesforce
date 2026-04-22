@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accounts_Sven_Schulz</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>PARENT_NAME</columns>
+    <columns>ACCOUNT.ADDRESS2_COUNTRY</columns>
+    <columns>AnnualTargetPlanning__c</columns>
+    <columns>Carestone_Vertriebsvereinbarung__c</columns>
+    <columns>Alle_gewonnenen_Verkaufschancen__c</columns>
+    <columns>Kategorie__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>sschu</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Brokerage</value>
+    </filters>
+    <label>Accounts Sven Schulz</label>
+</ListView>

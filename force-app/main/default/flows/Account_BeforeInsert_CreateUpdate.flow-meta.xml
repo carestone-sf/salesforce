@@ -14,6 +14,22 @@
             </value>
         </assignmentItems>
         <connector>
+            <targetReference>MB_changed</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_OwnerId</name>
+        <label>Assign OwnerId</label>
+        <locationX>116</locationX>
+        <locationY>695</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Maklerbetreuer_Wirtschaftshaus_2__r.OwnerId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
             <targetReference>Check_ParentIdChanged</targetReference>
         </connector>
     </assignments>
@@ -21,7 +37,7 @@
         <name>Set_Reparent_Date</name>
         <label>Set Reparent Date</label>
         <locationX>182</locationX>
-        <locationY>911</locationY>
+        <locationY>1211</locationY>
         <assignmentItems>
             <assignToReference>$Record.ReparentDate__c</assignToReference>
             <operator>Assign</operator>
@@ -36,7 +52,7 @@
         <locationX>248</locationX>
         <locationY>287</locationY>
         <defaultConnector>
-            <targetReference>Check_ParentIdChanged</targetReference>
+            <targetReference>MB_changed</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
@@ -75,7 +91,7 @@
         <name>Check_ParentIdChanged</name>
         <label>ParentId changed?</label>
         <locationX>248</locationX>
-        <locationY>587</locationY>
+        <locationY>887</locationY>
         <defaultConnectorLabel>Not changed</defaultConnectorLabel>
         <rules>
             <name>ParentIDChangeOrNew</name>
@@ -112,7 +128,7 @@
         <name>CheckIsParentCarestoneGroupAccount</name>
         <label>Is Carestone Group Account?</label>
         <locationX>50</locationX>
-        <locationY>695</locationY>
+        <locationY>995</locationY>
         <defaultConnector>
             <targetReference>UpdateFieldsFromParentAccount</targetReference>
         </defaultConnector>
@@ -128,6 +144,38 @@
                 </rightValue>
             </conditions>
             <label>True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>MB_changed</name>
+        <label>MB changed?</label>
+        <locationX>248</locationX>
+        <locationY>587</locationY>
+        <defaultConnector>
+            <targetReference>Check_ParentIdChanged</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>MB_changed2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Maklerbetreuer_Wirtschaftshaus_2__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <elementReference>True</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>001Vi000004X1hNIAS</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_OwnerId</targetReference>
+            </connector>
+            <label>MB changed?</label>
         </rules>
     </decisions>
     <environments>Default</environments>
@@ -173,7 +221,7 @@
         <name>UpdateFieldsFromParentAccount</name>
         <label>Update Fields from Parent Account</label>
         <locationX>182</locationX>
-        <locationY>803</locationY>
+        <locationY>1103</locationY>
         <connector>
             <targetReference>Set_Reparent_Date</targetReference>
         </connector>
@@ -208,6 +256,6 @@
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordBeforeSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <triggerOrder>10</triggerOrder>
 </Flow>

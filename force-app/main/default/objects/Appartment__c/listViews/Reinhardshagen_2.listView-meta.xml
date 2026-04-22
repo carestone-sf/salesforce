@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reinhardshagen_2</fullName>
+    <columns>NAME</columns>
+    <columns>Purchase_Price__c</columns>
+    <columns>Status__c</columns>
+    <columns>Notartermin__c</columns>
+    <columns>Beurkundung__c</columns>
+    <columns>Maklerbetreuer_WirtschaftsHaus_lookup__c</columns>
+    <columns>Customer__c</columns>
+    <columns>Finanzierung__c</columns>
+    <columns>BewertungAmpelFinanzierungsanfrage__c</columns>
+    <columns>PhaseFinanzierungsanfrage__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Property__c</field>
+        <operation>equals</operation>
+        <value>Kalbach</value>
+    </filters>
+    <filters>
+        <field>Notartermin__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Reinhardshagen</label>
+</ListView>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>None</contactAccessLevel>
+    <description>PS Immobilien GbR Partner-Manager</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>PS Immobilien GbR Partner-Manager</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>PSImmobilienGbRPartnerFhrungskraft</parentRole>
+</Role>

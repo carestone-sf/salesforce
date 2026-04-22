@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Standardbenutzer</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Standardbenutzer</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/20.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/20.0/apex.js&quot;)}
+var url = parent.location.href;
+
+var username= sforce.apex.execute(&quot;UpdateKontakt&quot;,&quot;ausgabeUser&quot;,{nutzer:&quot;Standard&quot;});
+
+var user = prompt (&quot;Auf welchen Partnerbenutzer soll die Struktur geschlüsselt werden?\n\nBitte Vorname und und Nachname eingeben\n\n\n Folgende UserNamen können Sie angeben: \n\n&quot; + username);
+
+if(user != null){
+var myvar = sforce.apex.execute(&quot;UpdateKontakt&quot;,&quot;updateAccountStructure&quot;, {accountID:&quot;{!Account.Id}&quot;, userName:user, nutzer:&quot;Standard&quot;});
+window.alert(myvar);
+
+}</url>
+</WebLink>

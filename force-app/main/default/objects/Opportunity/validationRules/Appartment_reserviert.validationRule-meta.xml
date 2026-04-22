@@ -6,7 +6,10 @@
 NOT(Isblank(Appartement__c)), 
 OR(IsNew(), IsChanged(Appartement__c)), 
 text(Appartement__r.Status__c) != &quot;Available&quot;,
-text(Appartement__r.Status__c) != &quot;Kontingent&quot; 
+OR(text(Appartement__r.Status__c) != &quot;Kontingent&quot;, AND(text(Appartement__r.Status__c) = &quot;Kontingent&quot;,
+ AccountId != Appartement__r.ContingentRequester__c,
+ Account.ParentId != Appartement__r.ContingentRequester__c
+))
 )</errorConditionFormula>
     <errorDisplayField>Appartement__c</errorDisplayField>
     <errorMessage>Apartment ist nicht verfügbar</errorMessage>

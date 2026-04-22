@@ -17,6 +17,7 @@
         <backgroundColor>#FFFFFF</backgroundColor>
         <height>100</height>
         <horizontalAlignment>Right</horizontalAlignment>
+        <logo>img/Carestone_Logo.png</logo>
         <verticalAlignment>Middle</verticalAlignment>
     </header>
     <middleLine>

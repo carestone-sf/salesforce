@@ -13,7 +13,7 @@ global without sharing class ScheduledOposSync implements Schedulable {
     public static void syncOposAndInvoicesForDocuments(List<Document> oposDocuments) {
         List<MaBVRechnung__c> mabvRechnungen = [SELECT OffenerBetragNeu__c, Name FROM MaBVRechnung__c WHERE OffenerBetragNeu__c != 0 AND OffenerBetragNeu__c != null AND Storniert__c = FALSE];
         List<Gutschrift__c> gutschriften = [SELECT Bezahlt__c, Name FROM Gutschrift__c WHERE Bezahlt__c != TRUE AND ZuDatevUebertragen__c = TRUE AND GutschriftStorniert__c = FALSE];
-        List<Opportunity> opps = [SELECT Id, Appartement__r.ApartmentNummer__c, Immobilie__r.Objektnummer__c, Immobilie__r.Name FROM Opportunity WHERE StageName = 'Geschlossene und gewonnene' AND Immobilie__r.Objektnummer__c != null AND Appartement__r.ApartmentNummer__c != null];
+        List<Opportunity> opps = [SELECT Id, Appartement__r.ApartmentNummer__c, Immobilie__r.Objektnummer__c, Immobilie__r.Name FROM Opportunity WHERE (StageName = 'Geschlossene und gewonnene' OR StageName = 'Notartermin hat stattgefunden') AND Immobilie__r.Objektnummer__c != null AND Appartement__r.ApartmentNummer__c != null];
 
         Map<String, List<Opos>> rechnungsNummerToOpos = new Map<String, List<Opos>>();     
         

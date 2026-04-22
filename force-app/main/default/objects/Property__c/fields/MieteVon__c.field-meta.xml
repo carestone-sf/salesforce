@@ -4,6 +4,11 @@
     <externalId>false</externalId>
     <label>Miete von</label>
     <summarizedField>Appartment__c.Monthly_Rent__c</summarizedField>
+    <summaryFilterItems>
+        <field>Appartment__c.ExternNichtAnzeigen__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
     <summaryForeignKey>Appartment__c.Property__c</summaryForeignKey>
     <summaryOperation>min</summaryOperation>
     <trackHistory>false</trackHistory>

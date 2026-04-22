@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Sondertilgung --></label>
+    <name>Sondertilgung__c</name>
+    <picklistValues>
+        <masterLabel>Keine Sondertilgungsoption</masterLabel>
+        <translation><!-- Keine Sondertilgungsoption --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sondertilgungsoption</masterLabel>
+        <translation><!-- Sondertilgungsoption --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

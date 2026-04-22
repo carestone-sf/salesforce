@@ -2,6 +2,7 @@
 <CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Standard</fullName>
     <fields>Name</fields>
+    <fields>SharepointLink__c</fields>
     <fields>AmpelInternImg__c</fields>
     <fields>KfwWunsch__c</fields>
     <fields>KfWBestaetigungVorhanden__c</fields>

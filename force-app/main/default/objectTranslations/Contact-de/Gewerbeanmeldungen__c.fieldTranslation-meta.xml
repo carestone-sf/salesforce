@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Gewerbeanmeldungen --></label>
+    <name>Gewerbeanmeldungen__c</name>
+    <picklistValues>
+        <masterLabel>34C</masterLabel>
+        <translation><!-- 34C --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>34D</masterLabel>
+        <translation><!-- 34D --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>34F</masterLabel>
+        <translation><!-- 34F --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>34H</masterLabel>
+        <translation><!-- 34H --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>34I</masterLabel>
+        <translation><!-- 34I --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

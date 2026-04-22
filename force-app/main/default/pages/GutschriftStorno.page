@@ -38,7 +38,11 @@
         <apex:image url="{!$Resource.Carestone_Logo}" width="200px" height="auto"></apex:image>
     </div>
 
-    <p style="font-size: 8px; color: #004B41">
+    <p style="font-size: 8px; color: #004B41; {!IF(AND(Gutschrift__c.Objekt__r.GutschriftenUeber__c = 'Carestone Vertriebs GmbH'), 'display:block', 'display:none')}">
+        Carestone Vertriebs GmbH &#183; An der Börse 3 &#183; 30159 Hannover
+    </p>
+
+    <p style="font-size: 8px; color: #004B41; {!IF(AND(Gutschrift__c.Objekt__r.GutschriftenUeber__c = 'Carestone Vertriebs GmbH'), 'display:none', 'display:block')}">
         Carestone Service GmbH &#183; An der Börse 3 &#183; 30159 Hannover
     </p>
 
@@ -288,7 +292,15 @@
         Reverse Charge (Steuerschuldnerschaft des Leistungsempfängers)
     </p>
 
-    <div class="bottom-center-div" style="font-size: 8px; line-height: 12px;">
+    <div class="bottom-center-div" style="font-size: 8px; line-height: 12px; {!IF(AND(Gutschrift__c.Objekt__r.GutschriftenUeber__c = 'Carestone Vertriebs GmbH'), 'display:block', 'display:none')}">
+        Carestone Vertriebs GmbH &#183; An der Börse 3 &#183; 30159 Hannover &#183; Tel. 0511 26152-0 &#183; Fax: 0511 26152-299 &#183; www.carestone.com &#183; info@carestone.com<br/>
+        Geschäftsführer: Sandro Pawils, Harald Senftleben<br/>
+        Amtsgericht Hannover HRB 227176 | St.Nr. 25/205/11367<br/>
+        Sparkasse Hildesheim Goslar Peine &#183; IBAN DE34 2595 0130 0057 
+        6565 88 &#183; BIC NOLADE21HIK
+    </div>
+
+    <div class="bottom-center-div" style="font-size: 8px; line-height: 12px; {!IF(AND(Gutschrift__c.Objekt__r.GutschriftenUeber__c = 'Carestone Vertriebs GmbH'), 'display:none', 'display:block')}">
         Carestone Service GmbH &#183; An der Börse 3 &#183; 30159 Hannover &#183; Tel. 0511 26152-0 &#183; Fax: 0511 26152-299 &#183; www.carestone.com &#183; info@carestone.com<br/>
         Geschäftsführer: Sandro Pawils<br/>
         Amtsgericht Hannover HRB 218680 | St.Nr. 25/205/10530 | USt-IdNr. DE321083102<br/>

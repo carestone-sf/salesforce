@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VKCs_ohne_Finanzierungsberater</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>Immobilie__c</columns>
+    <columns>Appartement__c</columns>
+    <columns>Finanzierungsberater__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Finanzierung__c</columns>
+    <columns>VSA_EK_vorhanden__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Finanzierungsberater__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Reserviert,Kaufvertragsunterlagen verschickt,KV wird fremd abgegeben</value>
+    </filters>
+    <label>VKCs ohne Finanzierungsberater</label>
+</ListView>

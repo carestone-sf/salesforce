@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Forecast_aktueller_Monat_neu</fullName>
+    <booleanFilter>1 AND 2</booleanFilter>
+    <columns>Notartermin__c</columns>
+    <columns>NotaryDatePossibleFrom__c</columns>
+    <columns>Kaufvertragsunterlagen_v_Notar_versendet__c</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>Maklerbetreuer_WirtschaftsHaus__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Immobilie__c</columns>
+    <columns>Appartement__c</columns>
+    <columns>beurkundeter_Kaufpreis__c</columns>
+    <columns>Beurkundung__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>PlannedCertification__c</columns>
+    <columns>StatusAmpel__c</columns>
+    <columns>PhaseFinanzierungsanfrage__c</columns>
+    <columns>Finanzierung__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>PlannedCertification__c</field>
+        <operation>equals</operation>
+        <value>Current Month</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Beratung,Reservierungsvorbereitung,Reserviert,Auftrag zur Beurkundung vorhanden,Kaufvertragsunterlagen verschickt,Kaufvertragsangebot abgegeben,KV wird fremd abgegeben,Geschlossene und gewonnene</value>
+    </filters>
+    <label>Forecast aktueller Monat neu</label>
+</ListView>

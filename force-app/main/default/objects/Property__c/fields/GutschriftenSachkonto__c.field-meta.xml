@@ -5,6 +5,7 @@
     <label>Gutschriften Sachkonto</label>
     <length>250</length>
     <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Text</type>

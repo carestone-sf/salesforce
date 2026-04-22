@@ -10,6 +10,10 @@
     <columns>Grand_Total__c</columns>
     <columns>CREATED_DATE</columns>
     <filterScope>Everything</filterScope>
+    <filters>
+        <field>Brokers_Person__c</field>
+        <operation>equals</operation>
+        <value>Andreas Pohl</value>
+    </filters>
     <label>Alle</label>
-    <language>en_US</language>
 </ListView>

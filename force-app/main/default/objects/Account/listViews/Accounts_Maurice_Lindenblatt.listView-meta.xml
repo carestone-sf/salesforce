@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accounts_Maurice_Lindenblatt</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>AnnualTargetPlanning__c</columns>
+    <columns>Carestone_Vertriebsvereinbarung__c</columns>
+    <columns>Kategorie__c</columns>
+    <columns>PARENT_NAME</columns>
+    <columns>Alle_gewonnenen_Verkaufschancen__c</columns>
+    <columns>Maklerbetreuer_Wirtschaftshaus_2__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>mlind</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notEqual</operation>
+        <value>Geschäftskundenberater Key Account - Maurice Lindenblatt</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Brokerage</value>
+    </filters>
+    <filters>
+        <field>Kategorie__c</field>
+        <operation>equals</operation>
+        <value>Nicht kategorisiert,A,B,C,D</value>
+    </filters>
+    <label>Accounts Maurice Lindenblatt</label>
+</ListView>

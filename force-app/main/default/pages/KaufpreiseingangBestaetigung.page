@@ -168,8 +168,8 @@
             hiermit bestätigen wir den Erhalt der vollständigen Kaufpreiszahlung am&nbsp;<apex:outputField value="{!Opportunity.Datum_Kaufpreis_bezahlt__c}"></apex:outputField> in 
             Höhe von&nbsp;<apex:outputField value="{!Opportunity.beurkundeter_Kaufpreis__c}"/> für die Wohneinheit / {!Opportunity.Appartement__r.Name},
             <br/>
-            Erwerber {!Opportunity.Potenzieller_Kunde__r.Name}
-            <apex:outputPanel rendered="{!NOT(ISBLANK(Opportunity.Kunde2__c))}">, {!Opportunity.Kunde2__r.Name}</apex:outputPanel>.
+            Erwerber {!Opportunity.Potenzieller_Kunde__r.Name} 
+            <apex:outputPanel rendered="{!NOT(ISBLANK(Opportunity.Kunde2__c))}">, {!Opportunity.Kunde2__r.Name}</apex:outputPanel> und bitten darum, die Eigentumsumschreibung vorzunehmen.
             <br/><br/>
             Mit freundlichen Grüßen
             <br/><br/><br/>

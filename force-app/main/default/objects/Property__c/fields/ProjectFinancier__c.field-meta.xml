@@ -17,6 +17,7 @@
     <relationshipLabel>Immobilien (Projektfinanzierung)</relationshipLabel>
     <relationshipName>PropertiesProjectFinancier</relationshipName>
     <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>

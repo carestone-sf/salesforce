@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Schutz Verlängerung beantragen --></label>
+    <name>Schutz_Verl_ngerung_beantragen__c</name>
+</CustomFieldTranslation>

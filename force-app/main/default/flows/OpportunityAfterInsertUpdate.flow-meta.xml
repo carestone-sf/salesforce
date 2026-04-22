@@ -1,10 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
+        <name>Approve_Reservierung_angefragt</name>
+        <label>Approve &quot;Reservierung angefragt&quot;</label>
+        <locationX>336</locationX>
+        <locationY>4031</locationY>
+        <actionName>ResolveApprovalRequest</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Notarauftrag_vorhanden</targetReference>
+        </connector>
+        <flowTransactionModel>Automatic</flowTransactionModel>
+        <inputParameters>
+            <name>action</name>
+            <value>
+                <stringValue>Approve</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>objName</name>
+            <value>
+                <stringValue>Opportunity</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <name>Approve_Reservierung_angefragt_2</name>
+        <label>Approve &quot;Reservierung angefragt&quot;</label>
+        <locationX>336</locationX>
+        <locationY>4331</locationY>
+        <actionName>ResolveApprovalRequest</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Reserviert</targetReference>
+        </connector>
+        <flowTransactionModel>Automatic</flowTransactionModel>
+        <inputParameters>
+            <name>action</name>
+            <value>
+                <stringValue>Approve</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>objName</name>
+            <value>
+                <stringValue>Opportunity</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
         <name>E_Mail_an_Projektbeauftragte</name>
         <label>E-Mail an Projektbeauftragte</label>
         <locationX>336</locationX>
-        <locationY>1631</locationY>
+        <locationY>2231</locationY>
         <actionName>Opportunity.VSA_EK_Hinweis_an_Projektbeauftragte</actionName>
         <actionType>emailAlert</actionType>
         <connector>
@@ -22,7 +84,7 @@
         <name>E_Mail_an_Raik_und_Harald</name>
         <label>E-Mail an Raik und Harald</label>
         <locationX>336</locationX>
-        <locationY>1931</locationY>
+        <locationY>2531</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <connector>
@@ -55,10 +117,62 @@
         </inputParameters>
     </actionCalls>
     <actionCalls>
+        <name>E_Mail_zur_NK_Zuschuss_Freigabe_an_Backoffice_senden</name>
+        <label>E-Mail zur NK Zuschuss Freigabe an Backoffice senden</label>
+        <locationX>336</locationX>
+        <locationY>1031</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>NK_Zuschuss_von_Backoffice_freigegeben</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>recipientAddresses</name>
+            <value/>
+        </inputParameters>
+        <inputParameters>
+            <name>composeEmailContent</name>
+            <value>
+                <stringValue>True</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Freigabe Nebenkostenzuschuss</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>&lt;p&gt;Bitte für die folgende VKC den Nebenkostenzuschuss freigeben:&lt;/p&gt;&lt;p&gt;VKC: &lt;a href=&quot;{!recordLink}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Name}&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Immobilie: {!$Record.Immobilie__r.Name}&lt;/p&gt;&lt;p&gt;Apartment: {!$Record.Appartement__r.Name}&lt;/p&gt;</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
         <name>E_Mail_zur_R_ckabwicklung_senden</name>
         <label>E-Mail zur Rückabwicklung senden</label>
         <locationX>336</locationX>
-        <locationY>2231</locationY>
+        <locationY>2831</locationY>
         <actionName>Opportunity.R_ckabwicklung</actionName>
         <actionType>emailAlert</actionType>
         <connector>
@@ -73,10 +187,62 @@
         </inputParameters>
     </actionCalls>
     <actionCalls>
+        <name>NK_Zuschuss_Freigabe_an_Treasury_senden</name>
+        <label>NK Zuschuss Freigabe an Treasury senden</label>
+        <locationX>336</locationX>
+        <locationY>1331</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Send_NK_Zuschuss_to_VKO</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>recipientAddresses</name>
+            <value/>
+        </inputParameters>
+        <inputParameters>
+            <name>composeEmailContent</name>
+            <value>
+                <stringValue>True</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Freigabe Nebenkostenzuschuss</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>&lt;p&gt;Für die folgende VKC wurde der Nebenkostenzuschuss vom Backoffice freigegeben und muss nun von der Treasury freigegeben werden:&lt;/p&gt;&lt;p&gt;VKC: &lt;a href=&quot;{!recordLink}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Name}&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Immobilie: {!$Record.Immobilie__r.Name}&lt;/p&gt;&lt;p&gt;Apartment: {!$Record.Appartement__r.Name}&lt;/p&gt;</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
         <name>Reservierungsanfrage_genehmigt</name>
         <label>Reservierungsanfrage genehmigt</label>
         <locationX>336</locationX>
-        <locationY>731</locationY>
+        <locationY>431</locationY>
         <actionName>Opportunity.Verkaufschance_Reservierungsanfrage_genehmigt</actionName>
         <actionType>emailAlert</actionType>
         <connector>
@@ -91,14 +257,74 @@
         </inputParameters>
     </actionCalls>
     <actionCalls>
+        <name>Send_NK_Zuschuss</name>
+        <label>Send NK Zuschuss</label>
+        <locationX>336</locationX>
+        <locationY>1631</locationY>
+        <actionName>SendNebenkostenzuschussAction</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Reserviert_VSA_vorhanden</targetReference>
+        </connector>
+        <flowTransactionModel>Automatic</flowTransactionModel>
+        <inputParameters>
+            <name>opportunityIds</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_notification</name>
+        <label>Send notification</label>
+        <locationX>314</locationX>
+        <locationY>4847</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>Get_related_Finanzierungsanfragen</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <elementReference>Get_notification.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>vkcReserviertNotificationEmpfaengerIds</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>VKC reserviert</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>Die VKC muss innerhalb von 24 Stunden einem Finanzierungsberater zugewiesen werden.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
         <name>Submit_for_Approval</name>
         <label>Submit for Approval</label>
         <locationX>336</locationX>
-        <locationY>1031</locationY>
+        <locationY>731</locationY>
         <actionName>submit</actionName>
         <actionType>submit</actionType>
         <connector>
-            <targetReference>Reserviert_VSA_vorhanden</targetReference>
+            <targetReference>Kaufpreis_bezahlt_NK_Zuschuss_0</targetReference>
         </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
@@ -119,7 +345,7 @@
         <name>Submit_for_VSA_approval</name>
         <label>Submit for VSA approval</label>
         <locationX>336</locationX>
-        <locationY>1331</locationY>
+        <locationY>1931</locationY>
         <actionName>submit</actionName>
         <actionType>submit</actionType>
         <connector>
@@ -135,35 +361,17 @@
         <inputParameters>
             <name>processDefinitionNameOrId</name>
             <value>
-                <stringValue>04aVi0000000XyT</stringValue>
+                <stringValue>VSA_genehmigen3</stringValue>
             </value>
         </inputParameters>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
-    <actionCalls>
-        <name>VSA_genehmigt3</name>
-        <label>VSA genehmigt</label>
-        <locationX>336</locationX>
-        <locationY>431</locationY>
-        <actionName>Opportunity.VSA_genehmigt</actionName>
-        <actionType>emailAlert</actionType>
-        <connector>
-            <targetReference>VKC_reserviert</targetReference>
-        </connector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>SObjectRowId</name>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </inputParameters>
-    </actionCalls>
-    <apiVersion>55.0</apiVersion>
+    <apiVersion>61.0</apiVersion>
     <assignments>
         <name>Add_secondBuyer_to_roles</name>
         <label>Add secondBuyer to roles</label>
         <locationX>50</locationX>
-        <locationY>4463</locationY>
+        <locationY>8459</locationY>
         <assignmentItems>
             <assignToReference>opportunityContactRoles</assignToReference>
             <operator>Add</operator>
@@ -179,7 +387,7 @@
         <name>Assign_brokerOpportunityContactRole</name>
         <label>Assign brokerOpportunityContactRole</label>
         <locationX>182</locationX>
-        <locationY>4031</locationY>
+        <locationY>8027</locationY>
         <assignmentItems>
             <assignToReference>brokerOpportunityContactRole.OpportunityId</assignToReference>
             <operator>Assign</operator>
@@ -216,7 +424,7 @@
         <name>Assign_firstBuyerOpportunityContactRole</name>
         <label>Assign firstBuyerOpportunityContactRole</label>
         <locationX>182</locationX>
-        <locationY>4139</locationY>
+        <locationY>8135</locationY>
         <assignmentItems>
             <assignToReference>firstBuyerOpportunityContactRole.OpportunityId</assignToReference>
             <operator>Assign</operator>
@@ -243,10 +451,26 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Assign_group_id</name>
+        <label>Assign group id</label>
+        <locationX>314</locationX>
+        <locationY>4739</locationY>
+        <assignmentItems>
+            <assignToReference>vkcReserviertNotificationEmpfaengerIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>00GVi00000SRMh3</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_notification</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Assign_secondBuyerOpportunityContactRole</name>
         <label>Assign secondBuyerOpportunityContactRole</label>
         <locationX>50</locationX>
-        <locationY>4355</locationY>
+        <locationY>8351</locationY>
         <assignmentItems>
             <assignToReference>secondBuyerOpportunityContactRole.OpportunityId</assignToReference>
             <operator>Assign</operator>
@@ -276,7 +500,7 @@
         <name>Assign_values_to_collection</name>
         <label>Assign values to collection</label>
         <locationX>182</locationX>
-        <locationY>4655</locationY>
+        <locationY>8651</locationY>
         <assignmentItems>
             <assignToReference>opportunityContactRoles</assignToReference>
             <operator>Add</operator>
@@ -295,13 +519,71 @@
             <targetReference>Insert_OpportunityContactRoles</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Assign_values_to_Finanzierungsanfrage</name>
+        <label>Assign values to Finanzierungsanfrage</label>
+        <locationX>182</locationX>
+        <locationY>5171</locationY>
+        <assignmentItems>
+            <assignToReference>finanzierungsanfrage.EinzusetzendesEigenkapital__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>eigenkapital</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>finanzierungsanfrage.ErsterKaeufer__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Potenzieller_Kunde__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>finanzierungsanfrage.Finanzierungsbedarf__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>finanzierungsbedarf</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>finanzierungsanfrage.Opportunity__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>finanzierungsanfrage.Phase__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Finanzierungsanfrage gestellt</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>finanzierungsanfrage.Variante__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Verkaufschance</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>finanzierungsanfrage.ZweiterKaeufer__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Kunde2__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Finanzierungsanfrage_erstellen</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>Bankantrag_gestellt</name>
         <label>Bankantrag gestellt?</label>
         <locationX>468</locationX>
-        <locationY>3323</locationY>
+        <locationY>5963</locationY>
         <defaultConnector>
-            <targetReference>Darlehensvertrag_liegt_vor</targetReference>
+            <targetReference>Finanzierungsbest_tigung_senden</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -325,7 +607,7 @@
         <name>Broker_has_changed</name>
         <label>Broker has changed?</label>
         <locationX>754</locationX>
-        <locationY>4031</locationY>
+        <locationY>8027</locationY>
         <defaultConnector>
             <targetReference>First_buyer_has_changed</targetReference>
         </defaultConnector>
@@ -350,9 +632,9 @@
         <name>Closed_lost</name>
         <label>Closed lost?</label>
         <locationX>468</locationX>
-        <locationY>2723</locationY>
+        <locationY>3623</locationY>
         <defaultConnector>
-            <targetReference>Data_for_Finanzierungsanfrage_has_changed</targetReference>
+            <targetReference>Reservierungsschein_vorhanden_Reservierung_angefragt</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
@@ -383,9 +665,9 @@
         <name>Darlehensvertrag_liegt_vor</name>
         <label>Darlehensvertrag liegt vor?</label>
         <locationX>468</locationX>
-        <locationY>3623</locationY>
+        <locationY>7103</locationY>
         <defaultConnector>
-            <targetReference>Is_New</targetReference>
+            <targetReference>MB_eingetragen_oder_ge_ndert</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -409,14 +691,14 @@
         <name>Data_for_Finanzierungsanfrage_has_changed</name>
         <label>Data for Finanzierungsanfrage has changed?</label>
         <locationX>468</locationX>
-        <locationY>3023</locationY>
+        <locationY>5663</locationY>
         <defaultConnector>
             <targetReference>Bankantrag_gestellt</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
             <name>Data_for_Finanzierungsanfrage_has_changed2</name>
-            <conditionLogic>2 OR (1 AND 3)</conditionLogic>
+            <conditionLogic>(2 OR (1 AND 3)) OR (5 OR (3 AND 4))</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.Bank__c</leftValueReference>
                 <operator>IsNull</operator>
@@ -438,6 +720,20 @@
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.Finanzierungsberater__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Finanzierungsberater__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Update_Bank_in_Finanzierungsanfragen</targetReference>
             </connector>
@@ -445,10 +741,62 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Durch_Finanzierungsberater_genehmigt</name>
+        <label>Durch Finanzierungsberater genehmigt?</label>
+        <locationX>468</locationX>
+        <locationY>6563</locationY>
+        <defaultConnector>
+            <targetReference>Darlehensvertrag_liegt_vor</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Durch_Finanzierungsberater_genehmigt2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.GenehmigtVonFinanzierungsberater__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_durch_Finanzierungsberater_genehmigt_in_Finanzierungsanfragen</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Durch Finanzierungsberater genehmigt?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Finanzierungsbest_tigung_senden</name>
+        <label>Finanzierungsbestätigung senden?</label>
+        <locationX>468</locationX>
+        <locationY>6263</locationY>
+        <defaultConnector>
+            <targetReference>Durch_Finanzierungsberater_genehmigt</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Finanzierungsbest_tigung_senden2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.FinanzierungsbestaetigungSenden__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Finanzierungsanfrage</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Finanzierungsbestätigung senden?</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>First_buyer_has_changed</name>
         <label>First buyer has changed?</label>
         <locationX>754</locationX>
-        <locationY>4331</locationY>
+        <locationY>8327</locationY>
         <defaultConnector>
             <targetReference>Second_buyer_has_changed</targetReference>
         </defaultConnector>
@@ -473,7 +821,7 @@
         <name>Is_New</name>
         <label>Is New?</label>
         <locationX>468</locationX>
-        <locationY>3923</locationY>
+        <locationY>7919</locationY>
         <defaultConnector>
             <targetReference>Broker_has_changed</targetReference>
         </defaultConnector>
@@ -495,12 +843,168 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Is_null</name>
+        <label>Is null?</label>
+        <locationX>314</locationX>
+        <locationY>5063</locationY>
+        <defaultConnector>
+            <targetReference>Data_for_Finanzierungsanfrage_has_changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_null2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_related_Finanzierungsanfragen</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_values_to_Finanzierungsanfrage</targetReference>
+            </connector>
+            <label>Is null?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Kaufpreis_bezahlt_NK_Zuschuss_0</name>
+        <label>Kaufpreis bezahlt &amp; NK Zuschuss &gt; 0?</label>
+        <locationX>468</locationX>
+        <locationY>923</locationY>
+        <defaultConnector>
+            <targetReference>NK_Zuschuss_von_Backoffice_freigegeben</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Kaufpreis_bezahlt_NK_Zuschuss_20</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Kaufpreis_bezahlt__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.AdditionalCosts__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>E_Mail_zur_NK_Zuschuss_Freigabe_an_Backoffice_senden</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Kaufpreis bezahlt &amp; NK Zuschuss &gt; 0?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>MB_eingetragen_oder_ge_ndert</name>
+        <label>MB eingetragen oder geändert?</label>
+        <locationX>468</locationX>
+        <locationY>7403</locationY>
+        <defaultConnector>
+            <targetReference>Is_New</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>MB_eingetragen_oder_ge_ndert2</name>
+            <conditionLogic>(1 AND 2) OR (2 AND 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>isNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Maklerbetreuer_WirtschaftsHaus__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Maklerbetreuer_WirtschaftsHaus__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Sales_Team_Sales_Member</targetReference>
+            </connector>
+            <label>MB eingetragen oder geändert?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>NK_Zuschuss_von_Backoffice_freigegeben</name>
+        <label>NK Zuschuss von Backoffice freigegeben?</label>
+        <locationX>468</locationX>
+        <locationY>1223</locationY>
+        <defaultConnector>
+            <targetReference>Send_NK_Zuschuss_to_VKO</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>NK_Zuschuss_von_Backoffice_freigegeben2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.NKZuschussVonBackofficeFreigegeben__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NK_Zuschuss_Freigabe_an_Treasury_senden</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>NK Zuschuss von Backoffice freigegeben?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Notarauftrag_vorhanden</name>
+        <label>Notarauftrag vorhanden?</label>
+        <locationX>468</locationX>
+        <locationY>4223</locationY>
+        <defaultConnector>
+            <targetReference>Reserviert</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>Notarauftrag_vorhanden2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.NotarauftragVorhanden__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Reservierung angefragt</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Approve_Reservierung_angefragt_2</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Notarauftrag vorhanden?</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Notartermin_eingetragen</name>
         <label>Notartermin eingetragen?</label>
         <locationX>468</locationX>
-        <locationY>2423</locationY>
+        <locationY>3023</locationY>
         <defaultConnector>
-            <targetReference>Closed_lost</targetReference>
+            <targetReference>Notartermin_eingetragen_und_2_K_ufer_nicht_null</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -513,6 +1017,13 @@
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.Potenzieller_Kunde__r.KundenappEinladungSenden__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Update_K_ufer</targetReference>
             </connector>
@@ -521,10 +1032,57 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Notartermin_eingetragen_und_2_K_ufer_nicht_null</name>
+        <label>Notartermin eingetragen und 2. Käufer nicht null?</label>
+        <locationX>468</locationX>
+        <locationY>3323</locationY>
+        <defaultConnector>
+            <targetReference>Closed_lost</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Notartermin_eingetragen_und_2_K_ufer_nicht_null2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Notartermin__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Kunde2__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Kunde2__r.KundenappEinladungSenden__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Kunde2__r.Email</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_2_K_ufer</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Notartermin eingetragen und 2. Käufer nicht null?</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Notartermin_wurde_ge_ndert</name>
         <label>Notartermin wurde geändert?</label>
         <locationX>468</locationX>
-        <locationY>1823</locationY>
+        <locationY>2423</locationY>
         <defaultConnector>
             <targetReference>R_ckabwicklung</targetReference>
         </defaultConnector>
@@ -556,7 +1114,7 @@
         <name>R_ckabwicklung</name>
         <label>Rückabwicklung?</label>
         <locationX>468</locationX>
-        <locationY>2123</locationY>
+        <locationY>2723</locationY>
         <defaultConnector>
             <targetReference>Notartermin_eingetragen</targetReference>
         </defaultConnector>
@@ -586,10 +1144,36 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Reserviert</name>
+        <label>Reserviert?</label>
+        <locationX>468</locationX>
+        <locationY>4523</locationY>
+        <defaultConnector>
+            <targetReference>Data_for_Finanzierungsanfrage_has_changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Reserviert2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Reserviert</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_notification</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Reserviert?</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Reserviert_VSA_vorhanden</name>
         <label>Reserviert &amp; VSA vorhanden?</label>
         <locationX>468</locationX>
-        <locationY>1223</locationY>
+        <locationY>1823</locationY>
         <defaultConnector>
             <targetReference>VSA_EK_vorhanden_und_PB_nicht_leer</targetReference>
         </defaultConnector>
@@ -611,6 +1195,20 @@
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.Finanzierungsberater__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.FB_Entscheidung_moeglich__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Submit_for_VSA_approval</targetReference>
             </connector>
@@ -622,9 +1220,9 @@
         <name>Reservierung_angefragt</name>
         <label>Reservierung angefragt?</label>
         <locationX>468</locationX>
-        <locationY>923</locationY>
+        <locationY>623</locationY>
         <defaultConnector>
-            <targetReference>Reserviert_VSA_vorhanden</targetReference>
+            <targetReference>Kaufpreis_bezahlt_NK_Zuschuss_0</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
@@ -645,10 +1243,43 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Reservierungsschein_vorhanden_Reservierung_angefragt</name>
+        <label>Reservierungsschein vorhanden &amp; Reservierung angefragt?</label>
+        <locationX>468</locationX>
+        <locationY>3923</locationY>
+        <defaultConnector>
+            <targetReference>Notarauftrag_vorhanden</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>Reservierungsschein_vorhanden_Reservierung_angefragt2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Reservierung angefragt</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Reservierungsschein_vorhanden__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Approve_Reservierung_angefragt</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Reservierungsschein vorhanden &amp; Reservierung angefragt?</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Second_buyer_has_changed</name>
         <label>Second buyer has changed?</label>
         <locationX>754</locationX>
-        <locationY>4631</locationY>
+        <locationY>8627</locationY>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
             <name>Second_buyer_has_changed2</name>
@@ -699,7 +1330,7 @@
         <name>Second_buyer_not_null</name>
         <label>Second buyer not null?</label>
         <locationX>182</locationX>
-        <locationY>4247</locationY>
+        <locationY>8243</locationY>
         <defaultConnector>
             <targetReference>Assign_values_to_collection</targetReference>
         </defaultConnector>
@@ -721,10 +1352,43 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Send_NK_Zuschuss_to_VKO</name>
+        <label>Send NK Zuschuss to VKO</label>
+        <locationX>468</locationX>
+        <locationY>1523</locationY>
+        <defaultConnector>
+            <targetReference>Reserviert_VSA_vorhanden</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Send_NK_Zuschuss_to_VKO2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.NKZuschussVonTreasuryFreigegeben__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.NKZuschussVonBackofficeFreigegeben__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_NK_Zuschuss</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Send NK Zuschuss to VKO</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>VKC_reserviert</name>
         <label>VKC reserviert?</label>
         <locationX>468</locationX>
-        <locationY>623</locationY>
+        <locationY>323</locationY>
         <defaultConnector>
             <targetReference>Reservierung_angefragt</targetReference>
         </defaultConnector>
@@ -750,7 +1414,7 @@
         <name>VSA_EK_vorhanden_und_PB_nicht_leer</name>
         <label>VSA / EK vorhanden und PB nicht leer?</label>
         <locationX>468</locationX>
-        <locationY>1523</locationY>
+        <locationY>2123</locationY>
         <defaultConnector>
             <targetReference>Notartermin_wurde_ge_ndert</targetReference>
         </defaultConnector>
@@ -779,37 +1443,34 @@
             <label>Send Email</label>
         </rules>
     </decisions>
-    <decisions>
-        <name>VSA_genehmigt</name>
-        <label>VSA genehmigt?</label>
-        <locationX>468</locationX>
-        <locationY>323</locationY>
-        <defaultConnector>
-            <targetReference>VKC_reserviert</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
-        <rules>
-            <name>VSA_genehmigt2</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.VSAGenehmigt__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>VSA_genehmigt3</targetReference>
-            </connector>
-            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
-            <label>VSA genehmigt?</label>
-        </rules>
-    </decisions>
     <environments>Default</environments>
+    <formulas>
+        <name>eigenkapital</name>
+        <dataType>Currency</dataType>
+        <expression>{!gesamtkosten}-{!$Record.Kaufpreis__c}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>finanzierungsbedarf</name>
+        <dataType>Currency</dataType>
+        <expression>{!gesamtkosten} - {!eigenkapital}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>gesamtkosten</name>
+        <dataType>Currency</dataType>
+        <expression>ROUND({!$Record.Appartement__r.Purchase_Price__c} + {!$Record.Appartement__r.Notary_And_Court_Costs_1_5__c} + {!$Record.Appartement__r.Real_Estate_Transfer_Tax__c}, 2)</expression>
+        <scale>2</scale>
+    </formulas>
     <formulas>
         <name>isNew</name>
         <dataType>Boolean</dataType>
         <expression>isNew()</expression>
+    </formulas>
+    <formulas>
+        <name>recordLink</name>
+        <dataType>String</dataType>
+        <expression>LEFT($Api.Partner_Server_URL_260, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_260)) &amp; {!$Record.Id}</expression>
     </formulas>
     <interviewLabel>Opportunity After Insert / Update {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Opportunity After Insert / Update</label>
@@ -833,17 +1494,56 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordCreates>
+        <name>Finanzierungsanfrage_Apartment_erstellen</name>
+        <label>Finanzierungsanfrage Apartment erstellen</label>
+        <locationX>182</locationX>
+        <locationY>5387</locationY>
+        <connector>
+            <targetReference>Data_for_Finanzierungsanfrage_has_changed</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Apartment__c</field>
+            <value>
+                <elementReference>$Record.Appartement__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Finanzierungsanfrage__c</field>
+            <value>
+                <elementReference>finanzierungsanfrage.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Immobilie__c</field>
+            <value>
+                <elementReference>$Record.Immobilie__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>FinanzierungsanfrageApartment__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Finanzierungsanfrage_erstellen</name>
+        <label>Finanzierungsanfrage erstellen</label>
+        <locationX>182</locationX>
+        <locationY>5279</locationY>
+        <connector>
+            <targetReference>Finanzierungsanfrage_Apartment_erstellen</targetReference>
+        </connector>
+        <inputReference>finanzierungsanfrage</inputReference>
+    </recordCreates>
+    <recordCreates>
         <name>Insert_OpportunityContactRoles</name>
         <label>Insert OpportunityContactRoles</label>
         <locationX>182</locationX>
-        <locationY>4763</locationY>
+        <locationY>8759</locationY>
         <inputReference>opportunityContactRoles</inputReference>
     </recordCreates>
     <recordDeletes>
         <name>Delete_second_buyer_role</name>
         <label>Delete second buyer role</label>
         <locationX>754</locationX>
-        <locationY>4739</locationY>
+        <locationY>8735</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>OpportunityId</field>
@@ -861,13 +1561,104 @@
         </filters>
         <object>OpportunityContactRole</object>
     </recordDeletes>
+    <recordLookups>
+        <name>Get_notification</name>
+        <label>Get notification</label>
+        <locationX>314</locationX>
+        <locationY>4631</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_group_id</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>VKC_reserviert</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>CustomNotificationType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_related_Finanzierungsanfragen</name>
+        <label>Get related Finanzierungsanfragen</label>
+        <locationX>314</locationX>
+        <locationY>4955</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_null</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Finanzierungsanfrage__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Sales_Team_Assistance</name>
+        <label>Get Sales Team Assistance</label>
+        <locationX>336</locationX>
+        <locationY>7619</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Opportunity_VKO</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Rolle__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Teamassistenz</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>SalesTeam__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Sales_Team_Sales_Member.SalesTeam__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>SalesTeamMember__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Sales_Team_Sales_Member</name>
+        <label>Get Sales Team Sales Member</label>
+        <locationX>336</locationX>
+        <locationY>7511</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Sales_Team_Assistance</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Kontakt__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Maklerbetreuer_WirtschaftsHaus__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>SalesTeamMember__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
         <name>Datum_Darlehensvertrag_liegt_vor_in_Finanzierungsanfragen</name>
         <label>Datum Darlehensvertrag liegt vor in Finanzierungsanfragen</label>
         <locationX>336</locationX>
-        <locationY>3731</locationY>
+        <locationY>7211</locationY>
         <connector>
-            <targetReference>Is_New</targetReference>
+            <targetReference>MB_eingetragen_oder_ge_ndert</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -886,10 +1677,34 @@
         <object>Finanzierungsanfrage__c</object>
     </recordUpdates>
     <recordUpdates>
-        <name>Update_Bank_in_Finanzierungsanfragen</name>
-        <label>Update Bank in Finanzierungsanfragen</label>
+        <name>Update_2_K_ufer</name>
+        <label>Update 2. Käufer</label>
         <locationX>336</locationX>
-        <locationY>3131</locationY>
+        <locationY>3431</locationY>
+        <connector>
+            <targetReference>Closed_lost</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Kunde2__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>KundenappEinladungSenden__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Bank_in_Finanzierungsanfragen</name>
+        <label>Update Bank &amp; FB in Finanzierungsanfragen</label>
+        <locationX>336</locationX>
+        <locationY>5771</locationY>
         <connector>
             <targetReference>Bankantrag_gestellt</targetReference>
         </connector>
@@ -902,6 +1717,12 @@
             </value>
         </filters>
         <inputAssignments>
+            <field>Finanzierungsberater__c</field>
+            <value>
+                <elementReference>$Record.Finanzierungsberater__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Kreditinstitut__c</field>
             <value>
                 <elementReference>$Record.Bank__c</elementReference>
@@ -913,7 +1734,7 @@
         <name>Update_broker_contact_role</name>
         <label>Update broker contact role</label>
         <locationX>622</locationX>
-        <locationY>4139</locationY>
+        <locationY>8135</locationY>
         <connector>
             <targetReference>First_buyer_has_changed</targetReference>
         </connector>
@@ -944,9 +1765,9 @@
         <name>Update_Datum_Bankantrag_gestellt_in_Finanzierungsanfragen</name>
         <label>Update Datum Bankantrag gestellt in Finanzierungsanfragen</label>
         <locationX>336</locationX>
-        <locationY>3431</locationY>
+        <locationY>6071</locationY>
         <connector>
-            <targetReference>Darlehensvertrag_liegt_vor</targetReference>
+            <targetReference>Finanzierungsbest_tigung_senden</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -965,12 +1786,55 @@
         <object>Finanzierungsanfrage__c</object>
     </recordUpdates>
     <recordUpdates>
+        <name>Update_durch_Finanzierungsberater_genehmigt_in_Finanzierungsanfragen</name>
+        <label>Update durch Finanzierungsberater genehmigt in Finanzierungsanfragen</label>
+        <locationX>204</locationX>
+        <locationY>6671</locationY>
+        <connector>
+            <targetReference>Darlehensvertrag_liegt_vor</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Custom_error</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Opportunity__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>GenehmigtVonFinanzierungsberater__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Finanzierungsanfrage__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Finanzierungsanfrage</name>
+        <label>Update Finanzierungsanfrage</label>
+        <locationX>336</locationX>
+        <locationY>6371</locationY>
+        <connector>
+            <targetReference>Durch_Finanzierungsberater_genehmigt</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>FBViaEmailVersenden__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Finanzierungsanfragen__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_Finanzierungsanfragen</name>
         <label>Update Finanzierungsanfragen</label>
         <locationX>336</locationX>
-        <locationY>2831</locationY>
+        <locationY>3731</locationY>
         <connector>
-            <targetReference>Data_for_Finanzierungsanfrage_has_changed</targetReference>
+            <targetReference>Reservierungsschein_vorhanden_Reservierung_angefragt</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -1005,7 +1869,7 @@
         <name>Update_first_buyer_contact_role</name>
         <label>Update first buyer contact role</label>
         <locationX>622</locationX>
-        <locationY>4439</locationY>
+        <locationY>8435</locationY>
         <connector>
             <targetReference>Second_buyer_has_changed</targetReference>
         </connector>
@@ -1036,9 +1900,9 @@
         <name>Update_K_ufer</name>
         <label>Update Käufer</label>
         <locationX>336</locationX>
-        <locationY>2531</locationY>
+        <locationY>3131</locationY>
         <connector>
-            <targetReference>Closed_lost</targetReference>
+            <targetReference>Notartermin_eingetragen_und_2_K_ufer_nicht_null</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -1057,10 +1921,26 @@
         <object>Contact</object>
     </recordUpdates>
     <recordUpdates>
+        <name>Update_Opportunity_VKO</name>
+        <label>Update Opportunity VKO</label>
+        <locationX>336</locationX>
+        <locationY>7727</locationY>
+        <connector>
+            <targetReference>Is_New</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Vertriebskoordinator__c</field>
+            <value>
+                <elementReference>Get_Sales_Team_Assistance.Kontakt__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_second_buyer_contact_role</name>
         <label>Update second buyer contact role</label>
         <locationX>490</locationX>
-        <locationY>4739</locationY>
+        <locationY>8735</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Role</field>
@@ -1088,7 +1968,7 @@
         <locationX>342</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>VSA_genehmigt</targetReference>
+            <targetReference>VKC_reserviert</targetReference>
         </connector>
         <object>Opportunity</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
@@ -1109,6 +1989,14 @@
         <objectType>OpportunityContactRole</objectType>
     </variables>
     <variables>
+        <name>finanzierungsanfrage</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Finanzierungsanfrage__c</objectType>
+    </variables>
+    <variables>
         <name>firstBuyerOpportunityContactRole</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
@@ -1125,11 +2013,33 @@
         <objectType>OpportunityContactRole</objectType>
     </variables>
     <variables>
+        <name>recipientIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
         <name>secondBuyerOpportunityContactRole</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>OpportunityContactRole</objectType>
+    </variables>
+    <variables>
+        <name>vkcReserviertNotificationEmpfaenger</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Group</objectType>
+    </variables>
+    <variables>
+        <name>vkcReserviertNotificationEmpfaengerIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
     </variables>
 </Flow>

@@ -59,13 +59,12 @@ export default class ApartmentPicker extends LightningElement {
             this.immobilienPicklist = [];
             for(let i = 0; i < this.immobilien.length; i++) {
                 const immobilie = this.immobilien[i].immobilie;
-                const teilobjekte = this.immobilien[i].teilobjekte;
-                if(teilobjekte == null || teilobjekte.length == 0) {
+                if(immobilie.Appartments__r == null) {
                     continue;
                 }
                 this.immobilienPicklist.push({'label': immobilie.Name, 'value': immobilie.Id});
-                for(let x = 0; x < teilobjekte.length; x++) {
-                    const apartment = teilobjekte[x];
+                for(let x = 0; x < immobilie.Appartments__r.length; x++) {
+                    const apartment = immobilie.Appartments__r[x];
                     this.idsToApartment[apartment.Id] = apartment;
                 }
             }

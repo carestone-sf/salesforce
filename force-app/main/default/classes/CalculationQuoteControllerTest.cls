@@ -177,6 +177,8 @@ public class CalculationQuoteControllerTest {
         cq.getPages();
         cq.getPaginatedYearlyValues();
         cq.getSumSBetragplusFKreditsumme();
+        cq.getAfaValues();
+        cq.getCreditInformation();
         RestQuote.attachQuoteFromId(b.Id);
         Test.stopTest();
     }

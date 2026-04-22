@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Bezahlung --></label>
+    <name>Bezahlung__c</name>
+    <picklistValues>
+        <masterLabel>Bezahlung nach Baufortschritt</masterLabel>
+        <translation><!-- Bezahlung nach Baufortschritt --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Endfällige Bezahlung</masterLabel>
+        <translation><!-- Endfällige Bezahlung --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -3,9 +3,9 @@
     <fullName>AFAInProzent__c</fullName>
     <externalId>false</externalId>
     <label>AFA in Prozent</label>
-    <precision>5</precision>
+    <precision>8</precision>
     <required>true</required>
-    <scale>2</scale>
+    <scale>5</scale>
     <trackTrending>false</trackTrending>
     <type>Percent</type>
 </CustomField>

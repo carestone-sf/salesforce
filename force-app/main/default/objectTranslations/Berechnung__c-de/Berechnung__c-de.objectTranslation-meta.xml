@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>Berechnung</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>Berechnungen</value>
+    </caseValues>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Berechnung Layout</layout>
+        <sections>
+            <label><!-- Ausgaben monatlich --></label>
+            <section>Ausgaben monatlich</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Einnahmen monatlich --></label>
+            <section>Einnahmen monatlich</section>
+        </sections>
+        <sections>
+            <label><!-- Finanzierung --></label>
+            <section>Finanzierung</section>
+        </sections>
+        <sections>
+            <label><!-- Kaufpreis --></label>
+            <section>Kaufpreis</section>
+        </sections>
+        <sections>
+            <label><!-- Steigerungen --></label>
+            <section>Steigerungen</section>
+        </sections>
+        <sections>
+            <label><!-- Steuerliche Prognose --></label>
+            <section>Steuerliche Prognose</section>
+        </sections>
+    </layouts>
+    <webLinks>
+        <label><!-- Angebot_anzeigen --></label>
+        <name>Angebot_anzeigen</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -14,6 +14,22 @@
             </value>
         </assignmentItems>
         <connector>
+            <targetReference>Mahnung_generieren</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Zinsrecord2</name>
+        <label>Assign Zinsrecord</label>
+        <locationX>50</locationX>
+        <locationY>1535</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.VerzugszinsDatensatz__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Verzugszinsen2.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
             <targetReference>Mahnung_Approval_Started</targetReference>
         </connector>
     </assignments>
@@ -21,7 +37,7 @@
         <name>Clear_Mahnung_generieren</name>
         <label>Clear Mahnung generieren</label>
         <locationX>50</locationX>
-        <locationY>1319</locationY>
+        <locationY>1835</locationY>
         <assignmentItems>
             <assignToReference>$Record.MahnungGenerieren__c</assignToReference>
             <operator>Assign</operator>
@@ -84,7 +100,7 @@
             <assignToReference>$Record.Bank__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>$Record.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Bank__c</elementReference>
+                <elementReference>bank</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -112,7 +128,7 @@
             <assignToReference>$Record.IBAN__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>$Record.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.IBAN__c</elementReference>
+                <elementReference>iban</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -388,15 +404,73 @@
                 <elementReference>$Record.MaBVRechnungMaster__r.Opportunity__r.OwnerId</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.BIC__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>bic</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Get_Verzugszinsen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Fill_data2</name>
+        <label>Fill data</label>
+        <locationX>50</locationX>
+        <locationY>1319</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.AnredeErsterKaeufer__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>salutationFirstBuyer</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.AnredeZweiterKaeufer__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>salutationSecondBuyer</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.IDKunde__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.MaBVRechnungMaster__r.Opportunity__r.Potenzieller_Kunde__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.PLZErsterKaeufer__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.MaBVRechnungMaster__r.Opportunity__r.Potenzieller_Kunde__r.MailingPostalCode</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.StadtErsterKaeufer__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.MaBVRechnungMaster__r.Opportunity__r.Potenzieller_Kunde__r.MailingCity</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.StrasseErsterKaeufer__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.MaBVRechnungMaster__r.Opportunity__r.Potenzieller_Kunde__r.MailingStreet</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Verzugszinsen2</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Increment_Dunning_Level_Reset_Approval_Trigger</name>
         <label>Increment Dunning Level &amp; Reset Approval Trigger</label>
         <locationX>50</locationX>
-        <locationY>1619</locationY>
+        <locationY>2135</locationY>
         <assignmentItems>
             <assignToReference>$Record.Mahnstufe__c</assignToReference>
             <operator>Assign</operator>
@@ -434,12 +508,12 @@
         <locationX>182</locationX>
         <locationY>695</locationY>
         <defaultConnector>
-            <targetReference>Mahnung_Approval_Started</targetReference>
+            <targetReference>Mahnung_generieren</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
             <name>Fill_in_data2</name>
-            <conditionLogic>1 OR (2 AND 3 AND 4) OR (5 AND 6)</conditionLogic>
+            <conditionLogic>1 OR (2 AND 3 AND 4)</conditionLogic>
             <conditions>
                 <leftValueReference>isNew</leftValueReference>
                 <operator>EqualTo</operator>
@@ -463,20 +537,6 @@
             </conditions>
             <conditions>
                 <leftValueReference>$Record__Prior.Genehmigt__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.MahnungGenerieren__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record__Prior.MahnungGenerieren__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
@@ -517,7 +577,7 @@
         <name>Mahnung_Approval_Started</name>
         <label>Mahnung Approval Started?</label>
         <locationX>182</locationX>
-        <locationY>1211</locationY>
+        <locationY>1727</locationY>
         <defaultConnector>
             <targetReference>Mahnung_approved</targetReference>
         </defaultConnector>
@@ -543,7 +603,7 @@
         <name>Mahnung_approved</name>
         <label>Mahnung approved?</label>
         <locationX>182</locationX>
-        <locationY>1511</locationY>
+        <locationY>2027</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Approved</name>
@@ -560,6 +620,38 @@
             </connector>
             <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
             <label>Approved</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Mahnung_generieren</name>
+        <label>Mahnung generieren?</label>
+        <locationX>182</locationX>
+        <locationY>1211</locationY>
+        <defaultConnector>
+            <targetReference>Mahnung_Approval_Started</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>Mahnung_generieren2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.MahnungGenerieren__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.MahnungGenerieren__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Fill_data2</targetReference>
+            </connector>
+            <label>Mahnung generieren?</label>
         </rules>
     </decisions>
     <decisions>
@@ -586,9 +678,30 @@
     </decisions>
     <environments>Default</environments>
     <formulas>
+        <name>bank</name>
+        <dataType>String</dataType>
+        <expression>IF(!IsBlank({!$Record.MaBVRechnungMaster__r.Opportunity__r.MaBVAbweichendeAbrechnung__c}),
+{!$Record.MaBVRechnungMaster__r.Opportunity__r.MaBVAbweichendeAbrechnung__r.Bank__c},
+{!$Record.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Bank__c})</expression>
+    </formulas>
+    <formulas>
+        <name>bic</name>
+        <dataType>String</dataType>
+        <expression>IF(!IsBlank({!$Record.MaBVRechnungMaster__r.Opportunity__r.MaBVAbweichendeAbrechnung__c}),
+{!$Record.MaBVRechnungMaster__r.Opportunity__r.MaBVAbweichendeAbrechnung__r.BIC__c},
+{!$Record.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.BIC__c})</expression>
+    </formulas>
+    <formulas>
         <name>datePaymentReminderAutoApproval</name>
         <dataType>DateTime</dataType>
         <expression>IF(WEEKDAY(TODAY()+2) = 6, NOW()+4, IF(WEEKDAY(TODAY()+2) = 1, NOW()+3, NOW()+2))</expression>
+    </formulas>
+    <formulas>
+        <name>iban</name>
+        <dataType>String</dataType>
+        <expression>IF(!IsBlank({!$Record.MaBVRechnungMaster__r.Opportunity__r.MaBVAbweichendeAbrechnung__c}),
+{!$Record.MaBVRechnungMaster__r.Opportunity__r.MaBVAbweichendeAbrechnung__r.IBAN__c},
+IF({!$Record.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__c} = &apos;a0L6700000QQ2k5EAD&apos; &amp;&amp; {!$Record.MaBVRechnungMaster__r.Opportunity__r.FFireAbrechnung__c} = false, &apos;DE60 1009 0000 2847 4510 28&apos;, {!$Record.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.IBAN__c}))</expression>
     </formulas>
     <formulas>
         <name>invoiceNumber</name>
@@ -674,14 +787,42 @@ TEXT({!$Record.MaBVRechnungMaster__r.Opportunity__r.Kunde2__r.Salutation}) + &ap
             <field>GueltigVon__c</field>
             <operator>LessThanOrEqualTo</operator>
             <value>
-                <elementReference>$Flow.CurrentDate</elementReference>
+                <elementReference>$Record.Rechnungsdatum__c</elementReference>
             </value>
         </filters>
         <filters>
             <field>GueltigBis__c</field>
             <operator>GreaterThanOrEqualTo</operator>
             <value>
-                <elementReference>$Flow.CurrentDate</elementReference>
+                <elementReference>$Record.Rechnungsdatum__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Verzugszins__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Verzugszinsen2</name>
+        <label>Get Verzugszinsen</label>
+        <locationX>50</locationX>
+        <locationY>1427</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Zinsrecord2</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>GueltigVon__c</field>
+            <operator>LessThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Record.Rechnungsdatum__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>GueltigBis__c</field>
+            <operator>GreaterThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Record.Rechnungsdatum__c</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>

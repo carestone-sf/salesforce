@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <help></help>
-    <label></label>
+    <help><!-- Hier den Termin eintragen, an dem der Anbieter die Kaufunterlagen unterzeichnet und dann an den weiteren Notar zur Annahme senden lässt (Termin für den Kaufabschluss ist dann unter Notartermin einzutragen) --></help>
+    <label><!-- Termin Angebotsabgabe --></label>
     <name>Termin_Angebotsabgabe__c</name>
 </CustomFieldTranslation>

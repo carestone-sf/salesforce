@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gesch_ftsbeziehung__c</fullName>
+    <externalId>false</externalId>
+    <label>Geschäftsbeziehung</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Hausbank</fullName>
+                <default>false</default>
+                <label>Hausbank</label>
+            </value>
+            <value>
+                <fullName>Bank</fullName>
+                <default>false</default>
+                <label>Bank</label>
+            </value>
+            <value>
+                <fullName>Notar</fullName>
+                <default>false</default>
+                <label>Notar</label>
+            </value>
+            <value>
+                <fullName>Versicherungsmakler</fullName>
+                <default>false</default>
+                <label>Versicherungsmakler</label>
+            </value>
+            <value>
+                <fullName>Immobilienmakler</fullName>
+                <default>false</default>
+                <label>Immobilienmakler</label>
+            </value>
+            <value>
+                <fullName>Dienstleister</fullName>
+                <default>false</default>
+                <label>Dienstleister</label>
+            </value>
+            <value>
+                <fullName>Finanzmakler</fullName>
+                <default>false</default>
+                <label>Finanzmakler</label>
+            </value>
+            <value>
+                <fullName>Gekündigt vom WirtschaftsHaus</fullName>
+                <default>false</default>
+                <label>Gekündigt vom WirtschaftsHaus</label>
+            </value>
+            <value>
+                <fullName>Gekündigt von Extern</fullName>
+                <default>false</default>
+                <label>Gekündigt von Extern</label>
+            </value>
+            <value>
+                <fullName>Key Account</fullName>
+                <default>false</default>
+                <label>Key Account</label>
+            </value>
+            <value>
+                <fullName>Bauträger</fullName>
+                <default>false</default>
+                <label>Bauträger</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

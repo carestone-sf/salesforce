@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Kampagnen_in_der_Zukunft</fullName>
+    <columns>CAMPAIGN.NAME</columns>
+    <columns>CAMPAIGN.START_DATE</columns>
+    <columns>DateTime__c</columns>
+    <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+    <columns>CAMPAIGN.STATUS</columns>
+    <columns>Speaker__c</columns>
+    <columns>CAMPAIGN.NUM_CONTACTS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CAMPAIGN.START_DATE</field>
+        <operation>greaterThan</operation>
+        <value>TODAY</value>
+    </filters>
+    <label>Kampagnen in der Zukunft</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+        <group>Freigabe_Pawils</group>
+        <group>Salesforce_Admins</group>
+        <group>Team_Ellermann</group>
+        <group>Team_Fengler</group>
+        <group>Team_K_psell</group>
+        <group>Team_Leads</group>
+        <group>Team_Wagner</group>
+        <group>WH_Marketing</group>
+    </sharedTo>
+</ListView>

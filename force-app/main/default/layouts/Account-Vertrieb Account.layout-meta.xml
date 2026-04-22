@@ -3,6 +3,7 @@
     <customButtons>Verkaufsvolumen_mit_Hierarchie</customButtons>
     <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
+    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <excludeButtons>SendEmail</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <excludeButtons>XClean</excludeButtons>
@@ -30,6 +31,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>CarestoneSetter__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Gesch_ftsbeziehung__c</field>
             </layoutItems>
             <layoutItems>
@@ -39,6 +44,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>AnnualTargetPlanning__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ActionsAnnualTarget__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

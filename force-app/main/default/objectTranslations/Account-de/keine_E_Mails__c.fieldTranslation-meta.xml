@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <help></help>
-    <label></label>
+    <help><!-- Wenn der Account keine E-Mails bekommen möchte/soll, dann hier bitte Haken setzen --></help>
+    <label><!-- keine E-Mails --></label>
     <name>keine_E_Mails__c</name>
 </CustomFieldTranslation>

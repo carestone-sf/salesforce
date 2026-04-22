@@ -54,8 +54,22 @@ public with sharing class RestQuoteTest {
         app2.Purchase_Price__c = 150000;
         insert app2;
 
+        Afa__c afa = new Afa__c();
+        afa.Name = 'AFA';
+        insert afa;
+        AfaWert__c afaWert = new AfaWert__c();
+        afaWert.AFAInProzent__c = 2.0;
+        afaWert.JahrBis__c = 50;
+        afaWert.JahrVon__c = 1;
+        afaWert.Berechnung__c = 'Gesamtwert';
+        afaWert.Afa__c = afa.Id;
+        insert afaWert;
+        immobilie.AFAAnschaffungskosten__c = afa.Id;
+        update immobilie;
+
     }
     private static testMethod void testGetQuoteFromCalculation() {
+        Test.setMock(HttpCalloutMock.class, new MockHttpResponseGenerator());
         List<Contact> cons = [SELECT Id FROM Contact];
         Property__c p = [SELECT Id FROM Property__c];
         Appartment__c a = [SELECT Id FROM Appartment__c];

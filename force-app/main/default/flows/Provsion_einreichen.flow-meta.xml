@@ -1,53 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionCalls>
-        <processMetadataValues>
-            <name>processSelection</name>
-            <value>
-                <stringValue>Genehmigung Prov6 - Genehmigung_Prov6</stringValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>selectionType</name>
-            <value>
-                <stringValue>selectedProcess</stringValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>submitterType</name>
-            <value>
-                <stringValue>currentUser</stringValue>
-            </value>
-        </processMetadataValues>
-        <name>myRule_7_A1</name>
-        <label>Provision einreichen</label>
-        <locationX>700</locationX>
-        <locationY>200</locationY>
-        <actionName>submit</actionName>
-        <actionType>submit</actionType>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>objectId</name>
-            <value>
-                <elementReference>myVariable_current.Id</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>comment</name>
-        </inputParameters>
-        <inputParameters>
-            <name>processDefinitionNameOrId</name>
-            <value>
-                <stringValue>Genehmigung_Prov6</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>skipEntryCriteria</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-    </actionCalls>
     <apiVersion>49.0</apiVersion>
     <decisions>
         <processMetadataValues>
@@ -122,9 +74,6 @@
         <label>myDecision4</label>
         <locationX>50</locationX>
         <locationY>0</locationY>
-        <defaultConnector>
-            <targetReference>myDecision6</targetReference>
-        </defaultConnector>
         <defaultConnectorLabel>default</defaultConnectorLabel>
         <rules>
             <name>myRule_5</name>
@@ -140,34 +89,6 @@
                 <targetReference>myRule_5_A1</targetReference>
             </connector>
             <label>Makler User befüllen</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <processMetadataValues>
-            <name>index</name>
-            <value>
-                <numberValue>3.0</numberValue>
-            </value>
-        </processMetadataValues>
-        <name>myDecision6</name>
-        <label>myDecision6</label>
-        <locationX>50</locationX>
-        <locationY>0</locationY>
-        <defaultConnectorLabel>default</defaultConnectorLabel>
-        <rules>
-            <name>myRule_7</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>formula_myRule_7</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>myRule_7_A1</targetReference>
-            </connector>
-            <label>Provision einreichen</label>
         </rules>
     </decisions>
     <formulas>
@@ -211,23 +132,7 @@ Not(IsNull([Provision__c].Makler__r.CommunityUser__c))
 Not(IsNull({!myVariable_current.Makler__r.CommunityUser__c}))
 )</expression>
     </formulas>
-    <formulas>
-        <processMetadataValues>
-            <name>originalFormula</name>
-            <value>
-                <stringValue>AND(IsNew(),
-Not([Provision__c].Makler__r.Ist_Maklerbetreuer_WH__c )
-)
-</stringValue>
-            </value>
-        </processMetadataValues>
-        <name>formula_myRule_7</name>
-        <dataType>Boolean</dataType>
-        <expression>AND(IsNew(),
-Not({!myVariable_current.Makler__r.Ist_Maklerbetreuer_WH__c} )
-)</expression>
-    </formulas>
-    <interviewLabel>Provsion_einreichen-22_InterviewLabel</interviewLabel>
+    <interviewLabel>Provsion_einreichen-23_InterviewLabel</interviewLabel>
     <label>Provision 2.0</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -451,9 +356,6 @@ Not({!myVariable_current.Makler__r.Ist_Maklerbetreuer_WH__c} )
         <label>Makler User befüllen</label>
         <locationX>500</locationX>
         <locationY>200</locationY>
-        <connector>
-            <targetReference>myDecision6</targetReference>
-        </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <processMetadataValues>

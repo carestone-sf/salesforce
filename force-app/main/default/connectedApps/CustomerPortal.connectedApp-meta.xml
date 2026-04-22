@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>frederik.witte@witte-solutions.de</contactEmail>
+    <label>Kundenportal</label>
+    <oauthConfig>
+        <callbackUrl>http://localhost/</callbackUrl>
+        <certificate>MIIDrjCCApYCCQC9Ihwmz9J87TANBgkqhkiG9w0BAQsFADCBlzELMAkGA1UEBhMCREUxFzAVBgNVBAgMDkxvd2VyIFNhY2hzb255MREwDwYDVQQHDAhIYW5ub3ZlcjEdMBsGA1UECgwUV2l0dGUgU29sdXRpb25zIEdtYkgxCzAJBgNVBAMMAldTMTAwLgYJKoZIhvcNAQkBFiFmcmVkZXJpay53aXR0ZUB3aXR0ZS1zb2x1dGlvbnMuZGUwIBcNMjEwNTI1MDQyMzM1WhgPMjEyMTA1MDEwNDIzMzVaMIGXMQswCQYDVQQGEwJERTEXMBUGA1UECAwOTG93ZXIgU2FjaHNvbnkxETAPBgNVBAcMCEhhbm5vdmVyMR0wGwYDVQQKDBRXaXR0ZSBTb2x1dGlvbnMgR21iSDELMAkGA1UEAwwCV1MxMDAuBgkqhkiG9w0BCQEWIWZyZWRlcmlrLndpdHRlQHdpdHRlLXNvbHV0aW9ucy5kZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALfrCNeV1zFzXRvysh4ZWTOOzCpXO3ipdkVeNwSW/+Q6rHkD038tHjr9ODO/yBgfHaAvUyFppusJ80aFo/JoqvbuYyr6Y3zXLjWztkpJRgWefr6iasApAPkceM2qP9w9nwHRRkPZMF2inf/tn2KS1I9FwwLhn1TkKZsULJZcCN+X6Xx5HxgCOE3SAH/znlCHk9R0X4zNsDmbIGxdlB6DDoWVqPeTeGzyemZquxbIN39K7fJ3/HN55K9x6JdWK+ZYomx/1HB6I/UbIztoANc61dzFg8neoX90M603m7W5hGH5gDoC5dE1x8J9lP28a7714r/wVdXRlByNvy8d6aRC/DMCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAjyZU9Y1RqEt15k2J1B596zzMSOtNmS7vK93emcaUnHeqXrPIwnFXwM6h1aPhVFV8kmJ4/JHAKJsIzobqa9b2cP1mUYnW8czAx5ORuZh8nrcNs1+17OKyt6XwzbrL8CWdrqICH62nRzHLY67s9Ba5paNFyPyatb8byEQ4TsKKwLRVO6N2GfHvdDMegF27tfWlQC7hDPO5bSykRRkx5y0RXivcIP3ny3zsDkvnL/hcSv4Jr2NYtLdaE1jaDEeRTNvw5BondDqcXHkLzg+sqvocwFjHt9CRxqB36pMzRMGQdRnNxqMQXOZyNjbAH6P3WJoLGMqd/eOT7p9vgjaG5L1FgQ==</certificate>
+        <consumerKey>3MVG99qusVZJwhsmSjRfpZ536buj1ApuBpd.X4nqFqay9SieMjJBveuD74cUCRHp6zipG8P0oCMyBSJaMU8kz</consumerKey>
+        <isAdminApproved>true</isAdminApproved>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isSecretRequiredForRefreshToken>true</isSecretRequiredForRefreshToken>
+        <scopes>Api</scopes>
+        <scopes>RefreshToken</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+    <profileName>Systemadministrator</profileName>
+</ConnectedApp>

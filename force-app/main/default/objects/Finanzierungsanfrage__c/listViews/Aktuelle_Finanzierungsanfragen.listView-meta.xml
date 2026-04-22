@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Aktuelle_Finanzierungsanfragen</fullName>
+    <columns>NAME</columns>
+    <columns>AmpelInternImg__c</columns>
+    <columns>Phase__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>OWNER.LAST_NAME</columns>
+    <columns>Opportunity__c</columns>
+    <columns>WelcheUnterlagenWerdenGefordert__c</columns>
+    <columns>Maklerbetreuer__c</columns>
+    <columns>Notartermin__c</columns>
+    <columns>NotarterminMoeglichAb__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>7/1/2023 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>Phase__c</field>
+        <operation>notEqual</operation>
+        <value>Finanzierung genehmigt,Finanzierung verloren</value>
+    </filters>
+    <label>Aktuelle Finanzierungsanfragen</label>
+</ListView>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Finanzierungsstand --></label>
+    <name>FundingStatus__c</name>
+    <picklistValues>
+        <masterLabel>Absage</masterLabel>
+        <translation><!-- Absage --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kreditvertrag unterzeichnet</masterLabel>
+        <translation><!-- Kreditvertrag unterzeichnet --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Laufende Verhandlung</masterLabel>
+        <translation><!-- Laufende Verhandlung --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Termsheet</masterLabel>
+        <translation><!-- Termsheet --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

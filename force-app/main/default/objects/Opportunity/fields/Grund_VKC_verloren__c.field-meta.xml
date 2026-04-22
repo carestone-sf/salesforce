@@ -6,7 +6,6 @@
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
-    <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>
@@ -93,9 +92,24 @@
                 <label>Objekt wird anderweitig verkauft</label>
             </value>
             <value>
+                <fullName>Reservierungsschein abgelehnt</fullName>
+                <default>false</default>
+                <label>Reservierungsschein abgelehnt</label>
+            </value>
+            <value>
+                <fullName>Rückabwicklung</fullName>
+                <default>false</default>
+                <label>Rückabwicklung</label>
+            </value>
+            <value>
                 <fullName>VKC ausgelaufen</fullName>
                 <default>false</default>
                 <label>VKC ausgelaufen</label>
+            </value>
+            <value>
+                <fullName>VSA abgelehnt</fullName>
+                <default>false</default>
+                <label>VSA abgelehnt</label>
             </value>
         </valueSetDefinition>
     </valueSet>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Finanzierungen_intern</fullName>
+    <columns>NAME</columns>
+    <columns>Phase__c</columns>
+    <columns>AmpelInternImg__c</columns>
+    <columns>GrundBewertung__c</columns>
+    <columns>PhaseOpportunity__c</columns>
+    <columns>Finanzierung__c</columns>
+    <columns>OWNER.FIRST_NAME</columns>
+    <columns>Maklerbetreuer__c</columns>
+    <columns>WiedervorlageAm__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>7/1/2023 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>Finanzierung__c</field>
+        <operation>notEqual</operation>
+        <value>Fremdfinanzierung,Eigenkapitalzahlung</value>
+    </filters>
+    <label>Finanzierungen intern</label>
+</ListView>

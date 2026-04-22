@@ -8,11 +8,24 @@ public without sharing class ProvisionService {
     Map<Id, Opportunity> opps;
     Map<Id, Opportunity> oldOpps;
     List<Opportunity> allOpps;
-    Map<Id, Map<Integer, Integer>> mbToMonthOpps = new Map<Id, Map<Integer, Integer>>();
-    Map<Id, Map<Integer, Integer>> mbToQuarterOpps = new Map<Id, Map<Integer, Integer>>();
+    @TestVisible
+    Map<Id, Map<Integer, Map<Integer, Integer>>> mbToYearToMonthOpps = new Map<Id, Map<Integer, Map<Integer, Integer>>>();
+    @TestVisible
+    Map<Id, Map<Integer, Map<Integer, Integer>>> mbToYearToQuarterOpps = new Map<Id, Map<Integer, Map<Integer, Integer>>>();
+    @TestVisible
     Map<Id, Map<Integer, Integer>> mbToYearOpps = new Map<Id, Map<Integer, Integer>>();
     Map<Id, Integer> mbToOpos = new Map<Id, Integer>();
     Map<Id, Map<String, Decimal>> mbToRefunds = new Map<Id, Map<String, Decimal>>();
+    @TestVisible
+    private static final String DEFAULT_PROVISIONSMODELL_KEY = '__DEFAULT__';
+    @TestVisible
+    private static final String ABRECHNUNGSPERIODE_MONAT = 'Monat';
+    @TestVisible
+    private static final String ABRECHNUNGSPERIODE_QUARTAL = 'Quartal';
+    @TestVisible
+    private static final String ABRECHNUNGSPERIODE_JAHR = 'Jahr';
+    @TestVisible
+    private Map<String, List<Provisionsmodell__c>> provisionModelsByPartnermanagerKey = new Map<String, List<Provisionsmodell__c>>();
     String mode;
     String schedule;
     String pageError = 'Für diesen Makler kann keine Provision erstellt werden, dieser Makler hat keinen Vertrag. Bitte überprüfen Sie die Provisionsmatrix, ob dieser Makler über jemanden anders abgerechnet wird.';
@@ -27,84 +40,22 @@ public without sharing class ProvisionService {
     }
 
     public void upsertProvisionen() {
-        String a1;
-        String a2;
-        String a3;
-        String a4;
-        String a5;
-        String a6;
-        String a7;
-        String a8;
-        String a9;
-        String a10;
-        String a11;
-        String a12;
-        String a13;
-        String a14;
-        String a15;
-        String a16;
-        String a17;
-        String a18;
-        String a19;
-        String a20;
-        String a21;
-        String a22;
-        String a23;
-        String a24;
-        String a25;
-        String a26;
-        String a27;
-        String a28;
-        String a29;
-        String a30;
-         String a291;
-        String a302;
-         String a293;
-        String a304;
-         String a295;
-        String a306;
-         String a297;
-        String a308;
-         String a299;
-        String a300;
-         String a2911;
-        String a3012;
-         String a2913;
-        String a3014;
-         String a2915;
-        String a3016;
-         String a2917;
-        String a3018;
-         String a2919;
-        String a3020;
-         String a2921;
-        String a3022;
-        String a3022121;
-        String a3022123;
-        String a3022124;
-        String a3022125;
-        String a30221213;
-        String a30221233;
-        String a30221243;
-        String a30221253;
-        String a30221214;
-        String a30221234;
-        String a30221244;
-        String a30221254;
-        String a30221215;
-        String a30221235;
-        String a30221245;
-        String a30221255;
-        String a30221216;
-        String a30221236;
-        String a30221246;
-        String a30221256;
-        String a30221217;
-        String a30221237;
-        String a30221247;
-        String a30221257;
         getRecipientsIds();
-        Map<Id,Contact> allRecipients = new Map<Id, Contact>([SELECT Id, Gesch_ftsbeziehung__c, ErfolgsabhaengigeMaxInProzent__c, ErfolgsabhaengigeProvisionInEuro__c, ErhaeltErfolgsabhaengigeProvision__c, Ist_Maklerbetreuer_WH__c, Email, Maklerauftrag__c FROM Contact WHERE Id IN : this.recipientsIds]);
+        Map<Id,Contact> allRecipients = new Map<Id, Contact>([
+            SELECT
+                Id,
+                Gesch_ftsbeziehung__c,
+                ErfolgsabhaengigeMaxInProzent__c,
+                ErfolgsabhaengigeProvisionInEuro__c,
+                ErhaeltErfolgsabhaengigeProvision__c,
+                ErhaeltErfolgsabhaengigeProvisionVon__c,
+                ErhaeltErfolgsabhaengigeProvisionBis__c,
+                Ist_Maklerbetreuer_WH__c,
+                Email,
+                Maklerauftrag__c
+            FROM Contact
+            WHERE Id IN : this.recipientsIds
+        ]);
         List<Id> mbIds = new List<Id>();
         for(Contact con:allRecipients.values()) {
             if(con.Ist_Maklerbetreuer_WH__c == true) {
@@ -116,6 +67,7 @@ public without sharing class ProvisionService {
             Integer thisMonth = todaysDate.month();
             Integer lastMonth = todaysDate.month() - 1;
             Integer thisYear = todaysDate.year();
+            Integer lastYear = todaysDate.year()-1;
             Integer lastYearOrThisYear = todaysDate.year();
             if(thisMonth == 1 && todaysDate.day() <= 10) {
                 lastMonth = 12;
@@ -123,49 +75,69 @@ public without sharing class ProvisionService {
             }
             Integer thisQuarter = getQuarterByMonth(lastMonth);
             String query = 'SELECT Id, Notartermin__c, Datum_Kaufpreis_bezahlt__c, Vertriebskoordinator__c, ProvisionVertriebskoordination__c, Maklerbetreuer_WirtschaftsHaus__c, Maklerbetreuer_WirtschaftsHaus__r.ErfolgsabhaengigeMaxInProzent__c FROM Opportunity';
-            if(this.schedule == 'month') {
-                if(todaysDate.day() <= 10) {
-                    query += ' WHERE ((CALENDAR_MONTH(Notartermin__c) = :lastMonth AND CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear) OR (CALENDAR_YEAR(Notartermin__c) = :thisYear AND CALENDAR_MONTH(Notartermin__c) = :thisMonth) )';
-                } else if(todaysDate.day() > 10) {
-                    query += ' WHERE CALENDAR_MONTH(Notartermin__c) = :thisMonth AND CALENDAR_YEAR(Notartermin__c) = :thisYear';
-                }
-            } else if(this.schedule == 'quarter') {
-                query += ' WHERE CALENDAR_QUARTER(Notartermin__c) = :thisQuarter AND (CALENDAR_YEAR(Notartermin__c) = :thisYear OR CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear)';
-            } else if(this.schedule == 'year') {
-                query += ' WHERE CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear';
-            }
+            // if(this.schedule == 'month') {
+            //     if(todaysDate.day() <= 10) {
+            //         query += ' WHERE ((CALENDAR_MONTH(Notartermin__c) = :lastMonth AND CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear) OR (CALENDAR_YEAR(Notartermin__c) = :thisYear AND CALENDAR_MONTH(Notartermin__c) = :thisMonth) )';
+            //     } else if(todaysDate.day() > 10) {
+            //         query += ' WHERE CALENDAR_MONTH(Notartermin__c) = :thisMonth AND CALENDAR_YEAR(Notartermin__c) = :thisYear';
+            //     }
+            // } else if(this.schedule == 'quarter') {
+            //     query += ' WHERE CALENDAR_QUARTER(Notartermin__c) = :thisQuarter AND (CALENDAR_YEAR(Notartermin__c) = :thisYear OR CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear)';
+            // } else if(this.schedule == 'year') {
+            //     query += ' WHERE CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear';
+            // }
+            query += ' WHERE (CALENDAR_YEAR(Notartermin__c) = :lastYear OR CALENDAR_YEAR(Notartermin__c) = :thisYear)';
 
             query += ' AND (StageName = \'Geschlossene und gewonnene\' OR StageName = \'Notartermin hat stattgefunden\')';
             
             List<Opportunity> allOpps = (List<Opportunity>)Database.query(query);
             for(Opportunity opp:allOpps) {
+                Integer yearOpp = opp.Notartermin__c.year();
                 Integer monthOpp = opp.Notartermin__c.month();
-                Map<Integer, Integer> monthOpps = mbToMonthOpps.get(opp.Maklerbetreuer_WirtschaftsHaus__c);
-                if(monthOpps == null) {
+                Integer quarterOpp = getQuarterByMonth(monthOpp);
+
+                // ===== MONTH =====
+                Map<Integer, Map<Integer, Integer>> yearToMonth =
+                    mbToYearToMonthOpps.get(opp.Maklerbetreuer_WirtschaftsHaus__c);
+                if (yearToMonth == null) {
+                    yearToMonth = new Map<Integer, Map<Integer, Integer>>();
+                }
+
+                Map<Integer, Integer> monthOpps = yearToMonth.get(yearOpp);
+                if (monthOpps == null) {
                     monthOpps = new Map<Integer, Integer>();
                 }
+
                 Integer countMonthOpps = monthOpps.get(monthOpp);
-                if(countMonthOpps == null) {
+                if (countMonthOpps == null) {
                     countMonthOpps = 0;
                 }
-                countMonthOpps++;
-                monthOpps.put(monthOpp, countMonthOpps);
-                mbToMonthOpps.put(opp.Maklerbetreuer_WirtschaftsHaus__c, monthOpps);
-                
-                Integer quarterOpp = getQuarterByMonth(monthOpp);
-                Map<Integer, Integer> quarterOpps = mbToQuarterOpps.get(opp.Maklerbetreuer_WirtschaftsHaus__c);
-                if(quarterOpps == null) {
+                monthOpps.put(monthOpp, countMonthOpps + 1);
+
+                yearToMonth.put(yearOpp, monthOpps);
+                mbToYearToMonthOpps.put(opp.Maklerbetreuer_WirtschaftsHaus__c, yearToMonth);
+
+                // ===== QUARTER =====
+                Map<Integer, Map<Integer, Integer>> yearToQuarter =
+                    mbToYearToQuarterOpps.get(opp.Maklerbetreuer_WirtschaftsHaus__c);
+                if (yearToQuarter == null) {
+                    yearToQuarter = new Map<Integer, Map<Integer, Integer>>();
+                }
+
+                Map<Integer, Integer> quarterOpps = yearToQuarter.get(yearOpp);
+                if (quarterOpps == null) {
                     quarterOpps = new Map<Integer, Integer>();
                 }
+
                 Integer countQuarterOpps = quarterOpps.get(quarterOpp);
-                if(countQuarterOpps == null) {
+                if (countQuarterOpps == null) {
                     countQuarterOpps = 0;
                 }
-                countQuarterOpps++;
-                quarterOpps.put(quarterOpp, countQuarterOpps);
-                mbToQuarterOpps.put(opp.Maklerbetreuer_WirtschaftsHaus__c, quarterOpps);
+                quarterOpps.put(quarterOpp, countQuarterOpps + 1);
 
-                Integer yearOpp = opp.Notartermin__c.year();
+                yearToQuarter.put(yearOpp, quarterOpps);
+                mbToYearToQuarterOpps.put(opp.Maklerbetreuer_WirtschaftsHaus__c, yearToQuarter);
+
                 Map<Integer, Integer> yearOpps = mbToYearOpps.get(opp.Maklerbetreuer_WirtschaftsHaus__c);
                 if(yearOpps == null) {
                     yearOpps = new Map<Integer, Integer>();
@@ -223,6 +195,9 @@ public without sharing class ProvisionService {
                 mbToOpos.put(opp.Maklerbetreuer_WirtschaftsHaus__c, oposAmount);
             }
         }
+        if(this.mode == 'intern') {
+            initializeProvisionModelConfigs(this.opps.values(), allRecipients.values());
+        }
         for(Opportunity opp: opps.values()) {
             //String maklerprovision = opp.Maklerprovision__c;
             Opportunity oldOpp = oldOpps.get(opp.Id);
@@ -233,7 +208,11 @@ public without sharing class ProvisionService {
             }
             for(Contact con:allRecipients.values()) {
                 Provision__c prov = new Provision__c();
-                if(mode == 'intern' && con.ErhaeltErfolgsabhaengigeProvision__c == true ) {
+                if(
+                    mode == 'intern'
+                    && con.ErhaeltErfolgsabhaengigeProvision__c == true
+                    && isErfolgsabhaengigeProvisionDateInRange(con, opp.Notartermin__c)
+                ) {
                     prov = this.getProvisionIntern(opp, con);
                     if(prov != null) {
                         provs.add(prov);
@@ -362,7 +341,7 @@ public without sharing class ProvisionService {
         System.debug(mbToOpos.get(opp.Maklerbetreuer_WirtschaftsHaus__c));
         System.debug(mbToRefunds.get(opp.Maklerbetreuer_WirtschaftsHaus__c));
 
-        if(opp.Datum_Kaufpreis_bezahlt__c == null && opp.Datum_1_MaBV_Rate_gezahlt__c == null && this.schedule == 'month') {
+        if(opp.Datum_Kaufpreis_bezahlt__c == null && opp.Datum_1_MaBV_Rate_gezahlt__c == null && this.schedule == 'month' && opp.Maklerbetreuer_WirtschaftsHaus__c != '00367000041nIPDAA2') {
             if(mbToOpos.get(opp.Maklerbetreuer_WirtschaftsHaus__c) != null && mbToOpos.get(opp.Maklerbetreuer_WirtschaftsHaus__c) > 5) {
                 prov.ErfolgsabhaengigeProvisionInProzent__c = 0;
                 prov.Erfolgsabh_ngige_Provision_direkt__c = 0;
@@ -390,19 +369,28 @@ public without sharing class ProvisionService {
             prov.ProvisionsvoraussetzungenErfuelltAm__c = Date.newInstance(yearOpp, 12, 30);
         }
         
-        prov.AnzahlEinheitenMonat__c = mbToMonthOpps.get(opp.Maklerbetreuer_WirtschaftsHaus__c)?.get(monthOpp);
         prov.Provisionszeitraum__c = 'Monat';
-        if(schedule == 'quarter' || schedule == 'year') { 
-            prov.AnzahlEinheitenQuartal__c = mbToQuarterOpps.get(opp.Maklerbetreuer_WirtschaftsHaus__c)?.get(quarterOpp);
-            prov.Provisionszeitraum__c = 'Quartal';
+        prov.AnzahlEinheitenMonat__c =
+            mbToYearToMonthOpps.get(opp.Maklerbetreuer_WirtschaftsHaus__c)
+                ?.get(yearOpp)
+                ?.get(monthOpp);
+
+        if (schedule == 'quarter' || schedule == 'year') {
+            prov.AnzahlEinheitenQuartal__c =
+                mbToYearToQuarterOpps.get(opp.Maklerbetreuer_WirtschaftsHaus__c)
+                    ?.get(yearOpp)
+                    ?.get(quarterOpp);
         }
-        if(schedule == 'year') {
+
+        if(schedule == 'quarter') {
+            prov.Provisionszeitraum__c = 'Quartal';
+        } else if(schedule == 'year') {
             prov.AnzahlEinheitenJahr__c = mbToYearOpps.get(opp.Maklerbetreuer_WirtschaftsHaus__c)?.get(yearOpp);
             prov.Provisionszeitraum__c = 'Jahr';
         }
 
         if(opp.Maklerbetreuer_WirtschaftsHaus__c == con.Id) {
-            Decimal erfolgsabhaengigeProvision = getErfolgsabhaengigeProvision(prov, con);
+            Decimal erfolgsabhaengigeProvision = getErfolgsabhaengigeProvision(prov, con, opp.Notartermin__c);
             if(erfolgsabhaengigeProvision == null) {
                 return null;
             }
@@ -594,7 +582,199 @@ public without sharing class ProvisionService {
         return math.round((month+1)/3.0);
     }
 
-    public Decimal getErfolgsabhaengigeProvision(Provision__c prov, Contact con) {
+    @TestVisible
+    private void initializeProvisionModelConfigs(List<Opportunity> opportunities, List<Contact> contacts) {
+        provisionModelsByPartnermanagerKey.clear();
+        if (opportunities == null || opportunities.isEmpty()) {
+            return;
+        }
+
+        Date minNotartermin;
+        Date maxNotartermin;
+        for (Opportunity opp : opportunities) {
+            if (opp == null || opp.Notartermin__c == null) {
+                continue;
+            }
+            if (minNotartermin == null || opp.Notartermin__c < minNotartermin) {
+                minNotartermin = opp.Notartermin__c;
+            }
+            if (maxNotartermin == null || opp.Notartermin__c > maxNotartermin) {
+                maxNotartermin = opp.Notartermin__c;
+            }
+        }
+
+        if (minNotartermin == null || maxNotartermin == null) {
+            return;
+        }
+
+        Set<Id> partnermanagerIds = new Set<Id>();
+        if (contacts != null) {
+            for (Contact con : contacts) {
+                if (con != null && con.Id != null) {
+                    partnermanagerIds.add(con.Id);
+                }
+            }
+        }
+
+        List<Provisionsmodell__c> models;
+        if (partnermanagerIds.isEmpty()) {
+            models = [
+                SELECT
+                    Id,
+                    Name,
+                    GueltigVon__c,
+                    GueltigBis__c,
+                    Partnermanager__c,
+                    (
+                        SELECT
+                            Id,
+                            Abrechnungsperiode__c,
+                            StaffelVon__c,
+                            StaffelBis__c,
+                            ProvisionInProzent__c
+                        FROM Provisionsstaffeln__r
+                        ORDER BY Abrechnungsperiode__c, StaffelVon__c ASC
+                    )
+                FROM Provisionsmodell__c
+                WHERE GueltigVon__c <= :maxNotartermin
+                    AND (GueltigBis__c = null OR GueltigBis__c >= :minNotartermin)
+                    AND Partnermanager__c = null
+                ORDER BY GueltigVon__c DESC, LastModifiedDate DESC
+            ];
+        } else {
+            models = [
+                SELECT
+                    Id,
+                    Name,
+                    GueltigVon__c,
+                    GueltigBis__c,
+                    Partnermanager__c,
+                    (
+                        SELECT
+                            Id,
+                            Abrechnungsperiode__c,
+                            StaffelVon__c,
+                            StaffelBis__c,
+                            ProvisionInProzent__c
+                        FROM Provisionsstaffeln__r
+                        ORDER BY Abrechnungsperiode__c, StaffelVon__c ASC
+                    )
+                FROM Provisionsmodell__c
+                WHERE GueltigVon__c <= :maxNotartermin
+                    AND (GueltigBis__c = null OR GueltigBis__c >= :minNotartermin)
+                    AND (Partnermanager__c = null OR Partnermanager__c IN :partnermanagerIds)
+                ORDER BY Partnermanager__c, GueltigVon__c DESC, LastModifiedDate DESC
+            ];
+        }
+
+        for (Provisionsmodell__c model : models) {
+            String key = getProvisionModelMapKey(model.Partnermanager__c);
+            List<Provisionsmodell__c> bucket = provisionModelsByPartnermanagerKey.get(key);
+            if (bucket == null) {
+                bucket = new List<Provisionsmodell__c>();
+                provisionModelsByPartnermanagerKey.put(key, bucket);
+            }
+            bucket.add(model);
+        }
+    }
+
+    @TestVisible
+    private static String getProvisionModelMapKey(Id partnermanagerId) {
+        return (partnermanagerId == null) ? DEFAULT_PROVISIONSMODELL_KEY : String.valueOf(partnermanagerId);
+    }
+
+    private Boolean isModelValidForDate(Provisionsmodell__c model, Date notartermin) {
+        if (model == null || notartermin == null) {
+            return false;
+        }
+        if (model.GueltigVon__c != null && model.GueltigVon__c > notartermin) {
+            return false;
+        }
+        if (model.GueltigBis__c != null && model.GueltigBis__c < notartermin) {
+            return false;
+        }
+        return true;
+    }
+
+    private Provisionsmodell__c findMatchingProvisionModel(Date notartermin, Id partnermanagerId) {
+        if (notartermin == null) {
+            return null;
+        }
+
+        List<Provisionsmodell__c> specificModels = provisionModelsByPartnermanagerKey.get(
+            getProvisionModelMapKey(partnermanagerId)
+        );
+        if (specificModels != null) {
+            for (Provisionsmodell__c model : specificModels) {
+                if (isModelValidForDate(model, notartermin)) {
+                    return model;
+                }
+            }
+        }
+
+        List<Provisionsmodell__c> defaultModels = provisionModelsByPartnermanagerKey.get(DEFAULT_PROVISIONSMODELL_KEY);
+        if (defaultModels != null) {
+            for (Provisionsmodell__c model : defaultModels) {
+                if (isModelValidForDate(model, notartermin)) {
+                    return model;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private Decimal getProvisionInProzentFromModel(
+        Provisionsmodell__c model,
+        String abrechnungsperiode,
+        Decimal anzahlEinheiten
+    ) {
+        if (model == null || String.isBlank(abrechnungsperiode) || anzahlEinheiten == null) {
+            return 0;
+        }
+        if (model.Provisionsstaffeln__r == null || model.Provisionsstaffeln__r.isEmpty()) {
+            return 0;
+        }
+
+        Provisionsstaffel__c matchingStaffel;
+        for (Provisionsstaffel__c staffel : model.Provisionsstaffeln__r) {
+            if (staffel.Abrechnungsperiode__c != abrechnungsperiode) {
+                continue;
+            }
+
+            Decimal staffelVon = (staffel.StaffelVon__c == null) ? 0 : staffel.StaffelVon__c;
+            Decimal staffelBis = staffel.StaffelBis__c;
+            Boolean inRange = anzahlEinheiten >= staffelVon && (staffelBis == null || anzahlEinheiten <= staffelBis);
+            if (!inRange) {
+                continue;
+            }
+
+            if (matchingStaffel == null || (staffel.StaffelVon__c != null && staffel.StaffelVon__c > matchingStaffel.StaffelVon__c)) {
+                matchingStaffel = staffel;
+            }
+        }
+
+        if (matchingStaffel == null || matchingStaffel.ProvisionInProzent__c == null) {
+            return 0;
+        }
+        return matchingStaffel.ProvisionInProzent__c;
+    }
+
+    @TestVisible
+    private Boolean isErfolgsabhaengigeProvisionDateInRange(Contact con, Date notartermin) {
+        if (con == null || notartermin == null) {
+            return false;
+        }
+        if (con.ErhaeltErfolgsabhaengigeProvisionVon__c != null && notartermin < con.ErhaeltErfolgsabhaengigeProvisionVon__c) {
+            return false;
+        }
+        if (con.ErhaeltErfolgsabhaengigeProvisionBis__c != null && notartermin > con.ErhaeltErfolgsabhaengigeProvisionBis__c) {
+            return false;
+        }
+        return true;
+    }
+
+    public Decimal getErfolgsabhaengigeProvision(Provision__c prov, Contact con, Date notartermin) {
         Decimal erfolgsabhaengigeProvision;
         Decimal erfolgsabhaengigeProvisionMonat = 0;
         Decimal erfolgsabhaengigeProvisionQuartal = 0;
@@ -602,54 +782,40 @@ public without sharing class ProvisionService {
         Decimal anzahlEinheitenMonat = prov.AnzahlEinheitenMonat__c;
         Decimal anzahlEinheitenQuartal = prov.AnzahlEinheitenQuartal__c;
         Decimal anzahlEinheitenJahr = prov.AnzahlEinheitenJahr__c;
-        
-        if(anzahlEinheitenMonat >= 0 && anzahlEinheitenMonat <= 3) {
-            erfolgsabhaengigeProvisionMonat = 0.25;
-        } else if(anzahlEinheitenMonat >= 4 && anzahlEinheitenMonat <= 6) {
-            erfolgsabhaengigeProvisionMonat = 0.35;
-        } else if(anzahlEinheitenMonat >= 7 && anzahlEinheitenMonat <= 8) {
-            erfolgsabhaengigeProvisionMonat = 0.45;
-        } else if(anzahlEinheitenMonat >= 9) {
-            erfolgsabhaengigeProvisionMonat = 0.5;
-        }
-        
-        if(anzahlEinheitenMonat >= 11 && con.Id == '00367000041nIPDAA2') {
-            erfolgsabhaengigeProvisionMonat = 0.55;
+
+        if (!isErfolgsabhaengigeProvisionDateInRange(con, notartermin)) {
+            return null;
         }
 
-        if(anzahlEinheitenQuartal >= 0 && anzahlEinheitenQuartal <= 11) {
-            erfolgsabhaengigeProvisionQuartal = 0.25 - erfolgsabhaengigeProvisionMonat;
-        } else if(anzahlEinheitenQuartal >= 12 && anzahlEinheitenQuartal <= 20) {
-            erfolgsabhaengigeProvisionQuartal = 0.35 - erfolgsabhaengigeProvisionMonat;
-        } else if(anzahlEinheitenQuartal >= 21 && anzahlEinheitenQuartal <= 26) {
-            erfolgsabhaengigeProvisionQuartal = 0.45 - erfolgsabhaengigeProvisionMonat;
-        } else if(anzahlEinheitenQuartal >= 27) {
-            erfolgsabhaengigeProvisionQuartal = 0.5 - erfolgsabhaengigeProvisionMonat;
+        Provisionsmodell__c matchingModel = findMatchingProvisionModel(notartermin, con?.Id);
+        if (matchingModel == null) {
+            return null;
         }
 
-        if(anzahlEinheitenQuartal >= 31 && con.Id == '00367000041nIPDAA2') {
-            erfolgsabhaengigeProvisionQuartal = 0.55 - erfolgsabhaengigeProvisionMonat;
-        }
-        
-        if(erfolgsabhaengigeProvisionQuartal < 0) {
+        erfolgsabhaengigeProvisionMonat = getProvisionInProzentFromModel(
+            matchingModel,
+            ABRECHNUNGSPERIODE_MONAT,
+            anzahlEinheitenMonat
+        );
+
+        Decimal quartalsProvisionKumuliert = getProvisionInProzentFromModel(
+            matchingModel,
+            ABRECHNUNGSPERIODE_QUARTAL,
+            anzahlEinheitenQuartal
+        );
+        erfolgsabhaengigeProvisionQuartal = quartalsProvisionKumuliert - erfolgsabhaengigeProvisionMonat;
+        if (erfolgsabhaengigeProvisionQuartal < 0) {
             erfolgsabhaengigeProvisionQuartal = 0;
         }
 
-        if(anzahlEinheitenJahr >= 0 && anzahlEinheitenJahr <= 47) {
-            erfolgsabhaengigeProvisionJahr = 0.25 - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
-        } else if(anzahlEinheitenJahr >= 48 && anzahlEinheitenJahr <= 83) {
-            erfolgsabhaengigeProvisionJahr = 0.35 - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
-        } else if(anzahlEinheitenJahr >= 84 && anzahlEinheitenJahr <= 107) {
-            erfolgsabhaengigeProvisionJahr = 0.45 - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
-        } else if(anzahlEinheitenJahr >= 108) {
-            erfolgsabhaengigeProvisionJahr = 0.5 - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
-        }
-
-        if(anzahlEinheitenQuartal >= 121 && con.Id == '00367000041nIPDAA2') {
-            erfolgsabhaengigeProvisionQuartal = 0.55 - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
-        }
-
-        if(erfolgsabhaengigeProvisionJahr < 0) {
+        Decimal jahresProvisionKumuliert = getProvisionInProzentFromModel(
+            matchingModel,
+            ABRECHNUNGSPERIODE_JAHR,
+            anzahlEinheitenJahr
+        );
+        erfolgsabhaengigeProvisionJahr =
+            jahresProvisionKumuliert - erfolgsabhaengigeProvisionMonat - erfolgsabhaengigeProvisionQuartal;
+        if (erfolgsabhaengigeProvisionJahr < 0) {
             erfolgsabhaengigeProvisionJahr = 0;
         }
 
@@ -658,6 +824,9 @@ public without sharing class ProvisionService {
         }
 
         if(con.ErfolgsabhaengigeProvisionInEuro__c != null) {
+            if (prov.Kaufpreis__c == null || prov.Kaufpreis__c == 0) {
+                return null;
+            }
             erfolgsabhaengigeProvisionMonat = con.ErfolgsabhaengigeProvisionInEuro__c / prov.Kaufpreis__c * 100;
         }
 

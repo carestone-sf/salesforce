@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>CommerceStarter</label>
+    <navType>Standard</navType>
+    <tabs>sf_devops__Change_Submission__c</tabs>
+    <tabs>sf_devops__Remote_Change__c</tabs>
+    <tabs>sf_devops__Work_Item__c</tabs>
+    <tabs>Gallery__c</tabs>
+    <tabs>Provisionsmodell__c</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

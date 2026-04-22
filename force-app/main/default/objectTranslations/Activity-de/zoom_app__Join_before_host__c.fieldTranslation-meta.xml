@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Allow users to join the meeting before the host arrives. --></help>
+    <label><!-- Enable Join Before Host --></label>
+    <name>zoom_app__Join_before_host__c</name>
+</CustomFieldTranslation>

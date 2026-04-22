@@ -6,7 +6,8 @@
     <columns>CREATED_DATE</columns>
     <columns>LAST_UPDATE</columns>
     <columns>NAME</columns>
+    <columns>ProvisionsvoraussetzungenErfuelltAm__c</columns>
+    <columns>UPDATEDBY_USER</columns>
     <filterScope>Everything</filterScope>
     <label>Provisionen</label>
-    <language>de</language>
 </ListView>

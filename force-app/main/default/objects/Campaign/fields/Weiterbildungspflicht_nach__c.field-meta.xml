@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Weiterbildungspflicht_nach__c</fullName>
+    <externalId>false</externalId>
+    <label>Weiterbildungspflicht nach</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>§ 34c Absatz 2a GewO i.V.m. § 15b Absatz 1 MaBV</fullName>
+                <default>false</default>
+                <label>§ 34c Absatz 2a GewO i.V.m. § 15b Absatz 1 MaBV</label>
+            </value>
+            <value>
+                <fullName>§ 34d Absatz 9 Satz 2 GewO bzw. § 48 Absatz 2 VAG</fullName>
+                <default>false</default>
+                <label>§ 34d Absatz 9 Satz 2 GewO bzw. § 48 Absatz 2 VAG</label>
+            </value>
+            <value>
+                <fullName>§ 34c Absatz 2a GewO i.V.m. § 15b Absatz 1 MaBV und § 34d Absatz 9 Satz 2 GewO bzw. § 48 Absatz 2 VAG</fullName>
+                <default>false</default>
+                <label>§ 34c Absatz 2a GewO i.V.m. § 15b Absatz 1 MaBV und § 34d Absatz 9 Satz 2 GewO bzw. § 48 Absatz 2 VAG</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

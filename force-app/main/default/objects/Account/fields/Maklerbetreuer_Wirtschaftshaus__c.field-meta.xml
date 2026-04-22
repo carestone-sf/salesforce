@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maklerbetreuer_Wirtschaftshaus__c</fullName>
+    <externalId>false</externalId>
+    <label>Maklerbetreuer Wirtschaftshaus(veraltet)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Andreas Pohl</fullName>
+                <default>false</default>
+                <label>Andreas Pohl</label>
+            </value>
+            <value>
+                <fullName>Attila Dachwitz</fullName>
+                <default>false</default>
+                <label>Attila Dachwitz</label>
+            </value>
+            <value>
+                <fullName>Bastian Dörge</fullName>
+                <default>false</default>
+                <label>Bastian Dörge</label>
+            </value>
+            <value>
+                <fullName>Boris Bökert</fullName>
+                <default>false</default>
+                <label>Boris Bökert</label>
+            </value>
+            <value>
+                <fullName>Christoph Ellermann</fullName>
+                <default>false</default>
+                <label>Christoph Ellermann</label>
+            </value>
+            <value>
+                <fullName>Erich Pilz</fullName>
+                <default>false</default>
+                <label>Erich Pilz</label>
+            </value>
+            <value>
+                <fullName>Frank Köpsell</fullName>
+                <default>false</default>
+                <label>Frank Köpsell</label>
+            </value>
+            <value>
+                <fullName>Harald Senftleben</fullName>
+                <default>false</default>
+                <label>Harald Senftleben</label>
+            </value>
+            <value>
+                <fullName>Jana Pawils</fullName>
+                <default>false</default>
+                <label>Jana Pawils</label>
+            </value>
+            <value>
+                <fullName>Johann Kuipers</fullName>
+                <default>false</default>
+                <label>Johann Kuipers</label>
+            </value>
+            <value>
+                <fullName>Jonas Laue</fullName>
+                <default>false</default>
+                <label>Jonas Laue</label>
+            </value>
+            <value>
+                <fullName>Jürgen Engler</fullName>
+                <default>false</default>
+                <label>Jürgen Engler</label>
+            </value>
+            <value>
+                <fullName>Karsten Fengler</fullName>
+                <default>false</default>
+                <label>Karsten Fengler</label>
+            </value>
+            <value>
+                <fullName>Kelvin Schwabe</fullName>
+                <default>false</default>
+                <label>Kelvin Schwabe</label>
+            </value>
+            <value>
+                <fullName>Lars Wagner</fullName>
+                <default>false</default>
+                <label>Lars Wagner</label>
+            </value>
+            <value>
+                <fullName>Marc Claes</fullName>
+                <default>false</default>
+                <label>Marc Claes</label>
+            </value>
+            <value>
+                <fullName>Marco Ellermann</fullName>
+                <default>false</default>
+                <label>Marco Ellermann</label>
+            </value>
+            <value>
+                <fullName>Martin Ledvinka</fullName>
+                <default>false</default>
+                <label>Martin Ledvinka</label>
+            </value>
+            <value>
+                <fullName>Maurice Fuhrmann</fullName>
+                <default>false</default>
+                <label>Maurice Fuhrmann</label>
+            </value>
+            <value>
+                <fullName>Max Hergt</fullName>
+                <default>false</default>
+                <label>Max Hergt</label>
+            </value>
+            <value>
+                <fullName>Mirco Buchholz</fullName>
+                <default>false</default>
+                <label>Mirco Buchholz</label>
+            </value>
+            <value>
+                <fullName>Nils Nebel</fullName>
+                <default>false</default>
+                <label>Nils Nebel</label>
+            </value>
+            <value>
+                <fullName>PE</fullName>
+                <default>false</default>
+                <label>PE</label>
+            </value>
+            <value>
+                <fullName>Peter Eulitz</fullName>
+                <default>false</default>
+                <label>Peter Eulitz</label>
+            </value>
+            <value>
+                <fullName>Raik Lubitz</fullName>
+                <default>false</default>
+                <label>Raik Lubitz</label>
+            </value>
+            <value>
+                <fullName>Ralf Döring</fullName>
+                <default>false</default>
+                <label>Ralf Döring</label>
+            </value>
+            <value>
+                <fullName>Robin Bergmann</fullName>
+                <default>false</default>
+                <label>Robin Bergmann</label>
+            </value>
+            <value>
+                <fullName>Rüdiger Panzer-Sennholz</fullName>
+                <default>false</default>
+                <label>Rüdiger Panzer-Sennholz</label>
+            </value>
+            <value>
+                <fullName>Sandro Pawils</fullName>
+                <default>false</default>
+                <label>Sandro Pawils</label>
+            </value>
+            <value>
+                <fullName>Susanne Köppel</fullName>
+                <default>false</default>
+                <label>Susanne Köppel</label>
+            </value>
+            <value>
+                <fullName>Sven Brauns</fullName>
+                <default>false</default>
+                <label>Sven Brauns</label>
+            </value>
+            <value>
+                <fullName>Sven Schulz</fullName>
+                <default>false</default>
+                <label>Sven Schulz</label>
+            </value>
+            <value>
+                <fullName>Thomas Nickel</fullName>
+                <default>false</default>
+                <label>Thomas Nickel</label>
+            </value>
+            <value>
+                <fullName>Tobias Kenter</fullName>
+                <default>false</default>
+                <label>Tobias Kenter</label>
+            </value>
+            <value>
+                <fullName>Uwe Hinz</fullName>
+                <default>false</default>
+                <label>Uwe Hinz</label>
+            </value>
+            <value>
+                <fullName>Nico Niemeier</fullName>
+                <default>false</default>
+                <label>Nico Niemeier</label>
+            </value>
+            <value>
+                <fullName>Jost Laue</fullName>
+                <default>false</default>
+                <label>Jost Laue</label>
+            </value>
+            <value>
+                <fullName>Thomas Arnold</fullName>
+                <default>false</default>
+                <label>Thomas Arnold</label>
+            </value>
+            <value>
+                <fullName>WH Front</fullName>
+                <default>false</default>
+                <label>WH Front</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

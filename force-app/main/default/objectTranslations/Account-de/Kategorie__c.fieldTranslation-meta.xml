@@ -1,26 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <help></help>
-    <label></label>
+    <help><!-- Vergeben Sie A, B, C oder D für eine entsprechende Klassifizierung des Potenzials und der Aktivität dieses Maklers.(A = Topmakler, B = Gelegentlich aktiv, hat produziert, C = Potenzial vorhanden und noch zu entwickeln, D = Kein Potenzial, Vertriebsverbot = nicht mehr kontaktieren) --></help>
+    <label><!-- Klassifizierung --></label>
     <name>Kategorie__c</name>
     <picklistValues>
         <masterLabel>A</masterLabel>
-        <translation></translation>
+        <translation><!-- A --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>B</masterLabel>
-        <translation></translation>
+        <translation><!-- B --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>C</masterLabel>
-        <translation></translation>
+        <translation><!-- C --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>D</masterLabel>
-        <translation></translation>
+        <translation><!-- D --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Disqualifiziert</masterLabel>
+        <translation><!-- Disqualifiziert --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Nicht kategorisiert</masterLabel>
-        <translation></translation>
+        <translation><!-- Nicht kategorisiert --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Vertriebsverbot</masterLabel>
+        <translation><!-- Vertriebsverbot --></translation>
     </picklistValues>
 </CustomFieldTranslation>

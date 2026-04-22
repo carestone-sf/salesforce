@@ -2,12 +2,12 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>LongitudeRounded__c</fullName>
     <externalId>false</externalId>
-    <formula>ROUND(MailingLongitude, 6)</formula>
+    <formula>ROUND(MailingLongitude, 10)</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Longitude Rounded</label>
     <precision>18</precision>
     <required>false</required>
-    <scale>6</scale>
+    <scale>10</scale>
     <type>Number</type>
     <unique>false</unique>
 </CustomField>

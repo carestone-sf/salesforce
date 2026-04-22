@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Ist Kontakt aus Maklerportal( Interessenten- / Maklerschutz Formular ) --></help>
+    <label><!-- Aus Maklerportal --></label>
+    <name>Aus_Maklerportal__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Provisionsfelderbeschraenkung</fullName>
+    <active>true</active>
+    <description>Bearbeitung nur durch Controlling + BackOffice + Systemadmin + ggfs HR wg. Lohnabrechnungszusammenhängen</description>
+    <errorConditionFormula>AND(
+    /* 1. Prüfung auf Feldänderungen */
+    OR(
+        ISCHANGED(ClosingBonusInProzent__c),
+        ISCHANGED(BeratungsprovisionMitPVInProzent__c),
+        ISCHANGED(ProvisionsverzichtInProzent__c),
+        ISCHANGED(ErfolgsabhaengigeProvision__c)
+    ),
+    /* 2. Ausschlusskriterien (Regel greift NICHT, wenn einer dieser Punkte wahr ist) */
+    NOT(
+        OR(
+            $Profile.Name = &quot;0_Controlling&quot;,
+            $Profile.Name = &quot;0_BackOffice&quot;,
+            /* Admin-Ausnahme via ID */
+            LEFT($User.ProfileId, 15) = &quot;00eb0000000VEnA&quot;,
+            /* Spezifische User-ID Ausnahme */
+            LEFT($User.Id, 15) = &quot;005Vi000004vBnd&quot; 
+        )
+    )
+)</errorConditionFormula>
+    <errorMessage>Sie haben nicht die nötigen Rechte, diese Felder/Werte zu bearbeiten. Bitte wenden Sie sich an den Systemadministrator oder das Controlling.</errorMessage>
+</ValidationRule>

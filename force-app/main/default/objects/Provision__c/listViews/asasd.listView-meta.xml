@@ -6,11 +6,8 @@
     <columns>Maklerbetreuer__c</columns>
     <columns>GutschriftLaufnummerNew__c</columns>
     <columns>Gutschrift_Laufnummer_Zahl__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>LAST_UPDATE</columns>
     <filterScope>Everything</filterScope>
-    <filters>
-        <field>DatumGutschriftBestaetigt__c</field>
-        <operation>greaterOrEqual</operation>
-        <value>6/28/2020</value>
-    </filters>
     <label>Liste Provisionen</label>
 </ListView>

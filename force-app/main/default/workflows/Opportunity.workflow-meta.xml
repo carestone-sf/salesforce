@@ -21,7 +21,7 @@
         <description>Erinnerungsemail Kaufvertragsangebot ohne Annahme</description>
         <protected>false</protected>
         <recipients>
-            <recipient>l.korte@wh-marketing.de</recipient>
+            <recipient>l.haake@carestone.com</recipient>
             <type>user</type>
         </recipients>
         <recipients>
@@ -37,9 +37,16 @@
     </alerts>
     <alerts>
         <fullName>Kaufpreis_bezahlt</fullName>
-        <ccEmails>implementierung@wh-verwaltung.de</ccEmails>
         <description>Kaufpreis bezahlt</description>
         <protected>false</protected>
+        <recipients>
+            <field>Finanzierungsberater__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <field>Vertriebskoordinator__c</field>
+            <type>contactLookup</type>
+        </recipients>
         <recipients>
             <field>MaklerBetreuer_E_Mail__c</field>
             <type>email</type>
@@ -53,19 +60,19 @@
             <type>user</type>
         </recipients>
         <recipients>
-            <recipient>n.grammann@carestone.com</recipient>
+            <recipient>g.zimmer@carestone.com</recipient>
             <type>user</type>
         </recipients>
         <recipients>
-            <recipient>r.grell@carestone.com</recipient>
+            <recipient>h.senftleben@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>i.koether@carestone.com</recipient>
             <type>user</type>
         </recipients>
         <recipients>
             <recipient>s.pawils@carestone.com</recipient>
-            <type>user</type>
-        </recipients>
-        <recipients>
-            <recipient>t.arnold@wi-immogroup.wh.de</recipient>
             <type>user</type>
         </recipients>
         <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
@@ -96,10 +103,6 @@
             <recipient>s.pawils@carestone.com</recipient>
             <type>user</type>
         </recipients>
-        <recipients>
-            <recipient>t.arnold@wi-immogroup.wh.de</recipient>
-            <type>user</type>
-        </recipients>
         <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
         <template>Standard/Kaufpreis_f_llig_gestellt</template>
@@ -126,10 +129,6 @@
         </recipients>
         <recipients>
             <recipient>s.pawils@carestone.com</recipient>
-            <type>user</type>
-        </recipients>
-        <recipients>
-            <recipient>t.arnold@wi-immogroup.wh.de</recipient>
             <type>user</type>
         </recipients>
         <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
@@ -160,12 +159,7 @@
             <recipient>s.pawils@carestone.com</recipient>
             <type>user</type>
         </recipients>
-        <recipients>
-            <recipient>t.arnold@wi-immogroup.wh.de</recipient>
-            <type>user</type>
-        </recipients>
-        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        <senderType>DefaultWorkflowUser</senderType>
         <template>Standard/Kaufvertragsangebot_erstellt</template>
     </alerts>
     <alerts>
@@ -192,12 +186,7 @@
             <recipient>s.pawils@carestone.com</recipient>
             <type>user</type>
         </recipients>
-        <recipients>
-            <recipient>t.arnold@wi-immogroup.wh.de</recipient>
-            <type>user</type>
-        </recipients>
-        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        <senderType>DefaultWorkflowUser</senderType>
         <template>Standard/Kaufvertragsunterlagen_verschickt</template>
     </alerts>
     <alerts>
@@ -281,6 +270,42 @@
         <template>Standard/Provisionsmatrix_berpr_fen</template>
     </alerts>
     <alerts>
+        <fullName>R_ckabwicklung</fullName>
+        <ccEmails>interne.it@carestone.com</ccEmails>
+        <description>Rückabwicklung</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Finanzierungsberater__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <field>Vertriebskoordinator__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <recipient>a.krueger@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>i.koether@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>k.melde@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>r.lau@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>s.pawils@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Standard/Opportunity_R_ckabwicklung</template>
+    </alerts>
+    <alerts>
         <fullName>Reservierung_2_Tage_vor_Ablauf_Immoberater</fullName>
         <description>Reservierung 2 Tage vor Ablauf Immoberater</description>
         <protected>false</protected>
@@ -290,18 +315,6 @@
         </recipients>
         <senderType>DefaultWorkflowUser</senderType>
         <template>Reservierungsprozess/Reservierung_2_Tage_vor_Ablauf</template>
-    </alerts>
-    <alerts>
-        <fullName>Reservierung_angefragt_Kunde</fullName>
-        <description>Reservierung angefragt Kunde</description>
-        <protected>false</protected>
-        <recipients>
-            <field>Potenzieller_Kunde__c</field>
-            <type>contactLookup</type>
-        </recipients>
-        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
-        <template>Standard/Reservierung_angefragt</template>
     </alerts>
     <alerts>
         <fullName>Reservierung_angefragt_Makler</fullName>
@@ -315,21 +328,17 @@
             <field>Makler_E_Mail__c</field>
             <type>email</type>
         </recipients>
-        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
-        <template>Standard/Reservierung_angefragt</template>
-    </alerts>
-    <alerts>
-        <fullName>Reservierung_l_uft_aus_Kunde</fullName>
-        <description>Reservierung läuft aus Kunde</description>
-        <protected>false</protected>
         <recipients>
-            <field>Potenzieller_Kunde__c</field>
-            <type>contactLookup</type>
+            <recipient>h.senftleben@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>s.pawils@carestone.com</recipient>
+            <type>user</type>
         </recipients>
         <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
-        <template>Standard/Reservierung_erloschen</template>
+        <template>Standard/Reservierung_angefragt</template>
     </alerts>
     <alerts>
         <fullName>Reservierung_l_uft_aus_Makler</fullName>
@@ -375,6 +384,18 @@
             <field>Makler_E_Mail__c</field>
             <type>email</type>
         </recipients>
+        <recipients>
+            <recipient>c.wahlen@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>e.bartelt@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>t.stein@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
         <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
         <template>Reservierungsprozess/Reservierung_2_Tage_vor_Ablauf</template>
@@ -390,6 +411,18 @@
         <recipients>
             <field>Makler_E_Mail__c</field>
             <type>email</type>
+        </recipients>
+        <recipients>
+            <recipient>c.wahlen@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>e.bartelt@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>t.stein@carestone.com</recipient>
+            <type>user</type>
         </recipients>
         <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
@@ -418,6 +451,18 @@
             <field>Makler_E_Mail__c</field>
             <type>email</type>
         </recipients>
+        <recipients>
+            <recipient>c.wahlen@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>e.bartelt@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>t.stein@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
         <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
         <template>Reservierungsprozess/Reservierung_5_Tage_vor_Ablauf</template>
@@ -444,6 +489,18 @@
         <recipients>
             <field>Makler_E_Mail__c</field>
             <type>email</type>
+        </recipients>
+        <recipients>
+            <recipient>c.wahlen@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>e.bartelt@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>t.stein@carestone.com</recipient>
+            <type>user</type>
         </recipients>
         <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
@@ -553,9 +610,18 @@
         <template>Standard/VSA_EK_eingetragen</template>
     </alerts>
     <alerts>
-        <fullName>Verkaufschance_Reservierungsanfrage_abgelehnt</fullName>
-        <description>Verkaufschance Reservierungsanfrage abgelehnt</description>
+        <fullName>VSA_genehmigt</fullName>
+        <ccEmails>interne.it@carestone.com</ccEmails>
+        <description>VSA genehmigt</description>
         <protected>false</protected>
+        <recipients>
+            <field>Finanzierungsberater__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <field>Vertriebskoordinator__c</field>
+            <type>contactLookup</type>
+        </recipients>
         <recipients>
             <field>MaklerBetreuer_E_Mail__c</field>
             <type>email</type>
@@ -564,8 +630,49 @@
             <field>Makler_E_Mail__c</field>
             <type>email</type>
         </recipients>
-        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Standard/VSA_genehmigt</template>
+    </alerts>
+    <alerts>
+        <fullName>VSA_nicht_genehmigt</fullName>
+        <description>VSA nicht genehmigt</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Finanzierungsberater__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <field>Vertriebskoordinator__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <field>MaklerBetreuer_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Makler_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Standard/VSA_nicht_genehmigt</template>
+    </alerts>
+    <alerts>
+        <fullName>Verkaufschance_Reservierungsanfrage_abgelehnt</fullName>
+        <description>Verkaufschance Reservierungsanfrage abgelehnt</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Vertriebskoordinator__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <field>MaklerBetreuer_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Makler_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
         <template>Reservierungsprozess/Teilobjekt_konnte_nicht_reserviert_werden</template>
     </alerts>
     <alerts>
@@ -573,6 +680,10 @@
         <description>Verkaufschance Reservierungsanfrage genehmigt</description>
         <protected>false</protected>
         <recipients>
+            <field>Vertriebskoordinator__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <recipients>
             <field>MaklerBetreuer_E_Mail__c</field>
             <type>email</type>
         </recipients>
@@ -580,8 +691,7 @@
             <field>Makler_E_Mail__c</field>
             <type>email</type>
         </recipients>
-        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        <senderType>DefaultWorkflowUser</senderType>
         <template>Reservierungsprozess/Reservierungsschein_in_Ordnung</template>
     </alerts>
     <alerts>
@@ -638,23 +748,13 @@
     </alerts>
     <alerts>
         <fullName>Verkaufschance_eingegangen_intern</fullName>
-        <ccEmails>service@wirtschaftshaus.de</ccEmails>
         <description>Verkaufschance eingegangen intern</description>
         <protected>false</protected>
         <recipients>
-            <field>Projektbeauftragte__c</field>
+            <field>Vertriebskoordinator__c</field>
             <type>contactLookup</type>
         </recipients>
-        <recipients>
-            <recipient>r.grell@carestone.com</recipient>
-            <type>user</type>
-        </recipients>
-        <recipients>
-            <recipient>s.pawils@carestone.com</recipient>
-            <type>user</type>
-        </recipients>
-        <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        <senderType>DefaultWorkflowUser</senderType>
         <template>Reservierungsprozess/Neue_Verkaufschance_intern</template>
     </alerts>
     <alerts>
@@ -678,9 +778,13 @@
     </alerts>
     <alerts>
         <fullName>Verkaufschance_gewonnen</fullName>
-        <ccEmails>a.iffland@wh-verwaltung.de</ccEmails>
+        <ccEmails>implementierung@wh-verwaltung.de</ccEmails>
         <description>Verkaufschance gewonnen</description>
         <protected>false</protected>
+        <recipients>
+            <field>Finanzierungsberater__c</field>
+            <type>contactLookup</type>
+        </recipients>
         <recipients>
             <field>MaklerBetreuer_E_Mail__c</field>
             <type>email</type>
@@ -694,11 +798,19 @@
             <type>user</type>
         </recipients>
         <recipients>
-            <recipient>l.prinz@carestone.com</recipient>
+            <recipient>c.wahlen@carestone.com</recipient>
             <type>user</type>
         </recipients>
         <recipients>
-            <recipient>n.grammann@carestone.com</recipient>
+            <recipient>e.bartelt@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>f.ersinger@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>g.zimmer@carestone.com</recipient>
             <type>user</type>
         </recipients>
         <recipients>
@@ -706,11 +818,11 @@
             <type>user</type>
         </recipients>
         <recipients>
-            <recipient>s.pawils@carestone.com</recipient>
+            <recipient>rechnungswesen@carestone.com</recipient>
             <type>user</type>
         </recipients>
         <recipients>
-            <recipient>t.arnold@wi-immogroup.wh.de</recipient>
+            <recipient>s.pawils@carestone.com</recipient>
             <type>user</type>
         </recipients>
         <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
@@ -754,15 +866,23 @@
             <type>email</type>
         </recipients>
         <recipients>
+            <recipient>a.berisha@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>a.kuehn@carestone.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
             <recipient>r.grell@carestone.com</recipient>
             <type>user</type>
         </recipients>
         <recipients>
-            <recipient>s.pawils@carestone.com</recipient>
+            <recipient>r.lau@carestone.com</recipient>
             <type>user</type>
         </recipients>
         <recipients>
-            <recipient>t.arnold@wi-immogroup.wh.de</recipient>
+            <recipient>s.pawils@carestone.com</recipient>
             <type>user</type>
         </recipients>
         <senderAddress>maklerbetreuung@wirtschaftshaus.de</senderAddress>
@@ -860,6 +980,36 @@
         <reevaluateOnChange>false</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Finanzierungsbest_tigung_senden</fullName>
+        <field>FinanzierungsbestaetigungSenden__c</field>
+        <literalValue>1</literalValue>
+        <name>Finanzierungsbestätigung senden</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Grund_VKC_verloren_Rsv_abgelehnt</fullName>
+        <field>Grund_VKC_verloren__c</field>
+        <literalValue>Reservierungsschein abgelehnt</literalValue>
+        <name>Grund VKC verloren = Rsv. abgelehnt</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Grund_VKC_verloren_VSA_abgelehnt</fullName>
+        <field>Grund_VKC_verloren__c</field>
+        <literalValue>VSA abgelehnt</literalValue>
+        <name>Grund VKC verloren = VSA abgelehnt</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Kaufvertrag_abgegeben</fullName>
         <field>Kaufvertrag_abgegeben__c</field>
         <formula>today()</formula>
@@ -930,10 +1080,20 @@
         <reevaluateOnChange>false</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Reserviert_bis_14_Tage</fullName>
+        <fullName>Reserviert_10_Tage</fullName>
+        <field>reserviert_bis__c</field>
+        <formula>NOW() + 10</formula>
+        <name>Reserviert +10 Tage</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Reserviert_bis_3_Tage</fullName>
         <field>reserviert_bis__c</field>
         <formula>NOW() + 14</formula>
-        <name>Reserviert bis +14 Tage</name>
+        <name>Reserviert bis +3 Tage</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -952,7 +1112,7 @@
     <fieldUpdates>
         <fullName>Reservierung_abgelehnt</fullName>
         <field>StageName</field>
-        <literalValue>Reservierung abgelehnt</literalValue>
+        <literalValue>Beratung</literalValue>
         <name>Reservierung abgelehnt</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
@@ -1000,51 +1160,60 @@
         <reevaluateOnChange>false</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Verkaufschance_Grund_Verl_ngerung</fullName>
-        <description>Das Feld Grund Verlängerung zurücksetzen</description>
-        <field>Grund_Verl_ngerung__c</field>
-        <name>Verkaufschance Grund Verlängerung</name>
+        <fullName>VSA_genehmigt</fullName>
+        <field>VSAGenehmigt__c</field>
+        <literalValue>1</literalValue>
+        <name>VSA genehmigt</name>
         <notifyAssignee>false</notifyAssignee>
-        <operation>Null</operation>
+        <operation>Literal</operation>
         <protected>false</protected>
-        <reevaluateOnChange>false</reevaluateOnChange>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Verkaufschance_Verl_ngerung_beantragen</fullName>
-        <description>Das Feld Verlängerung beantragen zurücksetzen</description>
-        <field>Verl_ngerung_beantragen__c</field>
+        <fullName>VSA_in_Genehmigung</fullName>
+        <field>VSAInGenehmigung__c</field>
+        <literalValue>1</literalValue>
+        <name>VSA in Genehmigung</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>VSA_in_Genehmigung_seit</fullName>
+        <field>VSAInGenehmigungSeit__c</field>
+        <formula>NOW()</formula>
+        <name>VSA in Genehmigung seit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>VSA_nicht_mehr_in_Genehmigung</fullName>
+        <field>VSAInGenehmigung__c</field>
         <literalValue>0</literalValue>
-        <name>Verkaufschance Verlängerung beantragen</name>
+        <name>VSA nicht mehr in Genehmigung</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
-        <reevaluateOnChange>false</reevaluateOnChange>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Verkaufschance_Verl_ngerungsanfrage</fullName>
-        <description>Das Feld Verlängerungsanfrage zurücksetzen</description>
-        <field>Verl_ngerungsanfrage__c</field>
-        <name>Verkaufschance Verlängerungsanfrage</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-        <reevaluateOnChange>false</reevaluateOnChange>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Verkaufschance_Verl_ngerungszeitraum</fullName>
-        <description>Das Feld Verlängerungszeitraum zurücksetzen</description>
-        <field>Verl_ngerungszeitraum_in_Wochen__c</field>
-        <name>Verkaufschance Verlängerungszeitraum</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-        <reevaluateOnChange>false</reevaluateOnChange>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Verkaufschance_reserviert</fullName>
         <field>StageName</field>
         <literalValue>Reserviert</literalValue>
         <name>Verkaufschance reserviert</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Von_Finanzierungsberater_genehmigt</fullName>
+        <field>GenehmigtVonFinanzierungsberater__c</field>
+        <literalValue>1</literalValue>
+        <name>Von Finanzierungsberater genehmigt</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -1104,7 +1273,7 @@
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 OR 2 OR 3 OR 4) AND 5</booleanFilter>
+        <booleanFilter>(1 OR 2 OR 3 OR 4 OR 6) AND 5</booleanFilter>
         <criteriaItems>
             <field>Opportunity.StageName</field>
             <operation>equals</operation>
@@ -1130,6 +1299,11 @@
             <operation>equals</operation>
             <value>Bau Consult GmbH</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Notartermin hat stattgefunden</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -1141,11 +1315,6 @@
         <active>true</active>
         <criteriaItems>
             <field>Opportunity.Kaufpreis_bezahlt__c</field>
-            <operation>equals</operation>
-            <value>Wahr</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.KMKaufpreisBezahlt__c</field>
             <operation>equals</operation>
             <value>Wahr</value>
         </criteriaItems>
@@ -1278,6 +1447,20 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
+        <fullName>Notartermin hat stattgefunden</fullName>
+        <actions>
+            <name>Verkaufschance_gewonnen</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Notartermin hat stattgefunden</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Notartermin vereinbart Kunde</fullName>
         <actions>
             <name>Notartermin_vereinbart_Kunde</name>
@@ -1292,6 +1475,10 @@
             <field>Account.KMNotarterminVereinbartKunde__c</field>
             <operation>equals</operation>
             <value>Wahr</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.NotarterminUhrzeit__c</field>
+            <operation>notEqual</operation>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -1311,20 +1498,24 @@
             <operation>equals</operation>
             <value>Wahr</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.NotarterminUhrzeit__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Reservierung 5%2F2 Tage vor Ablauf</fullName>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Opportunity.StageName</field>
             <operation>equals</operation>
             <value>Reserviert</value>
         </criteriaItems>
         <criteriaItems>
-            <field>Opportunity.VSA_EK_vorhanden__c</field>
+            <field>Opportunity.VSAGenehmigt__c</field>
             <operation>equals</operation>
-            <value>Falsch</value>
+            <value>Wahr</value>
         </criteriaItems>
         <criteriaItems>
             <field>Account.KMReservierunglaeuftInXTagenaus__c</field>
@@ -1353,16 +1544,16 @@
     </rules>
     <rules>
         <fullName>Reservierung 5%2F2 Tage vor Ablauf Immoberater</fullName>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Opportunity.StageName</field>
             <operation>equals</operation>
             <value>Reserviert</value>
         </criteriaItems>
         <criteriaItems>
-            <field>Opportunity.VSA_EK_vorhanden__c</field>
+            <field>Opportunity.VSAGenehmigt__c</field>
             <operation>equals</operation>
-            <value>Falsch</value>
+            <value>Wahr</value>
         </criteriaItems>
         <criteriaItems>
             <field>Opportunity.Berater_text__c</field>
@@ -1396,14 +1587,14 @@
     </rules>
     <rules>
         <fullName>Reservierung 5%2F2 Tage vor Ablauf ZS</fullName>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Opportunity.StageName</field>
             <operation>equals</operation>
             <value>Reserviert</value>
         </criteriaItems>
         <criteriaItems>
-            <field>Opportunity.VSA_EK_vorhanden__c</field>
+            <field>Opportunity.VSAGenehmigt__c</field>
             <operation>equals</operation>
             <value>Wahr</value>
         </criteriaItems>
@@ -1415,20 +1606,20 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
-                <name>Reservierung_l_uft_in_5_Tagen_aus_ZS</name>
-                <type>Alert</type>
-            </actions>
-            <offsetFromField>Opportunity.reserviert_bis__c</offsetFromField>
-            <timeLength>-5</timeLength>
-            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-        <workflowTimeTriggers>
-            <actions>
                 <name>Reservierung_l_uft_in_2_Tagen_aus_ZS</name>
                 <type>Alert</type>
             </actions>
             <offsetFromField>Opportunity.reserviert_bis__c</offsetFromField>
             <timeLength>-2</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Reservierung_l_uft_in_5_Tagen_aus_ZS</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Opportunity.reserviert_bis__c</offsetFromField>
+            <timeLength>-5</timeLength>
             <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
@@ -1441,7 +1632,7 @@
             <value>Reserviert</value>
         </criteriaItems>
         <criteriaItems>
-            <field>Opportunity.VSA_EK_vorhanden__c</field>
+            <field>Opportunity.VSAGenehmigt__c</field>
             <operation>equals</operation>
             <value>Wahr</value>
         </criteriaItems>
@@ -1476,25 +1667,6 @@
         </workflowTimeTriggers>
     </rules>
     <rules>
-        <fullName>Reservierung angefragt Kunde</fullName>
-        <actions>
-            <name>Reservierung_angefragt_Kunde</name>
-            <type>Alert</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Opportunity.StageName</field>
-            <operation>equals</operation>
-            <value>Reservierung angefragt</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.KMReservierungImSystemKunde__c</field>
-            <operation>equals</operation>
-            <value>Wahr</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
         <fullName>Reservierung angefragt Makler</fullName>
         <actions>
             <name>Reservierung_angefragt_Makler</name>
@@ -1514,39 +1686,9 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
-        <fullName>Reservierung läuft aus</fullName>
-        <active>false</active>
-        <formula>NOT(ISNULL(reserviert_bis__c)) &amp;&amp; (ISPICKVAL(StageName, &apos;Reserviert&apos;) || ISPICKVAL(StageName, &apos;Reservierung angefragt&apos;) || ISPICKVAL(StageName, &apos;Kontingent&apos;) ) &amp;&amp;  !Verl_ngerung_beantragen__c</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>VKC_ausgelaufen</name>
-                <type>FieldUpdate</type>
-            </actions>
-            <offsetFromField>Opportunity.reserviert_bis__c</offsetFromField>
-            <timeLength>1</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules>
-    <rules>
-        <fullName>Reservierung läuft aus E-Mail Kunde</fullName>
-        <active>true</active>
-        <formula>NOT(ISNULL(reserviert_bis__c)) &amp;&amp; (ISPICKVAL(StageName, &apos;Reserviert&apos;) || ISPICKVAL(StageName, &apos;Reservierung angefragt&apos;) || ISPICKVAL(StageName, &apos;Kontingent&apos;) ) &amp;&amp;  !Verl_ngerung_beantragen__c &amp;&amp;  Account.KMReservierungErloschenKunde__c</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>Reservierung_l_uft_aus_Kunde</name>
-                <type>Alert</type>
-            </actions>
-            <offsetFromField>Opportunity.reserviert_bis__c</offsetFromField>
-            <timeLength>1</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules>
-    <rules>
         <fullName>Reservierung läuft aus E-Mail Makler</fullName>
-        <active>true</active>
-        <formula>NOT(ISNULL(reserviert_bis__c)) &amp;&amp; (ISPICKVAL(StageName, &apos;Reserviert&apos;) || ISPICKVAL(StageName, &apos;Reservierung angefragt&apos;) || ISPICKVAL(StageName, &apos;Kontingent&apos;) ) &amp;&amp;  !Verl_ngerung_beantragen__c &amp;&amp;  Account.KMReservierungErloschenMakler__c</formula>
+        <active>false</active>
+        <formula>NOT(ISNULL(reserviert_bis__c)) &amp;&amp; (ISPICKVAL(StageName, &apos;Reserviert&apos;) || ISPICKVAL(StageName, &apos;Reservierung angefragt&apos;) || ISPICKVAL(StageName, &apos;Kontingent&apos;) ) &amp;&amp;  Account.KMReservierungErloschenMakler__c</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -1557,30 +1699,6 @@
             <timeLength>1</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
-    </rules>
-    <rules>
-        <fullName>VKC gewonnen</fullName>
-        <actions>
-            <name>Verkaufschance_gewonnen</name>
-            <type>Alert</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Opportunity.StageName</field>
-            <operation>equals</operation>
-            <value>Geschlossene und gewonnene</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Opportunity.VKC_gewonnen__c</field>
-            <operation>equals</operation>
-            <value>Falsch</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Opportunity.Immobilie_makler__c</field>
-            <operation>notEqual</operation>
-            <value>APH Bünde</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>VKC verloren händisch</fullName>
@@ -1602,7 +1720,7 @@
             <name>Zeichnungsschein_an_Notar_verschickt</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Opportunity.Zeichnungsschein_an_Notar_verschickt__c</field>
             <operation>notEqual</operation>
@@ -1617,10 +1735,10 @@
     <rules>
         <fullName>Zeichnungsschein vorhanden</fullName>
         <actions>
-            <name>Reserviert_bis_14_Tage</name>
+            <name>Reserviert_bis_3_Tage</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Opportunity.StageName</field>
             <operation>equals</operation>

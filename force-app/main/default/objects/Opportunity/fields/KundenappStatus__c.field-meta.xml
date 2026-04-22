@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KundenappStatus__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(!IsBlank(Notartermin__c) &amp;&amp; IsClosed = false &amp;&amp; Text(StageName) != &apos;Notartermin hat stattgefunden&apos;, &apos;Notartermin am &apos; + RIGHT(&apos;0&apos;+TEXT(DAY(Notartermin__c)), 2) + &apos;.&apos; + RIGHT(&apos;0&apos;+TEXT(MONTH(Notartermin__c)), 2) + &apos;.&apos; + RIGHT(&apos;0&apos;+TEXT(YEAR(Notartermin__c)), 4), IF(((IsClosed &amp;&amp; IsWon) || Text(StageName) = &apos;Notartermin hat stattgefunden&apos;) &amp;&amp; !Kaufpreis_bezahlt__c, &apos;Warte auf Eigentumsumschreibung&apos;, IF(((IsClosed &amp;&amp; IsWon) || Text(StageName) = &apos;Notartermin hat stattgefunden&apos;) &amp;&amp; (Kaufpreis_bezahlt__c || X1_MaBV_Rate_gezahlt__c), &apos;Besitzübergang erfolgt&apos;, &apos;Reserviert&apos;)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Kundenapp Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

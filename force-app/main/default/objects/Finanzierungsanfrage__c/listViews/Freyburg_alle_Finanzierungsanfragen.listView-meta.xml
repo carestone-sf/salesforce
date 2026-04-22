@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Freyburg_alle_Finanzierungsanfragen</fullName>
+    <columns>NAME</columns>
+    <columns>Phase__c</columns>
+    <columns>Notartermin__c</columns>
+    <columns>Finanzierungsvermittler__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NAME</field>
+        <operation>contains</operation>
+        <value>Freyburg</value>
+    </filters>
+    <label>Freyburg - alle Finanzierungsanfragen</label>
+</ListView>

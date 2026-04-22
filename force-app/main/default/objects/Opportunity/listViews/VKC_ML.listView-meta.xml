@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VKC_ML</fullName>
+    <booleanFilter>2 AND ((1 AND 4) OR 3)</booleanFilter>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Notartermin__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>Maklerbetreuer_WirtschaftsHaus__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Notartermin__c</field>
+        <operation>greaterThan</operation>
+        <value>1/1/2024</value>
+    </filters>
+    <filters>
+        <field>Maklerbetreuer_WirtschaftsHaus__c</field>
+        <operation>equals</operation>
+        <value>Marcel Lindenblatt</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Beratung,Reservierungsvorbereitung,Reservierung angefragt,Reserviert,Auftrag zur Beurkundung vorhanden,Kaufvertragsunterlagen verschickt,Kaufvertragsangebot abgegeben,KV wird fremd abgegeben</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Geschlossene und gewonnene</value>
+    </filters>
+    <label>VKC ML</label>
+</ListView>

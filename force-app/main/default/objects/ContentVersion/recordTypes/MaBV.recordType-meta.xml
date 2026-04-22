@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MaBV</fullName>
+    <active>true</active>
+    <label>MaBV</label>
+    <picklistValues>
+        <picklist>Typ__c</picklist>
+        <values>
+            <fullName>MabV Rechnung</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mahnung</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Storno</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zahlungserinnerung</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zuschussformular %28NK oder MK%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>dfsle__GeneratedFileFormat__c</picklist>
+        <values>
+            <fullName>PDF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Word</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>dfsle__GeneratedFileSuffix__c</picklist>
+        <values>
+            <fullName>date</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>name</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>name_date</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

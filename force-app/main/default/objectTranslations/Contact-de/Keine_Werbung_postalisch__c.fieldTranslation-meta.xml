@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Anhaken wenn der Kontakt postalisch keine Werbung erhalten soll --></help>
+    <label><!-- Keine Werbung postalisch --></label>
+    <name>Keine_Werbung_postalisch__c</name>
+</CustomFieldTranslation>

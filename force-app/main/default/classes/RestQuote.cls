@@ -20,20 +20,17 @@ global without sharing class RestQuote {
                 return null;
             }
 
-            FinanceCalculator fc = new FinanceCalculator();
-            fc.initFinanceModules(c.Id);
-            if(fc.cumulatedYearlyValues.get(fc.firstFullYear) != null) {
-                fc.c.LiquidityMonthlyFirstYear__c = (Decimal)fc.cumulatedYearlyValues.get(fc.firstFullYear).get('monthlyOverageInEuro');
-                update fc.c;
-            }
-
-            String blobAsBase64 = EncodingUtil.base64Encode(body);
-            return blobAsBase64;
+            return RestQuote.attachQuoteFromId(c.Id);
         }
         return null;
     }
+    
+    @future(callout=true)
+    global static void attachQuoteFromIdFuture(Id calculationId) {
+        RestQuote.attachQuoteFromId(calculationId);
+    }
 
-    global static void attachQuoteFromId(Id calculationId) {
+    global static String attachQuoteFromId(Id calculationId) {
         PageReference pdf = Page.CalculationQuote;
         pdf.getParameters().put('id', calculationId);
         Blob body;
@@ -44,7 +41,7 @@ global without sharing class RestQuote {
                 body = pdf.getContentAsPDF();
               }
         } catch (Exception e) {
-            return;
+            return null;
         }
 
         // Dateiname der CSV
@@ -81,12 +78,14 @@ global without sharing class RestQuote {
             fc.c.LiquidityMonthlyFirstYear__c = (Decimal)fc.cumulatedYearlyValues.get(fc.firstFullYear).get('monthlyOverageInEuro');
             update fc.c;
         }
+
+        return EncodingUtil.base64Encode(body);
     }
 
     @InvocableMethod(label='Angebot als PDF an Berechnung anhängen')
     public static void attachQuoteFromIdFlowAction(List<Id> calculationIds) {
         for(Id calculationId:calculationIds) {
-            RestQuote.attachQuoteFromId(calculationId);
+            RestQuote.attachQuoteFromIdFuture(calculationId);
         }
     }
 

@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <label></label>
+    <label><!-- Verkäufer-/Beratungsprovision --></label>
     <name>Verk_ufer_Beratungsprovision__c</name>
     <picklistValues>
         <masterLabel>0.365</masterLabel>
-        <translation></translation>
+        <translation><!-- 0.365 --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>0.5</masterLabel>
-        <translation></translation>
+        <translation><!-- 0.5 --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>0.75</masterLabel>
-        <translation></translation>
+        <translation><!-- 0.75 --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>1.0</masterLabel>
-        <translation></translation>
+        <translation><!-- 1.0 --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>1.25</masterLabel>
-        <translation></translation>
+        <translation><!-- 1.25 --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>1.5</masterLabel>
-        <translation></translation>
+        <translation><!-- 1.5 --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>2.0</masterLabel>
-        <translation></translation>
+        <translation><!-- 2.0 --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Keine</masterLabel>
-        <translation></translation>
+        <translation><!-- Keine --></translation>
     </picklistValues>
 </CustomFieldTranslation>

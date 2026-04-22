@@ -44,280 +44,347 @@
     <layouts>
         <layout>Communitylayout</layout>
         <sections>
-            <label></label>
+            <label><!-- Immobilie --></label>
             <section>Immobilie</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Status --></label>
             <section>Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Vorhandene Unterlagen/Kaufpreisabwicklung --></label>
             <section>Vorhandene Unterlagen/Kaufpreisabwicklung</section>
         </sections>
     </layouts>
     <layouts>
         <layout>FiBu Verkaufschance</layout>
         <sections>
-            <label></label>
+            <label><!-- Auswahl Reservierung Apartment --></label>
             <section>Auswahl Reservierung Apartment</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Docusign --></label>
+            <section>Docusign</section>
+        </sections>
+        <sections>
+            <label><!-- Finanzierung --></label>
             <section>Finanzierung</section>
         </sections>
         <sections>
-            <label></label>
-            <section>Hilfsfelder</section>
+            <label><!-- Mahnung --></label>
+            <section>Mahnung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Nebenkostenzuschuss --></label>
+            <section>Nebenkostenzuschuss</section>
+        </sections>
+        <sections>
+            <label><!-- Provision --></label>
             <section>Provision</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Provisionsauswertung --></label>
             <section>Provisionsauswertung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Status --></label>
             <section>Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- TeamProQ Informationen --></label>
             <section>TeamProQ Informationen</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Vorhandene Unterlagen/Kaufpreisabwicklung --></label>
             <section>Vorhandene Unterlagen/Kaufpreisabwicklung</section>
         </sections>
     </layouts>
     <layouts>
         <layout>FrontOffice Verkaufschance</layout>
         <sections>
-            <label></label>
+            <label><!-- Auswahl Reservierung Apartment --></label>
             <section>Auswahl Reservierung Apartment</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Docusign --></label>
+            <section>Docusign</section>
+        </sections>
+        <sections>
+            <label><!-- Finanzierung --></label>
             <section>Finanzierung</section>
         </sections>
         <sections>
-            <label></label>
-            <section>Hilfsfelder</section>
+            <label><!-- Mahnung --></label>
+            <section>Mahnung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Nebenkostenzuschuss --></label>
+            <section>Nebenkostenzuschuss</section>
+        </sections>
+        <sections>
+            <label><!-- Provision --></label>
             <section>Provision</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Provisionsauswertung --></label>
             <section>Provisionsauswertung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Status --></label>
             <section>Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- TeamProQ Informationen --></label>
             <section>TeamProQ Informationen</section>
         </sections>
         <sections>
-            <label></label>
-            <section>Verlängerung</section>
-        </sections>
-        <sections>
-            <label></label>
+            <label><!-- Vorhandene Unterlagen/Kaufpreisabwicklung --></label>
             <section>Vorhandene Unterlagen/Kaufpreisabwicklung</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Opportunitylayout</layout>
         <sections>
-            <label></label>
+            <label><!-- Auswahl Reservierung Apartment --></label>
             <section>Auswahl Reservierung Apartment</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Docusign --></label>
+            <section>Docusign</section>
+        </sections>
+        <sections>
+            <label><!-- Finanzierung --></label>
             <section>Finanzierung</section>
         </sections>
         <sections>
-            <label></label>
-            <section>Hilfsfelder</section>
+            <label><!-- Mahnung --></label>
+            <section>Mahnung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Nebenkostenzuschuss --></label>
+            <section>Nebenkostenzuschuss</section>
+        </sections>
+        <sections>
+            <label><!-- Provision --></label>
             <section>Provision</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Provisionsauswertung --></label>
             <section>Provisionsauswertung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Status --></label>
             <section>Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- TeamProQ Informationen --></label>
             <section>TeamProQ Informationen</section>
         </sections>
         <sections>
-            <label></label>
-            <section>Verlängerung</section>
-        </sections>
-        <sections>
-            <label></label>
+            <label><!-- Vorhandene Unterlagen/Kaufpreisabwicklung --></label>
             <section>Vorhandene Unterlagen/Kaufpreisabwicklung</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Vertrieb Verkaufschance</layout>
         <sections>
-            <label></label>
+            <label><!-- Auswahl Reservierung Apartment --></label>
             <section>Auswahl Reservierung Apartment</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Docusign --></label>
+            <section>Docusign</section>
+        </sections>
+        <sections>
+            <label><!-- Finanzierung --></label>
             <section>Finanzierung</section>
         </sections>
         <sections>
-            <label></label>
-            <section>Hilfsfelder</section>
+            <label><!-- Mahnung --></label>
+            <section>Mahnung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Nebenkostenzuschuss --></label>
+            <section>Nebenkostenzuschuss</section>
+        </sections>
+        <sections>
+            <label><!-- Provision --></label>
             <section>Provision</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Provisionsauswertung --></label>
             <section>Provisionsauswertung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Status --></label>
             <section>Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- TeamProQ Informationen --></label>
             <section>TeamProQ Informationen</section>
         </sections>
         <sections>
-            <label></label>
-            <section>Verlängerung</section>
-        </sections>
-        <sections>
-            <label></label>
+            <label><!-- Vorhandene Unterlagen/Kaufpreisabwicklung --></label>
             <section>Vorhandene Unterlagen/Kaufpreisabwicklung</section>
         </sections>
     </layouts>
     <quickActions>
-        <label></label>
+        <label><!-- Neue Finanzierungsanfrage --></label>
         <name>Neue_Finanzierungsanfrage</name>
     </quickActions>
     <quickActions>
-        <label></label>
+        <label><!-- VKC schließen --></label>
         <name>VKC_schlie_en</name>
     </quickActions>
-    <quickActions>
-        <label></label>
-        <name>tdc_tsw__Send_SMS</name>
-    </quickActions>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Die Abnahmeprotokoll darf erst gesetzt werden, wenn die VKC auf gewonnen oder &quot;Notartermin hat stattgefunden&quot; gestellt wurde. --></errorMessage>
         <name>AcceptanceProtocollSetBeforeStageWon</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Bitte füllen Sie alle Pflichtfelder im ausgewählten Account aus. Die nötigen Pflichtfelder werden angezeigt sobald man den Account probiert zu speichern. --></errorMessage>
         <name>Account_Pflichtfelder</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Bevor eine Verkaufschance angelegt werden kann, müssen folgende Felder auf dem Makler gepflegt sein: Adresse, E-Mail, Telefon-Nr. --></errorMessage>
         <name>AgentRequiredFields</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Apartment ist nicht verfügbar --></errorMessage>
         <name>Appartment_reserviert</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Bitte gebe an, wann der Bankantrag gestellt wurde. --></errorMessage>
+        <name>BankantragGestelltMussEingetragenSein</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Das Apartment ist nicht verfügbar. --></errorMessage>
+        <name>CantReopenVKC</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Der Notartermin war vor Beginn des Closing Bonus. Bitte entferne die Closing Provision. --></errorMessage>
+        <name>ClosingBonusNotAvailable</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Bevor eine Verkaufschance angelegt werden kann, müssen folgende Felder auf dem Käufer gepflegt sein: Adresse, E-Mail, Telefon-Nr., Geburtsdatum. --></errorMessage>
         <name>CustomerRequiredFields</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Der Darlehensvertrag muss vorliegen. --></errorMessage>
+        <name>DarlehensvertragMussVorliegen</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Bitte gib das Datum an. --></errorMessage>
+        <name>DatumBankantragGestelltDarfNichtLeerSein</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Bitte gib das Datum an. --></errorMessage>
+        <name>DatumDarlehensvertragDarfNichtLeerSein</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Bitte trage das Datum der Rückabwicklung ein --></errorMessage>
+        <name>DatumRueckabwicklungLeer</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Die Verkaufschance muss zuerst geschlossen werden, bevor die Kaufpreisfälligkeit eingetragen werden kann. --></errorMessage>
         <name>Faelligkeit_eingetragen_vor_close</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Bitte wählen Sie einen Grund aus, warum die VKC verloren ist. --></errorMessage>
         <name>Grund_VKC_verloren_leer</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage>
+            <!-- Bitte füllen Sie alle MaBV relevanten Daten aus:
+Kaufdatum, Notartermin, Adresse des Käufers, Urkundennummer Kaufvertrag ODER Urkundennummer Angebot, Annahme -->
+        </errorMessage>
         <name>MaBV_Abrechnung_relevante_Daten</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Dieser Mahnprozess bezieht sich auf Bestandsimmobilien. Bitte den Mahnprozess auf der MaBV-Rechnung verwenden. --></errorMessage>
         <name>MahnprozessNurFuerBestand</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Für diese VKC / Immobilie liegt ein Mahnstopp vor --></errorMessage>
+        <name>Mahnstopp</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Bitte den Vertriebskoordinator und die Bank &amp; IBAN beim Käufer eintragen. --></errorMessage>
+        <name>NKZuschussRequiredFields</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Um dieses Feld anzuhaken muss die VSA / der EK vorliegen (Feld VSA / EK vorhanden) und bei KfW 461 Finanzierungen die KfW Bestätigung. --></errorMessage>
         <name>Notartermin</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Wenn ein Notartermin fest vereinbart ist, muss auch immer die zugehörige Uhrzeit eingetragen sein, damit diese dem Kunden und dem Makler autom. mitgeteilt werden kann. --></errorMessage>
+        <name>Notartermin_must_have_Time</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Der Potenzielle Kunde darf nachträglich nicht mehr geändert werden. Bitte melden Sie sich bei Ihrem Vertriebsmanager. --></errorMessage>
         <name>Potenzieller_Kunde_ge_ndert</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Die Immobilie und das Teilobjekt dürfen nach der Beratung nicht leer sein --></errorMessage>
         <name>PropertyAndApartmentNotEmptyAfterConsult</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Bitte storniere alle Gutschriften, bevor du die Provisionsdaten änderst. --></errorMessage>
         <name>ProvisionsdatenNichtAenderbar</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Sie haben nicht die nötigen Rechte, diese Felder/Werte zu bearbeiten. Bitte wenden Sie sich an den Systemadministrator oder das Controlling. --></errorMessage>
+        <name>Provisionsfelderbeschraenkung</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Der Preis darf nur nach Rücksprache mit R&amp;F angepasst werden. --></errorMessage>
+        <name>PurchasePriceCantBeChangedWithoutRF</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Die Kaufpreisfälligkeit darf erst gesetzt werden, wenn die VKC auf gewonnen gestellt wurde. --></errorMessage>
         <name>PurchasePriceDueSetBeforeStageWon</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Eine VKC darf nur reaktiviert werden, wenn die Einheit/das Appartment das gleiche bleibt. Für ein neues Apt. bitte eine neue VKC eröffnen, ggfs. über die &quot;Duplizieren&quot;-Funktion. --></errorMessage>
+        <name>Reopnen_VKC_only_with_same_Apt</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Sie sind nicht dazu berechtigt die Phase zu ändern, bitte melden Sie sich bei Ihrem Vertriebsmanager. --></errorMessage>
         <name>Reservierungsvorbereitung_ge_ndert</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Die Phase kann nicht von einem verlorenen Wert auf einen anderen verlorenen Wert gestellt werden. --></errorMessage>
+        <name>StageCantBeSetLostToLost</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Der Kaufpreis muss vollständig bezahlt sein, bevor die VKC geschlossen werden kann. --></errorMessage>
+        <name>VKCGewonnenOhneKaufpreisBezahlt</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Bitte füllen Sie das Feld aus --></errorMessage>
         <name>VKC_ohne_Angebotsabgabe_geschlossen</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Bitte geben Sie das korrekte Kaufdatum ein --></errorMessage>
         <name>VKC_ohne_Kaufdatum_geschlossen</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Wenn die Beurkundung zweiseitig ist, darf die Angebotsabgabe nicht ausgefüllt sein. --></errorMessage>
         <name>Zweiseitige_Beurkundung</name>
     </validationRules>
     <webLinks>
-        <label></label>
+        <label><!-- Deca1W67000005HF6JEAW --></label>
         <name>Deca1W67000005HF6JEAW</name>
     </webLinks>
     <webLinks>
-        <label></label>
+        <label><!-- Provision --></label>
         <name>Provision</name>
     </webLinks>
     <webLinks>
-        <label></label>
+        <label><!-- Provisionsnachverfolgung_MB --></label>
         <name>Provisionsnachverfolgung_MB</name>
     </webLinks>
     <webLinks>
-        <label></label>
+        <label><!-- Punktestand --></label>
         <name>Punktestand</name>
-    </webLinks>
-    <webLinks>
-        <label></label>
-        <name>tdc_tsw__Send_SMS</name>
-    </webLinks>
-    <webLinks>
-        <label></label>
-        <name>tdc_tsw__Send_SMS_List</name>
-    </webLinks>
-    <webLinks>
-        <label></label>
-        <name>tdc_tsw__Send_SMS_SF1</name>
     </webLinks>
 </CustomObjectTranslation>

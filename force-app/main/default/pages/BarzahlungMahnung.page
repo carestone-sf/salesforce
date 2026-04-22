@@ -101,19 +101,21 @@
         Letzte Mahnung
     </h3>
     <br/>
+    <br/>
+    <br/>
 
     <div class="zahlungserinnerung-1" style="{!IF(Opportunity.Mahnstufe__c == 1, 'display:block', 'display:none')}">
         Sehr geehrte/r {!Opportunity.Potenzieller_Kunde__r.Salutation} {!Opportunity.Potenzieller_Kunde__r.FirstName} {!Opportunity.Potenzieller_Kunde__r.LastName}, <span style="{!IF(Opportunity.Kunde2__c != null, 'display:inline', 'display:none')}">
             <br/>sehr geehrte/r {!Opportunity.Kunde2__r.Salutation} {!Opportunity.Kunde2__r.FirstName} {!Opportunity.Kunde2__r.LastName},
             </span> <br/><br/>
  
-        wir freuen uns über Ihr Vertrauen in unsere nachhaltigen Kapitalanlageprodukte und gratulieren Ihnen herzlich zum Kauf des {!Opportunity.Appartement__r.Name} in {!Opportunity.Immobilie__r.Name}.
+        wir freuen uns über Ihr Vertrauen in unsere nachhaltigen Kapitalanlageprodukte und gratulieren Ihnen herzlich zum Kauf der/des {!Opportunity.Appartement__r.Name} in {!Opportunity.Immobilie__r.Name}.
         <br/><br/>
-        Es ist uns bewusst, dass es manchmal zu Verzögerungen bei finanziellen Angelegenheiten kommen kann. Daher möchten wir Sie freundlich daran erinnern, dass die Kaufpreiszahlung für die erworbene Pflegeimmobilie noch aussteht. Gemäß den getroffenen Vereinbarungen war die Zahlung bereits am&nbsp;<apex:outputField value="{!Opportunity.ZahlungszielDatum__c}"/> fällig.
+        Es ist verständlich, dass es manchmal zu Verzögerungen bei finanziellen Angelegenheiten kommen kann. Daher möchten wir Sie freundlich daran erinnern, dass die Kaufpreiszahlung für die erworbene Pflegeimmobilie noch aussteht. Gemäß den getroffenen Vereinbarungen war die Zahlung bereits am&nbsp;<apex:outputField value="{!Opportunity.ZahlungszielDatum__c}"/> fällig.
         <br/><br/>
-        Unser Ziel ist es, eine reibungslose und angenehme Zusammenarbeit zu gewährleisten. Sollten Sie Schwierigkeiten oder Fragen bezüglich der Zahlung haben, zögern Sie bitte nicht, uns zu kontaktieren. Wir helfen gern bei der Lösung etwaiger Probleme.
-        <br/><br/>
-        Wir sind zuversichtlich, dass diese Angelegenheit bald geklärt sein wird und freuen uns darauf, weiterhin mit Ihnen in Kontakt zu bleiben.
+        Sollten Sie Schwierigkeiten oder Fragen bezüglich der Zahlung haben, zögern Sie bitte nicht, uns zu kontaktieren. Wir helfen gern bei der Lösung etwaiger Probleme.
+        <br/>
+        
         
     </div>
 
@@ -154,54 +156,22 @@
     </div>
 
     <br/>
-    
+   
     <p>
         Zahlungen nach dem {!LPAD(TEXT(DAY(TODAY()-1)), 2, '0') + '.' + LPAD(TEXT(MONTH(TODAY())), 2, '0') + '.' + TEXT(YEAR(TODAY()))} sind nicht berücksichtigt. Sollte sich Ihre Zahlung mit diesem Schreiben überschnitten haben, betrachten Sie bitte diese Erinnerung als gegenstandslos.
     </p>
-
     <br/>
-
-    <table>
-        <colgroup>
-            <col span="1" style="width: 25%;"/>
-            <col span="1" style="width: 75%;"/>
-        </colgroup>
-        <tr>
-            <td>
-                zu Gunsten:
-            </td>
-            <td>
-                {!Opportunity.Immobilie__r.Unternehmen__r.Unternehmensname__c}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                IBAN:
-            </td>
-            <td>
-                {!Opportunity.Immobilie__r.IBAN__c}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                BIC:
-            </td>
-            <td>
-                {!Opportunity.Immobilie__r.BIC__c}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Verwendungszweck:
-            </td>
-            <td>
-                {!Opportunity.UrkundennummerKaufvertragsannahme__c} {!Opportunity.Potenzieller_Kunde__r.DatevDebitorenKundennummerKaeufer__c}
-            </td>
-        </tr>
-    </table>
-    
     <br/>
-    
+    Mit freundlichen Grüßen
+   <br/>
+    {!Opportunity.Immobilie__r.Unternehmen__r.Unternehmensname__c}
+   <br/>
+   <br/>
+   <br/>
+   
+    Dieses Schreiben wurde elektronisch erstellt und ist ohne Unterschrift gültig.    
+    <br/>
+   <br/> 
     </div>
 
     <div class="bottom-center-div" style="font-size: 8px; line-height: 12px;">

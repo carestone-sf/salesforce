@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>Digitale VSA</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>Digitale VSAs</value>
+    </caseValues>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Digitale VSA Layout</layout>
+        <sections>
+            <label><!-- Arbeitgeber --></label>
+            <section>Arbeitgeber</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Kontaktinformationen --></label>
+            <section>Kontaktinformationen</section>
+        </sections>
+        <sections>
+            <label><!-- Monatliche Ausgaben --></label>
+            <section>Monatliche Ausgaben</section>
+        </sections>
+        <sections>
+            <label><!-- Monatliche Netto-Einnahmen --></label>
+            <section>Monatliche Netto-Einnahmen</section>
+        </sections>
+        <sections>
+            <label><!-- Steuerberater --></label>
+            <section>Steuerberater</section>
+        </sections>
+        <sections>
+            <label><!-- Vermögenswerte --></label>
+            <section>Vermögenswerte</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

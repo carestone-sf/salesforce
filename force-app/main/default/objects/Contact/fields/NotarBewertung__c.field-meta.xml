@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NotarBewertung__c</fullName>
+    <externalId>false</externalId>
+    <label>Notar Bewertung</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Rot</fullName>
+                <default>false</default>
+                <label>Rot</label>
+            </value>
+            <value>
+                <fullName>Gelb</fullName>
+                <default>false</default>
+                <label>Gelb</label>
+            </value>
+            <value>
+                <fullName>Grün</fullName>
+                <default>false</default>
+                <label>Grün</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

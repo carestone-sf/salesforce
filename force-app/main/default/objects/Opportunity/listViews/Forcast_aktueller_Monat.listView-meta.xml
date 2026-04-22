@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Forcast_aktueller_Monat</fullName>
+    <columns>Maklerbetreuer_WirtschaftsHaus__c</columns>
+    <columns>PlannedCertification__c</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>Notartermin__c</columns>
+    <columns>NotaryDatePossibleFrom__c</columns>
+    <columns>Zeichnungsschein_an_Notar_verschickt__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Immobilie__c</columns>
+    <columns>Appartement__c</columns>
+    <columns>PhaseFinanzierungsanfrage__c</columns>
+    <columns>StatusAmpel__c</columns>
+    <columns>Finanzierung__c</columns>
+    <columns>NotesSalesControlling__c</columns>
+    <columns>OPPORTUNITY.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Beratung,Reserviert,Kaufvertragsunterlagen verschickt,KV wird fremd abgegeben,Geschlossene und gewonnene,VKC gewonnen,Notartermin hat stattgefunden</value>
+    </filters>
+    <filters>
+        <field>Maklerbetreuer_WirtschaftsHaus__c</field>
+        <operation>equals</operation>
+        <value>,Sven Schulz,Robin Joel Simon,Harald Senftleben,Vincent Ostrowsky,Robert Schmidt,Clara Wahlen,Katrin Baar</value>
+    </filters>
+    <filters>
+        <field>PlannedCertification__c</field>
+        <operation>equals</operation>
+        <value>Current Month</value>
+    </filters>
+    <label>Forecast aktueller Monat Team Sven</label>
+</ListView>

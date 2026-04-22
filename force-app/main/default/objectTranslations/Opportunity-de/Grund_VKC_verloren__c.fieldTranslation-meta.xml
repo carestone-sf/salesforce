@@ -1,73 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <label></label>
+    <label><!-- Grund VKC verloren --></label>
     <name>Grund_VKC_verloren__c</name>
     <picklistValues>
         <masterLabel>Aus TeamProQ storniert</masterLabel>
-        <translation></translation>
+        <translation><!-- Aus TeamProQ storniert --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Durch WH auf anderes Objekt umgestellt</masterLabel>
-        <translation></translation>
+        <translation><!-- Durch WH auf anderes Objekt umgestellt --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Interessent bevorzugt ein anderes Investment</masterLabel>
-        <translation></translation>
+        <translation><!-- Interessent bevorzugt ein anderes Investment --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Interessent hat kein Interesse mehr</masterLabel>
-        <translation></translation>
+        <translation><!-- Interessent hat kein Interesse mehr --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Interessent ist erkrankt</masterLabel>
-        <translation></translation>
+        <translation><!-- Interessent ist erkrankt --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Interessent möchte ein anderes Objekt</masterLabel>
-        <translation></translation>
+        <translation><!-- Interessent möchte ein anderes Objekt --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Interessent möchte sein Kapital jetzt anlegen</masterLabel>
-        <translation></translation>
+        <translation><!-- Interessent möchte sein Kapital jetzt anlegen --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Interessent reagiert nicht mehr</masterLabel>
-        <translation></translation>
+        <translation><!-- Interessent reagiert nicht mehr --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Interessent unzufrieden mit Abwicklung WH</masterLabel>
-        <translation></translation>
+        <translation><!-- Interessent unzufrieden mit Abwicklung WH --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Interessent unzufrieden mit Makler</masterLabel>
-        <translation></translation>
+        <translation><!-- Interessent unzufrieden mit Makler --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Interessent will später investieren</masterLabel>
-        <translation></translation>
+        <translation><!-- Interessent will später investieren --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Kapital wird anderweitig benötigt</masterLabel>
-        <translation></translation>
+        <translation><!-- Kapital wird anderweitig benötigt --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Keine Finanzierung möglich</masterLabel>
-        <translation></translation>
+        <translation><!-- Keine Finanzierung möglich --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Makler ist erkrankt</masterLabel>
-        <translation></translation>
+        <translation><!-- Makler ist erkrankt --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Makler reagiert nicht mehr</masterLabel>
-        <translation></translation>
+        <translation><!-- Makler reagiert nicht mehr --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Objekt wird anderweitig verkauft</masterLabel>
-        <translation></translation>
+        <translation><!-- Objekt wird anderweitig verkauft --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Reservierungsschein abgelehnt</masterLabel>
+        <translation><!-- Reservierungsschein abgelehnt --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rückabwicklung</masterLabel>
+        <translation><!-- Rückabwicklung --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>VKC ausgelaufen</masterLabel>
-        <translation></translation>
+        <translation><!-- VKC ausgelaufen --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VSA abgelehnt</masterLabel>
+        <translation><!-- VSA abgelehnt --></translation>
     </picklistValues>
 </CustomFieldTranslation>

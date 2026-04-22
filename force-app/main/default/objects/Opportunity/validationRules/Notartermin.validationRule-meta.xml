@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Notartermin</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+VoraussetzungenFuerNotarterminErfuellt__c , 
+!PRIORVALUE(VoraussetzungenFuerNotarterminErfuellt__c),
+!Account.HatEigeneFinanzierung__c,
+OR(
+AND(
+TEXT(KfwWunsch__c) = &apos;KfW-Zuschuss (461)&apos;,
+OR(
+!VSA_EK_vorhanden__c,
+!KfwBestaetigungVorhanden__c
+)
+),
+AND(
+TEXT(KfwWunsch__c) != &apos;KfW-Zuschuss (461)&apos;,
+!VSA_EK_vorhanden__c
+)
+)
+)</errorConditionFormula>
+    <errorDisplayField>VoraussetzungenFuerNotarterminErfuellt__c</errorDisplayField>
+    <errorMessage>Um dieses Feld anzuhaken muss die VSA / der EK vorliegen (Feld VSA / EK vorhanden) und bei KfW 461 Finanzierungen die KfW Bestätigung.</errorMessage>
+</ValidationRule>

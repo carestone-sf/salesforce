@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Alle_Anzeigen</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.ADDRESS1_CITY</columns>
+    <columns>CONTACT.LEAD_SOURCE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Gesch_ftsbeziehung__c</columns>
+    <columns>PARENT.NAME</columns>
+    <columns>Makler_E_Mail__c</columns>
+    <columns>Kunden_Maklerschutz__c</columns>
+    <columns>Kundenschutz__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTACT.LAST_UPDATE</columns>
+    <filterScope>Mine</filterScope>
+    <label>Alle Anzeigen</label>
+</ListView>

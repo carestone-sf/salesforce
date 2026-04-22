@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Tracking-Typ --></label>
+    <name>Typ__c</name>
+    <picklistValues>
+        <masterLabel>Dokument</masterLabel>
+        <translation><!-- Dokument --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Immobilie</masterLabel>
+        <translation><!-- Immobilie --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Video</masterLabel>
+        <translation><!-- Video --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

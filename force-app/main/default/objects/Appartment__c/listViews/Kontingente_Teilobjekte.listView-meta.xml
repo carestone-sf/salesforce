@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Kontingente_Teilobjekte</fullName>
+    <columns>Property__c</columns>
+    <columns>NAME</columns>
+    <columns>Status__c</columns>
+    <columns>ContingentRequester__c</columns>
+    <columns>Reserviert_bis__c</columns>
+    <columns>Purchase_Price__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Kontingent</value>
+    </filters>
+    <label>Kontingente</label>
+</ListView>

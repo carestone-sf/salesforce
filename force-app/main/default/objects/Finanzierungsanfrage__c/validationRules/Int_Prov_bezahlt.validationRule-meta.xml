@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Int_Prov_bezahlt</fullName>
+    <active>true</active>
+    <description>Nur Gerald Zimmer soll dieses Feld nutzen, um die int. Provisionszahlung an die CS financial abzubilden.</description>
+    <errorConditionFormula>AND(
+    ISCHANGED(Int_Prov_bez__c),
+    NOT(
+        OR(
+            $User.Username = &quot;g.zimmer@carestone.com&quot;,
+            $Profile.Name = &quot;System Administrator&quot;
+        )
+    )
+)</errorConditionFormula>
+    <errorMessage>Bitte prüfen Sie die Eingabe. Das Feld &quot;Int. Prov. bez.&quot; darf nur von bestimmten usern bearbeitet werden.</errorMessage>
+</ValidationRule>

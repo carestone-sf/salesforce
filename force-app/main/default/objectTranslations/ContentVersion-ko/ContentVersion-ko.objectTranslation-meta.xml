@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Inhaltversion-Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Account --></label>
+        <name>Account</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Finanzierungsanfragen --></label>
+        <name>Finanzierungsanfragen</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Gutschriften --></label>
+        <name>Gutschriften</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- MaBV --></label>
+        <name>MaBV</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- VKC --></label>
+        <name>VKC</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Vertriebsportal --></label>
+        <name>Vertriebsportal</name>
+    </recordTypes>
+</CustomObjectTranslation>

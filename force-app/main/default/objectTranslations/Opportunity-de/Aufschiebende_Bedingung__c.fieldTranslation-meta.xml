@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>
+        <!-- - Keine = Keine aufschiebende Bedingung vorhanden
+- Aufschiebende Bedingung vorhanden = Es existiert eine Bedingung, z. B. KfW‑Darlehenszusage fehlt noch
+- Aufschiebende Bedingung erfüllt = Bedingung wurde erfüllt (z. B. Kaufpreisfälligkeit bestätigt)
+- Aufschiebende Bedingung nicht erfüllt = Ablauf überschritten, keine Erfüllung → Vertrag kommt nicht zustande -->
+    </help>
+    <label><!-- Aufschiebende Bedingung --></label>
+    <name>Aufschiebende_Bedingung__c</name>
+    <picklistValues>
+        <masterLabel>Bedingung erfüllt</masterLabel>
+        <translation><!-- Bedingung erfüllt --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bedingung nicht erfüllt</masterLabel>
+        <translation><!-- Bedingung nicht erfüllt --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>keine</masterLabel>
+        <translation><!-- keine --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>vorhanden</masterLabel>
+        <translation><!-- vorhanden --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Wird auf VKC gepflegt. --></help>
+    <label><!-- FB Entscheidung möglich --></label>
+    <name>FB_Entscheidung_moeglich_FinAnf__c</name>
+</CustomFieldTranslation>

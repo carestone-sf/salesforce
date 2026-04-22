@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Finanzierung__c</fullName>
+    <externalId>false</externalId>
+    <label>Finanzierung</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Carestone</fullName>
+                <default>false</default>
+                <label>Carestone</label>
+            </value>
+            <value>
+                <fullName>Fremdfinanzierung</fullName>
+                <default>false</default>
+                <label>Fremdfinanzierung</label>
+            </value>
+            <value>
+                <fullName>Eigenkapitalzahlung</fullName>
+                <default>false</default>
+                <label>Eigenkapitalzahlung</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -35,6 +35,11 @@
                 <default>false</default>
                 <label>Baufortschritt</label>
             </value>
+            <value>
+                <fullName>Musterberechnung</fullName>
+                <default>false</default>
+                <label>Musterberechnung</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

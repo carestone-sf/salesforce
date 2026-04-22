@@ -24,16 +24,16 @@ global without sharing class GenerateInternalCommissionBatch implements Database
                 query += ' WHERE ('
                     + '(CALENDAR_MONTH(Notartermin__c) = :lastMonth AND CALENDAR_YEAR(Notartermin__c) = :lastYearOrThisYear)'
                     + ' OR (CALENDAR_YEAR(Notartermin__c) = :thisYear AND CALENDAR_MONTH(Notartermin__c) = :thisMonth)'
-                    + ' OR (CALENDAR_MONTH(Datum_Kaufpreis_bezahlt__c) = :lastMonth AND CALENDAR_YEAR(Datum_Kaufpreis_bezahlt__c) = :lastYearOrThisYear)'
-                    + ' OR (CALENDAR_YEAR(Datum_Kaufpreis_bezahlt__c) = :thisYear AND CALENDAR_MONTH(Datum_Kaufpreis_bezahlt__c) = :thisMonth)'
-                    + ' OR (CALENDAR_MONTH(Datum_1_MaBV_Rate_gezahlt__c) = :lastMonth AND CALENDAR_YEAR(Datum_1_MaBV_Rate_gezahlt__c) = :lastYearOrThisYear)'
-                    + ' OR (CALENDAR_YEAR(Datum_1_MaBV_Rate_gezahlt__c) = :thisYear AND CALENDAR_MONTH(Datum_1_MaBV_Rate_gezahlt__c) = :thisMonth)'
+                    + ' OR (CALENDAR_MONTH(Datum_Kaufpreis_bezahlt__c) = :lastMonth AND CALENDAR_YEAR(Datum_Kaufpreis_bezahlt__c) = :lastYearOrThisYear AND Notartermin__c >= 2025-04-01)'
+                    + ' OR (CALENDAR_YEAR(Datum_Kaufpreis_bezahlt__c) = :thisYear AND CALENDAR_MONTH(Datum_Kaufpreis_bezahlt__c) = :thisMonth AND Notartermin__c >= 2025-04-01)'
+                    + ' OR (CALENDAR_MONTH(Datum_1_MaBV_Rate_gezahlt__c) = :lastMonth AND CALENDAR_YEAR(Datum_1_MaBV_Rate_gezahlt__c) = :lastYearOrThisYear AND Notartermin__c >= 2025-04-01)'
+                    + ' OR (CALENDAR_YEAR(Datum_1_MaBV_Rate_gezahlt__c) = :thisYear AND CALENDAR_MONTH(Datum_1_MaBV_Rate_gezahlt__c) = :thisMonth AND Notartermin__c >= 2025-04-01)'
                     + ')';
             } else if (todaysDate.day() > 10) {
                 query += ' WHERE ('
                     + '(CALENDAR_MONTH(Notartermin__c) = :thisMonth AND CALENDAR_YEAR(Notartermin__c) = :thisYear)'
-                    + ' OR (CALENDAR_MONTH(Datum_Kaufpreis_bezahlt__c) = :thisMonth AND CALENDAR_YEAR(Datum_Kaufpreis_bezahlt__c) = :thisYear)'
-                    + ' OR (CALENDAR_MONTH(Datum_1_MaBV_Rate_gezahlt__c) = :thisMonth AND CALENDAR_YEAR(Datum_1_MaBV_Rate_gezahlt__c) = :thisYear)'
+                    + ' OR (CALENDAR_MONTH(Datum_Kaufpreis_bezahlt__c) = :thisMonth AND CALENDAR_YEAR(Datum_Kaufpreis_bezahlt__c) = :thisYear AND Notartermin__c >= 2025-04-01)'
+                    + ' OR (CALENDAR_MONTH(Datum_1_MaBV_Rate_gezahlt__c) = :thisMonth AND CALENDAR_YEAR(Datum_1_MaBV_Rate_gezahlt__c) = :thisYear AND Notartermin__c >= 2025-04-01)'
                     + ')';
             }
         } else if(this.schedule == 'quarter') {

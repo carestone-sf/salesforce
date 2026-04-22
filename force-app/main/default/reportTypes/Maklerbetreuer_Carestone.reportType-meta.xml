@@ -321,11 +321,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>tdc_tsw__SMS_Opt_out__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Steuernummer__c</field>
             <table>Account</table>
         </columns>
@@ -839,6 +834,126 @@
             <field>Telefonkampagne__c</field>
             <table>Account</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Letzter_Notartermin_vor_2023__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FarbeText__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FarbeHintergrund__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Potenzialanalyse__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Feldaenderungen__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>InstagramUrl__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FacebookUrl__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LinkedInUrl__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>XingUrl__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PrimaererAnsprechpartner__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TrustpilotUrl__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Gruendungsjahr__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>GoogleMyBusinessUrl__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AnzahlBewertungen__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DurchschnittBewertungen__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NewsArtikel__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PotenzialanalyseStarten__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Status__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Score__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ScoreText__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NamePotenzialanalyse__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Mandant_in_Datev_anlegen__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CarestoneSetter__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VPFreigabeZuUebergeordnetenAccounts__c</field>
+            <table>Account</table>
+        </columns>
         <masterLabel>Accounts</masterLabel>
     </sections>
     <sections>
@@ -1145,11 +1260,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Komplementaer__c</field>
-            <table>Account.BetreuteAccounts__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>tdc_tsw__SMS_Opt_out__c</field>
             <table>Account.BetreuteAccounts__r</table>
         </columns>
         <columns>
@@ -1877,17 +1987,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Bank__c</field>
-            <table>Account.BetreuteAccounts__r.Contacts</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Kontonummer__c</field>
-            <table>Account.BetreuteAccounts__r.Contacts</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Kontoinhaber__c</field>
             <table>Account.BetreuteAccounts__r.Contacts</table>
         </columns>
         <columns>
@@ -1937,47 +2037,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>tdc_tsw__Phone_Status__c</field>
-            <table>Account.BetreuteAccounts__r.Contacts</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>tdc_tsw__Phone_Verification_Status__c</field>
-            <table>Account.BetreuteAccounts__r.Contacts</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>tdc_tsw__Phone_Verify_Result_Msg__c</field>
-            <table>Account.BetreuteAccounts__r.Contacts</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>tdc_tsw__SMS_Opt_out__c</field>
-            <table>Account.BetreuteAccounts__r.Contacts</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>tdc_tsw__Type__c</field>
-            <table>Account.BetreuteAccounts__r.Contacts</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Funktion__c</field>
             <table>Account.BetreuteAccounts__r.Contacts</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Keine_Vorabprovision__c</field>
-            <table>Account.BetreuteAccounts__r.Contacts</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>tdc_tsw__Verified_Phone__c</field>
-            <table>Account.BetreuteAccounts__r.Contacts</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>tdc_tsw__result__c</field>
             <table>Account.BetreuteAccounts__r.Contacts</table>
         </columns>
         <columns>
@@ -2400,6 +2465,81 @@
             <field>Adresszusatz__c</field>
             <table>Account.BetreuteAccounts__r.Contacts</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>KundenappEinladungSenden__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Aktivierungscode__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FirebaseUserId__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PasswortZuruecksetzenCode__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ErfolgsabhaengigeMaxInProzent__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProfilfotoUrl__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LogoUrl__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ErfolgsabhaengigeProvisionInEuro__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BenutzerSimulieren__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ProvisionVertriebskoordination__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Loeschvermerk__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BIC__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>KontoinhaberFallsAbweichend__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Bank__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Alternative_Email__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
         <masterLabel>Contacts</masterLabel>
     </sections>
     <sections>
@@ -2426,6 +2566,121 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ErhaeltErfolgsabhaengigeProvision__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NotarBewertung__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NotarBewertungAmpel__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>EinladungZumVPSenden__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VPBenutzerId__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>HatVPZugang__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VPRollen__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VPPasswortVergessenEmailSenden__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PasswortVergessenToken__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Kampagnen__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Alterskategorie__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>GrundFuersInvestment__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Objektinteresse__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>EigenkapitalText__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Feldaenderungen__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CalendlyUrl__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ImVertriebsportalAnzeigen__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>RolleVertriebsportal__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VertriebsportalFotoUrl__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>RechnerVideoGesehen__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DatenschutzStatus__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DatumDatenschutzStatus__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ErhaeltErfolgsabhaengigeProvisionVon__c</field>
+            <table>Account.BetreuteAccounts__r.Contacts</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ErhaeltErfolgsabhaengigeProvisionBis__c</field>
             <table>Account.BetreuteAccounts__r.Contacts</table>
         </columns>
         <masterLabel>Kontakte</masterLabel>

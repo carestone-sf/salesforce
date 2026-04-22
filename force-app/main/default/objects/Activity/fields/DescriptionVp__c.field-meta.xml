@@ -3,7 +3,7 @@
     <fullName>DescriptionVp__c</fullName>
     <description>Description to show in Vertriebsportal</description>
     <externalId>false</externalId>
-    <inlineHelpText>Enter description when it should differ from above one.</inlineHelpText>
+    <inlineHelpText>Beschreibung eingeben, welche im Vertriebsportal angezeigt werden soll</inlineHelpText>
     <label>Description Vertriebsportal</label>
     <required>false</required>
     <type>TextArea</type>

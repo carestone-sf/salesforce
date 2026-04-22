@@ -128,7 +128,7 @@ margin-top: 30px;
       <tr style="background-color: #d7d7d7;"><td style="font-weight:bold;">Wohnungsgrößen: </td><td align="right"><apex:outputField value="{!property.Fl_che_ab__c}"></apex:outputField> m&sup2; -&nbsp;<apex:outputField value="{!property.Fl_che_bis__c}"></apex:outputField> m&sup2; <br/>(inkl. Gemeinschaftsfläche)</td></tr>
       <tr style="background-color: #e7e7e7;"><td style="font-weight:bold;">Kaufpreis: </td><td align="right"><apex:outputField value="{!property.Preis_ab__c}"></apex:outputField> -&nbsp;<apex:outputField value="{!property.Preis_bis__c}"></apex:outputField><br/> pro Wohneinheit</td></tr>
       <tr style="background-color: #d7d7d7;"><td style="font-weight:bold;">Mietrendite: </td><td align="right">Anfängliche Mietrendite von ca. <br/><apex:outputField value="{!property.Max_Rendite__c}"></apex:outputField> p.a. bezogen a. d. KP</td></tr>
-      <tr style="background-color: #e7e7e7;"><td style="font-weight:bold;">Erwerbsnebenkosten: </td><td align="right"><apex:outputField value="{!property.Real_Estate_Transfer_Tax__c}"></apex:outputField> Grunderwerbssteuern<br/>ca 2,50% Notar- und Gerichtskosten</td></tr>
+      <tr style="background-color: #e7e7e7;"><td style="font-weight:bold;">Erwerbsnebenkosten: </td><td align="right"><apex:outputField value="{!property.Real_Estate_Transfer_Tax__c}"></apex:outputField> Grunderwerbssteuern<br/>ca 1,50% Notar- und Gerichtskosten</td></tr>
       <tr style="background-color: #d7d7d7;"><td style="font-weight:bold;">Betreiber: </td><td align="right">{!property.Betreiber__r.Name} <br/>{!property.Betreiber__r.Stra_e__c} &#183; {!property.Betreiber__r.PLZ__c} {!property.Betreiber__r.Stadt__c}</td></tr>
   </table>
   

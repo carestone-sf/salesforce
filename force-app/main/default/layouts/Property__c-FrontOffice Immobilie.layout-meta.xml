@@ -161,6 +161,14 @@
                 <field>ImVertriebsportalSichtbar__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ShowOnWebsite__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ExklusivVertrieben__c</field>
+            </layoutItems>
+            <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
@@ -522,10 +530,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Verkaufsprovision__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>PVNotarterminStattgefunden__c</field>
             </layoutItems>
             <layoutItems>
@@ -535,6 +539,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Provision_nach_Kaufpreiszahlung__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ClosingBonusAb__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -808,9 +816,9 @@
         <fields>Nachname_Kunde__c</fields>
         <fields>Notartermin__c</fields>
         <fields>Finanzierung__c</fields>
+        <fields>Makler__c</fields>
         <fields>Maklerbetreuer_WirtschaftsHaus_lookup__c</fields>
         <fields>StatusAmpel__c</fields>
-        <fields>GrundschuldIstBestellt__c</fields>
         <relatedList>Appartment__c.Property__c</relatedList>
         <sortField>NAME</sortField>
         <sortOrder>Asc</sortOrder>

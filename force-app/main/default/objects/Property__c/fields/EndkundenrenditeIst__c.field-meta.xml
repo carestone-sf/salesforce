@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>EndkundenrenditeIst__c</fullName>
     <externalId>false</externalId>
-    <formula>MonatsmieteBeiVerkauf__c * 12 / (VerkaufsvolumenIst__c -  IncentivierungKundeIst__c)</formula>
+    <formula>MonatsmieteBeiVerkauf__c * 12 / VerkaufsvolumenIst__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Endkundenrendite Ist</label>
     <precision>18</precision>

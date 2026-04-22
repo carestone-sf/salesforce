@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Test3</fullName>
+    <columns>NAME</columns>
+    <columns>IVA1__c</columns>
+    <columns>IVA1genehmigt__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IVA1__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>IVA1genehmigt__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Test</label>
+</ListView>

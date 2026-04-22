@@ -122,7 +122,7 @@
                 font-weight: 600;
                 font-size: 24pt;
                 line-height: 30.8pt;
-                color: rgb({!$User.BackgroundColor__c});
+                color: rgb({!IF(!IsBlank($User.BackgroundColor__c), $User.BackgroundColor__c, Berechnung__c.Makler__r.Account.FarbeHintergrund__c)});
             }
 
             h2 {
@@ -154,6 +154,10 @@
                 line-height: 10pt;
             }
 
+            .unicode {
+                font-family: 'Arial Unicode MS';
+            }
+
             .positive-bar {
                 width: {!SUBSTITUTE(firstYearAfterPaymentValues[firstYearAfterPayment]['percentageTenant'], ',', '.')}%;
                 background-color: #00A86B;
@@ -180,7 +184,7 @@
 
             .footer-page-count {
                 position: running(footer-page-count);
-                border-top: 1.5px solid rgb({!$User.BackgroundColor__c});
+                border-top: 1.5px solid rgb({!IF(!IsBlank($User.BackgroundColor__c), $User.BackgroundColor__c, Berechnung__c.Makler__r.Account.FarbeHintergrund__c)});
                 margin-right: 2cm;
                 margin-left: 2.5cm;
                 text-align: right;
@@ -192,7 +196,7 @@
                 right: 0;
                 left: 0;
                 height: 8cm;
-                background-color: rgb({!$User.BackgroundColor__c});
+                background-color: rgb({!IF(!IsBlank($User.BackgroundColor__c), $User.BackgroundColor__c, Berechnung__c.Makler__r.Account.FarbeHintergrund__c)});
             }
 
             .negative-value {
@@ -258,7 +262,7 @@
             }
 
             .data thead th {
-                background-color: rgb({!$User.BackgroundColor__c});
+                background-color: rgb({!IF(!IsBlank($User.BackgroundColor__c), $User.BackgroundColor__c, Berechnung__c.Makler__r.Account.FarbeHintergrund__c)});
                 color: white;
             }
 
@@ -298,7 +302,7 @@
 
             .logo {
                 margin-right: 0.5cm;
-                width: 200px;
+                width: 170px;
                 height: auto;
             }
 
@@ -329,7 +333,7 @@
     </head>
 
     <div class="top-right-header">
-        <img class="logo" src="{!$User.LogoUrl__c}"/>
+        <img class="logo" src="{!IF(!IsBlank($User.LogoUrl__c), $User.LogoUrl__c, Berechnung__c.Makler__r.Account.LogoUrl__c)}"/>
     </div>
 
     <div class="other-div"></div>
@@ -346,13 +350,13 @@
             <div class="highlight-text">
                 <p><b>Für:</b></p>
                 <p>
-                    <span>{!Berechnung__c.ErsterKaeufer__r.Name}</span>
-                    <span style="{!IF(Berechnung__c.ZweiterKaeufer__c != null, 'display:inline', 'display:none')}"><br/>{!Berechnung__c.ZweiterKaeufer__r.Name}</span>
+                    <span>{!Berechnung__c.ErsterKaeufer__r.Salutation} {!Berechnung__c.ErsterKaeufer__r.Title} {!Berechnung__c.ErsterKaeufer__r.Name}</span>
+                    <span style="{!IF(Berechnung__c.ZweiterKaeufer__c != null, 'display:inline', 'display:none')}"><br/>{!Berechnung__c.ZweiterKaeufer__r.Salutation} {!Berechnung__c.ZweiterKaeufer__r.Title} {!Berechnung__c.ZweiterKaeufer__r.Name}</span>
                 </p>
                 <br/><br/>
                 <p><b>Erstellungsdatum:</b></p>
                 <p>
-                    <apex:outputText value="{0, date, d'.'MM'.'yyyy}">
+                    <apex:outputText value="{0, date, dd'.'MM'.'yyyy}">
                         <apex:param value="{!TODAY()}" /> 
                     </apex:outputText>
                 </p>
@@ -381,7 +385,7 @@
                         </p>
                     </div>
                     <div class="c-clearfix center" style="width: 49%; display: block; float:right;">
-                        <img style="height: 6cm; max-width: 100%; {!IF($User.ImgUrl__c != null, 'display:inline-block', 'display:none')}" src="{!$User.ImgUrl__c}"/>
+                        <img style="height: 6cm; max-width: 100%; {!IF(!IsBlank($User.ImgUrl__c) || !IsBlank(Berechnung__c.Makler__r.ProfilfotoUrl__c), 'display:inline-block', 'display:none')}" src="{! IF(!IsBlank($User.ImgUrl__c), $User.ImgUrl__c, Berechnung__c.Makler__r.ProfilfotoUrl__c)}"/>
                     </div>
                 </div>
             </div>
@@ -703,7 +707,7 @@
         
                     <div style="width: 49%; display: block; float: right;">
                         Ein alternatives Sparprodukt muss folgende Verzinsung
-                        aufweisen, um das gleiche Ergebnis zu erzielen:
+                        aufweisen, um das gleiche Ergebnis zu erzielen (inklusive Abgeltungssteuer und Soli):
                         <p class="highlight">{!sumsForLiquidity['interestInPercentTotal']} %</p>
                     </div>
                 </div>
@@ -712,6 +716,15 @@
             <div class="c-clearfix" style="{!IF(Berechnung__c.EigenkapitalrenditeAnzeigen__c, 'display: block;', 'display:none;')}">
                 <p class="smallheadline">Mit diesem Angebot beläuft sich die Eigenkapitalrendite auf:</p>
                 <p class="highlight">{!sumsForLiquidity['selfPercentTotal']} %</p>
+            </div>
+            <div style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: block;', 'display: none;')}">
+                <br/> <br/>
+                <div class="afa-overview">
+                    <h3 class="main-headline-big">AfA Berechnung</h3>
+                    <apex:repeat value="{!afaValues}" var="afaValue">
+                        {!afaValue}<br/>
+                    </apex:repeat>
+                </div>
             </div>
             <br/> <br/> <br/><br/> <br/> <br/>
         <div class="disclaimer-text footer">
@@ -726,7 +739,7 @@
         <!-- End of page 2 -->
     </div>  
 
-    <div class="page page-3" style="page-break-before: always; {!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: block;', 'display: none;')}">
+    <div class="page page-3" style="page-break-before: always; {!IF(Berechnung__c.Finanzierungsart__c != 'Bar' && hasMoreThanOneFinanzierungsbaustein, 'display: block;', 'display: none;')}">
         <!-- Start of page 3 -->
         <div class="main-content">
             <h2>KUMULIERTE FINANZIERUNGSÜBERSICHT</h2>
@@ -814,7 +827,7 @@
                 <div class="pagination">
                     <apex:variable value="{!0}" var="financeModulePage"/>
                     <apex:repeat value="{!financeModule.paginatedYearlyValues}" var="yearlyValues">
-                        <table class="data" style="{!IF(financeModulePage != financeModule.pages, 'page-break-after:always;','')}">
+                        <table class="data" style="{!IF(financeModulePage != financeModule.pages, 'page-break-after:always;','')} {!IF(calcSonder != null && calcSonder[financeModule.f.Id] != null && calcSonder[financeModule.f.Id][0] = 'true', 'font-size:8pt;', '')}">
                             <thead>
                                 <th>Jahr</th>
                                 <th align="right">Darlehensstand</th>
@@ -897,7 +910,7 @@
                                 <th align="right">Steuer</th>
                                 <th class="light-background" align="right">Liquid. p.a.</th>
                                 <th class="light-background" align="right">Liquid. mtl.</th>
-                                <th style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: table-cell;', 'display: none;')}" align="right">Darlehensstand</th>
+                                <th style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: table-cell;', 'display: none;')}" align="right">Darlehen</th>
                                 <th align="right">Kaufpreis</th>
                             </thead>
                             <tbody>
@@ -914,7 +927,7 @@
                                         <td class="{!IF(CONTAINS(cumulatedYearlyValues[cumulatedYearlyValuesKey]['taxesInEuro'], '-'), 'negative-value', '')}" align="right">{!IF(CONTAINS(cumulatedYearlyValues[cumulatedYearlyValuesKey]['taxesInEuro'], '-'), '- ', '')}{!SUBSTITUTE(cumulatedYearlyValues[cumulatedYearlyValuesKey]['taxesInEuro'], '-', '')} &euro;</td>
                                         <td class="{!IF(CONTAINS(cumulatedYearlyValues[cumulatedYearlyValuesKey]['yearlyOverageInEuro'], '-'), 'negative-value', '')} no-background" align="right">{!IF(CONTAINS(cumulatedYearlyValues[cumulatedYearlyValuesKey]['yearlyOverageInEuro'], '-'), '- ', '')}{!SUBSTITUTE(cumulatedYearlyValues[cumulatedYearlyValuesKey]['yearlyOverageInEuro'], '-', '')} &euro;</td>
                                         <td class="{!IF(CONTAINS(cumulatedYearlyValues[cumulatedYearlyValuesKey]['monthlyOverageInEuro'], '-'), 'negative-value', '')} no-background" align="right">{!IF(CONTAINS(cumulatedYearlyValues[cumulatedYearlyValuesKey]['monthlyOverageInEuro'], '-'), '- ', '')}{!SUBSTITUTE(cumulatedYearlyValues[cumulatedYearlyValuesKey]['monthlyOverageInEuro'], '-', '')} &euro;</td>
-                                        <td class="no-background" align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['creditSumEndInEuro']} &euro;</td>
+                                        <td style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: table-cell;', 'display: none;')}" class="no-background" align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['creditSumEndInEuro']} &euro;</td>
                                         <td class="no-background" align="right">{!cumulatedYearlyValues[cumulatedYearlyValuesKey]['kaufpreis']} &euro;</td>
                                     </tr>
                                 </apex:repeat>
@@ -928,9 +941,9 @@
                                     <td class="no-background data-theader" align="right"></td>
                                     <td class="no-background data-theader" align="right"></td>
                                     <td class="{!sumsForLiquidity['taxesInEuroClass']} data-theader" align="right">{!sumsForLiquidity['taxesInEuro']} &euro;</td>
-                                    <td class="{!sumsForLiquidity['yearlyOverageInEuroClass']} no-background data-theader" align="right">{!sumsForLiquidity['yearlyOverageInEuro']} &euro;</td>
-                                    <td class="{!sumsForLiquidity['monthlyOverageInEuroClass']} no-background data-theader" align="right">{!sumsForLiquidity['monthlyOverageInEuro']} &euro;</td>
-                                    <td class="no-background data-theader" align="right"></td>
+                                    <td class="{!sumsForLiquidity['yearlyOverageInEuroClass']} no-background data-theader" align="right"><span class="unicode">&#8960;</span> {!sumsForLiquidity['yearlyOverageInEuro']} &euro;</td>
+                                    <td class="{!sumsForLiquidity['monthlyOverageInEuroClass']} no-background data-theader" align="right"><span class="unicode">&#8960;</span> {!sumsForLiquidity['monthlyOverageInEuro']} &euro;</td>
+                                    <td style="{!IF(Berechnung__c.Finanzierungsart__c != 'Bar', 'display: table-cell;', 'display: none;')}" class="no-background data-theader" align="right"></td>
                                     <td class="no-background data-theader" align="right"></td>
                                 </tr>
                             </tbody>

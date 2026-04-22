@@ -22,6 +22,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Gewinnspiel</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Immobilienscout24%2Ede</fullName>
             <default>false</default>
         </values>
@@ -35,6 +39,14 @@
         </values>
         <values>
             <fullName>Infoveranstaltung in Rietberg</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LeadGroup</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MetaAdCampaign_MMG</fullName>
             <default>false</default>
         </values>
         <values>
@@ -58,6 +70,18 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Profino-Webinar 01%2E04%2E2025</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Profino-Webinar 11%2E12%2E2024</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Profino-Webinar 21%2E02%2E2025</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Reach Local</fullName>
             <default>false</default>
         </values>
@@ -71,10 +95,6 @@
         </values>
         <values>
             <fullName>WH Express</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>WH Ferien</fullName>
             <default>false</default>
         </values>
         <values>
@@ -102,6 +122,10 @@
         </values>
         <values>
             <fullName>Maklerauftrag beidseitig unterzeichnet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Neue Vertriebsvereinbarung unterschrieben</fullName>
             <default>false</default>
         </values>
         <values>
@@ -171,6 +195,10 @@
     <picklistValues>
         <picklist>Industry</picklist>
         <values>
+            <fullName>Andere</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Bank</fullName>
             <default>false</default>
         </values>
@@ -207,6 +235,10 @@
         </values>
         <values>
             <fullName>D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Disqualifiziert</fullName>
             <default>false</default>
         </values>
         <values>
@@ -537,6 +569,37 @@
         </values>
         <values>
             <fullName>Lange zurückliegend</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Aktiv</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blacklist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inaktiv</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kontaktiert</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Neu</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Terminiert</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Verloren</fullName>
             <default>false</default>
         </values>
     </picklistValues>

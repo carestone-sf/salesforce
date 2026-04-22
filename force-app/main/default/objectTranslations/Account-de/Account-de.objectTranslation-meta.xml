@@ -3,286 +3,301 @@
     <layouts>
         <layout>Accountlayout</layout>
         <sections>
-            <label></label>
+            <label><!-- Abrechnung --></label>
             <section>Abrechnung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Hilfsfelder --></label>
             <section>Hilfsfelder</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kommunikationsmanagement - Kunde --></label>
             <section>Kommunikationsmanagement - Kunde</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kommunikationsmanagement - Makler --></label>
             <section>Kommunikationsmanagement - Makler</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kontaktinformationen --></label>
             <section>Kontaktinformationen</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Makleraufträge und Objektvereinbarungen --></label>
             <section>Makleraufträge und Objektvereinbarungen</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Provisionsübersicht --></label>
             <section>Provisionsübersicht</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Umsatz und Absatz Informationen zum Account --></label>
             <section>Umsatz und Absatz Informationen zum Account</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Verträge und Schutz --></label>
             <section>Verträge und Schutz</section>
         </sections>
     </layouts>
     <layouts>
-        <layout>BackOffice Account</layout>
+        <layout>Brokerage Layout</layout>
         <sections>
-            <label></label>
+            <label><!-- Abrechnung --></label>
             <section>Abrechnung</section>
         </sections>
         <sections>
-            <label></label>
-            <section>Hilfsfelder</section>
+            <label><!-- Aktivitätenzusammenfassung --></label>
+            <section>Aktivitätenzusammenfassung</section>
         </sections>
         <sections>
-            <label></label>
-            <section>Kommunikationsmanagement - Kunde</section>
+            <label><!-- Backoffice Aktivierungstelefonie --></label>
+            <section>Backoffice Aktivierungstelefonie</section>
         </sections>
         <sections>
-            <label></label>
-            <section>Kommunikationsmanagement - Makler</section>
+            <label><!-- Betreuung --></label>
+            <section>Betreuung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kontaktinformationen --></label>
             <section>Kontaktinformationen</section>
         </sections>
         <sections>
-            <label></label>
-            <section>Makleraufträge und Objektvereinbarungen</section>
+            <label><!-- Potenzialanalyse --></label>
+            <section>Potenzialanalyse</section>
         </sections>
         <sections>
-            <label></label>
-            <section>Provisionsübersicht</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Umsatz und Absatz Informationen zum Account</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Verträge und Schutz</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>Community Layout</layout>
-        <sections>
-            <label></label>
-            <section>Adressinformationen</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Kontaktinformationen</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>Empfang Account</layout>
-        <sections>
-            <label></label>
-            <section>Abrechnung</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Hilfsfelder</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Kontaktinformationen</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Umsatz und Absatz Informationen zum Account</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Verträge und Schutz</section>
+            <label><!-- Verträge --></label>
+            <section>Verträge</section>
         </sections>
     </layouts>
     <layouts>
         <layout>FrontOffice Account</layout>
         <sections>
-            <label></label>
+            <label><!-- Abrechnung --></label>
             <section>Abrechnung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Hilfsfelder --></label>
             <section>Hilfsfelder</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kommunikationsmanagement - Kunde --></label>
             <section>Kommunikationsmanagement - Kunde</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kommunikationsmanagement - Makler --></label>
             <section>Kommunikationsmanagement - Makler</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kontaktinformationen --></label>
             <section>Kontaktinformationen</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Makleraufträge und Objektvereinbarungen --></label>
             <section>Makleraufträge und Objektvereinbarungen</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Provisionsübersicht --></label>
             <section>Provisionsübersicht</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Umsatz und Absatz Informationen zum Account --></label>
             <section>Umsatz und Absatz Informationen zum Account</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Verträge und Schutz --></label>
             <section>Verträge und Schutz</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Marketing Account</layout>
         <sections>
-            <label></label>
+            <label><!-- Abrechnung --></label>
             <section>Abrechnung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Hilfsfelder --></label>
             <section>Hilfsfelder</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kontaktinformationen --></label>
+            <section>Kontaktinformationen</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Other</layout>
+        <sections>
+            <label><!-- Abrechnung --></label>
+            <section>Abrechnung</section>
+        </sections>
+        <sections>
+            <label><!-- Datev --></label>
+            <section>Datev</section>
+        </sections>
+        <sections>
+            <label><!-- Kontaktinformationen --></label>
+            <section>Kontaktinformationen</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ProjectFinancier</layout>
+        <sections>
+            <label><!-- Geschäftsdaten --></label>
+            <section>Geschäftsdaten</section>
+        </sections>
+        <sections>
+            <label><!-- Kontaktinformationen --></label>
             <section>Kontaktinformationen</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Vertrieb Account</layout>
         <sections>
-            <label></label>
+            <label><!-- Abrechnung --></label>
             <section>Abrechnung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Hilfsfelder --></label>
             <section>Hilfsfelder</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kommunikationsmanagement - Kunde --></label>
             <section>Kommunikationsmanagement - Kunde</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kommunikationsmanagement - Makler --></label>
             <section>Kommunikationsmanagement - Makler</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kontaktinformationen --></label>
             <section>Kontaktinformationen</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Makleraufträge und Objektvereinbarungen --></label>
             <section>Makleraufträge und Objektvereinbarungen</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Provisionsübersicht --></label>
             <section>Provisionsübersicht</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Umsatz und Absatz Informationen zum Account --></label>
             <section>Umsatz und Absatz Informationen zum Account</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Verträge und Schutz --></label>
             <section>Verträge und Schutz</section>
         </sections>
     </layouts>
     <quickActions>
-        <label></label>
-        <name>tdc_tsw__Send_SMS</name>
+        <label><!-- Calendly Code --></label>
+        <name>Calendly_Code</name>
     </quickActions>
+    <recordTypes>
+        <label><!-- Vertriebspartner --></label>
+        <name>Brokerage</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Carestone Gesellschaft --></label>
+        <name>CarestoneCompany</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Endkundenfinanzierer --></label>
+        <name>EndCustomerFinancier</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Joint-Venture-Partner --></label>
+        <name>JointVenturePartner</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Notar --></label>
+        <name>Notary</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Projektfinanzierer --></label>
+        <name>ProjectFinancier</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Bauträger --></label>
+        <name>PropertyDeveloper</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Verkäufer --></label>
+        <name>Seller</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Anbieter --></label>
+        <name>Vendor</name>
+    </recordTypes>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Bitte füllen Sie die USt. Id. aus --></errorMessage>
         <name>Ansaessigkeit_ausserhalb_Deutschland</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage>
+            <!-- Bitte fülle alle Daten unter &quot;Abrechnung&quot; aus und zusätzlich:
+Telefon, Telefax, Email, Website, Rechnungsadresse -->
+        </errorMessage>
         <name>Bautraeger_Pflichtangaben</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Nur die Finanzbuchhaltung, Projektentwicklung und Systemadministratoren dürfen Bauträger anpassen --></errorMessage>
         <name>Bautraeger_wurde_geaendert</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Bitte gib hier an, woher die Information kommt, welchen MwSt-Satz der Makler hat --></errorMessage>
         <name>Hinweis_zur_MwSt_ist_leer</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Bitte prüfen Sie die IBAN auf dem Account. Sie entspricht keinem der gängigen Formate, was zu Fehlern im Zahlungsverkehr führt. --></errorMessage>
+        <name>IBAN_Validierung</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Die IBAN ist ungültig, bitte überprüfen Sie diese und geben Sie die korrekte IBAN ein. --></errorMessage>
         <name>IbanUngueltig</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Nur bestimmte Benutzer sind hierzu befugt. Bitte melden Sie sich bei Ihrem Vertriebsmanager. --></errorMessage>
         <name>Uebergeordneter_Account_geaendert</name>
     </validationRules>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Bitte tragen Sie eine Umsatzsteuer ID oder eine Steuernummer ein --></errorMessage>
         <name>Ustd_Id_oder_Steuernummer_leer</name>
     </validationRules>
     <webLinks>
-        <label></label>
+        <label><!-- AltavistaNews --></label>
         <name>AltavistaNews</name>
     </webLinks>
     <webLinks>
-        <label></label>
+        <label><!-- GoogleMaps --></label>
         <name>GoogleMaps</name>
     </webLinks>
     <webLinks>
-        <label></label>
+        <label><!-- GoogleNews --></label>
         <name>GoogleNews</name>
     </webLinks>
     <webLinks>
-        <label></label>
+        <label><!-- GoogleSearch --></label>
         <name>GoogleSearch</name>
     </webLinks>
     <webLinks>
-        <label></label>
+        <label><!-- HooversProfile --></label>
         <name>HooversProfile</name>
     </webLinks>
     <webLinks>
-        <label></label>
+        <label><!-- Partnerbenutzer --></label>
         <name>Partnerbenutzer</name>
     </webLinks>
     <webLinks>
-        <label></label>
+        <label><!-- Standardbenutzer --></label>
         <name>Standardbenutzer</name>
     </webLinks>
     <webLinks>
-        <label></label>
+        <label><!-- Verkaufsvolumen_mit_Hierarchie --></label>
         <name>Verkaufsvolumen_mit_Hierarchie</name>
     </webLinks>
     <webLinks>
-        <label></label>
+        <label><!-- YahooMaps --></label>
         <name>YahooMaps</name>
-    </webLinks>
-    <webLinks>
-        <label></label>
-        <name>tdc_tsw__Send_SMS</name>
-    </webLinks>
-    <webLinks>
-        <label></label>
-        <name>tdc_tsw__Send_SMS_List</name>
-    </webLinks>
-    <webLinks>
-        <label></label>
-        <name>tdc_tsw__Send_SMS_SF1</name>
     </webLinks>
 </CustomObjectTranslation>

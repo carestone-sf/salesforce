@@ -4,6 +4,7 @@
     <externalId>false</externalId>
     <label>Bauart</label>
     <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
@@ -25,6 +26,16 @@
                 <fullName>Sonstige</fullName>
                 <default>false</default>
                 <label>Sonstige</label>
+            </value>
+            <value>
+                <fullName>Vertrieb</fullName>
+                <default>false</default>
+                <label>Vertrieb</label>
+            </value>
+            <value>
+                <fullName>Ersatzbau</fullName>
+                <default>false</default>
+                <label>Ersatzbau</label>
             </value>
         </valueSetDefinition>
     </valueSet>

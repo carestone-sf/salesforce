@@ -149,7 +149,7 @@
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>true</enableFeeds>
-    <enableHistory>false</enableHistory>
+    <enableHistory>true</enableHistory>
     <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
@@ -162,6 +162,7 @@
         <displayFormat>Provision-{0000}</displayFormat>
         <label>Provision-Name</label>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Provisionen</pluralLabel>
@@ -169,8 +170,8 @@
         <customTabListAdditionalFields>Makler__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Provisionssatz__c</customTabListAdditionalFields>
         <excludedStandardButtons>New</excludedStandardButtons>
-        <excludedStandardButtons>Accept</excludedStandardButtons>
         <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
         <searchResultsAdditionalFields>Makler__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Provisionssatz__c</searchResultsAdditionalFields>
     </searchLayouts>

@@ -4,10 +4,10 @@
     <name>Rental_Status__c</name>
     <picklistValues>
         <masterLabel>Available</masterLabel>
-        <translation></translation>
+        <translation><!-- Available --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Not Available</masterLabel>
-        <translation></translation>
+        <translation><!-- Not Available --></translation>
     </picklistValues>
 </CustomFieldTranslation>

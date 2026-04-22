@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Account</entityName>
+    <fieldName>Kategorie__c</fieldName>
+    <masterLabel>Account Klassifizierung</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Alle_gewonnenen_Verkaufschancen__c</fieldNames>
+        <fieldNames>Gesch_ftsbeziehung__c</fieldNames>
+        <fieldNames>PotenzialanalyseErfasst__c</fieldNames>
+        <fieldNames>Nicht_umschl_sseln_Betreuungsaktivit_t__c</fieldNames>
+        <fieldNames>AnnualTargetPlanning__c</fieldNames>
+        <picklistValueName>A</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>PotenzialanalyseErfasst__c</fieldNames>
+        <fieldNames>Gesch_ftsbeziehung__c</fieldNames>
+        <fieldNames>AnnualRevenue</fieldNames>
+        <fieldNames>Nicht_umschl_sseln_Betreuungsaktivit_t__c</fieldNames>
+        <fieldNames>AnnualTargetPlanning__c</fieldNames>
+        <picklistValueName>B</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>AnnualTargetPlanning__c</fieldNames>
+        <picklistValueName>C</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>ParentId</fieldNames>
+        <fieldNames>Maklerbetreuer_Wirtschaftshaus_2__c</fieldNames>
+        <picklistValueName>D</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>AnnualRevenue</fieldNames>
+        <fieldNames>BillingAddress</fieldNames>
+        <fieldNames>PotenzialanalyseErfasst__c</fieldNames>
+        <fieldNames>PotenzialanalyseErfasstAm__c</fieldNames>
+        <fieldNames>AnnualTargetPlanning__c</fieldNames>
+        <picklistValueName>Nicht kategorisiert</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>

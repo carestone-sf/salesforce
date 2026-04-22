@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pflegeart__c</fullName>
+    <externalId>false</externalId>
+    <label>Pflegeart</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Stationäre Pflege</fullName>
+                <default>false</default>
+                <label>Stationäre Pflege</label>
+            </value>
+            <value>
+                <fullName>Tagespflege</fullName>
+                <default>false</default>
+                <label>Tagespflege</label>
+            </value>
+            <value>
+                <fullName>Betreutes Wohnen</fullName>
+                <default>false</default>
+                <label>Betreutes Wohnen</label>
+            </value>
+            <value>
+                <fullName>Ambulante Pflege</fullName>
+                <default>false</default>
+                <label>Ambulante Pflege</label>
+            </value>
+            <value>
+                <fullName>Sonstiges (Intensivpflege, Jungepflege, Wiedereingliederungshilfe)</fullName>
+                <default>false</default>
+                <label>Sonstiges (Intensivpflege, Jungepflege, Wiedereingliederungshilfe)</label>
+            </value>
+            <value>
+                <fullName>Verwaltungsobjekt</fullName>
+                <default>false</default>
+                <label>Verwaltungsobjekt</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

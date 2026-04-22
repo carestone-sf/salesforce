@@ -3,7 +3,7 @@
     <fullName>SubjectVp__c</fullName>
     <description>Subject to show in Vertriebsportal</description>
     <externalId>false</externalId>
-    <inlineHelpText>Enter subject when it should differ from above one.</inlineHelpText>
+    <inlineHelpText>Thema eingeben, welches im Vertriebsportal angezeigt werden soll</inlineHelpText>
     <label>Subject Vertriebsportal</label>
     <length>80</length>
     <required>false</required>

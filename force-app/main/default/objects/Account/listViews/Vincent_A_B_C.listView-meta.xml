@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vincent_A_B_C</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.SITE</columns>
+    <columns>AnnualTargetPlanning__c</columns>
+    <columns>Kategorie__c</columns>
+    <columns>Alle_gewonnenen_Verkaufschancen__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>Vostr</value>
+    </filters>
+    <filters>
+        <field>Kategorie__c</field>
+        <operation>equals</operation>
+        <value>A,B,C</value>
+    </filters>
+    <label>Vincent A/B/C</label>
+</ListView>

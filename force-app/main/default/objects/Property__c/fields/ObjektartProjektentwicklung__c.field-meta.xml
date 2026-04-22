@@ -4,6 +4,7 @@
     <externalId>false</externalId>
     <label>Objektart Projektentwicklung</label>
     <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
@@ -25,6 +26,11 @@
                 <fullName>Bestand</fullName>
                 <default>false</default>
                 <label>Bestand</label>
+            </value>
+            <value>
+                <fullName>Ersatz Neubau</fullName>
+                <default>false</default>
+                <label>Ersatz Neubau</label>
             </value>
         </valueSetDefinition>
     </valueSet>

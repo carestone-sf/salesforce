@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <help></help>
-    <label></label>
+    <help><!-- Bis wann erhält der im Feld &quot;Overhead Empfänger&quot; angegebene Makler seine Provision? --></help>
+    <label><!-- Overhead Provision bis --></label>
     <name>OverheadProvisionBis__c</name>
 </CustomFieldTranslation>

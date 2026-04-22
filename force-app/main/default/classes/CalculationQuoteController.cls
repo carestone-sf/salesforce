@@ -9,6 +9,9 @@ public without sharing class CalculationQuoteController {
         this.calculation = (Berechnung__c)stdController.getRecord();
         this.fc = new FinanceCalculator();
         this.fc.initFinanceModules(this.calculation.Id);
+        if(this.fc.c.Finanzierungsart__c != 'Bar') {
+            this.fc.generateAfaValues();   
+        }
         this.fc.generatePagination();
         this.fc.calculateLiquiditySums();
         this.fc.calculateCreditInformation();
@@ -42,6 +45,14 @@ public without sharing class CalculationQuoteController {
 
     public Map<String, Object> getCreditInformation() {
         return this.fc.creditInformation;
+    }
+
+    public List<String> getAfaValues() {
+        return this.fc.afaValues;
+    }
+
+    public Boolean getHasMoreThanOneFinanzierungsbaustein() {
+        return this.getFinanceModules() != null && this.getFinanceModules().size() > 1;
     }
 
     public Map<Integer, Map<String, Object>> getFirstYearAfterPaymentValues() {

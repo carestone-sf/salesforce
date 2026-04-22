@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Anbieterart --></label>
+    <name>VendorType__c</name>
+    <picklistValues>
+        <masterLabel>Betreiber</masterLabel>
+        <translation><!-- Betreiber --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kommune</masterLabel>
+        <translation><!-- Kommune --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Makler</masterLabel>
+        <translation><!-- Makler --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Privatperson</masterLabel>
+        <translation><!-- Privatperson --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Projektentwickler</masterLabel>
+        <translation><!-- Projektentwickler --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sonstige</masterLabel>
+        <translation><!-- Sonstige --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

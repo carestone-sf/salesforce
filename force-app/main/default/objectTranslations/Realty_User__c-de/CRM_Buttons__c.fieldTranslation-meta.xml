@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- CRM Buttons --></label>
+    <name>CRM_Buttons__c</name>
+    <picklistValues>
+        <masterLabel>Access_Accounts</masterLabel>
+        <translation><!-- Access_Accounts --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Access_Campaigns</masterLabel>
+        <translation><!-- Access_Campaigns --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Access_Full</masterLabel>
+        <translation><!-- Access_Full --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Access_Opportunities</masterLabel>
+        <translation><!-- Access_Opportunities --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Access_Tasks</masterLabel>
+        <translation><!-- Access_Tasks --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Access_User</masterLabel>
+        <translation><!-- Access_User --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Can_Edit_Full</masterLabel>
+        <translation><!-- Can_Edit_Full --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Is_Admin</masterLabel>
+        <translation><!-- Is_Admin --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Is_Broker</masterLabel>
+        <translation><!-- Is_Broker --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Is_Disabled</masterLabel>
+        <translation><!-- Is_Disabled --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Is_Employee</masterLabel>
+        <translation><!-- Is_Employee --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

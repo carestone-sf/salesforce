@@ -1,0 +1,229 @@
+<apex:page standardController="CampaignMember" renderAs="pdf" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false">
+    <html>
+    <head>
+        <style type="text/css" media="print">
+            @page {
+                size: A4;
+                margin: 0mm; /* Kein Rand, damit der Hintergrund vollflächig ist */
+            }
+            body {
+                font-family: sans-serif;
+                margin: 0;
+                padding: 0;
+                color: #000000;
+                font-size: 13px;
+                position: relative;
+            }
+            /* Vollflächiges Hintergrundbild */
+            .bg-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+            }
+            
+            /* --- NEU: ZERTIFIKATSNUMMER OBEN RECHTS --- */
+            .cert-number {
+                position: absolute;
+                top: 40px;   /* Auf einer Höhe mit dem Inhalt/Logo */
+                right: 70px; /* Bündig mit dem rechten Textrand */
+                font-size: 11px;
+                color: #555555; /* Ein dezentes Grau, damit es nicht zu aufdringlich wirkt */
+            }
+
+            .content-wrapper {
+                /* WICHTIG: 180px unten reserviert den Platz für den fixierten Footer! */
+                padding: 40px 70px 180px 70px; 
+                box-sizing: border-box;
+                height: 100%;
+                z-index: 1;
+            }
+            /* --- FOOTER FIXIERUNG --- */
+            .footer-container {
+                position: fixed;
+                bottom: 40px; /* Gleicher Abstand nach unten wie das generelle Padding */
+                left: 70px;   /* Gleicher Abstand nach links */
+                right: 70px;  /* Gleicher Abstand nach rechts */
+            }
+            /* Umschließender Div zum Zentrieren */
+            .centered-header-section {
+                text-align: center;
+            }
+            .header {
+                margin-bottom: 30px; /* Reduziert von 50px */
+            }
+            .header img {
+                width: 200px;
+                margin-bottom: 15px; /* Reduziert von 20px */
+            }
+            .title {
+                font-size: 24px;
+                letter-spacing: 10px;
+                font-weight: normal;
+                margin-bottom: 25px; /* Reduziert von 40px */
+            }
+            .event-details {
+                margin-bottom: 15px; /* Reduziert von 20px */
+                line-height: 1.5;
+            }
+            h1 {
+                font-size: 25px;
+                margin: 10px 0;
+                font-weight: bold;
+                line-height: 1.2;
+            }
+            h2 {
+                font-size: 16px;
+                font-weight: normal;
+                margin-top: 0;
+                margin-bottom: 20px; /* Reduziert von 30px */
+            }
+            p {
+                line-height: 1.5;
+                margin-bottom: 15px;
+            }
+            .info-block {
+                margin: 15px 0;
+            }
+            .info-table {
+                width: 100%;
+                margin-bottom: 20px; /* Reduziert von 30px */
+            }
+            .info-table td {
+                vertical-align: top;
+                padding-bottom: 5px;
+            }
+            .info-label {
+                width: 120px;
+            }
+            .topics-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            ol {
+                margin-top: 0;
+                padding-left: 20px;
+                margin-bottom: 10px;
+            }
+            li {
+                margin-bottom: 6px; /* Reduziert von 10px */
+                line-height: 1.4;
+            }
+            /* Footer Layout */
+            .footer-table {
+                width: 100%;
+                page-break-inside: avoid;
+            }
+            .footer-table td {
+                vertical-align: bottom;
+            }
+            .footer-left {
+                width: 33%;
+                text-align: left;
+                font-size: 10px;
+            }
+            .footer-left img {
+                width: 110px;
+                margin-bottom: 10px;
+            }
+            .footer-center {
+                width: 34%;
+                text-align: center;
+            }
+            .footer-center img {
+                width: 100px;
+            }
+            .footer-right {
+                width: 33%;
+                text-align: center;
+            }
+            .footer-right img {
+                width: 110px;
+                margin-bottom: -10px;
+            }
+            .signature-line {
+                border-top: 1px solid #000;
+                padding-top: 5px;
+                margin-top: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="{!$Resource.ZertifikatHintergrund}" class="bg-image" />
+
+        <div class="cert-number">
+            <apex:outputText value="{!CampaignMember.Zertifikatsnummer__c}" />
+        </div>
+
+        <div class="content-wrapper">
+            <div class="centered-header-section">
+                <div class="header">
+                    <img src="{!$Resource.TrainstoneLogo}" alt="Trainstone Academy" />
+                    <br/><br/>
+                    <div class="title">W E I T E R B I L D U N G S N A C H W E I S</div>
+                </div>
+
+                <div class="event-details">
+                    <strong>{!CampaignMember.Contact.FirstName} {!CampaignMember.Contact.LastName}</strong><br/>
+                    hat am
+                    &nbsp;                    
+                    <apex:outputText value="{0,date,dd.MM.yyyy}">
+                        <apex:param value="{!CampaignMember.Campaign.DateTime__c}" />
+                    </apex:outputText> 
+                    <br/>
+                    von {!CampaignMember.Campaign.Beginn__c} Uhr bis {!CampaignMember.Campaign.Ende__c} Uhr (Live-Online via Zoom)<br/>
+                    an der Veranstaltung
+                </div>
+
+                <h1>{!CampaignMember.Campaign.Fortbildungs_Titel__c}</h1>
+                <h2>Im Rahmen des Kurses "{!CampaignMember.Campaign.Zugeh_riger_Kurs__c}" teilgenommen.</h2>
+            </div>
+
+            <p>
+                Diese Weiterbildung wurde im Rahmen der Qualifizierung zum <strong>Pflegeimmobilienexperten (IHK)</strong> absolviert und dient der Erfüllung der gesetzlichen Weiterbildungspflicht gemäß <strong>{!CampaignMember.Campaign.Weiterbildungspflicht_nach__c}</strong>.
+            </p>
+
+            <table class="info-table">
+                <tr>
+                    <td class="info-label">Umfang:</td>
+                    <td>{!CampaignMember.Campaign.Anzahl_Unterrichtseinheiten__c} UE / {!CampaignMember.Campaign.Zeitaequivalent__c} Stunden</td>
+                </tr>
+                <tr>
+                    <td class="info-label">Veranstalter:</td>
+                    <td>Trainstone Academy GmbH</td>
+                </tr>
+            </table>
+
+            <div class="topics-header">Vermittelte Themen gemäß den Anforderungen nach MaBV:</div>
+            <ol>
+                <apex:outputText escape="false" value="{!CampaignMember.Campaign.Vermittelte_Themen__c}" />
+            </ol>
+
+            <div class="footer-container">
+                <table class="footer-table">
+                    <tr>
+                        <td class="footer-left">
+                            <img src="{!$Resource.TrainstoneLogoSmall}" alt="Trainstone" /><br/>
+                            Trainstone Academy GmbH<br/>
+                            An der Börse 2<br/>
+                            30159 Hannover
+                        </td>
+                        <td class="footer-center">
+                            <img src="{!$Resource.DekraLogo}" alt="Dekra geprüft" />
+                        </td>
+                        <td class="footer-right">
+                            <img src="{!$Resource.UnterschriftMarcoLackner}" alt="Unterschrift" /><br/>
+                            <div class="signature-line">
+                                <strong>Marco Lackner</strong><br/>
+                                <span style="font-size: 10px;">Geschäftsführer Trainstone Academy GmbH</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            </div>
+    </body>
+    </html>
+</apex:page>

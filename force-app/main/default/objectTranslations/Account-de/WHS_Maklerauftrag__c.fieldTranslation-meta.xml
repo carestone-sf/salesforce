@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <help></help>
-    <label></label>
+    <help><!-- Abbildung des Prozesses zur Auslösung eines Maklerauftrags; letzter Status heisst unterschrieben vom Vorstand und versendet an den Makler (d.h. Vereinbarung ist ab diesem Tag gültig) --></help>
+    <label><!-- WH Maklerauftrag --></label>
     <name>WHS_Maklerauftrag__c</name>
     <picklistValues>
         <masterLabel>Erstellt und an Makler versendet</masterLabel>
-        <translation></translation>
+        <translation><!-- Erstellt und an Makler versendet --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Keine Vereinbarung</masterLabel>
-        <translation></translation>
+        <translation><!-- Keine Vereinbarung --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Makler mit altem Vertrag</masterLabel>
-        <translation></translation>
+        <translation><!-- Makler mit altem Vertrag --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Makler ohne eigenen Vertrag</masterLabel>
-        <translation></translation>
+        <translation><!-- Makler ohne eigenen Vertrag --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Maklerauftrag beidseitig unterzeichnet</masterLabel>
-        <translation></translation>
+        <translation><!-- Maklerauftrag beidseitig unterzeichnet --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Unterschrieben eingegangen</masterLabel>
-        <translation></translation>
+        <translation><!-- Unterschrieben eingegangen --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Vom Makler gekündigt</masterLabel>
-        <translation></translation>
+        <translation><!-- Vom Makler gekündigt --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Vom Maklerbetreuer angefordert</masterLabel>
-        <translation></translation>
+        <translation><!-- Vom Maklerbetreuer angefordert --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Vom WH gekündigt</masterLabel>
-        <translation></translation>
+        <translation><!-- Vom WH gekündigt --></translation>
     </picklistValues>
 </CustomFieldTranslation>

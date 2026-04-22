@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Kanban_Clara</fullName>
+    <columns>NAME</columns>
+    <columns>AmpelInternImg__c</columns>
+    <columns>GrundBewertung__c</columns>
+    <columns>Phase__c</columns>
+    <columns>BeurkundungMoeglich__c</columns>
+    <columns>PhaseOpportunity__c</columns>
+    <columns>OWNER.FIRST_NAME</columns>
+    <columns>Info__c</columns>
+    <columns>WiedervorlageAm__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Maklerbetreuer__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Phase__c</field>
+        <operation>equals</operation>
+        <value>Finanzierungsanfrage gestellt,VSA vorhanden,Rückfragen gestellt,Unterlagen angefordert,Bankantrag,Finanzierung pausiert</value>
+    </filters>
+    <filters>
+        <field>OWNER.FIRST_NAME</field>
+        <operation>equals</operation>
+        <value>Clara</value>
+    </filters>
+    <label>Kanban Clara</label>
+</ListView>

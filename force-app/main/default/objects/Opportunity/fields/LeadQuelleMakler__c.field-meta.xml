@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LeadQuelleMakler__c</fullName>
+    <externalId>false</externalId>
+    <label>Lead-Quelle Makler</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AirCall</fullName>
+                <default>false</default>
+                <label>AirCall</label>
+            </value>
+            <value>
+                <fullName>Anruf</fullName>
+                <default>false</default>
+                <label>Anruf</label>
+            </value>
+            <value>
+                <fullName>Bestandskunde</fullName>
+                <default>false</default>
+                <label>Bestandskunde</label>
+            </value>
+            <value>
+                <fullName>Facebook</fullName>
+                <default>false</default>
+                <label>Facebook</label>
+            </value>
+            <value>
+                <fullName>FWS Lead</fullName>
+                <default>false</default>
+                <label>FWS Lead</label>
+            </value>
+            <value>
+                <fullName>Gewinnspiel</fullName>
+                <default>false</default>
+                <label>Gewinnspiel</label>
+            </value>
+            <value>
+                <fullName>Immobilienscout24.de</fullName>
+                <default>false</default>
+                <label>Immobilienscout24.de</label>
+            </value>
+            <value>
+                <fullName>Immoframe</fullName>
+                <default>false</default>
+                <label>Immoframe</label>
+            </value>
+            <value>
+                <fullName>Immowelt.de</fullName>
+                <default>false</default>
+                <label>Immowelt.de</label>
+            </value>
+            <value>
+                <fullName>Infoveranstaltung in Rietberg</fullName>
+                <default>false</default>
+                <label>Infoveranstaltung in Rietberg</label>
+            </value>
+            <value>
+                <fullName>LeadGroup</fullName>
+                <default>false</default>
+                <label>LeadGroup</label>
+            </value>
+            <value>
+                <fullName>Neubaukompass</fullName>
+                <default>false</default>
+                <label>Neubaukompass</label>
+            </value>
+            <value>
+                <fullName>Objektveranstaltung</fullName>
+                <default>false</default>
+                <label>Objektveranstaltung</label>
+            </value>
+            <value>
+                <fullName>Pflege.de</fullName>
+                <default>false</default>
+                <label>Pflege.de</label>
+            </value>
+            <value>
+                <fullName>Pflege.de-Curainvest</fullName>
+                <default>false</default>
+                <label>Pflege.de-Curainvest</label>
+            </value>
+            <value>
+                <fullName>Ploke</fullName>
+                <default>false</default>
+                <label>Ploke</label>
+            </value>
+            <value>
+                <fullName>Profino-Webinar 01.04.2025</fullName>
+                <default>false</default>
+                <label>Profino-Webinar 01.04.2025</label>
+            </value>
+            <value>
+                <fullName>Profino-Webinar 11.12.2024</fullName>
+                <default>false</default>
+                <label>Profino-Webinar 11.12.2024</label>
+            </value>
+            <value>
+                <fullName>Profino-Webinar 21.02.2025</fullName>
+                <default>false</default>
+                <label>Profino-Webinar 21.02.2025</label>
+            </value>
+            <value>
+                <fullName>QR-Code Formular</fullName>
+                <default>false</default>
+                <label>QR-Code Formular</label>
+            </value>
+            <value>
+                <fullName>Reach Local</fullName>
+                <default>false</default>
+                <label>Reach Local</label>
+            </value>
+            <value>
+                <fullName>simply Leads</fullName>
+                <default>false</default>
+                <label>simply Leads</label>
+            </value>
+            <value>
+                <fullName>SL Immobilien</fullName>
+                <default>false</default>
+                <label>SL Immobilien</label>
+            </value>
+            <value>
+                <fullName>Webinare</fullName>
+                <default>false</default>
+                <label>Webinare</label>
+            </value>
+            <value>
+                <fullName>WH Direct</fullName>
+                <default>false</default>
+                <label>WH Direct</label>
+            </value>
+            <value>
+                <fullName>WH Express</fullName>
+                <default>false</default>
+                <label>WH Express</label>
+            </value>
+            <value>
+                <fullName>MetaAdCampaign_MMG</fullName>
+                <default>false</default>
+                <label>MetaAdCampaign_MMG</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

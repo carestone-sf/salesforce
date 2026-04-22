@@ -31,6 +31,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>CarestoneSetter__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Gesch_ftsbeziehung__c</field>
             </layoutItems>
             <layoutItems>

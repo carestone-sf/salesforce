@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VO_Ibbenb_ren</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.SITE</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>ACCOUNT.ADDRESS1_ZIP</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>vostr</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.ADDRESS1_ZIP</field>
+        <operation>startsWith</operation>
+        <value>49,48,33,32,59,45,46,26,31,44,27,58,28</value>
+    </filters>
+    <label>VO Ibbenbüren</label>
+</ListView>

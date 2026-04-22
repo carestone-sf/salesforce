@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- In der Regel wird dieses Feld nur in der letzten MaBV Rate ausgefüllt und deckt sich mit dem Sicherheitseinbehalt der 1. Rate --></help>
+    <label><!-- Sicherheit (plus) in % --></label>
+    <name>SicherheitPlusInPercentage__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BankantragGestelltMussEingetragenSein</fullName>
+    <active>true</active>
+    <errorConditionFormula>TEXT(Finanzierung__c) != &apos;Eigenkapitalzahlung&apos; &amp;&amp;
+!BankantragGestellt__c  &amp;&amp; ((Kaufpreis_bezahlt__c &amp;&amp; IsChanged(Kaufpreis_bezahlt__c)) ||(X1_MaBV_Rate_gezahlt__c &amp;&amp; IsChanged(X1_MaBV_Rate_gezahlt__c))) &amp;&amp; Notartermin__c &gt;= DATE(2025, 5, 1)</errorConditionFormula>
+    <errorDisplayField>BankantragGestellt__c</errorDisplayField>
+    <errorMessage>Bitte gebe an, wann der Bankantrag gestellt wurde.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Lead-Quelle Makler --></label>
+    <name>LeadQuelleMakler__c</name>
+    <picklistValues>
+        <masterLabel>AirCall</masterLabel>
+        <translation><!-- AirCall --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Anruf</masterLabel>
+        <translation><!-- Anruf --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bestandskunde</masterLabel>
+        <translation><!-- Bestandskunde --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FWS Lead</masterLabel>
+        <translation><!-- FWS Lead --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Facebook</masterLabel>
+        <translation><!-- Facebook --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Gewinnspiel</masterLabel>
+        <translation><!-- Gewinnspiel --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Immobilienscout24.de</masterLabel>
+        <translation><!-- Immobilienscout24.de --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Immoframe</masterLabel>
+        <translation><!-- Immoframe --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Immowelt.de</masterLabel>
+        <translation><!-- Immowelt.de --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Infoveranstaltung in Rietberg</masterLabel>
+        <translation><!-- Infoveranstaltung in Rietberg --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>LeadGroup</masterLabel>
+        <translation><!-- LeadGroup --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MetaAdCampaign_MMG</masterLabel>
+        <translation><!-- MetaAdCampaign_MMG --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Neubaukompass</masterLabel>
+        <translation><!-- Neubaukompass --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Objektveranstaltung</masterLabel>
+        <translation><!-- Objektveranstaltung --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pflege.de</masterLabel>
+        <translation><!-- Pflege.de --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pflege.de-Curainvest</masterLabel>
+        <translation><!-- Pflege.de-Curainvest --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ploke</masterLabel>
+        <translation><!-- Ploke --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Profino-Webinar 01.04.2025</masterLabel>
+        <translation><!-- Profino-Webinar 01.04.2025 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Profino-Webinar 11.12.2024</masterLabel>
+        <translation><!-- Profino-Webinar 11.12.2024 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Profino-Webinar 21.02.2025</masterLabel>
+        <translation><!-- Profino-Webinar 21.02.2025 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>QR-Code Formular</masterLabel>
+        <translation><!-- QR-Code Formular --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Reach Local</masterLabel>
+        <translation><!-- Reach Local --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SL Immobilien</masterLabel>
+        <translation><!-- SL Immobilien --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>WH Direct</masterLabel>
+        <translation><!-- WH Direct --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>WH Express</masterLabel>
+        <translation><!-- WH Express --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Webinare</masterLabel>
+        <translation><!-- Webinare --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>simply Leads</masterLabel>
+        <translation><!-- simply Leads --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

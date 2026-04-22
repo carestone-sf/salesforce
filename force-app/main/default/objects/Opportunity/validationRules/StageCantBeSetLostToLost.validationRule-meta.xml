@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StageCantBeSetLostToLost</fullName>
+    <active>true</active>
+    <errorConditionFormula>IsClosed &amp;&amp; !IsWon &amp;&amp; PRIORVALUE(IsClosed) &amp;&amp; !PRIORVALUE(IsWon) &amp;&amp; IsChanged(StageName)</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>Die Phase kann nicht von einem verlorenen Wert auf einen anderen verlorenen Wert gestellt werden.</errorMessage>
+</ValidationRule>

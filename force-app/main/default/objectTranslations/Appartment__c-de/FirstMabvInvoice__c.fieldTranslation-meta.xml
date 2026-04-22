@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <label></label>
+    <label><!-- 1. MaBV Rechnung --></label>
     <name>FirstMabvInvoice__c</name>
-    <relationshipLabel></relationshipLabel>
+    <relationshipLabel><!-- Teilobjekte (1. MaBV Rechnung) --></relationshipLabel>
 </CustomFieldTranslation>

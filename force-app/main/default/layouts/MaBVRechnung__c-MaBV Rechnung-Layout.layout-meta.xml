@@ -59,6 +59,10 @@
                 <field>LeistungszeitraumBis__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>MaBV_Grundschuld_ist_bestellt__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Immobilie__c</field>
             </layoutItems>
@@ -183,6 +187,10 @@
                 <field>Bank__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>VKC_Bank__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>IDKunde__c</field>
             </layoutItems>
@@ -305,7 +313,7 @@
                 <field>MahnungGenerieren__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Mahnstufe__c</field>
             </layoutItems>
             <layoutItems>

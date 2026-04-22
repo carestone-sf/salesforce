@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Beratungsart --></label>
+    <name>Beratungsart__c</name>
+    <picklistValues>
+        <masterLabel>Beratung mit Carestone</masterLabel>
+        <translation><!-- Beratung mit Carestone --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Eigenberatung</masterLabel>
+        <translation><!-- Eigenberatung --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

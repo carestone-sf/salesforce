@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Auswirkung der Rollen: Provision -&gt; Benutzer sieht seine eigenen Provisionen. Alle Provisionen -&gt; Benutzer sieht alle Provisionen der Firma. Struktur anzeigen -&gt; Derzeit keine Auswirkung. Verkaufte Einheiten berechnen -&gt; Immobilien zeigen auch verkaufte Einheiten an. News ausblenden -&gt; Die News auf der Startseite werden ausgeblendet. --></help>
+    <label><!-- VP Rollen --></label>
+    <name>VPRollen__c</name>
+    <picklistValues>
+        <masterLabel>Alle Provisionen</masterLabel>
+        <translation><!-- Alle Provisionen --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Benutzer simulieren</masterLabel>
+        <translation><!-- Benutzer simulieren --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>News ausblenden</masterLabel>
+        <translation><!-- News ausblenden --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Provision</masterLabel>
+        <translation><!-- Provision --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Struktur anzeigen</masterLabel>
+        <translation><!-- Struktur anzeigen --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Verkaufte Einheiten berechnen</masterLabel>
+        <translation><!-- Verkaufte Einheiten berechnen --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

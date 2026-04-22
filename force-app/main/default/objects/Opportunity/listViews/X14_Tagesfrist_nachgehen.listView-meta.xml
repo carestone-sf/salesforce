@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X14_Tagesfrist_nachgehen</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Immobilie__c</columns>
+    <columns>Appartement__c</columns>
+    <columns>Maklerbetreuer_WirtschaftsHaus__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Zeichnungsschein_an_Notar_verschickt__c</columns>
+    <columns>Kaufvertragsunterlagen_v_Notar_versendet__c</columns>
+    <columns>Verk_uferangebot_abgegeben__c</columns>
+    <columns>NotesBackoffice__c</columns>
+    <columns>PlannedCertification__c</columns>
+    <columns>Notar_Formel__c</columns>
+    <columns>Notartermin__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Kaufvertragsunterlagen verschickt,KV wird fremd abgegeben</value>
+    </filters>
+    <filters>
+        <field>FourteenDayDeadlineRunsSince__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>14 Tagesfrist nachgehen</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Vorstand</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

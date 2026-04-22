@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DateClosingBonusHasToBeSet</fullName>
+    <active>true</active>
+    <errorConditionFormula>IsBlank(ClosingBonusAb__c) &amp;&amp; NOT(IsBlank(ClosingBonusInPercent__c )) &amp;&amp; IsChanged(ClosingBonusInPercent__c)</errorConditionFormula>
+    <errorDisplayField>ClosingBonusAb__c</errorDisplayField>
+    <errorMessage>Bitte gebe das Datum an, ab wann der Closing Bonus gilt.</errorMessage>
+</ValidationRule>

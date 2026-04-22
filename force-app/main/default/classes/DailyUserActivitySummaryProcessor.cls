@@ -1,13 +1,13 @@
 global class DailyUserActivitySummaryProcessor implements Schedulable {
-    Set<id> userIds;
+    List<Id> userIds;
     public static String CRON_EXP = '0 0 23 1/1 * ? *';
     @testVisible
     private static String JOB_NAME = 'Update activity summary for current month';
 
     public DailyUserActivitySummaryProcessor() {
-        this.userIds = Test.isRunningTest() ? new Set<Id> { UserInfo.getUserId() } : null;
+        this.userIds = Test.isRunningTest() ? new List<Id> { UserInfo.getUserId() } : null;
     }
-    public DailyUserActivitySummaryProcessor(Set<id> userIds) {
+    public DailyUserActivitySummaryProcessor(List<Id> userIds) {
         this.userIds = userIds;
     }
     private static String getJobName() {
@@ -17,7 +17,7 @@ global class DailyUserActivitySummaryProcessor implements Schedulable {
     public static String scheduleMe() {
         return System.schedule(getJobName(), CRON_EXP, new DailyUserActivitySummaryProcessor());
     }
-    public static String scheduleMe(Set<id> userIds) {
+    public static String scheduleMe(List<Id> userIds) {
         return System.schedule(getJobName(), CRON_EXP, new DailyUserActivitySummaryProcessor(userIds));
     }
     global void execute(SchedulableContext sc) {

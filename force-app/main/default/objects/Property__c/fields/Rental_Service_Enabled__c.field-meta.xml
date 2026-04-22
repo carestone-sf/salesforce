@@ -5,6 +5,7 @@
     <description>Vermietungservice aktiv</description>
     <externalId>false</externalId>
     <label>Rental_Service_Enabled</label>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Checkbox</type>

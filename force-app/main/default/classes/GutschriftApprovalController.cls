@@ -5,7 +5,7 @@ public without sharing class GutschriftApprovalController {
         status = '';
     }
 
-    public void approveGutschrift() {
+    public PageReference approveGutschrift() {
         String gutschriftId = Apexpages.currentPage().getParameters().get('gutschriftId');
         String accepted = Apexpages.currentPage().getParameters().get('accepted');
 
@@ -18,7 +18,7 @@ public without sharing class GutschriftApprovalController {
             //Check if Provision has been already approved
             if (prov[0].GutschriftBestaetigt__c == true || prov[0].GutschriftAbgelehnt__c == true) {
                 status = 'Diese Gutschrift wurde bereits bearbeitet.';
-                return;
+                return null;
             }
             
             //Approve Provision
@@ -54,6 +54,7 @@ public without sharing class GutschriftApprovalController {
         else if (prov.size() == 0) {
             status = 'Fehler! Bitte wenden Sie sich an Ihren Maklerbetreuer. <br/>(Fehlercode e3)';
         }
+        return null;
 
     }
 }

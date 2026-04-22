@@ -6,6 +6,7 @@
     <externalId>false</externalId>
     <inlineHelpText>Wenn die Immobilie im Maklerportal nicht komplett angezeigt werden soll, sondern nur einige Elemente gezeigt werden, ist dieser Wert auf &quot;Wahr&quot;.</inlineHelpText>
     <label>In Vorschau</label>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Checkbox</type>

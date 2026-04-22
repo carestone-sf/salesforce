@@ -366,6 +366,51 @@
             <field>Finanzierungsberater__c</field>
             <table>Finanzierungsanfrage__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DatumDarlehensvertragLiegtVor__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DatumBankantragGestellt__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Finanzierungssumme_Baustein1__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Finanzierungssumme_Baustein2__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FBViaEmailVersenden__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>loeschen__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VSA_vorhanden__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FB_Entscheidung_moeglich_FinAnf__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Int_Prov_bez__c</field>
+            <table>Finanzierungsanfrage__c</table>
+        </columns>
         <masterLabel>Finanzierungsanfragen</masterLabel>
     </sections>
     <sections>

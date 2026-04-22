@@ -4,5 +4,37 @@
     <entityName>Finanzierungsanfrage__c</entityName>
     <fieldName>Phase__c</fieldName>
     <masterLabel>Finanzierungsanfrage</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Maklerbetreuer__c</fieldNames>
+        <fieldNames>Info__c</fieldNames>
+        <fieldNames>OwnerId</fieldNames>
+        <fieldNames>Kreditinstitut__c</fieldNames>
+        <fieldNames>WiedervorlageAm__c</fieldNames>
+        <picklistValueName>Bankantrag</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Maklerbetreuer__c</fieldNames>
+        <fieldNames>GrundVerloren__c</fieldNames>
+        <picklistValueName>Finanzierung verloren</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Maklerbetreuer__c</fieldNames>
+        <fieldNames>Info__c</fieldNames>
+        <fieldNames>OwnerId</fieldNames>
+        <picklistValueName>Finanzierungsanfrage gestellt</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Maklerbetreuer__c</fieldNames>
+        <fieldNames>Info__c</fieldNames>
+        <fieldNames>OwnerId</fieldNames>
+        <fieldNames>WiedervorlageAm__c</fieldNames>
+        <picklistValueName>Unterlagen angefordert</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Maklerbetreuer__c</fieldNames>
+        <fieldNames>Info__c</fieldNames>
+        <fieldNames>OwnerId</fieldNames>
+        <picklistValueName>VSA vorhanden</picklistValueName>
+    </pathAssistantSteps>
     <recordTypeName>__MASTER__</recordTypeName>
 </PathAssistant>

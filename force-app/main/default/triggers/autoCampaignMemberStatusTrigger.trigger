@@ -134,90 +134,46 @@ Trigger autoCampaignMemberStatusTrigger on Campaign (before insert, after insert
 
         for(Campaign camp : Trigger.new){
             camps.add(camp.Id);
-            if(camp.Type == 'Werbung' || camp.Type == 'E-Mailing' || camp.Type == 'Post-Mailing' || camp.Type == 'Telemarketing' || camp.Type == 'Bannerwerbung' || camp.Type == 'PR Aktion' || camp.Type == 'Partner' || camp.Type == 'Weiterempfehlungsprogramm' || camp.Type == 'Andere')
-            {
-                CampaignMemberStatus cms1 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=false,
-                                                                     Label = 'Ohne', SortOrder = 3, isDefault = true);
-                cms2Insert.add(cms1);
+            CampaignMemberStatus cms1 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=true,
+                                                                    Label = 'Angemeldet', SortOrder = 4);
+            cms2Insert.add(cms1);
 
-                CampaignMemberStatus cms2 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=false,
-                                                                     Label = 'Erhalten', SortOrder = 4);
-                cms2Insert.add(cms2);
+            CampaignMemberStatus cms2 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=true,
+                                                                    Label = 'Teilgenommen', SortOrder = 6);
+            cms2Insert.add(cms2);
 
-                CampaignMemberStatus cms3 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=true,
-                                                                     Label = 'Reagiert', SortOrder = 5);
-                cms2Insert.add(cms3);
-            }
-            else if(camp.Type == 'Webinar Telefonkampagne')
-            {
+            CampaignMemberStatus cms3 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=true,
+                                                                    Label = 'Nicht erschienen', SortOrder = 7);
+            cms2Insert.add(cms3);
 
-                CampaignMemberStatus cms1 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=true,
-                                                                     Label = 'Angemeldet', SortOrder = 6, isDefault = true);
-                cms2Insert.add(cms1);
+            CampaignMemberStatus cms4 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=true,
+                                                                    Label = 'Abgesagt', SortOrder = 5);
+            cms2Insert.add(cms4);
 
-                CampaignMemberStatus cms2 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=true,
-                                                                     Label = 'Teilgenommen', SortOrder = 7);
-                cms2Insert.add(cms2);
+            CampaignMemberStatus cms5 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=true,
+                                                                    Label = 'Kein Interesse', SortOrder = 8);
+            cms2Insert.add(cms5);
 
-                CampaignMemberStatus cms3 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=false,
-                                                                     Label = 'Nicht erschienen', SortOrder = 8);
-                cms2Insert.add(cms3);
+            CampaignMemberStatus cms6 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=true,
+                                                                    Label = 'Eingeladen', SortOrder = 3, isDefault = true);
+            cms2Insert.add(cms6);
 
-                CampaignMemberStatus cms4 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=false,
-                                                                     Label = 'Einzeltermin', SortOrder = 9);
-                cms2Insert.add(cms4);
-
-                CampaignMemberStatus cms5 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=false,
-                                                                     Label = 'Kein Interesse', SortOrder = 10);
-                cms2Insert.add(cms5);
-
-                CampaignMemberStatus cms6 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=false,
-                                                                     Label = 'Vertriebsvereinbarung', SortOrder = 11);
-                cms2Insert.add(cms6);
-            } else
-            {
-                CampaignMemberStatus cms1 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=false,
-                                                                     Label = 'Ohne', SortOrder = 3, isDefault = true);
-                cms2Insert.add(cms1);
-
-                CampaignMemberStatus cms2 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=false,
-                                                                     Label = 'Eingeladen', SortOrder = 4);
-                cms2Insert.add(cms2);
-
-                CampaignMemberStatus cms3 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=true,
-                                                                     Label = 'Interessiert', SortOrder = 5);
-                cms2Insert.add(cms3);
-
-                CampaignMemberStatus cms4 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=true,
-                                                                     Label = 'Angemeldet', SortOrder = 6);
-                cms2Insert.add(cms4);
-
-                CampaignMemberStatus cms5 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=true,
-                                                                     Label = 'Teilgenommen', SortOrder = 7);
-                cms2Insert.add(cms5);
-
-                CampaignMemberStatus cms6 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=false,
-                                                                     Label = 'Abgesagt', SortOrder = 8);
-                cms2Insert.add(cms6);
-
-                CampaignMemberStatus cms7 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=false,
-                                                                     Label = 'Nicht erschienen', SortOrder = 9);
-                cms2Insert.add(cms7);
-            }
+            CampaignMemberStatus cms7 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=true,
+                                                                    Label = 'Gewonnen', SortOrder = 9);
+            cms2Insert.add(cms7);
+            CampaignMemberStatus cms8 = new CampaignMemberStatus(CampaignId = camp.Id, HasResponded=false,
+                                                                    Label = 'Ohne', SortOrder = 10);
+            cms2Insert.add(cms8);
         }
-
 
         for(CampaignMemberStatus cm : [select Id, Label, CampaignId from CampaignMemberStatus where CampaignId IN :camps]) {
-            if(cm.Label == 'Geantwortet') {
-                cms2Delete.add(cm);
-            }
-            if(cm.Label == 'Gesendet') {
+            if(cm.Label == 'Geantwortet' || cm.Label == 'Gesendet' || cm.Label == 'Sent' || cm.Label == 'Responded') {
                 cms2Delete.add(cm);
             }
         }
 
 
-        insert cms2Insert;
+        database.insert(cms2Insert, false);
         delete cms2Delete;
     }
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maklerstatus_2015__c</fullName>
+    <externalId>false</externalId>
+    <formula>if(NOT(INCLUDES(Gesch_ftsbeziehung__c, &apos;Interessent&apos;)) &amp;&amp; NOT(INCLUDES(Gesch_ftsbeziehung__c, &apos;Kunde&apos;)),  TEXT(Account.WHS_Maklerauftrag__c), null)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Maklerstatus</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

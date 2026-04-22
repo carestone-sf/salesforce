@@ -9,9 +9,11 @@
                     <lightning-layout multiple-rows>
                         <lightning-layout-item size="12">
                         <p>{event.name}</p>
-                        <p if:true={event.url}>
-                            <a href={event.url} target="_blank">Link</a>
-                        </p>
+                        <template if:false={event.isRoadshow}>
+                            <p if:true={event.url}>
+                                <a href={event.url} target="_blank">Link</a>
+                            </p>
+                        </template>
                         <p if:true={event.startDateTime}>
                             <lightning-formatted-date-time 
                                 value={event.startDateTime} 
@@ -34,12 +36,21 @@
                             Mit: {event.whoName}
                         </p>
                     </lightning-layout-item>
-                    <lightning-layout-item size="12">
-                        <div class="slds-var-m-top_small" data-cm-id={event.cmId}>
-                            <lightning-button class="slds-var-m-right_medium" disabled={event.registered} variant="brand" label="Anmelden" title="Anmelden" onclick={register}></lightning-button>
-                            <lightning-button disabled={event.unregistered} variant="brand" label="Abmelden" title="Abmelden" onclick={unregister}></lightning-button>
-                        </div>
-                    </lightning-layout-item>
+                    <template if:false={event.isRoadshow}>
+                        <lightning-layout-item size="12">
+                            <div class="slds-var-m-top_small" data-cm-id={event.cmId}>
+                                <lightning-button class="slds-var-m-right_medium" disabled={event.registered} variant="brand" label="Anmelden" title="Anmelden" onclick={register}></lightning-button>
+                                <lightning-button disabled={event.unregistered} variant="brand" label="Abmelden" title="Abmelden" onclick={unregister}></lightning-button>
+                            </div>
+                        </lightning-layout-item>
+                    </template>
+                    <template if:true={event.isRoadshow}>
+                        <lightning-layout-item size="12">
+                            <div class="slds-var-m-top_small">
+                                <a href={event.url} class="slds-button slds-button_brand" target="_blank">Anmelden</a>
+                            </div>
+                        </lightning-layout-item>
+                    </template>
                     </lightning-layout>
                 </div>
             </template>

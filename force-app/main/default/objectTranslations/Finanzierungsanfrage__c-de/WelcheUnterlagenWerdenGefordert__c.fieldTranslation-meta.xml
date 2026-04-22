@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Welche Unterlagen werden gefordert --></label>
+    <name>WelcheUnterlagenWerdenGefordert__c</name>
+    <picklistValues>
+        <masterLabel>3 Monate durchgehende Kontoauszüge aller privaten Girokonten</masterLabel>
+        <translation><!-- 3 Monate durchgehende Kontoauszüge aller privaten Girokonten --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>6 Wochen durchgehende Kontoauszüge aller privaten Girokonten</masterLabel>
+        <translation><!-- 6 Wochen durchgehende Kontoauszüge aller privaten Girokonten --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Aufstellung der geplanten Modernisierungskosten (bei geplanter Modernisierung / Sanierung)</masterLabel>
+        <translation><!-- Aufstellung der geplanten Modernisierungskosten (bei geplanter Modernisierung / Sanierung) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>BWA inkl. Summen- und Saldenliste per letzten Jahresende (wenn kein JA bzw. EÜR vorliegt)</masterLabel>
+        <translation><!-- BWA inkl. Summen- und Saldenliste per letzten Jahresende (wenn kein JA bzw. EÜR vorliegt) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bausparvertrag: letzter Jahreskontoauszug</masterLabel>
+        <translation><!-- Bausparvertrag: letzter Jahreskontoauszug --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Berechnung zum KfW-Antrag im Original gem. Online-Bestätigung (bei KfW-Anträgen)</masterLabel>
+        <translation><!-- Berechnung zum KfW-Antrag im Original gem. Online-Bestätigung (bei KfW-Anträgen) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Darlehensvertrag: Kopien sämtlicher Darlehensverträge (Ersten vier Seiten)</masterLabel>
+        <translation><!-- Darlehensvertrag: Kopien sämtlicher Darlehensverträge (Ersten vier Seiten) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EK Nachweise mit persönlichen Angaben (Name, Konto-/Depot Nr., Datum, Betrag)</masterLabel>
+        <translation><!-- EK Nachweise mit persönlichen Angaben (Name, Konto-/Depot Nr., Datum, Betrag) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EÜ-Rechnung/vollständiger Jahresabschluss der letzten 2 Jahre</masterLabel>
+        <translation><!-- EÜ-Rechnung/vollständiger Jahresabschluss der letzten 2 Jahre --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Immobilienaufstellung mit Mieterliste bzw. Mietverträge und Kontoauszug des Mieteingangs für weitere Immobilien (bei Vermietungsobjekt)</masterLabel>
+        <translation><!-- Immobilienaufstellung mit Mieterliste bzw. Mietverträge und Kontoauszug des Mieteingangs für weitere Immobilien (bei Vermietungsobjekt) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Individuelle Unterlagen 1</masterLabel>
+        <translation><!-- Individuelle Unterlagen 1 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Individuelle Unterlagen 2</masterLabel>
+        <translation><!-- Individuelle Unterlagen 2 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Individuelle Unterlagen 3</masterLabel>
+        <translation><!-- Individuelle Unterlagen 3 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Jahreslohnsteuerbescheinigung des vergangenen Jahres</masterLabel>
+        <translation><!-- Jahreslohnsteuerbescheinigung des vergangenen Jahres --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>KfW-Antrag oder KfW-Einwilligungserklärung/Vollmacht vollständig ausgefüllt und unterschrieben (bei KfW-Anträgen Kopie Darlehensvertrag des abzulösenden Darlehens)</masterLabel>
+        <translation><!-- KfW-Antrag oder KfW-Einwilligungserklärung/Vollmacht vollständig ausgefüllt und unterschrieben (bei KfW-Anträgen Kopie Darlehensvertrag des abzulösenden Darlehens) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kontoauszüge des Gehaltskontos (letzte 3 Monate)</masterLabel>
+        <translation><!-- Kontoauszüge des Gehaltskontos (letzte 3 Monate) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lebens-&amp; Rentenversicherung: letzter Nachtrag</masterLabel>
+        <translation><!-- Lebens-&amp; Rentenversicherung: letzter Nachtrag --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Letzter Nachtrag der privaten Krankenversicherung/Pflegeversicherung als Beitragsnachweis</masterLabel>
+        <translation><!-- Letzter Nachtrag der privaten Krankenversicherung/Pflegeversicherung als Beitragsnachweis --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lohn- und Gehaltsnachweis der letzten drei Monate</masterLabel>
+        <translation><!-- Lohn- und Gehaltsnachweis der letzten drei Monate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lohn- und Gehaltsnachweis der letzten drei Monate (bei Geschäftsführ. Gesellschafter)</masterLabel>
+        <translation><!-- Lohn- und Gehaltsnachweis der letzten drei Monate (bei Geschäftsführ. Gesellschafter) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mietnachweise der letzten drei Monate bei vermietetem Wohneigentum</masterLabel>
+        <translation><!-- Mietnachweise der letzten drei Monate bei vermietetem Wohneigentum --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Nachweis Beitrag private Krankenversicherung</masterLabel>
+        <translation><!-- Nachweis Beitrag private Krankenversicherung --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Nachweis der letzten drei Unterhaltszahlungen oder Beschluss/Vertrag/Urteil über die Unterhaltsverpflichtungen</masterLabel>
+        <translation><!-- Nachweis der letzten drei Unterhaltszahlungen oder Beschluss/Vertrag/Urteil über die Unterhaltsverpflichtungen --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Nachweis über weitere Fremdmittel</masterLabel>
+        <translation><!-- Nachweis über weitere Fremdmittel --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Nachweis/Aufstellung der Eigenleistungen</masterLabel>
+        <translation><!-- Nachweis/Aufstellung der Eigenleistungen --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Personalausweis</masterLabel>
+        <translation><!-- Personalausweis --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Renteninformation/Rentenbescheid bzw. Vertragskopie oder Police bei privater Rentenvorsorge des Darlehensnehmers (bei Kreditlaufzeit bis in die Rentenphase)</masterLabel>
+        <translation><!-- Renteninformation/Rentenbescheid bzw. Vertragskopie oder Police bei privater Rentenvorsorge des Darlehensnehmers (bei Kreditlaufzeit bis in die Rentenphase) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Scheidungsurteil</masterLabel>
+        <translation><!-- Scheidungsurteil --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Vermögens-/Verbindlichkeiten-/Eigenkapitalnachweise (Darlehensstand,-rate. Kopie Guthaben)</masterLabel>
+        <translation><!-- Vermögens-/Verbindlichkeiten-/Eigenkapitalnachweise (Darlehensstand,-rate. Kopie Guthaben) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>aktuelle BWA inkl. Summen- und Saldenliste</masterLabel>
+        <translation><!-- aktuelle BWA inkl. Summen- und Saldenliste --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>aktueller Rentenbescheid (bei Rentner)</masterLabel>
+        <translation><!-- aktueller Rentenbescheid (bei Rentner) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>bei abzulösenden Darlehen die Kopie vom Jahreskontoauszug vom letzten Jahr (alternativ: Nachweis aktueller Darlehensstand)</masterLabel>
+        <translation><!-- bei abzulösenden Darlehen die Kopie vom Jahreskontoauszug vom letzten Jahr (alternativ: Nachweis aktueller Darlehensstand) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>für Nicht-EU-Bürger ist eine unbefristete Aufenthaltsgenehmigung erforderlich</masterLabel>
+        <translation><!-- für Nicht-EU-Bürger ist eine unbefristete Aufenthaltsgenehmigung erforderlich --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>letzte Bezügemitteilung zzg. ggf. Kontoauszug als Nachweis der Aktualität (nur bei Beamten)</masterLabel>
+        <translation><!-- letzte Bezügemitteilung zzg. ggf. Kontoauszug als Nachweis der Aktualität (nur bei Beamten) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>letzte Einkommensteuererklärung (bei Bedarf)</masterLabel>
+        <translation><!-- letzte Einkommensteuererklärung (bei Bedarf) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>letzte Einkommensteuererklärung (nur bei Bedarf)</masterLabel>
+        <translation><!-- letzte Einkommensteuererklärung (nur bei Bedarf) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>letzter Einkommensteuerbescheid (bei Bedarf)</masterLabel>
+        <translation><!-- letzter Einkommensteuerbescheid (bei Bedarf) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>letzter Einkommensteuerbescheid (nur bei Bedarf)</masterLabel>
+        <translation><!-- letzter Einkommensteuerbescheid (nur bei Bedarf) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>vollständige und unterzeichnete Selbstauskunft inkl. SCHUFA-Einverständniserklärung</masterLabel>
+        <translation><!-- vollständige und unterzeichnete Selbstauskunft inkl. SCHUFA-Einverständniserklärung --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NKZuschussRequiredFields</fullName>
+    <active>true</active>
+    <errorConditionFormula>(IsBlank(Vertriebskoordinator__c) || IsBlank(Potenzieller_Kunde__r.IBAN__c) || IsBlank(Potenzieller_Kunde__r.Bank__c)) &amp;&amp;
+NKZuschussVonBackofficeFreigegeben__c &amp;&amp; IsChanged(NKZuschussVonBackofficeFreigegeben__c)</errorConditionFormula>
+    <errorDisplayField>Vertriebskoordinator__c</errorDisplayField>
+    <errorMessage>Bitte den Vertriebskoordinator und die Bank &amp; IBAN beim Käufer eintragen.</errorMessage>
+</ValidationRule>

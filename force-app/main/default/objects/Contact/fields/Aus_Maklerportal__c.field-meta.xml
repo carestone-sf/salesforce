@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Aus_Maklerportal__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checked, wenn der Kontakt aus dem Maklerportal über das Interessenten- / Maklerschutz Formular importiert wurde.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Ist Kontakt aus Maklerportal( Interessenten- / Maklerschutz Formular )</inlineHelpText>
+    <label>Aus Maklerportal</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

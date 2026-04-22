@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>None</contactAccessLevel>
+    <description>Wulf GmbH &amp; Co. KG Partner-Benutzer</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Wulf GmbH &amp; Co. KG Partner-Benutzer</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>WulfGmbHCoKGPartnerManager</parentRole>
+</Role>

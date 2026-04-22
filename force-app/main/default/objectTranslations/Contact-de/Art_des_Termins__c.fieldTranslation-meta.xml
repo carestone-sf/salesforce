@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Art des Termins --></label>
+    <name>Art_des_Termins__c</name>
+    <picklistValues>
+        <masterLabel>Persönlich</masterLabel>
+        <translation><!-- Persönlich --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Telefonisch</masterLabel>
+        <translation><!-- Telefonisch --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

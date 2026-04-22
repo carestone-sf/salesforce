@@ -3,7 +3,7 @@
     <fullName>VKC_ohne_Kaufdatum_geschlossen</fullName>
     <active>true</active>
     <description>Die VKC darf nicht ohne ein eingetragenes Kaufdatum geschlossen werden</description>
-    <errorConditionFormula>IsWon &amp;&amp;  Kaufdatum__c  == null</errorConditionFormula>
+    <errorConditionFormula>((TEXT(StageName) = &apos;Notartermin hat stattgefunden&apos; &amp;&amp; TEXT(Beurkundung__c) = &apos;2-seitig&apos;) || IsWon) &amp;&amp;  IsBlank(Kaufdatum__c) &amp;&amp; IsChanged(StageName)</errorConditionFormula>
     <errorDisplayField>Kaufdatum__c</errorDisplayField>
     <errorMessage>Bitte geben Sie das korrekte Kaufdatum ein</errorMessage>
 </ValidationRule>

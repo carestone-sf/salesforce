@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Neue_Berechnung_ImmoFinder</fullName>
+        <description>Neue Berechnung ImmoFinder</description>
+        <protected>false</protected>
+        <recipients>
+            <field>An_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Standard/Neue_Berechnung</template>
+    </alerts>
+    <alerts>
+        <fullName>Neue_Berechnung_ImmoFinder_Externe</fullName>
+        <description>Neue Berechnung ImmoFinder Externe</description>
+        <protected>false</protected>
+        <recipients>
+            <field>An_E_Mail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Standard/Neue_Berechnung_Externe</template>
+    </alerts>
+    <rules>
+        <fullName>Neue Berechnung im ImmoFinder</fullName>
+        <actions>
+            <name>Neue_Berechnung_ImmoFinder</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <formula>Externe__c == FALSE &amp;&amp;  Name != NULL &amp;&amp; An_E_Mail__c !=  Berechnungsmakler__r.Email__c</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Neue Berechnung im ImmoFinder Externe</fullName>
+        <actions>
+            <name>Neue_Berechnung_ImmoFinder_Externe</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <formula>Externe__c == TRUE &amp;&amp;  Name != NULL &amp;&amp; An_E_Mail__c !=  Berechnungsmakler__r.Email__c &amp;&amp;  Benachrichtigung_an__r.Account.KMNeueBerechnungImImmofinder__c</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

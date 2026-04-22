@@ -15,10 +15,10 @@
 &quot;Saarland&quot;,0.065, 
 &quot;Sachsen-Anhalt&quot;,0.050, 
 &quot;Schleswig-Holstein&quot;,0.065, 
-&quot;Thüringen&quot;,0.065, 
+&quot;Thüringen&quot;,0.05, 
 &quot;Bayern&quot;,0.035, 
 &quot;Hessen&quot;,0.06, 
-&quot;Sachsen&quot;,0.035, 
+&quot;Sachsen&quot;,0.055, 
 0.055)</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Real Estate Transfer Tax (%)</label>

@@ -2,7 +2,10 @@
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>CustomerRequiredFields</fullName>
     <active>true</active>
-    <errorConditionFormula>AND(ISNEW(),
+    <errorConditionFormula>AND(TEXT(StageName) != &apos;Beratung&apos;,
+TEXT(StageName) != &apos;Reservierung angefragt&apos;,
+!IsClosed,
+IsChanged(StageName),
 OR(
     ISBLANK(Potenzieller_Kunde__r.MailingAddress),  
 				ISBLANK(Potenzieller_Kunde__r.Email),

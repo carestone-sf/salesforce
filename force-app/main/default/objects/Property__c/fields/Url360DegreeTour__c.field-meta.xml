@@ -4,6 +4,7 @@
     <externalId>false</externalId>
     <label>Link 360 Grad Rundgang</label>
     <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Url</type>

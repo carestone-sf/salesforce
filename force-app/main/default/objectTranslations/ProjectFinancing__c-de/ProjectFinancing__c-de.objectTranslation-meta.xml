@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>Projektfinanzierung</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>Projektfinanzierungen</value>
+    </caseValues>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Projektfinanzierung-Layout</layout>
+        <sections>
+            <label><!-- Benutzerdefinierte Links --></label>
+            <section>Benutzerdefinierte Links</section>
+        </sections>
+        <sections>
+            <label><!-- Eigenkapital --></label>
+            <section>Eigenkapital</section>
+        </sections>
+        <sections>
+            <label><!-- Zins --></label>
+            <section>Zins</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

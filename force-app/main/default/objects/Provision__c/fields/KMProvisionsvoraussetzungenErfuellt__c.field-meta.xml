@@ -5,6 +5,7 @@
     <formula>Makler__r.Account.KMProvisionsvoraussetzungenErfuellt__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>KM - Provisionsvoraussetzungen erfüllt</label>
+    <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Checkbox</type>
 </CustomField>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Components --></label>
+    <name>Components__c</name>
+    <picklistValues>
+        <masterLabel>credits</masterLabel>
+        <translation><!-- credits --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ferienimmobilien</masterLabel>
+        <translation><!-- ferienimmobilien --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>immofinder</masterLabel>
+        <translation><!-- immofinder --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>immoframe</masterLabel>
+        <translation><!-- immoframe --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>infothek</masterLabel>
+        <translation><!-- infothek --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>kapitalanlageimmobilien</masterLabel>
+        <translation><!-- kapitalanlageimmobilien --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>kontakte</masterLabel>
+        <translation><!-- kontakte --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>landingpage</masterLabel>
+        <translation><!-- landingpage --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>leads</masterLabel>
+        <translation><!-- leads --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>marketing</masterLabel>
+        <translation><!-- marketing --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>persoenlicher_betreuer</masterLabel>
+        <translation><!-- persoenlicher_betreuer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>provision</masterLabel>
+        <translation><!-- provision --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>terminplaner</masterLabel>
+        <translation><!-- terminplaner --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>whis</masterLabel>
+        <translation><!-- whis --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>whtv</masterLabel>
+        <translation><!-- whtv --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

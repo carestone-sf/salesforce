@@ -5,6 +5,7 @@
     <label>Status</label>
     <required>false</required>
     <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>
@@ -54,6 +55,11 @@
                 <fullName>Kaufvertragsunterlagen verschickt -zweiseitig-</fullName>
                 <default>false</default>
                 <label>Kaufvertragsunterlagen verschickt -zweiseitig-</label>
+            </value>
+            <value>
+                <fullName>Auftrag zur Beurkundung vorhanden</fullName>
+                <default>false</default>
+                <label>Auftrag zur Beurkundung vorhanden</label>
             </value>
         </valueSetDefinition>
     </valueSet>

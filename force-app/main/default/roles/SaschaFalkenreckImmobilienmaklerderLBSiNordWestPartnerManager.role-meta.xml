@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>None</contactAccessLevel>
+    <description>Sascha Falkenreck Immobilienmakler der LBSi NordWest Partner-Manager</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Sascha Falkenreck Immobilienmakler der LBSi NordWest Partner-Manager</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>SaschaFalkenreckImmobilienmaklerderLBSiNordWestPartnerFhrungskraft</parentRole>
+</Role>

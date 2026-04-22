@@ -13,3 +13,7 @@ package.xml
 
 # Profiles
 **profiles
+
+**/tsconfig.json
+
+**/*.ts

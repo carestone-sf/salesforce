@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vertriebsstart_2023</fullName>
+    <columns>NAME</columns>
+    <columns>GeplanterVertriebsstartAm__c</columns>
+    <columns>AnzahlVerkaufbarerEinheiten__c</columns>
+    <columns>Stage__c</columns>
+    <columns>Anzahl_Einheiten__c</columns>
+    <columns>IVA1genehmigt__c</columns>
+    <columns>IVA2Genehmigt__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>GeplanterVertriebsstartAm__c</field>
+        <operation>equals</operation>
+        <value>THIS_YEAR</value>
+    </filters>
+    <filters>
+        <field>Is_Public__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Stage__c</field>
+        <operation>equals</operation>
+        <value>Vertiebsvorbereitung</value>
+    </filters>
+    <label>Vertriebsstart 2023</label>
+</ListView>

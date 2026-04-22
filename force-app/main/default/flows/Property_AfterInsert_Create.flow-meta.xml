@@ -5,7 +5,7 @@
         <name>AttachCloudFilesFolder</name>
         <label>Attach CloudFiles Folder</label>
         <locationX>308</locationX>
-        <locationY>408</locationY>
+        <locationY>384</locationY>
         <actionName>cldfs__CreateAttachment</actionName>
         <actionType>apex</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -46,7 +46,7 @@
         <name>CreateCloudFilesFolder</name>
         <label>Create CloudFiles Folder</label>
         <locationX>308</locationX>
-        <locationY>288</locationY>
+        <locationY>276</locationY>
         <actionName>cldfs__CreateFolder</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -111,7 +111,7 @@
         </scheduledPaths>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Obsolete</status>
+    <status>Draft</status>
     <variables>
         <name>CloudFiles_DriveId</name>
         <dataType>String</dataType>

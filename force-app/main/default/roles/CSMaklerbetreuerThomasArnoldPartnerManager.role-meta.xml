@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>None</contactAccessLevel>
+    <description>CS Maklerbetreuer - Thomas Arnold Partner-Manager</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>CS Maklerbetreuer - Thomas Arnold Partner-Manager</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>CSMaklerbetreuerThomasArnoldPartnerFhrungskraft</parentRole>
+</Role>

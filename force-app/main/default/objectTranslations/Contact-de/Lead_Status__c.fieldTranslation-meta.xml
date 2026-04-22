@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Lead Status --></label>
+    <name>Lead_Status__c</name>
+    <picklistValues>
+        <masterLabel>Darlehen beim WH - Mit späterem Erwerb</masterLabel>
+        <translation><!-- Darlehen beim WH - Mit späterem Erwerb --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Erstinformation raus</masterLabel>
+        <translation><!-- Erstinformation raus --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Halten</masterLabel>
+        <translation><!-- Halten --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Hat an Veranstaltung teilgenommen</masterLabel>
+        <translation><!-- Hat an Veranstaltung teilgenommen --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Hat nicht an Veranstaltung teilgenommen</masterLabel>
+        <translation><!-- Hat nicht an Veranstaltung teilgenommen --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Keine Telefonnummer – Erst Info raus</masterLabel>
+        <translation><!-- Keine Telefonnummer – Erst Info raus --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lead hat gekauft</masterLabel>
+        <translation><!-- Lead hat gekauft --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lead interessiert sich für ein bestimmtes Gebiet</masterLabel>
+        <translation><!-- Lead interessiert sich für ein bestimmtes Gebiet --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lead verloren</masterLabel>
+        <translation><!-- Lead verloren --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Meldet sich bei Interesse-Abgelegt</masterLabel>
+        <translation><!-- Meldet sich bei Interesse-Abgelegt --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Möchte an Veranstaltung teilnehmen</masterLabel>
+        <translation><!-- Möchte an Veranstaltung teilnehmen --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Neu – in Bearbeitung</masterLabel>
+        <translation><!-- Neu – in Bearbeitung --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Persönlichen Termin durchgeführt</masterLabel>
+        <translation><!-- Persönlichen Termin durchgeführt --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Persönlichen Termin vereinbart</masterLabel>
+        <translation><!-- Persönlichen Termin vereinbart --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Reklamation</masterLabel>
+        <translation><!-- Reklamation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Telefonisch nie erreicht – Abgelegt</masterLabel>
+        <translation><!-- Telefonisch nie erreicht – Abgelegt --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Telefontermin durchgeführt</masterLabel>
+        <translation><!-- Telefontermin durchgeführt --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Telefontermin vereinbart</masterLabel>
+        <translation><!-- Telefontermin vereinbart --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

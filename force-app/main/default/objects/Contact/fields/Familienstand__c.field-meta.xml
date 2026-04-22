@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Familienstand__c</fullName>
+    <externalId>false</externalId>
+    <label>Familienstand</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ledig</fullName>
+                <default>false</default>
+                <label>ledig</label>
+            </value>
+            <value>
+                <fullName>verheiratet</fullName>
+                <default>false</default>
+                <label>verheiratet</label>
+            </value>
+            <value>
+                <fullName>geschieden</fullName>
+                <default>false</default>
+                <label>geschieden</label>
+            </value>
+            <value>
+                <fullName>verwitwet</fullName>
+                <default>false</default>
+                <label>verwitwet</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

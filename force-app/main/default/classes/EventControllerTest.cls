@@ -90,8 +90,8 @@ public with sharing class EventControllerTest {
     }
     @isTest
     private static void testCompareToMethod(){
-        EventController.CustomEvent ce = new EventController.CustomEvent('event', 'e.Subject', null,  Datetime.newInstance(2020, 2, 17), Datetime.newInstance(2020, 2, 19), null, null, null, true, false, 'e.Description',' e.Location', 'ownerFullName', 'e.Who.Name',null,null);
-        EventController.CustomEvent ceToCompare = new EventController.CustomEvent('event', 'e.Subject', null,  Datetime.newInstance(2020, 2, 17), Datetime.newInstance(2020, 2, 19), null, null, null, true, false, 'e.Description',' e.Location', 'ownerFullName', 'e.Who.Name',null,null);
+        EventController.CustomEvent ce = new EventController.CustomEvent('event', 'e.Subject', null,  Datetime.newInstance(2020, 2, 17), Datetime.newInstance(2020, 2, 19), null, null, null, true, false, 'e.Description',' e.Location', 'ownerFullName', 'e.Who.Name',null,null,false);
+        EventController.CustomEvent ceToCompare = new EventController.CustomEvent('event', 'e.Subject', null,  Datetime.newInstance(2020, 2, 17), Datetime.newInstance(2020, 2, 19), null, null, null, true, false, 'e.Description',' e.Location', 'ownerFullName', 'e.Who.Name',null,null,false);
         system.assertEquals(0, ce.compareTo(ceToCompare));
         ceToCompare.startDateTime=null;
         system.assertEquals(0, ce.compareTo(ceToCompare));

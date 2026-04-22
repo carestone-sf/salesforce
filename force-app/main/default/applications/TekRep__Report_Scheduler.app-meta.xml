@@ -307,60 +307,6 @@
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.Brokerage</recordType>
         <type>Flexipage</type>
-        <profile>Read Only</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Account_Record_Page_Brokerage</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Account</pageOrSobjectType>
-        <recordType>Account.Brokerage</recordType>
-        <type>Flexipage</type>
-        <profile>Read Only</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Account_Record_Page_Brokerage</content>
-        <formFactor>Small</formFactor>
-        <pageOrSobjectType>Account</pageOrSobjectType>
-        <recordType>Account.Brokerage</recordType>
-        <type>Flexipage</type>
-        <profile>Read Only1</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Account_Record_Page_Brokerage</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Account</pageOrSobjectType>
-        <recordType>Account.Brokerage</recordType>
-        <type>Flexipage</type>
-        <profile>Read Only1</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Account_Record_Page_Brokerage</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Account</pageOrSobjectType>
-        <recordType>Account.Brokerage</recordType>
-        <type>Flexipage</type>
-        <profile>ReadOnly</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Account_Record_Page_Brokerage</content>
-        <formFactor>Small</formFactor>
-        <pageOrSobjectType>Account</pageOrSobjectType>
-        <recordType>Account.Brokerage</recordType>
-        <type>Flexipage</type>
-        <profile>ReadOnly</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Account_Record_Page_Brokerage</content>
-        <formFactor>Small</formFactor>
-        <pageOrSobjectType>Account</pageOrSobjectType>
-        <recordType>Account.Brokerage</recordType>
-        <type>Flexipage</type>
         <profile>Sales Insights Integration User</profile>
     </profileActionOverrides>
     <profileActionOverrides>
@@ -577,24 +523,6 @@
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.Brokerage</recordType>
         <type>Flexipage</type>
-        <profile>0_Empfang</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Account_Record_Page_Brokerage</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Account</pageOrSobjectType>
-        <recordType>Account.Brokerage</recordType>
-        <type>Flexipage</type>
-        <profile>0_Empfang</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Account_Record_Page_Brokerage</content>
-        <formFactor>Small</formFactor>
-        <pageOrSobjectType>Account</pageOrSobjectType>
-        <recordType>Account.Brokerage</recordType>
-        <type>Flexipage</type>
         <profile>0_Finanzbuchhaltung</profile>
     </profileActionOverrides>
     <profileActionOverrides>
@@ -613,24 +541,6 @@
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.Brokerage</recordType>
         <type>Flexipage</type>
-        <profile>0_FrontOffice</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Account_Record_Page_Brokerage</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Account</pageOrSobjectType>
-        <recordType>Account.Brokerage</recordType>
-        <type>Flexipage</type>
-        <profile>0_FrontOffice</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Account_Record_Page_Brokerage</content>
-        <formFactor>Small</formFactor>
-        <pageOrSobjectType>Account</pageOrSobjectType>
-        <recordType>Account.Brokerage</recordType>
-        <type>Flexipage</type>
         <profile>0_Geschäftsführung</profile>
     </profileActionOverrides>
     <profileActionOverrides>
@@ -641,24 +551,6 @@
         <recordType>Account.Brokerage</recordType>
         <type>Flexipage</type>
         <profile>0_Geschäftsführung</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Account_Record_Page_Brokerage</content>
-        <formFactor>Small</formFactor>
-        <pageOrSobjectType>Account</pageOrSobjectType>
-        <recordType>Account.Brokerage</recordType>
-        <type>Flexipage</type>
-        <profile>0_KeyAccountbetreuer</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Account_Record_Page_Brokerage</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Account</pageOrSobjectType>
-        <recordType>Account.Brokerage</recordType>
-        <type>Flexipage</type>
-        <profile>0_KeyAccountbetreuer</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>

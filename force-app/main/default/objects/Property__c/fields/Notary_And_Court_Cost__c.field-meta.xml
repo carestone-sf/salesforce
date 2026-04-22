@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Notary_And_Court_Cost__c</fullName>
     <externalId>false</externalId>
-    <formula>0.025* Property_Price__c</formula>
+    <formula>0.015* Property_Price__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Notary And Court Cost</label>
     <precision>18</precision>

@@ -208,9 +208,9 @@ span.slds-form-element__label {
     margin-left: 8px;
 }
 
-force-list-view-manager-button-bar, force-list-view-manager-status-info, force-list-view-manager-pin-button, .forceListViewManagerDisplaySwitcher, .forceListViewSettingsMenu {
+/* force-list-view-manager-button-bar, force-list-view-manager-status-info, force-list-view-manager-pin-button, .forceListViewManagerDisplaySwitcher, .forceListViewSettingsMenu {
     display: none;
-}
+} */
 
 .slds-tabs_default__link, .slds-tabs--default__link {
     color: var(--lwc-brandBackgroundPrimary, rgb(0, 75, 65)) !important;
@@ -226,9 +226,9 @@ force-list-view-manager-button-bar, force-list-view-manager-status-info, force-l
     color: var(--lwc-colorTextBrand,rgb(243, 192, 92)) !important;
 }
 
-.slds-page-header--object-home .forceListViewPicker {
+/* .slds-page-header--object-home .forceListViewPicker {
     display: none;
-}
+} */
 
 .slds-page-header--object-home .slds-breadcrumb__item {
     font-size: 1.125rem;

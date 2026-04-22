@@ -273,7 +273,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                     opp.InterneProvisionenNeuGenerieren__c = false;
                     opp.InterneProvisionenGeneriert__c = true;
                 }
-                if((opp.Kaufpreis_bezahlt__c && !oldOpp.Kaufpreis_bezahlt__c) || (opp.X1_MaBV_Rate_gezahlt__c && !oldOpp.X1_MaBV_Rate_gezahlt__c) || ((opp.Kaufpreis_bezahlt__c || opp.X1_MaBV_Rate_gezahlt__c) && (opp.BeratungsprovisionMitPVInProzent__c != oldOpp.BeratungsprovisionMitPVInProzent__c) || (opp.Abweichende_Verkaufsprovision__c != oldOpp.Abweichende_Verkaufsprovision__c) || (opp.ClosingBonusInProzent__c != oldOpp.ClosingBonusInProzent__c))) {
+                if((opp.Kaufpreis_bezahlt__c && !oldOpp.Kaufpreis_bezahlt__c) || (opp.X1_MaBV_Rate_gezahlt__c && !oldOpp.X1_MaBV_Rate_gezahlt__c) || ((opp.Kaufpreis_bezahlt__c || opp.X1_MaBV_Rate_gezahlt__c) && (opp.BeratungsprovisionMitPVInProzent__c != oldOpp.BeratungsprovisionMitPVInProzent__c || opp.Abweichende_Verkaufsprovision__c != oldOpp.Abweichende_Verkaufsprovision__c || opp.ClosingBonusInProzent__c != oldOpp.ClosingBonusInProzent__c))) {
                     changedOppsIntern.put(opp.Id, opp);
                     changedOppsInternOldMap.put(opp.Id, Trigger.oldMap.get(opp.Id));
                 }

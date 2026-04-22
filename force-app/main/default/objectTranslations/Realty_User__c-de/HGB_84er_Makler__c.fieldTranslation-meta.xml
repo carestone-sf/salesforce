@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Makler mit Ausschließlichkeit zum WH im Bereich der Pflege- und Sozialimmobilien --></help>
+    <label><!-- HGB 84er Makler --></label>
+    <name>HGB_84er_Makler__c</name>
+</CustomFieldTranslation>

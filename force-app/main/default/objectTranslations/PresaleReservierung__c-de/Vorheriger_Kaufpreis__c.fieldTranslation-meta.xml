@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Der Kaufpreis, der zum Zeitpunkt der Reservierung diesem Benutzer im Maklerportal ausgegeben wurde. --></help>
+    <label><!-- Vorheriger Kaufpreis --></label>
+    <name>Vorheriger_Kaufpreis__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Die Berechnung der Steuern ist eine Annäherung --></help>
+    <label><!-- Steuern berechnen --></label>
+    <name>SteuernBerechnen__c</name>
+</CustomFieldTranslation>

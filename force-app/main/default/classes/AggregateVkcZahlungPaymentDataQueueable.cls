@@ -27,7 +27,7 @@ public without sharing class AggregateVkcZahlungPaymentDataQueueable implements 
 
     public static void updateImmobilien(Set<Id> immoIds) {
         List<Property__c> immobilien = new List<Property__c>();
-        for(AggregateResult agRes : [SELECT SUM(OffenerBetrag__c) offen, SUM(AbgerechneterBetrag__c) abgerechnet, Immobilie__c immoId FROM Opportunity WHERE Immobilie__c IN :immoIds AND (Datum_Kaufpreisf_lligkeitsschreiben__c <= TODAY OR Kaufpreis_bezahlt__c = true) AND (HatVKCZahlungen__c = true OR Immobilie__r.Kaufpreiszahlung__c = 'Endfällig') AND (IsWon = true OR StageName = 'Notartermin hat stattgefunden') GROUP BY Immobilie__c]) {
+        for(AggregateResult agRes : [SELECT SUM(OffenerBetrag__c) offen, SUM(AbgerechneterBetrag__c) abgerechnet, Immobilie__c immoId FROM Opportunity WHERE Immobilie__c IN :immoIds AND (Datum_Kaufpreisf_lligkeitsschreiben__c <= TODAY OR Kaufpreis_bezahlt__c = true) AND (HatVKCZahlungen__c = true OR Immobilie__r.Kaufpreiszahlung__c = 'Endfällig'  OR Immobilie__r.Kaufpreiszahlung__c = 'Externes Vertriebsprojekt') AND (IsWon = true OR StageName = 'Notartermin hat stattgefunden') GROUP BY Immobilie__c]) {
             Id immoId = (Id) agRes.get('immoId');
             Double offen = (Double) agRes.get('offen');
             Double abgerechnet = (Double) agRes.get('abgerechnet');

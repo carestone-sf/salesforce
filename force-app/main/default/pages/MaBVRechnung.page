@@ -57,10 +57,20 @@
         <div style="width: 58%; float: left;">
             <div style="height: 1.77cm; width: 100%; position: relative;">
                 <p style="font-size: 8px; {!IF(!IsBlank(MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Unternehmen__r.LogoUrl__c), 'color: #1f1f1f;', 'color: #004B41;')} position: absolute; bottom: 0; left: 0; right: 0;">
-                    {!MaBVRechnung__c.Unternehmensname__c} &#183; {!MaBVRechnung__c.StrasseUnternehmen__c} &#183; {!MaBVRechnung__c.PLZUnternehmen__c} {!MaBVRechnung__c.StadtUnternehmen__c}
+                    <span style="{!IF(MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Unternehmen__c = '001Vi00000pAhCnIAK', 'display: inline;', 'display:none;')}">
+                        {!MaBVRechnung__c.Unternehmensname__c} &#183; {!MaBVRechnung__c.StrasseUnternehmen__c}
+                        <br/>
+                        {!MaBVRechnung__c.PLZUnternehmen__c} {!MaBVRechnung__c.StadtUnternehmen__c}
+                    </span>
+                    <span style="{!IF(MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__r.Unternehmen__c != '001Vi00000pAhCnIAK', 'display: inline;', 'display:none;')}">
+                        {!MaBVRechnung__c.Unternehmensname__c} &#183; {!MaBVRechnung__c.StrasseUnternehmen__c} {!MaBVRechnung__c.PLZUnternehmen__c} {!MaBVRechnung__c.StadtUnternehmen__c}
+                    </span>
                 </p>
             </div>
             <p style="margin-top: 0.2cm;">
+                <span style="{!IF(MaBVRechnung__c.MaBVRechnungMaster__r.Opportunity__r.K_ufer__c != null, 'display:inline', 'display:none')}">
+                    {!MaBVRechnung__c.MaBVRechnungMaster__r.Opportunity__r.K_ufer__c}<br/>
+                </span>
                 {!MaBVRechnung__c.AnredeErsterKaeufer__c}<br/>
                 <span style="{!IF(MaBVRechnung__c.AnredeZweiterKaeufer__c != null, 'display:inline', 'display:none')}">
                 {!MaBVRechnung__c.AnredeZweiterKaeufer__c}<br/>
@@ -107,7 +117,9 @@
         <span style="{!IF(MaBVRechnung__c.UrkundennummerKaufvertrag__c != null, 'display:inline', 'display:none')}">
         <b>Kaufvertrag vom&nbsp;<apex:outputField value="{!MaBVRechnung__c.Kaufdatum__c}"/> UR-Nr. {!MaBVRechnung__c.UrkundennummerKaufvertrag__c}</b><br/>
         </span>
-        Kaufpreisfälligkeit gem. {!MaBVRechnung__c.ParagraphKaufpreisfaelligkeit__c}
+        <span style="{!IF(AND(MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__c != 'a0L6700000QQEsTEAX', MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__c != 'a0L6700000RXyZOEA1'), 'display:inline-block;', 'display:none;')}">
+            Kaufpreisfälligkeit gem. {!MaBVRechnung__c.ParagraphKaufpreisfaelligkeit__c}
+        </span>
     </p>
 
     <br/>
@@ -170,9 +182,15 @@
     </table>
    
     <br/><br/>
-    
+    <apex:outputPanel rendered="{!MaBVRechnung__c.Immobilie__c == 'Salzgitter-Lichtenberg'}">
+    <p style="color: red; font-weight: bold; font-size: 14px; margin-bottom: 10px;">
+        Achtung, neue Bankverbindung!
+    </p>
+</apex:outputPanel>
     <p>
-        Wir bitten um Zahlung in Höhe von&nbsp;<apex:outputField value="{!MaBVRechnung__c.RateGesamtInEuro__c}"/> binnen&nbsp;<apex:outputField value="{!MaBVRechnung__c.ZahlungszielInTagen__c}"/> Tagen ohne Abzug:
+        <span>
+            Wir bitten um Zahlung in Höhe von&nbsp;<apex:outputField value="{!MaBVRechnung__c.RateGesamtInEuro__c}"/> binnen&nbsp;<apex:outputField value="{!MaBVRechnung__c.ZahlungszielInTagen__c}"/> Tagen ohne Abzug: <span style="{!IF(OR(MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__c = 'a0L6700000QQ1VIEA1', MaBVRechnung__c.IBAN__c = 'DE13 1009 0000 2847 4510 01' ), 'display:inline-block; color:red', 'display:none;')}">ACHTUNG neue Bankverbindung</span>
+        </span>
     </p>
 
     <br/>
@@ -216,14 +234,24 @@
         </tr>
     </table>
     
+    <span style="{!IF(MaBVRechnung__c.MaBVRechnungMaster__r.MaBVRate__r.Immobilie__c = 'a0L6700000RXyZOEA1', 'display:inline-block;', 'display:none;')}">
+        <br/>
+        <b>Die Rechnung ist zahlbar gemäß § 3 Absatz 3</b>
+        <br/>
+    </span>
+
+    
     <br/>
     
     <p>
         Steuerfreier Umsatz gemäß §4 Nr. 9a UStG.<br/>
         Wir weisen darauf hin, dass der obige Rechnungsbetrag der Grunderwerbsteuer unterliegt.
     </p>
-    </div>
 
+     <br/>
+
+    <p><b>Hinweis: Sofern Sie zum Erwerb des Apartments Finanzierungsmittel aufgenommen haben, vergessen Sie bitte nicht, Ihrer finanzierenden Bank einen Zahlungsauftrag über die Rechnungssumme zukommen zu lassen.</b></p>
+    </div>
     <div class="bottom-center-div" style="font-size: 8px; line-height: 12px;">
         {!MaBVRechnung__c.Unternehmensname__c} &#183; {!MaBVRechnung__c.StrasseUnternehmen__c} &#183; {!MaBVRechnung__c.PLZUnternehmen__c} {!MaBVRechnung__c.StadtUnternehmen__c} &#183; Tel. {!MaBVRechnung__c.TelefonUnternehmen__c} &#183; Fax: {!MaBVRechnung__c.TelefaxUnternehmen__c}
          &#183; {!MaBVRechnung__c.WebsiteUnternehmen__c} &#183; {!MaBVRechnung__c.EmailUnternehmen__c}<br/>

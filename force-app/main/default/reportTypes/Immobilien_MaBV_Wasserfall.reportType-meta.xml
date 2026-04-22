@@ -1789,11 +1789,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Test__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Text_Nachtrag_Provision__c</field>
             <table>Property__c</table>
         </columns>
@@ -1840,11 +1835,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Verkaeufer__c</field>
-            <table>Property__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Verkaufsprovision__c</field>
             <table>Property__c</table>
         </columns>
         <columns>
@@ -2366,6 +2356,16 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Finanzierungsberater__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ExklusivVertrieben__c</field>
+            <table>Property__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ClosingBonusAb__c</field>
             <table>Property__c</table>
         </columns>
         <masterLabel>Immobilien</masterLabel>

@@ -2,8 +2,9 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Energieausweis__c</fullName>
     <externalId>false</externalId>
-    <label>Energieausweis</label>
+    <label>Energieausweis (Text)</label>
     <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Html</type>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Kopie_von_VKC_Sven_Schulz_gewonnen_24</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Immobilienberater__c</columns>
+    <columns>Immobilie__c</columns>
+    <columns>Appartement__c</columns>
+    <columns>Notartermin__c</columns>
+    <columns>KV_eingegangen_Datum__c</columns>
+    <columns>Finanzierung__c</columns>
+    <columns>Beratungsprotokoll__c</columns>
+    <columns>Risikobelehrung__c</columns>
+    <columns>Finanzierung_oder_Eigenkapitalnachweis__c</columns>
+    <columns>Kaufpreis_bezahlt__c</columns>
+    <columns>X1_MaBV_Rate_gezahlt__c</columns>
+    <columns>VSA_EK_vorhanden__c</columns>
+    <columns>StatusAmpel__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Notartermin__c</field>
+        <operation>greaterThan</operation>
+        <value>1/1/2024</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Geschlossene und gewonnene</value>
+    </filters>
+    <filters>
+        <field>Maklerbetreuer_WirtschaftsHaus__c</field>
+        <operation>equals</operation>
+        <value>sven schulz</value>
+    </filters>
+    <filters>
+        <field>Notartermin__c</field>
+        <operation>lessThan</operation>
+        <value>1/1/2025</value>
+    </filters>
+    <label>VKC Sven Schulz gewonnen 24</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Backoffice</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

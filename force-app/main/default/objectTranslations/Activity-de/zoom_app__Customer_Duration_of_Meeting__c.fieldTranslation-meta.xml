@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Enter the estimated duration of the meeting in &quot;minutes&quot;, as a number.Ex: 30 --></help>
+    <label><!-- Customer Meeting Duration --></label>
+    <name>zoom_app__Customer_Duration_of_Meeting__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>None</contactAccessLevel>
+    <description>N&amp;P Immobilien GmbH Partner-Manager</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>N&amp;P Immobilien GmbH Partner-Manager</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>NPImmobilienGmbHPartnerFhrungskraft</parentRole>
+</Role>

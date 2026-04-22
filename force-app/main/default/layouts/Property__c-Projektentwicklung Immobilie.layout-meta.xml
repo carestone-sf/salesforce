@@ -587,9 +587,9 @@
         <fields>Nachname_Kunde__c</fields>
         <fields>Notartermin__c</fields>
         <fields>Finanzierung__c</fields>
+        <fields>Makler__c</fields>
         <fields>Maklerbetreuer_WirtschaftsHaus_lookup__c</fields>
         <fields>StatusAmpel__c</fields>
-        <fields>GrundschuldIstBestellt__c</fields>
         <relatedList>Appartment__c.Property__c</relatedList>
         <sortField>NAME</sortField>
         <sortOrder>Asc</sortOrder>

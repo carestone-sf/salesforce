@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gotha</fullName>
+    <columns>NAME</columns>
+    <columns>GesicherteKfWMittel__c</columns>
+    <columns>Purchase_Price__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Property__c</field>
+        <operation>equals</operation>
+        <value>Gotha</value>
+    </filters>
+    <label>Gotha gesicherte KfW Mittel</label>
+</ListView>

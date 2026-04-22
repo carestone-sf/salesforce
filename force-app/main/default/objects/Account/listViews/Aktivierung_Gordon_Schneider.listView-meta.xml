@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Aktivierung_Gordon_Schneider</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>Alle_gewonnenen_Verkaufschancen__c</columns>
+    <columns>Carestone_Vertriebsvereinbarung__c</columns>
+    <columns>WHS_Maklerauftrag__c</columns>
+    <columns>Kategorie__c</columns>
+    <columns>Maklerbetreuer_Wirtschaftshaus_2__c</columns>
+    <columns>PARENT_NAME</columns>
+    <columns>Ansprechpartner__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>PARENT_NAME</field>
+        <operation>equals</operation>
+        <value>Aktivierung Poolmakler</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Brokerage</value>
+    </filters>
+    <filters>
+        <field>Maklerbetreuer_Wirtschaftshaus_2__c</field>
+        <operation>equals</operation>
+        <value>Gordon Schneider</value>
+    </filters>
+    <label>Aktivierung Gordon Schneider</label>
+</ListView>

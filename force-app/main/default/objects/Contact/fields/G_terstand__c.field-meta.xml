@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>G_terstand__c</fullName>
+    <externalId>false</externalId>
+    <label>Güterstand</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>gesetzlich</fullName>
+                <default>false</default>
+                <label>gesetzlich</label>
+            </value>
+            <value>
+                <fullName>getrennt</fullName>
+                <default>false</default>
+                <label>getrennt</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

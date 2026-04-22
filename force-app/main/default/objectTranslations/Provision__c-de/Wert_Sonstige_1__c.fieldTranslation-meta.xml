@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Wert Sonstige 1 --></label>
+    <name>Wert_Sonstige_1__c</name>
+</CustomFieldTranslation>

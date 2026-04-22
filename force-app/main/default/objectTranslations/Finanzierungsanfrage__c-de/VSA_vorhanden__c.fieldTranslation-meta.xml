@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Wird auf VKC gepflegt und hier angezeigt. --></help>
+    <label><!-- VSA vorhanden --></label>
+    <name>VSA_vorhanden__c</name>
+</CustomFieldTranslation>

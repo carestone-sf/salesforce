@@ -1,0 +1,98 @@
+<apex:page standardController="Opportunity"
+           showHeader="false"
+           applyHtmlTag="false"
+           renderAs="pdf">
+
+    <apex:variable var="isVertrieb" value="{!Opportunity.Immobilie__r.GutschriftenUeber__c == 'Carestone Vertriebs GmbH'}" />
+    <apex:variable var="compName" value="{!IF(isVertrieb, 'Carestone Vertriebs GmbH', 'Carestone Service GmbH')}" />
+
+    <head>
+        <style>
+            @page {
+                size: 21.0cm 29.7cm;
+                margin-top: 0.5cm;
+                margin-bottom: 1.69cm;
+                margin-left: 2.5cm;
+                margin-right: 2cm;
+                @bottom-center { content: element(bottom-center-div); }
+            }
+            body { font-family: sans-serif; color: #1f1f1f; font-size: 12px; }
+            .address { margin-top: 2cm; }
+            .main-content { margin-top: 3cm; }
+            .disclaimer { font-size: 10px; margin-top: 20px; color: #666; }
+            table { width: 100%; border-collapse: collapse; }
+            .bottom-center-div { position: running(bottom-center-div); text-align: center; font-size: 8px; line-height: 12px; }
+        </style>
+    </head>
+
+    <body>
+        <div style="width:100%; text-align:center; margin-bottom:20px;">
+            <apex:image url="{!$Resource.Carestone_Logo}" width="200px"/>
+        </div>
+
+        <table>
+            <tr>
+                <td style="vertical-align:top;">
+                    <div class="address">
+                        <p style="font-size: 8px; color: #004B41; font-weight: bold;">
+                            {!compName} &#183; An der Börse 3 &#183; 30159 Hannover
+                        </p>
+                        <p>
+                            {!Opportunity.Potenzieller_Kunde__r.FirstName} {!Opportunity.Potenzieller_Kunde__r.LastName}<br/>
+                            {!Opportunity.Potenzieller_Kunde__r.MailingStreet}<br/>
+                            {!Opportunity.Potenzieller_Kunde__r.MailingPostalCode} {!Opportunity.Potenzieller_Kunde__r.MailingCity}
+                        </p>
+                    </div>
+                </td>
+                <td style="text-align:right; vertical-align:top;">
+                    <div class="address">
+                        <apex:outputText value="{0,date,dd.MM.yyyy}"><apex:param value="{!TODAY()}"/></apex:outputText><br/><br/>
+                        {!Opportunity.Vertriebskoordinator__r.FirstName} {!Opportunity.Vertriebskoordinator__r.LastName}<br/>
+                        {!IF(Opportunity.Vertriebskoordinator__r.Salutation = 'Herr', 'Vertriebskoordinator', 'Vertriebskoordinatorin')}<br/>
+                        T: {!Opportunity.Vertriebskoordinator__r.Phone}<br/>
+                        E: {!Opportunity.Vertriebskoordinator__r.Email}
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="main-content">
+            <p><strong>Erstattung der Kaufneben- und Notarkosten</strong><br/>
+               <strong>Vorgang: {!Opportunity.Immobilie__r.Name} // {!Opportunity.Appartement__r.Name}</strong></p>
+
+            <p>{!Opportunity.Potenzieller_Kunde__r.Anrede_Formel__c} {!Opportunity.Potenzieller_Kunde__r.LastName},</p>
+
+            <p>wie vereinbart, beteiligt sich die {!compName} an den entstandenen Notar- und Grundbuchkosten für o.g. Vorgang.</p>
+
+            <p>Hierzu erhalten Sie nun die Beteiligung in Höhe von 
+               <strong><apex:outputText value="{0,number,###,###,##0.00}"><apex:param value="{!Opportunity.AdditionalCosts__c}"/></apex:outputText> €</strong>.
+               Der Betrag wird auf die nachstehende Kontoverbindung überwiesen:</p>
+
+            <p>Bank: {!Opportunity.Potenzieller_Kunde__r.Bank__c}<br/>
+               IBAN: {!Opportunity.Potenzieller_Kunde__r.IBAN__c}<br/>
+               Kontoinhaber: {!IF(NOT(ISBLANK(Opportunity.Potenzieller_Kunde__r.KontoinhaberFallsAbweichend__c)), Opportunity.Potenzieller_Kunde__r.KontoinhaberFallsAbweichend__c, Opportunity.Potenzieller_Kunde__r.FirstName & ' ' & Opportunity.Potenzieller_Kunde__r.LastName)}</p>
+
+            <br/>
+            <p>Mit freundlichen Grüßen</p>
+            <p>{!Opportunity.Vertriebskoordinator__r.FirstName} {!Opportunity.Vertriebskoordinator__r.LastName} <br/> – {!compName} –</p>
+
+            <p class="disclaimer">Dieses Schreiben wurde maschinell erstellt und ist ohne Unterschrift gültig. Die Echtheit und der Inhalt können jederzeit über die {!IF(isVertrieb, 'Carestone Vertriebs GmbH', 'Carestone Service GmbH')} verifiziert werden.</p>
+        </div>
+
+        <apex:outputPanel rendered="{!isVertrieb}">
+            <div class="bottom-center-div">
+                Carestone Vertriebs GmbH &#183; An der Börse 3 &#183; 30159 Hannover &#183; Tel. 0511 26152-0 &#183; www.carestone.com<br/>
+                Geschäftsführer: Sandro Pawils, Harald Senftleben &#183; Amtsgericht Hannover HRB 227176 | St.Nr. 25/205/11367<br/>
+                Sparkasse Hildesheim Goslar Peine &#183; IBAN DE34 2595 0130 0057 6565 88 &#183; BIC NOLADE21HIK
+            </div>
+        </apex:outputPanel>
+
+        <apex:outputPanel rendered="{!NOT(isVertrieb)}">
+            <div class="bottom-center-div">
+                Carestone Service GmbH &#183; An der Börse 3 &#183; 30159 Hannover &#183; Tel. 0511 26152-0 &#183; www.carestone.com<br/>
+                Geschäftsführer: Sandro Pawils &#183; Amtsgericht Hannover HRB 218680 | St.Nr. 25/205/10530 | USt-IdNr. DE321083102<br/>
+                Sparkasse Hildesheim Goslar Peine &#183; IBAN DE58 2595 0130 0056 3808 97 &#183; BIC NOLADE21HIK
+            </div>
+        </apex:outputPanel>
+    </body>
+</apex:page>

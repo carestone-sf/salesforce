@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Zinsmodalitäten --></label>
+    <name>InterestModalities__c</name>
+    <picklistValues>
+        <masterLabel>Fix</masterLabel>
+        <translation><!-- Fix --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fix + Variabel</masterLabel>
+        <translation><!-- Fix + Variabel --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Variabel</masterLabel>
+        <translation><!-- Variabel --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

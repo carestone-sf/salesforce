@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <help></help>
-    <label></label>
+    <help>
+        <!-- Löst E-Mail aus:
+Informiert den Makler darüber, dass die VKC verloren wurde -->
+    </help>
+    <label><!-- VKC verloren --></label>
     <name>VKC_verloren__c</name>
 </CustomFieldTranslation>

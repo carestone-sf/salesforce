@@ -10,6 +10,7 @@ const columns = [
     { label: 'Miete pa', fieldName: 'Jahresmiete__c', hideDefaultActions:"true", sortable: "true", type: 'currency', cellAttributes: { alignment: 'left' }},
     { label: 'Rendite', fieldName: 'RentalReturnFormulaVP__c', hideDefaultActions:"true", sortable: "true", type: 'percent',typeAttributes: { minimumFractionDigits: 2 }, cellAttributes: { alignment: 'left' }},
     { label: 'Überschuss/Aufwand p.m.', fieldName: 'costPerMonth', hideDefaultActions:"true", sortable: "true", type: 'currency',typeAttributes: { minimumFractionDigits: 2 }, cellAttributes: { alignment: 'left', class: {fieldName:'costColorClass'} }},
+    { label: 'Gesicherte KfW-Mittel', fieldName: 'GesicherteKfWMittel__c', hideDefaultActions:"true", sortable: "true", type: 'percent',typeAttributes: { minimumFractionDigits: 2 }, cellAttributes: { alignment: 'left' }},
     { label: 'Status', fieldName: 'OeffentlicherStatus__c', type:'text', hideDefaultActions:"true", sortable: "true", cellAttributes: { alignment: 'left', class: {fieldName:'statusColorClass'} }},
 ];
 
@@ -167,6 +168,17 @@ export default class ImmoListCard extends LightningElement {
     handleImmobilienChange() {
         this.transferedApartments = this.deepCopyFunction(this.privateImmobilie.teilobjekte);
 
+        let hideKfwColumn = true;
+        this.transferedApartments.forEach(function(item, idx) {
+            if(item.GesicherteKfWMittel__c != null && item.GesicherteKfWMittel__c != 0) {
+                item.GesicherteKfWMittel__c = item.GesicherteKfWMittel__c / 100;
+                hideKfwColumn = false;
+            }
+        });
+        if(hideKfwColumn === true) {
+            this.columns = [...columns].filter(col => col.fieldName != 'GesicherteKfWMittel__c');
+        }
+
         // Sets the data for the google map call
         this.mapMarkers[0].location.Street = this.privateImmobilie.immobilie.Street__c;
         this.mapMarkers[0].location.City = this.privateImmobilie.immobilie.Place__c;
@@ -203,10 +215,13 @@ export default class ImmoListCard extends LightningElement {
         console.log('is here');
         const newarr = [];
         this.transferedApartments.forEach(function(item, idx) {
-            console.log('is here 2');
             item.costPerMonth = item.Monthly_Rent__c - item.Cost_Admin__c/12 - item.Maintenance_sqm__c*item.Area_sq_m__c/12;
             newarr.push(item);
-            console.log('cost per month', item.costPerMonth);
+            if(item.costPerMonth != null && item.costPerMonth > 0) {
+                item.costColorClass = 'slds-text-color_success';
+            } else if(item.costPerMonth != null && item.costPerMonth < 0) {
+                item.costColorClass = 'slds-text-color_error';
+            }
         });
         this.transferedApartments = newarr;
         console.log(this.transferedApartments);
@@ -226,7 +241,7 @@ export default class ImmoListCard extends LightningElement {
             }
             if(item.costPerMonth != null && item.costPerMonth > 0) {
                 item.costColorClass = 'slds-text-color_success';
-            } else {
+            } else if(item.costPerMonth != null && item.costPerMonth < 0) {
                 item.costColorClass = 'slds-text-color_error';
             }
             newarr.push(item);

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Notartermin_must_have_Time</fullName>
+    <active>true</active>
+    <description>Notartermine dürfen nur mit zugehöriger Uhrzeit in das Feld &quot;Notartermin&quot; eingegeben werden. Termin und Uhrzeit werden dann gemeinsam per MailAltert versendet.</description>
+    <errorConditionFormula>AND(
+    CreatedDate &gt; DATETIMEVALUE(&quot;2025-11-01 09:00:00&quot;),
+    OR(
+        AND(ISBLANK(Notartermin__c), NOT(ISBLANK(Notartermin__c))),
+        AND(NOT(ISBLANK(Notartermin__c)), ISBLANK(Notartermin__c))
+    )
+)</errorConditionFormula>
+    <errorMessage>Wenn ein Notartermin fest vereinbart ist, muss auch immer die zugehörige Uhrzeit eingetragen sein, damit diese dem Kunden und dem Makler autom. mitgeteilt werden kann.</errorMessage>
+</ValidationRule>

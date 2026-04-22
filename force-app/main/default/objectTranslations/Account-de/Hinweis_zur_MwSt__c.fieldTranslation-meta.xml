@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <help></help>
-    <label></label>
+    <help><!-- Bitte gib hier an, woher die Information kommt, welchen MwSt-Satz der Makler hat --></help>
+    <label><!-- Hinweis zur MwSt --></label>
     <name>Hinweis_zur_MwSt__c</name>
 </CustomFieldTranslation>

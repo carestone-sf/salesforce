@@ -19,6 +19,11 @@
                 <default>false</default>
                 <label>Endfälliges Darlehen</label>
             </value>
+            <value>
+                <fullName>KfW Darlehen</fullName>
+                <default>false</default>
+                <label>KfW Darlehen</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

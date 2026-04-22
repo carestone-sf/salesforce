@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GutschriftKannNichtBestaetigtWerden</fullName>
+    <active>true</active>
+    <errorConditionFormula>GutschriftBestaetigt__c &amp;&amp;
+!PRIORVALUE(GutschriftBestaetigt__c) &amp;&amp;
+Genehmigung__c &amp;&amp;
+!PRIORVALUE(Genehmigung__c)</errorConditionFormula>
+    <errorDisplayField>GutschriftBestaetigt__c</errorDisplayField>
+    <errorMessage>Die Provision muss erst durch den MB genehmigt werden und danach bestätigt.</errorMessage>
+</ValidationRule>

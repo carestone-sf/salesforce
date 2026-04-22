@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>Finanzierungsanfrage</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>Finanzierungsanfragen</value>
+    </caseValues>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Finanzierungsanfrage-Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Finanzierungsdaten --></label>
+            <section>Finanzierungsdaten</section>
+        </sections>
+        <sections>
+            <label><!-- Finanzierungsportal --></label>
+            <section>Finanzierungsportal</section>
+        </sections>
+        <sections>
+            <label><!-- Info --></label>
+            <section>Info</section>
+        </sections>
+        <sections>
+            <label><!-- Phase --></label>
+            <section>Phase</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Bearbeiten --></label>
+        <name>Bearbeiten</name>
+    </quickActions>
+    <validationRules>
+        <errorMessage><!-- Die folgenden Felder müssen zur Genehmigung ausgefüllt sein: Maximale Finanzierungssumme, Erster Käufer, Finanzierungsbedarf und das Apartment in der VKC. --></errorMessage>
+        <name>ApprovalRequiredFields</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Das Kreditinstitut darf in dieser Phase nicht leer sein --></errorMessage>
+        <name>BankCantBeEmpty</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Bitte das Datum eintragen seit wann der Darlehensvertrag vorliegt. --></errorMessage>
+        <name>DarlehensvertragMussVorliegen</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Bitte prüfen Sie die Eingabe. Das Feld &quot;Int. Prov. bez.&quot; darf nur von bestimmten usern bearbeitet werden. --></errorMessage>
+        <name>Int_Prov_bezahlt</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Bei &quot;roten&quot; oder &quot;gelben&quot; Bewertungen muss ein Grund angegeben werden. --></errorMessage>
+        <name>ReasonForRatingCantBeNull</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Der Sharepoint Link muss befüllt sein --></errorMessage>
+        <name>SharePointLinkCantBeEmpty</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Vorschau_FB --></label>
+        <name>Vorschau_FB</name>
+    </webLinks>
+</CustomObjectTranslation>

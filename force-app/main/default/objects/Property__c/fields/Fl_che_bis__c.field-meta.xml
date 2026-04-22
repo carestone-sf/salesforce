@@ -4,6 +4,11 @@
     <externalId>false</externalId>
     <label>Fläche bis</label>
     <summarizedField>Appartment__c.Area_sq_m__c</summarizedField>
+    <summaryFilterItems>
+        <field>Appartment__c.ExternNichtAnzeigen__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
     <summaryForeignKey>Appartment__c.Property__c</summaryForeignKey>
     <summaryOperation>max</summaryOperation>
     <trackHistory>false</trackHistory>

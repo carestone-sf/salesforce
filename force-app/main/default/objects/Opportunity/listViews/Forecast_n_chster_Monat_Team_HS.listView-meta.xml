@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Forecast_n_chster_Monat_Team_HS</fullName>
+    <columns>Maklerbetreuer_WirtschaftsHaus__c</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>Notartermin__c</columns>
+    <columns>NotaryDatePossibleFrom__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>PlannedCertification__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Immobilie__c</columns>
+    <columns>Appartement__c</columns>
+    <columns>PhaseFinanzierungsanfrage__c</columns>
+    <columns>StatusAmpel__c</columns>
+    <columns>Finanzierung__c</columns>
+    <columns>OPPORTUNITY.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Reserviert,Kaufvertragsunterlagen verschickt,Kaufvertragsangebot abgegeben,KV wird fremd abgegeben,Geschlossene und gewonnene,VKC gewonnen,Beratung</value>
+    </filters>
+    <filters>
+        <field>Maklerbetreuer_WirtschaftsHaus__c</field>
+        <operation>equals</operation>
+        <value>,Sven Schulz,Vincent Ostrowsky,Robin Joel Simon,Clara Wahlen</value>
+    </filters>
+    <filters>
+        <field>PlannedCertification__c</field>
+        <operation>equals</operation>
+        <value>Next Month</value>
+    </filters>
+    <label>Forecast nächster Monat Team Sven</label>
+</ListView>

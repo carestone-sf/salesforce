@@ -4,6 +4,7 @@
     <externalId>false</externalId>
     <label>Finanzierungen zusätzliche Informationen</label>
     <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>LongTextArea</type>

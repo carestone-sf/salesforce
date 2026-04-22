@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Art_des_Termins__c</fullName>
+    <externalId>false</externalId>
+    <label>Art des Termins</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Persönlich</fullName>
+                <default>false</default>
+                <label>Persönlich</label>
+            </value>
+            <value>
+                <fullName>Telefonisch</fullName>
+                <default>false</default>
+                <label>Telefonisch</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

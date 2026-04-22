@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Datei Typ --></label>
+    <name>DateiTyp__c</name>
+    <picklistValues>
+        <masterLabel>Baufortschritt</masterLabel>
+        <translation><!-- Baufortschritt --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bilder</masterLabel>
+        <translation><!-- Bilder --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Dokumente</masterLabel>
+        <translation><!-- Dokumente --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Grundrisse</masterLabel>
+        <translation><!-- Grundrisse --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Highlights</masterLabel>
+        <translation><!-- Highlights --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Musterberechnung</masterLabel>
+        <translation><!-- Musterberechnung --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -6,7 +6,7 @@
     <summaryFilterItems>
         <field>Opportunity.StageName</field>
         <operation>equals</operation>
-        <value>VKC gewonnen</value>
+        <value>VKC gewonnen, Notartermin hat stattgefunden</value>
     </summaryFilterItems>
     <summaryFilterItems>
         <field>Opportunity.Notartermin__c</field>
@@ -15,5 +15,6 @@
     </summaryFilterItems>
     <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
     <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
     <type>Summary</type>
 </CustomField>

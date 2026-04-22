@@ -3,11 +3,12 @@
     <fullName>Betreiber__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
     <externalId>false</externalId>
-    <label>Betreiber</label>
+    <label>Aktueller Betreiber</label>
     <referenceTo>Betreiber__c</referenceTo>
     <relationshipLabel>Immobilien</relationshipLabel>
     <relationshipName>Betreiber</relationshipName>
     <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>

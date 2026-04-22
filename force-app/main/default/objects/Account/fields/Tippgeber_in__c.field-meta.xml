@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tippgeber_in__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Wie viel Prozent erhält der Tippgeber? 0,5 für 1 Jahr oder 0,25 für 2 Jahre(ab Geltungsbeginn des Maklerauftrags)</inlineHelpText>
+    <label>Tippprovision in %</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>3</scale>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Percent</type>
+</CustomField>

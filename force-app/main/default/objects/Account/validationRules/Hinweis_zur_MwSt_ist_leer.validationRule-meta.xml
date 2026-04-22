@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hinweis_zur_MwSt_ist_leer</fullName>
+    <active>true</active>
+    <errorConditionFormula>IsChanged(Umsatzsteuerbefreit__c)
+&amp;&amp; IsBlank(Hinweis_zur_MwSt__c)</errorConditionFormula>
+    <errorDisplayField>Hinweis_zur_MwSt__c</errorDisplayField>
+    <errorMessage>Bitte gib hier an, woher die Information kommt, welchen MwSt-Satz der Makler hat</errorMessage>
+</ValidationRule>

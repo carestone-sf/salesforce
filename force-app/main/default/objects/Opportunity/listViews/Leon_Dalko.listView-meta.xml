@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Leon_Dalko</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Immobilie__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>StatusAmpel__c</columns>
+    <columns>reserviert_bis__c</columns>
+    <columns>Letztes_Phasenupdate_am__c</columns>
+    <columns>Grund_VKC_verloren__c</columns>
+    <columns>Notartermin__c</columns>
+    <columns>NotaryDatePossibleFrom__c</columns>
+    <columns>Finanzierung__c</columns>
+    <columns>PlannedCertification__c</columns>
+    <columns>NotesSalesControlling__c</columns>
+    <columns>OPPORTUNITY.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Maklerbetreuer_WirtschaftsHaus__c</field>
+        <operation>equals</operation>
+        <value>Leon Dalko</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Reservierung angefragt,Reserviert,Beratung,KV wird fremd abgegeben,Kaufvertragsunterlagen verschickt</value>
+    </filters>
+    <label>Leon Dalko</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Vorstand</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

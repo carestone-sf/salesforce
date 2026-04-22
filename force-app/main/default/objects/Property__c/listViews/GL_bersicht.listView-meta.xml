@@ -2,10 +2,20 @@
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>GL_bersicht</fullName>
     <columns>NAME</columns>
-    <columns>Bank__c</columns>
     <columns>Construction__c</columns>
     <columns>Year_Of_Construction__c</columns>
     <columns>Status_Teilungserkl_rung__c</columns>
+    <columns>AbBeantragt__c</columns>
+    <columns>AbErhalten__c</columns>
+    <columns>Anzahl_Einheiten__c</columns>
+    <columns>Einzel_GBB__c</columns>
+    <columns>Einzelkaufvertrag__c</columns>
+    <columns>SummeKaufpreise__c</columns>
+    <columns>Status_Vertrieb__c</columns>
+    <columns>Property_Price__c</columns>
+    <columns>Hinweis_Kaufpreiszahlung__c</columns>
+    <columns>Kaufpreiszahlung__c</columns>
+    <columns>KfWGenehmigt__c</columns>
     <filterScope>Everything</filterScope>
     <filters>
         <field>GLControllingUebersicht__c</field>

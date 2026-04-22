@@ -4,7 +4,7 @@
     <defaultValue>false</defaultValue>
     <description>True, if event should be shown in Vertriebsportal</description>
     <externalId>false</externalId>
-    <inlineHelpText>Check to show in Vertriebsportal</inlineHelpText>
+    <inlineHelpText>Aktiviert = wird im Vertriebsportal angezeigt</inlineHelpText>
     <label>Show in Vertriebsportal</label>
     <type>Checkbox</type>
 </CustomField>

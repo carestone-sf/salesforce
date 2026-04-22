@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Die IP Adresse des Users zum Zeitpunkt des Logins --></help>
+    <label><!-- IP Adresse --></label>
+    <name>IP_Adresse__c</name>
+</CustomFieldTranslation>

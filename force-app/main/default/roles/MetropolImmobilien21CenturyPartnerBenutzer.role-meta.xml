@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>None</contactAccessLevel>
+    <description>Metropol Immobilien - 21 Century Partner-Benutzer</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Metropol Immobilien - 21 Century Partner-Benutzer</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>MetropolImmobilien21CenturyPartnerManager</parentRole>
+</Role>

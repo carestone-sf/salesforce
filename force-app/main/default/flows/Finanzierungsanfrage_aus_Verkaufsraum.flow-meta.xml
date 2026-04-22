@@ -570,7 +570,7 @@
             <targetReference>Verkaufsraum</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <subflows>
         <name>Digitale_VSA_Eingabe</name>
         <label>Digitale VSA Eingabe</label>

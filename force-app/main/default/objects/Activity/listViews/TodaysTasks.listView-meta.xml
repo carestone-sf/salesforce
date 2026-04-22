@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TodaysTasks</fullName>
+    <columns>TASK.SUBJECT</columns>
+    <columns>TASK.STATUS</columns>
+    <columns>TASK.TYPE</columns>
+    <columns>TASK.WHO_NAME</columns>
+    <columns>TASK.DUE_DATE</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>TASK.CLOSED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>ACTIVITY.TASK</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>TASK.DUE_DATE</field>
+        <operation>lessThan</operation>
+        <value>TOMORROW</value>
+    </filters>
+    <label>Heutige Aufgaben</label>
+    <language>de</language>
+</ListView>

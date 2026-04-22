@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IBAN_Validierung</fullName>
+    <active>true</active>
+    <description>Validated IBAN formats</description>
+    <errorConditionFormula>AND(
+    NOT(ISBLANK(IBAN__c)),
+    /* Die bereinigte Länge muss ungleich der definierten Länge des jeweiligen Landes sein */
+    LEN(SUBSTITUTE(IBAN__c, &quot; &quot;, &quot;&quot;)) &lt;&gt; 
+    CASE(UPPER(LEFT(SUBSTITUTE(IBAN__c, &quot; &quot;, &quot;&quot;), 2)),
+        /* --- EUROPÄISCHE UNION --- */
+        &quot;AT&quot;, 20, &quot;BE&quot;, 16, &quot;BG&quot;, 22, &quot;CY&quot;, 28, &quot;CZ&quot;, 24,
+        &quot;DE&quot;, 22, &quot;DK&quot;, 18, &quot;EE&quot;, 20, &quot;ES&quot;, 24, &quot;FI&quot;, 18,
+        &quot;FR&quot;, 27, &quot;GR&quot;, 27, &quot;HR&quot;, 21, &quot;HU&quot;, 28, &quot;IE&quot;, 22,
+        &quot;IT&quot;, 27, &quot;LT&quot;, 20, &quot;LU&quot;, 20, &quot;LV&quot;, 21, &quot;MT&quot;, 31,
+        &quot;NL&quot;, 18, &quot;PL&quot;, 28, &quot;PT&quot;, 25, &quot;RO&quot;, 24, &quot;SE&quot;, 24,
+        &quot;SI&quot;, 19, &quot;SK&quot;, 24,
+        /* --- ARABISCHE HALBINSEL --- */
+        &quot;AE&quot;, 23, /* Ver. Arab. Emirate */
+        &quot;BH&quot;, 22, /* Bahrain */
+        &quot;KW&quot;, 30, /* Kuwait */
+        &quot;OM&quot;, 31, /* Oman */
+        &quot;QA&quot;, 29, /* Katar */
+        &quot;SA&quot;, 24, /* Saudi-Arabien */
+        /* Jemen nutzt kein IBAN-System */
+        /* --- BRICS (IBAN-Nutzer) --- */
+        &quot;BR&quot;, 29, /* Brasilien */
+        &quot;RU&quot;, 33, /* Russland */
+        &quot;EG&quot;, 29, /* Ägypten */
+        &quot;IR&quot;, 26, /* Iran */
+        /* Indien, China, Südafrika nutzen kein IBAN-System */
+        /* --- FALLBACK --- */
+        LEN(SUBSTITUTE(IBAN__c, &quot; &quot;, &quot;&quot;))
+    )
+)</errorConditionFormula>
+    <errorMessage>Bitte prüfen Sie die IBAN auf dem Account. Sie entspricht keinem der gängigen Formate, was zu Fehlern im Zahlungsverkehr führt.</errorMessage>
+</ValidationRule>

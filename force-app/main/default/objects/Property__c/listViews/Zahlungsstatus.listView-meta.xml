@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Zahlungsstatus</fullName>
+    <columns>NAME</columns>
+    <columns>Unternehmen__c</columns>
+    <columns>Property__c</columns>
+    <columns>Bauart__c</columns>
+    <columns>Property_Price__c</columns>
+    <columns>Bezahlt__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>GLControllingUebersicht__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Zahlungsstatus</label>
+</ListView>

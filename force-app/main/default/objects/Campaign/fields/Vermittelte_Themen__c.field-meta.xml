@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vermittelte_Themen__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Welche Themen wurden in der Fortbildung abgedeckt? Dieser Text wird für das Zertifikat übernommen. 
+
+Max. 10 Zeilen! Am besten Stichpunkte od. Aufzählung.</inlineHelpText>
+    <label>Vermittelte Themen</label>
+    <length>32768</length>
+    <type>Html</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

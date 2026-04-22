@@ -3,6 +3,7 @@
     <fullName>ShowInPartnerPortal__c</fullName>
     <defaultValue>false</defaultValue>
     <externalId>false</externalId>
+    <inlineHelpText>Achtung: Nur die Typen &quot;Webinar + Roadshow + Objektveranstaltung&quot; können im Vertriebsportal angezeigt werden.</inlineHelpText>
     <label>Im Vertriebsportal sichtbar</label>
     <type>Checkbox</type>
 </CustomField>

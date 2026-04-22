@@ -14,126 +14,130 @@
     <layouts>
         <layout>Appartment Layout</layout>
         <sections>
-            <label></label>
+            <label><!-- Allgemeine Abschreibung --></label>
             <section>Allgemeine Abschreibung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Allgemeine Information --></label>
             <section>Allgemeine Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Anschaffungskosten --></label>
             <section>Anschaffungskosten</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Daten aus VKC --></label>
             <section>Daten aus VKC</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kaufpreis --></label>
             <section>Kaufpreis</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kosten --></label>
             <section>Kosten</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kostensteigerung --></label>
             <section>Kostensteigerung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Miete --></label>
             <section>Miete</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Notizen --></label>
             <section>Notizen</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Optionale Zusatzkosten --></label>
             <section>Optionale Zusatzkosten</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Provision --></label>
             <section>Provision</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Status --></label>
             <section>Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Zusatzkosten --></label>
             <section>Zusatzkosten</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Community Layout</layout>
         <sections>
-            <label></label>
+            <label><!-- Allgemeine Information --></label>
             <section>Allgemeine Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
     </layouts>
     <layouts>
         <layout>FrontOffice Appartmentlayout</layout>
         <sections>
-            <label></label>
+            <label><!-- Allgemeine Abschreibung --></label>
             <section>Allgemeine Abschreibung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Allgemeine Information --></label>
             <section>Allgemeine Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Anschaffungskosten --></label>
             <section>Anschaffungskosten</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Daten aus VKC --></label>
             <section>Daten aus VKC</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kaufpreis --></label>
             <section>Kaufpreis</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Kostensteigerung --></label>
             <section>Kostensteigerung</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Miete --></label>
             <section>Miete</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Notizen --></label>
             <section>Notizen</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Provision --></label>
             <section>Provision</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Status --></label>
             <section>Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Zusatzkosten --></label>
             <section>Zusatzkosten</section>
         </sections>
     </layouts>
     <validationRules>
-        <errorMessage></errorMessage>
+        <errorMessage><!-- Das Teilobjekt ist noch nicht für den Vertrieb freigegeben. Bitte Rücksprache dazu halten und ggfs das Feld &quot;Extern Nicht Anzeigen&quot; ändern. --></errorMessage>
+        <name>Einheit_noch_nicht_freigegeben</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Der Preis darf nur nach Rücksprache mit R&amp;F angepasst werden. --></errorMessage>
         <name>PurchasePriceCantBeChangedWithoutRF</name>
     </validationRules>
     <validationRules>

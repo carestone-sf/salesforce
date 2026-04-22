@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Kanban_Ingo</fullName>
+    <columns>NAME</columns>
+    <columns>Phase__c</columns>
+    <columns>PhaseOpportunity__c</columns>
+    <columns>Info__c</columns>
+    <columns>Maklerbetreuer__c</columns>
+    <columns>DatumBankantragGestellt__c</columns>
+    <columns>Finanzierung__c</columns>
+    <columns>Finanzierungsberater__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Kreditinstitut__c</columns>
+    <columns>Notartermin__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Phase__c</field>
+        <operation>equals</operation>
+        <value>Finanzierungsanfrage gestellt,VSA vorhanden,Rückfragen gestellt,Unterlagen angefordert,Bankantrag,Finanzierung pausiert</value>
+    </filters>
+    <filters>
+        <field>OWNER.FIRST_NAME</field>
+        <operation>equals</operation>
+        <value>Ingo</value>
+    </filters>
+    <label>Kanban Ingo</label>
+</ListView>

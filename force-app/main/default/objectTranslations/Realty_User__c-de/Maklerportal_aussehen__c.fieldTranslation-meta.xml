@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Maklerportal aussehen --></label>
+    <name>Maklerportal_aussehen__c</name>
+    <picklistValues>
+        <masterLabel>FG Finanz</masterLabel>
+        <translation><!-- FG Finanz --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -18,7 +18,7 @@
             <value>
                 <fullName>CS fremd</fullName>
                 <default>false</default>
-                <label>CS fremd</label>
+                <label>Carestone</label>
             </value>
             <value>
                 <fullName>Fremdfinanzierung</fullName>
@@ -29,11 +29,6 @@
                 <fullName>Eigenkapitalzahlung</fullName>
                 <default>false</default>
                 <label>Eigenkapitalzahlung</label>
-            </value>
-            <value>
-                <fullName>Noch ungeklärt</fullName>
-                <default>false</default>
-                <label>Noch ungeklärt</label>
             </value>
         </valueSetDefinition>
     </valueSet>

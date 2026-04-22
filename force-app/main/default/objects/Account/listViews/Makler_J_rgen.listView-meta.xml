@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Makler_J_rgen</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>Carestone_Vertriebsvereinbarung__c</columns>
+    <columns>Kategorie__c</columns>
+    <columns>AnnualTargetPlanning__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Maklerbetreuer_Wirtschaftshaus_2__c</field>
+        <operation>equals</operation>
+        <value>Jürgen Engler</value>
+    </filters>
+    <label>Makler Jürgen</label>
+</ListView>

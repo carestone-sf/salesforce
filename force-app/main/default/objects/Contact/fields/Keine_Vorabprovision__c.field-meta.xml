@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Keine_Vorabprovision__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Ist Wahr, wenn der Kontakt eine negative Crefo hat</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Hat der Kontakt eine negative Crefo?</inlineHelpText>
+    <label>Keine Vorabprovision</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

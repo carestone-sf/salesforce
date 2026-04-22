@@ -2087,11 +2087,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Property__c.Test__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Property__c.Text_Nachtrag_Provision__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2133,11 +2128,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Property__c.Value_Preservation__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Property__c.Verkaufsprovision__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ansprechpartner__c</fullName>
+    <externalId>false</externalId>
+    <formula>if(ISBLANK(Externer_Maklerbetreuer__c), Maklerbetreuer_Wirtschaftshaus_2__r.FirstName + &apos; &apos; + Maklerbetreuer_Wirtschaftshaus_2__r.LastName, Externer_Maklerbetreuer__r.FirstName + &apos; &apos; + Externer_Maklerbetreuer__r.LastName)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Ansprechpartner</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Dieses Feld kann direkt im Kontakt geändert werden --></help>
+    <label><!-- Nebenjob Arbeitgeber/in Ort P1 --></label>
+    <name>NebenjobArbeitgeberInOrtP1__c</name>
+</CustomFieldTranslation>

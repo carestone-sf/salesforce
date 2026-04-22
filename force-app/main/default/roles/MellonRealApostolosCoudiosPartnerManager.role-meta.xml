@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>None</contactAccessLevel>
+    <description>Mellon Real Apostolos Coudios Partner-Manager</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Mellon Real Apostolos Coudios Partner-Manager</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>MellonRealApostolosCoudiosPartnerFhrungskraft</parentRole>
+</Role>

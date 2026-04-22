@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Gutschriften über --></label>
+    <name>GutschriftenUeber__c</name>
+    <picklistValues>
+        <masterLabel>Carestone Service GmbH</masterLabel>
+        <translation><!-- Carestone Service GmbH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Carestone Vertriebs GmbH</masterLabel>
+        <translation><!-- Carestone Vertriebs GmbH --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

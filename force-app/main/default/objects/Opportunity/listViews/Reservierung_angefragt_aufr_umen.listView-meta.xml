@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reservierung_angefragt_aufr_umen</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Grund_VKC_verloren__c</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>OPPORTUNITY.LAST_UPDATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>OPPORTUNITY_SCORE</columns>
+    <columns>reserviert_bis__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Reservierung angefragt</value>
+    </filters>
+    <filters>
+        <field>reserviert_bis__c</field>
+        <operation>lessOrEqual</operation>
+        <value>12/10/2025 12:00 AM</value>
+    </filters>
+    <label>Reservierung angefragt aufräumen</label>
+</ListView>

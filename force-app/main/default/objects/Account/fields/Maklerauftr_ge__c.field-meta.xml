@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maklerauftr_ge__c</fullName>
+    <description>Makleraufträge und Objektvereinbarungen</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Hier Makleraufträge und Objektvereinbarungen angeben</inlineHelpText>
+    <label>Makleraufträge und Objektvereinbarungen</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>WHS Maklerauftrag</fullName>
+                <default>false</default>
+                <label>WHS Maklerauftrag</label>
+            </value>
+            <value>
+                <fullName>WH Sach Rahmenvereinbarung</fullName>
+                <default>false</default>
+                <label>WH Sach Rahmenvereinbarung</label>
+            </value>
+            <value>
+                <fullName>OV Heiligenhafen Torhaus</fullName>
+                <default>false</default>
+                <label>OV Heiligenhafen Torhaus</label>
+            </value>
+            <value>
+                <fullName>OV Heiligenhafen Gutshaus</fullName>
+                <default>false</default>
+                <label>OV Heiligenhafen Gutshaus</label>
+            </value>
+            <value>
+                <fullName>OV Heiligenhafen Fischerhaus</fullName>
+                <default>false</default>
+                <label>OV Heiligenhafen Fischerhaus</label>
+            </value>
+            <value>
+                <fullName>OV Wohnpark Bergen</fullName>
+                <default>false</default>
+                <label>OV Wohnpark Bergen</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>6</visibleLines>
+</CustomField>

@@ -4,6 +4,7 @@
     <externalId>false</externalId>
     <label>Förderung</label>
     <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
@@ -30,6 +31,21 @@
                 <fullName>KfW-55</fullName>
                 <default>false</default>
                 <label>KfW-55</label>
+            </value>
+            <value>
+                <fullName>KFWG</fullName>
+                <default>false</default>
+                <label>KFWG</label>
+            </value>
+            <value>
+                <fullName>KfWG-Q</fullName>
+                <default>false</default>
+                <label>KfWG-Q</label>
+            </value>
+            <value>
+                <fullName>KFN-WG-Q</fullName>
+                <default>false</default>
+                <label>KFN-WG-Q</label>
             </value>
             <value>
                 <fullName>KfW-40 (EE)</fullName>

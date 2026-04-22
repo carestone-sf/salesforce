@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>frederik.witte@witte-solutions.de</contactEmail>
+    <label>sfdx travis ci</label>
+    <oauthConfig>
+        <callbackUrl>http://localhost:1717/OauthRedirect</callbackUrl>
+        <certificate>MIIDjjCCAnYCCQDfZjQ9kXPE5DANBgkqhkiG9w0BAQsFADCBiDELMAkGA1UEBhMCREUxFTATBgNVBAgMDExvd2VyIFNheG9ueTERMA8GA1UEBwwISGFubm92ZXIxHTAbBgNVBAoMFFdpdHRlIFNvbHV0aW9ucyBHbWJIMTAwLgYJKoZIhvcNAQkBFiFmcmVkZXJpay53aXR0ZUB3aXR0ZS1zb2x1dGlvbnMuZGUwHhcNMjEwMTA0MTMxOTA5WhcNMjIwMTA0MTMxOTA5WjCBiDELMAkGA1UEBhMCREUxFTATBgNVBAgMDExvd2VyIFNheG9ueTERMA8GA1UEBwwISGFubm92ZXIxHTAbBgNVBAoMFFdpdHRlIFNvbHV0aW9ucyBHbWJIMTAwLgYJKoZIhvcNAQkBFiFmcmVkZXJpay53aXR0ZUB3aXR0ZS1zb2x1dGlvbnMuZGUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDO+ZP9S/gm1yTaraWuJ07iq7ODFbMaek3O/Dj0KdcyX26cclC09WE0FtDDpb1aBNiTCStD7YXZ8encWcB2juvNYurQ7lFB3WbDYKVufYcUgJvc+nlAjjEI1XTaNm97S6he5R6yPDiU/PNbF55J5kt+WoKYBMTF0VWHfFDsngGeLoBttM99hgmMoj1H/+eZ1vqhnQUSnmKt/c33WWLiXpH/gGTKBA7gTDAM7s0xuhO39Tfl5rNtTsFh/neXOw+9IJm4mgWKURyrXQ6nhqbBNSV7mI0Rn6BLafxQlE951ihX2qvo1Nj+RgeblK8dpdp0f04hezv+oGkX/cIJJBRL5pYjAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAEh/kJxWxkNYNHICDLs+5d/ngXS7/TffFseGN+t6AG+6IS9392Qsf+awqBvUg+PAr6Uuz71xBAdekWMVAYQiXn6j1mRUAT99aeY7ubeegrN3mobCcLP54DIiCcMixeuiQF9En8epZMybVpgH+EVsE2DLlL2i/7sYz31ndhp+sUwcpiVTWJrUya4bQ172yCKFyPNoPkvf1ZF2mTsjTavL/v3UkL8+xvnO0DAWPa61Asiwuqm9y9/TVFw8zfLlaODnAU8Yf4kTQwoKMwraLoqxKRDUVm1d0rvkdtzYvywnSjtLR5DMtYLmdVPen+Zdeq5ID8tmhf/eUcLNKb4uS+dvGaQ=</certificate>
+        <consumerKey>3MVG99qusVZJwhsmSjRfpZ536bvE.B9hpAe4w4zZrKi6Z4MaSY2.XC.DIhHuUj2P5w_nynurYfBbmApofneby</consumerKey>
+        <isAdminApproved>true</isAdminApproved>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isSecretRequiredForRefreshToken>false</isSecretRequiredForRefreshToken>
+        <scopes>Api</scopes>
+        <scopes>Web</scopes>
+        <scopes>RefreshToken</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+    <permissionSetName>sfdx travis ci</permissionSetName>
+</ConnectedApp>

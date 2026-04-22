@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>R_ckabwicklungen</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>DatumRueckabwicklung__c</columns>
+    <columns>NotesBackoffice__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Maklerbetreuer_WirtschaftsHaus__c</columns>
+    <columns>Immobilie__c</columns>
+    <columns>Appartement__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Grund_VKC_verloren__c</field>
+        <operation>equals</operation>
+        <value>Rückabwicklung</value>
+    </filters>
+    <label>Rückabwicklungen</label>
+</ListView>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Interne Provision an CS Finance wurde gezahlt. --></help>
+    <label><!-- Int. Prov. bez. --></label>
+    <name>Int_Prov_bez__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Liegt eine Vereinbarung über die Landingpage vor? --></help>
+    <label><!-- Landingpage --></label>
+    <name>Landingpage__c</name>
+</CustomFieldTranslation>

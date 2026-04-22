@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <decisions>
+        <name>Daten_an_Datev_bertragen_Gutschrift</name>
+        <label>Daten an Datev übertragen &amp;&amp; Gutschrift?</label>
+        <locationX>374</locationX>
+        <locationY>791</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Daten_an_Datev_bertragen_Gutschrift2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.DATEV1__AccountingJob__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.DATEV1__SupplierName__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Gutschrift</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Daten an Datev übertragen &amp;&amp; Gutschrift?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Daten_an_Datev_bertragen_MaBV</name>
+        <label>Daten an Datev übertragen &amp;&amp; MaBV?</label>
+        <locationX>374</locationX>
+        <locationY>455</locationY>
+        <defaultConnector>
+            <targetReference>Daten_an_Datev_bertragen_Gutschrift</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Daten_an_Datev_bertragen_MaBV2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.DATEV1__AccountingJob__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.DATEV1__CustomerName__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_MaBV_Rechnung</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Daten an Datev übertragen &amp;&amp; MaBV?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_New</name>
+        <label>Is New?</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <defaultConnector>
+            <targetReference>Daten_an_Datev_bertragen_MaBV</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_New2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Is New?</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Datev Accounting Document after insert / update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Datev Accounting Document after insert / update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Gutschrift</name>
+        <label>Update Gutschrift</label>
+        <locationX>242</locationX>
+        <locationY>911</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.DATEV1__InvoiceId__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>ZuDatevUebertragen__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Gutschrift__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_MaBV_Rechnung</name>
+        <label>Update MaBV Rechnung</label>
+        <locationX>242</locationX>
+        <locationY>575</locationY>
+        <connector>
+            <targetReference>Daten_an_Datev_bertragen_Gutschrift</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.DATEV1__InvoiceId__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>ZuDatevUebertragen__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>MaBVRechnung__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_New</targetReference>
+        </connector>
+        <object>DATEV1__AccountingDocument__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

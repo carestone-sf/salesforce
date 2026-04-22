@@ -3,6 +3,11 @@
     <fullName>All</fullName>
     <columns>CREATED_DATE</columns>
     <columns>NAME</columns>
+    <columns>Makler__c</columns>
+    <columns>OWNER.LAST_NAME</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>OBJECT_ID</columns>
+    <columns>Hauptimmobilie__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

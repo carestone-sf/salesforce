@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Finanzierungsanfragen_Siegenburg</fullName>
+    <columns>NAME</columns>
+    <columns>Phase__c</columns>
+    <columns>BeurkundungMoeglich__c</columns>
+    <columns>WiedervorlageAm__c</columns>
+    <columns>AmpelInternImg__c</columns>
+    <columns>GrundBewertung__c</columns>
+    <columns>PhaseOpportunity__c</columns>
+    <columns>Notartermin__c</columns>
+    <columns>Finanzierung__c</columns>
+    <columns>OWNER.FIRST_NAME</columns>
+    <columns>Maklerbetreuer__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Finanzierungsvermittler__c</columns>
+    <columns>Erwerbstaetigkeit__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>7/1/2023 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>Finanzierung__c</field>
+        <operation>notEqual</operation>
+        <value>Fremdfinanzierung,Eigenkapitalzahlung</value>
+    </filters>
+    <filters>
+        <field>Phase__c</field>
+        <operation>notEqual</operation>
+        <value>Finanzierung pausiert,Finanzierung genehmigt,Finanzierung verloren</value>
+    </filters>
+    <filters>
+        <field>NAME</field>
+        <operation>contains</operation>
+        <value>Siegenburg</value>
+    </filters>
+    <label>Finanzierungsanfragen Siegenburg</label>
+</ListView>

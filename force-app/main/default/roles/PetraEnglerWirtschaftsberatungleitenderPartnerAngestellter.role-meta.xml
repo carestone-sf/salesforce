@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Petra Engler Wirtschaftsberatung leitender Partner-Angestellter</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Petra Engler Wirtschaftsberatung leitender Partner-Angestellter</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>Teamleiter_Team_Sven</parentRole>
+</Role>

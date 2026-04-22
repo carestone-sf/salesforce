@@ -3,8 +3,6 @@ import { NavigationMixin } from 'lightning/navigation';
 import { MessageContext, subscribe, unsubscribe, publish } from 'lightning/messageService';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getAllImmobilien from '@salesforce/apex/ImmobilienController.getAllImmobilien';
-import getBerechnungen from '@salesforce/apex/BerechnungController.getBerechnungSave';
-import IMMOFINDER_FILTER_UPDATE from '@salesforce/messageChannel/ImmoFinderFilterUpdate__c';
 import IMMO_FINDER_APARTMENT_SELECTED from '@salesforce/messageChannel/ImmoFinderApartmentSelected__c';
 import IMMO_FINDER_NEW_CALCULATION_BUTTON_CLICKED from '@salesforce/messageChannel/immoFinderNewCalculationButtonClicked__c';
 import insertBerechnungWithApartmentsApex from '@salesforce/apex/BerechnungController.insertBerechnungWithApartments';

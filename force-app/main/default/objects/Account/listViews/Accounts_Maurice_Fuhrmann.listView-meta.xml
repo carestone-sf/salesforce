@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accounts_Maurice_Fuhrmann</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>AnnualTargetPlanning__c</columns>
+    <columns>Carestone_Vertriebsvereinbarung__c</columns>
+    <columns>Kategorie__c</columns>
+    <columns>PARENT_NAME</columns>
+    <columns>Maklerbetreuer_Wirtschaftshaus_2__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>mfuhr</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notContain</operation>
+        <value>Maurice Fuhrmann</value>
+    </filters>
+    <label>Accounts Maurice Fuhrmann</label>
+</ListView>

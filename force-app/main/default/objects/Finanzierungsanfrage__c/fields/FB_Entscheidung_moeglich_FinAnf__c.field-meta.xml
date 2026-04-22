@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FB_Entscheidung_moeglich_FinAnf__c</fullName>
+    <externalId>false</externalId>
+    <formula>Opportunity__r.FB_Entscheidung_moeglich__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Wird auf VKC gepflegt.</inlineHelpText>
+    <label>FB Entscheidung möglich</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

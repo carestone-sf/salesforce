@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Kaufpreise</fullName>
+    <columns>NAME</columns>
+    <columns>Purchase_Price__c</columns>
+    <columns>Purchase_Price_sq_m__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Kontingent,Reservierungsvorbereitung,Reservierung angefragt,Available,Verfügbar,Reserved,Reserviert,Kaufvertragsangebot abgegeben,Kaufvertragsunterlagen verschickt -zweiseitig-,Auftrag zur Beurkundung vorhanden</value>
+    </filters>
+    <label>Kaufpreise</label>
+</ListView>

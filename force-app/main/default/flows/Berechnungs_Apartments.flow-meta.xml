@@ -71,7 +71,7 @@ IF([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c != 0 &amp;&a
 [BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c )</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_10_myRule_1_A1_6702078782</name>
+        <name>formula_10_myRule_1_A1_0147970732</name>
         <dataType>Currency</dataType>
         <expression>{!myVariable_current.Immobilie__r.Building_Share_Value__c} *
 
@@ -87,7 +87,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
                 <stringValue>[BerechnungsApartment__c].Apartment__r.Property__r.Manager_Cost_p_a__c / 12</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_11_myRule_1_A1_6577360766</name>
+        <name>formula_11_myRule_1_A1_4782781159</name>
         <dataType>Currency</dataType>
         <expression>{!myVariable_current.Apartment__r.Property__r.Manager_Cost_p_a__c} / 12</expression>
         <scale>18</scale>
@@ -103,7 +103,7 @@ IF([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c != 0 &amp;&a
 [BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c )</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_12_myRule_1_A1_9956111361</name>
+        <name>formula_12_myRule_1_A1_3688725597</name>
         <dataType>Currency</dataType>
         <expression>{!myVariable_current.Immobilie__r.Value_Of_Outdoor__c} *
 
@@ -123,7 +123,7 @@ IF([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c != 0 &amp;&a
 [BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c )</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_13_myRule_1_A1_6034928484</name>
+        <name>formula_13_myRule_1_A1_7122713310</name>
         <dataType>Currency</dataType>
         <expression>{!myVariable_current.Immobilie__r.Value_Plot__c} *
 
@@ -139,7 +139,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
                 <stringValue>([BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c)  * [BerechnungsApartment__c].Apartment__r.Property__r.Value_Plot__c *[BerechnungsApartment__c].Apartment__r.Outdoor_AFA__c </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_16_myRule_15_A1_3374506511</name>
+        <name>formula_16_myRule_15_A1_3233021995</name>
         <dataType>Currency</dataType>
         <expression>({!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c})  * {!myVariable_current.Apartment__r.Property__r.Value_Plot__c} *{!myVariable_current.Apartment__r.Outdoor_AFA__c}</expression>
         <scale>18</scale>
@@ -151,7 +151,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
                 <stringValue>([BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c) * [BerechnungsApartment__c].Apartment__r.Property__r.Building_Share_Value__c * [BerechnungsApartment__c].Apartment__r.Net_Asset_Value_AFA__c </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_17_myRule_15_A1_2761916831</name>
+        <name>formula_17_myRule_15_A1_4559118647</name>
         <dataType>Currency</dataType>
         <expression>({!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c}) * {!myVariable_current.Apartment__r.Property__r.Building_Share_Value__c} * {!myVariable_current.Apartment__r.Net_Asset_Value_AFA__c}</expression>
         <scale>18</scale>
@@ -167,7 +167,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
 [BerechnungsApartment__c].Immobilie__r.Afa_Plot__c</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_18_myRule_15_A1_1852690971</name>
+        <name>formula_18_myRule_15_A1_4393810949</name>
         <dataType>Currency</dataType>
         <expression>({!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c}) * {!myVariable_current.Immobilie__r.Building_Share_Value__c} *
 {!myVariable_current.Immobilie__r.Afa_Building_Shares__c}
@@ -187,7 +187,7 @@ IF([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c != 0 &amp;&a
 [BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c )</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_19_myRule_15_A1_7025346912</name>
+        <name>formula_19_myRule_15_A1_5957465187</name>
         <dataType>Currency</dataType>
         <expression>{!myVariable_current.Immobilie__r.Building_Share_Value__c} *
 
@@ -207,7 +207,7 @@ IF([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c != 0 &amp;&a
 [BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c )</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_20_myRule_15_A1_7895187124</name>
+        <name>formula_20_myRule_15_A1_0318314617</name>
         <dataType>Currency</dataType>
         <expression>{!myVariable_current.Immobilie__r.Value_Of_Outdoor__c} *
 
@@ -227,7 +227,7 @@ IF([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c != 0 &amp;&a
 [BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c )</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_21_myRule_15_A1_3683883772</name>
+        <name>formula_21_myRule_15_A1_3027796987</name>
         <dataType>Currency</dataType>
         <expression>{!myVariable_current.Immobilie__r.Value_Plot__c} *
 
@@ -240,12 +240,12 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>([BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c)  * [BerechnungsApartment__c].Apartment__r.Property__r.Value_Plot__c *[BerechnungsApartment__c].Apartment__r.Outdoor_AFA__c </stringValue>
+                <stringValue>([BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c)  * [BerechnungsApartment__c].Apartment__r.Property__r.Value_Of_Outdoor__c *[BerechnungsApartment__c].Apartment__r.Outdoor_AFA__c </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_2_myRule_1_A1_5316933274</name>
+        <name>formula_2_myRule_1_A1_2249122645</name>
         <dataType>Currency</dataType>
-        <expression>({!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c})  * {!myVariable_current.Apartment__r.Property__r.Value_Plot__c} *{!myVariable_current.Apartment__r.Outdoor_AFA__c}</expression>
+        <expression>({!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c})  * {!myVariable_current.Apartment__r.Property__r.Value_Of_Outdoor__c} *{!myVariable_current.Apartment__r.Outdoor_AFA__c}</expression>
         <scale>18</scale>
     </formulas>
     <formulas>
@@ -255,7 +255,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
                 <stringValue>([BerechnungsApartment__c].Apartment__r.Purchase_Price__c + [BerechnungsApartment__c].PriceAdjustment__c) * [BerechnungsApartment__c].Apartment__r.Property__r.Building_Share_Value__c * [BerechnungsApartment__c].Apartment__r.Net_Asset_Value_AFA__c </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_3_myRule_1_A1_1829601345</name>
+        <name>formula_3_myRule_1_A1_9008497429</name>
         <dataType>Currency</dataType>
         <expression>({!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c}) * {!myVariable_current.Apartment__r.Property__r.Building_Share_Value__c} * {!myVariable_current.Apartment__r.Net_Asset_Value_AFA__c}</expression>
         <scale>18</scale>
@@ -271,7 +271,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
 [BerechnungsApartment__c].Immobilie__r.Afa_Plot__c</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_4_myRule_1_A1_7667831896</name>
+        <name>formula_4_myRule_1_A1_0699139253</name>
         <dataType>Currency</dataType>
         <expression>({!myVariable_current.Apartment__r.Purchase_Price__c} + {!myVariable_current.PriceAdjustment__c}) * {!myVariable_current.Immobilie__r.Building_Share_Value__c} *
 {!myVariable_current.Immobilie__r.Afa_Building_Shares__c}
@@ -287,7 +287,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
                 <stringValue>[BerechnungsApartment__c].Apartment__r.Property__r.Real_Estate_Transfer_Tax__c * 10000</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_5_myRule_1_A1_1172525848</name>
+        <name>formula_5_myRule_1_A1_2730103737</name>
         <dataType>Number</dataType>
         <expression>{!myVariable_current.Apartment__r.Property__r.Real_Estate_Transfer_Tax__c} * 10000</expression>
         <scale>18</scale>
@@ -299,7 +299,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
                 <stringValue>[BerechnungsApartment__c].Apartment__r.Property__r.maintenance_sqm_p_a__c * [BerechnungsApartment__c].Apartment__r.Area_sq_m__c / 12</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_6_myRule_1_A1_6003854832</name>
+        <name>formula_6_myRule_1_A1_2601657723</name>
         <dataType>Currency</dataType>
         <expression>{!myVariable_current.Apartment__r.Property__r.maintenance_sqm_p_a__c} * {!myVariable_current.Apartment__r.Area_sq_m__c} / 12</expression>
         <scale>18</scale>
@@ -311,7 +311,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
                 <stringValue>IF( [BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c != 0 &amp;&amp; !IsBlank([BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c), [BerechnungsApartment__c].Apartment__r.DeviatingPurchasePrice__c, [BerechnungsApartment__c].Apartment__r.Purchase_Price__c)</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_7_myRule_1_A1_5829576110</name>
+        <name>formula_7_myRule_1_A1_7623205324</name>
         <dataType>Currency</dataType>
         <expression>IF( {!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; !IsBlank({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c}), {!myVariable_current.Apartment__r.DeviatingPurchasePrice__c}, {!myVariable_current.Apartment__r.Purchase_Price__c})</expression>
         <scale>18</scale>
@@ -323,7 +323,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
                 <stringValue>[BerechnungsApartment__c].Apartment__r.Monthly_Rent__c </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_8_myRule_1_A1_7560880345</name>
+        <name>formula_8_myRule_1_A1_5066351767</name>
         <dataType>Currency</dataType>
         <expression>{!myVariable_current.Apartment__r.Monthly_Rent__c}</expression>
         <scale>18</scale>
@@ -335,7 +335,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
                 <stringValue>[BerechnungsApartment__c].Immobilie__r.Name + &apos; - &apos; + [BerechnungsApartment__c].Apartment__r.Name </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_9_myRule_1_A1_0339462923</name>
+        <name>formula_9_myRule_1_A1_8340252311</name>
         <dataType>String</dataType>
         <expression>{!myVariable_current.Immobilie__r.Name} + &apos; - &apos; + {!myVariable_current.Apartment__r.Name}</expression>
     </formulas>
@@ -361,7 +361,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
         <dataType>Boolean</dataType>
         <expression>ISCHANGED({!myVariable_current.PriceAdjustment__c}) &amp;&amp; NOT(ISNEW())</expression>
     </formulas>
-    <interviewLabel>Berechnungs_Apartments-8_InterviewLabel</interviewLabel>
+    <interviewLabel>Berechnungs_Apartments-10_InterviewLabel</interviewLabel>
     <label>Berechnungs-Apartments</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -464,7 +464,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
             </processMetadataValues>
             <field>AfAAussenanlagenProJahrInEuro__c</field>
             <value>
-                <elementReference>formula_16_myRule_15_A1_3374506511</elementReference>
+                <elementReference>formula_16_myRule_15_A1_3233021995</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -500,7 +500,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
             </processMetadataValues>
             <field>AfASubstanzProJahrInEuro__c</field>
             <value>
-                <elementReference>formula_17_myRule_15_A1_2761916831</elementReference>
+                <elementReference>formula_17_myRule_15_A1_4559118647</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -536,7 +536,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
             </processMetadataValues>
             <field>AfaProJahrInEuro__c</field>
             <value>
-                <elementReference>formula_18_myRule_15_A1_1852690971</elementReference>
+                <elementReference>formula_18_myRule_15_A1_4393810949</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -572,7 +572,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
             </processMetadataValues>
             <field>SubstanzwertInEuro__c</field>
             <value>
-                <elementReference>formula_19_myRule_15_A1_7025346912</elementReference>
+                <elementReference>formula_19_myRule_15_A1_5957465187</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -608,7 +608,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
             </processMetadataValues>
             <field>WertAussenanlagenInEuro__c</field>
             <value>
-                <elementReference>formula_20_myRule_15_A1_7895187124</elementReference>
+                <elementReference>formula_20_myRule_15_A1_0318314617</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -644,7 +644,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
             </processMetadataValues>
             <field>WertGrundstueckInEuro__c</field>
             <value>
-                <elementReference>formula_21_myRule_15_A1_3683883772</elementReference>
+                <elementReference>formula_21_myRule_15_A1_3027796987</elementReference>
             </value>
         </inputAssignments>
         <object>BerechnungsApartment__c</object>
@@ -728,7 +728,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
             </processMetadataValues>
             <field>AfAAussenanlagenProJahrInEuro__c</field>
             <value>
-                <elementReference>formula_2_myRule_1_A1_5316933274</elementReference>
+                <elementReference>formula_2_myRule_1_A1_2249122645</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -800,7 +800,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
             </processMetadataValues>
             <field>AfASubstanzProJahrInEuro__c</field>
             <value>
-                <elementReference>formula_3_myRule_1_A1_1829601345</elementReference>
+                <elementReference>formula_3_myRule_1_A1_9008497429</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -872,7 +872,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
             </processMetadataValues>
             <field>AfaProJahrInEuro__c</field>
             <value>
-                <elementReference>formula_4_myRule_1_A1_7667831896</elementReference>
+                <elementReference>formula_4_myRule_1_A1_0699139253</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -980,7 +980,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
             </processMetadataValues>
             <field>GrunderwerbsteuerInPercent__c</field>
             <value>
-                <elementReference>formula_5_myRule_1_A1_1172525848</elementReference>
+                <elementReference>formula_5_myRule_1_A1_2730103737</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1016,7 +1016,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
             </processMetadataValues>
             <field>InstandhaltungProMonatInEuro__c</field>
             <value>
-                <elementReference>formula_6_myRule_1_A1_6003854832</elementReference>
+                <elementReference>formula_6_myRule_1_A1_2601657723</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1052,7 +1052,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
             </processMetadataValues>
             <field>Listenpreis__c</field>
             <value>
-                <elementReference>formula_7_myRule_1_A1_5829576110</elementReference>
+                <elementReference>formula_7_myRule_1_A1_7623205324</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1088,7 +1088,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
             </processMetadataValues>
             <field>MieteProMonatInEuro__c</field>
             <value>
-                <elementReference>formula_8_myRule_1_A1_7560880345</elementReference>
+                <elementReference>formula_8_myRule_1_A1_5066351767</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1124,7 +1124,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
             </processMetadataValues>
             <field>Name</field>
             <value>
-                <elementReference>formula_9_myRule_1_A1_0339462923</elementReference>
+                <elementReference>formula_9_myRule_1_A1_8340252311</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1196,7 +1196,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
             </processMetadataValues>
             <field>SubstanzwertInEuro__c</field>
             <value>
-                <elementReference>formula_10_myRule_1_A1_6702078782</elementReference>
+                <elementReference>formula_10_myRule_1_A1_0147970732</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1232,7 +1232,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
             </processMetadataValues>
             <field>VerwaltungProMonatInEuro__c</field>
             <value>
-                <elementReference>formula_11_myRule_1_A1_6577360766</elementReference>
+                <elementReference>formula_11_myRule_1_A1_4782781159</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1268,7 +1268,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
             </processMetadataValues>
             <field>WertAussenanlagenInEuro__c</field>
             <value>
-                <elementReference>formula_12_myRule_1_A1_9956111361</elementReference>
+                <elementReference>formula_12_myRule_1_A1_3688725597</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1304,7 +1304,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
             </processMetadataValues>
             <field>WertGrundstueckInEuro__c</field>
             <value>
-                <elementReference>formula_13_myRule_1_A1_6034928484</elementReference>
+                <elementReference>formula_13_myRule_1_A1_7122713310</elementReference>
             </value>
         </inputAssignments>
         <object>BerechnungsApartment__c</object>
@@ -1437,7 +1437,7 @@ IF({!myVariable_current.Apartment__r.DeviatingPurchasePrice__c} != 0 &amp;&amp; 
         <object>Berechnung__c</object>
     </recordUpdates>
     <startElementReference>myDecision</startElementReference>
-    <status>Active</status>
+    <status>Draft</status>
     <variables>
         <name>myVariable_current</name>
         <dataType>SObject</dataType>

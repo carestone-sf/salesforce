@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DarlehensvertragMussVorliegen</fullName>
+    <active>true</active>
+    <errorConditionFormula>TEXT(Finanzierung__c) != &apos;Eigenkapitalzahlung&apos;
+&amp;&amp; !FinanzierungsvertragUnterzeichnet__c
+&amp;&amp; (
+     (X1_MaBV_Rate_gezahlt__c &amp;&amp; ISCHANGED(X1_MaBV_Rate_gezahlt__c))
+   )
+&amp;&amp; Notartermin__c &gt;= DATE(2025, 5, 1)</errorConditionFormula>
+    <errorDisplayField>FinanzierungsvertragUnterzeichnet__c</errorDisplayField>
+    <errorMessage>Der Darlehensvertrag muss vorliegen.</errorMessage>
+</ValidationRule>

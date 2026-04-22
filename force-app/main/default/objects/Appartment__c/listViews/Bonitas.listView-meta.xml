@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bonitas</fullName>
+    <columns>NAME</columns>
+    <columns>Property__c</columns>
+    <columns>Purchase_Price__c</columns>
+    <columns>Status__c</columns>
+    <columns>Monthly_Rent__c</columns>
+    <columns>Rental_return__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Property__c</field>
+        <operation>equals</operation>
+        <value>Ibbenbüren,Herford Elverdisser Str. – Wohnungen,Herford Vlothoer Str.,Hiddenhausen Herforder Straße</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Kontingent,Reservierungsvorbereitung,Reservierung angefragt,Available,Verfügbar,Reserved,Reserviert,Kaufvertragsangebot abgegeben,KV wird fremd abgegeben,Kaufvertragsunterlagen verschickt -zweiseitig-,Auftrag zur Beurkundung vorhanden</value>
+    </filters>
+    <label>Bonitas / Mietanpassung</label>
+</ListView>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maklerzirkel</fullName>
+    <columns>CONTACT.FIRST_NAME</columns>
+    <columns>CONTACT.LAST_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.ADDRESS1_STREET</columns>
+    <columns>CONTACT.ADDRESS1_ZIP</columns>
+    <columns>CONTACT.ADDRESS1_CITY</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>Kunden_Maklerschutz__c</columns>
+    <columns>Kundenschutz__c</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Gesch_ftsbeziehung__c</field>
+        <operation>equals</operation>
+        <value>Kunde</value>
+    </filters>
+    <label>Maklerzirkel</label>
+    <sharedTo>
+        <role>Team_Maurice</role>
+    </sharedTo>
+</ListView>

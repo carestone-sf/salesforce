@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Status --></label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>Angebot angenommen</masterLabel>
+        <translation><!-- Angebot angenommen --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bankzusage erhalten</masterLabel>
+        <translation><!-- Bankzusage erhalten --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Beantragung Bank</masterLabel>
+        <translation><!-- Beantragung Bank --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bonitätsunterlagen fehlen</masterLabel>
+        <translation><!-- Bonitätsunterlagen fehlen --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Erstkontakt erfolgt</masterLabel>
+        <translation><!-- Erstkontakt erfolgt --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fremdfinanzierung</masterLabel>
+        <translation><!-- Fremdfinanzierung --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Keine Finanzierung</masterLabel>
+        <translation><!-- Keine Finanzierung --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kreditverträge unterzeichnet</masterLabel>
+        <translation><!-- Kreditverträge unterzeichnet --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Neue Anfrage</masterLabel>
+        <translation><!-- Neue Anfrage --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Nicht erreicht</masterLabel>
+        <translation><!-- Nicht erreicht --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Objektunterlagen fehlen</masterLabel>
+        <translation><!-- Objektunterlagen fehlen --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Voranfrage</masterLabel>
+        <translation><!-- Voranfrage --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

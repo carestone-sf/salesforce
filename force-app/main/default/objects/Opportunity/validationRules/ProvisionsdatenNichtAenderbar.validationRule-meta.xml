@@ -2,14 +2,15 @@
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ProvisionsdatenNichtAenderbar</fullName>
     <active>true</active>
-    <errorConditionFormula>AnzahlBestaetigteProvisionen__c &gt; 0 &amp;&amp; 
+    <errorConditionFormula>$Profile.Name &lt;&gt; &quot;Systemadministrator&quot; &amp;&amp;
+AnzahlBestaetigteProvisionen__c &gt; 0 &amp;&amp;
 OR(
-ISCHANGED(  Maklerprovision_nach_Nachtrag__c  ),
-ISCHANGED(  Overhead__c ),
-ISCHANGED(  Tippprovision__c ),
-ISCHANGED(  Provisionsbasis__c ),
-ISCHANGED( Kaufdatum__c),
-ISCHANGED( MarketingzuschussNichtAusweisen__c )
+   ISCHANGED( Maklerprovision_nach_Nachtrag__c ),
+   ISCHANGED( Overhead__c ),
+   ISCHANGED( Tippprovision__c ),
+   ISCHANGED( Provisionsbasis__c ),
+   ISCHANGED( Kaufdatum__c ),
+   ISCHANGED( MarketingzuschussNichtAusweisen__c )
 )</errorConditionFormula>
     <errorMessage>Bitte storniere alle Gutschriften, bevor du die Provisionsdaten änderst.</errorMessage>
 </ValidationRule>

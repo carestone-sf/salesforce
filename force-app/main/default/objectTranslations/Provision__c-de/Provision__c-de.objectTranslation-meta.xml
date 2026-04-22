@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>Provision</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>Provisionen</value>
+    </caseValues>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Provision-Layout</layout>
+        <sections>
+            <label><!-- Benutzerdefinierte Links --></label>
+            <section>Benutzerdefinierte Links</section>
+        </sections>
+        <sections>
+            <label><!-- Erfolgsabhängige Provision --></label>
+            <section>Erfolgsabhängige Provision</section>
+        </sections>
+        <sections>
+            <label><!-- Provision --></label>
+            <section>Provision</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- Eine bereits bestätigte Provision muss erst storniert werden --></errorMessage>
+        <name>BestaetigteProvisionMussStorniertWerden</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Die Provision muss erst durch den MB genehmigt werden und danach bestätigt. --></errorMessage>
+        <name>GutschriftKannNichtBestaetigtWerden</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Berechnungsvorlage_erstellen --></label>
+        <name>Berechnungsvorlage_erstellen</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Gutschrift_PDF_ansehen --></label>
+        <name>Gutschrift_PDF_ansehen</name>
+    </webLinks>
+</CustomObjectTranslation>

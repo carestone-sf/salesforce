@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#063427</headerColor>
+        <logo>Futuristisches_CloudLogo_mit_CS</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
+    </brand>
+    <description>App, die für die Administratoren bereitsteht. Ermöglicht den Zugriff auf zusätzliche Monitoring- und Funktion-Bereiche.</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>CS Admin</label>
+    <navType>Standard</navType>
+    <tabs>standard-FlowRecord</tabs>
+    <tabs>standard-Monitor</tabs>
+    <tabs>standard-FlowInterview</tabs>
+    <tabs>standard-FlowOrchestration</tabs>
+    <tabs>standard-FlowOrchestrationInstance</tabs>
+    <tabs>Monitoring__c</tabs>
+    <tabs>standard-DeleteEvent</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>CS_Admin_UtilityBar</utilityBar>
+</CustomApplication>

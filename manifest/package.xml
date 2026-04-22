@@ -1,5 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>*</members>
+        <name>AnimationRule</name>
+    </types>
     <types>
         <members>*</members>
         <name>ApexClass</name>
@@ -14,11 +18,11 @@
     </types>
     <types>
         <members>*</members>
-        <name>ApexTestSuite</name>
+        <name>ApexTrigger</name>
     </types>
     <types>
         <members>*</members>
-        <name>ApexTrigger</name>
+        <name>ApprovalProcess</name>
     </types>
     <types>
         <members>*</members>
@@ -26,7 +30,197 @@
     </types>
     <types>
         <members>*</members>
+        <name>ConnectedApp</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CspTrustedSite</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomIndex</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomLabels</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomNotificationType</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomPermission</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomSite</name>
+    </types>
+    <types>
+        <members>AFAWert__c</members>
+        <members>AFA__c</members>
+        <members>Account</members>
+        <members>Activity</members>
+        <members>Activity_Summary__c</members>
+        <members>AdminSettings__c</members>
+        <members>Ankuendigung__c</members>
+        <members>Appartment__c</members>
+        <members>AutomationController__c</members>
+        <members>Berechnung__c</members>
+        <members>BerechnungsApartment__c</members>
+        <members>Berechnungsemails__c</members>
+        <members>Betreiber__c</members>
+        <members>Branding__c</members>
+        <members>Calculation__c</members>
+        <members>Campaign</members>
+        <members>CampaignMember</members>
+        <members>ConnectorType__c</members>
+        <members>Connector__c</members>
+        <members>Contact</members>
+        <members>ContentVersion</members>
+        <members>DatevDebitorennummerKaeufer__c</members>
+        <members>DatevKreditorennummer__c</members>
+        <members>DigitaleVsa__c</members>
+        <members>Exklusiv_im_ImmoFinder__c</members>
+        <members>FileDownloadLog__c</members>
+        <members>FinanzierungsanfrageApartment__c</members>
+        <members>FinanzierungsanfrageNotiz__c</members>
+        <members>Finanzierungsanfrage__c</members>
+        <members>Finanzierungsbaustein__c</members>
+        <members>GutschriftApproval__e</members>
+        <members>Gutschrift_Laufnummer__c</members>
+        <members>Gutschrift_Storno_Laufnummer__c</members>
+        <members>Gutschrift__c</members>
+        <members>Hauptimmobilie__c</members>
+        <members>HiddenProperty__c</members>
+        <members>Iban_Format__mdt</members>
+        <members>ImmobilienBild__c</members>
+        <members>ImmobilienBilder__c</members>
+        <members>ImmobilienDmsDatei__c</members>
+        <members>Immoframe_Konfiguration__c</members>
+        <members>KfW_Konditionen__c</members>
+        <members>Learning_Library_Type__c</members>
+        <members>Loginzeiten_Maklerportal__c</members>
+        <members>MaBVRate__c</members>
+        <members>MaBVRechnungLaufnummer__c</members>
+        <members>MaBVRechnungMaster__c</members>
+        <members>MaBVRechnung__c</members>
+        <members>Matching__c</members>
+        <members>Nachtrag__c</members>
+        <members>Opportunity</members>
+        <members>PresaleApartment__c</members>
+        <members>PresaleReservierung__c</members>
+        <members>ProjectFinancing__c</members>
+        <members>Property_User_Junction__c</members>
+        <members>Property__c</members>
+        <members>Provision__c</members>
+        <members>Provisionsverhandlung__c</members>
+        <members>Realty_User__c</members>
+        <members>Sondertilgung__c</members>
+        <members>TaskTemplate__c</members>
+        <members>Tracking__c</members>
+        <members>User</members>
+        <members>VKCZahlung__c</members>
+        <members>VSAImmobilie__c</members>
+        <members>Verkaufsraum__c</members>
+        <members>Vertrag__c</members>
+        <members>Verzugszins__c</members>
+        <members>VsaVerbindlichkeit__c</members>
+        <members>VsaVermoegenswert__c</members>
+        <members>Zahlung__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomObjectTranslation</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>EmailFolder</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>EmailTemplate</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>FlowDefinition</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>FlowTest</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>GlobalValueSet</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Group</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Letterhead</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>PathAssistant</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ProfilePasswordPolicy</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>QuickAction</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ReportType</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Role</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>SharingRules</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>SharingSet</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>StandardValueSet</name>
     </types>
     <types>
         <members>*</members>
@@ -34,7 +228,11 @@
     </types>
     <types>
         <members>*</members>
-        <name>CustomObject</name>
+        <name>CustomTab</name>
     </types>
-    <version>55.0</version>
+    <types>
+        <members>*</members>
+        <name>Workflow</name>
+    </types>
+    <version>66.0</version>
 </Package>

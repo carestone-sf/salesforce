@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Forecast_n_chster_Monat_Team_Heidler</fullName>
+    <booleanFilter>1 AND 2 AND 3</booleanFilter>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Immobilie__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Maklerbetreuer_WirtschaftsHaus__c</columns>
+    <columns>Notartermin__c</columns>
+    <columns>NotaryDatePossibleFrom__c</columns>
+    <columns>PlannedCertification__c</columns>
+    <columns>Finanzierung__c</columns>
+    <columns>StatusAmpel__c</columns>
+    <columns>Status_Finanzierung__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>PlannedCertification__c</field>
+        <operation>equals</operation>
+        <value>Next Month</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Reserviert,Auftrag zur Beurkundung vorhanden,Kaufvertragsunterlagen verschickt,Kaufvertragsangebot abgegeben,KV wird fremd abgegeben,Geschlossene und gewonnene</value>
+    </filters>
+    <filters>
+        <field>Maklerbetreuer_WirtschaftsHaus__c</field>
+        <operation>equals</operation>
+        <value>Dennis Podssun,Maurice Lindenblatt,Jonas Fickert,Daniel Kräft,Niclas Fritz</value>
+    </filters>
+    <label>Forecast nächster Monat Team Maurice</label>
+</ListView>

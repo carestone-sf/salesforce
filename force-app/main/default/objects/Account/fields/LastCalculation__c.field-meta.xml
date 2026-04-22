@@ -5,5 +5,6 @@
     <label>Datum letzte Berechnung</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
     <type>DateTime</type>
 </CustomField>

@@ -4,7 +4,7 @@
         <name>Benachrichtigung_ber_interne_Provision_an_MB</name>
         <label>Benachrichtigung über interne Provision an MB</label>
         <locationX>50</locationX>
-        <locationY>647</locationY>
+        <locationY>947</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -26,15 +26,72 @@
                 <elementReference>newInternalProvisionEmailText</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>emailSimple</nameSegment>
-        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Submit_for_approval</name>
+        <label>Submit for approval</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <actionName>submit</actionName>
+        <actionType>submit</actionType>
+        <connector>
+            <targetReference>Interne_Provision</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>objectId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
     <apiVersion>54.0</apiVersion>
+    <decisions>
+        <name>Criteria_for_approval_submission</name>
+        <label>Criteria for approval submission</label>
+        <locationX>182</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Interne_Provision</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Criteria_for_approval_submission2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Makler__r.Ist_Maklerbetreuer_WH__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Makler__r.Account.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Carestone Service GmbH</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Provisionssumme__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Submit_for_approval</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Criteria for approval submission</label>
+        </rules>
+    </decisions>
     <decisions>
         <name>Interne_Provision</name>
         <label>Interne Provision?</label>
         <locationX>182</locationX>
-        <locationY>539</locationY>
+        <locationY>839</locationY>
         <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
         <rules>
             <name>Interne_Provision2</name>
@@ -83,7 +140,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Interne_Provision</targetReference>
+                <targetReference>Criteria_for_approval_submission</targetReference>
             </connector>
             <label>Is New?</label>
         </rules>

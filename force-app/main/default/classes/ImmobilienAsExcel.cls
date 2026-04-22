@@ -11,7 +11,7 @@ global class ImmobilienAsExcel implements Schedulable {
 
 	public void sendexcelfile(List<Contact> contacts){
 		// Liste aller Objekte mit Apartments
-		properties = [SELECT Name, Property__c, (SELECT Name, Area_sq_m__c, Monthly_rent_sq_m__c,Zimmerart__c, Monthly_rent__c, Purchase_Price__c, Status__c FROM Appartments__r WHERE Status__c='Available' OR Status__c = 'Reservierung angefragt' OR Status__c = 'Reservierungsvorbereitung' OR Status__c = 'Reserved' ORDER BY Name) FROM Property__c WHERE (Is_Public__c = true AND Status_Reason__c = 'Aktiv') ORDER BY Name];
+		properties = [SELECT Name, Property__c, (SELECT Name, Area_sq_m__c, Monthly_rent_sq_m__c,Zimmerart__c, Monthly_rent__c, Purchase_Price__c, Status__c FROM Appartments__r WHERE ExternNichtAnzeigen__c = false AND (Status__c='Available' OR Status__c = 'Reservierung angefragt' OR Status__c = 'Reservierungsvorbereitung' OR Status__c = 'Reserved') ORDER BY Name) FROM Property__c WHERE ImVertriebsportalSichtbar__c = true ORDER BY Name];
 
 		// Die Header Columns der CSV Datei
 		string header ='Objekt;Objektart;Apartment;Größe m²;Zimmerart;Miete / m²;Miete / Monat;Kaufpreis \n';//;Status

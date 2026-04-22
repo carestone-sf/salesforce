@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -71,6 +70,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ProvisionsvoraussetzungenErfuelltAm__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Festgeschrieben__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -205,6 +208,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Erfolgsabh_ngige_Provision_direkt_o_LNK__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Erfolgsabh_ngige_Provision_direkt__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

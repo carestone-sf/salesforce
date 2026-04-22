@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <help></help>
-    <label></label>
+    <help><!-- Nebenkosten Einnahmen im Monat, berechnat nach Prozentsatz Property__r.Ancillary_Costs_Rate__c --></help>
+    <label><!-- Ancillary Costs Monthly --></label>
     <name>Ancillary_Costs_Monthly__c</name>
 </CustomFieldTranslation>

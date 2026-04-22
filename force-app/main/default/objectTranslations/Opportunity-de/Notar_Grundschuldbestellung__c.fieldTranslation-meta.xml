@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Notar, bei dem die Grundschuld bestellt wird. --></help>
+    <label><!-- Notar Grundschuldbestellung --></label>
+    <name>Notar_Grundschuldbestellung__c</name>
+    <relationshipLabel><!-- Verkaufschancen (Notar Grundschuldbestellung) --></relationshipLabel>
+</CustomFieldTranslation>

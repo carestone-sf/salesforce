@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Wert SMB an JMB Beteiligung o. LNK. --></label>
+    <name>Wert_SMB_an_JMB_Beteiligung_o_LNK__c</name>
+</CustomFieldTranslation>

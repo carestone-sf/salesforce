@@ -2,12 +2,21 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>OffenerBetrag__c</fullName>
     <externalId>false</externalId>
-    <formula>beurkundeter_Kaufpreis__c -  MaBVBezahlt__c</formula>
+    <formula>IF( OeffentlicherStatus__c = &apos;Verkauft&apos; &amp;&amp;  KaufpreisFaellig__c,
+			IF(Bezahlt__c &gt; 0,
+						beurkundeter_Kaufpreis__c - Bezahlt__c, 
+						IF(MaBVBezahlt__c &gt; 0,
+									beurkundeter_Kaufpreis__c - MaBVBezahlt__c,
+									beurkundeter_Kaufpreis__c
+						)
+					),
+			0)</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Offener Betrag</label>
     <precision>18</precision>
     <required>false</required>
     <scale>2</scale>
+    <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Currency</type>
 </CustomField>

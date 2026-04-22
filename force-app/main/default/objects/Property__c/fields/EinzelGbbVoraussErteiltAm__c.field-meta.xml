@@ -2,8 +2,9 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>EinzelGbbVoraussErteiltAm__c</fullName>
     <externalId>false</externalId>
-    <label>Einzel GBB vorauss. erteilt am</label>
+    <label>Einzel GBB voraus. erteilt am</label>
     <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Date</type>

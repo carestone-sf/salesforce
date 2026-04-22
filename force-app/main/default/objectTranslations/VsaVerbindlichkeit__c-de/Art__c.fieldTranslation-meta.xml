@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Art --></label>
+    <name>Art__c</name>
+    <picklistValues>
+        <masterLabel>Bürgschaften</masterLabel>
+        <translation><!-- Bürgschaften --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Leasingdarlehen</masterLabel>
+        <translation><!-- Leasingdarlehen --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ratendarlehen</masterLabel>
+        <translation><!-- Ratendarlehen --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sonstige Schulden</masterLabel>
+        <translation><!-- Sonstige Schulden --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

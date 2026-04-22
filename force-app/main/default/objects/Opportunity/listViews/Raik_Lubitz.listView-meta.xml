@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Raik_Lubitz</fullName>
+    <booleanFilter>((1 AND 2) AND (5 OR (3 AND 4)))</booleanFilter>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Immobilie__c</columns>
+    <columns>Appartement__c</columns>
+    <columns>NotarauftragVorhanden__c</columns>
+    <columns>NotarauftragVersendet__c</columns>
+    <columns>Kaufpreis__c</columns>
+    <columns>Notartermin__c</columns>
+    <columns>PlannedCertification__c</columns>
+    <columns>NotesSalesControlling__c</columns>
+    <columns>BewertungAmpelFinanzierungsanfrage__c</columns>
+    <columns>reserviert_bis__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Maklerbetreuer_WirtschaftsHaus__c</field>
+        <operation>equals</operation>
+        <value>Raik Lubitz</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notContain</operation>
+        <value>ImmoGroup</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Notartermin hat stattgefunden,Geschlossene und gewonnene,VKC gewonnen</value>
+    </filters>
+    <filters>
+        <field>Notartermin__c</field>
+        <operation>equals</operation>
+        <value>THIS_YEAR</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Beratung,Reservierung angefragt,Reserviert,Kaufvertragsunterlagen verschickt,KV wird fremd abgegeben</value>
+    </filters>
+    <label>Raik Lubitz</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Vorstand</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CantReopenVKC</fullName>
+    <active>true</active>
+    <errorConditionFormula>PRIORVALUE(IsClosed) &amp;&amp; !IsBlank(Appartement__c) &amp;&amp; !IsClosed &amp;&amp; !PRIORVALUE(IsWon) &amp;&amp; text(Appartement__r.Status__c) != &quot;Available&quot;
+&amp;&amp; 
+OR(text(Appartement__r.Status__c) != &quot;Kontingent&quot;, AND(text(Appartement__r.Status__c) = &quot;Kontingent&quot;,
+ AccountId != Appartement__r.ContingentRequester__c,
+Account.ParentId != Appartement__r.ContingentRequester__c)
+)</errorConditionFormula>
+    <errorDisplayField>Appartement__c</errorDisplayField>
+    <errorMessage>Das Apartment ist nicht verfügbar.</errorMessage>
+</ValidationRule>

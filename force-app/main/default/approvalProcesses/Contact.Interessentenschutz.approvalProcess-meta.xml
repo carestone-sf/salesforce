@@ -13,7 +13,7 @@
         <allowDelegate>false</allowDelegate>
         <assignedApprover>
             <approver>
-                <name>l.korte@wh-marketing.de</name>
+                <name>l.haake@carestone.com</name>
                 <type>user</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -28,7 +28,7 @@
         <criteriaItems>
             <field>Contact.Aus_Maklerportal__c</field>
             <operation>equals</operation>
-            <value>True</value>
+            <value>Wahr</value>
         </criteriaItems>
         <criteriaItems>
             <field>Contact.Gesch_ftsbeziehung__c</field>

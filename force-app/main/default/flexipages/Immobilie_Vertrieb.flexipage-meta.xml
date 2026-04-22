@@ -163,8 +163,18 @@
         </itemInstances>
         <itemInstances>
             <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Finanzierungsberater__c</fieldItem>
                 <identifier>RecordFinanzierungsberater__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.ClosingBonusAb__c</fieldItem>
+                <identifier>RecordClosingProvisionAb__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-f554152d-d682-45bf-8ea9-cf2fec6bd258</name>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Jahreszielplanung</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>AnnualTargetPlanning__c</columns>
+    <columns>Kategorie__c</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>AnnualTargetPlanning__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </filters>
+    <label>Jahreszielplanung</label>
+</ListView>

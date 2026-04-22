@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <label></label>
+    <help><!-- Wichtig: Dies ist das Datum der ursprünglichen Vertragsunterzeichnung seitens des Kunden. --></help>
+    <label><!-- Notartermin --></label>
     <name>Notartermin__c</name>
 </CustomFieldTranslation>

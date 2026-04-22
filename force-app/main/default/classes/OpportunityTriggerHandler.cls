@@ -27,7 +27,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     Id orgWideEmailAddressId = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'service@carestone.com' LIMIT 1].Id;
     
     @TestVisible
-    private static final Integer DEFAULT_RESERVATION_DURATION = 3;
+    private static final Integer DEFAULT_RESERVATION_DURATION = 5;
 
     Set<Id> propertyIdsToRecalculateAggregatedProvision = new Set<Id>();
     Set<String> lostOpportunityStages = new Set<String>();
@@ -319,9 +319,6 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         if(mahnungCreated(opp, oldOpp)) {
             trackMahnungSent(opp);
         }
-        if(opportunityWasLost(opp, oldOpp)) {
-            clearNotartermin(opp);
-        }
 
         if(Trigger.isInsert) {
             if(maklerprovisionEmpty(opp)) {
@@ -492,10 +489,6 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         return lostOpportunityStages.contains(opp.StageName) && (Trigger.isInsert || (oldOpp != null && oldOpp.StageName != opp.StageName));
     }
 
-    public void clearNotartermin(Opportunity opp) {
-        opp.Notartermin__c = null;
-    }
-
     /**
      * Methods for after trigger
     */
@@ -625,6 +618,9 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     }
 
     public Boolean apartmentOrApartmentRelevantFieldChanged(Opportunity opp, Opportunity oldOpp) {
+        if (opp.StageName == 'Beratung') {
+            return false;
+        }
         return !lostOpportunityStages.contains(opp.StageName) && (Trigger.isInsert || (Trigger.isUpdate && (opp.Appartement__c != oldOpp.Appartement__c || opp.Finanzierung__c != oldOpp.Finanzierung__c || opp.Kaufpreis_f_llig__c != oldOpp.Kaufpreis_f_llig__c || opp.reserviert_bis__c != oldOpp.reserviert_bis__c || opp.Potenzieller_Kunde__c != oldOpp.Potenzieller_Kunde__c || opp.Makler__c != oldOpp.Makler__c || opp.Datum_Kaufpreis_bezahlt__c != oldOpp.Datum_Kaufpreis_bezahlt__c || opp.Notartermin__c != oldOpp.Notartermin__c || opp.Finanzierung__c != oldOpp.Finanzierung__c || opp.Maklerbetreuer_WirtschaftsHaus__c != oldOpp.Maklerbetreuer_WirtschaftsHaus__c || opp.StageName != oldOpp.StageName || opp.beurkundeter_Kaufpreis__c != oldOpp.beurkundeter_Kaufpreis__c || opp.Provisionsbasis__c != oldOpp.Provisionsbasis__c || opp.KumulierteProvisionExtern__c != oldOpp.KumulierteProvisionExtern__c || opp.Kaufdatum__c != oldOpp.Kaufdatum__c || opp.Bezahlt__c != oldOpp.Bezahlt__c || opp.PhaseFinanzierungsanfrage__c != oldOpp.PhaseFinanzierungsanfrage__c || opp.BewertungFinanzierungsanfrage__c != oldOpp.BewertungFinanzierungsanfrage__c || opp.FinanzierungsvertragUnterzeichnet__c != oldOpp.FinanzierungsvertragUnterzeichnet__c || opp.GrundschuldIstBestellt__c != oldOpp.GrundschuldIstBestellt__c)));
     }
 
@@ -662,7 +658,7 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
         } 
         if(Trigger.isUpdate) {
             Appartment__c oldApartment = updateMap.containsKey(oldOpp.Appartement__c) ? (Appartment__c) updateMap.get(oldOpp.Appartement__c) : mapApartmentsById.get(oldOpp.Appartement__c);
-            if(oldApartment != null && oldApartment.Id != apartment?.Id) {
+            if(oldApartment != null && oldApartment.Id != apartment?.Id && (oldOpp.IsClosed == false || (oldOpp.isClosed == true && oldOpp.IsWon == true))) {
                 oldApartment.Status__c = 'Available';
                 oldApartment.Customer__c = null;
                 oldApartment.Makler__c = null;
@@ -716,6 +712,11 @@ public without sharing class OpportunityTriggerHandler implements ITrigger {
     };
 
     public void setNewStatusOnApartment(Opportunity opp) {
+        Opportunity oldOpp = Trigger.isUpdate ? (Opportunity) Trigger.oldMap.get(opp.Id) : null;
+        if (oldOpp != null && oldOpp.StageName == 'Beratung' && opp.StageName == 'Geschlossen und verloren') {
+            return;
+        }
+
         if(mapApartmentsById.containsKey(opp.Appartement__c) && APARTMENT_STATUS_BY_OPPORTUNITY_STAGE.containsKey(opp.StageName)) {
             Appartment__c apartment = updateMap.containsKey(opp.Appartement__c) ? (Appartment__c) updateMap.get(opp.Appartement__c) : mapApartmentsById.get(opp.Appartement__c);
             apartment.Status__c = APARTMENT_STATUS_BY_OPPORTUNITY_STAGE.get(opp.StageName);

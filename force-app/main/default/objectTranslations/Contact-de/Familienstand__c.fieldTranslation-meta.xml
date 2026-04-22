@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Familienstand --></label>
+    <name>Familienstand__c</name>
+    <picklistValues>
+        <masterLabel>geschieden</masterLabel>
+        <translation><!-- geschieden --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ledig</masterLabel>
+        <translation><!-- ledig --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>verheiratet</masterLabel>
+        <translation><!-- verheiratet --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>verwitwet</masterLabel>
+        <translation><!-- verwitwet --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

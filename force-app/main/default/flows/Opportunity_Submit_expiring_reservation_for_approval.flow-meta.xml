@@ -38,9 +38,7 @@
                 <stringValue>005b0000001V30PAAS</stringValue>
             </value>
         </inputParameters>
-        <nameSegment>submit</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>57.0</apiVersion>
     <environments>Default</environments>

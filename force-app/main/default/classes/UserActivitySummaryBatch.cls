@@ -1,47 +1,46 @@
 public with sharing class UserActivitySummaryBatch implements Database.Batchable<sObject> {
     static final DateTime FIRST_DAY_OF_CURRENT_MONTH = DateTime.newInstance(Date.today().year(), Date.today().month(), 1);
-    Set<id> usersIds;
-    public UserActivitySummaryBatch(Set<id> UsersIds) {
-        this.usersIds = usersIds;
+    List<id> contactsIds;
+    public UserActivitySummaryBatch(List<id> ContactsIds) {
+        this.contactsIds = contactsIds;
     }
     public UserActivitySummaryBatch() {
-        this.usersIds = null;
+        this.contactsIds = null;
     }
-    public List<user> start(Database.BatchableContext bc) {
+    public List<contact> start(Database.BatchableContext bc) {
         system.debug('----------started-----------');
-        if (usersIds != null) {
-
-            return [select id, ContactId, ContactAccountId__c, ContactAccountOwnerId__c from user where id = :this.usersIds];
+        if (contactsIds != null) {
+            return [SELECT Id, AccountId, Account.OwnerId FROM Contact WHERE Id = :this.contactsIds];
         } else {
-            return [select id, ContactId, ContactAccountId__c, ContactAccountOwnerId__c from user where ContactId != null];
+            return [SELECT Id, AccountId, Account.OwnerId FROM Contact WHERE HatVPZugang__c = true];
         }
     }
-    public void execute(Database.BatchableContext BC, list<user> scope) {
+    public void execute(Database.BatchableContext BC, list<contact> scope) {
 
-        Map<id, user> users = new Map<Id, user>(scope);
-        System.Debug('users: ' + users.keyset());
+        Map<id, contact> contacts = new Map<Id, contact>(scope);
+        Set<Id> accIds = new Set<Id>();
+        System.Debug('contacts: ' + contacts.keyset());
         List<Id> contactIds = new List<Id>();
-        for(User u:scope) {
-            if(u.ContactId != null) {
-                contactIds.add(u.ContactId);
-            }
+        for(Contact con:scope) {
+            contactIds.add(con.Id);
+            accIds.add(con.AccountId);
         }
-        //map that contains userid and activity summary id related to that user
-        Map<id, id> usersIdsWithActivitySummary = new Map<id, id>();
-        //get all existsing activity summaries for users(scope) that matches criteria:
+        //map that contains contactid and activity summary id related to that contact
+        Map<id, id> contactsIdsWithActivitySummary = new Map<id, id>();
+        //get all existsing activity summaries for contacts(scope) that matches criteria:
         //* month = currentMonth AND year=currentYear
         Map<id, Activity_Summary__c> existingSummaries = new Map<id, Activity_Summary__c>(
         [
-                SELECT id, number_of_logins__c, UserId__c
+                SELECT id, number_of_logins__c, Contact__c
                 FROM Activity_Summary__c
-                WHERE userId__c = :users.keySet()
+                WHERE Contact__c = :contacts.keySet()
                 AND month__c = :String.valueOf(Date.today().month())
                 AND year__c = :String.valueOf(Date.today().year())
         ]);
 
-        //fill map with user Id and related activity Summary
+        //fill map with contact Id and related activity Summary
         for (Activity_Summary__c summary : existingSummaries.values()) {
-            usersIdsWithActivitySummary.put(summary.userId__c, summary.id);
+            contactsIdsWithActivitySummary.put(summary.Contact__c, summary.id);
         }
 
         Map<Id, List<FileDownloadLog__c>> contactToFdlsMap = new Map<Id, List<FileDownloadLog__c>>();
@@ -56,54 +55,32 @@ public with sharing class UserActivitySummaryBatch implements Database.Batchable
 
         Id interessentRecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('Interessent').getRecordTypeId();
         Id kundeRecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('Kunde').getRecordTypeId();
-        Map<Id, List<Contact>> contactToContactsMap = new Map<Id, List<Contact>>();
-        for(Contact con:[SELECT Id, CreatedById FROM Contact WHERE CreatedById IN :users.keySet() AND CreatedDate > :FIRST_DAY_OF_CURRENT_MONTH AND (RecordTypeId = :interessentRecordTypeId OR RecordTypeId = :kundeRecordTypeId)]) {
-            List<Contact> cons = contactToContactsMap.get(con.CreatedById);
+        Map<Id, List<Contact>> accountToContactsMap = new Map<Id, List<Contact>>();
+        for(Contact con:[SELECT Id, AccountId FROM Contact WHERE AccountId IN :accIds AND CreatedDate > :FIRST_DAY_OF_CURRENT_MONTH AND (RecordTypeId = :interessentRecordTypeId OR RecordTypeId = :kundeRecordTypeId)]) {
+            List<Contact> cons = accountToContactsMap.get(con.AccountId);
             if(cons == null) {
                 cons = new List<Contact>();
             }
             cons.add(con);
-            contactToContactsMap.put(con.CreatedById, cons);
+            accountToContactsMap.put(con.AccountId, cons);
         }
-
-        //Get User ids with number of logins for current month
-        Map<id, integer> usersIDsWithNumberOfLogins = new Map<id, integer>();
-        LIST<AggregateResult> results = [
-                SELECT userID, count(id) numberOflogins
-                from LoginHistory
-                WHERE LoginTime > :FIRST_DAY_OF_CURRENT_MONTH
-                AND userId = :users.keySet()
-                Group by userid
-        ];
-        // make it a map object: Map<userId, numberOflogins>
-        for (aggregateResult result : results) {
-            usersIDsWithNumberOfLogins.put(string.valueOf(result.get('userId')), integer.valueOf(result.get('numberOflogins')));
-        }
-        System.Debug('numberOflogins' + usersIDsWithNumberOfLogins.keySet());
-        System.Debug('numberOflogins Values' + usersIDsWithNumberOfLogins.values());
 
         List<Activity_Summary__c> summariesToUpsert = new List<Activity_Summary__c>();
-        for (user us : scope) {
+        for (Contact con : scope) {
 
-            integer loginCounts = usersidsWithNumberOfLogins.get(us.id);
-            if (loginCounts == null) {
-                loginCounts = 0;
-            }
-            integer numberOfNewProspects = contactToContactsMap.get(us.Id)?.size();
+            integer numberOfNewProspects = accountToContactsMap.get(con.AccountId)?.size();
             if(numberOfNewProspects == null) {
                 numberOfNewProspects = 0;
             }
 
-            integer numberOfDownloads = contactToFdlsMap.get(us.ContactId)?.size();
+            integer numberOfDownloads = contactToFdlsMap.get(con.Id)?.size();
             if(numberOfDownloads == null) {
                 numberOfDownloads = 0;
             }
-            System.Debug('login counts: ' + loginCounts);
-            Id summaryId = usersIdsWithActivitySummary.get(us.id);
+
+            Id summaryId = contactsIdsWithActivitySummary.get(con.id);
             if (summaryId != null) {
-                system.debug(loginCounts);
                 Activity_Summary__c summary = existingSummaries.get(summaryId);
-                summary.number_of_logins__c = loginCounts;
                 summary.number_of_new_prospects__c = numberOfNewProspects;
                 summary.number_of_downloads__c = numberOfDownloads;
                 summariesToUpsert.add(summary);
@@ -111,13 +88,11 @@ public with sharing class UserActivitySummaryBatch implements Database.Batchable
                 Activity_Summary__c newSummary = new Activity_summary__c();
                 newSummary.year__c = String.valueOf(Date.Today().Year());
                 newSummary.month__c = String.valueOf(date.today().Month());
-                newSummary.userId__c = us.id;
-                newSummary.number_of_logins__c = loginCounts;
                 newSummary.number_of_new_prospects__c = numberOfNewProspects;
                 newSummary.number_of_downloads__c = numberOfDownloads;
-                newSummary.Contact__c = getContactId(us);
-                newSummary.Account__c = getContactAccountId(us);
-                newSummary.Maklerbetreuer__c = getContactAccountOwnerId(us);
+                newSummary.Contact__c = con.Id;
+                newSummary.Account__c = con.AccountId;
+                newSummary.Maklerbetreuer__c = con.Account.OwnerId;
                 summariesToUpsert.add(newSummary);
             }
         }
@@ -125,29 +100,5 @@ public with sharing class UserActivitySummaryBatch implements Database.Batchable
     }
     public void finish(Database.BatchableContext BC) {
         system.debug('----------finished-----------');
-    }
-
-    private static Id getContactId(User user) {
-        if(Test.isRunningTest()) {
-            return [SELECT Id FROM Contact WHERE LastName = 'Test' LIMIT 1].Id;
-        } else {
-            return user.ContactId;
-        }
-    }
-
-    private static Id getContactAccountId(User user) {
-        if(Test.isRunningTest()) {
-            return [SELECT Id FROM Account LIMIT 1].Id;
-        } else {
-            return user.ContactAccountId__c;
-        }
-    }
-
-    private static Id getContactAccountOwnerId(User user) {
-        if(Test.isRunningTest()) {
-            return [SELECT OwnerId FROM Account LIMIT 1].OwnerId;
-        } else {
-            return user.ContactAccountOwnerId__c;
-        }
     }
 }

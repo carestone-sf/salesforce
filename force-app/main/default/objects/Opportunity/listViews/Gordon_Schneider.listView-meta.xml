@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gordon_Schneider</fullName>
+    <booleanFilter>1 AND 2 AND 3</booleanFilter>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Immobilie__c</columns>
+    <columns>Appartement__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>reserviert_bis__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Notartermin__c</columns>
+    <columns>NotaryDatePossibleFrom__c</columns>
+    <columns>PlannedCertification__c</columns>
+    <columns>NotesSalesControlling__c</columns>
+    <columns>NotesBackoffice__c</columns>
+    <columns>NotesBrokerSupervisor__c</columns>
+    <columns>OPPORTUNITY.NEXT_STEP</columns>
+    <columns>BewertungAmpelFinanzierungsanfrage__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Maklerbetreuer_WirtschaftsHaus__c</field>
+        <operation>equals</operation>
+        <value>Gordon Schneider</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Beratung,Reservierungsvorbereitung,Reservierung angefragt,Reserviert,Auftrag zur Beurkundung vorhanden,Kaufvertragsunterlagen verschickt,Kaufvertragsangebot abgegeben,KV wird fremd abgegeben</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notContain</operation>
+        <value>Sandro</value>
+    </filters>
+    <label>Gordon Schneider</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Vorstand</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

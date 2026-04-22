@@ -2,7 +2,8 @@
 public class ExecuteSOQLTest {
     @isTest 
     public static void testExecuteEnglishUpperCasePM() {
-        Account acc = TestDataFactory.createAccount(true);
+        Account acc = new Account(Name = 'Test Account');
+        insert acc;
 
         //Not formatted DateTime
         ExecuteSOQL.Requests requests = new ExecuteSOQL.Requests();
@@ -18,8 +19,8 @@ public class ExecuteSOQLTest {
 
     @isTest
     public static void testExecuteEnglishWithComma() {
-        Account acc = TestDataFactory.createAccount(true);
-
+        Account acc = new Account(Name = 'Test Account');
+        insert acc;
         Test.setCreatedDate(acc.id, Datetime.newInstance(2020, 4, 12, 1, 0, 0));
 
         ExecuteSOQL.Requests requests = new ExecuteSOQL.Requests();
@@ -35,7 +36,8 @@ public class ExecuteSOQLTest {
 
     @isTest
     private static void testExecuteSOQLMonthDayCommaYear() {
-        Account acc = TestDataFactory.createAccount(true);
+        Account acc = new Account(Name = 'Test Account');
+        insert acc;
 
         //Not formatted Date
         ExecuteSOQL.Requests requests = new ExecuteSOQL.Requests();
@@ -52,7 +54,8 @@ public class ExecuteSOQLTest {
     
     @isTest
     private static void testExecuteSOQLLonDateTime() {
-        Account acc = TestDataFactory.createAccount(true);
+        Account acc = new Account(Name = 'Test Account');
+        insert acc;
 
         //Formatted date time
         ExecuteSOQL.Requests requests = new ExecuteSOQL.Requests();
@@ -69,7 +72,8 @@ public class ExecuteSOQLTest {
     
         @isTest
     private static void testExecuteSOQLDateLiteral() {
-        Account acc = TestDataFactory.createAccount(true);
+        Account acc = new Account(Name = 'Test Account');
+        insert acc; 
 
         //Formatted date time
         ExecuteSOQL.Requests requests = new ExecuteSOQL.Requests();
@@ -85,12 +89,9 @@ public class ExecuteSOQLTest {
     }
 
     @isTest
-    private static void testExecuteSOQLLimit() {
-
-        TestDataFactory.createAccount(true, 'Test 1', null);
-        TestDataFactory.createAccount(true, 'Test 2', null);
-        TestDataFactory.createAccount(true, 'Test 3', null);
-
+    private static void testExecuteSOQLLimit() {        
+        insert new List<Account>{new Account(Name = 'Test 3'), new Account(Name = 'Test 1'), new Account(Name = 'Test 2')};
+        
         ExecuteSOQL.Requests requests = new ExecuteSOQL.Requests();
         requests.soqlQuery = 'Select Id From Account Where Name != \'TEST\' LIMIT 2';
                 
@@ -102,10 +103,9 @@ public class ExecuteSOQLTest {
     }
 
     @isTest
-    private static void testExecuteSOQLId() {
-        TestDataFactory.createAccount(true, 'Test 1', null);
-        TestDataFactory.createAccount(true, 'Test 2', null);
-        Account searchAccount = TestDataFactory.createAccount(true, 'Test 3', null);
+    private static void testExecuteSOQLId() {      
+        Account searchAccount = new Account(Name = 'Test 3');  
+        insert new List<Account>{searchAccount, new Account(Name = 'Test 1'), new Account(Name = 'Test 2')};
         
         ExecuteSOQL.Requests requests = new ExecuteSOQL.Requests();
         requests.soqlQuery = 'Select Id From Account Where Name != \'TEST\' AND Id = \'' + searchAccount.Id + '\'';
@@ -120,10 +120,8 @@ public class ExecuteSOQLTest {
     
     @isTest
     private static void testExecuteSOQLOrderBy() {
-        TestDataFactory.createAccount(true, 'Apple', null);
-        TestDataFactory.createAccount(true, 'Pear', null);
-        TestDataFactory.createAccount(true, 'Cucumber', null);
-
+        insert new List<Account>{new Account(Name = 'Apple'), new Account(Name = 'Pear'), new Account(Name = 'Cucumber')};
+        
         ExecuteSOQL.Requests requests = new ExecuteSOQL.Requests();
         requests.soqlQuery = 'Select Id,Name From Account Order By Name';
                 
@@ -140,7 +138,8 @@ public class ExecuteSOQLTest {
 
     @isTest
     private static void testExecuteSOQLRelationshipQuery() {
-        Account act = TestDataFactory.createAccount(true, 'Test1', null);
+        Account act = new Account(Name = 'Test1');
+        insert act;
 
         Contact ct = new Contact(LastName='Test Contact', AccountId=act.Id);
         insert ct;
@@ -201,11 +200,11 @@ public class ExecuteSOQLTest {
     @isTest
     public static void testBulkification() {
         final Integer NUM_ACCOUNTS = 11;
-        //List<Account> accounts = new List<Account>();
+        List<Account> accounts = new List<Account>();
         for (Integer i = 1; i <= NUM_ACCOUNTS; i++) {
-            Account acc = TestDataFactory.createAccount(true, 'Test ' + String.valueOf(i), null);
+            accounts.add(new Account(Name = 'Test ' + String.valueOf(i)));
         }
-        //insert accounts;
+        insert accounts;
 
         List<ExecuteSOQL.Requests> requestsList = new List<ExecuteSOQL.Requests>();
         ExecuteSOQL.Requests requests;
@@ -230,7 +229,8 @@ public class ExecuteSOQLTest {
 
     @isTest
     public static void testLegacyEntryPoint() {
-        Account acc = TestDataFactory.createAccount(true);
+        Account acc = new Account(Name = 'Test Account');
+        insert acc;
         
         ExecuteSOQL.Requests requests = new ExecuteSOQL.Requests();
         requests.soqlQuery = 'Select Id From Account Where CreatedDate >= YESTERDAY';

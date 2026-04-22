@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Ablaufdatum (lt. Vertrag) der Gültigkeit der aufschieb, Bedingung. Rechtzeitig vorher muss der Status geklärt sein. --></help>
+    <label><!-- Aufschiebende Bedingung gültig bis --></label>
+    <name>Aufschiebende_Bedingung_g_ltig_bis__c</name>
+</CustomFieldTranslation>

@@ -5,15 +5,12 @@
     <label>TeamProQ Integration</label>
     <logoUrl>https://teamproq.de/wp-content/uploads/cropped-TeamProQ-Icon.png</logoUrl>
     <oauthConfig>
-        <callbackUrl>https://test.salesforce.com/services/oauth2/success</callbackUrl>
+        <callbackUrl>https://login.salesforce.com/services/oauth2/success</callbackUrl>
+        <consumerKey>3MVG99qusVZJwhsmSjRfpZ536bg3H2Go4IwbJENt.QDLIW7UjCDqC2H23hNVSmwCYW4Km1U_GuNkho2zy7PHi</consumerKey>
         <isAdminApproved>true</isAdminApproved>
-        <isClientCredentialEnabled>true</isClientCredentialEnabled>
-        <isCodeCredentialEnabled>false</isCodeCredentialEnabled>
-        <isCodeCredentialPostOnly>false</isCodeCredentialPostOnly>
         <isConsumerSecretOptional>false</isConsumerSecretOptional>
         <isIntrospectAllTokens>false</isIntrospectAllTokens>
         <isSecretRequiredForRefreshToken>true</isSecretRequiredForRefreshToken>
-        <oauthClientCredentialUser>teamproq.integration.dev@carestone.com</oauthClientCredentialUser>
         <scopes>Api</scopes>
         <scopes>RefreshToken</scopes>
     </oauthConfig>
@@ -21,5 +18,5 @@
         <ipRelaxation>ENFORCE</ipRelaxation>
         <refreshTokenPolicy>infinite</refreshTokenPolicy>
     </oauthPolicy>
-    <permissionSetName>API Only User</permissionSetName>
+    <permissionSetName>TeamProQ Integration</permissionSetName>
 </ConnectedApp>

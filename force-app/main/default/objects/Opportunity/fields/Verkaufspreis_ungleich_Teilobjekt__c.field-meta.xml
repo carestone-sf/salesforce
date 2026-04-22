@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Verkaufspreis_ungleich_Teilobjekt__c</fullName>
+    <externalId>false</externalId>
+    <formula>MCEILING(Kaufpreis__c) != MCEILING(beurkundeter_Kaufpreis__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Verkaufspreis ungleich Teilobjekt</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

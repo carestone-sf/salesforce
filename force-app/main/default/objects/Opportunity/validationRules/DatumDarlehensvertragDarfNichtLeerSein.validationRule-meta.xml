@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DatumDarlehensvertragDarfNichtLeerSein</fullName>
+    <active>true</active>
+    <errorConditionFormula>FinanzierungsvertragUnterzeichnet__c  &amp;&amp; IsChanged(FinanzierungsvertragUnterzeichnet__c) &amp;&amp; IsBlank(DatumDarlehensvertragLiegtVor__c)</errorConditionFormula>
+    <errorDisplayField>DatumDarlehensvertragLiegtVor__c</errorDisplayField>
+    <errorMessage>Bitte gib das Datum an.</errorMessage>
+</ValidationRule>

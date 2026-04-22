@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Berechnung --></label>
+    <name>Berechnung__c</name>
+    <picklistValues>
+        <masterLabel>Gesamtwert</masterLabel>
+        <translation><!-- Gesamtwert --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Restwert</masterLabel>
+        <translation><!-- Restwert --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

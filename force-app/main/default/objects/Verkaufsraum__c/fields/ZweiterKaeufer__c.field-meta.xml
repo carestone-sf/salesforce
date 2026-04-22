@@ -5,11 +5,10 @@
     <externalId>false</externalId>
     <label>2. Käufer</label>
     <referenceTo>Contact</referenceTo>
-    <relationshipLabel>Verkaufsräume (2. Käufer)</relationshipLabel>
     <relationshipName>VerkaufsraeumeZweiterKaeufer</relationshipName>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
-    <trackHistory>false</trackHistory>
+    <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>
 </CustomField>

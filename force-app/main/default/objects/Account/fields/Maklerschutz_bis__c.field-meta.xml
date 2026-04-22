@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maklerschutz_bis__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Das Datum, bis zu welchem ein Makler geschützt ist</inlineHelpText>
+    <label>Maklerschutz bis</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

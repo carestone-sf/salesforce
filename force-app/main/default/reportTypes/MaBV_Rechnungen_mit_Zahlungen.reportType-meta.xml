@@ -472,6 +472,26 @@
             <field>VerzugszinsenProTag__c</field>
             <table>MaBVRechnung__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>OpenSum__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VKC_OP_Kommentar__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MaBV_Grundschuld_ist_bestellt__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>VKC_Bank__c</field>
+            <table>MaBVRechnung__c</table>
+        </columns>
         <masterLabel>MaBV Rechnungen</masterLabel>
     </sections>
     <sections>

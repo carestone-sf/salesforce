@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Makler_Status__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Bitte die Felder WHS Maklerauftrag / WH SACH Maklerauftrag benutzen</inlineHelpText>
+    <label>Makler Status(veraltet)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Makler ohne Vertrag</fullName>
+                <default>false</default>
+                <label>Makler ohne Vertrag</label>
+            </value>
+            <value>
+                <fullName>Maklerauftrag verschickt</fullName>
+                <default>false</default>
+                <label>Maklerauftrag verschickt</label>
+            </value>
+            <value>
+                <fullName>Makler mit Vertrag</fullName>
+                <default>false</default>
+                <label>Makler mit Vertrag</label>
+            </value>
+            <value>
+                <fullName>Vertrag vom WH gekündigt</fullName>
+                <default>false</default>
+                <label>Vertrag vom WH gekündigt</label>
+            </value>
+            <value>
+                <fullName>Makler ohne eigenen Vertrag</fullName>
+                <default>false</default>
+                <label>Makler ohne eigenen Vertrag</label>
+            </value>
+            <value>
+                <fullName>Makler ist nicht interessiert</fullName>
+                <default>false</default>
+                <label>Makler ist nicht interessiert</label>
+            </value>
+            <value>
+                <fullName>Makler mit altem Vertrag</fullName>
+                <default>false</default>
+                <label>Makler mit altem Vertrag</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

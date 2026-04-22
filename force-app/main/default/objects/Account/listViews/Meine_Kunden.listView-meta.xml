@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Meine_Kunden</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Kategorie__c</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>Mobil__c</columns>
+    <columns>Email__c</columns>
+    <columns>ACCOUNT.ADDRESS1_ZIP</columns>
+    <columns>ACCOUNT.ADDRESS1_CITY</columns>
+    <columns>Maklerbetreuer_Wirtschaftshaus_2__c</columns>
+    <columns>VPUserLastLogin__c</columns>
+    <columns>LastCalculation__c</columns>
+    <filterScope>Mine</filterScope>
+    <label>Meine Kunden</label>
+</ListView>

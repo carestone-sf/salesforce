@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maklerbetreuer_WirtschaftsHaus__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Maklerbetreuer Carestone</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Account.Name</field>
+            <operation>startsWith</operation>
+            <value>CS Maklerbetreuer</value>
+        </filterItems>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Kampagnen (Maklerbetreuer Carestone)</relationshipLabel>
+    <relationshipName>Maklerbetreuer</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

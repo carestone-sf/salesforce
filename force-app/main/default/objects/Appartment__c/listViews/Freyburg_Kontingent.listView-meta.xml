@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Freyburg_Kontingent</fullName>
+    <columns>NAME</columns>
+    <columns>Status__c</columns>
+    <columns>ContingentRequester__c</columns>
+    <columns>Reserviert_bis__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Property__c</field>
+        <operation>equals</operation>
+        <value>Freyburg (Unstrut)</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Sold,Verkauft</value>
+    </filters>
+    <filters>
+        <field>Beurkundung__c</field>
+        <operation>equals</operation>
+        <value>Käuferangebot</value>
+    </filters>
+    <label>Freyburg Kontingent</label>
+</ListView>

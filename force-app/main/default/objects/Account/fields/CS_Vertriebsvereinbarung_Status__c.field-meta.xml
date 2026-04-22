@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CS_Vertriebsvereinbarung_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>CS Vertriebsvereinbarung Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Keine Vereinbarung</fullName>
+                <default>false</default>
+                <label>Keine Vereinbarung</label>
+            </value>
+            <value>
+                <fullName>Vom Maklerbetreuer angefordert</fullName>
+                <default>false</default>
+                <label>Vom Maklerbetreuer angefordert</label>
+            </value>
+            <value>
+                <fullName>Erstellt und an Makler versendet</fullName>
+                <default>false</default>
+                <label>Erstellt und an Makler versendet</label>
+            </value>
+            <value>
+                <fullName>Unterschrieben eingegangen</fullName>
+                <default>false</default>
+                <label>Unterschrieben eingegangen</label>
+            </value>
+            <value>
+                <fullName>Maklerauftrag beidseitig unterzeichnet</fullName>
+                <default>false</default>
+                <label>Maklerauftrag beidseitig unterzeichnet</label>
+            </value>
+            <value>
+                <fullName>Makler ohne eigenen Vertrag</fullName>
+                <default>false</default>
+                <label>Makler ohne eigenen Vertrag</label>
+            </value>
+            <value>
+                <fullName>Vom Makler gekündigt</fullName>
+                <default>false</default>
+                <label>Vom Makler gekündigt</label>
+            </value>
+            <value>
+                <fullName>Von CareStone gekündigt</fullName>
+                <default>false</default>
+                <label>Von CareStone gekündigt</label>
+            </value>
+            <value>
+                <fullName>Neue Vertriebsvereinbarung unterschrieben</fullName>
+                <default>false</default>
+                <label>Neue Vertriebsvereinbarung unterschrieben</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

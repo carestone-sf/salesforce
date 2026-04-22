@@ -6,5 +6,5 @@
 Abnahmeprotokoll__c &amp;&amp;
 !(IsWon || TEXT(StageName) = &apos;Notartermin hat stattgefunden&apos;)</errorConditionFormula>
     <errorDisplayField>Abnahmeprotokoll__c</errorDisplayField>
-    <errorMessage>Die Abnahmeprotokoll darf erst gesetzt werden, wenn die VKC auf gewonnen gestellt wurde.</errorMessage>
+    <errorMessage>Die Abnahmeprotokoll darf erst gesetzt werden, wenn die VKC auf gewonnen oder &quot;Notartermin hat stattgefunden&quot; gestellt wurde.</errorMessage>
 </ValidationRule>

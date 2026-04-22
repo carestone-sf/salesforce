@@ -390,7 +390,13 @@ export default class FinanzierungsBausteine extends LightningElement {
 
         if(laufzeitInJahrenValue && kreditsummeValue && zinsInPercentValue && festeLaufzeitValue === true) {
             const annuityZinsValue = zinsInPercentValue/100+1;
-            const startDate = new Date();
+            console.log(this.calculation.data.Hauptimmobilie__r.Arrival__c);
+            const finanzierungsbeginnDate = new Date(this.calculation.data.Hauptimmobilie__r.Arrival__c);
+            console.log(finanzierungsbeginnDate);
+            let startDate = new Date();
+            if(finanzierungsbeginnDate > startDate) {
+                startDate = finanzierungsbeginnDate;
+            }
             const yearStartDate = startDate.getUTCFullYear();
             const endDate = tilgungsbeginnField?.value != null ? new Date(tilgungsbeginnField?.value):startDate;
             console.log('start', startDate);

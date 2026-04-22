@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <label></label>
+    <label><!-- Finanzierung --></label>
     <name>Finanzierung__c</name>
     <picklistValues>
         <masterLabel>CS fremd</masterLabel>
-        <translation></translation>
+        <translation><!-- CS fremd --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Eigenkapitalzahlung</masterLabel>
-        <translation></translation>
+        <translation><!-- Eigenkapitalzahlung --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Fremdfinanzierung</masterLabel>
-        <translation></translation>
+        <translation><!-- Fremdfinanzierung --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>HypoCare</masterLabel>
-        <translation></translation>
+        <translation><!-- HypoCare --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Noch ungeklärt</masterLabel>
-        <translation></translation>
+        <translation><!-- Noch ungeklärt --></translation>
     </picklistValues>
 </CustomFieldTranslation>

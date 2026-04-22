@@ -2,10 +2,58 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>57.0</apiVersion>
     <assignments>
+        <name>Assign_activationcode</name>
+        <label>Assign activationcode</label>
+        <locationX>182</locationX>
+        <locationY>995</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Aktivierungscode__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>randomFourDigits</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Firebase_userid_is_filled</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Clear_activationcode</name>
+        <label>Clear activationcode</label>
+        <locationX>182</locationX>
+        <locationY>1295</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Aktivierungscode__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>MailingCountry_is_null_and_address_is_not_null</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Datum_Datenschutz_Status</name>
+        <label>Set Datum Datenschutz Status</label>
+        <locationX>182</locationX>
+        <locationY>695</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.DatumDatenschutzStatus__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_customer_app_invitation</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_Germany_as_MailingCountry</name>
         <label>Set Germany as MailingCountry</label>
         <locationX>182</locationX>
-        <locationY>695</locationY>
+        <locationY>1595</locationY>
         <assignmentItems>
             <assignToReference>$Record.MailingCountry</assignToReference>
             <operator>Assign</operator>
@@ -21,7 +69,7 @@
         <name>Set_Germany_as_OtherCountry</name>
         <label>Set Germany as OtherCountry</label>
         <locationX>182</locationX>
-        <locationY>995</locationY>
+        <locationY>1895</locationY>
         <assignmentItems>
             <assignToReference>$Record.OtherCountry</assignToReference>
             <operator>Assign</operator>
@@ -37,7 +85,7 @@
         <name>Update_Mailing_Address</name>
         <label>Update Mailing Address</label>
         <locationX>314</locationX>
-        <locationY>1295</locationY>
+        <locationY>2195</locationY>
         <assignmentItems>
             <assignToReference>$Record.MailingCity</assignToReference>
             <operator>Assign</operator>
@@ -78,7 +126,7 @@
         <name>Update_Other_Address</name>
         <label>Update Other Address</label>
         <locationX>50</locationX>
-        <locationY>1295</locationY>
+        <locationY>2195</locationY>
         <assignmentItems>
             <assignToReference>$Record.OtherCity</assignToReference>
             <operator>Assign</operator>
@@ -122,7 +170,7 @@
         <locationX>314</locationX>
         <locationY>287</locationY>
         <defaultConnector>
-            <targetReference>MailingCountry_is_null_and_address_is_not_null</targetReference>
+            <targetReference>Datenschutz_Status_changed</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>No changes</defaultConnectorLabel>
         <rules>
@@ -160,7 +208,7 @@
         <name>CheckAdressUpdate</name>
         <label>Adress Update?</label>
         <locationX>314</locationX>
-        <locationY>1187</locationY>
+        <locationY>2087</locationY>
         <defaultConnectorLabel>No changes</defaultConnectorLabel>
         <rules>
             <name>MailingChanged</name>
@@ -278,10 +326,75 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Datenschutz_Status_changed</name>
+        <label>Datenschutz Status changed?</label>
+        <locationX>314</locationX>
+        <locationY>587</locationY>
+        <defaultConnector>
+            <targetReference>Send_customer_app_invitation</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Standardergebnis</defaultConnectorLabel>
+        <rules>
+            <name>Datenschutz_Status_changed2</name>
+            <conditionLogic>1 OR (2 AND 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.DatenschutzStatus__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>isNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.DatenschutzStatus__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Datum_Datenschutz_Status</targetReference>
+            </connector>
+            <label>Datenschutz Status changed?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Firebase_userid_is_filled</name>
+        <label>Firebase userid is filled?</label>
+        <locationX>314</locationX>
+        <locationY>1187</locationY>
+        <defaultConnector>
+            <targetReference>MailingCountry_is_null_and_address_is_not_null</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Firebase_userid_is_filled2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.FirebaseUserId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Clear_activationcode</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Firebase userid is filled?</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>MailingCountry_is_null_and_address_is_not_null</name>
         <label>MailingCountry is null and address is not null?</label>
         <locationX>314</locationX>
-        <locationY>587</locationY>
+        <locationY>1487</locationY>
         <defaultConnector>
             <targetReference>OtherCountry_is_null_and_address_is_not_null</targetReference>
         </defaultConnector>
@@ -314,7 +427,7 @@
         <name>OtherCountry_is_null_and_address_is_not_null</name>
         <label>OtherCountry is null and address is not null?</label>
         <locationX>314</locationX>
-        <locationY>887</locationY>
+        <locationY>1787</locationY>
         <defaultConnector>
             <targetReference>CheckAdressUpdate</targetReference>
         </defaultConnector>
@@ -343,12 +456,43 @@
             <label>OtherCountryCountry is null and address is not null?</label>
         </rules>
     </decisions>
+    <decisions>
+        <name>Send_customer_app_invitation</name>
+        <label>Send customer app invitation?</label>
+        <locationX>314</locationX>
+        <locationY>887</locationY>
+        <defaultConnector>
+            <targetReference>Firebase_userid_is_filled</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Send_customer_app_invitation2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.KundenappEinladungSenden__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_activationcode</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Send customer app invitation?</label>
+        </rules>
+    </decisions>
     <environments>Default</environments>
     <formulas>
         <description>True if record is new.</description>
         <name>isNew</name>
         <dataType>Boolean</dataType>
         <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>randomFourDigits</name>
+        <dataType>String</dataType>
+        <expression>RIGHT(TEXT(UNIXTIMESTAMP(NOW())), 4)</expression>
     </formulas>
     <interviewLabel>Contact - Before Insert - Create/Update {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Contact - Before Insert - Create/Update</label>
@@ -378,7 +522,7 @@
         <locationX>182</locationX>
         <locationY>395</locationY>
         <connector>
-            <targetReference>MailingCountry_is_null_and_address_is_not_null</targetReference>
+            <targetReference>Datenschutz_Status_changed</targetReference>
         </connector>
         <inputAssignments>
             <field>OwnerId</field>

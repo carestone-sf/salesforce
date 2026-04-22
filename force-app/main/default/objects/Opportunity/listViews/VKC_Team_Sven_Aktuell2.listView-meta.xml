@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VKC_Team_Sven_Aktuell2</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>beurkundeter_Kaufpreis__c</columns>
+    <columns>Immobilie__c</columns>
+    <columns>Appartement__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Maklerbetreuer_WirtschaftsHaus__c</columns>
+    <columns>Immobilienberater__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>PlannedCertification__c</columns>
+    <columns>reserviert_bis__c</columns>
+    <columns>Notartermin__c</columns>
+    <columns>Finanzierung__c</columns>
+    <columns>PhaseFinanzierungsanfrage__c</columns>
+    <columns>StatusAmpel__c</columns>
+    <columns>NotesBrokerSupervisor__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>greaterThan</operation>
+        <value>01.01.2019</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Beratung,Reserviert,Kaufvertragsunterlagen verschickt,KV wird fremd abgegeben,Nachrücker,Reservierung angefragt</value>
+    </filters>
+    <filters>
+        <field>Maklerbetreuer_WirtschaftsHaus__c</field>
+        <operation>equals</operation>
+        <value>Sven Schulz,Vincent Ostrowsky,Robin Joel Simon</value>
+    </filters>
+    <filters>
+        <field>Maklerbetreuer_WirtschaftsHaus__c</field>
+        <operation>equals</operation>
+        <value>Sven Schulz,Vincent Ostrowsky,Robin Joel Simon</value>
+    </filters>
+    <label>&quot;VKC Team Sven Aktuell ALLE VKC &quot;</label>
+    <sharedTo>
+        <portalRole>x38GroupPartnerFhrungskraft</portalRole>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>Verkauf</masterLabel>
+    <pathAssistantSteps>
+        <picklistValueName>Geschlossen und verloren</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Kaufdatum__c</fieldNames>
+        <fieldNames>beurkundeter_Kaufpreis__c</fieldNames>
+        <picklistValueName>Geschlossene und gewonnene</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Notartermin__c</fieldNames>
+        <picklistValueName>KV wird fremd abgegeben</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Kaufvertragsangebot_verschickt__c</fieldNames>
+        <fieldNames>Alle_Unterlagen_vorhanden__c</fieldNames>
+        <fieldNames>Beurkundung__c</fieldNames>
+        <fieldNames>Notartermin__c</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Kaufvertragsunterlagen verschickt</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>AccountId</fieldNames>
+        <fieldNames>Grundprovision_Provisionsverhandlung__c</fieldNames>
+        <fieldNames>Reservierung_l_uft_aus_in__c</fieldNames>
+        <fieldNames>Verl_ngerung_beantragen__c</fieldNames>
+        <fieldNames>VSA_EK_vorhanden__c</fieldNames>
+        <info>Test</info>
+        <picklistValueName>Reserviert</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>

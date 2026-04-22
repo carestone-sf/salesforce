@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Provides an interface to send email to attendees while Launching Zoom Meeting from Start Zoom Meeting button. --></help>
+    <label><!-- Send Email to Attendees at Launch --></label>
+    <name>zoom_app__Send_Email_to_Attendee__c</name>
+</CustomFieldTranslation>

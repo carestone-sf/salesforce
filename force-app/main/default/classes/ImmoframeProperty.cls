@@ -18,6 +18,8 @@ public with sharing class ImmoframeProperty {
     public String immoframeHeadline;
     public String description;
     public String locationDescription;
+    public Boolean specialAfaAccordingTo7B;
+    public DateTime lastModifiedDate;
     // Currently always null, maybe not used
     //Decimal shareRefurbishmentSubstanceInPercent;
     public Decimal yieldInPercent;
@@ -99,6 +101,7 @@ public with sharing class ImmoframeProperty {
         public Decimal outdoorValueAfaInPercent;
         public Decimal purchasePricePerSqmInEuro;
         public Decimal yieldInPercent;
+        public DateTime lastModifiedDate;
     }
 
 }
