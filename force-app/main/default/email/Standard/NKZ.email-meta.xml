@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>WH_Service</letterhead>
+    <name>Nebenkostenzuschuss</name>
+    <style>freeForm</style>
+    <subject>Nebenkostenzuschuss {!Nebenkostenzuschuss__c.LaufnummerNew__c}</subject>
+    <textOnly>Sehr geehrte Damen und Herren,
+
+anbei erhalten Sie den Beleg zum Nebenkostenzuschuss {!Nebenkostenzuschuss__c.LaufnummerNew__c}.
+
+Objekt: {!Nebenkostenzuschuss__c.Objekt__c}
+Apartment: {!Nebenkostenzuschuss__c.Teilobjekt__c}
+Kunde: {!Nebenkostenzuschuss__c.Kunde__c}
+Betrag (netto): {!Nebenkostenzuschuss__c.Betrag__c}
+USt.: {!Nebenkostenzuschuss__c.USt__c}
+Gesamtbetrag inkl. USt.: {!Nebenkostenzuschuss__c.BetragInklUSt__c}
+
+Mit freundlichen Grüßen
+
+Ihre Carestone Service GmbH</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
