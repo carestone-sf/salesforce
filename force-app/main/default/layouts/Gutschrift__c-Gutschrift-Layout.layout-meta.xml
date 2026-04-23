@@ -153,6 +153,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>StornoGeklaert__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>MarketingzuschussNichtAusweisen__c</field>
             </layoutItems>
             <layoutItems>
