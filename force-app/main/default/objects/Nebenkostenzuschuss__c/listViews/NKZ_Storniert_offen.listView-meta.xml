@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NKZ_Storniert_offen</fullName>
+    <columns>NAME</columns>
+    <columns>Opportunity__c</columns>
+    <columns>Objekt__c</columns>
+    <columns>Teilobjekt__c</columns>
+    <columns>Kunde__c</columns>
+    <columns>Betrag__c</columns>
+    <columns>BetragInklUSt__c</columns>
+    <columns>Storniert__c</columns>
+    <columns>StornoGeklaert__c</columns>
+    <columns>DatumStorniert__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Storniert__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>StornoGeklaert__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>NKZ: Storniert offen</label>
+</ListView>

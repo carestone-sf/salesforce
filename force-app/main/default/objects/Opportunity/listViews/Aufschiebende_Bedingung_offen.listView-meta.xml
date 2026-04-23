@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Aufschiebende_Bedingung_offen</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Immobilie__c</columns>
+    <columns>Appartement__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Verkaufsdatum__c</columns>
+    <columns>Kaufdatum__c</columns>
+    <columns>Notartermin__c</columns>
+    <columns>HatAufschiebendeBedingung__c</columns>
+    <columns>AufschiebendeBedingungErfuellt__c</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>HatAufschiebendeBedingung__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>AufschiebendeBedingungErfuellt__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Aufschiebende Bedingung: offen</label>
+</ListView>

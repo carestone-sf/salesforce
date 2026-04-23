@@ -208,6 +208,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>Report</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>ReportType</name>
     </types>
     <types>

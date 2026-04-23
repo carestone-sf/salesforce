@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NKZ_Zuschuesse_offen</fullName>
+    <columns>NAME</columns>
+    <columns>Opportunity__c</columns>
+    <columns>Objekt__c</columns>
+    <columns>Teilobjekt__c</columns>
+    <columns>Kunde__c</columns>
+    <columns>Betrag__c</columns>
+    <columns>BetragInklUSt__c</columns>
+    <columns>GenehmigungControlling__c</columns>
+    <columns>GenehmigungBackoffice__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>GenehmigungControlling__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Bezahlt__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Storniert__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>NKZ: Zuschüsse offen</label>
+</ListView>
