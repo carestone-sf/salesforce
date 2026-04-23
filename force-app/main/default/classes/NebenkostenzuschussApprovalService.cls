@@ -23,7 +23,7 @@ public without sharing class NebenkostenzuschussApprovalService {
             WHERE Id IN :nkzIds
         ]);
 
-        List<Nebenkostenzuschuss__c> toUpdate = new List<Nebenkostenzuschuss__c>();
+        Map<Id, Nebenkostenzuschuss__c> toUpdateById = new Map<Id, Nebenkostenzuschuss__c>();
 
         for (NKZApproval__e evt : events) {
             if (!evt.Approved__c) {
@@ -42,17 +42,18 @@ public without sharing class NebenkostenzuschussApprovalService {
             if (evt.ApprovalStage__c == STAGE_BACKOFFICE && !nkz.GenehmigungBackoffice__c) {
                 nkz.GenehmigungBackoffice__c = true;
                 nkz.DatumGenehmigungBackoffice__c = Date.today();
-                toUpdate.add(nkz);
+                toUpdateById.put(nkz.Id, nkz);
             } else if (evt.ApprovalStage__c == STAGE_CONTROLLING
                        && nkz.GenehmigungBackoffice__c
                        && !nkz.GenehmigungControlling__c) {
                 nkz.GenehmigungControlling__c = true;
                 nkz.DatumGenehmigungControlling__c = Date.today();
-                toUpdate.add(nkz);
+                toUpdateById.put(nkz.Id, nkz);
             }
         }
 
-        if (!toUpdate.isEmpty()) {
+        if (!toUpdateById.isEmpty()) {
+            List<Nebenkostenzuschuss__c> toUpdate = toUpdateById.values();
             assignLaufnummern(toUpdate);
             update toUpdate;
         }
@@ -60,6 +61,9 @@ public without sharing class NebenkostenzuschussApprovalService {
 
     private static void assignLaufnummern(List<Nebenkostenzuschuss__c> records) {
         NKZ_Laufnummer__c setting = NKZ_Laufnummer__c.getOrgDefaults();
+        if (setting == null) {
+            setting = new NKZ_Laufnummer__c();
+        }
         Decimal currentNummer = setting.NKZ_Laufnummer__c != null
             ? setting.NKZ_Laufnummer__c
             : 0;

@@ -241,6 +241,71 @@ private class NebenkostenzuschussApprovalServiceTest {
     }
 
     @IsTest
+    static void testBothStagesInSameEventBatch() {
+        Nebenkostenzuschuss__c nkz = TestDataFactory.createNebenkostenzuschuss(true);
+
+        List<NKZApproval__e> events = new List<NKZApproval__e>{
+            new NKZApproval__e(
+                NebenkostenzuschussId__c = nkz.Id,
+                ApprovalStage__c = 'Backoffice',
+                Approved__c = true
+            ),
+            new NKZApproval__e(
+                NebenkostenzuschussId__c = nkz.Id,
+                ApprovalStage__c = 'Controlling',
+                Approved__c = true
+            )
+        };
+
+        Test.startTest();
+        EventBus.publish(events);
+        Test.stopTest();
+
+        Nebenkostenzuschuss__c updated = [
+            SELECT GenehmigungBackoffice__c, GenehmigungControlling__c,
+                   BelegWurdeGeneriert__c, Laufnummer_Zahl__c
+            FROM Nebenkostenzuschuss__c
+            WHERE Id = :nkz.Id
+        ];
+
+        Assert.isTrue(updated.GenehmigungBackoffice__c);
+        Assert.isTrue(updated.GenehmigungControlling__c);
+        Assert.isTrue(updated.BelegWurdeGeneriert__c);
+        Assert.areEqual(1, updated.Laufnummer_Zahl__c);
+    }
+
+    @IsTest
+    static void testMissingLaufnummerSettingIsCreated() {
+        delete [SELECT Id FROM NKZ_Laufnummer__c];
+
+        Nebenkostenzuschuss__c nkz = TestDataFactory.createNebenkostenzuschuss(false);
+        nkz.GenehmigungBackoffice__c = true;
+        nkz.DatumGenehmigungBackoffice__c = Date.today();
+        insert nkz;
+
+        NKZApproval__e evt = new NKZApproval__e(
+            NebenkostenzuschussId__c = nkz.Id,
+            ApprovalStage__c = 'Controlling',
+            Approved__c = true
+        );
+
+        Test.startTest();
+        EventBus.publish(evt);
+        Test.stopTest();
+
+        Nebenkostenzuschuss__c updated = [
+            SELECT BelegWurdeGeneriert__c, Laufnummer_Zahl__c
+            FROM Nebenkostenzuschuss__c
+            WHERE Id = :nkz.Id
+        ];
+        Assert.isTrue(updated.BelegWurdeGeneriert__c);
+        Assert.areEqual(1, updated.Laufnummer_Zahl__c);
+
+        NKZ_Laufnummer__c setting = NKZ_Laufnummer__c.getOrgDefaults();
+        Assert.areEqual(1, setting.NKZ_Laufnummer__c);
+    }
+
+    @IsTest
     static void testNotApprovedEventIgnored() {
         Nebenkostenzuschuss__c nkz = TestDataFactory.createNebenkostenzuschuss(true);
 
