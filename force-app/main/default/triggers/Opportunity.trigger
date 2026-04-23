@@ -264,16 +264,18 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 Boolean provisionsverhandlungVorhanden = opp.ProvisionsverhandlungVorhanden__c;
                 Boolean kaufdatumEingetragen = opp.Kaufdatum__c != null;
                 Boolean vkcGewonnen = opp.StageName == 'Geschlossene und gewonnene' || opp.StageName == 'Notartermin hat stattgefunden';
+                Boolean aufschiebendeBedingungOk = !opp.HatAufschiebendeBedingung__c || opp.AufschiebendeBedingungErfuellt__c;
+                Boolean bedingungJustFulfilled = opp.HatAufschiebendeBedingung__c && opp.AufschiebendeBedingungErfuellt__c && !oldOpp.AufschiebendeBedingungErfuellt__c;
 
-                if(pvNotarTermin && pvMaBV && pvBeratungsprotokoll && pvFbEkUrkundeMitFinanzierung && pvKaufpreiszahlung && pvOriginalKV && pvRisikobelehrung && kaufdatumEingetragen && provisionsverhandlungVorhanden && !opp.ProvisionsvoraussetzungenErfuellt__c && vkcGewonnen) {
+                if(pvNotarTermin && pvMaBV && pvBeratungsprotokoll && pvFbEkUrkundeMitFinanzierung && pvKaufpreiszahlung && pvOriginalKV && pvRisikobelehrung && kaufdatumEingetragen && provisionsverhandlungVorhanden && !opp.ProvisionsvoraussetzungenErfuellt__c && vkcGewonnen && aufschiebendeBedingungOk) {
                     opp.ProvisionsvoraussetzungenErfuellt__c = true;
                 }
 
-                if((opp.Kaufpreis_bezahlt__c && !oldOpp.Kaufpreis_bezahlt__c) || (opp.X1_MaBV_Rate_gezahlt__c && !oldOpp.X1_MaBV_Rate_gezahlt__c)) {
+                if(aufschiebendeBedingungOk && ((opp.Kaufpreis_bezahlt__c && !oldOpp.Kaufpreis_bezahlt__c) || (opp.X1_MaBV_Rate_gezahlt__c && !oldOpp.X1_MaBV_Rate_gezahlt__c) || (bedingungJustFulfilled && (opp.Kaufpreis_bezahlt__c || opp.X1_MaBV_Rate_gezahlt__c)))) {
                     opp.InterneProvisionenNeuGenerieren__c = false;
                     opp.InterneProvisionenGeneriert__c = true;
                 }
-                if((opp.Kaufpreis_bezahlt__c && !oldOpp.Kaufpreis_bezahlt__c) || (opp.X1_MaBV_Rate_gezahlt__c && !oldOpp.X1_MaBV_Rate_gezahlt__c) || ((opp.Kaufpreis_bezahlt__c || opp.X1_MaBV_Rate_gezahlt__c) && (opp.BeratungsprovisionMitPVInProzent__c != oldOpp.BeratungsprovisionMitPVInProzent__c || opp.Abweichende_Verkaufsprovision__c != oldOpp.Abweichende_Verkaufsprovision__c || opp.ClosingBonusInProzent__c != oldOpp.ClosingBonusInProzent__c))) {
+                if(aufschiebendeBedingungOk && ((opp.Kaufpreis_bezahlt__c && !oldOpp.Kaufpreis_bezahlt__c) || (opp.X1_MaBV_Rate_gezahlt__c && !oldOpp.X1_MaBV_Rate_gezahlt__c) || ((opp.Kaufpreis_bezahlt__c || opp.X1_MaBV_Rate_gezahlt__c) && (opp.BeratungsprovisionMitPVInProzent__c != oldOpp.BeratungsprovisionMitPVInProzent__c || opp.Abweichende_Verkaufsprovision__c != oldOpp.Abweichende_Verkaufsprovision__c || opp.ClosingBonusInProzent__c != oldOpp.ClosingBonusInProzent__c)) || (bedingungJustFulfilled && (opp.Kaufpreis_bezahlt__c || opp.X1_MaBV_Rate_gezahlt__c)))) {
                     changedOppsIntern.put(opp.Id, opp);
                     changedOppsInternOldMap.put(opp.Id, Trigger.oldMap.get(opp.Id));
                 }

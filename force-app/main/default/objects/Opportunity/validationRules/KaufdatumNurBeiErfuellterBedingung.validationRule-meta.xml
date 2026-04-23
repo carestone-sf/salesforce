@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KaufdatumNurBeiErfuellterBedingung</fullName>
+    <active>true</active>
+    <description>Wenn eine aufschiebende Bedingung vorhanden ist, darf das Kaufdatum nur gesetzt werden, wenn die Bedingung erfüllt ist.</description>
+    <errorConditionFormula>HatAufschiebendeBedingung__c &amp;&amp; NOT(ISBLANK(Kaufdatum__c)) &amp;&amp; NOT(AufschiebendeBedingungErfuellt__c)</errorConditionFormula>
+    <errorDisplayField>Kaufdatum__c</errorDisplayField>
+    <errorMessage>Das Kaufdatum kann nur gesetzt werden, wenn die aufschiebende Bedingung erfüllt ist.</errorMessage>
+</ValidationRule>

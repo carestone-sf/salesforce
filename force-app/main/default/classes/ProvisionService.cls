@@ -40,6 +40,16 @@ public without sharing class ProvisionService {
     }
 
     public void upsertProvisionen() {
+        Map<Id, Opportunity> filtered = new Map<Id, Opportunity>();
+        for (Opportunity opp : this.opps.values()) {
+            if (!opp.HatAufschiebendeBedingung__c || opp.AufschiebendeBedingungErfuellt__c) {
+                filtered.put(opp.Id, opp);
+            }
+        }
+        this.opps = filtered;
+        if (this.opps.isEmpty()) {
+            return;
+        }
         getRecipientsIds();
         Map<Id,Contact> allRecipients = new Map<Id, Contact>([
             SELECT

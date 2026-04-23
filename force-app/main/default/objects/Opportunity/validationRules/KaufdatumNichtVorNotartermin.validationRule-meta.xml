@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KaufdatumNichtVorNotartermin</fullName>
+    <active>true</active>
+    <description>Das Kaufdatum darf nicht vor dem Notartermin liegen.</description>
+    <errorConditionFormula>NOT(ISBLANK(Kaufdatum__c)) &amp;&amp; NOT(ISBLANK(Notartermin__c)) &amp;&amp; Kaufdatum__c &lt; Notartermin__c</errorConditionFormula>
+    <errorDisplayField>Kaufdatum__c</errorDisplayField>
+    <errorMessage>Das Kaufdatum darf nicht vor dem Notartermin liegen.</errorMessage>
+</ValidationRule>

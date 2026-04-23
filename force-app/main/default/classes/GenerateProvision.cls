@@ -154,6 +154,17 @@ public without sharing class GenerateProvision {
     }
 
     public void updateProvisionen(Map<Id, Opportunity> opps, Map<Id, Opportunity> oldOpps, String type) {
+        Map<Id, Opportunity> filteredOpps = new Map<Id, Opportunity>();
+        for (Opportunity opp : opps.values()) {
+            if (!opp.HatAufschiebendeBedingung__c || opp.AufschiebendeBedingungErfuellt__c) {
+                filteredOpps.put(opp.Id, opp);
+            }
+        }
+        if (filteredOpps.isEmpty()) {
+            return;
+        }
+        opps = filteredOpps;
+
         // Only put in the Opportunities where something changed
         Map<Id, Opportunity> updateOpps = new Map<Id, Opportunity>();
         Map<Id, Opportunity> oldUpdateOpps = new Map<Id, Opportunity>();
