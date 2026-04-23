@@ -110,7 +110,10 @@
         <members>MaBVRechnungMaster__c</members>
         <members>MaBVRechnung__c</members>
         <members>Matching__c</members>
+        <members>NKZ_Laufnummer__c</members>
+        <members>NKZ_Storno_Laufnummer__c</members>
         <members>Nachtrag__c</members>
+        <members>Nebenkostenzuschuss__c</members>
         <members>Opportunity</members>
         <members>PresaleApartment__c</members>
         <members>PresaleReservierung__c</members>
