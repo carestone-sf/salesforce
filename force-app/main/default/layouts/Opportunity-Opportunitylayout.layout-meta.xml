@@ -1217,6 +1217,16 @@
         <fields>TeamMemberRole</fields>
         <relatedList>RelatedOpportunitySalesTeam</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Betrag__c</fields>
+        <fields>BetragInklUSt__c</fields>
+        <fields>Empfaenger__c</fields>
+        <fields>Bezahlt__c</fields>
+        <fields>GenehmigungBackoffice__c</fields>
+        <fields>GenehmigungControlling__c</fields>
+        <relatedList>Nebenkostenzuschuss__c.Opportunity__c</relatedList>
+    </relatedLists>
     <relatedObjects>AccountId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>

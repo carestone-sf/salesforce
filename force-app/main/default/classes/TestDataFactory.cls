@@ -1046,4 +1046,21 @@ public with sharing class TestDataFactory {
         return nkz;
     }
 
+    public static Nebenkostenzuschuss__c createNebenkostenzuschuss(Boolean doInsert, Id opportunityId, Id objektId, Id teilobjektId, Id kundeId, Id empfaengerId) {
+        Nebenkostenzuschuss__c nkz = new Nebenkostenzuschuss__c(
+            Name = 'Test NKZ',
+            Betrag__c = 1000.00,
+            Opportunity__c = opportunityId,
+            Objekt__c = objektId,
+            Teilobjekt__c = teilobjektId,
+            Kunde__c = kundeId,
+            Empfaenger__c = empfaengerId
+        );
+
+        if (doInsert) {
+            insert nkz;
+        }
+        return nkz;
+    }
+
 }
