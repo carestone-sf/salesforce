@@ -8662,6 +8662,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Gutschrift__c.StornoGeklaert__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Gutschrift__c.Teilobjekt__c</field>
         <readable>true</readable>
     </fieldPermissions>
