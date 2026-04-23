@@ -5,7 +5,7 @@
     <deployed>true</deployed>
     <description>Verkaufschancen mit zugehörigen Nebenkostenzuschüssen – für NKZ-Übersicht</description>
     <join>
-        <outerJoin>true</outerJoin>
+        <outerJoin>false</outerJoin>
         <relationship>Nebenkostenzuschuesse__r</relationship>
     </join>
     <label>VKC mit NKZ</label>

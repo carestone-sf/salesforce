@@ -212,6 +212,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>ReportFolder</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>ReportType</name>
     </types>
     <types>
