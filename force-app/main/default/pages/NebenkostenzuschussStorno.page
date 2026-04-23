@@ -1,0 +1,184 @@
+<apex:page standardController="Nebenkostenzuschuss__c" showHeader="false" applyHtmlTag="false" renderAs="pdf">
+    <head>
+        <style>
+            @page {
+                size: 21.0cm 29.7cm;
+                margin-bottom: 2cm;
+
+                @bottom-center {
+                    content: element(bottom-center-div);
+                }
+            }
+
+            body {
+                font-family: 'sans-serif';
+                color: #1f1f1f;
+                font-size: 12px;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                display: block;
+            }
+
+            .bottom-center-div {
+                position: running(bottom-center-div);
+                text-align: center;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                border: none;
+            }
+        </style>
+    </head>
+    <div style="width: 100%; text-align: center; margin-bottom: 20px">
+        <apex:image url="{!$Resource.Carestone_Logo}" width="200px" height="auto"></apex:image>
+    </div>
+
+    <p style="font-size: 8px; color: #004B41; {!IF(AND(Nebenkostenzuschuss__c.Objekt__r.GutschriftenUeber__c = 'Carestone Vertriebs GmbH'), 'display:block', 'display:none')}">
+        Carestone Vertriebs GmbH &#183; An der Börse 3 &#183; 30159 Hannover
+    </p>
+
+    <p style="font-size: 8px; color: #004B41; {!IF(AND(Nebenkostenzuschuss__c.Objekt__r.GutschriftenUeber__c = 'Carestone Vertriebs GmbH'), 'display:none', 'display:block')}">
+        Carestone Service GmbH &#183; An der Börse 3 &#183; 30159 Hannover
+    </p>
+
+    <p>
+        {!Nebenkostenzuschuss__c.Empfaenger__r.Account.Unternehmensname__c}<br/>
+        {!Nebenkostenzuschuss__c.Empfaenger__r.Account.BillingStreet}<br/>
+        {!Nebenkostenzuschuss__c.Empfaenger__r.Account.BillingPostalCode} {!Nebenkostenzuschuss__c.Empfaenger__r.Account.BillingCity}
+        <span style="{!IF(Nebenkostenzuschuss__c.Empfaenger__r.Account.AnsaessigAusserhalbVonDeutschland__c, 'display:inline', 'display:none')} ">
+            <br/>{!Nebenkostenzuschuss__c.Empfaenger__r.Account.BillingCountry}
+        </span>
+    </p>
+
+    <br/><br/>
+
+    <table style="border: none;">
+        <thead>
+        <tr>
+            <td>
+                <h3>
+                    Stornobeleg {!Nebenkostenzuschuss__c.StornoLaufnummer__c} zu Nebenkostenzuschuss: {!Nebenkostenzuschuss__c.LaufnummerNew__c}
+                </h3>
+            </td>
+            <td>
+                <h3 style="text-align: right;">
+                    Datum: {!DAY(Nebenkostenzuschuss__c.DatumStorniert__c)}.{!MONTH(Nebenkostenzuschuss__c.DatumStorniert__c)}.{!YEAR(Nebenkostenzuschuss__c.DatumStorniert__c)}
+                </h3>
+            </td>
+        </tr>
+        </thead>
+    </table>
+
+    <p>
+        {!Nebenkostenzuschuss__c.Empfaenger__r.Anrede_Formel__c} {!Nebenkostenzuschuss__c.Empfaenger__r.LastName}
+    </p>
+    <p>
+        Sie erhalten hiermit einen Stornobeleg zu dem vorgenannten Nebenkostenzuschuss. Ein korrigierter Beleg geht Ihnen gesondert zu.
+    </p>
+
+    <table>
+        <tr>
+            <td width="50%">
+                Objekt:
+            </td>
+            <td width="50%">
+                {!Nebenkostenzuschuss__c.Objekt__r.Name}
+            </td>
+        </tr>
+        <tr>
+            <td width="50%">
+                Apartment:
+            </td>
+            <td width="50%">
+                {!Nebenkostenzuschuss__c.Teilobjekt__r.Name}
+            </td>
+        </tr>
+        <tr>
+            <td width="50%">
+                Kunde:
+            </td>
+            <td width="50%">
+                {!Nebenkostenzuschuss__c.Kunde__r.Salutation} {!Nebenkostenzuschuss__c.Kunde__r.FirstName} {!Nebenkostenzuschuss__c.Kunde__r.LastName}
+            </td>
+        </tr>
+    </table>
+
+    <br/>
+    <hr/>
+
+    <table>
+        <tr>
+            <td>
+                Nebenkostenzuschuss (netto):
+            </td>
+            <td style="text-align: right;">
+                <apex:outputField value="{!Nebenkostenzuschuss__c.Betrag__c}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Gesetzl. USt. 19%:
+            </td>
+            <td style="text-align: right;">
+                <apex:outputField value="{!Nebenkostenzuschuss__c.USt__c}"/>
+            </td>
+        </tr>
+        <tr style="font-weight: bold;">
+            <td>
+                Auszuzahlender Gesamtbetrag inkl. gesetzl. USt.:
+            </td>
+            <td style="text-align: right;">
+                <apex:outputField value="{!Nebenkostenzuschuss__c.BetragInklUSt__c}"/>
+            </td>
+        </tr>
+    </table>
+
+    <br/> <br/>
+
+    <table>
+        <tr>
+            <td width="50%">
+                Empfänger des Nebenkostenzuschusses:
+            </td>
+            <td>
+                {!Nebenkostenzuschuss__c.Empfaenger__r.Account.Unternehmensname__c}
+            </td>
+        </tr>
+        <tr>
+            <td width="50%"></td>
+            <td>
+                {!Nebenkostenzuschuss__c.Empfaenger__r.Account.BillingStreet}<br/>
+                {!Nebenkostenzuschuss__c.Empfaenger__r.Account.BillingPostalCode} {!Nebenkostenzuschuss__c.Empfaenger__r.Account.BillingCity}
+                <span style="{!IF(Nebenkostenzuschuss__c.Empfaenger__r.Account.AnsaessigAusserhalbVonDeutschland__c, 'display:inline', 'display:none')} ">
+                    <br/>{!Nebenkostenzuschuss__c.Empfaenger__r.Account.BillingCountry}
+                </span>
+                <br/><br/>
+
+                <span style="{!IF(Nebenkostenzuschuss__c.Empfaenger__r.Account.UStd_Id__c != null, 'display:inline', 'display:none')}">USt-ID.: {!Nebenkostenzuschuss__c.Empfaenger__r.Account.UStd_Id__c}<br/></span>
+                <span style="{!IF(Nebenkostenzuschuss__c.Empfaenger__r.Account.Steuernummer__c != null, 'display:inline', 'display:none')}">Steuernummer: {!Nebenkostenzuschuss__c.Empfaenger__r.Account.Steuernummer__c}<br/></span>
+            </td>
+        </tr>
+    </table>
+
+    <br/>
+
+    <div class="bottom-center-div" style="font-size: 8px; line-height: 12px; {!IF(AND(Nebenkostenzuschuss__c.Objekt__r.GutschriftenUeber__c = 'Carestone Vertriebs GmbH'), 'display:block', 'display:none')}">
+        Carestone Vertriebs GmbH &#183; An der Börse 3 &#183; 30159 Hannover &#183; Tel. 0511 26152-0 &#183; Fax: 0511 26152-299 &#183; www.carestone.com &#183; info@carestone.com<br/>
+        Geschäftsführer: Sandro Pawils, Harald Senftleben<br/>
+        Amtsgericht Hannover HRB 227176 | St.Nr. 25/205/11367<br/>
+        Sparkasse Hildesheim Goslar Peine &#183; IBAN DE34 2595 0130 0057
+        6565 88 &#183; BIC NOLADE21HIK
+    </div>
+
+    <div class="bottom-center-div" style="font-size: 8px; line-height: 12px; {!IF(AND(Nebenkostenzuschuss__c.Objekt__r.GutschriftenUeber__c = 'Carestone Vertriebs GmbH'), 'display:none', 'display:block')}">
+        Carestone Service GmbH &#183; An der Börse 3 &#183; 30159 Hannover &#183; Tel. 0511 26152-0 &#183; Fax: 0511 26152-299 &#183; www.carestone.com &#183; info@carestone.com<br/>
+        Geschäftsführer: Sandro Pawils, Harald Senftleben<br/>
+        Amtsgericht Hannover HRB 218680 | St.Nr. 25/205/10530 | USt-IdNr. DE321083102<br/>
+        Sparkasse Hildesheim Goslar Peine &#183; IBAN DE58 2595 0130 0056
+        3808 97 &#183; BIC NOLADE21HIK
+    </div>
+
+</apex:page>

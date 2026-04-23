@@ -31,6 +31,10 @@ public with sharing class TestDataFactory {
         NKZ_Laufnummer__c nkzLaufnummer = NKZ_Laufnummer__c.getOrgDefaults();
         nkzLaufnummer.NKZ_Laufnummer__c = 0;
         insert nkzLaufnummer;
+
+        NKZ_Storno_Laufnummer__c nkzStornoLaufnummer = NKZ_Storno_Laufnummer__c.getOrgDefaults();
+        nkzStornoLaufnummer.NKZ_Storno_Laufnummer__c = 0;
+        insert nkzStornoLaufnummer;
     }
 
 
