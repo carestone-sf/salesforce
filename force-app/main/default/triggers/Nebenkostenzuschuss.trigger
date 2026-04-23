@@ -1,7 +1,16 @@
 trigger Nebenkostenzuschuss on Nebenkostenzuschuss__c (before update, after update) {
 
     NKZ_Storno_Laufnummer__c nkzStornoLaufnummer = NKZ_Storno_Laufnummer__c.getOrgDefaults();
-    Decimal nkzStornoLaufnummerZahl = nkzStornoLaufnummer.NKZ_Storno_Laufnummer__c;
+    if (nkzStornoLaufnummer == null) {
+        nkzStornoLaufnummer = new NKZ_Storno_Laufnummer__c(
+            SetupOwnerId = UserInfo.getOrganizationId(),
+            NKZ_Storno_Laufnummer__c = 0
+        );
+    }
+    Decimal nkzStornoLaufnummerZahl =
+        nkzStornoLaufnummer.NKZ_Storno_Laufnummer__c == null
+            ? 0
+            : nkzStornoLaufnummer.NKZ_Storno_Laufnummer__c;
 
     if (Trigger.isBefore) {
         for (Nebenkostenzuschuss__c nkzRecord : Trigger.new) {
@@ -29,7 +38,7 @@ trigger Nebenkostenzuschuss on Nebenkostenzuschuss__c (before update, after upda
 
     if (nkzStornoLaufnummerZahl != nkzStornoLaufnummer.NKZ_Storno_Laufnummer__c) {
         nkzStornoLaufnummer.NKZ_Storno_Laufnummer__c = nkzStornoLaufnummerZahl;
-        update nkzStornoLaufnummer;
+        upsert nkzStornoLaufnummer;
     }
 
 }

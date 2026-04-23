@@ -277,4 +277,43 @@ private class NebenkostenzuschussStornoTest {
         NKZ_Storno_Laufnummer__c counter = NKZ_Storno_Laufnummer__c.getOrgDefaults();
         Assert.areEqual(0, counter.NKZ_Storno_Laufnummer__c, 'Counter must remain unchanged for non-storno updates');
     }
+
+    @IsTest
+    static void testTrigger_StornoCreatesMissingCounter() {
+        List<NKZ_Storno_Laufnummer__c> existingCounter = [
+            SELECT Id
+            FROM NKZ_Storno_Laufnummer__c
+            WHERE SetupOwnerId = :UserInfo.getOrganizationId()
+        ];
+        if (!existingCounter.isEmpty()) {
+            delete existingCounter[0];
+        }
+
+        Account acc = TestDataFactory.createAccount(true);
+        Contact empfaenger = TestDataFactory.createMakler(true, acc.Id);
+
+        Nebenkostenzuschuss__c nkz = TestDataFactory.createNebenkostenzuschuss(false);
+        nkz.Empfaenger__c = empfaenger.Id;
+        nkz.GenehmigungBackoffice__c = true;
+        nkz.DatumGenehmigungBackoffice__c = Date.today();
+        nkz.GenehmigungControlling__c = true;
+        nkz.DatumGenehmigungControlling__c = Date.today();
+        nkz.Laufnummer_Zahl__c = 31;
+        insert nkz;
+
+        Test.startTest();
+        nkz.Storniert__c = true;
+        update nkz;
+        Test.stopTest();
+
+        Nebenkostenzuschuss__c updated = [
+            SELECT StornoLaufnummerZahl__c
+            FROM Nebenkostenzuschuss__c
+            WHERE Id = :nkz.Id
+        ];
+        Assert.areEqual(0, updated.StornoLaufnummerZahl__c, 'First storno must start at counter 0 when missing');
+
+        NKZ_Storno_Laufnummer__c counter = NKZ_Storno_Laufnummer__c.getOrgDefaults();
+        Assert.areEqual(1, counter.NKZ_Storno_Laufnummer__c, 'Counter must be created and incremented');
+    }
 }
