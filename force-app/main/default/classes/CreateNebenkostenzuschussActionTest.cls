@@ -29,4 +29,35 @@ private class CreateNebenkostenzuschussActionTest {
 
         System.assertEquals(0, result.size(), 'Null input should return empty list');
     }
+
+    @isTest
+    static void create_emptyInput() {
+        Test.startTest();
+        List<Id> result = CreateNebenkostenzuschussAction.create(new List<Id>());
+        Test.stopTest();
+
+        System.assertEquals(0, result.size(), 'Empty input should return empty list');
+    }
+
+    @isTest
+    static void create_duplicatePrevention() {
+        Opportunity opp = TestDataFactory.createOpportunity(true);
+        NebenkostenzuschussService.createFromOpportunity(opp.Id);
+
+        Boolean exceptionThrown = false;
+
+        Test.startTest();
+        try {
+            CreateNebenkostenzuschussAction.create(new List<Id>{ opp.Id });
+        } catch (NebenkostenzuschussService.NebenkostenzuschussException e) {
+            exceptionThrown = true;
+            System.assert(
+                e.getMessage().contains('bereits ein aktiver Nebenkostenzuschuss'),
+                'Expected duplicate message, got: ' + e.getMessage()
+            );
+        }
+        Test.stopTest();
+
+        System.assert(exceptionThrown, 'Should throw when an active NKZ already exists');
+    }
 }
