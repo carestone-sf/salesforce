@@ -27,6 +27,10 @@ public with sharing class TestDataFactory {
         DatevDebitorennummerKaeufer__c datevDebitorennummerKaeufer = DatevDebitorennummerKaeufer__c.getOrgDefaults();
         datevDebitorennummerKaeufer.DatevDebitorennummerKaeufer__c = 3000000;
         insert datevDebitorennummerKaeufer;
+
+        NKZ_Laufnummer__c nkzLaufnummer = NKZ_Laufnummer__c.getOrgDefaults();
+        nkzLaufnummer.NKZ_Laufnummer__c = 0;
+        insert nkzLaufnummer;
     }
 
 
@@ -1024,6 +1028,18 @@ public with sharing class TestDataFactory {
             insert leads;
         }
         return leads;
+    }
+
+    public static Nebenkostenzuschuss__c createNebenkostenzuschuss(Boolean doInsert) {
+        Nebenkostenzuschuss__c nkz = new Nebenkostenzuschuss__c(
+            Name = 'Test NKZ',
+            Betrag__c = 1000.00
+        );
+
+        if (doInsert) {
+            insert nkz;
+        }
+        return nkz;
     }
 
 }

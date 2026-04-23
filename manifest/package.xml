@@ -92,6 +92,7 @@
         <members>Finanzierungsanfrage__c</members>
         <members>Finanzierungsbaustein__c</members>
         <members>GutschriftApproval__e</members>
+        <members>NKZApproval__e</members>
         <members>Gutschrift_Laufnummer__c</members>
         <members>Gutschrift_Storno_Laufnummer__c</members>
         <members>Gutschrift__c</members>
