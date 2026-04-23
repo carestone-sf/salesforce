@@ -14,14 +14,14 @@ Salesforce metadata project (Apex, Flow, Lightning Web Components, Aura, Visualf
 
 ```
 force-app/main/default/
-  classes/          Apex classes (~350 files, ~140 are tests)
-  triggers/         Apex triggers (22, one per SObject)
+  classes/          Apex classes (~346 files, ~129 are tests)
+  triggers/         Apex triggers (~21; one per SObject where implemented)
   lwc/              Lightning Web Components (58)
   aura/             Aura components (6)
   flows/            Platform flows (106)
   objects/          Custom and standard object metadata (72)
-  pages/            Visualforce pages (92)
-  staticresources/  Static resources (46)
+  pages/            Visualforce pages (~51 page files)
+  staticresources/  Static resources (~44 resource files)
   permissionsets/   Permission sets (30+)
 ```
 
