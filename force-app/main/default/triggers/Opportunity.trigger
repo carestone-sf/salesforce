@@ -265,7 +265,7 @@ trigger Opportunity on Opportunity(before insert, before update, after insert, a
                 Boolean kaufdatumEingetragen = opp.Kaufdatum__c != null;
                 Boolean vkcGewonnen = opp.StageName == 'Geschlossene und gewonnene' || opp.StageName == 'Notartermin hat stattgefunden';
                 Boolean aufschiebendeBedingungOk = !opp.HatAufschiebendeBedingung__c || opp.AufschiebendeBedingungErfuellt__c;
-                Boolean bedingungJustFulfilled = opp.HatAufschiebendeBedingung__c && opp.AufschiebendeBedingungErfuellt__c && !oldOpp.AufschiebendeBedingungErfuellt__c;
+                Boolean bedingungJustFulfilled = opp.HatAufschiebendeBedingung__c && opp.AufschiebendeBedingungErfuellt__c && oldOpp.AufschiebendeBedingungErfuellt__c != true;
 
                 if(pvNotarTermin && pvMaBV && pvBeratungsprotokoll && pvFbEkUrkundeMitFinanzierung && pvKaufpreiszahlung && pvOriginalKV && pvRisikobelehrung && kaufdatumEingetragen && provisionsverhandlungVorhanden && !opp.ProvisionsvoraussetzungenErfuellt__c && vkcGewonnen && aufschiebendeBedingungOk) {
                     opp.ProvisionsvoraussetzungenErfuellt__c = true;
